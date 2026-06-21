@@ -1,0 +1,29 @@
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.ipynb_checkpoints/
+
+# Environments
+.env
+.venv/
+venv/
+
+# Large files
+checkpoints/
+datasets/
+*.pt
+*.pth
+*.ckpt
+*.safetensors
+*.bin
+
+# Logs
+logs/
+wandb/
+runs/
+
+# System
+.DS_Store
+.vscode-server/
