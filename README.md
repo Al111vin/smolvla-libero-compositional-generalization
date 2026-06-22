@@ -40,6 +40,7 @@ The main evaluation setting is value-seen but tuple-unseen: each individual obje
 - [x] LIBERO smoke test
 - [x] Task CSV generation
 - [x] Train-test split generation
+- [x] Split leakage check
 - [ ] Fine-tuning
 - [ ] Evaluation
 - [ ] Failure diagnosis
