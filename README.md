@@ -41,6 +41,12 @@ The main evaluation setting is value-seen but tuple-unseen: each individual obje
 - [x] Task CSV generation
 - [x] Train-test split generation
 - [x] Split leakage check
+- [x] LIBERO task inspection
+- [x] LIBERO task annotation draft
+- [ ] Refine runnable task annotations
+- [ ] Select final runnable task set
+- [ ] Demonstration collection
+- [ ] LeRobot dataset loading test
 - [ ] Fine-tuning
 - [ ] Evaluation
 - [ ] Failure diagnosis
