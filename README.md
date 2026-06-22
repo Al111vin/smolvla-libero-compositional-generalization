@@ -36,7 +36,7 @@ The main evaluation setting is value-seen but tuple-unseen: each individual obje
 - [x] CUDA and PyTorch verified
 - [x] LeRobot installed
 - [x] `lerobot-info` passed
-- [ ] SmolVLA loading test
+- [x] SmolVLA loading test
 - [ ] LIBERO smoke test
 - [ ] Task CSV generation
 - [ ] Train-test split generation
