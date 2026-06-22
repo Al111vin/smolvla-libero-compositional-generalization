@@ -39,7 +39,7 @@ The main evaluation setting is value-seen but tuple-unseen: each individual obje
 - [x] SmolVLA loading test
 - [x] LIBERO smoke test
 - [x] Task CSV generation
-- [ ] Train-test split generation
+- [x] Train-test split generation
 - [ ] Fine-tuning
 - [ ] Evaluation
 - [ ] Failure diagnosis

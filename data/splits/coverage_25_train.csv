@@ -1,0 +1,10 @@
+task_id,object,skill,spatial_region,tuple,instruction
+6,red_bowl,push_to,left,red_bowl_push_to_left,push the red bowl to the left region
+7,red_bowl,push_to,middle,red_bowl_push_to_middle,push the red bowl to the middle region
+9,white_plate,put_on_top,left,white_plate_put_on_top_left,put the white plate on top of the target object in the left region
+10,white_plate,put_on_top,middle,white_plate_put_on_top_middle,put the white plate on top of the target object in the middle region
+12,white_plate,put_inside,left,white_plate_put_inside_left,put the white plate inside the container in the left region
+20,black_box,put_on_top,right,black_box_put_on_top_right,put the black box on top of the target object in the right region
+30,yellow_cup,put_inside,left,yellow_cup_put_inside_left,put the yellow cup inside the container in the left region
+31,yellow_cup,put_inside,middle,yellow_cup_put_inside_middle,put the yellow cup inside the container in the middle region
+32,yellow_cup,put_inside,right,yellow_cup_put_inside_right,put the yellow cup inside the container in the right region

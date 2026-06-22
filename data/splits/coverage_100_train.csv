@@ -1,0 +1,37 @@
+task_id,object,skill,spatial_region,tuple,instruction
+0,red_bowl,put_on_top,left,red_bowl_put_on_top_left,put the red bowl on top of the target object in the left region
+1,red_bowl,put_on_top,middle,red_bowl_put_on_top_middle,put the red bowl on top of the target object in the middle region
+2,red_bowl,put_on_top,right,red_bowl_put_on_top_right,put the red bowl on top of the target object in the right region
+3,red_bowl,put_inside,left,red_bowl_put_inside_left,put the red bowl inside the container in the left region
+4,red_bowl,put_inside,middle,red_bowl_put_inside_middle,put the red bowl inside the container in the middle region
+5,red_bowl,put_inside,right,red_bowl_put_inside_right,put the red bowl inside the container in the right region
+6,red_bowl,push_to,left,red_bowl_push_to_left,push the red bowl to the left region
+7,red_bowl,push_to,middle,red_bowl_push_to_middle,push the red bowl to the middle region
+8,red_bowl,push_to,right,red_bowl_push_to_right,push the red bowl to the right region
+9,white_plate,put_on_top,left,white_plate_put_on_top_left,put the white plate on top of the target object in the left region
+10,white_plate,put_on_top,middle,white_plate_put_on_top_middle,put the white plate on top of the target object in the middle region
+11,white_plate,put_on_top,right,white_plate_put_on_top_right,put the white plate on top of the target object in the right region
+12,white_plate,put_inside,left,white_plate_put_inside_left,put the white plate inside the container in the left region
+13,white_plate,put_inside,middle,white_plate_put_inside_middle,put the white plate inside the container in the middle region
+14,white_plate,put_inside,right,white_plate_put_inside_right,put the white plate inside the container in the right region
+15,white_plate,push_to,left,white_plate_push_to_left,push the white plate to the left region
+16,white_plate,push_to,middle,white_plate_push_to_middle,push the white plate to the middle region
+17,white_plate,push_to,right,white_plate_push_to_right,push the white plate to the right region
+18,black_box,put_on_top,left,black_box_put_on_top_left,put the black box on top of the target object in the left region
+19,black_box,put_on_top,middle,black_box_put_on_top_middle,put the black box on top of the target object in the middle region
+20,black_box,put_on_top,right,black_box_put_on_top_right,put the black box on top of the target object in the right region
+21,black_box,put_inside,left,black_box_put_inside_left,put the black box inside the container in the left region
+22,black_box,put_inside,middle,black_box_put_inside_middle,put the black box inside the container in the middle region
+23,black_box,put_inside,right,black_box_put_inside_right,put the black box inside the container in the right region
+24,black_box,push_to,left,black_box_push_to_left,push the black box to the left region
+25,black_box,push_to,middle,black_box_push_to_middle,push the black box to the middle region
+26,black_box,push_to,right,black_box_push_to_right,push the black box to the right region
+27,yellow_cup,put_on_top,left,yellow_cup_put_on_top_left,put the yellow cup on top of the target object in the left region
+28,yellow_cup,put_on_top,middle,yellow_cup_put_on_top_middle,put the yellow cup on top of the target object in the middle region
+29,yellow_cup,put_on_top,right,yellow_cup_put_on_top_right,put the yellow cup on top of the target object in the right region
+30,yellow_cup,put_inside,left,yellow_cup_put_inside_left,put the yellow cup inside the container in the left region
+31,yellow_cup,put_inside,middle,yellow_cup_put_inside_middle,put the yellow cup inside the container in the middle region
+32,yellow_cup,put_inside,right,yellow_cup_put_inside_right,put the yellow cup inside the container in the right region
+33,yellow_cup,push_to,left,yellow_cup_push_to_left,push the yellow cup to the left region
+34,yellow_cup,push_to,middle,yellow_cup_push_to_middle,push the yellow cup to the middle region
+35,yellow_cup,push_to,right,yellow_cup_push_to_right,push the yellow cup to the right region

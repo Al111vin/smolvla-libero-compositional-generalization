@@ -1,0 +1,19 @@
+task_id,object,skill,spatial_region,tuple,instruction
+0,red_bowl,put_on_top,left,red_bowl_put_on_top_left,put the red bowl on top of the target object in the left region
+4,red_bowl,put_inside,middle,red_bowl_put_inside_middle,put the red bowl inside the container in the middle region
+5,red_bowl,put_inside,right,red_bowl_put_inside_right,put the red bowl inside the container in the right region
+8,red_bowl,push_to,right,red_bowl_push_to_right,push the red bowl to the right region
+9,white_plate,put_on_top,left,white_plate_put_on_top_left,put the white plate on top of the target object in the left region
+12,white_plate,put_inside,left,white_plate_put_inside_left,put the white plate inside the container in the left region
+13,white_plate,put_inside,middle,white_plate_put_inside_middle,put the white plate inside the container in the middle region
+15,white_plate,push_to,left,white_plate_push_to_left,push the white plate to the left region
+16,white_plate,push_to,middle,white_plate_push_to_middle,push the white plate to the middle region
+17,white_plate,push_to,right,white_plate_push_to_right,push the white plate to the right region
+19,black_box,put_on_top,middle,black_box_put_on_top_middle,put the black box on top of the target object in the middle region
+21,black_box,put_inside,left,black_box_put_inside_left,put the black box inside the container in the left region
+26,black_box,push_to,right,black_box_push_to_right,push the black box to the right region
+29,yellow_cup,put_on_top,right,yellow_cup_put_on_top_right,put the yellow cup on top of the target object in the right region
+30,yellow_cup,put_inside,left,yellow_cup_put_inside_left,put the yellow cup inside the container in the left region
+31,yellow_cup,put_inside,middle,yellow_cup_put_inside_middle,put the yellow cup inside the container in the middle region
+34,yellow_cup,push_to,middle,yellow_cup_push_to_middle,push the yellow cup to the middle region
+35,yellow_cup,push_to,right,yellow_cup_push_to_right,push the yellow cup to the right region
