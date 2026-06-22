@@ -37,7 +37,7 @@ The main evaluation setting is value-seen but tuple-unseen: each individual obje
 - [x] LeRobot installed
 - [x] `lerobot-info` passed
 - [x] SmolVLA loading test
-- [ ] LIBERO smoke test
+- [x] LIBERO smoke test
 - [ ] Task CSV generation
 - [ ] Train-test split generation
 - [ ] Fine-tuning
