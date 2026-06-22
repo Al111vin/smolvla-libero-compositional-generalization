@@ -11,23 +11,45 @@ def infer_object(language: str) -> str:
     language = language.lower()
 
     candidates = [
-        "black bowl",
-        "bowl",
-        "plate",
-        "mug",
+
         "cream cheese",
+
+        "black bowl",
+
         "wine bottle",
+
         "moka pot",
-        "book",
+
         "alphabet soup",
+
         "tomato sauce",
-        "butter",
-        "milk",
+
         "orange juice",
-        "ketchup",
+
         "bbq sauce",
+
         "salad dressing",
+
         "chocolate pudding",
+
+        "yellow and white mug",
+
+        "white mug",
+
+        "book",
+
+        "butter",
+
+        "milk",
+
+        "ketchup",
+
+        "plate",
+
+        "mug",
+
+        "bowl",
+
     ]
 
     for obj in candidates:
@@ -40,13 +62,19 @@ def infer_object(language: str) -> str:
 def infer_skill(language: str) -> str:
     language = language.lower()
 
+    if "pick up" in language and "place it on" in language:
+        return "pick_and_place"
+
+    if "pick up" in language and "place it in" in language:
+        return "pick_and_place"
+
     if "push" in language:
         return "push_to"
 
     if "on top of" in language:
         return "put_on_top"
 
-    if "inside" in language or " in the " in language:
+    if language.startswith("put ") and (" inside" in language or " in the " in language):
         return "put_inside"
 
     if "place it on" in language or " put " in language or "place" in language:
@@ -59,7 +87,6 @@ def infer_skill(language: str) -> str:
         return "turn_on"
 
     return "unknown"
-
 
 def infer_spatial(language: str) -> str:
     language = language.lower()
