@@ -30,6 +30,20 @@ The main evaluation setting is value-seen but tuple-unseen: each individual obje
 6. Analyze failures into object, skill, and spatial errors.
 7. Plot compositional generalization curves and failure decomposition figures.
 
+## Selected First-Stage Task Set
+
+The first-stage experiment uses the `libero_spatial` benchmark suite.
+
+This task set focuses on spatial generalization:
+- Object: `black_bowl`
+- Skill: `pick_and_place`
+- Target object: `plate`
+- Variable factor: source spatial relation
+
+The selected task list is saved in:
+
+```text
+data/final_task_set.csv
 ## Current Status
 
 - [x] AutoDL RTX 5090 instance created
@@ -43,8 +57,9 @@ The main evaluation setting is value-seen but tuple-unseen: each individual obje
 - [x] Split leakage check
 - [x] LIBERO task inspection
 - [x] LIBERO task annotation draft
-- [ ] Refine runnable task annotations
-- [ ] Select final runnable task set
+- [x] Refine runnable task annotations
+- [x] Select final runnable task set
+- [x] Final task set check
 - [ ] Demonstration collection
 - [ ] LeRobot dataset loading test
 - [ ] Fine-tuning
