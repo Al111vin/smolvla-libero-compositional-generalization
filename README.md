@@ -67,8 +67,9 @@ data/final_task_set.csv
 - [x] Read random demo smoke test
 - [x] Official LIBERO demonstration download
 - [x] Official LIBERO demonstration loading test
-- [ ] Demonstration collection
-- [ ] LeRobot dataset loading test
+- [x] LIBERO PyTorch dataset loading test
+- [ ] SmolVLA batch input test
+- [ ] LeRobot-compatible dataset conversion
 - [ ] Fine-tuning
 - [ ] Evaluation
 - [ ] Failure diagnosis
