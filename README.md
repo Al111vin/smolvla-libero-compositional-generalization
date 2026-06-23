@@ -64,6 +64,7 @@ data/final_task_set.csv
 - [x] Final task set check
 - [x] LIBERO environment reset test
 - [x] Random rollout demo smoke collection
+- [x] Read random demo smoke test
 - [ ] Demonstration collection
 - [ ] LeRobot dataset loading test
 - [ ] Fine-tuning
