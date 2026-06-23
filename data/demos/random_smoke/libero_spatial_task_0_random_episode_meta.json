@@ -1,0 +1,8 @@
+{
+  "suite": "libero_spatial",
+  "task_id": 0,
+  "language": "pick up the black bowl between the plate and the ramekin and place it on the plate",
+  "bddl_file": "pick_up_the_black_bowl_between_the_plate_and_the_ramekin_and_place_it_on_the_plate.bddl",
+  "num_steps": 20,
+  "output_path": "data/demos/random_smoke/libero_spatial_task_0_random_episode.pkl"
+}
