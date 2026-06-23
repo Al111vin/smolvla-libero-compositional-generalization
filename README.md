@@ -62,6 +62,7 @@ data/final_task_set.csv
 - [x] Refine runnable task annotations
 - [x] Select final runnable task set
 - [x] Final task set check
+- [x] LIBERO environment reset test
 - [ ] Demonstration collection
 - [ ] LeRobot dataset loading test
 - [ ] Fine-tuning
