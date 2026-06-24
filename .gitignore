@@ -27,3 +27,6 @@ runs/
 # System
 .DS_Store
 .vscode-server/
+outputs/
+datasets/libero/datasets/
+models/
