@@ -71,6 +71,7 @@ data/final_task_set.csv
 - [x] SmolVLA batch input test
 - [x] SmolVLA mini training smoke test
 - [x] Full fine-tuning v1
-- [ ] Evaluation v1
+- [x] SmolVLA checkpoint loading test
+- [ ] Evaluation v1 rollout
 - [ ] Failure diagnosis
 - [ ] LeRobot-compatible dataset conversion
