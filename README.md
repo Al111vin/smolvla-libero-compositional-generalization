@@ -68,8 +68,9 @@ data/final_task_set.csv
 - [x] Official LIBERO demonstration download
 - [x] Official LIBERO demonstration loading test
 - [x] LIBERO PyTorch dataset loading test
-- [ ] SmolVLA batch input test
+- [x] SmolVLA batch input test
 - [ ] LeRobot-compatible dataset conversion
 - [ ] Fine-tuning
 - [ ] Evaluation
 - [ ] Failure diagnosis
+
