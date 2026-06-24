@@ -70,7 +70,7 @@ data/final_task_set.csv
 - [x] LIBERO PyTorch dataset loading test
 - [x] SmolVLA batch input test
 - [x] SmolVLA mini training smoke test
-- [ ] Full fine-tuning v1
+- [x] Full fine-tuning v1
 - [ ] Evaluation v1
 - [ ] Failure diagnosis
 - [ ] LeRobot-compatible dataset conversion
