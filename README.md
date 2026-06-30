@@ -45,6 +45,18 @@ The selected task list is saved in:
 ```text
 data/final_task_set.csv
 ```
+## V1 Evaluation Results
+
+The V1 SmolVLA policy was evaluated on all 10 LIBERO-Spatial tasks.
+
+- Suite: LIBERO-Spatial
+- Number of tasks: 10
+- Success count: 0 / 10
+- Success rate: 0.0000
+- Average reward: 0.0000
+- Average rollout length: 300 steps
+
+This confirms that the V1 evaluation pipeline is functional, but the initial V1 policy does not yet solve the LIBERO-Spatial tasks.
 
 ## Current Status
 
