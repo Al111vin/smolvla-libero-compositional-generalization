@@ -1,0 +1,13 @@
+V1 LIBERO-Spatial Evaluation Summary
+===================================
+
+Suite: libero_spatial
+Number of tasks: 10
+Success count: 0 / 10
+Success rate: 0.0000
+Average reward: 0.0000
+Average rollout length: 300.00 steps
+
+Interpretation:
+The V1 SmolVLA policy was successfully evaluated on all 10 LIBERO-Spatial tasks.
+The evaluation pipeline is functional, but the current V1 policy did not solve any task in this evaluation.
