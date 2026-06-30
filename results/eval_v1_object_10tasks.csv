@@ -1,0 +1,11 @@
+suite,task_id,language,success,total_reward,steps,checkpoint
+libero_object,0,pick up the alphabet soup and place it in the basket,False,0.0,300,outputs/smolvla_v1/checkpoint_final.pt
+libero_object,1,pick up the cream cheese and place it in the basket,False,0.0,300,outputs/smolvla_v1/checkpoint_final.pt
+libero_object,2,pick up the salad dressing and place it in the basket,False,0.0,300,outputs/smolvla_v1/checkpoint_final.pt
+libero_object,3,pick up the bbq sauce and place it in the basket,False,0.0,300,outputs/smolvla_v1/checkpoint_final.pt
+libero_object,4,pick up the ketchup and place it in the basket,False,0.0,300,outputs/smolvla_v1/checkpoint_final.pt
+libero_object,5,pick up the tomato sauce and place it in the basket,False,0.0,300,outputs/smolvla_v1/checkpoint_final.pt
+libero_object,6,pick up the butter and place it in the basket,False,0.0,300,outputs/smolvla_v1/checkpoint_final.pt
+libero_object,7,pick up the milk and place it in the basket,False,0.0,300,outputs/smolvla_v1/checkpoint_final.pt
+libero_object,8,pick up the chocolate pudding and place it in the basket,False,0.0,300,outputs/smolvla_v1/checkpoint_final.pt
+libero_object,9,pick up the orange juice and place it in the basket,False,0.0,300,outputs/smolvla_v1/checkpoint_final.pt
