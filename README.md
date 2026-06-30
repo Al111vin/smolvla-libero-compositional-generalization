@@ -72,6 +72,7 @@ data/final_task_set.csv
 - [x] SmolVLA mini training smoke test
 - [x] Full fine-tuning v1
 - [x] SmolVLA checkpoint loading test
-- [ ] Evaluation v1 rollout
+- [x] Evaluation v1 rollout
+V1 rollout successfully executed on LIBERO spatial task 0. The policy ran for 300 steps but did not solve the task yet.
 - [ ] Failure diagnosis
 - [ ] LeRobot-compatible dataset conversion
