@@ -1,0 +1,11 @@
+suite,task_id,language,success,total_reward,steps,checkpoint
+libero_spatial,0,pick up the black bowl between the plate and the ramekin and place it on the plate,False,0.0,300,outputs/smolvla_v1_2_full/checkpoint_final.pt
+libero_spatial,1,pick up the black bowl next to the ramekin and place it on the plate,False,0.0,300,outputs/smolvla_v1_2_full/checkpoint_final.pt
+libero_spatial,2,pick up the black bowl from table center and place it on the plate,False,0.0,300,outputs/smolvla_v1_2_full/checkpoint_final.pt
+libero_spatial,3,pick up the black bowl on the cookie box and place it on the plate,False,0.0,300,outputs/smolvla_v1_2_full/checkpoint_final.pt
+libero_spatial,4,pick up the black bowl in the top drawer of the wooden cabinet and place it on the plate,False,0.0,300,outputs/smolvla_v1_2_full/checkpoint_final.pt
+libero_spatial,5,pick up the black bowl on the ramekin and place it on the plate,False,0.0,300,outputs/smolvla_v1_2_full/checkpoint_final.pt
+libero_spatial,6,pick up the black bowl next to the cookie box and place it on the plate,False,0.0,300,outputs/smolvla_v1_2_full/checkpoint_final.pt
+libero_spatial,7,pick up the black bowl on the stove and place it on the plate,False,0.0,300,outputs/smolvla_v1_2_full/checkpoint_final.pt
+libero_spatial,8,pick up the black bowl next to the plate and place it on the plate,False,0.0,300,outputs/smolvla_v1_2_full/checkpoint_final.pt
+libero_spatial,9,pick up the black bowl on the wooden cabinet and place it on the plate,False,0.0,300,outputs/smolvla_v1_2_full/checkpoint_final.pt
