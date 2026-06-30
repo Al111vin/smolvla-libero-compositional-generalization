@@ -1,0 +1,11 @@
+suite,task_id,language,success,total_reward,steps,checkpoint
+libero_goal,0,open the middle drawer of the cabinet,False,0.0,300,outputs/smolvla_v1/checkpoint_final.pt
+libero_goal,1,put the bowl on the stove,False,0.0,300,outputs/smolvla_v1/checkpoint_final.pt
+libero_goal,2,put the wine bottle on top of the cabinet,False,0.0,300,outputs/smolvla_v1/checkpoint_final.pt
+libero_goal,3,open the top drawer and put the bowl inside,False,0.0,300,outputs/smolvla_v1/checkpoint_final.pt
+libero_goal,4,put the bowl on top of the cabinet,False,0.0,300,outputs/smolvla_v1/checkpoint_final.pt
+libero_goal,5,push the plate to the front of the stove,False,0.0,300,outputs/smolvla_v1/checkpoint_final.pt
+libero_goal,6,put the cream cheese in the bowl,False,0.0,300,outputs/smolvla_v1/checkpoint_final.pt
+libero_goal,7,turn on the stove,False,0.0,300,outputs/smolvla_v1/checkpoint_final.pt
+libero_goal,8,put the bowl on the plate,False,0.0,300,outputs/smolvla_v1/checkpoint_final.pt
+libero_goal,9,put the wine bottle on the rack,False,0.0,300,outputs/smolvla_v1/checkpoint_final.pt
