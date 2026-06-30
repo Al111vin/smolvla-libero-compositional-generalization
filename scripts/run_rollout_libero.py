@@ -2,6 +2,8 @@ import os
 os.environ["MUJOCO_GL"] = "glx"
 
 from pathlib import Path
+import csv
+
 import torch
 
 from train_smolvla_v1 import build_policy, add_language_tokens, move_batch_to_device
@@ -11,7 +13,10 @@ from libero.libero.envs import OffScreenRenderEnv
 
 
 device = "cuda"
+suite_name = "libero_spatial"
+task_id = 0
 ckpt_path = "outputs/smolvla_v1/checkpoint_final.pt"
+results_path = Path("results/eval_v1_rollout.csv")
 
 ckpt = torch.load(ckpt_path, map_location=device)
 
@@ -20,10 +25,9 @@ policy.load_state_dict(ckpt["model_state_dict"])
 policy.to(device)
 policy.eval()
 
-suite_cls = benchmark.get_benchmark("libero_spatial")
+suite_cls = benchmark.get_benchmark(suite_name)
 suite = suite_cls()
 
-task_id = 0
 task = suite.get_task(task_id)
 
 bddl_path = Path(get_libero_path("bddl_files")) / task.problem_folder / task.bddl_file
@@ -44,10 +48,13 @@ if obs is None:
 
 def image_to_tensor(img):
     x = torch.as_tensor(img).float()
+
     if x.max() > 1:
         x = x / 255.0
+
     if x.ndim == 3:
         x = x.permute(2, 0, 1)
+
     return x.unsqueeze(0)
 
 
@@ -57,7 +64,10 @@ def make_batch(obs, language):
     eef_quat = torch.as_tensor(obs["robot0_eef_quat"]).float()[:3]
     gripper = torch.as_tensor(obs["robot0_gripper_qpos"]).float()
 
-    state = torch.cat([joint_pos, eef_pos, eef_quat, gripper], dim=0).unsqueeze(0)
+    state = torch.cat(
+        [joint_pos, eef_pos, eef_quat, gripper],
+        dim=0,
+    ).unsqueeze(0)
 
     batch = {
         "observation.images.agentview": image_to_tensor(obs["agentview_image"]),
@@ -68,13 +78,13 @@ def make_batch(obs, language):
 
     batch = add_language_tokens(batch, policy)
     batch = move_batch_to_device(batch, device)
+
     return batch
 
 
 done = False
 total_reward = 0.0
 info = {}
-
 max_steps = 300
 
 for step in range(max_steps):
@@ -97,11 +107,47 @@ for step in range(max_steps):
     if done:
         break
 
-success = info.get("success", info.get("is_success", False))
+success = bool(info.get("success", info.get("is_success", False)))
+steps = step + 1
 
 print("TASK:", task.language)
 print("SUCCESS:", success)
 print("TOTAL REWARD:", total_reward)
-print("STEPS:", step + 1)
+print("STEPS:", steps)
 
 env.close()
+
+results_path.parent.mkdir(parents=True, exist_ok=True)
+
+file_exists = results_path.exists()
+
+with open(results_path, "a", newline="") as f:
+    writer = csv.DictWriter(
+        f,
+        fieldnames=[
+            "suite",
+            "task_id",
+            "language",
+            "success",
+            "total_reward",
+            "steps",
+            "checkpoint",
+        ],
+    )
+
+    if not file_exists:
+        writer.writeheader()
+
+    writer.writerow(
+        {
+            "suite": suite_name,
+            "task_id": task_id,
+            "language": task.language,
+            "success": success,
+            "total_reward": total_reward,
+            "steps": steps,
+            "checkpoint": ckpt_path,
+        }
+    )
+
+print(f"Saved result to: {results_path}")

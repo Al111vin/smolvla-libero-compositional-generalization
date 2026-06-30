@@ -1,0 +1,2 @@
+suite,task_id,language,success,total_reward,steps,checkpoint
+libero_spatial,0,pick up the black bowl between the plate and the ramekin and place it on the plate,False,0.0,300,outputs/smolvla_v1/checkpoint_final.pt
