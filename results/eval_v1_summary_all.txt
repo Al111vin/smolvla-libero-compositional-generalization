@@ -1,0 +1,31 @@
+V1 Evaluation Summary
+=====================
+
+libero_spatial
+--------------
+Tasks: 10
+Success: 0 / 10
+Success rate: 0.0000
+Average reward: 0.0000
+Average steps: 300.00
+
+libero_object
+-------------
+Tasks: 10
+Success: 0 / 10
+Success rate: 0.0000
+Average reward: 0.0000
+Average steps: 300.00
+
+Overall
+-------
+Tasks: 20
+Success: 0 / 20
+Success rate: 0.0000
+Average reward: 0.0000
+Average steps: 300.00
+
+Interpretation:
+The V1 SmolVLA evaluation pipeline is functional across LIBERO-Spatial and LIBERO-Object.
+However, the current V1 policy does not yet solve these tasks.
+This result should be treated as the baseline evaluation before improving training, data coverage, action scaling, and compositional generalization.
