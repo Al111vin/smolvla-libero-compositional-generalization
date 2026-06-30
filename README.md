@@ -81,6 +81,20 @@ However, V1.1 still achieved 0/10 success on LIBERO-Spatial rollout evaluation. 
 
 The next step is to further debug gripper behavior and action scaling before training a stronger V1.2 model.
 
+### V1.2 Full Training
+
+A V1.2 full model was trained for 10,000 steps.
+
+Dataset-level action prediction continued to improve:
+
+- V1 MAE: 0.7965
+- V1.1 MAE: 0.4250
+- V1.2 full MAE: 0.3859
+
+However, V1.2 full still achieved 0/10 success on LIBERO-Spatial rollout evaluation.
+
+This suggests that longer training alone improves action prediction but is not sufficient to solve full manipulation tasks. The gripper action dimension remains the main bottleneck, with action_6 still showing high prediction error.
+
 ## Current Status
 
 - [x] AutoDL RTX 5090 instance created
@@ -108,6 +122,8 @@ The next step is to further debug gripper behavior and action scaling before tra
 - [x] Full fine-tuning v1
 - [x] SmolVLA checkpoint loading test
 - [x] Evaluation v1 rollout
+
 V1 rollout successfully executed on LIBERO spatial task 0. The policy ran for 300 steps but did not solve the task yet.
+
 - [ ] Failure diagnosis
 - [ ] LeRobot-compatible dataset conversion
