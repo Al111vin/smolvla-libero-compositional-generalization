@@ -58,6 +58,16 @@ The V1 SmolVLA policy was evaluated on all 10 LIBERO-Spatial tasks.
 
 This confirms that the V1 evaluation pipeline is functional, but the initial V1 policy does not yet solve the LIBERO-Spatial tasks.
 
+### V1 Failure Analysis
+
+The V1 evaluation pipeline was successfully built and tested across 30 LIBERO tasks, including LIBERO-Spatial, LIBERO-Object, and LIBERO-Goal.
+
+However, the policy achieved 0/30 success in rollout evaluation. To further diagnose this failure, dataset-level action prediction debugging was performed on a training demonstration. The policy showed a high action prediction error, with an MAE of 0.7965.
+
+This indicates that the V1 policy has not learned reliable action prediction yet. The most likely reason is insufficient training, since the initial V1 model was trained only as a short baseline to validate the full training, checkpointing, and evaluation pipeline.
+
+The next step is to train a longer V1.1 model and check whether dataset-level action prediction error decreases before moving to larger compositional generalization experiments.
+
 ## Current Status
 
 - [x] AutoDL RTX 5090 instance created
