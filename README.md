@@ -68,6 +68,19 @@ This indicates that the V1 policy has not learned reliable action prediction yet
 
 The next step is to train a longer V1.1 model and check whether dataset-level action prediction error decreases before moving to larger compositional generalization experiments.
 
+### V1.1 Longer Training
+
+A longer V1.1 model was trained with 2000 steps instead of the original 200-step V1 baseline.
+
+Dataset-level action prediction improved substantially:
+
+- V1 MAE: 0.7965
+- V1.1 MAE: 0.4250
+
+However, V1.1 still achieved 0/10 success on LIBERO-Spatial rollout evaluation. This suggests that longer training improves action prediction, but the current model is still not strong enough to complete full manipulation tasks. The gripper action dimension remains especially difficult, with high prediction error on action_6.
+
+The next step is to further debug gripper behavior and action scaling before training a stronger V1.2 model.
+
 ## Current Status
 
 - [x] AutoDL RTX 5090 instance created
