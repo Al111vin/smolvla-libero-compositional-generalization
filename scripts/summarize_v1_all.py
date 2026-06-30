@@ -73,7 +73,7 @@ Average reward: {overall['avg_reward']:.4f}
 Average steps: {overall['avg_steps']:.2f}
 
 Interpretation:
-The V1 SmolVLA evaluation pipeline is functional across LIBERO-Spatial and LIBERO-Object.
+The V1 SmolVLA evaluation pipeline is functional across LIBERO-Spatial, LIBERO-Object, and LIBERO-Goal.
 However, the current V1 policy does not yet solve these tasks.
 This result should be treated as the baseline evaluation before improving training, data coverage, action scaling, and compositional generalization.
 """
