@@ -17,10 +17,18 @@ Success rate: 0.0000
 Average reward: 0.0000
 Average steps: 300.00
 
+libero_goal
+-----------
+Tasks: 10
+Success: 0 / 10
+Success rate: 0.0000
+Average reward: 0.0000
+Average steps: 300.00
+
 Overall
 -------
-Tasks: 20
-Success: 0 / 20
+Tasks: 30
+Success: 0 / 30
 Success rate: 0.0000
 Average reward: 0.0000
 Average steps: 300.00

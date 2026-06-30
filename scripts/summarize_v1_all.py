@@ -5,6 +5,7 @@ import csv
 csv_files = [
     Path("results/eval_v1_spatial_10tasks.csv"),
     Path("results/eval_v1_object_10tasks.csv"),
+    Path("results/eval_v1_goal_10tasks.csv"),
 ]
 
 summary_path = Path("results/eval_v1_summary_all.txt")
