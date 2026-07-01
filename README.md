@@ -95,6 +95,73 @@ However, V1.2 full still achieved 0/10 success on LIBERO-Spatial rollout evaluat
 
 This suggests that longer training alone improves action prediction but is not sufficient to solve full manipulation tasks. The gripper action dimension remains the main bottleneck, with action_6 still showing high prediction error.
 
+## V1 Failure Analysis and Task0 Overfit Experiments
+
+After building the initial SmolVLA + LIBERO evaluation pipeline, several V1-stage experiments were conducted to diagnose why the policy failed in closed-loop rollout.
+
+### Summary of V1 Evaluation Results
+
+The V1.2 multi-task policy was evaluated on LIBERO-Spatial:
+
+| Experiment | Dataset / Training Setup | Evaluation | Result |
+
+|---|---|---|---|
+
+| V1.2 | Multi-task LIBERO-Spatial | 10 spatial tasks | 0 / 10 |
+
+| V1.3 | Task0 single-task overfit | Task0 rollout | 0 / 1 |
+
+| V1.4 | Task0 stronger 2-layer model | Task0 rollout | 0 / 1 |
+
+| V1.5 | Task0 gripper-weighted loss | Task0 rollout | 0 / 1 |
+
+| V1.5 + postprocess | Clip + smoothing + binary gripper | Task0 rollout | 0 / 1 |
+
+| V1.6 | Motion + gripper weighted loss | Dataset MSE only | Worse than V1.5 |
+
+### Key Debugging Findings
+
+Several possible failure causes were tested and ruled out:
+
+- Expert action replay achieved reward = 1.0, showing that the LIBERO environment, initial state, and action format are valid.
+
+- Dataset and environment images were compared. The best match was the original image orientation, so there was no obvious vertical flip or RGB/BGR mismatch.
+
+- The rollout state adapter was corrected from using `robot0_eef_quat[:3]` to an axis-angle style orientation representation closer to the dataset `ee_ori`.
+
+- Gripper binary post-processing did not improve rollout success.
+
+- Action clipping and smoothing also did not improve rollout success.
+
+### Dataset Action Prediction Results
+
+The task0 overfit experiments improved dataset-level action prediction, but not enough for successful closed-loop control.
+
+| Model | Overall MAE | action_0 MAE | action_2 MAE | action_6 MAE |
+
+|---|---:|---:|---:|---:|
+
+| V1.3 task0 overfit | 0.3426 | 0.3671 | 0.5406 | 0.9205 |
+
+| V1.4 stronger task0 | 0.3054 | 0.3556 | 0.4473 | 0.7528 |
+
+| V1.5 gripper-weighted | 0.2762 | 0.3123 | 0.4398 | 0.4908 |
+
+| V1.6 motion + gripper weighted | 0.2960 | 0.2954 | 0.4970 | 0.5536 |
+
+V1.5 improved the gripper/action_6 error significantly, but closed-loop rollout still failed. V1.6 did not improve over V1.5.
+
+### Best Checkpoint Scan
+
+A checkpoint scan was performed for V1.5. The best overall dataset MAE was found at:
+
+```text
+
+checkpoint_step_6000.pt
+
+overall MAE = 0.3101
+、、、
+
 ## Current Status
 
 - [x] AutoDL RTX 5090 instance created
