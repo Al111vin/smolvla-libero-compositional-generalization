@@ -32,6 +32,9 @@ well (action MAE 0.0531), but prediction error rises to 0.2584 on the
 reconstructed benchmark frame. None of the current 50 benchmark states
 exactly matches the recorded HDF5 state.
 
-The HDF5 metadata references an older Chiliocosm / robosuite
-environment. The dataset and current LIBERO installation therefore
-have an environment-version mismatch.
+The HDF5 metadata references paths from an older Chiliocosm /
+robosuite environment. However, the state mismatch alone does not
+prove a version incompatibility, because official LIBERO evaluation
+uses a separate fixed benchmark initial-state set. The failure may
+reflect generalization from demonstration states to benchmark states,
+rendering or version differences, or a combination of both.
