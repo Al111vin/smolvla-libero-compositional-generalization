@@ -30,3 +30,5 @@ runs/
 outputs/
 datasets/libero/datasets/
 models/
+results/v3_hdf5_demo_eval/
+results/eval_v3_task0_010000_hdf5state_n50_*.csv
