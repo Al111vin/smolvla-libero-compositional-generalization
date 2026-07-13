@@ -21,20 +21,35 @@ Evaluation from the HDF5 demonstration states produced:
 
 Each rollout used seed `12345 + demo_index` and zero stabilization steps.
 
-## Important limitation
+## Official benchmark result
 
-This is an in-distribution HDF5-state result, not a standard
-current-version LIBERO benchmark result.
+Evaluation on the first 20 fixed LIBERO benchmark initial states:
 
-The current benchmark initialization failed at 300 steps. Diagnostic
-tests showed that the checkpoint predicts the converted training frame
-well (action MAE 0.0531), but prediction error rises to 0.2584 on the
-reconstructed benchmark frame. None of the current 50 benchmark states
-exactly matches the recorded HDF5 state.
+- 9 successes in 20 rollouts
+- 45% success rate
+- 88.22 mean steps among successful rollouts
+- 88 median steps among successful rollouts
+- Successful states: 0, 2, 4, 6, 12, 16, 17, 18, 19
+- Failed states: 1, 3, 5, 7, 8, 9, 10, 11, 13, 14, 15
 
-The HDF5 metadata references paths from an older Chiliocosm /
-robosuite environment. However, the state mismatch alone does not
-prove a version incompatibility, because official LIBERO evaluation
-uses a separate fixed benchmark initial-state set. The failure may
-reflect generalization from demonstration states to benchmark states,
-rendering or version differences, or a combination of both.
+Each rollout used 10 stabilization steps, 50 action steps, and seed
+`12345 + init_index`.
+
+## Interpretation
+
+The 72% HDF5-state score measures performance on demonstration
+initial states and is therefore an in-distribution result. The 45%
+benchmark score measures generalization to LIBERO's fixed benchmark
+initial states.
+
+A previous one-off benchmark init-0 rollout failed, while the
+standardized fixed-seed init-0 rollout succeeded. Single-rollout
+results are therefore sensitive to SmolVLA's stochastic action
+sampling.
+
+The checkpoint predicts the converted training frame accurately
+(action MAE 0.0531), while prediction error rises to 0.2584 on one
+reconstructed benchmark frame. This indicates an observation
+distribution shift. HDF5 metadata also references older Chiliocosm /
+robosuite paths, but state mismatch alone does not prove a version
+incompatibility.
