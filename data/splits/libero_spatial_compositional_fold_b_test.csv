@@ -1,0 +1,3 @@
+suite,task_id,task_name,language,source_relation,source_reference,composition,hdf5_path,fold,split
+libero_spatial,1,pick_up_the_black_bowl_next_to_the_ramekin_and_place_it_on_the_plate,pick up the black bowl next to the ramekin and place it on the plate,next_to,ramekin,next_to__ramekin,datasets/libero/datasets/libero_spatial/pick_up_the_black_bowl_next_to_the_ramekin_and_place_it_on_the_plate_demo.hdf5,fold_b,test
+libero_spatial,3,pick_up_the_black_bowl_on_the_cookie_box_and_place_it_on_the_plate,pick up the black bowl on the cookie box and place it on the plate,on,cookie_box,on__cookie_box,datasets/libero/datasets/libero_spatial/pick_up_the_black_bowl_on_the_cookie_box_and_place_it_on_the_plate_demo.hdf5,fold_b,test
