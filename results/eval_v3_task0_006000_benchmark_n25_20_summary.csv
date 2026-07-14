@@ -1,0 +1,21 @@
+suite,task_id,init_source,init_index,demo_index,language,success,total_reward,steps,wait_steps,n_action_steps,seed,checkpoint
+libero_spatial,0,benchmark,0,,pick up the black bowl between the plate and the ramekin and place it on the plate,True,1.0,87,10,25,12345,outputs/smolvla_v3_task0_10k_run1/checkpoints/006000/pretrained_model
+libero_spatial,0,benchmark,1,,pick up the black bowl between the plate and the ramekin and place it on the plate,False,0.0,300,10,25,12346,outputs/smolvla_v3_task0_10k_run1/checkpoints/006000/pretrained_model
+libero_spatial,0,benchmark,2,,pick up the black bowl between the plate and the ramekin and place it on the plate,False,0.0,300,10,25,12347,outputs/smolvla_v3_task0_10k_run1/checkpoints/006000/pretrained_model
+libero_spatial,0,benchmark,3,,pick up the black bowl between the plate and the ramekin and place it on the plate,False,0.0,300,10,25,12348,outputs/smolvla_v3_task0_10k_run1/checkpoints/006000/pretrained_model
+libero_spatial,0,benchmark,4,,pick up the black bowl between the plate and the ramekin and place it on the plate,True,1.0,84,10,25,12349,outputs/smolvla_v3_task0_10k_run1/checkpoints/006000/pretrained_model
+libero_spatial,0,benchmark,5,,pick up the black bowl between the plate and the ramekin and place it on the plate,False,0.0,300,10,25,12350,outputs/smolvla_v3_task0_10k_run1/checkpoints/006000/pretrained_model
+libero_spatial,0,benchmark,6,,pick up the black bowl between the plate and the ramekin and place it on the plate,True,1.0,86,10,25,12351,outputs/smolvla_v3_task0_10k_run1/checkpoints/006000/pretrained_model
+libero_spatial,0,benchmark,7,,pick up the black bowl between the plate and the ramekin and place it on the plate,True,1.0,89,10,25,12352,outputs/smolvla_v3_task0_10k_run1/checkpoints/006000/pretrained_model
+libero_spatial,0,benchmark,8,,pick up the black bowl between the plate and the ramekin and place it on the plate,True,1.0,87,10,25,12353,outputs/smolvla_v3_task0_10k_run1/checkpoints/006000/pretrained_model
+libero_spatial,0,benchmark,9,,pick up the black bowl between the plate and the ramekin and place it on the plate,True,1.0,177,10,25,12354,outputs/smolvla_v3_task0_10k_run1/checkpoints/006000/pretrained_model
+libero_spatial,0,benchmark,10,,pick up the black bowl between the plate and the ramekin and place it on the plate,False,0.0,300,10,25,12355,outputs/smolvla_v3_task0_10k_run1/checkpoints/006000/pretrained_model
+libero_spatial,0,benchmark,11,,pick up the black bowl between the plate and the ramekin and place it on the plate,True,1.0,85,10,25,12356,outputs/smolvla_v3_task0_10k_run1/checkpoints/006000/pretrained_model
+libero_spatial,0,benchmark,12,,pick up the black bowl between the plate and the ramekin and place it on the plate,False,0.0,300,10,25,12357,outputs/smolvla_v3_task0_10k_run1/checkpoints/006000/pretrained_model
+libero_spatial,0,benchmark,13,,pick up the black bowl between the plate and the ramekin and place it on the plate,False,0.0,300,10,25,12358,outputs/smolvla_v3_task0_10k_run1/checkpoints/006000/pretrained_model
+libero_spatial,0,benchmark,14,,pick up the black bowl between the plate and the ramekin and place it on the plate,False,0.0,300,10,25,12359,outputs/smolvla_v3_task0_10k_run1/checkpoints/006000/pretrained_model
+libero_spatial,0,benchmark,15,,pick up the black bowl between the plate and the ramekin and place it on the plate,True,1.0,87,10,25,12360,outputs/smolvla_v3_task0_10k_run1/checkpoints/006000/pretrained_model
+libero_spatial,0,benchmark,16,,pick up the black bowl between the plate and the ramekin and place it on the plate,True,1.0,87,10,25,12361,outputs/smolvla_v3_task0_10k_run1/checkpoints/006000/pretrained_model
+libero_spatial,0,benchmark,17,,pick up the black bowl between the plate and the ramekin and place it on the plate,True,1.0,84,10,25,12362,outputs/smolvla_v3_task0_10k_run1/checkpoints/006000/pretrained_model
+libero_spatial,0,benchmark,18,,pick up the black bowl between the plate and the ramekin and place it on the plate,False,0.0,300,10,25,12363,outputs/smolvla_v3_task0_10k_run1/checkpoints/006000/pretrained_model
+libero_spatial,0,benchmark,19,,pick up the black bowl between the plate and the ramekin and place it on the plate,True,1.0,82,10,25,12364,outputs/smolvla_v3_task0_10k_run1/checkpoints/006000/pretrained_model

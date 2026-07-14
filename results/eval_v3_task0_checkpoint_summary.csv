@@ -1,0 +1,4 @@
+checkpoint_step,n_action_steps,successes,rollouts,success_rate,mean_success_steps,median_success_steps
+6000,25,11,20,0.55,94.0909090909091,87.0
+8000,25,13,20,0.65,89.61538461538461,88.0
+10000,25,14,20,0.7,91.85714285714286,91.0

@@ -50,6 +50,21 @@ stabilization period, and random seeds.
 open-loop drift relative to 50 steps without replanning as frequently
 as the unsuccessful 8-step pilot.
 
+## Checkpoint ablation
+
+All checkpoints used `n_action_steps=25` and the same 20 benchmark
+initial states and random seeds.
+
+| Checkpoint | Successes | Success rate | Mean success steps |
+|---:|---:|---:|---:|
+| 6,000 | 11 / 20 | 55% | 94.09 |
+| 8,000 | 13 / 20 | 65% | 89.62 |
+| 10,000 | 14 / 20 | 70% | 91.86 |
+
+Performance improves across the saved checkpoints. The 10,000-step
+checkpoint is selected, with no evidence of late-stage overfitting in
+this comparison.
+
 ## Interpretation
 
 The 72% HDF5-state score measures performance on demonstration
