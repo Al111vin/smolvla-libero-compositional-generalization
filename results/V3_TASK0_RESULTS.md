@@ -35,6 +35,21 @@ Evaluation on the first 20 fixed LIBERO benchmark initial states:
 Each rollout used 10 stabilization steps, 50 action steps, and seed
 `12345 + init_index`.
 
+## Action-horizon ablation
+
+All settings used the same checkpoint, 20 benchmark initial states,
+stabilization period, and random seeds.
+
+| n_action_steps | Successes | Success rate | Mean success steps |
+|---:|---:|---:|---:|
+| 25 | 14 / 20 | 70% | 91.86 |
+| 32 | 11 / 20 | 55% | 95.36 |
+| 50 | 9 / 20 | 45% | 88.22 |
+
+`n_action_steps=25` is selected for subsequent experiments. It reduces
+open-loop drift relative to 50 steps without replanning as frequently
+as the unsuccessful 8-step pilot.
+
 ## Interpretation
 
 The 72% HDF5-state score measures performance on demonstration

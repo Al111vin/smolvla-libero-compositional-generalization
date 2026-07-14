@@ -1,0 +1,4 @@
+n_action_steps,successes,rollouts,success_rate,mean_success_steps,median_success_steps
+25,14,20,0.7,91.85714285714286,91.0
+32,11,20,0.55,95.36363636363636,94.0
+50,9,20,0.45,88.22222222222223,88.0
