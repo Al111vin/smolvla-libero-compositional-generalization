@@ -1,0 +1,155 @@
+{
+  "evaluation_commit": "a352a4b90aba1a3cb716f9d365bec1cfd139cbcd",
+  "evaluation_environment": {
+    "DISPLAY": ":99",
+    "HF_HUB_OFFLINE": "1",
+    "LD_PRELOAD": "/usr/lib/x86_64-linux-gnu/libstdc++.so.6",
+    "LIBGL_ALWAYS_SOFTWARE": "1",
+    "LIBGL_DRIVERS_PATH": "/usr/lib/x86_64-linux-gnu/dri",
+    "MUJOCO_GL": "glx",
+    "PYOPENGL_PLATFORM": "glx",
+    "TRANSFORMERS_OFFLINE": "1"
+  },
+  "evaluator_sha256": "f0b332bc668b3336fe552595540504c55a2954dfca35b0dd82aa1008e4e6542c",
+  "generated_at_utc": "2026-07-16T15:10:47.387604+00:00",
+  "models": {
+    "task3_holdout": {
+      "action_trace_bundle_sha256": "9d85e6dc10e3124f5380218a69c962c10156f791374729eaec0a953d055aae6a",
+      "action_trace_count": 100,
+      "checkpoint": "outputs/smolvla_v4_loco_task3_90k_run1/checkpoints/090000/pretrained_model",
+      "checkpoint_sha256": "1f3affc331e1f0853c90213dea3292ad23b7012608dcb176a7e40acc4980409b",
+      "heldout_task_id": 3,
+      "log": "logs/v4_loco_eval/task3_holdout_formal.log",
+      "log_sha256": "055d7b2f94265ceba30201e5cc85e8ea1c1c30227278be154492414c4be1bef4",
+      "summary": "results/v4_loco_rollouts/task3_holdout_formal_summary.csv",
+      "summary_sha256": "e048f2dd625f21fd3e3d33c3a3150eb1af5959263767886955d33cfd109da64b"
+    },
+    "task6_holdout": {
+      "action_trace_bundle_sha256": "02a7b5c803f9349da878b92313d4f846e97f0874dfff2e2dc580436e1a311740",
+      "action_trace_count": 100,
+      "checkpoint": "outputs/smolvla_v4_loco_task6_90k_run1/checkpoints/090000/pretrained_model",
+      "checkpoint_sha256": "5b0199fa92c2fa0010f7a8551b481007a4e22765a1f4aa53234d3b1afacba36c",
+      "heldout_task_id": 6,
+      "log": "logs/v4_loco_eval/task6_holdout_formal.log",
+      "log_sha256": "8002991e6498a3d19cc8d1846f4e5943af8b2fc62fbf9bdc61b48bdc06bcf52c",
+      "summary": "results/v4_loco_rollouts/task6_holdout_formal_summary.csv",
+      "summary_sha256": "4b349bb99bdb80a8677db1e4b89b18cd61f5c3135f980aab61be152cd84b78c0"
+    }
+  },
+  "outputs": {
+    "cells": {
+      "path": "results/eval_v4_loco_cell_summary.csv",
+      "sha256": "06fd6245bc90b109ea9b6f4e1df778d347198cb9865e79c54ec5c4690e2a6733"
+    },
+    "macro": {
+      "path": "results/eval_v4_loco_macro_summary.csv",
+      "sha256": "8ed35d7c5c008039c59c0273eef137cc55d34ef5d1cf24ead2bb47b731b08bfc"
+    },
+    "paired": {
+      "path": "results/eval_v4_loco_paired_summary.csv",
+      "sha256": "b30451581d34813623863a15c2dc459f7372d9706947e79cb4f14495d05d9dcf"
+    },
+    "report": {
+      "path": "results/V4_LOCO_RESULTS.md",
+      "sha256": "b44702ef3f1d99e148ace898f35ba107d793f22c956597c05d9cd3e90e38c93c"
+    },
+    "rollouts": {
+      "path": "results/eval_v4_loco_formal_rollouts.csv",
+      "sha256": "137a5789eb0cbb220e50363cf122f174185963cff5811c5e7f4abdcf4cddae85"
+    }
+  },
+  "protocol_document": {
+    "path": "results/V4_LOCO_EVAL_PROTOCOL.md",
+    "sha256": "c300f6b40034f42aed6f0a99b1d5e622ecdf18879432ed4ac3ebb96c679bfe62"
+  },
+  "protocol_version": "v4_loco_official_v1",
+  "rollout_protocol": {
+    "base_env_seed": 1000,
+    "base_policy_seed": 2000,
+    "init_indices": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14,
+      15,
+      16,
+      17,
+      18,
+      19,
+      20,
+      21,
+      22,
+      23,
+      24,
+      25,
+      26,
+      27,
+      28,
+      29,
+      30,
+      31,
+      32,
+      33,
+      34,
+      35,
+      36,
+      37,
+      38,
+      39,
+      40,
+      41,
+      42,
+      43,
+      44,
+      45,
+      46,
+      47,
+      48,
+      49
+    ],
+    "max_steps": 280,
+    "n_action_steps": 25,
+    "stabilization_action": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      -1
+    ],
+    "success_criterion": "env.check_success()",
+    "suite": "libero_spatial",
+    "tasks": [
+      3,
+      6
+    ],
+    "wait_steps": 10
+  },
+  "summarizer_runtime": {
+    "cuda_device": "NVIDIA GeForce RTX 5090",
+    "cuda_runtime": "12.8",
+    "packages": {
+      "lerobot": "0.5.1",
+      "libero": "not-installed",
+      "mujoco": "3.8.1",
+      "numpy": "2.1.2",
+      "pandas": "3.0.3",
+      "robosuite": "1.4.0"
+    },
+    "platform": "Linux-5.15.0-113-generic-x86_64-with-glibc2.35",
+    "python": "3.12.11 | packaged by Anaconda, Inc. | (main, Jun  5 2025, 13:09:17) [GCC 11.2.0]",
+    "torch": "2.9.1+cu128"
+  }
+}

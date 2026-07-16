@@ -1,0 +1,2 @@
+heldout_macro_success_rate,seen_control_macro_success_rate,macro_generalization_gap,heldout_successes,heldout_rollouts,heldout_pooled_wilson95_low,heldout_pooled_wilson95_high,seen_control_successes,seen_control_rollouts,seen_control_pooled_wilson95_low,seen_control_pooled_wilson95_high
+0,0.86,0.86,0,100,0,0.036993498207,86,100,0.77862811789,0.914736563401

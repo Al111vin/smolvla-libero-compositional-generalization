@@ -1,0 +1,3 @@
+task_id,seen_model,heldout_model,paired_states,both_success,seen_only_success,heldout_only_success,both_fail,seen_success_rate,heldout_success_rate,generalization_gap,mcnemar_exact_p,holm_adjusted_p
+3,task6_holdout,task3_holdout,50,0,42,0,8,0.84,0,0.84,4.54747350886e-13,4.54747350886e-13
+6,task3_holdout,task6_holdout,50,0,44,0,6,0.88,0,0.88,1.13686837722e-13,2.27373675443e-13

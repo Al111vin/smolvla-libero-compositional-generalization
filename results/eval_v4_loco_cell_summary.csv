@@ -1,0 +1,5 @@
+model_label,heldout_task_id,task_id,evaluation_role,successes,rollouts,success_rate,wilson95_low,wilson95_high,mean_success_steps,median_success_steps
+task3_holdout,3,3,heldout,0,50,0,0,0.0713475991334,,
+task3_holdout,3,6,seen_control,44,50,0.88,0.761951826168,0.943823998491,107.863636364,107
+task6_holdout,6,3,seen_control,42,50,0.84,0.71485783937,0.91662579322,91.9761904762,87
+task6_holdout,6,6,heldout,0,50,0,0,0.0713475991334,,
