@@ -1,0 +1,91 @@
+(define (problem LIBERO_Tabletop_Manipulation)
+  (:domain robosuite)
+  (:language Pick up the akita black bowl and place it inside the basket in the left region)
+    (:regions
+      (source_slot_0_region
+          (:target main_table)
+          (:ranges (
+              (0.200 -0.395 0.270 -0.325)
+            )
+          )
+      )
+      (source_slot_1_region
+          (:target main_table)
+          (:ranges (
+              (0.200 -0.155 0.270 -0.085)
+            )
+          )
+      )
+      (source_slot_2_region
+          (:target main_table)
+          (:ranges (
+              (0.200 0.085 0.270 0.155)
+            )
+          )
+      )
+      (source_slot_3_region
+          (:target main_table)
+          (:ranges (
+              (0.200 0.325 0.270 0.395)
+            )
+          )
+      )
+      (target_left_region
+          (:target main_table)
+          (:ranges (
+              (-0.200 -0.280 -0.040 -0.140)
+            )
+          )
+          (:rgba (0.10 0.45 1.00 0.25))
+      )
+      (target_middle_region
+          (:target main_table)
+          (:ranges (
+              (-0.200 -0.070 -0.040 0.070)
+            )
+          )
+          (:rgba (0.10 0.45 1.00 0.25))
+      )
+      (target_right_region
+          (:target main_table)
+          (:ranges (
+              (-0.200 0.140 -0.040 0.280)
+            )
+          )
+          (:rgba (0.10 0.45 1.00 0.25))
+      )
+      (contain_region
+          (:target basket_1)
+      )
+    )
+
+  (:fixtures
+    main_table - table
+  )
+
+  (:objects
+    akita_black_bowl_1 - akita_black_bowl
+    white_yellow_mug_1 - white_yellow_mug
+    alphabet_soup_1 - alphabet_soup
+    cream_cheese_1 - cream_cheese
+    basket_1 - basket
+  )
+
+  (:obj_of_interest
+    akita_black_bowl_1
+    basket_1
+  )
+
+  (:init
+    (On akita_black_bowl_1 main_table_source_slot_3_region)
+    (On white_yellow_mug_1 main_table_source_slot_0_region)
+    (On alphabet_soup_1 main_table_source_slot_1_region)
+    (On cream_cheese_1 main_table_source_slot_2_region)
+    (On basket_1 main_table_target_left_region)
+  )
+
+  (:goal
+    (And (In akita_black_bowl_1 basket_1_contain_region))
+  )
+
+)

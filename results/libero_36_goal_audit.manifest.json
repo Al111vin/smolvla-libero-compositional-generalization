@@ -1,0 +1,188 @@
+{
+  "all_pretraining_gates_passed": false,
+  "benchmark_name": "libero_registered_object_36_proxy_tabletop",
+  "camera_helper_path": "/root/smolvla-libero-compositional-generalization/scripts/libero_36_camera.py",
+  "camera_helper_sha256": "21de3836c1a60c381e83ec3e28985f37dacc10a4ae3f870737c62a9072c8afa3",
+  "completed_cases": 96,
+  "counts": [
+    {
+      "case_type": "positive",
+      "count": 12,
+      "passed": true,
+      "skill": "push_to"
+    },
+    {
+      "case_type": "relation_negative",
+      "count": 12,
+      "passed": true,
+      "skill": "push_to"
+    },
+    {
+      "case_type": "positive",
+      "count": 12,
+      "passed": true,
+      "skill": "put_inside"
+    },
+    {
+      "case_type": "receiver_region_negative",
+      "count": 12,
+      "passed": true,
+      "skill": "put_inside"
+    },
+    {
+      "case_type": "relation_negative",
+      "count": 12,
+      "passed": true,
+      "skill": "put_inside"
+    },
+    {
+      "case_type": "positive",
+      "count": 12,
+      "passed": true,
+      "skill": "put_on_top"
+    },
+    {
+      "case_type": "receiver_region_negative",
+      "count": 12,
+      "passed": true,
+      "skill": "put_on_top"
+    },
+    {
+      "case_type": "relation_negative",
+      "count": 12,
+      "passed": true,
+      "skill": "put_on_top"
+    }
+  ],
+  "exact_case_coverage": true,
+  "expected_cases": 96,
+  "failed_cases": 0,
+  "frozen_observation_camera": {
+    "agentview_camera_name": "agentview",
+    "agentview_fovy_deg": 75.0,
+    "agentview_position_m": [
+      0.6586131746834771,
+      0.0,
+      1.6103500240372424
+    ],
+    "agentview_quaternion_wxyz": [
+      0.6380177736282349,
+      0.3048497438430786,
+      0.30484986305236816,
+      0.6380177736282349
+    ],
+    "apply_after_every_reset": true,
+    "camera_height": 128,
+    "camera_protocol_version": "libero_36_agentview_v1",
+    "camera_width": 128,
+    "observation_refresh_after_apply": true,
+    "raw_reset_agentview_fovy_deg": 45.0
+  },
+  "full_protocol_shape": true,
+  "gate3_reset_gate_required": true,
+  "gate4_passed": true,
+  "gate_id": "gate4_terminal_goal_semantics",
+  "gate_protocol_version": "libero_36_oracle_goal_v1",
+  "git_commit": "7ba4d9d8f883cf1b162554bfa44ead1d59946849",
+  "layout_spec": "/root/smolvla-libero-compositional-generalization/data/libero_36/layout_spec.csv",
+  "layout_spec_sha256": "2da21f776eebfbb95c72e3adb4b52d4d018956c997e6b26052d5f2a0bc39b919",
+  "mode": "full",
+  "output": "/root/smolvla-libero-compositional-generalization/results/libero_36_goal_audit.csv",
+  "output_sha256": "2af5af7ad7469d611c7b58b9cdb29d607c11b1fe55e3936836337aeefc742bfd",
+  "parameters": {
+    "acquire_max_steps": 60,
+    "acquire_stable_steps": 5,
+    "alternate_region_mapping": {
+      "left": "middle",
+      "middle": "right",
+      "right": "left"
+    },
+    "canonical_layout_id": 0,
+    "case_matrix": {
+      "push_to": [
+        "positive",
+        "relation_negative"
+      ],
+      "put_inside": [
+        "positive",
+        "relation_negative",
+        "receiver_region_negative"
+      ],
+      "put_on_top": [
+        "positive",
+        "relation_negative",
+        "receiver_region_negative"
+      ]
+    },
+    "derived_bddl_contract": "only_init_placement_predicates_change",
+    "deterministic_replay": true,
+    "final_window_steps": 5,
+    "hold_steps": 20,
+    "max_final_window_motion_m": 0.001,
+    "max_final_window_orientation_deg": 1.0,
+    "max_reset_attempts": 100,
+    "seed_base": 460000,
+    "success_definition": "exact_bddl_goal_and_receiver_requested_region_xy_for_put_tasks",
+    "task_ids": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14,
+      15,
+      16,
+      17,
+      18,
+      19,
+      20,
+      21,
+      22,
+      23,
+      24,
+      25,
+      26,
+      27,
+      28,
+      29,
+      30,
+      31,
+      32,
+      33,
+      34,
+      35
+    ],
+    "upstream_interactive_debugger_disabled": true
+  },
+  "passed_cases": 96,
+  "physical_feasibility_gate_not_covered": true,
+  "preview_dir": null,
+  "protocol_version": "libero_36_proxy_tabletop_draft_v4",
+  "push_lift_threshold_calibrated": false,
+  "push_trajectory_constraints_evaluated": false,
+  "reset_manifest": "/root/smolvla-libero-compositional-generalization/results/libero_36_reset_audit.manifest.json",
+  "reset_manifest_sha256": "ecf07f3bcb2b8096b2112891556d5ee855b394c001d0aefd4e674b20457d63e0",
+  "reset_output": "/root/smolvla-libero-compositional-generalization/results/libero_36_reset_audit.csv",
+  "reset_output_sha256": "ac9442bcf06966193d09cb96b1e77a19a1ac005875ddb4f25d23fab6f24ab953",
+  "reset_validator_path": "/root/smolvla-libero-compositional-generalization/scripts/validate_libero_36_envs.py",
+  "reset_validator_sha256": "f8178e734247cc07c8d7cd1ebfacd643f17933cb6c3408cd09d461a58dc5f3b3",
+  "run_complete": true,
+  "software_versions": {
+    "hf_libero": "0.1.4",
+    "libero": "unknown",
+    "mujoco": "3.8.1",
+    "numpy": "2.1.2",
+    "robosuite": "1.4.0"
+  },
+  "validator_path": "/root/smolvla-libero-compositional-generalization/scripts/validate_libero_36_goals.py",
+  "validator_sha256": "9be23f84ccdf551100992b5e6984d4de591c3cd82b71d8374faf737226e111c3"
+}
