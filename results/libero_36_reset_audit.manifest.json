@@ -41,9 +41,9 @@
     "raw_reset_agentview_fovy_deg": 45.0
   },
   "full_protocol_shape": true,
-  "git_commit": "7ba4d9d8f883cf1b162554bfa44ead1d59946849",
+  "git_commit": "d65ad21b66e5ad601ed49fb329eea3fb6b4f3dec",
   "layout_spec": "/root/smolvla-libero-compositional-generalization/data/libero_36/layout_spec.csv",
-  "layout_spec_sha256": "2da21f776eebfbb95c72e3adb4b52d4d018956c997e6b26052d5f2a0bc39b919",
+  "layout_spec_sha256": "630b438094ade3843645c134475c79f80ed9cd39f6b24f0a22ba882fbe9965c2",
   "manual_agentview_left_right_confirmation_required": false,
   "mode": "full",
   "oracle_goal_gate_not_covered": true,
@@ -78,7 +78,7 @@
   },
   "passed_rows": 720,
   "preview_dir": null,
-  "protocol_version": "libero_36_proxy_tabletop_draft_v4",
+  "protocol_version": "libero_36_proxy_tabletop_draft_v5",
   "push_threshold_calibration_not_covered": true,
   "representative_v4_camera_preview_gate_not_covered": true,
   "reset_gate_passed": true,
@@ -91,5 +91,5 @@
   },
   "successful_trajectory_gate_not_covered": true,
   "validator_path": "/root/smolvla-libero-compositional-generalization/scripts/validate_libero_36_envs.py",
-  "validator_sha256": "f8178e734247cc07c8d7cd1ebfacd643f17933cb6c3408cd09d461a58dc5f3b3"
+  "validator_sha256": "a7a60b75d7c595bd61bf60ae501f7c1be3e2dbd2518fc7358fa3a67073d70bbb"
 }

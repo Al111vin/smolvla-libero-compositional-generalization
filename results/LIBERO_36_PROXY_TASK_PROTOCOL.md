@@ -1,8 +1,8 @@
 LIBERO Registered-Object 36-Task Proxy Protocol
 
-Status: `tabletop_draft_v4`
+Status: `tabletop_draft_v5`
 
-Protocol ID: `libero_36_proxy_tabletop_draft_v4`
+Protocol ID: `libero_36_proxy_tabletop_draft_v5`
 
 Benchmark ID: `libero_registered_object_36_proxy_tabletop`
 
@@ -119,13 +119,18 @@ horizontal margin increased from approximately 0 pixels at 60 degrees
 to 4--5 at 65, 10--11 at 70, 15 at 75, and 18 at 80. The full slot
 sampling offset, allowed 2 cm horizontal drift, and allowed 15-degree
 orientation change consume approximately 8--9 pixels of reserve.
-`draft_v4` therefore freezes 75 degrees: it retains about 6 pixels of
-worst-case reserve, while 80 degrees adds little safety and makes all
-manipulable objects smaller.
+`draft_v4` therefore froze the agent-view vertical FOV at 75 degrees:
+it retained about 6 pixels of worst-case reserve, while 80 degrees added
+little safety and made all manipulable objects smaller. `draft_v5`
+retains this frozen 75-degree camera contract while replacing the source
+XY geometry.
 
-No result or demonstration from `draft_v0`, `draft_v1`, `draft_v2`, or
-`draft_v3` may be combined with `draft_v4`. In particular, 45-degree
-and 75-degree agent-view images must never be mixed in one dataset.
+No result or demonstration from `draft_v0`, `draft_v1`, `draft_v2`,
+`draft_v3`, or `draft_v4` may be combined with `draft_v5`. Although
+`draft_v4` and `draft_v5` share the 75-degree camera contract, their
+source geometry and trajectories are not interchangeable. Images from
+the earlier 45-degree contracts and the frozen 75-degree contract must
+also never be mixed in one dataset.
 
 ## Scene and layout controls
 
@@ -144,10 +149,10 @@ The frozen source slots are:
 
 | Slot | x min | y min | x max | y max |
 |---:|---:|---:|---:|---:|
-| 0 | 0.20 | -0.395 | 0.27 | -0.325 |
-| 1 | 0.20 | -0.155 | 0.27 | -0.085 |
-| 2 | 0.20 | 0.085 | 0.27 | 0.155 |
-| 3 | 0.20 | 0.325 | 0.27 | 0.395 |
+| 0 | 0.04 | -0.244 | 0.11 | -0.182 |
+| 1 | 0.04 | -0.102 | 0.11 | -0.040 |
+| 2 | 0.04 | 0.040 | 0.11 | 0.102 |
+| 3 | 0.04 | 0.182 | 0.11 | 0.244 |
 
 The frozen destination zones are:
 
@@ -183,9 +188,10 @@ The confirmed image convention is:
 - image right ≈ positive world y.
 
 The 75-degree task-0 four-layout sweep confirmed this convention and
-selected the FOV. A new `draft_v4` representative preview covering the
-plate, basket, and push scene types is still required before the full
-reset audit.
+selected the FOV. `draft_v5` retains this frozen camera contract. A new
+representative v5 preview covering the plate, basket, and push scene
+types was saved and visually inspected. All required scene elements
+were fully visible, completing Gate 2.
 
 ## Skill and success definitions
 
@@ -249,6 +255,25 @@ tasks are not protocol-ready.
 
 ## Required gates before demonstrations or training
 
+## Current draft-v5 validation status
+
+- Gate 1 static generation: passed; 36 task rows and 144 task-layout
+  BDDL files were generated under the v5 source-XY geometry.
+- Gate 2 environment smoke: passed; all 12 representative task-layout
+  rows passed automated reset and determinism checks, and all initial
+  and settled agent-view previews passed visual inspection.
+- Gate 3 complete reset audit: passed, 720/720 resets.
+- Gate 4 goal-semantics audit: passed, 96/96 positive and isolated
+  negative cases.
+- Gate 5 physical feasibility: incomplete. One exact, safely replayable
+  trajectory has passed for task 26, layout 1. This is 1/36 logical
+  tasks and does not satisfy Gate 5.
+- Demonstration collection and SmolVLA training remain blocked until
+  all 36 Gate 5 trajectories pass.
+- The push lift threshold remains provisional and is not yet promoted
+  or frozen.
+
+
 ### Gate 1: static generation
 
 - exactly 36 task-spec rows;
@@ -295,7 +320,7 @@ so that plate, basket, and push scenes are all represented. Require:
 The 12 settled agent-view previews must be inspected to confirm that
 all objects, receivers, and destination regions are fully visible.
 
-In `draft_v4`, aggregate CSV fields named
+In `draft_v5`, aggregate CSV fields named
 `*_receiver_region_ok` mean the independent receiver xy check. The
 separate `*_receiver_official_predicate_ok` fields remain diagnostic and
 may be false on an otherwise passing row.
@@ -311,7 +336,7 @@ Run:
 Every reset must pass the frozen checks. A smoke run or a partial CSV
 does not satisfy this gate.
 
-The `tabletop_draft_v4` full-reset thresholds are:
+The `tabletop_draft_v5` full-reset thresholds are:
 
 | Check | Threshold |
 |---|---:|

@@ -83,12 +83,12 @@
   "gate4_passed": true,
   "gate_id": "gate4_terminal_goal_semantics",
   "gate_protocol_version": "libero_36_oracle_goal_v1",
-  "git_commit": "7ba4d9d8f883cf1b162554bfa44ead1d59946849",
+  "git_commit": "d65ad21b66e5ad601ed49fb329eea3fb6b4f3dec",
   "layout_spec": "/root/smolvla-libero-compositional-generalization/data/libero_36/layout_spec.csv",
-  "layout_spec_sha256": "2da21f776eebfbb95c72e3adb4b52d4d018956c997e6b26052d5f2a0bc39b919",
+  "layout_spec_sha256": "630b438094ade3843645c134475c79f80ed9cd39f6b24f0a22ba882fbe9965c2",
   "mode": "full",
   "output": "/root/smolvla-libero-compositional-generalization/results/libero_36_goal_audit.csv",
-  "output_sha256": "2af5af7ad7469d611c7b58b9cdb29d607c11b1fe55e3936836337aeefc742bfd",
+  "output_sha256": "5ece51da2f839fd6737d5b562d88297134d769ebda6c7dcbdda8a7166d042bef",
   "parameters": {
     "acquire_max_steps": 60,
     "acquire_stable_steps": 5,
@@ -166,15 +166,15 @@
   "passed_cases": 96,
   "physical_feasibility_gate_not_covered": true,
   "preview_dir": null,
-  "protocol_version": "libero_36_proxy_tabletop_draft_v4",
+  "protocol_version": "libero_36_proxy_tabletop_draft_v5",
   "push_lift_threshold_calibrated": false,
   "push_trajectory_constraints_evaluated": false,
   "reset_manifest": "/root/smolvla-libero-compositional-generalization/results/libero_36_reset_audit.manifest.json",
-  "reset_manifest_sha256": "ecf07f3bcb2b8096b2112891556d5ee855b394c001d0aefd4e674b20457d63e0",
+  "reset_manifest_sha256": "0ebb39e79720e1d3f40f29536fcb6a6e9762fa714df8f167b5373bc102c9032a",
   "reset_output": "/root/smolvla-libero-compositional-generalization/results/libero_36_reset_audit.csv",
-  "reset_output_sha256": "ac9442bcf06966193d09cb96b1e77a19a1ac005875ddb4f25d23fab6f24ab953",
+  "reset_output_sha256": "02754aac4963c400303f09c50f56a16379e4f15b9844b69040a29294573a1d9a",
   "reset_validator_path": "/root/smolvla-libero-compositional-generalization/scripts/validate_libero_36_envs.py",
-  "reset_validator_sha256": "f8178e734247cc07c8d7cd1ebfacd643f17933cb6c3408cd09d461a58dc5f3b3",
+  "reset_validator_sha256": "a7a60b75d7c595bd61bf60ae501f7c1be3e2dbd2518fc7358fa3a67073d70bbb",
   "run_complete": true,
   "software_versions": {
     "hf_libero": "0.1.4",
@@ -184,5 +184,5 @@
     "robosuite": "1.4.0"
   },
   "validator_path": "/root/smolvla-libero-compositional-generalization/scripts/validate_libero_36_goals.py",
-  "validator_sha256": "9be23f84ccdf551100992b5e6984d4de591c3cd82b71d8374faf737226e111c3"
+  "validator_sha256": "e99b3f60522b01eff81cec1e9f960788612d4da0fae974d71e01392b24988842"
 }

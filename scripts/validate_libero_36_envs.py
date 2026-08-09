@@ -25,7 +25,7 @@ except ModuleNotFoundError:
     from scripts import libero_36_camera as camera_config
 
 
-PROTOCOL_VERSION = "libero_36_proxy_tabletop_draft_v4"
+PROTOCOL_VERSION = "libero_36_proxy_tabletop_draft_v5"
 BENCHMARK_NAME = "libero_registered_object_36_proxy_tabletop"
 WORKSPACE_FIXTURE = "main_table"
 DEFAULT_LAYOUT_SPEC = Path("data/libero_36/layout_spec.csv")
@@ -62,10 +62,10 @@ SOURCE_SAMPLER_RADII_M = {
 }
 
 SOURCE_SLOT_RANGES = {
-    0: (0.20, -0.395, 0.27, -0.325),
-    1: (0.20, -0.155, 0.27, -0.085),
-    2: (0.20, 0.085, 0.27, 0.155),
-    3: (0.20, 0.325, 0.27, 0.395),
+    0: (0.04, -0.244, 0.11, -0.182),
+    1: (0.04, -0.102, 0.11, -0.040),
+    2: (0.04, 0.040, 0.11, 0.102),
+    3: (0.04, 0.182, 0.11, 0.244),
 }
 TARGET_REGION_RANGES = {
     "left": (-0.20, -0.28, -0.04, -0.14),

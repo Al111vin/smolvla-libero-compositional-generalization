@@ -26,7 +26,7 @@ except ModuleNotFoundError:
     from scripts import validate_libero_36_goals as goal_validator
 
 
-PROTOCOL_VERSION = "libero_36_proxy_tabletop_draft_v4"
+PROTOCOL_VERSION = "libero_36_proxy_tabletop_draft_v5"
 BENCHMARK_NAME = "libero_registered_object_36_proxy_tabletop"
 CALIBRATION_PROTOCOL = "libero_36_push_calibration_pilot_v2"
 CALIBRATION_ID = "gate5a_push_trajectory_calibration_pilot_v2"
@@ -1734,10 +1734,6 @@ def replay_attempt(
             obs, _, done, _ = env.step(
                 action
             )
-            if done:
-                raise RuntimeError(
-                    f"Replay ended at action {index + 1}"
-                )
             states.append(
                 np.asarray(
                     env.get_sim_state(), dtype=np.float64
@@ -1755,6 +1751,12 @@ def replay_attempt(
                 selected_side,
             )
             relation, xy_ok = target_region_status(env, obs, row)
+            if bool(done) != bool(relation):
+                raise RuntimeError(
+                    "Replay done flag disagrees with goal predicate: "
+                    f"done={done}, relation={relation}, "
+                    f"action={index + 1}"
+                )
             left_trace.append(left)
             right_trace.append(right)
             grasp_trace.append(grasp)

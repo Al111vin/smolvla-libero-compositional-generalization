@@ -24,7 +24,7 @@ except ModuleNotFoundError:
     from scripts import validate_libero_36_envs as reset_validator
 
 
-PROTOCOL_VERSION = "libero_36_proxy_tabletop_draft_v4"
+PROTOCOL_VERSION = "libero_36_proxy_tabletop_draft_v5"
 BENCHMARK_NAME = "libero_registered_object_36_proxy_tabletop"
 GATE_PROTOCOL_VERSION = "libero_36_oracle_goal_v1"
 GATE_ID = "gate4_terminal_goal_semantics"

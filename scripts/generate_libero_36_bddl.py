@@ -17,13 +17,13 @@ except ModuleNotFoundError:
     from scripts import libero_36_camera as camera_config
 
 
-PROTOCOL_VERSION = "libero_36_proxy_tabletop_draft_v4"
+PROTOCOL_VERSION = "libero_36_proxy_tabletop_draft_v5"
 BENCHMARK_NAME = "libero_registered_object_36_proxy_tabletop"
 DEFAULT_OUTPUT_DIR = Path("data/libero_36")
 LAYOUT_COUNT = 4
 
-# Recognized v0/v1/v2/v3 signatures are accepted only so an explicit
-# --overwrite can atomically migrate those generated outputs to v4.
+# Recognized v0/v1/v2/v3/v4 signatures are accepted only so an explicit
+# --overwrite can atomically migrate those generated outputs to v5.
 LEGACY_OVERWRITE_SIGNATURES = {
     (
         "libero_36_proxy_draft_v0",
@@ -39,6 +39,10 @@ LEGACY_OVERWRITE_SIGNATURES = {
     ),
     (
         "libero_36_proxy_tabletop_draft_v3",
+        "libero_registered_object_36_proxy_tabletop",
+    ),
+    (
+        "libero_36_proxy_tabletop_draft_v4",
         "libero_registered_object_36_proxy_tabletop",
     ),
 }
@@ -83,10 +87,10 @@ SKILLS = ("put_on_top", "put_inside", "push_to")
 REGIONS = ("left", "middle", "right")
 
 SOURCE_SLOT_RANGES = {
-    0: (0.20, -0.395, 0.27, -0.325),
-    1: (0.20, -0.155, 0.27, -0.085),
-    2: (0.20, 0.085, 0.27, 0.155),
-    3: (0.20, 0.325, 0.27, 0.395),
+    0: (0.04, -0.244, 0.11, -0.182),
+    1: (0.04, -0.102, 0.11, -0.040),
+    2: (0.04, 0.040, 0.11, 0.102),
+    3: (0.04, 0.182, 0.11, 0.244),
 }
 
 TARGET_REGION_RANGES = {

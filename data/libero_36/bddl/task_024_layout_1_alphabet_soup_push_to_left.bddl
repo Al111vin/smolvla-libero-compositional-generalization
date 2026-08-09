@@ -5,28 +5,28 @@
       (source_slot_0_region
           (:target main_table)
           (:ranges (
-              (0.200 -0.395 0.270 -0.325)
+              (0.040 -0.244 0.110 -0.182)
             )
           )
       )
       (source_slot_1_region
           (:target main_table)
           (:ranges (
-              (0.200 -0.155 0.270 -0.085)
+              (0.040 -0.102 0.110 -0.040)
             )
           )
       )
       (source_slot_2_region
           (:target main_table)
           (:ranges (
-              (0.200 0.085 0.270 0.155)
+              (0.040 0.040 0.110 0.102)
             )
           )
       )
       (source_slot_3_region
           (:target main_table)
           (:ranges (
-              (0.200 0.325 0.270 0.395)
+              (0.040 0.182 0.110 0.244)
             )
           )
       )
