@@ -854,6 +854,7 @@ with SUMMARY.open(
     writer = csv.DictWriter(
         file,
         fieldnames=fields,
+        lineterminator="\n",
     )
     writer.writeheader()
     writer.writerows(results)

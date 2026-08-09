@@ -657,6 +657,7 @@ def main():
         writer = csv.DictWriter(
             file,
             fieldnames=fields,
+            lineterminator="\n",
         )
         writer.writeheader()
         writer.writerows(csv_rows)
