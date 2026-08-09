@@ -1,0 +1,136 @@
+{
+  "all_pretraining_gates_passed": false,
+  "attempts_dir": "/tmp/libero36_gate5_bowl_push_task6_final/attempts",
+  "benchmark_name": "libero_registered_object_36_proxy_tabletop",
+  "calibration_id": "gate5a_push_trajectory_calibration_pilot_v2",
+  "calibration_protocol": "libero_36_push_calibration_pilot_v2",
+  "camera_helper_path": "/root/smolvla-libero-compositional-generalization/scripts/libero_36_camera.py",
+  "camera_helper_sha256": "21de3836c1a60c381e83ec3e28985f37dacc10a4ae3f870737c62a9072c8afa3",
+  "completed_attempts": 1,
+  "counts": [
+    {
+      "attempt_succeeded": true,
+      "count": 1,
+      "object": "akita_black_bowl",
+      "spatial_region": "left"
+    }
+  ],
+  "diagnostic_only": true,
+  "exact_attempt_coverage": true,
+  "expected_attempts": 1,
+  "failed_attempts": 0,
+  "frozen_observation_camera": {
+    "agentview_camera_name": "agentview",
+    "agentview_fovy_deg": 75.0,
+    "agentview_position_m": [
+      0.6586131746834771,
+      0.0,
+      1.6103500240372424
+    ],
+    "agentview_quaternion_wxyz": [
+      0.6380177736282349,
+      0.3048497438430786,
+      0.30484986305236816,
+      0.6380177736282349
+    ],
+    "apply_after_every_reset": true,
+    "camera_height": 128,
+    "camera_protocol_version": "libero_36_agentview_v1",
+    "camera_width": 128,
+    "observation_refresh_after_apply": true,
+    "raw_reset_agentview_fovy_deg": 45.0
+  },
+  "full_protocol_shape": false,
+  "gate3_required_and_validated": true,
+  "gate4_required_and_validated": true,
+  "gate5_passed": false,
+  "git_commit": "6bf2fd75d3c9d1a428978dd799fd0a38bb3a1300",
+  "goal_manifest": "/root/smolvla-libero-compositional-generalization/results/libero_36_goal_audit.manifest.json",
+  "goal_manifest_sha256": "5495114d235efb54a60f0bfa55ac45d5c5a0dc38276766ac24dfc75765fa56b0",
+  "goal_output": "/root/smolvla-libero-compositional-generalization/results/libero_36_goal_audit.csv",
+  "goal_output_sha256": "5ece51da2f839fd6737d5b562d88297134d769ebda6c7dcbdda8a7166d042bef",
+  "goal_validator_path": "/root/smolvla-libero-compositional-generalization/scripts/validate_libero_36_goals.py",
+  "goal_validator_sha256": "e99b3f60522b01eff81cec1e9f960788612d4da0fae974d71e01392b24988842",
+  "layout_spec": "/root/smolvla-libero-compositional-generalization/data/libero_36/layout_spec.csv",
+  "layout_spec_sha256": "630b438094ade3843645c134475c79f80ed9cd39f6b24f0a22ba882fbe9965c2",
+  "mode": "smoke",
+  "npz_artifacts": [
+    {
+      "path": "/tmp/libero36_gate5_bowl_push_task6_final/attempts/task_06_layout_1_candidate_00.npz",
+      "sha256": "22bb51d7959a4620d51e517fa569872bfc908272e7a427803aa5fc45411ed533"
+    }
+  ],
+  "npz_files": 1,
+  "output": "/tmp/libero36_gate5_bowl_push_task6_final/calibration.csv",
+  "output_sha256": "36bc6540583fb4f8f118da65b464bcabc11a6d6dd005df62a54d5730dfbda7aa",
+  "parameters": {
+    "active_gripper_action": -1.0,
+    "approach_standoff_formula": "frozen_source_sampler_radius + precontact_pad_clearance_m",
+    "base_pad_height_offsets_m": {
+      "akita_black_bowl": 0.025,
+      "alphabet_soup": 0.0,
+      "cream_cheese": 0.0,
+      "white_yellow_mug": 0.025
+    },
+    "calibration_layout_id": 1,
+    "candidate_finger_order": [
+      "left",
+      "right"
+    ],
+    "candidate_height_deltas_m": [
+      -0.01,
+      0.0,
+      0.01
+    ],
+    "deterministic_candidate_order": true,
+    "gate3_reset_index": 0,
+    "one_finger_live_offset_controller": true,
+    "precontact_pad_clearance_m": 0.015,
+    "provisional_max_lift_m": 0.03,
+    "push_increment_m": 0.006,
+    "seed_source": "validated_gate3_full_reset_audit_layout1_reset0",
+    "settle_steps": 20,
+    "state_replay_atol": 1e-08,
+    "task_ids": [
+      6
+    ],
+    "terminal_hold_action": [
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0
+    ],
+    "terminal_hold_steps": 20,
+    "transit_pad_clearance_m": 0.1,
+    "transit_waypoint_xy": "live_target_center_xy"
+  },
+  "protocol_version": "libero_36_proxy_tabletop_draft_v5",
+  "push_lift_threshold_calibrated": false,
+  "push_lift_threshold_frozen": false,
+  "push_trajectory_constraints_evaluated": true,
+  "reset_manifest": "/root/smolvla-libero-compositional-generalization/results/libero_36_reset_audit.manifest.json",
+  "reset_manifest_sha256": "0ebb39e79720e1d3f40f29536fcb6a6e9762fa714df8f167b5373bc102c9032a",
+  "reset_output": "/root/smolvla-libero-compositional-generalization/results/libero_36_reset_audit.csv",
+  "reset_output_sha256": "02754aac4963c400303f09c50f56a16379e4f15b9844b69040a29294573a1d9a",
+  "reset_validator_path": "/root/smolvla-libero-compositional-generalization/scripts/validate_libero_36_envs.py",
+  "reset_validator_sha256": "a7a60b75d7c595bd61bf60ae501f7c1be3e2dbd2518fc7358fa3a67073d70bbb",
+  "run_complete": true,
+  "software_versions": {
+    "hf_libero": "0.1.4",
+    "libero": "unknown",
+    "mujoco": "3.8.1",
+    "numpy": "2.1.2",
+    "robosuite": "1.4.0"
+  },
+  "successful_attempts": 1,
+  "tasks_with_success": [
+    6
+  ],
+  "tasks_with_success_count": 1,
+  "trajectory_threshold_promoted": false,
+  "validator_path": "/root/smolvla-libero-compositional-generalization/scripts/calibrate_libero_36_push.py",
+  "validator_sha256": "a6d66b3ccf1fea306d580cf10078a19129270c817b45265c2cfebf6f3177a47d"
+}
