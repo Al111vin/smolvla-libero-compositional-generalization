@@ -265,9 +265,10 @@ tasks are not protocol-ready.
 - Gate 3 complete reset audit: passed, 720/720 resets.
 - Gate 4 goal-semantics audit: passed, 96/96 positive and isolated
   negative cases.
-- Gate 5 physical feasibility: incomplete. One exact, safely replayable
-  trajectory has passed for task 26, layout 1. This is 1/36 logical
-  tasks and does not satisfy Gate 5.
+- Gate 5 physical feasibility: incomplete. Exact, safely replayable
+  trajectories have passed for task 0 (`put_on_top`) and task 26
+  (`push_to`), both on layout 1. This is 2/36 logical tasks and does
+  not satisfy Gate 5.
 - Demonstration collection and SmolVLA training remain blocked until
   all 36 Gate 5 trajectories pass.
 - The push lift threshold remains provisional and is not yet promoted

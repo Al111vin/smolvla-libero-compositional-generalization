@@ -1,0 +1,60 @@
+{
+  "active_actions": 658,
+  "checks": {
+    "grasp_released": true,
+    "lower_pose_reached": true,
+    "no_robot_distractor_contact": true,
+    "no_robot_plate_contact": true,
+    "no_unexpected_object_contact": true,
+    "placement_relation_acquired": true,
+    "prefix_state_exact": true,
+    "receiver_region_preserved": true,
+    "relation_acquired_by_release_or_later": true,
+    "retreat_reached": true,
+    "terminal_motion_stable": true,
+    "terminal_orientation_stable": true,
+    "terminal_relation_hold": true,
+    "within_action_horizon": true
+  },
+  "desired_target_placed_xyz": [
+    -0.11647195477683925,
+    -0.2256199146141225,
+    0.952506338529415
+  ],
+  "failed_checks": [],
+  "final_target_xyz": [
+    -0.11297865792697857,
+    -0.2254642473477989,
+    0.9062671715863134
+  ],
+  "first_relation_action": 550,
+  "first_relation_phase": "release_open",
+  "layout_id": 1,
+  "lower_final_error_m": 8.373176128580673e-05,
+  "note": "For put-on-top, the terminal On relation is expected after gripper release; it is not required while the rim pinch remains closed.",
+  "phase_counts": {
+    "approach_above_rim": 82,
+    "carry_above_plate": 87,
+    "carry_hold": 20,
+    "close_rim_pinch": 45,
+    "descend_straddle_rim": 130,
+    "lift_grasped": 28,
+    "lift_hold": 15,
+    "lower_onto_plate": 140,
+    "release_open": 50,
+    "retreat_up": 41,
+    "terminal_hold": 20
+  },
+  "prefix_actions": 407,
+  "prefix_replay_state_max_abs_diff": 0.0,
+  "rim_offset_x_m": 0.044,
+  "robot_distractor_contact_steps": 0,
+  "robot_plate_contact_steps": 0,
+  "seed": 361000,
+  "success": true,
+  "task_id": 0,
+  "terminal_motion_m": 1.8680246315384882e-10,
+  "terminal_orientation_deg": 0.0,
+  "unexpected_object_contact_steps": 0,
+  "yaw_degrees": -90
+}
