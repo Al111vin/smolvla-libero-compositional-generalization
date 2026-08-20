@@ -1,196 +1,199 @@
-# SmolVLA LIBERO Compositional Generalization
+# SmolVLA × LIBERO Compositional Generalization
 
-This project studies the compositional generalization and failure diagnosis of SmolVLA in LIBERO robotic manipulation environments.
+This repository studies whether **SmolVLA** can execute familiar robotic
+manipulation factors in combinations that were never observed during training.
+It combines closed-loop LIBERO evaluation, controlled leave-one-combination-out
+(LOCO) experiments, failure diagnosis, and the construction of a larger
+36-task compositional benchmark.
+
+> **Current status:** the V4 LOCO evaluation is complete. Development is now
+> focused on validating a LIBERO registered-object 36-task proxy benchmark.
+> Gates 1–4 have passed; Gate 5 physical feasibility is at **22/36** logical
+> tasks. Demonstration collection and new SmolVLA training have not started.
+
+## Research question
+
+Can a vision-language-action policy generalize to a value-seen but
+tuple-unseen combination of:
+
+- **object** — which object to manipulate;
+- **skill** — place on top, place inside, or push;
+- **spatial region** — left, middle, or right?
+
+Each factor value is represented during training, while the complete held-out
+tuple is not. This separates compositional transfer from ordinary
+in-distribution task performance.
+
+## Main results
+
+### V3: validated single-task baseline
+
+A SmolVLA policy trained for 10,000 steps on 50 demonstrations of LIBERO-Spatial
+task 0 established that the training and closed-loop evaluation pipeline can
+produce successful behavior.
+
+| Evaluation | Setting | Success |
+|---|---|---:|
+| Demonstration initial states | 50 rollouts, `n_action_steps=50` | 36/50 (72%) |
+| Official benchmark states | 20 rollouts, `n_action_steps=50` | 9/20 (45%) |
+| Official benchmark states | 20 rollouts, `n_action_steps=25` | **14/20 (70%)** |
+
+The 25-action execution horizon was selected before the V4 target-task
+evaluation. Full V3 results and ablations are documented in
+[`results/V3_TASK0_RESULTS.md`](results/V3_TASK0_RESULTS.md).
+
+### V4: leave-one-combination-out evaluation
+
+Two policies were trained for 90,000 steps. One held out task 3 and the other
+held out task 6. Each policy was evaluated on both its unseen target and a
+matched seen-task control using the same 50 official benchmark initial states.
+
+| Model | Task | Role | Success |
+|---|---:|---|---:|
+| `task3_holdout` | 3 | held out | **0/50 (0%)** |
+| `task3_holdout` | 6 | seen control | 44/50 (88%) |
+| `task6_holdout` | 3 | seen control | 42/50 (84%) |
+| `task6_holdout` | 6 | held out | **0/50 (0%)** |
+
+The held-out LOCO macro score was **0%**, compared with **86%** mean success on
+the matched seen controls: an **86 percentage-point generalization gap**. The
+seen controls show that the result is not explained by a generally broken
+policy or evaluator.
+
+This conclusion is limited to two audited target-role folds with one training
+seed per fold. See the frozen
+[`evaluation protocol`](results/V4_LOCO_EVAL_PROTOCOL.md),
+[`formal results`](results/V4_LOCO_RESULTS.md), and
+[`post-hoc diagnostic protocol`](results/V4_LOCO_DIAGNOSTIC_PROTOCOL.md).
+
+## Current work: LIBERO registered-object 36-task proxy
+
+The next stage expands the study to a balanced Cartesian benchmark:
+
+```text
+4 objects × 3 skills × 3 spatial regions = 36 logical tasks
+36 tasks × 4 balanced source layouts = 144 BDDL environments
+```
+
+| Factor | Values |
+|---|---|
+| Object | `akita_black_bowl`, `white_yellow_mug`, `alphabet_soup`, `cream_cheese` |
+| Skill | `put_on_top`, `put_inside`, `push_to` |
+| Region | `left`, `middle`, `right` |
+
+This is a **registered-object proxy**, not an exact implementation of the
+earlier textual object set. The V3/V4 policies are pilot baselines and are not
+trained models for this new benchmark.
+
+### Validation gates
+
+| Gate | Requirement | Status |
+|---:|---|---:|
+| 1 | Generate 36 task rows and 144 BDDL files | Passed |
+| 2 | Representative environment, determinism, and camera smoke tests | Passed (12/12) |
+| 3 | Complete reset audit | Passed (720/720) |
+| 4 | Positive and isolated-negative goal semantics | Passed (96/96) |
+| 5 | Exact, safely replayable physical-feasibility trajectories | **In progress (22/36)** |
+
+Gate 5 currently includes replayable evidence for tasks 0–14, 18–23, and 26
+on layout 1. The latest validated batch, tasks 21–23 (`alphabet_soup`
+`put_inside`), passed trajectory checks and exact replay with zero state
+reconstruction error. The active milestone is to reach 36/36 before collecting
+demonstrations or training a new SmolVLA policy. Candidate work that has not
+passed exact replay and provenance checks is deliberately excluded from the
+official count. Current feasibility work targets tasks 27–29
+(`cream_cheese put_on_top`).
+
+The full benchmark definition, camera contract, success predicates, gate
+criteria, and current evidence are recorded in
+[`results/LIBERO_36_PROXY_TASK_PROTOCOL.md`](results/LIBERO_36_PROXY_TASK_PROTOCOL.md).
+Current development lives on the
+[`libero36-source-xy-redesign`](https://github.com/Al111vin/smolvla-libero-compositional-generalization/tree/libero36-source-xy-redesign)
+branch.
+
+## Repository structure
+
+```text
+.
+├── data/
+│   ├── libero_36/                 # task specs, layout specs, and 144 BDDL files
+│   ├── manifests/                 # dataset conversion provenance
+│   └── splits/                    # compositional train/test splits
+├── results/
+│   ├── V3_TASK0_RESULTS.md
+│   ├── V4_LOCO_*.md
+│   ├── LIBERO_36_PROXY_TASK_PROTOCOL.md
+│   └── libero36_source_xy_redesign_diagnostic/
+├── scripts/                       # generation, validation, training, and evaluation
+├── patches/                       # compatibility patches
+└── requirements.txt
+```
+
+## Reproducibility entry points
+
+The repository keeps protocols and compact evidence under version control.
+Large checkpoints, datasets, and raw diagnostic artifacts are intentionally
+excluded.
+
+```bash
+# Generate the 36-task specification and BDDL files in a separate directory.
+python scripts/generate_libero_36_bddl.py \
+  --output-dir /tmp/libero_36_generated
+
+# Run the frozen full reset and goal-semantics audits.
+python scripts/validate_libero_36_envs.py --mode full
+python scripts/validate_libero_36_goals.py --mode full
+```
+
+Before running an experiment, read its frozen protocol and use the recorded
+commit, seeds, task-state matrix, camera contract, and action horizon. After
+restoring the externally stored raw V4 rollouts, result summaries can be
+regenerated with:
+
+```bash
+python scripts/summarize_v4_loco.py
+```
 
 ## Environment
 
+The main experiments were run with:
+
 - Ubuntu 22.04
 - Python 3.12.11
-- PyTorch 2.9.1 + CUDA 12.8
-- GPU: NVIDIA GeForce RTX 5090
+- PyTorch 2.9.1 with CUDA 12.8
+- NVIDIA GeForce RTX 5090
 - LeRobot 0.5.1
+- LIBERO / robosuite / MuJoCo
 
-## Project Goal
+Install the Python dependencies with:
 
-We evaluate whether SmolVLA can generalize to unseen combinations of:
-
-- Object
-- Skill
-- Spatial region
-
-The main evaluation setting is value-seen but tuple-unseen: each individual object, skill, and spatial value appears in training, but the full object-skill-spatial tuple is unseen during training.
-
-## Planned Pipeline
-
-1. Set up LeRobot, SmolVLA, and LIBERO.
-2. Generate Object x Skill x Spatial task combinations.
-3. Create value-seen / tuple-unseen train-test splits.
-4. Fine-tune SmolVLA under different training coverage levels.
-5. Run closed-loop evaluation in LIBERO.
-6. Analyze failures into object, skill, and spatial errors.
-7. Plot compositional generalization curves and failure decomposition figures.
-
-## Selected First-Stage Task Set
-
-The first-stage experiment uses the `libero_spatial` benchmark suite.
-
-This task set focuses on spatial generalization:
-- Object: `black_bowl`
-- Skill: `pick_and_place`
-- Target object: `plate`
-- Variable factor: source spatial relation
-
-The selected task list is saved in:
-
-```text
-data/final_task_set.csv
+```bash
+python -m pip install -r requirements.txt
 ```
-## V1 Evaluation Results
 
-The V1 SmolVLA policy was evaluated on all 10 LIBERO-Spatial tasks.
+LIBERO assets and pretrained SmolVLA checkpoints are not stored in this
+repository and must be obtained separately from their upstream projects.
 
-- Suite: LIBERO-Spatial
-- Number of tasks: 10
-- Success count: 0 / 10
-- Success rate: 0.0000
-- Average reward: 0.0000
-- Average rollout length: 300 steps
+## Project roadmap
 
-This confirms that the V1 evaluation pipeline is functional, but the initial V1 policy does not yet solve the LIBERO-Spatial tasks.
+- [x] Build and validate the SmolVLA–LIBERO training/evaluation pipeline
+- [x] Establish a successful single-task V3 baseline
+- [x] Run the frozen two-fold V4 LOCO evaluation
+- [x] Freeze the 36-task proxy benchmark and pass Gates 1–4
+- [ ] Complete Gate 5 physical feasibility for all 36 tasks
+- [ ] Freeze the push lift threshold
+- [ ] Collect balanced demonstrations under the frozen camera contract
+- [ ] Create value-seen / tuple-unseen training splits
+- [ ] Train multi-seed SmolVLA policies on the 36-task proxy
+- [ ] Report compositional generalization curves and failure decomposition
 
-### V1 Failure Analysis
+## Scientific interpretation
 
-The V1 evaluation pipeline was successfully built and tested across 30 LIBERO tasks, including LIBERO-Spatial, LIBERO-Object, and LIBERO-Goal.
+The current evidence supports a narrow conclusion: under two audited
+LIBERO-Spatial LOCO folds, the policy learned seen combinations but did not
+transfer to the held-out compositions. It does not establish that SmolVLA
+cannot generalize compositionally in every task family or training regime.
 
-However, the policy achieved 0/30 success in rollout evaluation. To further diagnose this failure, dataset-level action prediction debugging was performed on a training demonstration. The policy showed a high action prediction error, with an MAE of 0.7965.
-
-This indicates that the V1 policy has not learned reliable action prediction yet. The most likely reason is insufficient training, since the initial V1 model was trained only as a short baseline to validate the full training, checkpointing, and evaluation pipeline.
-
-The next step is to train a longer V1.1 model and check whether dataset-level action prediction error decreases before moving to larger compositional generalization experiments.
-
-### V1.1 Longer Training
-
-A longer V1.1 model was trained with 2000 steps instead of the original 200-step V1 baseline.
-
-Dataset-level action prediction improved substantially:
-
-- V1 MAE: 0.7965
-- V1.1 MAE: 0.4250
-
-However, V1.1 still achieved 0/10 success on LIBERO-Spatial rollout evaluation. This suggests that longer training improves action prediction, but the current model is still not strong enough to complete full manipulation tasks. The gripper action dimension remains especially difficult, with high prediction error on action_6.
-
-The next step is to further debug gripper behavior and action scaling before training a stronger V1.2 model.
-
-### V1.2 Full Training
-
-A V1.2 full model was trained for 10,000 steps.
-
-Dataset-level action prediction continued to improve:
-
-- V1 MAE: 0.7965
-- V1.1 MAE: 0.4250
-- V1.2 full MAE: 0.3859
-
-However, V1.2 full still achieved 0/10 success on LIBERO-Spatial rollout evaluation.
-
-This suggests that longer training alone improves action prediction but is not sufficient to solve full manipulation tasks. The gripper action dimension remains the main bottleneck, with action_6 still showing high prediction error.
-
-## V1 Failure Analysis and Task0 Overfit Experiments
-
-After building the initial SmolVLA + LIBERO evaluation pipeline, several V1-stage experiments were conducted to diagnose why the policy failed in closed-loop rollout.
-
-### Summary of V1 Evaluation Results
-
-The V1.2 multi-task policy was evaluated on LIBERO-Spatial:
-
-| Experiment | Dataset / Training Setup | Evaluation | Result |
-
-|---|---|---|---|
-
-| V1.2 | Multi-task LIBERO-Spatial | 10 spatial tasks | 0 / 10 |
-
-| V1.3 | Task0 single-task overfit | Task0 rollout | 0 / 1 |
-
-| V1.4 | Task0 stronger 2-layer model | Task0 rollout | 0 / 1 |
-
-| V1.5 | Task0 gripper-weighted loss | Task0 rollout | 0 / 1 |
-
-| V1.5 + postprocess | Clip + smoothing + binary gripper | Task0 rollout | 0 / 1 |
-
-| V1.6 | Motion + gripper weighted loss | Dataset MSE only | Worse than V1.5 |
-
-### Key Debugging Findings
-
-Several possible failure causes were tested and ruled out:
-
-- Expert action replay achieved reward = 1.0, showing that the LIBERO environment, initial state, and action format are valid.
-
-- Dataset and environment images were compared. The best match was the original image orientation, so there was no obvious vertical flip or RGB/BGR mismatch.
-
-- The rollout state adapter was corrected from using `robot0_eef_quat[:3]` to an axis-angle style orientation representation closer to the dataset `ee_ori`.
-
-- Gripper binary post-processing did not improve rollout success.
-
-- Action clipping and smoothing also did not improve rollout success.
-
-### Dataset Action Prediction Results
-
-The task0 overfit experiments improved dataset-level action prediction, but not enough for successful closed-loop control.
-
-| Model | Overall MAE | action_0 MAE | action_2 MAE | action_6 MAE |
-
-|---|---:|---:|---:|---:|
-
-| V1.3 task0 overfit | 0.3426 | 0.3671 | 0.5406 | 0.9205 |
-
-| V1.4 stronger task0 | 0.3054 | 0.3556 | 0.4473 | 0.7528 |
-
-| V1.5 gripper-weighted | 0.2762 | 0.3123 | 0.4398 | 0.4908 |
-
-| V1.6 motion + gripper weighted | 0.2960 | 0.2954 | 0.4970 | 0.5536 |
-
-V1.5 improved the gripper/action_6 error significantly, but closed-loop rollout still failed. V1.6 did not improve over V1.5.
-
-### Best Checkpoint Scan
-
-A checkpoint scan was performed for V1.5. The best overall dataset MAE was found at:
-
-```text
-
-checkpoint_step_6000.pt
-
-overall MAE = 0.3101
-、、、
-
-## Current Status
-
-- [x] AutoDL RTX 5090 instance created
-- [x] CUDA and PyTorch verified
-- [x] LeRobot installed
-- [x] `lerobot-info` passed
-- [x] SmolVLA loading test
-- [x] LIBERO smoke test
-- [x] Task CSV generation
-- [x] Train-test split generation
-- [x] Split leakage check
-- [x] LIBERO task inspection
-- [x] LIBERO task annotation draft
-- [x] Refine runnable task annotations
-- [x] Select final runnable task set
-- [x] Final task set check
-- [x] LIBERO environment reset test
-- [x] Random rollout demo smoke collection
-- [x] Read random demo smoke test
-- [x] Official LIBERO demonstration download
-- [x] Official LIBERO demonstration loading test
-- [x] LIBERO PyTorch dataset loading test
-- [x] SmolVLA batch input test
-- [x] SmolVLA mini training smoke test
-- [x] Full fine-tuning v1
-- [x] SmolVLA checkpoint loading test
-- [x] Evaluation v1 rollout
-
-V1 rollout successfully executed on LIBERO spatial task 0. The policy ran for 300 steps but did not solve the task yet.
-
-- [ ] Failure diagnosis
-- [ ] LeRobot-compatible dataset conversion
+Likewise, the 36-task proxy is still a benchmark-construction effort. Until
+Gate 5 is complete and demonstrations are collected under the frozen protocol,
+it must not be presented as a trained-model evaluation result.
