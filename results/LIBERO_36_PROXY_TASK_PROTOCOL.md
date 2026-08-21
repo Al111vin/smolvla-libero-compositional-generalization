@@ -272,8 +272,9 @@ tasks are not protocol-ready.
   (`white_yellow_mug put_on_top`), tasks 12–14
   (`white_yellow_mug put_inside`), tasks 18–20
   (`alphabet_soup put_on_top`), tasks 21–23
-  (`alphabet_soup put_inside`), and task 26
-  (`alphabet_soup push_to`), all on layout 1. This is 22/36 logical tasks
+  (`alphabet_soup put_inside`), task 26
+  (`alphabet_soup push_to`), and tasks 27–29
+  (`cream_cheese put_on_top`), all on layout 1. This is 25/36 logical tasks
   and does not satisfy Gate 5.
 - Demonstration collection and SmolVLA training remain blocked until
   all 36 Gate 5 trajectories pass.
