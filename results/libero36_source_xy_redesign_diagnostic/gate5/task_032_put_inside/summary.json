@@ -1,0 +1,19 @@
+{
+  "actions": 928,
+  "carry_height_above_basket_m": 0.24,
+  "carry_max_steps": 240,
+  "failed_checks": [],
+  "grasp_height_offset_m": 0.0,
+  "layout_id": 1,
+  "object": "cream_cheese",
+  "recording_passed": true,
+  "release_height_above_basket_m": 0.14,
+  "replay_passed": true,
+  "skill": "put_inside",
+  "spatial_region": "right",
+  "staged_high_approach": true,
+  "task_id": 32,
+  "trajectory_state_max_abs_diff": 0.0,
+  "vertical_lift_m": 0.11,
+  "yaw_degrees": -45.0
+}
