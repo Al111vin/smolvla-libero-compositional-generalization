@@ -1,0 +1,49 @@
+{
+  "dataset": "datasets/lerobot/libero36_task16_success_pilot_v1",
+  "episodes": 5,
+  "frames": 3625,
+  "quality_passed": true,
+  "checks": [
+    {
+      "file": "file-000.parquet",
+      "field": "observation.state",
+      "shape": [
+        2767,
+        15
+      ],
+      "finite": true,
+      "nan_count": 0
+    },
+    {
+      "file": "file-000.parquet",
+      "field": "action",
+      "shape": [
+        2767,
+        7
+      ],
+      "finite": true,
+      "nan_count": 0
+    },
+    {
+      "file": "file-001.parquet",
+      "field": "observation.state",
+      "shape": [
+        858,
+        15
+      ],
+      "finite": true,
+      "nan_count": 0
+    },
+    {
+      "file": "file-001.parquet",
+      "field": "action",
+      "shape": [
+        858,
+        7
+      ],
+      "finite": true,
+      "nan_count": 0
+    }
+  ],
+  "note": "Pilot quality only; not a complete 32-task training set."
+}

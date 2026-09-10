@@ -1,0 +1,153 @@
+{
+  "artifact_kind": "libero36_task16_success_demonstration_pilot",
+  "auxiliary_target_contact_policy": "official_v6_allows_non_grasping_auxiliary_robot_target_contact",
+  "episodes": 5,
+  "episodes_qc": [
+    {
+      "actions_exact": true,
+      "auxiliary_robot_target_contact_steps": 435,
+      "env_done_steps": 23,
+      "frames": 630,
+      "grasp_steps": 0,
+      "initial_state_max_abs_diff": 0.0,
+      "passed": true,
+      "push_scale": 0.6,
+      "reward_positive_steps": 23,
+      "robot_distractor_contact_steps": 0,
+      "seed": 521000,
+      "source_plan": "results/libero36_gate5_official_v6/task_016_push_to/original.npz",
+      "source_sha256": "db2fe4f7dbf6ced93e041300d8a8467c560859583388c2342be406d581eb893f",
+      "support_all": true,
+      "terminal_relation": true,
+      "terminal_xy": true,
+      "trace_match": true,
+      "trajectory_state_max_abs_diff": 0.0,
+      "unexpected_object_contact_steps": 0
+    },
+    {
+      "actions_exact": true,
+      "auxiliary_robot_target_contact_steps": 484,
+      "env_done_steps": 24,
+      "frames": 712,
+      "grasp_steps": 0,
+      "initial_state_max_abs_diff": 0.0,
+      "passed": true,
+      "push_scale": 0.6,
+      "reward_positive_steps": 24,
+      "robot_distractor_contact_steps": 0,
+      "seed": 521001,
+      "source_plan": "/tmp/libero36_task16_demo_pilot_seed_521001_tol060/attempts/task_16_layout_1_candidate_00.npz",
+      "source_sha256": "d8e48dbf0680e3576a6e110d85eca1c029286e68d1552c7dd36f8d94d9f0de24",
+      "support_all": true,
+      "terminal_relation": true,
+      "terminal_xy": true,
+      "trace_match": true,
+      "trajectory_state_max_abs_diff": 0.0,
+      "unexpected_object_contact_steps": 0
+    },
+    {
+      "actions_exact": true,
+      "auxiliary_robot_target_contact_steps": 482,
+      "env_done_steps": 23,
+      "frames": 678,
+      "grasp_steps": 0,
+      "initial_state_max_abs_diff": 0.0,
+      "passed": true,
+      "push_scale": 0.6,
+      "reward_positive_steps": 23,
+      "robot_distractor_contact_steps": 0,
+      "seed": 521002,
+      "source_plan": "/tmp/libero36_task16_demo_pilot_seed_521002_tol060/attempts/task_16_layout_1_candidate_00.npz",
+      "source_sha256": "ed7f87620e237e7cdf6f6ddaf20d1311b92ec9bbea29e167ad76cb160e3481bb",
+      "support_all": true,
+      "terminal_relation": true,
+      "terminal_xy": true,
+      "trace_match": true,
+      "trajectory_state_max_abs_diff": 0.0,
+      "unexpected_object_contact_steps": 0
+    },
+    {
+      "actions_exact": true,
+      "auxiliary_robot_target_contact_steps": 559,
+      "env_done_steps": 23,
+      "frames": 747,
+      "grasp_steps": 0,
+      "initial_state_max_abs_diff": 0.0,
+      "passed": true,
+      "push_scale": 0.9,
+      "reward_positive_steps": 23,
+      "robot_distractor_contact_steps": 0,
+      "seed": 521003,
+      "source_plan": "/tmp/libero36_task16_seed_screen_scale090/seed_521003/trajectory.npz",
+      "source_sha256": "d62577c60680340e00242e9f2267715ece24ca67802b8422b7cdceafcc645fc6",
+      "support_all": true,
+      "terminal_relation": true,
+      "terminal_xy": true,
+      "trace_match": true,
+      "trajectory_state_max_abs_diff": 0.0,
+      "unexpected_object_contact_steps": 0
+    },
+    {
+      "actions_exact": true,
+      "auxiliary_robot_target_contact_steps": 670,
+      "env_done_steps": 23,
+      "frames": 858,
+      "grasp_steps": 0,
+      "initial_state_max_abs_diff": 0.0,
+      "passed": true,
+      "push_scale": 1.2,
+      "reward_positive_steps": 23,
+      "robot_distractor_contact_steps": 0,
+      "seed": 521004,
+      "source_plan": "/tmp/libero36_task16_seed_screen_scale120/seed_521004/trajectory.npz",
+      "source_sha256": "db1b246a94458eb1e86ccd5a3f2625cad83e9cfd26e4ae70f23212a4872cbada",
+      "support_all": true,
+      "terminal_relation": true,
+      "terminal_xy": true,
+      "trace_match": true,
+      "trajectory_state_max_abs_diff": 0.0,
+      "unexpected_object_contact_steps": 0
+    }
+  ],
+  "files": {
+    "calibrator": {
+      "path": "/root/smolvla-libero-compositional-generalization/data/demos/libero36_task16_5_success_pilot_v1/provenance/calibrate_libero_36_push_staged_preclose_horiz.py",
+      "sha256": "ffd5dd7bd0f5908e6696a3d174e5d668b7120e4664241fb244ee6fbc66b0fc9c"
+    },
+    "controller": {
+      "path": "/root/smolvla-libero-compositional-generalization/data/demos/libero36_task16_5_success_pilot_v1/provenance/run_mug_push_task16_horiz.py",
+      "sha256": "8a7aeed803f93a934b354f3544461d7aa25771aa4b7adf1eca1f428df9b6b1fa"
+    },
+    "episode_qc_csv": {
+      "path": "/root/smolvla-libero-compositional-generalization/data/demos/libero36_task16_5_success_pilot_v1/episode_qc.csv",
+      "sha256": "02f2012e991b5e1eec9d05273d5050ef0a363467d4e110a72e3dce091c910eff"
+    },
+    "hdf5": {
+      "bytes": 223428994,
+      "path": "/root/smolvla-libero-compositional-generalization/data/demos/libero36_task16_5_success_pilot_v1/task_016_layout_1_5_success.hdf5",
+      "sha256": "851b543e33ba35f69be5238921c363b08d59ff61b51b0c587d3dbaf131594292"
+    }
+  },
+  "formal_gate5_evidence_modified": false,
+  "hdf5_qc": {
+    "episodes": 5,
+    "failures": [],
+    "file_bytes": 223428994,
+    "frames": 3625,
+    "passed": true,
+    "sha256": "851b543e33ba35f69be5238921c363b08d59ff61b51b0c587d3dbaf131594292"
+  },
+  "language_instruction": "push the white and yellow mug to the middle of the table",
+  "layout_id": 1,
+  "passed": true,
+  "schema_version": 1,
+  "seeds": [
+    521000,
+    521001,
+    521002,
+    521003,
+    521004
+  ],
+  "task_id": 16,
+  "total_frames": 3625
+}

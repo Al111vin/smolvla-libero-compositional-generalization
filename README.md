@@ -27,8 +27,51 @@ It combines closed-loop LIBERO evaluation, controlled leave-one-combination-out
 > **Current status:** the V4 LOCO evaluation is complete. The registered-object
 > 36-task benchmark has passed Gates 1–4. Under the strict Gate 5 review,
 > **32/36 logical tasks are feasible**; Tasks 15, 17, 33, and 35 are retained
-> as physically infeasible cases. Demonstration collection and new SmolVLA
-> training have not started.
+> as physically infeasible cases. Five feasible-task pilots (Tasks 0, 1, 2, 3,
+> and 16) are now collected and QC-validated; 27 feasible tasks remain pending.
+> The four physically infeasible tasks (15, 17, 33, and 35) remain excluded from
+> training.
+
+## Demonstration collection status
+
+The requested initial milestone was Tasks 0, 1, 2, and 16 completed with 28
+tasks remaining. Task 3 was subsequently completed as the next ordered pilot,
+so the current manifest contains five completed tasks and 27 remaining tasks.
+
+| Task | Object × skill × spatial | Episodes | Frames | Status |
+|---:|---|---:|---:|---|
+| 0 | akita_black_bowl × put_on_top × left | 5 | 3,290 | Complete |
+| 1 | akita_black_bowl × put_on_top × middle | 5 | 2,800 | Complete |
+| 2 | akita_black_bowl × put_on_top × right | 5 | 2,990 | Complete |
+| 3 | akita_black_bowl × put_inside × left | 5 | 2,980 | Complete |
+| 16 | white_yellow_mug × push_to × middle | 5 | 3,625 | Complete |
+
+Each pilot reuses the formal Gate 5 replay, samples five distinct deterministic
+initial states, records `agentview` and `eye_in_hand` images at 128×128, and
+passes the independent HDF5 and LeRobot QC checks. The lightweight collection
+records are tracked in:
+
+- `data/training/libero36_feasible_v1/inventory.json`
+- `data/training/libero36_feasible_v1/manifest.json`
+- `data/demos/libero36_expansion_plan_v1.json`
+- `data/demos/libero36_task*_5_success_pilot_v1/manifest.json`
+- `data/demos/libero36_task*_5_success_pilot_v1/lerobot_qc.json`
+
+Raw HDF5 and LeRobot directories are intentionally not committed to GitHub.
+They are stored in the Hugging Face dataset repository
+[`Alllvinnn/smolvla-libero-compositional-generalization`](https://huggingface.co/datasets/Alllvinnn/smolvla-libero-compositional-generalization)
+at revision `c237443e`.
+
+To retrieve the externally stored dataset (with the Hugging Face CLI):
+
+```bash
+hf download Alllvinnn/smolvla-libero-compositional-generalization \
+  --type dataset --revision c237443e --local-dir datasets/hf_snapshot
+```
+
+The GitHub repository contains only protocols, manifests, inventories, QC
+reports, and acquisition metadata; large binary artifacts remain on Hugging
+Face to keep Git history lightweight.
 
 ## Research question
 

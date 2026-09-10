@@ -1,0 +1,13 @@
+{
+  "passed": true,
+  "failures": [],
+  "episodes": 5,
+  "frames": 3290,
+  "expected_frames": 3290,
+  "feature_checks": {
+    "two_camera_features": true,
+    "state_dim": true,
+    "action_dim": true
+  },
+  "path": "datasets/lerobot/libero36_task0_success_pilot_v1"
+}

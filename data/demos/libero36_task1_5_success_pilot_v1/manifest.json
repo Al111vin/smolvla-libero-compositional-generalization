@@ -1,0 +1,83 @@
+{
+  "artifact_kind": "libero36_task0_success_demonstration_pilot",
+  "episodes_qc": [
+    {
+      "action_max_abs_diff": 0.0,
+      "finite": true,
+      "frames": 560,
+      "passed": true,
+      "reset_attempts": 1,
+      "reward_positive_steps": 109,
+      "seed": 371000,
+      "success": true,
+      "terminal_success_hold": true
+    },
+    {
+      "action_max_abs_diff": 0.0,
+      "finite": true,
+      "frames": 560,
+      "passed": true,
+      "reset_attempts": 1,
+      "reward_positive_steps": 108,
+      "seed": 371004,
+      "success": true,
+      "terminal_success_hold": true
+    },
+    {
+      "action_max_abs_diff": 0.0,
+      "finite": true,
+      "frames": 560,
+      "passed": true,
+      "reset_attempts": 1,
+      "reward_positive_steps": 108,
+      "seed": 371005,
+      "success": true,
+      "terminal_success_hold": true
+    },
+    {
+      "action_max_abs_diff": 0.0,
+      "finite": true,
+      "frames": 560,
+      "passed": true,
+      "reset_attempts": 1,
+      "reward_positive_steps": 109,
+      "seed": 371009,
+      "success": true,
+      "terminal_success_hold": true
+    },
+    {
+      "action_max_abs_diff": 0.0,
+      "finite": true,
+      "frames": 560,
+      "passed": true,
+      "reset_attempts": 1,
+      "reward_positive_steps": 108,
+      "seed": 371011,
+      "success": true,
+      "terminal_success_hold": true
+    }
+  ],
+  "formal_gate5_evidence_modified": false,
+  "formal_original_path": "/root/smolvla-libero-compositional-generalization/results/libero36_gate5_official_v6/task_001_put_on_top/original.npz",
+  "formal_replay_path": "/root/smolvla-libero-compositional-generalization/results/libero36_gate5_official_v6/task_001_put_on_top/replay.npz",
+  "hdf5_qc": {
+    "bytes": 171697410,
+    "episodes": 5,
+    "failures": [],
+    "frames": 2800,
+    "passed": true,
+    "sha256": "739d2471a3f522e45aa901cfeb88b4496274c8fbad380c5394a73c7d7972fe70"
+  },
+  "language_instruction": "pick up the akita black bowl and place it on the plate in the middle region",
+  "layout_id": 1,
+  "passed": true,
+  "schema_version": 1,
+  "seeds": [
+    371000,
+    371004,
+    371005,
+    371009,
+    371011
+  ],
+  "task_id": 1
+}

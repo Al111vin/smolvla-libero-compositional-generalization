@@ -1,0 +1,112 @@
+{
+  "protocol": "LIBERO-36 feasible training inventory v1",
+  "formal_gate5_excluded_task_ids": [
+    15,
+    17,
+    33,
+    35
+  ],
+  "expected_feasible_task_ids": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    16,
+    18,
+    19,
+    20,
+    21,
+    22,
+    23,
+    24,
+    25,
+    26,
+    27,
+    28,
+    29,
+    30,
+    31,
+    32,
+    34
+  ],
+  "available_libero36_task_ids": [
+    16
+  ],
+  "missing_libero36_task_ids": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    18,
+    19,
+    20,
+    21,
+    22,
+    23,
+    24,
+    25,
+    26,
+    27,
+    28,
+    29,
+    30,
+    31,
+    32,
+    34
+  ],
+  "datasets": [
+    {
+      "name": "libero36_task16_success_pilot_v1",
+      "task_ids": [
+        16
+      ],
+      "path": "datasets/lerobot/libero36_task16_success_pilot_v1",
+      "episodes": 5,
+      "frames": 3625,
+      "status": "usable_pilot"
+    },
+    {
+      "name": "libero_spatial_task0",
+      "task_ids": [],
+      "path": "datasets/lerobot/libero_spatial_task0",
+      "episodes": 50,
+      "frames": 5068,
+      "status": "legacy_non_libero36_not_included"
+    },
+    {
+      "name": "libero_spatial_loco_task3_train",
+      "task_ids": [],
+      "path": "datasets/lerobot/libero_spatial_loco_task3_train",
+      "status": "legacy_non_libero36_not_included"
+    },
+    {
+      "name": "libero_spatial_loco_task6_train",
+      "task_ids": [],
+      "path": "datasets/lerobot/libero_spatial_loco_task6_train",
+      "status": "legacy_non_libero36_not_included"
+    }
+  ],
+  "gate5_source_unchanged": true
+}
