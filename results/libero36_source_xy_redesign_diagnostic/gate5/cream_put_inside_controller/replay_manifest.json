@@ -1,0 +1,14 @@
+{
+  "all_replays_passed": true,
+  "completed_replays": 3,
+  "gate": 5,
+  "layout_id": 1,
+  "passed_replays": 3,
+  "protocol_version": "libero_36_proxy_tabletop_draft_v5",
+  "summary_csv": "/tmp/libero36_gate5_cream_tasks30_32_selected/replay_summary.csv",
+  "task_ids": [
+    30,
+    31,
+    32
+  ]
+}

@@ -1,0 +1,101 @@
+{
+  "candidate_protocol": "libero_36_source_xy_diagnostic_c1_v1",
+  "coverage": "8/8",
+  "diagnostic_only": true,
+  "official_data_modified": false,
+  "passed": 8,
+  "policies": [
+    {
+      "finger": "right",
+      "height": 0.01,
+      "layout_id": 2,
+      "slot": 0,
+      "task_id": 24,
+      "yaw": -40
+    },
+    {
+      "finger": "left",
+      "height": 0.01,
+      "layout_id": 2,
+      "slot": 0,
+      "task_id": 26,
+      "yaw": 10
+    },
+    {
+      "finger": "right",
+      "height": 0.01,
+      "layout_id": 3,
+      "slot": 1,
+      "task_id": 24,
+      "yaw": -75
+    },
+    {
+      "finger": "left",
+      "height": 0.01,
+      "layout_id": 0,
+      "slot": 2,
+      "task_id": 26,
+      "yaw": 60
+    },
+    {
+      "finger": "right",
+      "height": 0.02,
+      "layout_id": 1,
+      "slot": 3,
+      "task_id": 24,
+      "yaw": -90
+    },
+    {
+      "finger": "right",
+      "height": 0.01,
+      "layout_id": 1,
+      "slot": 3,
+      "task_id": 26,
+      "yaw": -75
+    },
+    {
+      "finger": "right",
+      "height": 0.01,
+      "layout_id": 1,
+      "slot": 0,
+      "task_id": 35,
+      "yaw": -40
+    },
+    {
+      "finger": "right",
+      "height": 0.01,
+      "layout_id": 0,
+      "slot": 3,
+      "task_id": 33,
+      "yaw": 0
+    }
+  ],
+  "protocol": "libero_36_source_xy_selected_reach_policy_v1",
+  "selected_policy_count": 8,
+  "source_ranges": {
+    "0": [
+      0.04,
+      -0.244,
+      0.11,
+      -0.182
+    ],
+    "1": [
+      0.04,
+      -0.102,
+      0.11,
+      -0.04
+    ],
+    "2": [
+      0.04,
+      0.04,
+      0.11,
+      0.102
+    ],
+    "3": [
+      0.04,
+      0.182,
+      0.11,
+      0.244
+    ]
+  }
+}

@@ -1,0 +1,20 @@
+{
+  "actions": 461,
+  "checks": {
+    "contact_and_goal_trace_exact": true,
+    "no_nonselected_target_contact": true,
+    "no_robot_distractor_contact": true,
+    "no_unexpected_object_contact": true,
+    "state_exact": true,
+    "state_within_tolerance": true,
+    "support_all": true,
+    "terminal_relation_hold": true,
+    "terminal_xy_hold": true
+  },
+  "failed_checks": [],
+  "helper": "scripts.calibrate_libero_36_push.replay_attempt",
+  "layout_id": 1,
+  "passed": true,
+  "state_max_abs_diff": 0.0,
+  "task_id": 26
+}

@@ -1,0 +1,28 @@
+{
+  "deterministic_replay": true,
+  "exact_array_matches": {
+    "actions": true,
+    "grasp_proxy": true,
+    "left_contact": true,
+    "nonselected_robot_target_contact": true,
+    "raw_initial_state": true,
+    "relation": true,
+    "right_contact": true,
+    "robot_distractor_contact": true,
+    "settle_actions": true,
+    "settle_source_official": true,
+    "settle_source_xy": true,
+    "settle_states": true,
+    "settle_target_table_support": true,
+    "states": true,
+    "table_support": true,
+    "unexpected_object_contact": true,
+    "xy_in_target": true
+  },
+  "failed_checks": [],
+  "layout_id": 1,
+  "note": "The formal calibrator recorded the attempt and replayed the saved actions from the same frozen initial state. All required state, contact, support, and goal traces match exactly.",
+  "replay_passed": true,
+  "task_id": 6,
+  "trajectory_state_max_abs": 0.0
+}

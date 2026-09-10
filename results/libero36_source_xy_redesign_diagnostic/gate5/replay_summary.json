@@ -1,0 +1,39 @@
+{
+  "actions": 461,
+  "checks": {
+    "all_contact_and_goal_traces_exact": true,
+    "done_first_occurs_with_goal": true,
+    "no_grasp": true,
+    "no_nonselected_target_contact": true,
+    "no_robot_distractor_contact": true,
+    "no_unexpected_object_contact": true,
+    "support_all": true,
+    "terminal_relation_hold": true,
+    "terminal_state_exact": true,
+    "terminal_support_hold": true,
+    "terminal_xy_hold": true,
+    "trajectory_state_exact": true,
+    "trajectory_within_tolerance": true
+  },
+  "done_action_count": 22,
+  "failed_checks": [],
+  "first_done_action": 440,
+  "layout_id": 1,
+  "note": "done=True denotes the achieved goal relation; replay continues through terminal hold.",
+  "replay_passed": true,
+  "seed": 621000,
+  "task_id": 26,
+  "terminal_state_max_abs_diff": 0.0,
+  "trace_matches": {
+    "grasp_proxy": true,
+    "left_contact": true,
+    "nonselected_robot_target_contact": true,
+    "relation": true,
+    "right_contact": true,
+    "robot_distractor_contact": true,
+    "table_support": true,
+    "unexpected_object_contact": true,
+    "xy_in_target": true
+  },
+  "trajectory_state_max_abs_diff": 0.0
+}

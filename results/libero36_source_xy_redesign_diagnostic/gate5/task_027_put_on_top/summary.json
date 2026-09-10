@@ -1,0 +1,17 @@
+{
+  "actions": 557,
+  "carry_height_above_plate_m": 0.15,
+  "carry_max_steps": 240,
+  "failed_checks": [],
+  "grasp_height_offset_m": 0.0,
+  "layout_id": 1,
+  "object": "cream_cheese",
+  "recording_passed": true,
+  "replay_passed": true,
+  "skill": "put_on_top",
+  "spatial_region": "left",
+  "task_id": 27,
+  "trajectory_state_max_abs_diff": 0.0,
+  "vertical_lift_m": 0.11,
+  "yaw_degrees": -45.0
+}

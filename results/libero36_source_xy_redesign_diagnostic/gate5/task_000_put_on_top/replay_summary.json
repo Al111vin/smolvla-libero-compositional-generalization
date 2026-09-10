@@ -1,0 +1,37 @@
+{
+  "actions": 658,
+  "checks": {
+    "all_recorded_traces_exact": true,
+    "done_exactly_matches_relation": true,
+    "goal_acquired": true,
+    "grasp_released_final": true,
+    "initial_state_exact": true,
+    "no_robot_distractor_contact": true,
+    "no_robot_plate_contact": true,
+    "no_unexpected_object_contact": true,
+    "receiver_region_preserved": true,
+    "terminal_relation_hold": true,
+    "trajectory_state_exact": true
+  },
+  "done_action_count": 109,
+  "failed_checks": [],
+  "first_done_action": 550,
+  "initial_state_max_abs_diff": 0.0,
+  "layout_id": 1,
+  "replay_passed": true,
+  "seed": 361000,
+  "task_id": 0,
+  "trace_matches": {
+    "eef_xyz": true,
+    "grasp_proxy": true,
+    "gripper_qpos": true,
+    "left_contact": true,
+    "relation": true,
+    "right_contact": true,
+    "robot_distractor_contact": true,
+    "robot_plate_contact": true,
+    "target_xyz": true,
+    "unexpected_object_contact": true
+  },
+  "trajectory_state_max_abs_diff": 0.0
+}
