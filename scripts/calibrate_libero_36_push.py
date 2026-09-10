@@ -1370,6 +1370,8 @@ def desired_eef_for_pad(
     return eef_xyz(obs) + (np.asarray(desired_pad) - current_pad)
 
 
+ACTIVE_GRIPPER_ACTION = -1.0
+
 def move_pad_to(
     recorder: AttemptRecorder,
     obs,
@@ -1380,8 +1382,10 @@ def move_pad_to(
     phase: str,
     max_steps: int,
     position_cap: float,
-    gripper_action: float = -1.0,
+    gripper_action: float | None = None,
 ) -> tuple[object, bool, dict[str, float | int | bool]]:
+    if gripper_action is None:
+        gripper_action = ACTIVE_GRIPPER_ACTION
     stable = 0
     longest_stable = 0
     position_errors = []
@@ -1449,6 +1453,8 @@ def run_original_attempt(
     ROTATION_AWARE_PAD_TARGET = bool(
         candidate.get("rotation_aware_pad_target", False)
     )
+    global ACTIVE_GRIPPER_ACTION
+    ACTIVE_GRIPPER_ACTION = float(candidate.get("active_gripper_action", -1.0))
     target = target_instance(row)
     env = reset_validator.make_environment(Path(row["bddl_path"]))
     recorder = None
@@ -1469,6 +1475,19 @@ def run_original_attempt(
             )
             settled["desired_rotation"] = (
                 yaw_rotation @ settled["desired_rotation"]
+            )
+        # Diagnostic candidates may add a world-frame pitch after yaw.
+        desired_pitch = float(candidate.get("desired_pitch_degrees", 0.0))
+        if desired_pitch:
+            pitch = math.radians(desired_pitch)
+            pitch_rotation = np.array(
+                [[math.cos(pitch), 0.0, math.sin(pitch)],
+                 [0.0, 1.0, 0.0],
+                 [-math.sin(pitch), 0.0, math.cos(pitch)]],
+                dtype=np.float64,
+            )
+            settled["desired_rotation"] = (
+                pitch_rotation @ settled["desired_rotation"]
             )
         obs = settled["obs"]
         geometry = contact_geometry(env, target)
@@ -1586,6 +1605,10 @@ def run_original_attempt(
                 pad_z,
             ]
         )
+        if candidate.get("behind_pad_offset_xy") is not None:
+            behind_pad[:2] = start_target[:2] + np.asarray(
+                candidate["behind_pad_offset_xy"], dtype=np.float64
+            ).reshape(2)
         approach_lateral_offset = candidate.get(
             "approach_lateral_offset_xy"
         )
@@ -1706,8 +1729,9 @@ def run_original_attempt(
                     f"Invalid contact search inner steps: {contact_search_inner_steps}"
                 )
             for search_index in range(search_steps):
-                contact_pad[:2] += (
-                    approach_direction * CONTACT_SEARCH_INCREMENT_M
+                contact_pad[:2] += approach_direction * float(
+                    candidate.get("contact_search_increment_m",
+                                  CONTACT_SEARCH_INCREMENT_M)
                 )
                 search_yaw = float(
                     candidate.get("contact_search_yaw_degrees", 0.0)
@@ -1846,6 +1870,13 @@ def run_original_attempt(
             route_index = 0
             segment_start = start_target[:2].copy()
             segment_distance = distance
+            # Routed pushes must begin along the first waypoint segment.
+            if route_points is not None and len(route_points) > 0:
+                first_segment = np.asarray(route_points[0], dtype=np.float64).reshape(2) - segment_start
+                first_distance = float(np.linalg.norm(first_segment))
+                if first_distance > 1e-9:
+                    segment_distance = first_distance
+                    direction = first_segment / first_distance
             push_base_rotation = (
                 approach_rotation
                 if approach_yaw
@@ -1968,7 +1999,7 @@ def run_original_attempt(
                     push_rotation,
                     "push",
                     push_inner_steps,
-                    0.14,
+                    float(candidate.get("push_position_cap", 0.14)),
                 )
                 relation, xy_ok = target_region_status(env, obs, row)
                 if relation and xy_ok:
@@ -2006,6 +2037,16 @@ def run_original_attempt(
                         - controller_destination_tolerance
                         or trigger_reached
                     ):
+                        if candidate.get("debug_route_transition", False):
+                            print(
+                                "ROUTE_TRANSITION",
+                                route_index,
+                                live_xy.tolist(),
+                                progress,
+                                segment_distance,
+                                trigger_reached,
+                                flush=True,
+                            )
                         if route_index + 1 >= len(route_points):
                             break
                         route_index += 1
@@ -2066,6 +2107,24 @@ def run_original_attempt(
                             current_pad = finger_positions(
                                 env.env, geometry
                             )[selected]
+                            route_lift = float(candidate.get('route_transition_lift_m', 0.0))
+                            if route_lift > 0.0:
+                                lift_pad = current_pad.copy()
+                                lift_pad[2] += route_lift
+                                obs, _, _ = move_pad_to(
+                                    recorder, obs, geometry, selected, lift_pad,
+                                    push_rotation, "route_lift", int(candidate.get('route_lift_steps', 20)), 0.16
+                                )
+                                lift_travel = float(candidate.get('route_transition_lift_travel_m', 0.0))
+                                if lift_travel > 0.0:
+                                    travel_pad = finger_positions(env.env, geometry)[selected].copy()
+                                    travel_pad[:2] += direction * lift_travel
+                                    obs, _, _ = move_pad_to(
+                                        recorder, obs, geometry, selected, travel_pad,
+                                        push_rotation, "route_lift_travel", int(candidate.get('route_lift_travel_steps', 30)), 0.16
+                                    )
+                                current_pad = finger_positions(env.env, geometry)[selected]
+                                current_pad[2] -= route_lift
                             if candidate.get("route_skip_reacquire", False):
                                 yaw_spec = candidate.get(
                                     "route_transition_yaw_delta_degrees", 0.0
@@ -2101,6 +2160,87 @@ def run_original_attempt(
                                         contact_follow_penetration,
                                     )
                                 )
+                                if candidate.get(chr(34)+'route_recontact_reset_to_target'+chr(34), False):
+                                    reset_offset = np.asarray(candidate.get(chr(34)+'route_recontact_offset_xy'+chr(34), contact_offset_xy), dtype=np.float64).reshape(2)
+                                    contact_pad[:2] = live_xy + reset_offset
+                                # Optional low-speed recontact phase for a
+                                # route transition.  A direct direction
+                                # change can leave the pad a few millimetres
+                                # away from the object; continuing the push
+                                # then silently loses the selected contact.
+                                # Search only along the new push direction
+                                # and stop on the first strict-safe contact.
+                                if candidate.get(
+                                    "route_transition_recontact_search",
+                                    False,
+                                ):
+                                    recontact_steps = int(
+                                        candidate.get(
+                                            "route_transition_recontact_steps",
+                                            search_steps,
+                                        )
+                                    )
+                                    recontact_ok = False
+                                    for _ in range(max(0, recontact_steps)):
+                                        recontact_sign = float(
+                                            candidate.get(
+                                                "route_transition_recontact_sign",
+                                                1.0,
+                                            )
+                                        )
+                                        recontact_increment = float(
+                                            candidate.get(
+                                                chr(34)+'route_transition_recontact_increment_m'+chr(34),
+                                                CONTACT_SEARCH_INCREMENT_M,
+                                            )
+                                        )
+                                        contact_pad[:2] += (
+                                            direction
+                                            * recontact_sign
+                                            * recontact_increment
+                                        )
+                                        obs, _, _ = move_pad_to(
+                                            recorder,
+                                            obs,
+                                            geometry,
+                                            selected,
+                                            contact_pad,
+                                            push_rotation,
+                                            "route_recontact_search",
+                                            5,
+                                            0.12,
+                                        )
+                                        selected_now = (
+                                            recorder.left_contact[-1]
+                                            if selected == "left"
+                                            else recorder.right_contact[-1]
+                                        )
+                                        opposite_now = (
+                                            recorder.right_contact[-1]
+                                            if selected == "left"
+                                            else recorder.left_contact[-1]
+                                        )
+                                        if (
+                                            selected_now
+                                            and not opposite_now
+                                            and not recorder.grasp_proxy[-1]
+                                            and not recorder.nonselected_robot_target_contact[-1]
+                                            and not recorder.robot_distractor_contact[-1]
+                                        ):
+                                            recontact_ok = True
+                                            break
+                                        if (
+                                            opposite_now
+                                            or recorder.grasp_proxy[-1]
+                                            or recorder.nonselected_robot_target_contact[-1]
+                                            or recorder.robot_distractor_contact[-1]
+                                        ):
+                                            break
+                                    if not recontact_ok:
+                                        # Let the normal terminal checks record
+                                        # this as an incomplete route rather
+                                        # than pushing without a verified pad.
+                                        break
                                 continue
                             route_pad_height_offset = float(
                                 candidate.get(
@@ -3058,7 +3198,12 @@ def run_attempt(
                     "protocol": CALIBRATION_PROTOCOL,
                     "task_id": row["task_id"],
                     "layout_id": CALIBRATION_LAYOUT_ID,
-                    "candidate": candidate,
+                    "candidate": {
+                        "candidate_index": candidate.get("candidate_index", 0),
+                        "pusher_finger": candidate.get("pusher_finger"),
+                        "active_action_limit": candidate.get("active_action_limit"),
+                        "controller": candidate.get("controller", "deterministic_closed_loop"),
+                    },
                     "seed": seed,
                     "diagnostic_only": True,
                 }
