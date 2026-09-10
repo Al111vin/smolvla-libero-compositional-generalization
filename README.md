@@ -1,3 +1,21 @@
+---
+pretty_name: SmolVLA LIBERO Compositional Generalization Benchmark
+task_categories:
+  - robotics
+language:
+  - en
+tags:
+  - robotics
+  - libero
+  - smolvla
+  - vision-language-action
+  - lerobot
+  - compositional-generalization
+  - benchmark
+  - imitation-learning
+license: other
+---
+
 # SmolVLA × LIBERO Compositional Generalization
 
 This repository studies whether **SmolVLA** can execute familiar robotic
@@ -6,10 +24,11 @@ It combines closed-loop LIBERO evaluation, controlled leave-one-combination-out
 (LOCO) experiments, failure diagnosis, and the construction of a larger
 36-task compositional benchmark.
 
-> **Current status:** the V4 LOCO evaluation is complete. Development is now
-> focused on validating a LIBERO registered-object 36-task proxy benchmark.
-> Gates 1–4 have passed; Gate 5 physical feasibility is at **22/36** logical
-> tasks. Demonstration collection and new SmolVLA training have not started.
+> **Current status:** the V4 LOCO evaluation is complete. The registered-object
+> 36-task benchmark has passed Gates 1–4. Under the strict Gate 5 review,
+> **32/36 logical tasks are feasible**; Tasks 15, 17, 33, and 35 are retained
+> as physically infeasible cases. Demonstration collection and new SmolVLA
+> training have not started.
 
 ## Research question
 
@@ -93,16 +112,20 @@ trained models for this new benchmark.
 | 2 | Representative environment, determinism, and camera smoke tests | Passed (12/12) |
 | 3 | Complete reset audit | Passed (720/720) |
 | 4 | Positive and isolated-negative goal semantics | Passed (96/96) |
-| 5 | Exact, safely replayable physical-feasibility trajectories | **In progress (22/36)** |
+| 5 | Exact, safely replayable physical-feasibility trajectories | **32/36 feasible; 4 physically infeasible** |
 
-Gate 5 currently includes replayable evidence for tasks 0–14, 18–23, and 26
-on layout 1. The latest validated batch, tasks 21–23 (`alphabet_soup`
-`put_inside`), passed trajectory checks and exact replay with zero state
-reconstruction error. The active milestone is to reach 36/36 before collecting
-demonstrations or training a new SmolVLA policy. Candidate work that has not
-passed exact replay and provenance checks is deliberately excluded from the
-official count. Current feasibility work targets tasks 27–29
-(`cream_cheese put_on_top`).
+The strict Gate 5 decision records 32 feasible tasks and four physically
+infeasible tasks: 15 (`white_yellow_mug push_to left`), 17
+(`white_yellow_mug push_to right`), 33 (`cream_cheese push_to left`), and 35
+(`cream_cheese push_to right`). Failed trajectories, contact traces, and
+diagnostic attempts for those cases are retained and are not relabeled as
+successes. Replacement tasks, if explored, are reported separately and do not
+change the original LIBERO-36 count.
+
+Demonstration collection and training remain blocked until the feasible-task
+set, evidence manifests, and data-collection protocol are frozen. Candidate
+work that has not passed exact replay and provenance checks is deliberately
+excluded from the official result.
 
 The full benchmark definition, camera contract, success predicates, gate
 criteria, and current evidence are recorded in
@@ -123,6 +146,8 @@ branch.
 │   ├── V3_TASK0_RESULTS.md
 │   ├── V4_LOCO_*.md
 │   ├── LIBERO_36_PROXY_TASK_PROTOCOL.md
+│   ├── LIBERO_36_GATE5_OFFICIAL_V6_PROTOCOL.md
+│   └── GATE5_TASK15_CONTACT_DIAGNOSIS.md
 │   └── libero36_source_xy_redesign_diagnostic/
 ├── scripts/                       # generation, validation, training, and evaluation
 ├── patches/                       # compatibility patches
@@ -174,14 +199,22 @@ python -m pip install -r requirements.txt
 LIBERO assets and pretrained SmolVLA checkpoints are not stored in this
 repository and must be obtained separately from their upstream projects.
 
+## License and upstream assets
+
+No standalone license grant has been selected for this benchmark release yet.
+The repository therefore uses the Hugging Face `other` license label until a
+license is chosen. LIBERO assets, upstream demonstrations, and pretrained
+SmolVLA weights are not redistributed here; users must follow the terms of the
+respective upstream projects.
+
 ## Project roadmap
 
 - [x] Build and validate the SmolVLA–LIBERO training/evaluation pipeline
 - [x] Establish a successful single-task V3 baseline
 - [x] Run the frozen two-fold V4 LOCO evaluation
 - [x] Freeze the 36-task proxy benchmark and pass Gates 1–4
-- [ ] Complete Gate 5 physical feasibility for all 36 tasks
-- [ ] Freeze the push lift threshold
+- [x] Complete the strict Gate 5 feasibility decision (32 feasible, 4 infeasible)
+- [ ] Freeze the evidence manifests and collection protocol for the 32 feasible tasks
 - [ ] Collect balanced demonstrations under the frozen camera contract
 - [ ] Create value-seen / tuple-unseen training splits
 - [ ] Train multi-seed SmolVLA policies on the 36-task proxy
