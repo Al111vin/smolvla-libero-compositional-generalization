@@ -158,18 +158,39 @@ def validate(path: Path) -> dict:
 
 
 def main():
-    ap = argparse.ArgumentParser(); ap.add_argument("--output-root", type=Path, default=Path("data/demos/libero36_task0_5_success_pilot_v1")); ap.add_argument("--overwrite", action="store_true"); args = ap.parse_args()
+    global TASK_ID, LANGUAGE, SEEDS
+    ap = argparse.ArgumentParser()
+    ap.add_argument("--task-id", type=int, default=TASK_ID)
+    ap.add_argument("--seeds", type=int, nargs="+", default=None)
+    ap.add_argument("--output-root", type=Path, default=None)
+    ap.add_argument("--overwrite", action="store_true")
+    args = ap.parse_args()
+    TASK_ID = int(args.task_id)
+    if args.seeds is not None:
+        SEEDS = tuple(int(x) for x in args.seeds)
+    if len(SEEDS) != 5:
+        raise ValueError("exactly five seeds are required")
+    rows = reset_validator.read_layout_spec(Path("data/libero_36/layout_spec.csv"))
+    lang_rows = [r for r in rows if int(r["task_id"]) == TASK_ID and int(r["layout_id"]) == LAYOUT_ID]
+    if len(lang_rows) != 1:
+        raise RuntimeError(f"expected one layout row for task {TASK_ID}")
+    LANGUAGE = str(lang_rows[0]["language"]).lower()
+    if args.output_root is None:
+        args.output_root = Path(f"data/demos/libero36_task{TASK_ID}_5_success_pilot_v1")
     out = args.output_root.resolve()
     if out.exists():
         if not args.overwrite: raise FileExistsError(out)
         shutil.rmtree(out)
     out.mkdir(parents=True)
-    plan_path = Path("results/libero36_gate5_official_v6/task_000_put_on_top/replay.npz").resolve()
-    original_path = Path("results/libero36_gate5_official_v6/task_000_put_on_top/original.npz").resolve()
+    matches = sorted(Path("results/libero36_gate5_official_v6").glob(f"task_{TASK_ID:03d}_*/replay.npz"))
+    if len(matches) != 1:
+        raise RuntimeError(f"expected one formal replay for task {TASK_ID}, got {matches}")
+    plan_path = matches[0].resolve()
+    original_path = plan_path.with_name("original.npz")
     with np.load(plan_path, allow_pickle=False) as z:
         plan = {k: z[k] for k in z.files}
     row = row_for_task(); plan["path"] = str(plan_path); plan["bddl_path"] = row["bddl_path"]
-    h5 = out / "task_000_layout_1_5_success.hdf5"; results = []
+    h5 = out / f"task_{TASK_ID:03d}_layout_1_5_success.hdf5"; results = []
     with h5py.File(h5, "w") as handle:
         data = handle.create_group("data")
         data.attrs["bddl_file_name"] = str(row["bddl_path"]); data.attrs["env_name"] = "Libero_Tabletop_Manipulation"
