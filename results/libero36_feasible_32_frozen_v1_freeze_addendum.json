@@ -1,0 +1,262 @@
+{
+  "freeze_addendum_version": "libero36-feasible-32-unified-dataset-v1",
+  "created_epoch": 1789113001.9276385,
+  "training_prep_branch": "training-prep-v1",
+  "conversion_commit": "3f03a4c6f8a779e9e67a82f4641b28cedb716505",
+  "source_freeze_sha256": "57084666d0c42285caef1918fc6bd92baaf4a09bbe4aa977cc4dc46b021ce868",
+  "source_provenance_sha256": "b2f224846a67f233b1fb5576af84f8ab0ba6c30fbfbdeb29e7e6c8dce7ed9e23",
+  "split_csv": {
+    "path": "data/training/libero36_feasible_v1/splits/all_32_tasks_5episodes_v1.csv",
+    "bytes": 6799,
+    "sha256": "cd82896d73415a766b3f7dd7e13998ba5a08986a0a05cb75eaba45d0859c0b8a"
+  },
+  "conversion_manifest_csv": {
+    "path": "results/libero36_feasible_32_frozen_v1_conversion_manifest.csv",
+    "bytes": 56020,
+    "sha256": "92fdcfd5e85d8483aaafb42d12a2c2da8161c98e9104f645ef280eb25909fc28"
+  },
+  "unified_dataset": {
+    "path": "datasets/lerobot/libero36_feasible_32_frozen_v1",
+    "task_count": 32,
+    "episodes": 160,
+    "frames": 101660,
+    "qc_report": "results/libero36_feasible_32_frozen_v1_qc.json",
+    "qc_report_sha256": "40f9f596ec896ebdeddf81e2f13d0dbc795ba194a99993c181c6c7367742503b",
+    "total_bytes": 3749718405,
+    "files": [
+      {
+        "path": "datasets/lerobot/libero36_feasible_32_frozen_v1/data/chunk-000/file-000.parquet",
+        "bytes": 97894223,
+        "sha256": "3355b7671696d47a14c3f872c1a7e25c8cec03831a37a8ba77f8734ddb9db189"
+      },
+      {
+        "path": "datasets/lerobot/libero36_feasible_32_frozen_v1/data/chunk-000/file-001.parquet",
+        "bytes": 86251007,
+        "sha256": "c72d46bcb68c7f6a11f08fa95117fc449a6b8c234ae5a83b52c24b8414f94d30"
+      },
+      {
+        "path": "datasets/lerobot/libero36_feasible_32_frozen_v1/data/chunk-000/file-002.parquet",
+        "bytes": 85088931,
+        "sha256": "9311d120aaa44e4bbeb1fa901560b144a85f75c6a986295b40aefa3c48cc6554"
+      },
+      {
+        "path": "datasets/lerobot/libero36_feasible_32_frozen_v1/data/chunk-000/file-003.parquet",
+        "bytes": 88736779,
+        "sha256": "a08dff464c99bb2f6a6eb3111e53baafa9176d8ba01d9ba1c60ce0fe77008844"
+      },
+      {
+        "path": "datasets/lerobot/libero36_feasible_32_frozen_v1/data/chunk-000/file-004.parquet",
+        "bytes": 91912689,
+        "sha256": "b22441f3e7b148b79e97cf0aa5a30bdc6aa94237f77f826a33263681686458b1"
+      },
+      {
+        "path": "datasets/lerobot/libero36_feasible_32_frozen_v1/data/chunk-000/file-005.parquet",
+        "bytes": 87707144,
+        "sha256": "34ab3e700e833c5bf9cae47e37448ce155f02b806009f107106a273483dce2ed"
+      },
+      {
+        "path": "datasets/lerobot/libero36_feasible_32_frozen_v1/data/chunk-000/file-006.parquet",
+        "bytes": 91903322,
+        "sha256": "8c787f1f94810da0c1a9967bedba7512cdeff5ce1958dd351d500b8ffc11ac64"
+      },
+      {
+        "path": "datasets/lerobot/libero36_feasible_32_frozen_v1/data/chunk-000/file-007.parquet",
+        "bytes": 98141184,
+        "sha256": "a8b6de7c55f0e41049fe9a23df4c433e0017aa710dc58ef2b236d321bb4f6307"
+      },
+      {
+        "path": "datasets/lerobot/libero36_feasible_32_frozen_v1/data/chunk-000/file-008.parquet",
+        "bytes": 99791088,
+        "sha256": "8b237eb2d37315cd56dc57de0d9dc7e0c9a3b792cd48c969d471c1fae832f396"
+      },
+      {
+        "path": "datasets/lerobot/libero36_feasible_32_frozen_v1/data/chunk-000/file-009.parquet",
+        "bytes": 89190789,
+        "sha256": "9fe9cd5793c551527b849ceaf25fda5f5f4e1d7f4d46742e28ab59e329f55a23"
+      },
+      {
+        "path": "datasets/lerobot/libero36_feasible_32_frozen_v1/data/chunk-000/file-010.parquet",
+        "bytes": 100506169,
+        "sha256": "e315c97339273887d52f4f635d16e97f7ac22c79155080bd8073a0a8b2a2ce5a"
+      },
+      {
+        "path": "datasets/lerobot/libero36_feasible_32_frozen_v1/data/chunk-000/file-011.parquet",
+        "bytes": 85722642,
+        "sha256": "623a62c3d4ab6f6c25bbc8c28d24a6efa4cd00ccfd169908e9c5e43063de9d0c"
+      },
+      {
+        "path": "datasets/lerobot/libero36_feasible_32_frozen_v1/data/chunk-000/file-012.parquet",
+        "bytes": 85320781,
+        "sha256": "1ac1c2f72ca4558445c72e5a4d26281f1269424464c797fae5c9a4f1b6c8a346"
+      },
+      {
+        "path": "datasets/lerobot/libero36_feasible_32_frozen_v1/data/chunk-000/file-013.parquet",
+        "bytes": 104424814,
+        "sha256": "152f79bdfbdb935ffcb6e3d55455929112735a8f11a7242d063dba70e7202cc3"
+      },
+      {
+        "path": "datasets/lerobot/libero36_feasible_32_frozen_v1/data/chunk-000/file-014.parquet",
+        "bytes": 88077860,
+        "sha256": "9a7e61dbb87c6fca53877e7edd28a814512124b517dce6c564948ae648bbfa06"
+      },
+      {
+        "path": "datasets/lerobot/libero36_feasible_32_frozen_v1/data/chunk-000/file-015.parquet",
+        "bytes": 92546403,
+        "sha256": "8afa97244ab9f9e1ae6bfbb92e6baa6d5be635be5cfb5549af8a102ac57fe138"
+      },
+      {
+        "path": "datasets/lerobot/libero36_feasible_32_frozen_v1/data/chunk-000/file-016.parquet",
+        "bytes": 91499041,
+        "sha256": "d1a634a5cc7389c6a4f657684f7ce48db05e37057fc04362973d04726ddef044"
+      },
+      {
+        "path": "datasets/lerobot/libero36_feasible_32_frozen_v1/data/chunk-000/file-017.parquet",
+        "bytes": 87919398,
+        "sha256": "151dedda8553045a55a672a5969b63bb510dfd1c4958dbbf332b49cb23cd24aa"
+      },
+      {
+        "path": "datasets/lerobot/libero36_feasible_32_frozen_v1/data/chunk-000/file-018.parquet",
+        "bytes": 92800046,
+        "sha256": "16f51e587dbddc42cb29a95560cf5c7b49ba2edd96ea45a364fdb95244a65a05"
+      },
+      {
+        "path": "datasets/lerobot/libero36_feasible_32_frozen_v1/data/chunk-000/file-019.parquet",
+        "bytes": 102402261,
+        "sha256": "55a089fc5ee024b0284e9439a51949bc309e44af345581cae05d2ac1c138ca8e"
+      },
+      {
+        "path": "datasets/lerobot/libero36_feasible_32_frozen_v1/data/chunk-000/file-020.parquet",
+        "bytes": 90115593,
+        "sha256": "99cb24a10ec41580914f1b451524892a1d8db2a520861bcc61a50b06dd74c088"
+      },
+      {
+        "path": "datasets/lerobot/libero36_feasible_32_frozen_v1/data/chunk-000/file-021.parquet",
+        "bytes": 102735575,
+        "sha256": "189b630edf14a8acea3818c21ac1a058f6051b268cd8f98275a4a8c7dbdc9047"
+      },
+      {
+        "path": "datasets/lerobot/libero36_feasible_32_frozen_v1/data/chunk-000/file-022.parquet",
+        "bytes": 82225819,
+        "sha256": "4c02639a2ca32e3f507de81061406de56fcc2c067436c758cd90946d0b6afaa7"
+      },
+      {
+        "path": "datasets/lerobot/libero36_feasible_32_frozen_v1/data/chunk-000/file-023.parquet",
+        "bytes": 100816609,
+        "sha256": "6a884687bd7806a79182a701b76215eb2207a9b1a15bc389a3cb28df99b26411"
+      },
+      {
+        "path": "datasets/lerobot/libero36_feasible_32_frozen_v1/data/chunk-000/file-024.parquet",
+        "bytes": 90837230,
+        "sha256": "622ad77ffc978b11e7301d48eec0172e3d9881677b90505e3de9882f0f8c0c37"
+      },
+      {
+        "path": "datasets/lerobot/libero36_feasible_32_frozen_v1/data/chunk-000/file-025.parquet",
+        "bytes": 101781005,
+        "sha256": "090327e68e0dc2ef7216dde4561a5d0280404eae24132c4779b9bb7f68530403"
+      },
+      {
+        "path": "datasets/lerobot/libero36_feasible_32_frozen_v1/data/chunk-000/file-026.parquet",
+        "bytes": 86860313,
+        "sha256": "37fc3fb1b1ccac2f9417b79667bd349105ded07a51bb8751e33cff425323f43b"
+      },
+      {
+        "path": "datasets/lerobot/libero36_feasible_32_frozen_v1/data/chunk-000/file-027.parquet",
+        "bytes": 100196395,
+        "sha256": "b107c63eb7fa3e7291fbb5db1fe0035c7d339e35fc67cbc4787c850cf3ed0741"
+      },
+      {
+        "path": "datasets/lerobot/libero36_feasible_32_frozen_v1/data/chunk-000/file-028.parquet",
+        "bytes": 97956175,
+        "sha256": "56d993c1a35c7ec3aa0d2e4d8d3fa15ebbb29cc43cda15954026f350586fb8f3"
+      },
+      {
+        "path": "datasets/lerobot/libero36_feasible_32_frozen_v1/data/chunk-000/file-029.parquet",
+        "bytes": 90979665,
+        "sha256": "f260c46a54271599bcf97cc07f1b3f8d0ebcfbd2774ef0a9d7bc4c99beea33cd"
+      },
+      {
+        "path": "datasets/lerobot/libero36_feasible_32_frozen_v1/data/chunk-000/file-030.parquet",
+        "bytes": 93077194,
+        "sha256": "22dd85d381bf741f268b427e08ed9ebdfabf6e8200bbafddd059b55cf93c399f"
+      },
+      {
+        "path": "datasets/lerobot/libero36_feasible_32_frozen_v1/data/chunk-000/file-031.parquet",
+        "bytes": 97383102,
+        "sha256": "89168fa9422f6caf16065affe4ee3f7fd252a5620cc6fd688bf47523ebb0d01f"
+      },
+      {
+        "path": "datasets/lerobot/libero36_feasible_32_frozen_v1/data/chunk-000/file-032.parquet",
+        "bytes": 84603491,
+        "sha256": "c7f59bc3e2a941f8091e8add0a7e2a4b399832dc16b044be17da15bffcb8e4de"
+      },
+      {
+        "path": "datasets/lerobot/libero36_feasible_32_frozen_v1/data/chunk-000/file-033.parquet",
+        "bytes": 92792190,
+        "sha256": "a72773023b3ae531b68c8b54d11153a84ac4c3f80c2e52561018d247786ba540"
+      },
+      {
+        "path": "datasets/lerobot/libero36_feasible_32_frozen_v1/data/chunk-000/file-034.parquet",
+        "bytes": 74715140,
+        "sha256": "6584fe3e1b6b7dc9efcf7b7cbc068aec6aeaaca498b7bb96015a23c4f185ab75"
+      },
+      {
+        "path": "datasets/lerobot/libero36_feasible_32_frozen_v1/data/chunk-000/file-035.parquet",
+        "bytes": 98742100,
+        "sha256": "b99f60749d891f671f55c8798c54548fce0585310663350f6ed3aefcd679d1ee"
+      },
+      {
+        "path": "datasets/lerobot/libero36_feasible_32_frozen_v1/data/chunk-000/file-036.parquet",
+        "bytes": 88757634,
+        "sha256": "b6bfc370725384dec89509f992cdebdecc8e95473244016fc20d61c1df5fe346"
+      },
+      {
+        "path": "datasets/lerobot/libero36_feasible_32_frozen_v1/data/chunk-000/file-037.parquet",
+        "bytes": 93994424,
+        "sha256": "8b7c2ad7db79867400261966a3214c75e70fd4b4d7285ed194e999c6963a5968"
+      },
+      {
+        "path": "datasets/lerobot/libero36_feasible_32_frozen_v1/data/chunk-000/file-038.parquet",
+        "bytes": 72551360,
+        "sha256": "2f35eb6e10308884da892f5547cd47c385669cf331c7f476884a4a3646e09058"
+      },
+      {
+        "path": "datasets/lerobot/libero36_feasible_32_frozen_v1/data/chunk-000/file-039.parquet",
+        "bytes": 72449903,
+        "sha256": "fc4d899621098ea86e28b1b5bfb621332f3f2fd76ec9190f04460a9f2845d374"
+      },
+      {
+        "path": "datasets/lerobot/libero36_feasible_32_frozen_v1/data/chunk-000/file-040.parquet",
+        "bytes": 87632336,
+        "sha256": "d98f2a429948339de940117df819d31146ee8529846cc821afff0ca81924a7dd"
+      },
+      {
+        "path": "datasets/lerobot/libero36_feasible_32_frozen_v1/meta/episodes/chunk-000/file-000.parquet",
+        "bytes": 656835,
+        "sha256": "6c9bcd68a22def846ee4a7a470fbf5a323e23e6f19e85f550d9f739203286c5d"
+      },
+      {
+        "path": "datasets/lerobot/libero36_feasible_32_frozen_v1/meta/info.json",
+        "bytes": 2672,
+        "sha256": "7c6e4ae3a0e0a66d74a5e04a5459517340035cd27f4dfb4466cf74d1633899ab"
+      },
+      {
+        "path": "datasets/lerobot/libero36_feasible_32_frozen_v1/meta/stats.json",
+        "bytes": 16147,
+        "sha256": "b3f86d946772b830b0af9e6f8d0900a04897b1abf9ce418ec2d59837d4fa526b"
+      },
+      {
+        "path": "datasets/lerobot/libero36_feasible_32_frozen_v1/meta/tasks.parquet",
+        "bytes": 2927,
+        "sha256": "a72060a89bbd852d17dae5290f4302572d43f08d5c606205bff212235a2ab139"
+      }
+    ]
+  },
+  "excluded_physical_infeasible_task_ids": [
+    15,
+    17,
+    33,
+    35
+  ],
+  "training_started": false,
+  "notes": "Unified dataset created from frozen HDF5 inputs with corrected multi-task converter; lerobot_train was not run."
+}
