@@ -1,0 +1,83 @@
+{
+  "artifact_kind": "libero36_task0_success_demonstration_pilot",
+  "episodes_qc": [
+    {
+      "action_max_abs_diff": 0.0,
+      "finite": true,
+      "frames": 461,
+      "passed": true,
+      "reset_attempts": 1,
+      "reward_positive_steps": 22,
+      "seed": 621000,
+      "success": true,
+      "terminal_success_hold": true
+    },
+    {
+      "action_max_abs_diff": 0.0,
+      "finite": true,
+      "frames": 461,
+      "passed": true,
+      "reset_attempts": 1,
+      "reward_positive_steps": 21,
+      "seed": 621026,
+      "success": true,
+      "terminal_success_hold": true
+    },
+    {
+      "action_max_abs_diff": 0.0,
+      "finite": true,
+      "frames": 461,
+      "passed": true,
+      "reset_attempts": 1,
+      "reward_positive_steps": 21,
+      "seed": 621035,
+      "success": true,
+      "terminal_success_hold": true
+    },
+    {
+      "action_max_abs_diff": 0.0,
+      "finite": true,
+      "frames": 461,
+      "passed": true,
+      "reset_attempts": 1,
+      "reward_positive_steps": 26,
+      "seed": 621043,
+      "success": true,
+      "terminal_success_hold": true
+    },
+    {
+      "action_max_abs_diff": 0.0,
+      "finite": true,
+      "frames": 461,
+      "passed": true,
+      "reset_attempts": 1,
+      "reward_positive_steps": 32,
+      "seed": 621053,
+      "success": true,
+      "terminal_success_hold": true
+    }
+  ],
+  "formal_gate5_evidence_modified": false,
+  "formal_original_path": "/root/smolvla-libero-compositional-generalization/results/libero36_gate5_official_v6/task_026_push_to/original.npz",
+  "formal_replay_path": "/root/smolvla-libero-compositional-generalization/results/libero36_gate5_official_v6/task_026_push_to/replay.npz",
+  "hdf5_qc": {
+    "bytes": 134512085,
+    "episodes": 5,
+    "failures": [],
+    "frames": 2305,
+    "passed": true,
+    "sha256": "0c4788bb8c9af656ace9ca8cef722b90ac3494de2a26a36541a9a77b47bfc545"
+  },
+  "language_instruction": "push the alphabet soup into the right target region",
+  "layout_id": 1,
+  "passed": true,
+  "schema_version": 1,
+  "seeds": [
+    621000,
+    621026,
+    621035,
+    621043,
+    621053
+  ],
+  "task_id": 26
+}

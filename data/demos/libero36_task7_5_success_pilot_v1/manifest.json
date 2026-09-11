@@ -1,0 +1,83 @@
+{
+  "artifact_kind": "libero36_task0_success_demonstration_pilot",
+  "episodes_qc": [
+    {
+      "action_max_abs_diff": 0.0,
+      "finite": true,
+      "frames": 578,
+      "passed": true,
+      "reset_attempts": 1,
+      "reward_positive_steps": 46,
+      "seed": 431000,
+      "success": true,
+      "terminal_success_hold": true
+    },
+    {
+      "action_max_abs_diff": 0.0,
+      "finite": true,
+      "frames": 578,
+      "passed": true,
+      "reset_attempts": 1,
+      "reward_positive_steps": 58,
+      "seed": 431001,
+      "success": true,
+      "terminal_success_hold": true
+    },
+    {
+      "action_max_abs_diff": 0.0,
+      "finite": true,
+      "frames": 578,
+      "passed": true,
+      "reset_attempts": 1,
+      "reward_positive_steps": 51,
+      "seed": 431002,
+      "success": true,
+      "terminal_success_hold": true
+    },
+    {
+      "action_max_abs_diff": 0.0,
+      "finite": true,
+      "frames": 578,
+      "passed": true,
+      "reset_attempts": 1,
+      "reward_positive_steps": 49,
+      "seed": 431003,
+      "success": true,
+      "terminal_success_hold": true
+    },
+    {
+      "action_max_abs_diff": 0.0,
+      "finite": true,
+      "frames": 578,
+      "passed": true,
+      "reset_attempts": 1,
+      "reward_positive_steps": 49,
+      "seed": 431004,
+      "success": true,
+      "terminal_success_hold": true
+    }
+  ],
+  "formal_gate5_evidence_modified": false,
+  "formal_original_path": "/root/smolvla-libero-compositional-generalization/results/libero36_gate5_official_v6/task_007_push_to/original.npz",
+  "formal_replay_path": "/root/smolvla-libero-compositional-generalization/results/libero36_gate5_official_v6/task_007_push_to/replay.npz",
+  "hdf5_qc": {
+    "bytes": 173900533,
+    "episodes": 5,
+    "failures": [],
+    "frames": 2890,
+    "passed": true,
+    "sha256": "a946ba971f23b664e9b930ef7984053e571798da825b4dacc85f8fa99f80ad34"
+  },
+  "language_instruction": "push the akita black bowl into the middle target region",
+  "layout_id": 1,
+  "passed": true,
+  "schema_version": 1,
+  "seeds": [
+    431000,
+    431001,
+    431002,
+    431003,
+    431004
+  ],
+  "task_id": 7
+}

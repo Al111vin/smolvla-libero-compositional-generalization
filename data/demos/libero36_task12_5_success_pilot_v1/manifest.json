@@ -1,0 +1,83 @@
+{
+  "artifact_kind": "libero36_task0_success_demonstration_pilot",
+  "episodes_qc": [
+    {
+      "action_max_abs_diff": 0.0,
+      "finite": true,
+      "frames": 620,
+      "passed": true,
+      "reset_attempts": 1,
+      "reward_positive_steps": 112,
+      "seed": 481000,
+      "success": true,
+      "terminal_success_hold": true
+    },
+    {
+      "action_max_abs_diff": 0.0,
+      "finite": true,
+      "frames": 620,
+      "passed": true,
+      "reset_attempts": 1,
+      "reward_positive_steps": 111,
+      "seed": 481002,
+      "success": true,
+      "terminal_success_hold": true
+    },
+    {
+      "action_max_abs_diff": 0.0,
+      "finite": true,
+      "frames": 620,
+      "passed": true,
+      "reset_attempts": 1,
+      "reward_positive_steps": 95,
+      "seed": 481004,
+      "success": true,
+      "terminal_success_hold": true
+    },
+    {
+      "action_max_abs_diff": 0.0,
+      "finite": true,
+      "frames": 620,
+      "passed": true,
+      "reset_attempts": 1,
+      "reward_positive_steps": 113,
+      "seed": 481006,
+      "success": true,
+      "terminal_success_hold": true
+    },
+    {
+      "action_max_abs_diff": 0.0,
+      "finite": true,
+      "frames": 620,
+      "passed": true,
+      "reset_attempts": 1,
+      "reward_positive_steps": 111,
+      "seed": 481007,
+      "success": true,
+      "terminal_success_hold": true
+    }
+  ],
+  "formal_gate5_evidence_modified": false,
+  "formal_original_path": "/root/smolvla-libero-compositional-generalization/results/libero36_gate5_official_v6/task_012_put_inside/original.npz",
+  "formal_replay_path": "/root/smolvla-libero-compositional-generalization/results/libero36_gate5_official_v6/task_012_put_inside/replay.npz",
+  "hdf5_qc": {
+    "bytes": 193427799,
+    "episodes": 5,
+    "failures": [],
+    "frames": 3100,
+    "passed": true,
+    "sha256": "2c2e5f1572a11b70f5d46074547cfb2b278823b26f91589fc0a7ad58795a3ca5"
+  },
+  "language_instruction": "pick up the yellow and white mug and place it inside the basket in the left region",
+  "layout_id": 1,
+  "passed": true,
+  "schema_version": 1,
+  "seeds": [
+    481000,
+    481002,
+    481004,
+    481006,
+    481007
+  ],
+  "task_id": 12
+}

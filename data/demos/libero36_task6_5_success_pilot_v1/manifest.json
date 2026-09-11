@@ -1,0 +1,83 @@
+{
+  "artifact_kind": "libero36_task0_success_demonstration_pilot",
+  "episodes_qc": [
+    {
+      "action_max_abs_diff": 0.0,
+      "finite": true,
+      "frames": 328,
+      "passed": true,
+      "reset_attempts": 1,
+      "reward_positive_steps": 45,
+      "seed": 421000,
+      "success": true,
+      "terminal_success_hold": true
+    },
+    {
+      "action_max_abs_diff": 0.0,
+      "finite": true,
+      "frames": 328,
+      "passed": true,
+      "reset_attempts": 1,
+      "reward_positive_steps": 43,
+      "seed": 421002,
+      "success": true,
+      "terminal_success_hold": true
+    },
+    {
+      "action_max_abs_diff": 0.0,
+      "finite": true,
+      "frames": 328,
+      "passed": true,
+      "reset_attempts": 1,
+      "reward_positive_steps": 50,
+      "seed": 421003,
+      "success": true,
+      "terminal_success_hold": true
+    },
+    {
+      "action_max_abs_diff": 0.0,
+      "finite": true,
+      "frames": 328,
+      "passed": true,
+      "reset_attempts": 1,
+      "reward_positive_steps": 45,
+      "seed": 421004,
+      "success": true,
+      "terminal_success_hold": true
+    },
+    {
+      "action_max_abs_diff": 0.0,
+      "finite": true,
+      "frames": 328,
+      "passed": true,
+      "reset_attempts": 1,
+      "reward_positive_steps": 55,
+      "seed": 421005,
+      "success": true,
+      "terminal_success_hold": true
+    }
+  ],
+  "formal_gate5_evidence_modified": false,
+  "formal_original_path": "/root/smolvla-libero-compositional-generalization/results/libero36_gate5_official_v6/task_006_push_to/original.npz",
+  "formal_replay_path": "/root/smolvla-libero-compositional-generalization/results/libero36_gate5_official_v6/task_006_push_to/replay.npz",
+  "hdf5_qc": {
+    "bytes": 103279203,
+    "episodes": 5,
+    "failures": [],
+    "frames": 1640,
+    "passed": true,
+    "sha256": "cf9ba7fe7455acce0874fd62ae85a48fd02f73caa9132613beaeae35d4f40b7d"
+  },
+  "language_instruction": "push the akita black bowl into the left target region",
+  "layout_id": 1,
+  "passed": true,
+  "schema_version": 1,
+  "seeds": [
+    421000,
+    421002,
+    421003,
+    421004,
+    421005
+  ],
+  "task_id": 6
+}

@@ -1,0 +1,83 @@
+{
+  "artifact_kind": "libero36_task0_success_demonstration_pilot",
+  "episodes_qc": [
+    {
+      "action_max_abs_diff": 0.0,
+      "finite": true,
+      "frames": 589,
+      "passed": true,
+      "reset_attempts": 1,
+      "reward_positive_steps": 103,
+      "seed": 561000,
+      "success": true,
+      "terminal_success_hold": true
+    },
+    {
+      "action_max_abs_diff": 0.0,
+      "finite": true,
+      "frames": 589,
+      "passed": true,
+      "reset_attempts": 1,
+      "reward_positive_steps": 103,
+      "seed": 561003,
+      "success": true,
+      "terminal_success_hold": true
+    },
+    {
+      "action_max_abs_diff": 0.0,
+      "finite": true,
+      "frames": 589,
+      "passed": true,
+      "reset_attempts": 1,
+      "reward_positive_steps": 104,
+      "seed": 561025,
+      "success": true,
+      "terminal_success_hold": true
+    },
+    {
+      "action_max_abs_diff": 0.0,
+      "finite": true,
+      "frames": 589,
+      "passed": true,
+      "reset_attempts": 1,
+      "reward_positive_steps": 110,
+      "seed": 561026,
+      "success": true,
+      "terminal_success_hold": true
+    },
+    {
+      "action_max_abs_diff": 0.0,
+      "finite": true,
+      "frames": 589,
+      "passed": true,
+      "reset_attempts": 1,
+      "reward_positive_steps": 116,
+      "seed": 561032,
+      "success": true,
+      "terminal_success_hold": true
+    }
+  ],
+  "formal_gate5_evidence_modified": false,
+  "formal_original_path": "/root/smolvla-libero-compositional-generalization/results/libero36_gate5_official_v6/task_020_put_on_top/original.npz",
+  "formal_replay_path": "/root/smolvla-libero-compositional-generalization/results/libero36_gate5_official_v6/task_020_put_on_top/replay.npz",
+  "hdf5_qc": {
+    "bytes": 174253438,
+    "episodes": 5,
+    "failures": [],
+    "frames": 2945,
+    "passed": true,
+    "sha256": "21f6454914b920db0f3bdaa21b2c0bb16d9ba225724eccccdcfcda1e6afb5a8d"
+  },
+  "language_instruction": "pick up the alphabet soup and place it on the plate in the right region",
+  "layout_id": 1,
+  "passed": true,
+  "schema_version": 1,
+  "seeds": [
+    561000,
+    561003,
+    561025,
+    561026,
+    561032
+  ],
+  "task_id": 20
+}

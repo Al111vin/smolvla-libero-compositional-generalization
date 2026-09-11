@@ -1,0 +1,83 @@
+{
+  "artifact_kind": "libero36_task0_success_demonstration_pilot",
+  "episodes_qc": [
+    {
+      "action_max_abs_diff": 0.0,
+      "finite": true,
+      "frames": 585,
+      "passed": true,
+      "reset_attempts": 1,
+      "reward_positive_steps": 108,
+      "seed": 451000,
+      "success": true,
+      "terminal_success_hold": true
+    },
+    {
+      "action_max_abs_diff": 0.0,
+      "finite": true,
+      "frames": 585,
+      "passed": true,
+      "reset_attempts": 1,
+      "reward_positive_steps": 108,
+      "seed": 451011,
+      "success": true,
+      "terminal_success_hold": true
+    },
+    {
+      "action_max_abs_diff": 0.0,
+      "finite": true,
+      "frames": 585,
+      "passed": true,
+      "reset_attempts": 1,
+      "reward_positive_steps": 107,
+      "seed": 451023,
+      "success": true,
+      "terminal_success_hold": true
+    },
+    {
+      "action_max_abs_diff": 0.0,
+      "finite": true,
+      "frames": 585,
+      "passed": true,
+      "reset_attempts": 1,
+      "reward_positive_steps": 107,
+      "seed": 451049,
+      "success": true,
+      "terminal_success_hold": true
+    },
+    {
+      "action_max_abs_diff": 0.0,
+      "finite": true,
+      "frames": 585,
+      "passed": true,
+      "reset_attempts": 1,
+      "reward_positive_steps": 108,
+      "seed": 451060,
+      "success": true,
+      "terminal_success_hold": true
+    }
+  ],
+  "formal_gate5_evidence_modified": false,
+  "formal_original_path": "/root/smolvla-libero-compositional-generalization/results/libero36_gate5_official_v6/task_009_put_on_top/original.npz",
+  "formal_replay_path": "/root/smolvla-libero-compositional-generalization/results/libero36_gate5_official_v6/task_009_put_on_top/replay.npz",
+  "hdf5_qc": {
+    "bytes": 181118546,
+    "episodes": 5,
+    "failures": [],
+    "frames": 2925,
+    "passed": true,
+    "sha256": "a118cb28bc33caf601b5917ae5f7a02230a2324a4866e2b72b0a6576b0bc73c0"
+  },
+  "language_instruction": "pick up the yellow and white mug and place it on the plate in the left region",
+  "layout_id": 1,
+  "passed": true,
+  "schema_version": 1,
+  "seeds": [
+    451000,
+    451011,
+    451023,
+    451049,
+    451060
+  ],
+  "task_id": 9
+}

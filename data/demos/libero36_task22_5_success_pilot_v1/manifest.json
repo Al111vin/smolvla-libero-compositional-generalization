@@ -1,0 +1,83 @@
+{
+  "artifact_kind": "libero36_task0_success_demonstration_pilot",
+  "episodes_qc": [
+    {
+      "action_max_abs_diff": 0.0,
+      "finite": true,
+      "frames": 572,
+      "passed": true,
+      "reset_attempts": 1,
+      "reward_positive_steps": 111,
+      "seed": 581000,
+      "success": true,
+      "terminal_success_hold": true
+    },
+    {
+      "action_max_abs_diff": 0.0,
+      "finite": true,
+      "frames": 572,
+      "passed": true,
+      "reset_attempts": 1,
+      "reward_positive_steps": 41,
+      "seed": 581001,
+      "success": true,
+      "terminal_success_hold": true
+    },
+    {
+      "action_max_abs_diff": 0.0,
+      "finite": true,
+      "frames": 572,
+      "passed": true,
+      "reset_attempts": 1,
+      "reward_positive_steps": 112,
+      "seed": 581002,
+      "success": true,
+      "terminal_success_hold": true
+    },
+    {
+      "action_max_abs_diff": 0.0,
+      "finite": true,
+      "frames": 572,
+      "passed": true,
+      "reset_attempts": 1,
+      "reward_positive_steps": 101,
+      "seed": 581003,
+      "success": true,
+      "terminal_success_hold": true
+    },
+    {
+      "action_max_abs_diff": 0.0,
+      "finite": true,
+      "frames": 572,
+      "passed": true,
+      "reset_attempts": 1,
+      "reward_positive_steps": 112,
+      "seed": 581004,
+      "success": true,
+      "terminal_success_hold": true
+    }
+  ],
+  "formal_gate5_evidence_modified": false,
+  "formal_original_path": "/root/smolvla-libero-compositional-generalization/results/libero36_gate5_official_v6/task_022_put_inside/original.npz",
+  "formal_replay_path": "/root/smolvla-libero-compositional-generalization/results/libero36_gate5_official_v6/task_022_put_inside/replay.npz",
+  "hdf5_qc": {
+    "bytes": 175684220,
+    "episodes": 5,
+    "failures": [],
+    "frames": 2860,
+    "passed": true,
+    "sha256": "4359ed0912edca2add31c6906b715c2f3c701cf19aee2587d0ae60135301498f"
+  },
+  "language_instruction": "pick up the alphabet soup and place it inside the basket in the middle region",
+  "layout_id": 1,
+  "passed": true,
+  "schema_version": 1,
+  "seeds": [
+    581000,
+    581001,
+    581002,
+    581003,
+    581004
+  ],
+  "task_id": 22
+}
