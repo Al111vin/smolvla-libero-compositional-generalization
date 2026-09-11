@@ -1,0 +1,23 @@
+{
+  "provenance_addendum_version": "libero36-data-code-provenance-v1",
+  "created_epoch": 1789104218.7165277,
+  "data_freeze_file": {
+    "path": "results/libero36_data_freeze_v1.json",
+    "sha256": "57084666d0c42285caef1918fc6bd92baaf4a09bbe4aa977cc4dc46b021ce868",
+    "note": "Existing freeze file; not modified by this addendum."
+  },
+  "code_commit": "b231b85816efcfe9ebd6cd71e236608823e7faca",
+  "code_commit_note": "Final code revision associated with the frozen 32-task dataset (32 feasible tasks, 5 episodes each, 160 episodes total).",
+  "formal_scripts": {
+    "scripts/collect_libero36_task0_success_pilot.py": "9b69357b01340866b0527cac1226e82aed0ce83cbbe2bf409fb0cd8d9f58852f",
+    "scripts/run_libero36_pilot_batch.py": "a1218a1df8e4d97fde312b72f13b6895054a262c662a16215e85d79773765958",
+    "scripts/calibrate_libero_36_push.py": "26354ca1641c0effa216eddb80776c8d9e39a4acd0b755c17e018a38e25e76c5",
+    "scripts/search_task0_replay_seeds.py": "4c9ac3d6791d97b2ab2567070b1a492f2fec51b59b84c7c6fc9f6658ad6c97ba"
+  },
+  "dataset_scope": {
+    "task_count": 32,
+    "episodes_per_task": 5,
+    "total_episodes": 160
+  },
+  "statement": "This code revision is the final collection/batch/reproducibility version used to produce the 32-task, 160-episode dataset. The four script hashes above identify the exact files at the recorded commit."
+}
