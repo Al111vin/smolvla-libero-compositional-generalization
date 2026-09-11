@@ -26,17 +26,19 @@ It combines closed-loop LIBERO evaluation, controlled leave-one-combination-out
 
 > **Current status:** the V4 LOCO evaluation is complete. The registered-object
 > 36-task benchmark has passed Gates 1–4. Under the strict Gate 5 review,
-> **32/36 logical tasks are feasible**; Tasks 15, 17, 33, and 35 are retained
-> as physically infeasible cases. Five feasible-task pilots (Tasks 0, 1, 2, 3,
-> and 16) are now collected and QC-validated; 27 feasible tasks remain pending.
-> The four physically infeasible tasks (15, 17, 33, and 35) remain excluded from
-> training.
+> **32/36 logical tasks are feasible**; Tasks 15, 17, 33, and 35 remain
+> physically infeasible and are excluded from the feasible training set.
+> Data collection for all **32/32 feasible tasks is complete**, with **160
+> successful episodes** (5 per task). Final QC, the data freeze, provenance
+> addendum, and training-loader semantic preflight are complete. **Training has
+> not started.** Raw HDF5 and LeRobot data remain in the private Hugging Face
+> dataset; GitHub stores only lightweight evidence and reproducibility metadata.
 
 ## Demonstration collection status
 
-The requested initial milestone was Tasks 0, 1, 2, and 16 completed with 28
-tasks remaining. Task 3 was subsequently completed as the next ordered pilot,
-so the current manifest contains five completed tasks and 27 remaining tasks.
+The final feasible data collection contains all 32 included tasks, with five
+successful episodes per task (160 episodes total). Tasks 15, 17, 33, and 35 are
+retained as physically infeasible Gate 5 cases and are not included in training.
 
 | Task | Object × skill × spatial | Episodes | Frames | Status |
 |---:|---|---:|---:|---|
@@ -72,6 +74,18 @@ hf download Alllvinnn/smolvla-libero-compositional-generalization \
 The GitHub repository contains only protocols, manifests, inventories, QC
 reports, and acquisition metadata; large binary artifacts remain on Hugging
 Face to keep Git history lightweight.
+
+Final reproducibility records:
+
+- [`final data QC`](results/libero36_final_data_qc_v1.json)
+- [`data freeze`](results/libero36_data_freeze_v1.json)
+- [`data/code provenance addendum`](results/libero36_data_provenance_addendum_v1.json)
+- [`training-loader semantic preflight`](results/libero36_training_loader_semantic_preflight_v1.json)
+- [`artifact_kind known limitation`](results/libero36_artifact_kind_known_limitation.md)
+
+Training has not started; the frozen feasible manifest is ready for the next
+training phase. The private Hugging Face dataset is the canonical location for
+raw HDF5 and LeRobot data.
 
 ## Research question
 
@@ -165,9 +179,9 @@ diagnostic attempts for those cases are retained and are not relabeled as
 successes. Replacement tasks, if explored, are reported separately and do not
 change the original LIBERO-36 count.
 
-Demonstration collection and training remain blocked until the feasible-task
-set, evidence manifests, and data-collection protocol are frozen. Candidate
-work that has not passed exact replay and provenance checks is deliberately
+The feasible-task set, evidence manifests, and data-collection protocol are
+now frozen. Demonstration collection is complete; training has not started.
+Candidate work that has not passed exact replay and provenance checks remains
 excluded from the official result.
 
 The full benchmark definition, camera contract, success predicates, gate
