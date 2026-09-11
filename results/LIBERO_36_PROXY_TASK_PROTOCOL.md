@@ -257,6 +257,12 @@ tasks are not protocol-ready.
 
 ## Current draft-v5 validation status
 
+> **Status note (2026-09-10):** this section describes the historical v5
+> artifact snapshot. The latest strict Gate 5 decision is documented in the
+> repository README and project rules: 32 tasks are feasible and Tasks 15, 17,
+> 33, and 35 are retained as physically infeasible. The v5 artifact count
+> below must not be read as the current project count.
+
 - Gate 1 static generation: passed; 36 task rows and 144 task-layout
   BDDL files were generated under the v5 source-XY geometry.
 - Gate 2 environment smoke: passed; all 12 representative task-layout
