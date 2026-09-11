@@ -1,0 +1,33 @@
+task_id,task_index,instruction,object,skill,region,factor_coverage,eligible
+0,0,pick up the akita black bowl and place it on the plate in the left region,akita_black_bowl,pick_place_on_top,left,"{""object"":true,""region"":true,""skill"":true}",true
+1,1,pick up the akita black bowl and place it on the plate in the middle region,akita_black_bowl,pick_place_on_top,middle,"{""object"":true,""region"":true,""skill"":true}",true
+2,2,pick up the akita black bowl and place it on the plate in the right region,akita_black_bowl,pick_place_on_top,right,"{""object"":true,""region"":true,""skill"":true}",true
+3,3,pick up the akita black bowl and place it inside the basket in the left region,akita_black_bowl,pick_place_inside,left,"{""object"":true,""region"":true,""skill"":true}",true
+4,4,pick up the akita black bowl and place it inside the basket in the middle region,akita_black_bowl,pick_place_inside,middle,"{""object"":true,""region"":true,""skill"":true}",true
+5,5,pick up the akita black bowl and place it inside the basket in the right region,akita_black_bowl,pick_place_inside,right,"{""object"":true,""region"":true,""skill"":true}",true
+6,6,push the akita black bowl into the left target region,akita_black_bowl,push,left,"{""object"":true,""region"":true,""skill"":true}",true
+7,7,push the akita black bowl into the middle target region,akita_black_bowl,push,middle,"{""object"":true,""region"":true,""skill"":true}",true
+8,8,push the akita black bowl into the right target region,akita_black_bowl,push,right,"{""object"":true,""region"":true,""skill"":true}",true
+9,9,pick up the yellow and white mug and place it on the plate in the left region,yellow_white_mug,pick_place_on_top,left,"{""object"":true,""region"":true,""skill"":true}",true
+10,10,pick up the yellow and white mug and place it on the plate in the middle region,yellow_white_mug,pick_place_on_top,middle,"{""object"":true,""region"":true,""skill"":true}",true
+11,11,pick up the yellow and white mug and place it on the plate in the right region,yellow_white_mug,pick_place_on_top,right,"{""object"":true,""region"":true,""skill"":true}",true
+12,12,pick up the yellow and white mug and place it inside the basket in the left region,yellow_white_mug,pick_place_inside,left,"{""object"":true,""region"":true,""skill"":true}",true
+13,13,pick up the yellow and white mug and place it inside the basket in the middle region,yellow_white_mug,pick_place_inside,middle,"{""object"":true,""region"":true,""skill"":true}",true
+14,14,pick up the yellow and white mug and place it inside the basket in the right region,yellow_white_mug,pick_place_inside,right,"{""object"":true,""region"":true,""skill"":true}",true
+16,15,push the white and yellow mug to the middle of the table,yellow_white_mug,push,middle,"{""object"":true,""region"":true,""skill"":true}",true
+18,16,pick up the alphabet soup and place it on the plate in the left region,alphabet_soup,pick_place_on_top,left,"{""object"":true,""region"":true,""skill"":true}",true
+19,17,pick up the alphabet soup and place it on the plate in the middle region,alphabet_soup,pick_place_on_top,middle,"{""object"":true,""region"":true,""skill"":true}",true
+20,18,pick up the alphabet soup and place it on the plate in the right region,alphabet_soup,pick_place_on_top,right,"{""object"":true,""region"":true,""skill"":true}",true
+21,19,pick up the alphabet soup and place it inside the basket in the left region,alphabet_soup,pick_place_inside,left,"{""object"":true,""region"":true,""skill"":true}",true
+22,20,pick up the alphabet soup and place it inside the basket in the middle region,alphabet_soup,pick_place_inside,middle,"{""object"":true,""region"":true,""skill"":true}",true
+23,21,pick up the alphabet soup and place it inside the basket in the right region,alphabet_soup,pick_place_inside,right,"{""object"":true,""region"":true,""skill"":true}",true
+24,22,push the alphabet soup into the left target region,alphabet_soup,push,left,"{""object"":true,""region"":true,""skill"":true}",true
+25,23,push the alphabet soup into the middle target region,alphabet_soup,push,middle,"{""object"":true,""region"":true,""skill"":true}",true
+26,24,push the alphabet soup into the right target region,alphabet_soup,push,right,"{""object"":true,""region"":true,""skill"":true}",true
+27,25,pick up the cream cheese box and place it on the plate in the left region,cream_cheese_box,pick_place_on_top,left,"{""object"":true,""region"":true,""skill"":true}",true
+28,26,pick up the cream cheese box and place it on the plate in the middle region,cream_cheese_box,pick_place_on_top,middle,"{""object"":true,""region"":true,""skill"":true}",true
+29,27,pick up the cream cheese box and place it on the plate in the right region,cream_cheese_box,pick_place_on_top,right,"{""object"":true,""region"":true,""skill"":true}",true
+30,28,pick up the cream cheese box and place it inside the basket in the left region,cream_cheese_box,pick_place_inside,left,"{""object"":true,""region"":true,""skill"":true}",true
+31,29,pick up the cream cheese box and place it inside the basket in the middle region,cream_cheese_box,pick_place_inside,middle,"{""object"":true,""region"":true,""skill"":true}",true
+32,30,pick up the cream cheese box and place it inside the basket in the right region,cream_cheese_box,pick_place_inside,right,"{""object"":true,""region"":true,""skill"":true}",true
+34,31,push the cream cheese box into the middle target region,cream_cheese_box,push,middle,"{""object"":true,""region"":true,""skill"":true}",true

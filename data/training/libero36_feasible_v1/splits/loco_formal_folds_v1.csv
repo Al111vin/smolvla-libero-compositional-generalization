@@ -1,0 +1,9 @@
+fold_id,heldout_task_id,heldout_task_index,object,skill,region,instruction,train_episodes,heldout_episodes
+loco_v1_fold_01_task_00,0,0,akita_black_bowl,pick_place_on_top,left,pick up the akita black bowl and place it on the plate in the left region,155,5
+loco_v1_fold_02_task_04,4,4,akita_black_bowl,pick_place_inside,middle,pick up the akita black bowl and place it inside the basket in the middle region,155,5
+loco_v1_fold_03_task_11,11,11,yellow_white_mug,pick_place_on_top,right,pick up the yellow and white mug and place it on the plate in the right region,155,5
+loco_v1_fold_04_task_16,16,15,yellow_white_mug,push,middle,push the white and yellow mug to the middle of the table,155,5
+loco_v1_fold_05_task_21,21,19,alphabet_soup,pick_place_inside,left,pick up the alphabet soup and place it inside the basket in the left region,155,5
+loco_v1_fold_06_task_26,26,24,alphabet_soup,push,right,push the alphabet soup into the right target region,155,5
+loco_v1_fold_07_task_29,29,27,cream_cheese_box,pick_place_on_top,right,pick up the cream cheese box and place it on the plate in the right region,155,5
+loco_v1_fold_08_task_34,34,31,cream_cheese_box,push,middle,push the cream cheese box into the middle target region,155,5
