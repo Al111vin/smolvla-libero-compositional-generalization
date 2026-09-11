@@ -1,0 +1,83 @@
+{
+  "artifact_kind": "libero36_task0_success_demonstration_pilot",
+  "episodes_qc": [
+    {
+      "action_max_abs_diff": 0.0,
+      "finite": true,
+      "frames": 576,
+      "passed": true,
+      "reset_attempts": 1,
+      "reward_positive_steps": 104,
+      "seed": 641000,
+      "success": true,
+      "terminal_success_hold": true
+    },
+    {
+      "action_max_abs_diff": 0.0,
+      "finite": true,
+      "frames": 576,
+      "passed": true,
+      "reset_attempts": 1,
+      "reward_positive_steps": 104,
+      "seed": 641001,
+      "success": true,
+      "terminal_success_hold": true
+    },
+    {
+      "action_max_abs_diff": 0.0,
+      "finite": true,
+      "frames": 576,
+      "passed": true,
+      "reset_attempts": 1,
+      "reward_positive_steps": 104,
+      "seed": 641011,
+      "success": true,
+      "terminal_success_hold": true
+    },
+    {
+      "action_max_abs_diff": 0.0,
+      "finite": true,
+      "frames": 576,
+      "passed": true,
+      "reset_attempts": 1,
+      "reward_positive_steps": 104,
+      "seed": 641014,
+      "success": true,
+      "terminal_success_hold": true
+    },
+    {
+      "action_max_abs_diff": 0.0,
+      "finite": true,
+      "frames": 576,
+      "passed": true,
+      "reset_attempts": 1,
+      "reward_positive_steps": 104,
+      "seed": 641016,
+      "success": true,
+      "terminal_success_hold": true
+    }
+  ],
+  "formal_gate5_evidence_modified": false,
+  "formal_original_path": "/root/smolvla-libero-compositional-generalization/results/libero36_gate5_official_v6/task_028_put_on_top/original.npz",
+  "formal_replay_path": "/root/smolvla-libero-compositional-generalization/results/libero36_gate5_official_v6/task_028_put_on_top/replay.npz",
+  "hdf5_qc": {
+    "bytes": 182340274,
+    "episodes": 5,
+    "failures": [],
+    "frames": 2880,
+    "passed": true,
+    "sha256": "b181685f8b6d0efc054869a54b497a2831f366aea7c12d6c0349995b101594ac"
+  },
+  "language_instruction": "pick up the cream cheese box and place it on the plate in the middle region",
+  "layout_id": 1,
+  "passed": true,
+  "schema_version": 1,
+  "seeds": [
+    641000,
+    641001,
+    641011,
+    641014,
+    641016
+  ],
+  "task_id": 28
+}

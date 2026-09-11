@@ -9,7 +9,9 @@ replay = sorted(Path("results/libero36_gate5_official_v6").glob(f"task_{task_id:
 row = [r for r in v.read_layout_spec(Path("data/libero_36/layout_spec.csv")) if int(r["task_id"]) == task_id and int(r["layout_id"]) == 1][0]
 z = np.load(replay)
 env = OffScreenRenderEnv(bddl_file_name=str(row["bddl_path"]), camera_heights=128, camera_widths=128, horizon=1000, use_camera_obs=False, has_offscreen_renderer=False)
-base = int(z["seed"])
+
+base = int(z["seed"]) if "seed" in z.files else 361000 + task_id * 10000
+
 for seed in range(base, base + 31):
     v.seed_environment(env, seed)
     env.env.reset()

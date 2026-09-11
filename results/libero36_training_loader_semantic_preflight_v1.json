@@ -1,0 +1,248 @@
+{
+  "preflight_version": "libero36-training-loader-semantic-v1",
+  "created_epoch": 1789104503.2050178,
+  "passed": true,
+  "task_count": 32,
+  "task_ids": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    16,
+    18,
+    19,
+    20,
+    21,
+    22,
+    23,
+    24,
+    25,
+    26,
+    27,
+    28,
+    29,
+    30,
+    31,
+    32,
+    34
+  ],
+  "checks": {
+    "real_task_id_preserved": true,
+    "instruction_preserved_and_matched": true,
+    "artifact_kind_used_as_label": false,
+    "artifact_kind_in_loader_source": false
+  },
+  "loader_contract": {
+    "loader_path": "scripts/convert_libero_split_to_lerobot.py",
+    "artifact_kind_reference_count": 0,
+    "uses_source_language_for_frame_task": true,
+    "writes_libero_task_id_to_manifest": true,
+    "uses_task_index_from_language": true
+  },
+  "tasks": [
+    {
+      "task_id": 0,
+      "instruction": "pick up the akita black bowl and place it on the plate in the left region",
+      "hdf5_manifest_task_id": 0,
+      "artifact_kind_observed": "libero36_task0_success_demonstration_pilot"
+    },
+    {
+      "task_id": 1,
+      "instruction": "pick up the akita black bowl and place it on the plate in the middle region",
+      "hdf5_manifest_task_id": 1,
+      "artifact_kind_observed": "libero36_task0_success_demonstration_pilot"
+    },
+    {
+      "task_id": 2,
+      "instruction": "pick up the akita black bowl and place it on the plate in the right region",
+      "hdf5_manifest_task_id": 2,
+      "artifact_kind_observed": "libero36_task0_success_demonstration_pilot"
+    },
+    {
+      "task_id": 3,
+      "instruction": "pick up the akita black bowl and place it inside the basket in the left region",
+      "hdf5_manifest_task_id": 3,
+      "artifact_kind_observed": "libero36_task0_success_demonstration_pilot"
+    },
+    {
+      "task_id": 4,
+      "instruction": "pick up the akita black bowl and place it inside the basket in the middle region",
+      "hdf5_manifest_task_id": 4,
+      "artifact_kind_observed": "libero36_task0_success_demonstration_pilot"
+    },
+    {
+      "task_id": 5,
+      "instruction": "pick up the akita black bowl and place it inside the basket in the right region",
+      "hdf5_manifest_task_id": 5,
+      "artifact_kind_observed": "libero36_task0_success_demonstration_pilot"
+    },
+    {
+      "task_id": 6,
+      "instruction": "push the akita black bowl into the left target region",
+      "hdf5_manifest_task_id": 6,
+      "artifact_kind_observed": "libero36_task0_success_demonstration_pilot"
+    },
+    {
+      "task_id": 7,
+      "instruction": "push the akita black bowl into the middle target region",
+      "hdf5_manifest_task_id": 7,
+      "artifact_kind_observed": "libero36_task0_success_demonstration_pilot"
+    },
+    {
+      "task_id": 8,
+      "instruction": "push the akita black bowl into the right target region",
+      "hdf5_manifest_task_id": 8,
+      "artifact_kind_observed": "libero36_task0_success_demonstration_pilot"
+    },
+    {
+      "task_id": 9,
+      "instruction": "pick up the yellow and white mug and place it on the plate in the left region",
+      "hdf5_manifest_task_id": 9,
+      "artifact_kind_observed": "libero36_task0_success_demonstration_pilot"
+    },
+    {
+      "task_id": 10,
+      "instruction": "pick up the yellow and white mug and place it on the plate in the middle region",
+      "hdf5_manifest_task_id": 10,
+      "artifact_kind_observed": "libero36_task0_success_demonstration_pilot"
+    },
+    {
+      "task_id": 11,
+      "instruction": "pick up the yellow and white mug and place it on the plate in the right region",
+      "hdf5_manifest_task_id": 11,
+      "artifact_kind_observed": "libero36_task0_success_demonstration_pilot"
+    },
+    {
+      "task_id": 12,
+      "instruction": "pick up the yellow and white mug and place it inside the basket in the left region",
+      "hdf5_manifest_task_id": 12,
+      "artifact_kind_observed": "libero36_task0_success_demonstration_pilot"
+    },
+    {
+      "task_id": 13,
+      "instruction": "pick up the yellow and white mug and place it inside the basket in the middle region",
+      "hdf5_manifest_task_id": 13,
+      "artifact_kind_observed": "libero36_task0_success_demonstration_pilot"
+    },
+    {
+      "task_id": 14,
+      "instruction": "pick up the yellow and white mug and place it inside the basket in the right region",
+      "hdf5_manifest_task_id": 14,
+      "artifact_kind_observed": "libero36_task0_success_demonstration_pilot"
+    },
+    {
+      "task_id": 16,
+      "instruction": "push the white and yellow mug to the middle of the table",
+      "hdf5_manifest_task_id": 16,
+      "artifact_kind_observed": "libero36_task16_success_demonstration_pilot"
+    },
+    {
+      "task_id": 18,
+      "instruction": "pick up the alphabet soup and place it on the plate in the left region",
+      "hdf5_manifest_task_id": 18,
+      "artifact_kind_observed": "libero36_task0_success_demonstration_pilot"
+    },
+    {
+      "task_id": 19,
+      "instruction": "pick up the alphabet soup and place it on the plate in the middle region",
+      "hdf5_manifest_task_id": 19,
+      "artifact_kind_observed": "libero36_task0_success_demonstration_pilot"
+    },
+    {
+      "task_id": 20,
+      "instruction": "pick up the alphabet soup and place it on the plate in the right region",
+      "hdf5_manifest_task_id": 20,
+      "artifact_kind_observed": "libero36_task0_success_demonstration_pilot"
+    },
+    {
+      "task_id": 21,
+      "instruction": "pick up the alphabet soup and place it inside the basket in the left region",
+      "hdf5_manifest_task_id": 21,
+      "artifact_kind_observed": "libero36_task0_success_demonstration_pilot"
+    },
+    {
+      "task_id": 22,
+      "instruction": "pick up the alphabet soup and place it inside the basket in the middle region",
+      "hdf5_manifest_task_id": 22,
+      "artifact_kind_observed": "libero36_task0_success_demonstration_pilot"
+    },
+    {
+      "task_id": 23,
+      "instruction": "pick up the alphabet soup and place it inside the basket in the right region",
+      "hdf5_manifest_task_id": 23,
+      "artifact_kind_observed": "libero36_task0_success_demonstration_pilot"
+    },
+    {
+      "task_id": 24,
+      "instruction": "push the alphabet soup into the left target region",
+      "hdf5_manifest_task_id": 24,
+      "artifact_kind_observed": "libero36_task0_success_demonstration_pilot"
+    },
+    {
+      "task_id": 25,
+      "instruction": "push the alphabet soup into the middle target region",
+      "hdf5_manifest_task_id": 25,
+      "artifact_kind_observed": "libero36_task0_success_demonstration_pilot"
+    },
+    {
+      "task_id": 26,
+      "instruction": "push the alphabet soup into the right target region",
+      "hdf5_manifest_task_id": 26,
+      "artifact_kind_observed": "libero36_task0_success_demonstration_pilot"
+    },
+    {
+      "task_id": 27,
+      "instruction": "pick up the cream cheese box and place it on the plate in the left region",
+      "hdf5_manifest_task_id": 27,
+      "artifact_kind_observed": "libero36_task0_success_demonstration_pilot"
+    },
+    {
+      "task_id": 28,
+      "instruction": "pick up the cream cheese box and place it on the plate in the middle region",
+      "hdf5_manifest_task_id": 28,
+      "artifact_kind_observed": "libero36_task0_success_demonstration_pilot"
+    },
+    {
+      "task_id": 29,
+      "instruction": "pick up the cream cheese box and place it on the plate in the right region",
+      "hdf5_manifest_task_id": 29,
+      "artifact_kind_observed": "libero36_task0_success_demonstration_pilot"
+    },
+    {
+      "task_id": 30,
+      "instruction": "pick up the cream cheese box and place it inside the basket in the left region",
+      "hdf5_manifest_task_id": 30,
+      "artifact_kind_observed": "libero36_task0_success_demonstration_pilot"
+    },
+    {
+      "task_id": 31,
+      "instruction": "pick up the cream cheese box and place it inside the basket in the middle region",
+      "hdf5_manifest_task_id": 31,
+      "artifact_kind_observed": "libero36_task0_success_demonstration_pilot"
+    },
+    {
+      "task_id": 32,
+      "instruction": "pick up the cream cheese box and place it inside the basket in the right region",
+      "hdf5_manifest_task_id": 32,
+      "artifact_kind_observed": "libero36_task0_success_demonstration_pilot"
+    },
+    {
+      "task_id": 34,
+      "instruction": "push the cream cheese box into the middle target region",
+      "hdf5_manifest_task_id": 34,
+      "artifact_kind_observed": "libero36_task0_success_demonstration_pilot"
+    }
+  ],
+  "notes": "artifact_kind is provenance metadata only; it is not used as a training label."
+}

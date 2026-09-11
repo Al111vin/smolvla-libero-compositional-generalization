@@ -1,0 +1,8 @@
+{
+  "passed": true,
+  "failures": [],
+  "episodes": 5,
+  "frames": 2990,
+  "expected_frames": 2990,
+  "path": "datasets/lerobot/libero36_task2_success_pilot_v1"
+}

@@ -1,0 +1,83 @@
+{
+  "artifact_kind": "libero36_task0_success_demonstration_pilot",
+  "episodes_qc": [
+    {
+      "action_max_abs_diff": 0.0,
+      "finite": true,
+      "frames": 928,
+      "passed": true,
+      "reset_attempts": 1,
+      "reward_positive_steps": 112,
+      "seed": 681000,
+      "success": true,
+      "terminal_success_hold": true
+    },
+    {
+      "action_max_abs_diff": 0.0,
+      "finite": true,
+      "frames": 928,
+      "passed": true,
+      "reset_attempts": 1,
+      "reward_positive_steps": 102,
+      "seed": 681002,
+      "success": true,
+      "terminal_success_hold": true
+    },
+    {
+      "action_max_abs_diff": 0.0,
+      "finite": true,
+      "frames": 928,
+      "passed": true,
+      "reset_attempts": 1,
+      "reward_positive_steps": 112,
+      "seed": 681003,
+      "success": true,
+      "terminal_success_hold": true
+    },
+    {
+      "action_max_abs_diff": 0.0,
+      "finite": true,
+      "frames": 928,
+      "passed": true,
+      "reset_attempts": 1,
+      "reward_positive_steps": 105,
+      "seed": 681004,
+      "success": true,
+      "terminal_success_hold": true
+    },
+    {
+      "action_max_abs_diff": 0.0,
+      "finite": true,
+      "frames": 928,
+      "passed": true,
+      "reset_attempts": 1,
+      "reward_positive_steps": 102,
+      "seed": 681006,
+      "success": true,
+      "terminal_success_hold": true
+    }
+  ],
+  "formal_gate5_evidence_modified": false,
+  "formal_original_path": "/root/smolvla-libero-compositional-generalization/results/libero36_gate5_official_v6/task_032_put_inside/original.npz",
+  "formal_replay_path": "/root/smolvla-libero-compositional-generalization/results/libero36_gate5_official_v6/task_032_put_inside/replay.npz",
+  "hdf5_qc": {
+    "bytes": 298033213,
+    "episodes": 5,
+    "failures": [],
+    "frames": 4640,
+    "passed": true,
+    "sha256": "7f0c9f580dae6814021c7dbe46286925bc23608c5a134ed766356399b18d732c"
+  },
+  "language_instruction": "pick up the cream cheese box and place it inside the basket in the right region",
+  "layout_id": 1,
+  "passed": true,
+  "schema_version": 1,
+  "seeds": [
+    681000,
+    681002,
+    681003,
+    681004,
+    681006
+  ],
+  "task_id": 32
+}

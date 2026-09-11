@@ -1,0 +1,6 @@
+seed,frames,reset_attempts,success,terminal_success_hold,finite,action_max_abs_diff,reward_positive_steps,passed
+561000,589,1,True,True,True,0.0,103,True
+561003,589,1,True,True,True,0.0,103,True
+561025,589,1,True,True,True,0.0,104,True
+561026,589,1,True,True,True,0.0,110,True
+561032,589,1,True,True,True,0.0,116,True

@@ -1,0 +1,8 @@
+{
+  "passed": true,
+  "failures": [],
+  "episodes": 5,
+  "frames": 2910,
+  "expected_frames": 2910,
+  "path": "/root/smolvla-libero-compositional-generalization/datasets/lerobot/libero36_task19_success_pilot_v1"
+}

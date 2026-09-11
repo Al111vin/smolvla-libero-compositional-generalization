@@ -1,0 +1,83 @@
+{
+  "artifact_kind": "libero36_task0_success_demonstration_pilot",
+  "episodes_qc": [
+    {
+      "action_max_abs_diff": 0.0,
+      "finite": true,
+      "frames": 605,
+      "passed": true,
+      "reset_attempts": 1,
+      "reward_positive_steps": 111,
+      "seed": 411000,
+      "success": true,
+      "terminal_success_hold": true
+    },
+    {
+      "action_max_abs_diff": 0.0,
+      "finite": true,
+      "frames": 605,
+      "passed": true,
+      "reset_attempts": 1,
+      "reward_positive_steps": 112,
+      "seed": 411001,
+      "success": true,
+      "terminal_success_hold": true
+    },
+    {
+      "action_max_abs_diff": 0.0,
+      "finite": true,
+      "frames": 605,
+      "passed": true,
+      "reset_attempts": 1,
+      "reward_positive_steps": 112,
+      "seed": 411002,
+      "success": true,
+      "terminal_success_hold": true
+    },
+    {
+      "action_max_abs_diff": 0.0,
+      "finite": true,
+      "frames": 605,
+      "passed": true,
+      "reset_attempts": 1,
+      "reward_positive_steps": 112,
+      "seed": 411004,
+      "success": true,
+      "terminal_success_hold": true
+    },
+    {
+      "action_max_abs_diff": 0.0,
+      "finite": true,
+      "frames": 605,
+      "passed": true,
+      "reset_attempts": 1,
+      "reward_positive_steps": 115,
+      "seed": 411005,
+      "success": true,
+      "terminal_success_hold": true
+    }
+  ],
+  "formal_gate5_evidence_modified": false,
+  "formal_original_path": "/root/smolvla-libero-compositional-generalization/results/libero36_gate5_official_v6/task_005_put_inside/original.npz",
+  "formal_replay_path": "/root/smolvla-libero-compositional-generalization/results/libero36_gate5_official_v6/task_005_put_inside/replay.npz",
+  "hdf5_qc": {
+    "bytes": 189006443,
+    "episodes": 5,
+    "failures": [],
+    "frames": 3025,
+    "passed": true,
+    "sha256": "81a4686655f3a57875792e8899ff1d57075d9331784aa7d3be7e78f1c68e6a93"
+  },
+  "language_instruction": "pick up the akita black bowl and place it inside the basket in the right region",
+  "layout_id": 1,
+  "passed": true,
+  "schema_version": 1,
+  "seeds": [
+    411000,
+    411001,
+    411002,
+    411004,
+    411005
+  ],
+  "task_id": 5
+}

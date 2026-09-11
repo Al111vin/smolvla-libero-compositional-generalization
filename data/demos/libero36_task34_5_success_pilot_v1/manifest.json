@@ -1,0 +1,83 @@
+{
+  "artifact_kind": "libero36_task0_success_demonstration_pilot",
+  "episodes_qc": [
+    {
+      "action_max_abs_diff": 0.0,
+      "finite": true,
+      "frames": 256,
+      "passed": true,
+      "reset_attempts": 1,
+      "reward_positive_steps": 26,
+      "seed": 701000,
+      "success": true,
+      "terminal_success_hold": true
+    },
+    {
+      "action_max_abs_diff": 0.0,
+      "finite": true,
+      "frames": 256,
+      "passed": true,
+      "reset_attempts": 1,
+      "reward_positive_steps": 25,
+      "seed": 701001,
+      "success": true,
+      "terminal_success_hold": true
+    },
+    {
+      "action_max_abs_diff": 0.0,
+      "finite": true,
+      "frames": 256,
+      "passed": true,
+      "reset_attempts": 1,
+      "reward_positive_steps": 27,
+      "seed": 701002,
+      "success": true,
+      "terminal_success_hold": true
+    },
+    {
+      "action_max_abs_diff": 0.0,
+      "finite": true,
+      "frames": 256,
+      "passed": true,
+      "reset_attempts": 1,
+      "reward_positive_steps": 25,
+      "seed": 701005,
+      "success": true,
+      "terminal_success_hold": true
+    },
+    {
+      "action_max_abs_diff": 0.0,
+      "finite": true,
+      "frames": 256,
+      "passed": true,
+      "reset_attempts": 1,
+      "reward_positive_steps": 25,
+      "seed": 701010,
+      "success": true,
+      "terminal_success_hold": true
+    }
+  ],
+  "formal_gate5_evidence_modified": false,
+  "formal_original_path": "/root/smolvla-libero-compositional-generalization/results/libero36_gate5_official_v6/task_034_push_to/original.npz",
+  "formal_replay_path": "/root/smolvla-libero-compositional-generalization/results/libero36_gate5_official_v6/task_034_push_to/replay.npz",
+  "hdf5_qc": {
+    "bytes": 82071291,
+    "episodes": 5,
+    "failures": [],
+    "frames": 1280,
+    "passed": true,
+    "sha256": "60fb9e413f82b3b0c7b04555ba06c6a0658e94e0f0f85c413936256fa2685da0"
+  },
+  "language_instruction": "push the cream cheese box into the middle target region",
+  "layout_id": 1,
+  "passed": true,
+  "schema_version": 1,
+  "seeds": [
+    701000,
+    701001,
+    701002,
+    701005,
+    701010
+  ],
+  "task_id": 34
+}

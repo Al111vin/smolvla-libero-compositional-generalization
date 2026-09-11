@@ -1,0 +1,83 @@
+{
+  "artifact_kind": "libero36_task0_success_demonstration_pilot",
+  "episodes_qc": [
+    {
+      "action_max_abs_diff": 0.0,
+      "finite": true,
+      "frames": 596,
+      "passed": true,
+      "reset_attempts": 1,
+      "reward_positive_steps": 111,
+      "seed": 391000,
+      "success": true,
+      "terminal_success_hold": true
+    },
+    {
+      "action_max_abs_diff": 0.0,
+      "finite": true,
+      "frames": 596,
+      "passed": true,
+      "reset_attempts": 1,
+      "reward_positive_steps": 107,
+      "seed": 391001,
+      "success": true,
+      "terminal_success_hold": true
+    },
+    {
+      "action_max_abs_diff": 0.0,
+      "finite": true,
+      "frames": 596,
+      "passed": true,
+      "reset_attempts": 1,
+      "reward_positive_steps": 110,
+      "seed": 391003,
+      "success": true,
+      "terminal_success_hold": true
+    },
+    {
+      "action_max_abs_diff": 0.0,
+      "finite": true,
+      "frames": 596,
+      "passed": true,
+      "reset_attempts": 1,
+      "reward_positive_steps": 112,
+      "seed": 391004,
+      "success": true,
+      "terminal_success_hold": true
+    },
+    {
+      "action_max_abs_diff": 0.0,
+      "finite": true,
+      "frames": 596,
+      "passed": true,
+      "reset_attempts": 1,
+      "reward_positive_steps": 48,
+      "seed": 391005,
+      "success": true,
+      "terminal_success_hold": true
+    }
+  ],
+  "formal_gate5_evidence_modified": false,
+  "formal_original_path": "/root/smolvla-libero-compositional-generalization/results/libero36_gate5_official_v6/task_003_put_inside/original.npz",
+  "formal_replay_path": "/root/smolvla-libero-compositional-generalization/results/libero36_gate5_official_v6/task_003_put_inside/replay.npz",
+  "hdf5_qc": {
+    "bytes": 186134104,
+    "episodes": 5,
+    "failures": [],
+    "frames": 2980,
+    "passed": true,
+    "sha256": "7f7e3ada4c7071c0ea854bed9a9f933c730861449cc93d4bbfe8753b5248dbac"
+  },
+  "language_instruction": "pick up the akita black bowl and place it inside the basket in the left region",
+  "layout_id": 1,
+  "passed": true,
+  "schema_version": 1,
+  "seeds": [
+    391000,
+    391001,
+    391003,
+    391004,
+    391005
+  ],
+  "task_id": 3
+}

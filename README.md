@@ -26,9 +26,66 @@ It combines closed-loop LIBERO evaluation, controlled leave-one-combination-out
 
 > **Current status:** the V4 LOCO evaluation is complete. The registered-object
 > 36-task benchmark has passed Gates 1–4. Under the strict Gate 5 review,
-> **32/36 logical tasks are feasible**; Tasks 15, 17, 33, and 35 are retained
-> as physically infeasible cases. Demonstration collection and new SmolVLA
-> training have not started.
+> **32/36 logical tasks are feasible**; Tasks 15, 17, 33, and 35 remain
+> physically infeasible and are excluded from the feasible training set.
+> Data collection for all **32/32 feasible tasks is complete**, with **160
+> successful episodes** (5 per task). Final QC, the data freeze, provenance
+> addendum, and training-loader semantic preflight are complete. **Training has
+> not started.** Raw HDF5 and LeRobot data remain in the private Hugging Face
+> dataset; GitHub stores only lightweight evidence and reproducibility metadata.
+
+## Demonstration collection status
+
+The final feasible data collection contains all 32 included tasks, with five
+successful episodes per task (160 episodes total). Tasks 15, 17, 33, and 35 are
+retained as physically infeasible Gate 5 cases and are not included in training.
+
+| Task | Object × skill × spatial | Episodes | Frames | Status |
+|---:|---|---:|---:|---|
+| 0 | akita_black_bowl × put_on_top × left | 5 | 3,290 | Complete |
+| 1 | akita_black_bowl × put_on_top × middle | 5 | 2,800 | Complete |
+| 2 | akita_black_bowl × put_on_top × right | 5 | 2,990 | Complete |
+| 3 | akita_black_bowl × put_inside × left | 5 | 2,980 | Complete |
+| 16 | white_yellow_mug × push_to × middle | 5 | 3,625 | Complete |
+
+Each pilot reuses the formal Gate 5 replay, samples five distinct deterministic
+initial states, records `agentview` and `eye_in_hand` images at 128×128, and
+passes the independent HDF5 and LeRobot QC checks. The lightweight collection
+records are tracked in:
+
+- `data/training/libero36_feasible_v1/inventory.json`
+- `data/training/libero36_feasible_v1/manifest.json`
+- `data/demos/libero36_expansion_plan_v1.json`
+- `data/demos/libero36_task*_5_success_pilot_v1/manifest.json`
+- `data/demos/libero36_task*_5_success_pilot_v1/lerobot_qc.json`
+
+Raw HDF5 and LeRobot directories are intentionally not committed to GitHub.
+They are stored in the Hugging Face dataset repository
+[`Alllvinnn/smolvla-libero-compositional-generalization`](https://huggingface.co/datasets/Alllvinnn/smolvla-libero-compositional-generalization)
+at revision `c237443e`.
+
+To retrieve the externally stored dataset (with the Hugging Face CLI):
+
+```bash
+hf download Alllvinnn/smolvla-libero-compositional-generalization \
+  --type dataset --revision c237443e --local-dir datasets/hf_snapshot
+```
+
+The GitHub repository contains only protocols, manifests, inventories, QC
+reports, and acquisition metadata; large binary artifacts remain on Hugging
+Face to keep Git history lightweight.
+
+Final reproducibility records:
+
+- [`final data QC`](results/libero36_final_data_qc_v1.json)
+- [`data freeze`](results/libero36_data_freeze_v1.json)
+- [`data/code provenance addendum`](results/libero36_data_provenance_addendum_v1.json)
+- [`training-loader semantic preflight`](results/libero36_training_loader_semantic_preflight_v1.json)
+- [`artifact_kind known limitation`](results/libero36_artifact_kind_known_limitation.md)
+
+Training has not started; the frozen feasible manifest is ready for the next
+training phase. The private Hugging Face dataset is the canonical location for
+raw HDF5 and LeRobot data.
 
 ## Research question
 
@@ -122,9 +179,9 @@ diagnostic attempts for those cases are retained and are not relabeled as
 successes. Replacement tasks, if explored, are reported separately and do not
 change the original LIBERO-36 count.
 
-Demonstration collection and training remain blocked until the feasible-task
-set, evidence manifests, and data-collection protocol are frozen. Candidate
-work that has not passed exact replay and provenance checks is deliberately
+The feasible-task set, evidence manifests, and data-collection protocol are
+now frozen. Demonstration collection is complete; training has not started.
+Candidate work that has not passed exact replay and provenance checks remains
 excluded from the official result.
 
 The full benchmark definition, camera contract, success predicates, gate

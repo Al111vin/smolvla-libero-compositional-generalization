@@ -1,0 +1,83 @@
+{
+  "artifact_kind": "libero36_task0_success_demonstration_pilot",
+  "episodes_qc": [
+    {
+      "action_max_abs_diff": 0.0,
+      "finite": true,
+      "frames": 598,
+      "passed": true,
+      "reset_attempts": 1,
+      "reward_positive_steps": 108,
+      "seed": 381000,
+      "success": true,
+      "terminal_success_hold": true
+    },
+    {
+      "action_max_abs_diff": 0.0,
+      "finite": true,
+      "frames": 598,
+      "passed": true,
+      "reset_attempts": 1,
+      "reward_positive_steps": 108,
+      "seed": 381002,
+      "success": true,
+      "terminal_success_hold": true
+    },
+    {
+      "action_max_abs_diff": 0.0,
+      "finite": true,
+      "frames": 598,
+      "passed": true,
+      "reset_attempts": 1,
+      "reward_positive_steps": 108,
+      "seed": 381003,
+      "success": true,
+      "terminal_success_hold": true
+    },
+    {
+      "action_max_abs_diff": 0.0,
+      "finite": true,
+      "frames": 598,
+      "passed": true,
+      "reset_attempts": 1,
+      "reward_positive_steps": 108,
+      "seed": 381007,
+      "success": true,
+      "terminal_success_hold": true
+    },
+    {
+      "action_max_abs_diff": 0.0,
+      "finite": true,
+      "frames": 598,
+      "passed": true,
+      "reset_attempts": 1,
+      "reward_positive_steps": 108,
+      "seed": 381008,
+      "success": true,
+      "terminal_success_hold": true
+    }
+  ],
+  "formal_gate5_evidence_modified": false,
+  "formal_original_path": "/root/smolvla-libero-compositional-generalization/results/libero36_gate5_official_v6/task_002_put_on_top/original.npz",
+  "formal_replay_path": "/root/smolvla-libero-compositional-generalization/results/libero36_gate5_official_v6/task_002_put_on_top/replay.npz",
+  "hdf5_qc": {
+    "bytes": 182221615,
+    "episodes": 5,
+    "failures": [],
+    "frames": 2990,
+    "passed": true,
+    "sha256": "209ed27c8d4a7215ec0267efc715af8f0b611398c8c4d13da98d5bdaaff1ba77"
+  },
+  "language_instruction": "pick up the akita black bowl and place it on the plate in the right region",
+  "layout_id": 1,
+  "passed": true,
+  "schema_version": 1,
+  "seeds": [
+    381000,
+    381002,
+    381003,
+    381007,
+    381008
+  ],
+  "task_id": 2
+}
