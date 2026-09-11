@@ -86,7 +86,7 @@ def search_success_seeds(task_id: int, log) -> list[int]:
     row = find_row(task_id)
     trace = np.load(replay, allow_pickle=False)
     actions = np.asarray(trace["actions"], dtype=np.float32)
-    base_seed = int(np.asarray(trace["seed"]).item())
+    base_seed = int(np.asarray(trace["seed"]).item()) if "seed" in trace.files else 361000 + task_id * 10000
     env = reset_validator.make_environment(Path(row["bddl_path"]))
     selected: list[int] = []
     try:
