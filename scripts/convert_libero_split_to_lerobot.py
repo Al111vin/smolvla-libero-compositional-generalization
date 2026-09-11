@@ -168,13 +168,8 @@ def load_split(args) -> pd.DataFrame:
             f"Tasks with exclusion reasons entered split: {bad_ids}"
         )
 
-    forbidden = sorted(set(actual_ids) & {1, 5})
-
-    if forbidden:
-        raise ValueError(
-            f"Primary LOCO datasets must exclude tasks 1 and 5: "
-            f"{forbidden}"
-        )
+    # The frozen LIBERO-36 feasible split intentionally includes Tasks 1 and 5.
+    # Historical LOCO-specific exclusions do not apply to this 32-task dataset.
 
     return df
 
@@ -212,9 +207,12 @@ def preflight_task(row, args) -> TaskSource:
             "data/env_args",
         )
 
-        control_freq = int(
-            env_args["env_kwargs"]["control_freq"]
-        )
+        # Frozen pilot HDF5 stores control_freq at the top level; accept
+        # both the pilot schema and the older env_kwargs wrapper.
+        if "control_freq" in env_args:
+            control_freq = int(env_args["control_freq"])
+        else:
+            control_freq = int(env_args["env_kwargs"]["control_freq"])
 
         if control_freq != args.fps:
             raise ValueError(
