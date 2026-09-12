@@ -1,0 +1,61 @@
+{
+  "schema_version": "training-pipeline-smoke-v1",
+  "status": "succeeded",
+  "purpose": "pipeline_smoke_not_formal_generalization_result",
+  "code_commit": "c7cab19f9f55fb32db05ae972b7be614942d91d0",
+  "dataset": {
+    "root": "datasets/lerobot/libero36_feasible_32_frozen_v1",
+    "tasks": 32,
+    "episodes": 160,
+    "frames": 101660,
+    "qc_passed": true,
+    "qc_sha256": "40f9f596ec896ebdeddf81e2f13d0dbc795ba194a99993c181c6c7367742503b",
+    "freeze_addendum_sha256": "a622d2ec20c527a842c0a07300377da8f6f2b7a61465db58f6fc2cb567037fdb",
+    "source_freeze_sha256": "57084666d0c42285caef1918fc6bd92baaf4a09bbe4aa977cc4dc46b021ce868",
+    "provenance_addendum_sha256": "b2f224846a67f233b1fb5576af84f8ab0ba6c30fbfbdeb29e7e6c8dce7ed9e23"
+  },
+  "base_model": "/root/smolvla-libero-compositional-generalization/models/smolvla_base_libero",
+  "parameters": {
+    "dataset_repo_id": "local/libero36_feasible_32_frozen_v1",
+    "pretrained_path": "/root/smolvla-libero-compositional-generalization/models/smolvla_base_libero",
+    "amp": true,
+    "batch_size": 1,
+    "num_workers": 2,
+    "seed": 42,
+    "steps": 500,
+    "save_frequency": 250,
+    "optimizer_grad_clip_norm": 1.0,
+    "push_to_hub": false
+  },
+  "runtime": {
+    "log_path": "results/training/smolvla_libero36_pipeline_smoke_v1_steps500.log",
+    "log_start_hhmmss": "09:17:23",
+    "log_end_hhmmss": "09:19:34",
+    "wall_time_seconds": 131,
+    "optimization_completed": true
+  },
+  "checkpoints": {
+    "000250": {
+      "path": "results/training/smolvla_libero36_pipeline_smoke_v1_steps500/checkpoints/000250",
+      "sha256": "2b696bbfa99edb519377bb82b1a69d1f9f6be095ba4baf844945f5c419e9fbc0",
+      "bytes": 1610500532,
+      "files": 12
+    },
+    "000500": {
+      "path": "results/training/smolvla_libero36_pipeline_smoke_v1_steps500/checkpoints/000500",
+      "sha256": "b7a1ca396499bbb6927b4d2a3980da0f4d7ca0175540174d24610e2e539b3777",
+      "bytes": 1610500528,
+      "files": 12
+    },
+    "last": {
+      "path": "results/training/smolvla_libero36_pipeline_smoke_v1_steps500/checkpoints/last",
+      "sha256": "b7a1ca396499bbb6927b4d2a3980da0f4d7ca0175540174d24610e2e539b3777",
+      "bytes": 1610500528,
+      "files": 12
+    }
+  },
+  "notes": [
+    "Compatibility uses policy.pretrained_path and top-level save_freq for the installed LeRobot version.",
+    "No formal LOCO/generalization evaluation was run in this smoke test."
+  ]
+}

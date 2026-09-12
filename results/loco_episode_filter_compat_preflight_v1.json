@@ -1,0 +1,24 @@
+{
+  "schema_version": "libero36_loco_episode_filter_compat_preflight_v1",
+  "status": "passed",
+  "fold_id": "loco_v1_fold_01_task_00",
+  "train_episode_count": 155,
+  "heldout_task_id": 0,
+  "heldout_episode_indices": [
+    0,
+    1,
+    2,
+    3,
+    4
+  ],
+  "heldout_in_saved_training_config": false,
+  "filtered_frame_count": 98370,
+  "training_steps": 2,
+  "checkpoint_step": 2,
+  "base_model_path": "/root/smolvla-libero-compositional-generalization/models/smolvla_base_libero",
+  "fold_spec_sha256": "c5808abac2d3771865411c505f3cc08dd4565933e9d24e3bf97bc50e56bfb0a7",
+  "episode_split_sha256": "e09461026f48a6ef9f4c18e376f0094bfe48448672b10168d15567306ca290ed",
+  "compat_patch_sha256": "5092d6ec1859a0bac91f25990383492a112579055582a5363f0e8b83d43300d8",
+  "trainer_wrapper_sha256": "02bd00acf4dd4f82e34a22c614fad0e888b23311159f96833bd40a705abe42d5",
+  "notes": "Compatibility patch disables Hugging Face image transforms only while LeRobot builds a filtered scalar-index mapping, then restores the transform before sample access."
+}
