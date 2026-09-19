@@ -83,9 +83,7 @@ Final reproducibility records:
 - [`training-loader semantic preflight`](results/libero36_training_loader_semantic_preflight_v1.json)
 - [`artifact_kind known limitation`](results/libero36_artifact_kind_known_limitation.md)
 
-Training has not started; the frozen feasible manifest is ready for the next
-training phase. The private Hugging Face dataset is the canonical location for
-raw HDF5 and LeRobot data.
+The frozen feasible manifest remains the canonical data source. Task1 edge-pinch v2 fine-tuning is complete, while the strict closed-loop result remains below the threshold for unlocking Fold 02. The private Hugging Face dataset is the canonical location for raw HDF5 and LeRobot data.
 
 ## Research question
 
