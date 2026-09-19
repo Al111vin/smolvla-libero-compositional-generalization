@@ -291,9 +291,10 @@ it must not be presented as a trained-model evaluation result.
 
 ## Task1 pose-window weighted training
 
-- Experiment: 
+- Experiment: `task1_edge_pinch_v2_pose_window_weighted_v2`
 - Dataset: 77 training episodes from the frozen Task1 edge-pinch v2 LeRobot dataset.
 - Method: isolated 3x loss weighting on the audited close-pose window; baseline data and checkpoints were not modified.
 - Training: 3000 steps, batch size 8, seed 42; checkpoints 000500 through 003000 completed.
-- Closed-loop evaluation is a separate, pending phase; this result does not unlock Fold 02.
-- Evidence JSON: .
+- Closed-loop strict evaluation: checkpoints 1500, 2500, and 3000 across batch1 seeds 555101–555105 produced 0/5 success at every checkpoint (15/15 rollouts completed; no deterministic-algorithm errors).
+- Evidence JSON: `results_task1_pose_window_weighted_v2_training.json` and `results_task1_pose_window_weighted_strict_batch1_v1_eval.json`.
+- Fold 02 remains locked; this experiment does not change the official Task1 gate.
