@@ -1,0 +1,140 @@
+{
+  "artifact_kind": "task023_data_freeze_v3",
+  "task_id": 23,
+  "layout_id": 1,
+  "language_instruction": "pick up the alphabet soup and place it inside the basket in the right region",
+  "status": "pilot_frozen_success_only",
+  "episodes": 3,
+  "frames": 2349,
+  "source_hdf5": "/root/smolvla-training-prep/data/demos/libero36_alphabet_soup_put_inside_right_v3_success_only.hdf5",
+  "source_hdf5_sha256": "3386a895974f03033bad201f414970cc84e40d359b1ed0e87cf3919959b29fc8",
+  "dataset_root": "/root/smolvla-libero-compositional-generalization/datasets/lerobot/libero36_task23_alphabet_soup_put_inside_right_v3_success_only",
+  "dataset_info": {
+    "codebase_version": "v3.0",
+    "robot_type": "panda",
+    "total_episodes": 3,
+    "total_frames": 2349,
+    "total_tasks": 1,
+    "chunks_size": 1000,
+    "data_files_size_in_mb": 100,
+    "video_files_size_in_mb": 200,
+    "fps": 20,
+    "splits": {
+      "train": "0:3"
+    },
+    "data_path": "data/chunk-{chunk_index:03d}/file-{file_index:03d}.parquet",
+    "video_path": null,
+    "features": {
+      "observation.images.agentview": {
+        "dtype": "image",
+        "shape": [
+          128,
+          128,
+          3
+        ],
+        "names": [
+          "height",
+          "width",
+          "channels"
+        ]
+      },
+      "observation.images.wrist": {
+        "dtype": "image",
+        "shape": [
+          128,
+          128,
+          3
+        ],
+        "names": [
+          "height",
+          "width",
+          "channels"
+        ]
+      },
+      "observation.state": {
+        "dtype": "float32",
+        "shape": [
+          15
+        ],
+        "names": [
+          "joint_0",
+          "joint_1",
+          "joint_2",
+          "joint_3",
+          "joint_4",
+          "joint_5",
+          "joint_6",
+          "ee_x",
+          "ee_y",
+          "ee_z",
+          "ee_ori_0",
+          "ee_ori_1",
+          "ee_ori_2",
+          "gripper_0",
+          "gripper_1"
+        ]
+      },
+      "action": {
+        "dtype": "float32",
+        "shape": [
+          7
+        ],
+        "names": [
+          "delta_x",
+          "delta_y",
+          "delta_z",
+          "delta_rot_x",
+          "delta_rot_y",
+          "delta_rot_z",
+          "gripper"
+        ]
+      },
+      "timestamp": {
+        "dtype": "float32",
+        "shape": [
+          1
+        ],
+        "names": null
+      },
+      "frame_index": {
+        "dtype": "int64",
+        "shape": [
+          1
+        ],
+        "names": null
+      },
+      "episode_index": {
+        "dtype": "int64",
+        "shape": [
+          1
+        ],
+        "names": null
+      },
+      "index": {
+        "dtype": "int64",
+        "shape": [
+          1
+        ],
+        "names": null
+      },
+      "task_index": {
+        "dtype": "int64",
+        "shape": [
+          1
+        ],
+        "names": null
+      }
+    }
+  },
+  "parquet_rows": 2349,
+  "script": "/root/smolvla-eval-prep/scripts/record_task23_multiseed_v2.py",
+  "script_sha256": "ab6f8c179c4f574c26d6a193157fec4a61856507d6ad98ed49510344c0c645c5",
+  "excluded_sources": [
+    "task023_alphabet_soup_put_inside_right_v1 (empty data group)",
+    "task023_alphabet_soup_put_inside_right_v2 (contains 2 unsuccessful demos)"
+  ],
+  "formal_training_started": false,
+  "formal_evaluation_started": false,
+  "fold02": "LOCKED",
+  "timestamp_utc": "2026-09-19T21:03:09.411944+00:00"
+}
