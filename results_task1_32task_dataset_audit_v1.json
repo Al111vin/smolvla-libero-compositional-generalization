@@ -1,0 +1,24 @@
+{
+  "audit": "libero36_feasible_32_frozen_v1_dataset_availability_v1",
+  "status": "verified",
+  "source_repo": "Alllvinnn/smolvla-libero-compositional-generalization",
+  "source_revision": "73ac07fbf3501faa863a1da3c17c7516194ddfad",
+  "dataset_path": "/root/smolvla-training-prep/datasets/lerobot/libero36_feasible_32_frozen_v1",
+  "total_tasks": 32,
+  "total_episodes": 160,
+  "total_frames": 101660,
+  "parquet_and_metadata_files": 45,
+  "features_verified": {
+    "observation_images_agentview": [128, 128, 3],
+    "observation_images_wrist": [128, 128, 3],
+    "observation_state": [15],
+    "action": [7]
+  },
+  "episode_metadata_rows": 160,
+  "task_metadata_rows": 32,
+  "excluded_infeasible_task_ids": [15, 17, 33, 35],
+  "raw_data_modified": false,
+  "training_started": false,
+  "fold01_started": false,
+  "next_gate": "freeze_fold01_training_and_evaluation_config"
+}
