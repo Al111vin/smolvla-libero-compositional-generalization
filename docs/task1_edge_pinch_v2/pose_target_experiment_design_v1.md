@@ -34,7 +34,12 @@ silently approximated by changing an unrelated config field.
 
 1. Freeze the existing 77-episode train split and all validation episodes.
 2. Define closure/lift windows from the recorded demonstration signals using a
-   deterministic, documented rule.
+   deterministic, documented rule. In the frozen 96-demo audit, stable close
+   commands begin at frames 36–42 (median 37), reopen commands begin at
+   frames 93–105 (median 97), and the close→reopen interval is 57–65 frames
+   (median 60). A proposed first window is `[close-10, close+20]`, clipped to
+   the episode, with a proposed 3× sampling multiplier. These are defaults for
+   review, not an authorization to train.
 3. Produce a new, independently named training variant that oversamples only
    those windows, while retaining the original action labels and images.
 4. Keep base checkpoint, optimizer, seed, total updates, and evaluation
