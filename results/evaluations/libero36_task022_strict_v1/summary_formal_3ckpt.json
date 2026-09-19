@@ -1,0 +1,42 @@
+{
+  "schema_version": "libero36_task022_strict_eval_v1",
+  "task_id": 22,
+  "layout_id": 1,
+  "instruction": "pick up the alphabet soup and place it inside the basket in the middle region",
+  "records": 150,
+  "formal_checkpoints": [
+    "030000",
+    "060000",
+    "090000"
+  ],
+  "excluded_checkpoint_dirs": [
+    "checkpoint_last"
+  ],
+  "checkpoints": {
+    "030000": {
+      "num_rollouts": 50,
+      "num_success": 0,
+      "success_indices": [],
+      "mean_reward": 0.0,
+      "success_rate": 0.0
+    },
+    "060000": {
+      "num_rollouts": 50,
+      "num_success": 0,
+      "success_indices": [],
+      "mean_reward": 0.0,
+      "success_rate": 0.0
+    },
+    "090000": {
+      "num_rollouts": 50,
+      "num_success": 0,
+      "success_indices": [],
+      "mean_reward": 0.0,
+      "success_rate": 0.0
+    }
+  },
+  "states_manifest_sha256": "4eaf8b76ba88b1ec69958776ab5ec5d3d4dcae888dad7797f82596f690588077",
+  "bddl_sha256": "8f062739b2fbdf954ef126ccf2c29d2543a21989c969543ed0f1059c152e08af",
+  "invalid_action_records": 0,
+  "deterministic_algorithm_error_records": 0
+}
