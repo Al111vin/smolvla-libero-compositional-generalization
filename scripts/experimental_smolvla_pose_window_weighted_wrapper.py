@@ -83,9 +83,41 @@ def install_weighted_forward(plan_path: str) -> None:
     print(f"POSE_WINDOW_WEIGHTING_INSTALLED episodes={len(plan)} plan={plan_path}")
 
 
+def install_metadata_preserving_preprocessor() -> None:
+    """Keep sampler metadata after the stock feature preprocessor runs."""
+    import lerobot.policies.factory as policy_factory
+
+    original_factory = policy_factory.make_pre_post_processors
+
+    class MetadataPreservingPreprocessor:
+        def __init__(self, inner):
+            self.inner = inner
+
+        def __call__(self, batch):
+            episode_index = batch.get("episode_index")
+            frame_index = batch.get("frame_index")
+            processed = self.inner(batch)
+            if episode_index is None or frame_index is None:
+                raise KeyError("raw training batch lacks episode_index/frame_index")
+            processed["episode_index"] = episode_index
+            processed["frame_index"] = frame_index
+            return processed
+
+        def __getattr__(self, name):
+            return getattr(self.inner, name)
+
+    def wrapped_factory(*args, **kwargs):
+        preprocessor, postprocessor = original_factory(*args, **kwargs)
+
+        return MetadataPreservingPreprocessor(preprocessor), postprocessor
+
+    policy_factory.make_pre_post_processors = wrapped_factory
+
+
 if __name__ == "__main__":
     plan_path = os.environ.get("POSE_WINDOW_PLAN")
     if not plan_path:
         raise RuntimeError("Set POSE_WINDOW_PLAN to an audited plan JSON before training")
     install_weighted_forward(plan_path)
+    install_metadata_preserving_preprocessor()
     runpy.run_module("lerobot.scripts.lerobot_train", run_name="__main__")
