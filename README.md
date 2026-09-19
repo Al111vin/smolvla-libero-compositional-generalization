@@ -30,12 +30,15 @@ It combines closed-loop LIBERO evaluation, controlled leave-one-combination-out
 > physically infeasible and are excluded from the feasible training set.
 > Data collection for all **32/32 feasible tasks is complete**, with **160
 > successful episodes** (5 per task). Final QC, the data freeze, provenance
-> addendum, and training-loader semantic preflight are complete. Task1
-> edge-pinch v2 fine-tuning and a pose-window weighted follow-up are complete,
-> but strict closed-loop evaluation remains unsuccessful (baseline 0/30;
-> pose-window weighted 0/15). **Fold 02 remains locked.** Raw HDF5 and LeRobot
-> data remain in the private Hugging Face dataset; GitHub stores only
-> lightweight evidence and reproducibility metadata.
+> addendum, and training-loader semantic preflight are complete. The first
+> formal Fold 01 training is complete at 90,000 steps, but its strict held-out
+> evaluation for the alphabet-soup/put-inside/middle combination (original
+> LIBERO task 22) is **0/150**. The separate Task 023 formal evaluation is
+> **0/300**. Task1 edge-pinch v2 fine-tuning and a pose-window weighted
+> follow-up are also complete, but remain unsuccessful under the strict
+> protocol. **Fold 02 remains locked.** Raw HDF5 and LeRobot data remain in
+> the private Hugging Face dataset; GitHub stores only lightweight evidence and
+> reproducibility metadata.
 
 ## Demonstration collection status
 
@@ -86,7 +89,11 @@ Final reproducibility records:
 - [`training-loader semantic preflight`](results/libero36_training_loader_semantic_preflight_v1.json)
 - [`artifact_kind known limitation`](results/libero36_artifact_kind_known_limitation.md)
 
-The frozen feasible manifest remains the canonical data source. Task1 edge-pinch v2 fine-tuning is complete, while the strict closed-loop result remains below the threshold for unlocking Fold 02. The private Hugging Face dataset is the canonical location for raw HDF5 and LeRobot data.
+The frozen feasible manifest remains the canonical data source. The first
+Fold 01 training/evaluation pass is complete but does not meet the strict
+closed-loop gate (0/150 on its held-out task), so it does not unlock Fold 02.
+Task 023 is separately recorded as 0/300. The private Hugging Face dataset is
+the canonical location for raw HDF5 and LeRobot data.
 
 ### Task1 edge-pinch v2 status
 
