@@ -287,3 +287,13 @@ cannot generalize compositionally in every task family or training regime.
 Likewise, the 36-task proxy is still a benchmark-construction effort. Until
 Gate 5 is complete and demonstrations are collected under the frozen protocol,
 it must not be presented as a trained-model evaluation result.
+
+
+## Task1 pose-window weighted training
+
+- Experiment: 
+- Dataset: 77 training episodes from the frozen Task1 edge-pinch v2 LeRobot dataset.
+- Method: isolated 3x loss weighting on the audited close-pose window; baseline data and checkpoints were not modified.
+- Training: 3000 steps, batch size 8, seed 42; checkpoints 000500 through 003000 completed.
+- Closed-loop evaluation is a separate, pending phase; this result does not unlock Fold 02.
+- Evidence JSON: .
