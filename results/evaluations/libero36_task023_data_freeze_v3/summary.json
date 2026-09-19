@@ -1,26 +1,33 @@
 {
-  "artifact_kind": "task023_data_freeze_v3",
+  "artifact_kind": "task023_data_freeze_pilot_v3",
   "task_id": 23,
   "layout_id": 1,
   "language_instruction": "pick up the alphabet soup and place it inside the basket in the right region",
-  "status": "pilot_frozen_success_only",
-  "episodes": 3,
-  "frames": 2349,
-  "source_hdf5": "/root/smolvla-training-prep/data/demos/libero36_alphabet_soup_put_inside_right_v3_success_only.hdf5",
-  "source_hdf5_sha256": "3386a895974f03033bad201f414970cc84e40d359b1ed0e87cf3919959b29fc8",
-  "dataset_root": "/root/smolvla-libero-compositional-generalization/datasets/lerobot/libero36_task23_alphabet_soup_put_inside_right_v3_success_only",
+  "status": "pilot_frozen",
+  "episodes": 5,
+  "frames": 3915,
+  "success_seeds": [
+    591000,
+    591002,
+    591003,
+    591005,
+    591006
+  ],
+  "source_hdf5": "/root/smolvla-training-prep/data/demos/libero36_task023_alphabet_soup_put_inside_right_replay_v3/task_023_layout_1_5_success.hdf5",
+  "source_hdf5_sha256": "bc090e0a05d8e5d3ae4ec6289f11cb3c4c7e0b2db2e16401dedd8b758ff284e1",
+  "dataset_root": "/root/smolvla-libero-compositional-generalization/datasets/lerobot/libero36_task23_alphabet_soup_put_inside_right_pilot_v3",
   "dataset_info": {
     "codebase_version": "v3.0",
     "robot_type": "panda",
-    "total_episodes": 3,
-    "total_frames": 2349,
+    "total_episodes": 5,
+    "total_frames": 3915,
     "total_tasks": 1,
     "chunks_size": 1000,
     "data_files_size_in_mb": 100,
     "video_files_size_in_mb": 200,
     "fps": 20,
     "splits": {
-      "train": "0:3"
+      "train": "0:5"
     },
     "data_path": "data/chunk-{chunk_index:03d}/file-{file_index:03d}.parquet",
     "video_path": null,
@@ -127,14 +134,16 @@
     }
   },
   "parquet_rows": 2349,
-  "script": "/root/smolvla-eval-prep/scripts/record_task23_multiseed_v2.py",
-  "script_sha256": "ab6f8c179c4f574c26d6a193157fec4a61856507d6ad98ed49510344c0c645c5",
-  "excluded_sources": [
-    "task023_alphabet_soup_put_inside_right_v1 (empty data group)",
-    "task023_alphabet_soup_put_inside_right_v2 (contains 2 unsuccessful demos)"
+  "state_shape": [
+    15
   ],
+  "action_shape": [
+    7
+  ],
+  "nan_count": 0,
+  "finite": true,
   "formal_training_started": false,
   "formal_evaluation_started": false,
   "fold02": "LOCKED",
-  "timestamp_utc": "2026-09-19T21:03:09.411944+00:00"
+  "timestamp_utc": "2026-09-19T21:13:22.880784+00:00"
 }
