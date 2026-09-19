@@ -229,6 +229,5 @@
   "wandb": {
     "enable": false
   },
-  "checkpoint_path": null,
-  "public_status": "canonical_runtime_config_used_for_training"
+  "checkpoint_path": null
 }
