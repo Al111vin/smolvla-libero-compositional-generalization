@@ -30,9 +30,12 @@ It combines closed-loop LIBERO evaluation, controlled leave-one-combination-out
 > physically infeasible and are excluded from the feasible training set.
 > Data collection for all **32/32 feasible tasks is complete**, with **160
 > successful episodes** (5 per task). Final QC, the data freeze, provenance
-> addendum, and training-loader semantic preflight are complete. **Training has
-> not started.** Raw HDF5 and LeRobot data remain in the private Hugging Face
-> dataset; GitHub stores only lightweight evidence and reproducibility metadata.
+> addendum, and training-loader semantic preflight are complete. Task1
+> edge-pinch v2 fine-tuning and a pose-window weighted follow-up are complete,
+> but strict closed-loop evaluation remains unsuccessful (baseline 0/30;
+> pose-window weighted 0/15). **Fold 02 remains locked.** Raw HDF5 and LeRobot
+> data remain in the private Hugging Face dataset; GitHub stores only
+> lightweight evidence and reproducibility metadata.
 
 ## Demonstration collection status
 
@@ -84,6 +87,21 @@ Final reproducibility records:
 - [`artifact_kind known limitation`](results/libero36_artifact_kind_known_limitation.md)
 
 The frozen feasible manifest remains the canonical data source. Task1 edge-pinch v2 fine-tuning is complete, while the strict closed-loop result remains below the threshold for unlocking Fold 02. The private Hugging Face dataset is the canonical location for raw HDF5 and LeRobot data.
+
+### Task1 edge-pinch v2 status
+
+The Task1 edge-pinch v2 branch is retained as a completed diagnostic track,
+not as evidence for unlocking Fold 02. The 96-episode dataset passed conversion
+and content QC. The baseline fine-tune and the pose-window weighted follow-up
+each produced six checkpoints. Under the strict deterministic evaluation
+protocol, the baseline achieved **0/30** successes on batch-1 seeds and the
+pose-window weighted follow-up achieved **0/15** successes across checkpoints
+1500, 2500, and 3000. No deterministic-algorithm errors were observed.
+
+The experiments and failure diagnostics are archived in the lightweight
+evidence files at the repository root and in the corresponding Hugging Face
+experiment folder. No checkpoint binaries, raw HDF5, or rollout payloads are
+stored in GitHub.
 
 ## Research question
 
