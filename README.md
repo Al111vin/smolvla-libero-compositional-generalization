@@ -321,3 +321,13 @@ it must not be presented as a trained-model evaluation result.
 - Closed-loop strict evaluation: checkpoints 1500, 2500, and 3000 across batch1 seeds 555101–555105 produced 0/5 success at every checkpoint (15/15 rollouts completed; no deterministic-algorithm errors).
 - Evidence JSON: `results_task1_pose_window_weighted_v2_training.json` and `results_task1_pose_window_weighted_strict_batch1_v1_eval.json`.
 - Fold 02 remains locked; this experiment does not change the official Task1 gate.
+
+
+## Task 022 strict joint32 evaluation
+
+- Task: alphabet soup × put_inside × middle (original LIBERO task 22).
+- Joint32 formal training checkpoints 030000/060000/090000/last were evaluated under the strict deterministic protocol on 50 frozen initial states each (200 rollouts total).
+- Result: 0/50 success at every checkpoint; mean reward 0.0; no deterministic-algorithm errors or invalid-action records.
+- Summary SHA-256: `231b60b963e5e46ce94bd8ea6d3c997cb3699b77f425b0a6db5ccf78e992897e`.
+- Evidence JSON: `results_task022_joint32_strict_eval_20260920.json`.
+- This result does not unlock Fold 02; Task1/Fold 02 gates remain unchanged.

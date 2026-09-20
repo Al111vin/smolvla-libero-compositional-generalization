@@ -1,0 +1,31 @@
+{
+  "task_id": 22,
+  "task_name": "alphabet_soup_put_inside_middle",
+  "evaluation": "strict_determinism",
+  "records": 200,
+  "checkpoints": {
+    "030000": {
+      "rollouts": 50,
+      "success": 0,
+      "mean_reward": 0.0
+    },
+    "060000": {
+      "rollouts": 50,
+      "success": 0,
+      "mean_reward": 0.0
+    },
+    "090000": {
+      "rollouts": 50,
+      "success": 0,
+      "mean_reward": 0.0
+    },
+    "last": {
+      "rollouts": 50,
+      "success": 0,
+      "mean_reward": 0.0
+    }
+  },
+  "summary_sha256": "231b60b963e5e46ce94bd8ea6d3c997cb3699b77f425b0a6db5ccf78e992897e",
+  "result_path": "/root/smolvla-eval-prep/results/evaluations/libero36_task022_joint32_strict_v1/summary.json",
+  "fold02": "LOCKED"
+}
