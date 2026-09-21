@@ -1,0 +1,23 @@
+{
+  "schema_version": "joint32_known_good_control_audit_v1",
+  "created_utc": "2026-09-21T13:28:28.973539+00:00",
+  "historical_checkpoint": "/root/smolvla-training-prep/results/training/loco_fold01_formal_v1/checkpoints/020000/pretrained_model",
+  "evaluator": "eval_libero_strict_v1.py",
+  "settings": {
+    "task_id": 0,
+    "layout_id": 1,
+    "n_action_steps": 25,
+    "max_steps": 50,
+    "wait_steps": 10,
+    "states": 5,
+    "checkpoints": 5
+  },
+  "records": 25,
+  "successes": 0,
+  "mean_reward": 0.0,
+  "result": "historical V3 success was not reproduced by the current strict evaluator",
+  "interpretation": "This does not prove the checkpoint is bad; it proves phase-4 known-good control is not established under the current strict path. The current strict evaluator applies frozen-camera and preprocessing choices that may differ from the historical V3 success path.",
+  "additional_issue": "loco_fold01_strict_eval_v1.py cannot be run cleanly because its repository-cleanliness check points at /root/smolvla-eval-prep, which is not a Git worktree.",
+  "next_step": "Unify or repair the evaluator and reproduce the known-good baseline before any joint32 retraining or Fold02 decision.",
+  "fold02": "LOCKED"
+}
