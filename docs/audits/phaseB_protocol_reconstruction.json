@@ -1,0 +1,38 @@
+{
+  "schema_version": "protocol_reconstruction_phaseB_v1",
+  "created_utc": "2026-09-21T14:06:46.778237+00:00",
+  "options": [
+    {
+      "id": "mutate_original",
+      "risk": "high",
+      "decision": "rejected"
+    },
+    {
+      "id": "patched_copy",
+      "risk": "medium",
+      "decision": "selected"
+    },
+    {
+      "id": "old_source_recovery",
+      "risk": "low_but_unavailable",
+      "decision": "deferred"
+    }
+  ],
+  "patched_evaluator": "/root/smolvla-eval-prep/scripts/loco_fold01_strict_eval_phaseB_patched_v1.py",
+  "patched_evaluator_sha256": "f2a24a211b0cdbac7da0b4e4022459be1ffb5e073d6f84d911be4d61a633cd34",
+  "fixes": [
+    "do not mutate read-only task.language; pass historical protocol instruction into frame",
+    "run as an isolated copy; original evaluator untouched"
+  ],
+  "smoke_result": {
+    "path": "/root/smolvla-eval-prep/results/audits/protocol_reconstruction_phaseB_patched_smoke_v2/run_manifest.json",
+    "exists": true,
+    "success": false,
+    "steps": 280,
+    "task_id": 0,
+    "init_index": 0
+  },
+  "finding": "patched historical protocol path executes end-to-end but does not reproduce historical success on the first fixed state",
+  "decision": "do not proceed to joint32 rerun yet; compare historical evaluator hash and camera/preprocessor behavior before Phase C",
+  "fold02": "LOCKED"
+}
