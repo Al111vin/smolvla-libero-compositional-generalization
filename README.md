@@ -176,6 +176,14 @@ checkpoint aliases, and current source differences before any new training.
 No Fold 02 run or joint32 retraining is authorized by this phase.
 See [`phase A protocol reconstruction`](docs/audits/phaseA_protocol_reconstruction.json).
 
+### Protocol reconstruction phase B (2026-09-21)
+
+An isolated patched evaluator now executes the historical protocol without
+mutating the read-only LIBERO task language object. The first fixed-state
+smoke completed the full 280-step rollout but returned `success=false`; the
+historical success is therefore still not reproduced. The original evaluator
+was not modified. See [`phase B protocol reconstruction`](docs/audits/phaseB_protocol_reconstruction.json).
+
 ## Research question
 
 Can a vision-language-action policy generalize to a value-seen but
