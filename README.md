@@ -54,6 +54,11 @@ retained as physically infeasible Gate 5 cases and are not included in training.
 | 3 | akita_black_bowl × put_inside × left | 5 | 2,980 | Complete |
 | 16 | white_yellow_mug × push_to × middle | 5 | 3,625 | Complete |
 
+The table above shows representative rows. The complete 32-task inventory is
+the machine-readable source of truth in
+`data/training/libero36_feasible_v1/inventory.json` and
+`data/training/libero36_feasible_v1/manifest.json`.
+
 Each pilot reuses the formal Gate 5 replay, samples five distinct deterministic
 initial states, records `agentview` and `eye_in_hand` images at 128×128, and
 passes the independent HDF5 and LeRobot QC checks. The lightweight collection
@@ -210,9 +215,9 @@ excluded from the official result.
 The full benchmark definition, camera contract, success predicates, gate
 criteria, and current evidence are recorded in
 [`results/LIBERO_36_PROXY_TASK_PROTOCOL.md`](results/LIBERO_36_PROXY_TASK_PROTOCOL.md).
-Current development lives on the
-[`libero36-source-xy-redesign`](https://github.com/Al111vin/smolvla-libero-compositional-generalization/tree/libero36-source-xy-redesign)
-branch.
+The canonical public state is maintained on `main`; the
+`libero36-source-xy-redesign` branch remains the active experimental branch
+until its next results are reviewed and merged.
 
 ## Repository structure
 
@@ -228,8 +233,11 @@ branch.
 │   ├── LIBERO_36_PROXY_TASK_PROTOCOL.md
 │   ├── LIBERO_36_GATE5_OFFICIAL_V6_PROTOCOL.md
 │   └── GATE5_TASK15_CONTACT_DIAGNOSIS.md
-│   └── libero36_source_xy_redesign_diagnostic/
-├── scripts/                       # generation, validation, training, and evaluation
+│   ├── libero36_source_xy_redesign_diagnostic/
+│   └── evaluations/               # strict held-out evaluation summaries
+├── docs/                           # experiment handoffs and diagnostic notes
+├── configs/                        # frozen and pilot training configurations
+├── scripts/                        # generation, validation, training, and evaluation
 ├── patches/                       # compatibility patches
 └── requirements.txt
 ```
@@ -294,9 +302,10 @@ respective upstream projects.
 - [x] Run the frozen two-fold V4 LOCO evaluation
 - [x] Freeze the 36-task proxy benchmark and pass Gates 1–4
 - [x] Complete the strict Gate 5 feasibility decision (32 feasible, 4 infeasible)
-- [ ] Freeze the evidence manifests and collection protocol for the 32 feasible tasks
-- [ ] Collect balanced demonstrations under the frozen camera contract
-- [ ] Create value-seen / tuple-unseen training splits
+- [x] Freeze the evidence manifests and collection protocol for the 32 feasible tasks
+- [x] Collect balanced demonstrations under the frozen camera contract
+- [x] Create value-seen / tuple-unseen training splits
+- [x] Complete the first Fold 01 training and strict held-out evaluation
 - [ ] Train multi-seed SmolVLA policies on the 36-task proxy
 - [ ] Report compositional generalization curves and failure decomposition
 
@@ -307,9 +316,10 @@ LIBERO-Spatial LOCO folds, the policy learned seen combinations but did not
 transfer to the held-out compositions. It does not establish that SmolVLA
 cannot generalize compositionally in every task family or training regime.
 
-Likewise, the 36-task proxy is still a benchmark-construction effort. Until
-Gate 5 is complete and demonstrations are collected under the frozen protocol,
-it must not be presented as a trained-model evaluation result.
+Likewise, the 36-task proxy now has a frozen feasible dataset and completed
+demonstration collection, but the first Fold 01 training/evaluation result did
+not pass its strict held-out gate. It must not be presented as evidence of
+successful compositional generalization, and Fold 02 remains locked.
 
 
 ## Task1 pose-window weighted training
