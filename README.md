@@ -158,6 +158,16 @@ required step is a known-good single-task control through the identical
 training-to-evaluation path, followed by any minimal repair supported by that
 control.
 
+### Known-good control audit (2026-09-21)
+
+The historical V3 single-task checkpoint was rerun through the current strict
+evaluator with the formal 280-step budget: 5 checkpoints × 5 fixed states =
+25 rollouts, **0/25 successes**. This does not prove that the historical
+checkpoint is incapable; it shows that the current strict path does not yet
+reproduce the historical success protocol. The next action is to reconstruct
+the exact historical camera/preprocessing/evaluator path before any additional
+joint32 training. See [`known-good control audit`](docs/audits/known_good_control_audit_v1.json).
+
 ## Research question
 
 Can a vision-language-action policy generalize to a value-seen but
