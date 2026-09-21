@@ -1,0 +1,308 @@
+{
+  "schema_version": "joint32_protocol_reconstruction_audit_v1",
+  "created_utc": "2026-09-21T13:39:33.257714+00:00",
+  "files": [
+    {
+      "path": "/root/smolvla-eval-prep/scripts/eval_v3_task0.py",
+      "sha256": "5fb67f7a535e842214c351d09d368b3d2884deb267023fb51e54d3f5d494a2b3",
+      "bytes": 11697,
+      "hits": {
+        "camera_heights": [
+          5157
+        ],
+        "camera_widths": [
+          5185
+        ],
+        "n_action_steps": [
+          4303,
+          4356,
+          4569,
+          4591,
+          9230,
+          9623,
+          10241,
+          10272,
+          11386
+        ],
+        "max_steps": [
+          7596
+        ],
+        "wait_steps": [
+          6012,
+          6771,
+          6801,
+          6832,
+          6859,
+          6896,
+          6931,
+          7218,
+          9601,
+          10197,
+          10220,
+          11333
+        ],
+        "observation_to_frame": [
+          2534,
+          7624
+        ],
+        "action_to_numpy": [
+          3390,
+          7870,
+          7928
+        ],
+        "preprocessor": [
+          4735
+        ],
+        "seed": [
+          1694,
+          7320,
+          7332,
+          7374,
+          7379,
+          7402,
+          7407,
+          7474,
+          7483,
+          9246,
+          9251,
+          9649,
+          10297,
+          10304,
+          11421
+        ],
+        "np.random.seed": [
+          7364
+        ],
+        "torch.manual_seed": [
+          7389
+        ],
+        "set_init_state": [
+          7050
+        ],
+        "reset": [
+          7020,
+          7501
+        ]
+      }
+    },
+    {
+      "path": "/root/smolvla-eval-prep/scripts/eval_libero_strict_v1.py",
+      "sha256": "ae25bd0b68299ac245399e359d7b44fa9dff2ec887e9eeb96af6d2f691728be3",
+      "bytes": 4463,
+      "hits": {
+        "apply_frozen_agentview_camera": [
+          665,
+          2470
+        ],
+        "camera_heights": [
+          2138
+        ],
+        "camera_widths": [
+          2157
+        ],
+        "n_action_steps": [
+          1916,
+          1936,
+          3407,
+          3428
+        ],
+        "max_steps": [
+          3361
+        ],
+        "wait_steps": [
+          3384
+        ],
+        "observation_to_frame": [
+          615,
+          2767
+        ],
+        "action_to_numpy": [
+          598,
+          2721
+        ],
+        "preprocessor": [
+          2025
+        ],
+        "seed": [
+          2301,
+          2328,
+          2351,
+          2356,
+          2376,
+          2381,
+          2406,
+          2415,
+          3270,
+          3281,
+          3296,
+          3302
+        ],
+        "np.random.seed": [
+          2318
+        ],
+        "torch.manual_seed": [
+          2363
+        ],
+        "set_init_state": [
+          2441
+        ],
+        "reset": [
+          2428,
+          2513
+        ]
+      }
+    },
+    {
+      "path": "/root/smolvla-eval-prep/scripts/loco_fold01_strict_eval_v1.py",
+      "sha256": "c24420131d47070d8a9723f0d484d477c02944045a80686d0ce826920d5ca24c",
+      "bytes": 25990,
+      "hits": {
+        "camera_heights": [
+          12493
+        ],
+        "camera_widths": [
+          12521
+        ],
+        "n_action_steps": [
+          1461,
+          6858,
+          15966,
+          15993,
+          16034,
+          16089,
+          16157,
+          16203,
+          16236,
+          18191,
+          18217,
+          19894,
+          20086,
+          20108,
+          20957,
+          24184,
+          24206
+        ],
+        "max_steps": [
+          1426,
+          6548,
+          13381,
+          13870,
+          15876,
+          15898,
+          18105,
+          18126,
+          20872,
+          22544,
+          22559,
+          24084,
+          24101
+        ],
+        "wait_steps": [
+          1443,
+          6701,
+          12606,
+          12865,
+          13401,
+          13513,
+          15920,
+          15943,
+          18147,
+          18169,
+          20913,
+          22590,
+          22606,
+          24133,
+          24151
+        ],
+        "observation_to_frame": [
+          843,
+          13898
+        ],
+        "action_to_numpy": [
+          826,
+          14144,
+          14202
+        ],
+        "preprocessor": [
+          20252
+        ],
+        "seed": [
+          1487,
+          1506,
+          2738,
+          2808,
+          6993,
+          7067,
+          7104,
+          7181,
+          7701,
+          7723,
+          7746,
+          7751,
+          7771,
+          7776,
+          7803,
+          7823,
+          7828,
+          7840,
+          7852,
+          7875
+        ],
+        "np.random.seed": [
+          7761,
+          7890
+        ],
+        "torch.manual_seed": [
+          7915
+        ],
+        "set_init_state": [
+          12704
+        ],
+        "reset": [
+          12674,
+          13572
+        ]
+      }
+    },
+    {
+      "path": "/root/smolvla-eval-prep/scripts/libero36_camera.py",
+      "missing": true
+    },
+    {
+      "path": "/root/smolvla-eval-prep/configs/loco_fold01_task00_protocol.json",
+      "sha256": "177121a6be2be616bb3665af83b2469172163070d808b36fa013f44fa99ffed5",
+      "bytes": 1354,
+      "hits": {
+        "n_action_steps": [
+          639
+        ],
+        "max_steps": [
+          599
+        ],
+        "wait_steps": [
+          619
+        ],
+        "seed": [
+          520,
+          563
+        ]
+      }
+    }
+  ],
+  "key_finding": "The current strict evaluator applies libero36_camera.apply_frozen_agentview_camera, while historical V3 success artifacts use eval_v3_task0.py; exact camera/preprocessing parity is not yet proven.",
+  "next_action": "Compare actual historical run manifests and evaluator hashes, then construct a non-mutating reproduction smoke test.",
+  "historical_manifests": {
+    "task00_step020000_v3": {
+      "evaluator_sha256": "6f1dcaee8883772b7ca8cafb67a4997d48fb7465afffb36b4dae94835efa9bc6",
+      "protocol_sha256": "177121a6be2be616bb3665af83b2469172163070d808b36fa013f44fa99ffed5"
+    },
+    "task00_step100000_v3": {
+      "evaluator_sha256": "ebf56d01012256ab172715a8400a9826e1ef4cfbee21304153451b72e214649c"
+    }
+  },
+  "current_hashes": {
+    "loco_fold01_strict_eval_v1.py": "c24420131d47070d8a9723f0d484d477c02944045a80686d0ce826920d5ca24c",
+    "eval_libero_strict_v1.py": "ae25bd0b68299ac245399e359d7b44fa9dff2ec887e9eeb96af6d2f691728be3"
+  },
+  "confirmed_gap": "The historical success manifests were produced by evaluator hashes different from the current strict scripts; therefore the 0/25 current-control result cannot be interpreted as a pure checkpoint-capability test. Exact historical evaluator code is missing from the current eval-prep tree."
+}
