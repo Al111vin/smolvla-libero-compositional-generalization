@@ -1,0 +1,129 @@
+{
+  "schema_version": "libero36_seen_task_sanity_v1",
+  "created_utc": "2026-09-21T12:54:09.008844+00:00",
+  "tasks": [
+    {
+      "schema_version": "libero_strict_eval_v1",
+      "task_id": 16,
+      "layout_id": 1,
+      "instruction": "push the white and yellow mug to the middle of the table",
+      "states_manifest_sha256": "669a31913f4ae812ce7f2d6321677f8b1ee12411fbbd2147c04c94405020f091",
+      "bddl_sha256": "3af78a18ede344cbf09943ab1a3bf51cb25f2cbec7d09c6ad24f36290911bea0",
+      "records": 40,
+      "checkpoints": {
+        "030000": {
+          "num_rollouts": 10,
+          "num_success": 0,
+          "success_indices": [],
+          "mean_reward": 0.0,
+          "success_rate": 0.0
+        },
+        "060000": {
+          "num_rollouts": 10,
+          "num_success": 0,
+          "success_indices": [],
+          "mean_reward": 0.0,
+          "success_rate": 0.0
+        },
+        "090000": {
+          "num_rollouts": 10,
+          "num_success": 0,
+          "success_indices": [],
+          "mean_reward": 0.0,
+          "success_rate": 0.0
+        },
+        "last": {
+          "num_rollouts": 10,
+          "num_success": 0,
+          "success_indices": [],
+          "mean_reward": 0.0,
+          "success_rate": 0.0
+        }
+      }
+    },
+    {
+      "schema_version": "libero_strict_eval_v1",
+      "task_id": 24,
+      "layout_id": 1,
+      "instruction": "push the alphabet soup into the left target region",
+      "states_manifest_sha256": "8d1f2e5776bf43cf39d970eb1ff594db931c9fda1e8d2f8d591249b40c252f5e",
+      "bddl_sha256": "154f607922786a3c5fc93d6e696b0e3499215f747d3c26bd18a8b44598269f28",
+      "records": 40,
+      "checkpoints": {
+        "030000": {
+          "num_rollouts": 10,
+          "num_success": 0,
+          "success_indices": [],
+          "mean_reward": 0.0,
+          "success_rate": 0.0
+        },
+        "060000": {
+          "num_rollouts": 10,
+          "num_success": 0,
+          "success_indices": [],
+          "mean_reward": 0.0,
+          "success_rate": 0.0
+        },
+        "090000": {
+          "num_rollouts": 10,
+          "num_success": 0,
+          "success_indices": [],
+          "mean_reward": 0.0,
+          "success_rate": 0.0
+        },
+        "last": {
+          "num_rollouts": 10,
+          "num_success": 0,
+          "success_indices": [],
+          "mean_reward": 0.0,
+          "success_rate": 0.0
+        }
+      }
+    },
+    {
+      "schema_version": "libero_strict_eval_v1",
+      "task_id": 30,
+      "layout_id": 1,
+      "instruction": "pick up the cream cheese box and place it inside the basket in the left region",
+      "states_manifest_sha256": "c26ed6c1f150c18cc977e6628fc251f5195f5af66fa86dac85e974d5a760505b",
+      "bddl_sha256": "39229409e137189997fbe01c923777a230b3ea99dc42e99f67c5094d7c1171d9",
+      "records": 40,
+      "checkpoints": {
+        "030000": {
+          "num_rollouts": 10,
+          "num_success": 0,
+          "success_indices": [],
+          "mean_reward": 0.0,
+          "success_rate": 0.0
+        },
+        "060000": {
+          "num_rollouts": 10,
+          "num_success": 0,
+          "success_indices": [],
+          "mean_reward": 0.0,
+          "success_rate": 0.0
+        },
+        "090000": {
+          "num_rollouts": 10,
+          "num_success": 0,
+          "success_indices": [],
+          "mean_reward": 0.0,
+          "success_rate": 0.0
+        },
+        "last": {
+          "num_rollouts": 10,
+          "num_success": 0,
+          "success_indices": [],
+          "mean_reward": 0.0,
+          "success_rate": 0.0
+        }
+      }
+    }
+  ],
+  "checkpoint": "last",
+  "states_per_task": 10,
+  "total_rollouts": 120,
+  "num_success": 0,
+  "strict_protocol": true,
+  "fold02": "LOCKED"
+}

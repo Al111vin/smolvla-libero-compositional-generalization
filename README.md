@@ -127,6 +127,20 @@ evidence files at the repository root and in the corresponding Hugging Face
 experiment folder. No checkpoint binaries, raw HDF5, or rollout payloads are
 stored in GitHub.
 
+### Joint32 seen-task sanity check (2026-09-21)
+
+Before changing the training recipe, three tasks that were included in the
+joint32 training set (Tasks 16, 24, and 30) were evaluated under the same
+strict protocol on 10 initial states at each of four checkpoints. This was
+120 additional rollouts, all completed without evaluator errors, with
+**0/120 successes**. The machine-readable summary and analysis are archived
+in `results/evaluations/libero36_seen_task_sanity_v1/` and on Hugging Face.
+
+Because the policy also fails on these seen tasks, the current evidence does
+not isolate compositional generalization as the sole cause of the earlier
+0/6,400 result. Training/checkpoint loading and the observation/action schema
+must be audited first. Fold 02 remains locked.
+
 ## Research question
 
 Can a vision-language-action policy generalize to a value-seen but

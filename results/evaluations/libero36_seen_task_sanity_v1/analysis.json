@@ -1,0 +1,26 @@
+{
+  "schema_version": "libero36_seen_task_sanity_analysis_v1",
+  "created_utc": "2026-09-21T12:55:01.741399+00:00",
+  "source_summary": "/root/smolvla-eval-prep/results/evaluations/libero36_seen_task_sanity_v1/summary.json",
+  "total_rollouts": 120,
+  "num_success": 0,
+  "success_rate": 0.0,
+  "tasks": [
+    16,
+    24,
+    30
+  ],
+  "rollouts_per_task": 40,
+  "rollouts_per_checkpoint_per_task": 10,
+  "checkpoint_labels": [
+    "030000",
+    "060000",
+    "090000",
+    "last"
+  ],
+  "result": "all three training-seen tasks failed on every checkpoint and every tested initial state (0/120)",
+  "interpretation": "Because seen-task execution is also 0/120, the joint32 policy cannot currently demonstrate basic in-distribution closed-loop competence under the strict protocol. This result does not isolate whether the cause is training, observation/action representation, checkpoint selection, or evaluator/task contract; those must be audited before attributing the earlier 0/6400 to compositional generalization alone.",
+  "next_step": "pause new composition experiments; audit training loss/checkpoint loading, dataset-to-policy observation/action schema, and a minimal known-good single-task control before any Fold02 decision",
+  "formal_results_untouched": true,
+  "fold02": "LOCKED"
+}
