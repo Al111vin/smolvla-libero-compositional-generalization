@@ -168,6 +168,14 @@ reproduce the historical success protocol. The next action is to reconstruct
 the exact historical camera/preprocessing/evaluator path before any additional
 joint32 training. See [`known-good control audit`](docs/audits/known_good_control_audit_v1.json).
 
+### Protocol reconstruction plan (2026-09-21)
+
+A staged protocol-reconstruction effort has started. The selected approach is
+to reverse-audit historical run manifests, evaluator hashes, protocol files,
+checkpoint aliases, and current source differences before any new training.
+No Fold 02 run or joint32 retraining is authorized by this phase.
+See [`phase A protocol reconstruction`](docs/audits/phaseA_protocol_reconstruction.json).
+
 ## Research question
 
 Can a vision-language-action policy generalize to a value-seen but
