@@ -1,0 +1,19 @@
+{
+  "schema_version": "protocol_reconstruction_phaseC_v1",
+  "status": "gated",
+  "options": [
+    {"id": "guess_current_differences", "decision": "reject", "risk": "high"},
+    {"id": "recover_historical_source", "decision": "recommend", "risk": "lowest", "reason": "historical evaluator hash is not present in current Git history or GPU filesystem"},
+    {"id": "declare_new_egl_protocol", "decision": "defer", "risk": "medium", "reason": "would create a new benchmark口径, not a historical reproduction"}
+  ],
+  "evidence": {
+    "historical_evaluator_hashes": ["6f1dcaee8883772b7ca8cafb67a4997d48fb7465afffb36b4dae94835efa9bc6", "ebf56d01012256ab172715a8400a9826e1ef4cfbee21304153451b72e214649c"],
+    "current_evaluator_hashes": ["c24420131d47070d8a9723f0d484d477c02944045a80686d0ce826920d5ca24c", "ae25bd0b68299ac245399e359d7b44fa9dff2ec887e9eeb96af6d2f691728be3"],
+    "v3_helper_control": "0/5",
+    "patched_strict_control": "0/1",
+    "old_source_scan": "no matching source in Git history, dangling objects, or GPU filesystem"
+  },
+  "required_external_input": "historical evaluator source or a preserved old-GPU/project archive matching the historical evaluator hash",
+  "phase_c_action": "do not rerun joint32 until protocol parity is established",
+  "fold02": "LOCKED"
+}
