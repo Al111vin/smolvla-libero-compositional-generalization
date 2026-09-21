@@ -141,6 +141,23 @@ not isolate compositional generalization as the sole cause of the earlier
 0/6,400 result. Training/checkpoint loading and the observation/action schema
 must be audited first. Fold 02 remains locked.
 
+### Joint32 pipeline audit (2026-09-21)
+
+A read-only audit checked the four formal checkpoints, model configuration,
+pre/post-processing metadata, training completion, and the existing seen-task
+sanity evidence. All checkpoints contain complete model and training-state
+files; the model schema is two 128×128 visual inputs, 15 state values, and 7
+action values with `STATE/ACTION=MEAN_STD`. The 90,000-step run ended normally
+with final logged loss about 0.029. The existing strict seen-task control remains
+0/120, so the joint32 failure cannot yet be attributed only to compositional
+generalization. The machine-readable audit is
+[`joint32 pipeline audit`](docs/audits/joint32_pipeline_audit_final_v1.json).
+
+This evidence does not justify another training run or Fold 02. The next
+required step is a known-good single-task control through the identical
+training-to-evaluation path, followed by any minimal repair supported by that
+control.
+
 ## Research question
 
 Can a vision-language-action policy generalize to a value-seen but
