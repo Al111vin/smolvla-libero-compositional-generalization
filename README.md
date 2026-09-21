@@ -409,3 +409,5 @@ it must not be presented as a trained-model evaluation result.
 - This result does not unlock Fold 02; Task1/Fold 02 gates remain unchanged.
 
 Phase B found that the historical V3 runtime is not fully recoverable from the current GPU: the old helper used GLX, post-reset seeding, all-zero stabilization actions, and a historical instruction string. Five historical-helper control states were rerun under the available EGL environment and produced 0/5 successes. Joint32 rerun remains gated on protocol parity.
+
+Phase C is gated: the historical evaluator source matching the recorded run hashes is absent from Git history and the current GPU. Joint32 reruns are paused until that source or an equivalent archived runtime is recovered; Fold 02 remains locked.
