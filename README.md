@@ -407,3 +407,5 @@ it must not be presented as a trained-model evaluation result.
 - Summary SHA-256: `231b60b963e5e46ce94bd8ea6d3c997cb3699b77f425b0a6db5ccf78e992897e`.
 - Evidence JSON: `results_task022_joint32_strict_eval_20260920.json`.
 - This result does not unlock Fold 02; Task1/Fold 02 gates remain unchanged.
+
+Phase B found that the historical V3 runtime is not fully recoverable from the current GPU: the old helper used GLX, post-reset seeding, all-zero stabilization actions, and a historical instruction string. Five historical-helper control states were rerun under the available EGL environment and produced 0/5 successes. Joint32 rerun remains gated on protocol parity.
