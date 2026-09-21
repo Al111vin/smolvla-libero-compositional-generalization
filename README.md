@@ -416,3 +416,8 @@ Phase C is gated: the historical evaluator source matching the recorded run hash
 ## Phase C reconstructed V3 audit (2026-09-21)
 
 A reconstructed EGL evaluator (`scripts/eval_v3_task0.py`) was run on joint32 checkpoints 030000, 060000, and 090000 for LIBERO task 0, benchmark init indices 0–4, with `wait_steps=10`, `n_action_steps=25`, and `max_steps=280. All 15 rollouts completed with success 0/15 and reward 0. This is a reconstructed protocol result, not a byte-identical reproduction of the historical evaluator; Fold 02 remains locked. Evidence: `results/phaseC_joint32_v3_reconstructed_eval_v2_summary.json`.
+
+
+## Phase D decision gate (2026-09-21)
+
+The Phase C reconstructed EGL audit produced 0/15 joint32 successes on task 0 across checkpoints 030000/060000/090000. This is insufficient to justify an inference fix or retraining because no positive-control checkpoint has been validated under the same evaluator. The current recommendation is no retraining until a positive control or exact historical evaluator is recovered; Fold 02 remains locked. Evidence: `results/phaseD_decision_gate_v1.json`.

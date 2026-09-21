@@ -1,0 +1,31 @@
+{
+  "schema_version": "phaseD_decision_gate_v1",
+  "status": "deferred_pending_positive_control",
+  "evidence": "results/phaseC_joint32_v3_reconstructed_eval_v2_summary.json",
+  "observed": "joint32 task0 reconstructed EGL evaluator: 0/15 across checkpoints 030000,060000,090000",
+  "options": [
+    {
+      "id": "no_retrain",
+      "decision": "recommended_now",
+      "reason": "current result cannot distinguish model failure from protocol/checkpoint mismatch without a positive control"
+    },
+    {
+      "id": "minimal_inference_fix",
+      "decision": "defer",
+      "reason": "no causal evidence for state/action preprocessing defect"
+    },
+    {
+      "id": "minimal_training_fix",
+      "decision": "defer",
+      "reason": "would spend GPU before evaluator calibration"
+    },
+    {
+      "id": "full_retrain",
+      "decision": "reject_now",
+      "reason": "not justified by current evidence"
+    }
+  ],
+  "next_gate": "obtain a known-positive checkpoint/task under the same reconstructed evaluator, or recover exact historical evaluator/source",
+  "fold02": "LOCKED",
+  "no_training_started": true
+}
