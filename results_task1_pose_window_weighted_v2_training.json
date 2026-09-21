@@ -1,0 +1,32 @@
+{
+  "experiment": "task1_edge_pinch_v2_pose_window_weighted_v2",
+  "status": "training_complete",
+  "output_dir": "/root/smolvla-training-prep/results/training/task1_edge_pinch_v2_pose_window_weighted_v2",
+  "steps": 3000,
+  "batch_size": 8,
+  "seed": 42,
+  "pose_window_multiplier": 3.0,
+  "pose_window_plan": "/root/smolvla-eval-prep/results/pose_target_window_audit_v1/sampling_plan.json",
+  "dataset_root": "/root/smolvla-training-prep/datasets/lerobot/libero36_task1_edge_pinch_v2_demo",
+  "train_episodes": 77,
+  "checkpoints": [
+    500,
+    1000,
+    1500,
+    2000,
+    2500,
+    3000
+  ],
+  "log_path": "/tmp/task1_pose_window_weighted_v2.log",
+  "end_of_training_count": 1,
+  "traceback_count": 0,
+  "created_utc": "2026-09-19T09:13:32.550952+00:00",
+  "checkpoint_paths": [
+    "/root/smolvla-training-prep/results/training/task1_edge_pinch_v2_pose_window_weighted_v2/checkpoints/000500/pretrained_model",
+    "/root/smolvla-training-prep/results/training/task1_edge_pinch_v2_pose_window_weighted_v2/checkpoints/001000/pretrained_model",
+    "/root/smolvla-training-prep/results/training/task1_edge_pinch_v2_pose_window_weighted_v2/checkpoints/001500/pretrained_model",
+    "/root/smolvla-training-prep/results/training/task1_edge_pinch_v2_pose_window_weighted_v2/checkpoints/002000/pretrained_model",
+    "/root/smolvla-training-prep/results/training/task1_edge_pinch_v2_pose_window_weighted_v2/checkpoints/002500/pretrained_model",
+    "/root/smolvla-training-prep/results/training/task1_edge_pinch_v2_pose_window_weighted_v2/checkpoints/003000/pretrained_model"
+  ]
+}

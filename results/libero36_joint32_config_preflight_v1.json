@@ -1,0 +1,25 @@
+{
+  "schema_version": "libero36_joint32_config_preflight_v1",
+  "status": "passed_readonly_not_training",
+  "config": "data/training/libero36_feasible_v1/configs/libero36_joint32_train_config_draft_v1.json",
+  "dataset_repo_id": "local/libero36_feasible_32_frozen_v1",
+  "dataset_episodes_count": 160,
+  "dataset_task_count": 32,
+  "dataset_info_sha256": "7c6e4ae3a0e0a66d74a5e04a5459517340035cd27f4dfb4466cf74d1633899ab",
+  "checks": {
+    "episodes_exact_0_to_159": true,
+    "state_dim_15": true,
+    "action_dim_7": true,
+    "chunk_size_ge_n_action_steps": true,
+    "pretrained_checkpoint_exists_on_gpu": true,
+    "output_dir_absent_on_gpu": true,
+    "resume_false": true
+  },
+  "training_steps": 90000,
+  "save_freq": 30000,
+  "batch_size": 8,
+  "optimizer_lr": 1e-05,
+  "output_dir_gpu": "/root/smolvla-training-prep/results/training/libero36_joint32_formal_v1",
+  "fold02_gate": "unchanged_locked",
+  "launch_status": "not_started"
+}

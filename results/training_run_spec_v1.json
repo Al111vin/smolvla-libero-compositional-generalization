@@ -1,0 +1,39 @@
+{
+  "spec_version": "training_run_spec_v1",
+  "created_epoch": 1789109365.181408,
+  "purpose": "pipeline_smoke",
+  "result_scope": "not_a_formal_generalization_result",
+  "code": {
+    "main_merge_commit": "e6723fdaf5c8fdf32b8dee9d4e99c88c85ba695c",
+    "main_merge_commit_expected": "e6723fd",
+    "branch_context": "libero36-source-xy-redesign"
+  },
+  "data": {
+    "task_count": 32,
+    "episodes": 160,
+    "episodes_per_task": 5,
+    "frames": 101660,
+    "freeze_file": "results/libero36_data_freeze_v1.json",
+    "freeze_sha256": "57084666d0c42285caef1918fc6bd92baaf4a09bbe4aa977cc4dc46b021ce868",
+    "provenance_file": "results/libero36_data_provenance_addendum_v1.json",
+    "provenance_sha256": "b2f224846a67f233b1fb5576af84f8ab0ba6c30fbfbdeb29e7e6c8dce7ed9e23",
+    "final_qc_file": "results/libero36_final_data_qc_v1.json",
+    "final_qc_sha256": "4293fc2028b5f11709f1c51d21909166268cd698170e8b471939df9d5af12599",
+    "excluded_physical_infeasible_task_ids": [
+      15,
+      17,
+      33,
+      35
+    ]
+  },
+  "model": {
+    "base_model_path": "models/smolvla_base_libero",
+    "base_model_type": "SmolVLAPolicy",
+    "local_only": true
+  },
+  "guardrails": [
+    "This run is a pipeline smoke test only.",
+    "Do not report its metrics as formal LIBERO-36 compositional generalization results.",
+    "Preserve the frozen dataset and excluded-task policy."
+  ]
+}

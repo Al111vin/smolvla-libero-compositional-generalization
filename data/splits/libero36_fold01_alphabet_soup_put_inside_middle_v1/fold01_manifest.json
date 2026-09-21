@@ -1,0 +1,25 @@
+{
+  "protocol": "LIBERO-36 Fold 01 draft v1",
+  "status": "draft_not_training",
+  "dataset_root": "/root/smolvla-training-prep/datasets/lerobot/libero36_feasible_32_frozen_v1",
+  "heldout_task": "pick up the alphabet soup and place it inside the basket in the middle region",
+  "heldout_episode_indices": [
+    100,
+    101,
+    102,
+    103,
+    104
+  ],
+  "training_episode_count": 155,
+  "heldout_episode_count": 5,
+  "seen_control_tasks": [
+    "pick up the alphabet soup and place it inside the basket in the left region",
+    "pick up the alphabet soup and place it inside the basket in the right region"
+  ],
+  "excluded_from_training": [
+    "pick up the alphabet soup and place it inside the basket in the middle region"
+  ],
+  "task_leakage_check": "held-out instruction absent from training episodes",
+  "training_started": false,
+  "evaluation_started": false
+}

@@ -30,9 +30,15 @@ It combines closed-loop LIBERO evaluation, controlled leave-one-combination-out
 > physically infeasible and are excluded from the feasible training set.
 > Data collection for all **32/32 feasible tasks is complete**, with **160
 > successful episodes** (5 per task). Final QC, the data freeze, provenance
-> addendum, and training-loader semantic preflight are complete. **Training has
-> not started.** Raw HDF5 and LeRobot data remain in the private Hugging Face
-> dataset; GitHub stores only lightweight evidence and reproducibility metadata.
+> addendum, and training-loader semantic preflight are complete. The first
+> formal Fold 01 training is complete at 90,000 steps, but its strict held-out
+> evaluation for the alphabet-soup/put-inside/middle combination (original
+> LIBERO task 22) is **0/150**. The separate Task 023 formal evaluation is
+> **0/300**. Task1 edge-pinch v2 fine-tuning and a pose-window weighted
+> follow-up are also complete, but remain unsuccessful under the strict
+> protocol. **Fold 02 remains locked.** Raw HDF5 and LeRobot data remain in
+> the private Hugging Face dataset; GitHub stores only lightweight evidence and
+> reproducibility metadata.
 
 ## Demonstration collection status
 
@@ -83,9 +89,26 @@ Final reproducibility records:
 - [`training-loader semantic preflight`](results/libero36_training_loader_semantic_preflight_v1.json)
 - [`artifact_kind known limitation`](results/libero36_artifact_kind_known_limitation.md)
 
-Training has not started; the frozen feasible manifest is ready for the next
-training phase. The private Hugging Face dataset is the canonical location for
-raw HDF5 and LeRobot data.
+The frozen feasible manifest remains the canonical data source. The first
+Fold 01 training/evaluation pass is complete but does not meet the strict
+closed-loop gate (0/150 on its held-out task), so it does not unlock Fold 02.
+Task 023 is separately recorded as 0/300. The private Hugging Face dataset is
+the canonical location for raw HDF5 and LeRobot data.
+
+### Task1 edge-pinch v2 status
+
+The Task1 edge-pinch v2 branch is retained as a completed diagnostic track,
+not as evidence for unlocking Fold 02. The 96-episode dataset passed conversion
+and content QC. The baseline fine-tune and the pose-window weighted follow-up
+each produced six checkpoints. Under the strict deterministic evaluation
+protocol, the baseline achieved **0/30** successes on batch-1 seeds and the
+pose-window weighted follow-up achieved **0/15** successes across checkpoints
+1500, 2500, and 3000. No deterministic-algorithm errors were observed.
+
+The experiments and failure diagnostics are archived in the lightweight
+evidence files at the repository root and in the corresponding Hugging Face
+experiment folder. No checkpoint binaries, raw HDF5, or rollout payloads are
+stored in GitHub.
 
 ## Research question
 
@@ -287,3 +310,24 @@ cannot generalize compositionally in every task family or training regime.
 Likewise, the 36-task proxy is still a benchmark-construction effort. Until
 Gate 5 is complete and demonstrations are collected under the frozen protocol,
 it must not be presented as a trained-model evaluation result.
+
+
+## Task1 pose-window weighted training
+
+- Experiment: `task1_edge_pinch_v2_pose_window_weighted_v2`
+- Dataset: 77 training episodes from the frozen Task1 edge-pinch v2 LeRobot dataset.
+- Method: isolated 3x loss weighting on the audited close-pose window; baseline data and checkpoints were not modified.
+- Training: 3000 steps, batch size 8, seed 42; checkpoints 000500 through 003000 completed.
+- Closed-loop strict evaluation: checkpoints 1500, 2500, and 3000 across batch1 seeds 555101–555105 produced 0/5 success at every checkpoint (15/15 rollouts completed; no deterministic-algorithm errors).
+- Evidence JSON: `results_task1_pose_window_weighted_v2_training.json` and `results_task1_pose_window_weighted_strict_batch1_v1_eval.json`.
+- Fold 02 remains locked; this experiment does not change the official Task1 gate.
+
+
+## Task 022 strict joint32 evaluation
+
+- Task: alphabet soup × put_inside × middle (original LIBERO task 22).
+- Joint32 formal training checkpoints 030000/060000/090000/last were evaluated under the strict deterministic protocol on 50 frozen initial states each (200 rollouts total).
+- Result: 0/50 success at every checkpoint; mean reward 0.0; no deterministic-algorithm errors or invalid-action records.
+- Summary SHA-256: `231b60b963e5e46ce94bd8ea6d3c997cb3699b77f425b0a6db5ccf78e992897e`.
+- Evidence JSON: `results_task022_joint32_strict_eval_20260920.json`.
+- This result does not unlock Fold 02; Task1/Fold 02 gates remain unchanged.

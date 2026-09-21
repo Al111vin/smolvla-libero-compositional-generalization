@@ -1,0 +1,66 @@
+{
+  "schema_version": "task1_edge_pinch_v2_blind_eval_strict_determinism_v1",
+  "mode": "full_run",
+  "checkpoint_steps": [
+    1500,
+    2500,
+    3000
+  ],
+  "seeds": [
+    555101,
+    555102,
+    555103,
+    555104,
+    555105
+  ],
+  "n_action_steps": 25,
+  "wait_steps": 10,
+  "max_steps": 600,
+  "output_dir": "/root/smolvla-eval-prep/results/blind_eval/task1_pose_window_weighted_strict_batch1_v1",
+  "eval_script_sha256": "997323f43eb3f4c575cf5e1518718e4af17e61595d2825a088cff416850b8fe5",
+  "bddl_sha256": "e2dd32645afae8c73d435bec40fc37f6e5854a2c940dc83eccf01cb41a6e7eac",
+  "determinism_settings": {
+    "torch_version": "2.9.1+cu128",
+    "cuda_available": true,
+    "cublas_workspace_config_env": ":4096:8",
+    "warn_only": false,
+    "cuda_device_name": "NVIDIA GeForce RTX 5090",
+    "cudnn_version": 91002,
+    "cudnn_benchmark_before": false,
+    "cudnn_benchmark_after": false,
+    "cudnn_deterministic_before": false,
+    "cudnn_deterministic_after": true,
+    "use_deterministic_algorithms_requested": true,
+    "use_deterministic_algorithms_call_error": null
+  },
+  "num_records": 15,
+  "summary_by_checkpoint": {
+    "1500": {
+      "num_rollouts": 5,
+      "num_success": 0,
+      "success_seeds": [],
+      "num_deterministic_algorithm_errors": 0,
+      "mean_reward_max": 0.0
+    },
+    "2500": {
+      "num_rollouts": 5,
+      "num_success": 0,
+      "success_seeds": [],
+      "num_deterministic_algorithm_errors": 0,
+      "mean_reward_max": 0.0
+    },
+    "3000": {
+      "num_rollouts": 5,
+      "num_success": 0,
+      "success_seeds": [],
+      "num_deterministic_algorithm_errors": 0,
+      "mean_reward_max": 0.0
+    }
+  },
+  "any_deterministic_algorithm_error": false,
+  "deterministic_algorithm_error_note": "no rollout hit a deterministic-algorithm RuntimeError; strict warn_only=False held for the entire run",
+  "formal_evaluation": true,
+  "smoke_test_only": false,
+  "legacy_protocol_results_untouched": true,
+  "does_not_change_fold02_gate": "Fold02 remains LOCKED regardless of this run's outcome, per explicit 2026-09-18 user instruction, pending review"
+}
