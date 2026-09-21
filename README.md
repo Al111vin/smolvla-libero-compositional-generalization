@@ -40,6 +40,23 @@ It combines closed-loop LIBERO evaluation, controlled leave-one-combination-out
 > the private Hugging Face dataset; GitHub stores only lightweight evidence and
 > reproducibility metadata.
 
+### Joint32 formal benchmark status (2026-09-21)
+
+The frozen 32-task feasible set has now been evaluated with the strict
+closed-loop protocol: 4 checkpoints (`030000`, `060000`, `090000`, `last`) ×
+50 deterministic initial states per task, for **6,400 rollouts** total. All
+32 task summaries and all 128 checkpoint groups are complete; no
+deterministic-algorithm errors were recorded. The aggregate result is
+**0/6,400 successes** and mean reward 0.0 at every checkpoint. This is a
+negative result for this trained policy under the registered strict protocol,
+not evidence that the evaluator is broken. The aggregate evidence is stored
+in `results/evaluations/libero36_joint32_strict_aggregate_v1/summary.json` on
+the GPU and should be archived as a lightweight JSON artifact.
+
+This aggregate does not change the separately defined Task1 gate and does not
+unlock Fold 02. Tasks 15, 17, 33, and 35 remain excluded as physically
+infeasible Gate 5 cases.
+
 ## Demonstration collection status
 
 The final feasible data collection contains all 32 included tasks, with five
@@ -203,7 +220,9 @@ successes. Replacement tasks, if explored, are reported separately and do not
 change the original LIBERO-36 count.
 
 The feasible-task set, evidence manifests, and data-collection protocol are
-now frozen. Demonstration collection is complete; training has not started.
+now frozen. Demonstration collection, the formal 32-task joint training, and
+the strict 6,400-rollout evaluation are complete; the aggregate result is
+reported above.
 Candidate work that has not passed exact replay and provenance checks remains
 excluded from the official result.
 

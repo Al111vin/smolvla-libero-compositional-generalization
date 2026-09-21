@@ -1,0 +1,1567 @@
+{
+  "schema_version": "libero36_joint32_strict_aggregate_v1",
+  "created_utc": "2026-09-21T11:51:37.005777+00:00",
+  "benchmark": "SmolVLA x LIBERO36 compositional generalization",
+  "feasible_task_ids": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    16,
+    18,
+    19,
+    20,
+    21,
+    22,
+    23,
+    24,
+    25,
+    26,
+    27,
+    28,
+    29,
+    30,
+    31,
+    32,
+    34
+  ],
+  "excluded_infeasible_task_ids": [
+    15,
+    17,
+    33,
+    35
+  ],
+  "expected_tasks": 32,
+  "tasks_with_summary": 32,
+  "tasks_complete": 32,
+  "expected_rollouts": 6400,
+  "total_rollouts_from_summaries": 6400,
+  "missing_task_ids": [],
+  "all_checkpoints_complete": true,
+  "aggregate_by_checkpoint": {
+    "030000": {
+      "num_rollouts": 1600,
+      "num_success": 0,
+      "deterministic_algorithm_errors": 0,
+      "mean_reward": 0.0,
+      "success_rate": 0.0
+    },
+    "060000": {
+      "num_rollouts": 1600,
+      "num_success": 0,
+      "deterministic_algorithm_errors": 0,
+      "mean_reward": 0.0,
+      "success_rate": 0.0
+    },
+    "090000": {
+      "num_rollouts": 1600,
+      "num_success": 0,
+      "deterministic_algorithm_errors": 0,
+      "mean_reward": 0.0,
+      "success_rate": 0.0
+    },
+    "last": {
+      "num_rollouts": 1600,
+      "num_success": 0,
+      "deterministic_algorithm_errors": 0,
+      "mean_reward": 0.0,
+      "success_rate": 0.0
+    }
+  },
+  "per_task": [
+    {
+      "task_id": 0,
+      "output_dir": "/root/smolvla-eval-prep/results/evaluations/libero36_task000_joint32_strict_v1",
+      "summary_exists": true,
+      "checkpoint_counts": {
+        "030000": 50,
+        "060000": 50,
+        "090000": 50,
+        "last": 50
+      },
+      "checkpoint_complete": true,
+      "instruction": "pick up the akita black bowl and place it on the plate in the left region",
+      "bddl_sha256": "2908233f31c329c2719c8a088796d5d375082cf89e7d11e1ae460284bcaa667c",
+      "states_manifest_sha256": "67517424bc4541be583da634d5718a72c7f104d6d0042fea8e15b362578dab2c",
+      "records": 200,
+      "checkpoints": {
+        "030000": {
+          "num_rollouts": 50,
+          "num_success": 0,
+          "success_indices": [],
+          "mean_reward": 0.0,
+          "success_rate": 0.0
+        },
+        "060000": {
+          "num_rollouts": 50,
+          "num_success": 0,
+          "success_indices": [],
+          "mean_reward": 0.0,
+          "success_rate": 0.0
+        },
+        "090000": {
+          "num_rollouts": 50,
+          "num_success": 0,
+          "success_indices": [],
+          "mean_reward": 0.0,
+          "success_rate": 0.0
+        },
+        "last": {
+          "num_rollouts": 50,
+          "num_success": 0,
+          "success_indices": [],
+          "mean_reward": 0.0,
+          "success_rate": 0.0
+        }
+      }
+    },
+    {
+      "task_id": 1,
+      "output_dir": "/root/smolvla-eval-prep/results/evaluations/libero36_task001_joint32_strict_v1",
+      "summary_exists": true,
+      "checkpoint_counts": {
+        "030000": 50,
+        "060000": 50,
+        "090000": 50,
+        "last": 50
+      },
+      "checkpoint_complete": true,
+      "instruction": "pick up the akita black bowl and place it on the plate in the middle region",
+      "bddl_sha256": "e2dd32645afae8c73d435bec40fc37f6e5854a2c940dc83eccf01cb41a6e7eac",
+      "states_manifest_sha256": "157ed639a2685c498786ffcddcf8b38d578a44491662fa9811d88bb7ff77c7cb",
+      "records": 200,
+      "checkpoints": {
+        "030000": {
+          "num_rollouts": 50,
+          "num_success": 0,
+          "success_indices": [],
+          "mean_reward": 0.0,
+          "success_rate": 0.0
+        },
+        "060000": {
+          "num_rollouts": 50,
+          "num_success": 0,
+          "success_indices": [],
+          "mean_reward": 0.0,
+          "success_rate": 0.0
+        },
+        "090000": {
+          "num_rollouts": 50,
+          "num_success": 0,
+          "success_indices": [],
+          "mean_reward": 0.0,
+          "success_rate": 0.0
+        },
+        "last": {
+          "num_rollouts": 50,
+          "num_success": 0,
+          "success_indices": [],
+          "mean_reward": 0.0,
+          "success_rate": 0.0
+        }
+      }
+    },
+    {
+      "task_id": 2,
+      "output_dir": "/root/smolvla-eval-prep/results/evaluations/libero36_task002_joint32_strict_v1",
+      "summary_exists": true,
+      "checkpoint_counts": {
+        "030000": 50,
+        "060000": 50,
+        "090000": 50,
+        "last": 50
+      },
+      "checkpoint_complete": true,
+      "instruction": "pick up the akita black bowl and place it on the plate in the right region",
+      "bddl_sha256": "a14cab92406ee788c27559d721860586228d09c8ff87a83a4b81dd0b426b7c33",
+      "states_manifest_sha256": "3b668b7ee2aae6850aac1c1641342c02d2b6def99816dd3d1ec0461dbbdaeac7",
+      "records": 200,
+      "checkpoints": {
+        "030000": {
+          "num_rollouts": 50,
+          "num_success": 0,
+          "success_indices": [],
+          "mean_reward": 0.0,
+          "success_rate": 0.0
+        },
+        "060000": {
+          "num_rollouts": 50,
+          "num_success": 0,
+          "success_indices": [],
+          "mean_reward": 0.0,
+          "success_rate": 0.0
+        },
+        "090000": {
+          "num_rollouts": 50,
+          "num_success": 0,
+          "success_indices": [],
+          "mean_reward": 0.0,
+          "success_rate": 0.0
+        },
+        "last": {
+          "num_rollouts": 50,
+          "num_success": 0,
+          "success_indices": [],
+          "mean_reward": 0.0,
+          "success_rate": 0.0
+        }
+      }
+    },
+    {
+      "task_id": 3,
+      "output_dir": "/root/smolvla-eval-prep/results/evaluations/libero36_task003_joint32_strict_v2",
+      "summary_exists": true,
+      "checkpoint_counts": {
+        "030000": 50,
+        "060000": 50,
+        "090000": 50,
+        "last": 50
+      },
+      "checkpoint_complete": true,
+      "instruction": "pick up the akita black bowl and place it inside the basket in the left region",
+      "bddl_sha256": "ed747b57830cb367016b6056267ba9a55dc73bba9d5aaf2cf3eb8f0a86f36115",
+      "states_manifest_sha256": "ebcbe81a6e3399c5c43b16435ddf544a49801b30d4f3e180eaf3e509d6c3adf2",
+      "records": 200,
+      "checkpoints": {
+        "030000": {
+          "num_rollouts": 50,
+          "num_success": 0,
+          "success_indices": [],
+          "mean_reward": 0.0,
+          "success_rate": 0.0
+        },
+        "060000": {
+          "num_rollouts": 50,
+          "num_success": 0,
+          "success_indices": [],
+          "mean_reward": 0.0,
+          "success_rate": 0.0
+        },
+        "090000": {
+          "num_rollouts": 50,
+          "num_success": 0,
+          "success_indices": [],
+          "mean_reward": 0.0,
+          "success_rate": 0.0
+        },
+        "last": {
+          "num_rollouts": 50,
+          "num_success": 0,
+          "success_indices": [],
+          "mean_reward": 0.0,
+          "success_rate": 0.0
+        }
+      }
+    },
+    {
+      "task_id": 4,
+      "output_dir": "/root/smolvla-eval-prep/results/evaluations/libero36_task004_joint32_strict_v1",
+      "summary_exists": true,
+      "checkpoint_counts": {
+        "030000": 50,
+        "060000": 50,
+        "090000": 50,
+        "last": 50
+      },
+      "checkpoint_complete": true,
+      "instruction": "pick up the akita black bowl and place it inside the basket in the middle region",
+      "bddl_sha256": "61fd6baaaf5ad06586209cee445fedf560453c785c399be5d040293862f7897c",
+      "states_manifest_sha256": "67e8049b4dc91299d0d7379372af65010254e8ead18fd790b1f78c64d20ff868",
+      "records": 200,
+      "checkpoints": {
+        "030000": {
+          "num_rollouts": 50,
+          "num_success": 0,
+          "success_indices": [],
+          "mean_reward": 0.0,
+          "success_rate": 0.0
+        },
+        "060000": {
+          "num_rollouts": 50,
+          "num_success": 0,
+          "success_indices": [],
+          "mean_reward": 0.0,
+          "success_rate": 0.0
+        },
+        "090000": {
+          "num_rollouts": 50,
+          "num_success": 0,
+          "success_indices": [],
+          "mean_reward": 0.0,
+          "success_rate": 0.0
+        },
+        "last": {
+          "num_rollouts": 50,
+          "num_success": 0,
+          "success_indices": [],
+          "mean_reward": 0.0,
+          "success_rate": 0.0
+        }
+      }
+    },
+    {
+      "task_id": 5,
+      "output_dir": "/root/smolvla-eval-prep/results/evaluations/libero36_task005_joint32_strict_v1",
+      "summary_exists": true,
+      "checkpoint_counts": {
+        "030000": 50,
+        "060000": 50,
+        "090000": 50,
+        "last": 50
+      },
+      "checkpoint_complete": true,
+      "instruction": "pick up the akita black bowl and place it inside the basket in the right region",
+      "bddl_sha256": "3eb7b01d2bd2b949e2f4d1595f2e57dc078460de9616787de608d74335252016",
+      "states_manifest_sha256": "b0a97c40f4095cd285c192c232092c5cc4242bec2c435db7710b4889f319bfa2",
+      "records": 200,
+      "checkpoints": {
+        "030000": {
+          "num_rollouts": 50,
+          "num_success": 0,
+          "success_indices": [],
+          "mean_reward": 0.0,
+          "success_rate": 0.0
+        },
+        "060000": {
+          "num_rollouts": 50,
+          "num_success": 0,
+          "success_indices": [],
+          "mean_reward": 0.0,
+          "success_rate": 0.0
+        },
+        "090000": {
+          "num_rollouts": 50,
+          "num_success": 0,
+          "success_indices": [],
+          "mean_reward": 0.0,
+          "success_rate": 0.0
+        },
+        "last": {
+          "num_rollouts": 50,
+          "num_success": 0,
+          "success_indices": [],
+          "mean_reward": 0.0,
+          "success_rate": 0.0
+        }
+      }
+    },
+    {
+      "task_id": 6,
+      "output_dir": "/root/smolvla-eval-prep/results/evaluations/libero36_task006_joint32_strict_v1",
+      "summary_exists": true,
+      "checkpoint_counts": {
+        "030000": 50,
+        "060000": 50,
+        "090000": 50,
+        "last": 50
+      },
+      "checkpoint_complete": true,
+      "instruction": "push the akita black bowl into the left target region",
+      "bddl_sha256": "dfe66979ab50d0097cc3e407676e81a912636ad80cc3c163a412ca383d16dbc7",
+      "states_manifest_sha256": "540c07e3616db61c3240f29ecbc4eef703749ec7ea898b362dc3490be117932c",
+      "records": 200,
+      "checkpoints": {
+        "030000": {
+          "num_rollouts": 50,
+          "num_success": 0,
+          "success_indices": [],
+          "mean_reward": 0.0,
+          "success_rate": 0.0
+        },
+        "060000": {
+          "num_rollouts": 50,
+          "num_success": 0,
+          "success_indices": [],
+          "mean_reward": 0.0,
+          "success_rate": 0.0
+        },
+        "090000": {
+          "num_rollouts": 50,
+          "num_success": 0,
+          "success_indices": [],
+          "mean_reward": 0.0,
+          "success_rate": 0.0
+        },
+        "last": {
+          "num_rollouts": 50,
+          "num_success": 0,
+          "success_indices": [],
+          "mean_reward": 0.0,
+          "success_rate": 0.0
+        }
+      }
+    },
+    {
+      "task_id": 7,
+      "output_dir": "/root/smolvla-eval-prep/results/evaluations/libero36_task007_joint32_strict_v1",
+      "summary_exists": true,
+      "checkpoint_counts": {
+        "030000": 50,
+        "060000": 50,
+        "090000": 50,
+        "last": 50
+      },
+      "checkpoint_complete": true,
+      "instruction": "push the akita black bowl into the middle target region",
+      "bddl_sha256": "14df08be20883406f8f5d63bb30768d5715aee25d113aa6d64b9ea6f5d975b0e",
+      "states_manifest_sha256": "0243ed98295c242119b3a6b913c23bce4c884fe997790b715cde4c9d7b04524a",
+      "records": 200,
+      "checkpoints": {
+        "030000": {
+          "num_rollouts": 50,
+          "num_success": 0,
+          "success_indices": [],
+          "mean_reward": 0.0,
+          "success_rate": 0.0
+        },
+        "060000": {
+          "num_rollouts": 50,
+          "num_success": 0,
+          "success_indices": [],
+          "mean_reward": 0.0,
+          "success_rate": 0.0
+        },
+        "090000": {
+          "num_rollouts": 50,
+          "num_success": 0,
+          "success_indices": [],
+          "mean_reward": 0.0,
+          "success_rate": 0.0
+        },
+        "last": {
+          "num_rollouts": 50,
+          "num_success": 0,
+          "success_indices": [],
+          "mean_reward": 0.0,
+          "success_rate": 0.0
+        }
+      }
+    },
+    {
+      "task_id": 8,
+      "output_dir": "/root/smolvla-eval-prep/results/evaluations/libero36_task008_joint32_strict_v1",
+      "summary_exists": true,
+      "checkpoint_counts": {
+        "030000": 50,
+        "060000": 50,
+        "090000": 50,
+        "last": 50
+      },
+      "checkpoint_complete": true,
+      "instruction": "push the akita black bowl into the right target region",
+      "bddl_sha256": "851f5a2c2b5bfdffcb5d527fa2a6db22b4e3754ec9a222f6695637385bdadd8d",
+      "states_manifest_sha256": "f34b7148a4cbaefd1dc91461037c384709c0845d73bad11d29867ab111c4095c",
+      "records": 200,
+      "checkpoints": {
+        "030000": {
+          "num_rollouts": 50,
+          "num_success": 0,
+          "success_indices": [],
+          "mean_reward": 0.0,
+          "success_rate": 0.0
+        },
+        "060000": {
+          "num_rollouts": 50,
+          "num_success": 0,
+          "success_indices": [],
+          "mean_reward": 0.0,
+          "success_rate": 0.0
+        },
+        "090000": {
+          "num_rollouts": 50,
+          "num_success": 0,
+          "success_indices": [],
+          "mean_reward": 0.0,
+          "success_rate": 0.0
+        },
+        "last": {
+          "num_rollouts": 50,
+          "num_success": 0,
+          "success_indices": [],
+          "mean_reward": 0.0,
+          "success_rate": 0.0
+        }
+      }
+    },
+    {
+      "task_id": 9,
+      "output_dir": "/root/smolvla-eval-prep/results/evaluations/libero36_task009_joint32_strict_v1",
+      "summary_exists": true,
+      "checkpoint_counts": {
+        "030000": 50,
+        "060000": 50,
+        "090000": 50,
+        "last": 50
+      },
+      "checkpoint_complete": true,
+      "instruction": "pick up the yellow and white mug and place it on the plate in the left region",
+      "bddl_sha256": "91d1112780fe5ad121135a23de5b11bc82065ffa7d9e862859f24915a8fecd16",
+      "states_manifest_sha256": "24d1781e71eba0c97db0ab0ce1ecd960335aed04b9731e3b0df87c2f5794d13d",
+      "records": 200,
+      "checkpoints": {
+        "030000": {
+          "num_rollouts": 50,
+          "num_success": 0,
+          "success_indices": [],
+          "mean_reward": 0.0,
+          "success_rate": 0.0
+        },
+        "060000": {
+          "num_rollouts": 50,
+          "num_success": 0,
+          "success_indices": [],
+          "mean_reward": 0.0,
+          "success_rate": 0.0
+        },
+        "090000": {
+          "num_rollouts": 50,
+          "num_success": 0,
+          "success_indices": [],
+          "mean_reward": 0.0,
+          "success_rate": 0.0
+        },
+        "last": {
+          "num_rollouts": 50,
+          "num_success": 0,
+          "success_indices": [],
+          "mean_reward": 0.0,
+          "success_rate": 0.0
+        }
+      }
+    },
+    {
+      "task_id": 10,
+      "output_dir": "/root/smolvla-eval-prep/results/evaluations/libero36_task010_joint32_strict_v1",
+      "summary_exists": true,
+      "checkpoint_counts": {
+        "030000": 50,
+        "060000": 50,
+        "090000": 50,
+        "last": 50
+      },
+      "checkpoint_complete": true,
+      "instruction": "pick up the yellow and white mug and place it on the plate in the middle region",
+      "bddl_sha256": "e9f7dd5c671bcdf4aee38d17ee6b5338eccc6556e5d0f91c291ac28beeac014c",
+      "states_manifest_sha256": "f504e418f78618b9ca1c8f28d430a9eaeb40a8309b837989028178a97d6fe4bf",
+      "records": 200,
+      "checkpoints": {
+        "030000": {
+          "num_rollouts": 50,
+          "num_success": 0,
+          "success_indices": [],
+          "mean_reward": 0.0,
+          "success_rate": 0.0
+        },
+        "060000": {
+          "num_rollouts": 50,
+          "num_success": 0,
+          "success_indices": [],
+          "mean_reward": 0.0,
+          "success_rate": 0.0
+        },
+        "090000": {
+          "num_rollouts": 50,
+          "num_success": 0,
+          "success_indices": [],
+          "mean_reward": 0.0,
+          "success_rate": 0.0
+        },
+        "last": {
+          "num_rollouts": 50,
+          "num_success": 0,
+          "success_indices": [],
+          "mean_reward": 0.0,
+          "success_rate": 0.0
+        }
+      }
+    },
+    {
+      "task_id": 11,
+      "output_dir": "/root/smolvla-eval-prep/results/evaluations/libero36_task011_joint32_strict_retry_offline_v1",
+      "summary_exists": true,
+      "checkpoint_counts": {
+        "030000": 50,
+        "060000": 50,
+        "090000": 50,
+        "last": 50
+      },
+      "checkpoint_complete": true,
+      "instruction": "pick up the yellow and white mug and place it on the plate in the right region",
+      "bddl_sha256": "d6d55fd1c3733ddbdd10a72a723597a5652fe7ec0b700186256d2b7a311f8d68",
+      "states_manifest_sha256": "8b8855e6e002f8c20b3753706a673c8db3384baefeb814a7179c8bcddc1bbab7",
+      "records": 200,
+      "checkpoints": {
+        "030000": {
+          "num_rollouts": 50,
+          "num_success": 0,
+          "success_indices": [],
+          "mean_reward": 0.0,
+          "success_rate": 0.0
+        },
+        "060000": {
+          "num_rollouts": 50,
+          "num_success": 0,
+          "success_indices": [],
+          "mean_reward": 0.0,
+          "success_rate": 0.0
+        },
+        "090000": {
+          "num_rollouts": 50,
+          "num_success": 0,
+          "success_indices": [],
+          "mean_reward": 0.0,
+          "success_rate": 0.0
+        },
+        "last": {
+          "num_rollouts": 50,
+          "num_success": 0,
+          "success_indices": [],
+          "mean_reward": 0.0,
+          "success_rate": 0.0
+        }
+      }
+    },
+    {
+      "task_id": 12,
+      "output_dir": "/root/smolvla-eval-prep/results/evaluations/libero36_task012_joint32_strict_v1",
+      "summary_exists": true,
+      "checkpoint_counts": {
+        "030000": 50,
+        "060000": 50,
+        "090000": 50,
+        "last": 50
+      },
+      "checkpoint_complete": true,
+      "instruction": "pick up the yellow and white mug and place it inside the basket in the left region",
+      "bddl_sha256": "e6095767225032659e3e1f6db5dcf1551bb6352f378b5e559b891ce0e3544aa8",
+      "states_manifest_sha256": "3a3515f831bea7bda4cac3c1cb589b0a2f1fada2eb6c091f3cdef2a68af66bee",
+      "records": 200,
+      "checkpoints": {
+        "030000": {
+          "num_rollouts": 50,
+          "num_success": 0,
+          "success_indices": [],
+          "mean_reward": 0.0,
+          "success_rate": 0.0
+        },
+        "060000": {
+          "num_rollouts": 50,
+          "num_success": 0,
+          "success_indices": [],
+          "mean_reward": 0.0,
+          "success_rate": 0.0
+        },
+        "090000": {
+          "num_rollouts": 50,
+          "num_success": 0,
+          "success_indices": [],
+          "mean_reward": 0.0,
+          "success_rate": 0.0
+        },
+        "last": {
+          "num_rollouts": 50,
+          "num_success": 0,
+          "success_indices": [],
+          "mean_reward": 0.0,
+          "success_rate": 0.0
+        }
+      }
+    },
+    {
+      "task_id": 13,
+      "output_dir": "/root/smolvla-eval-prep/results/evaluations/libero36_task013_joint32_strict_v1",
+      "summary_exists": true,
+      "checkpoint_counts": {
+        "030000": 50,
+        "060000": 50,
+        "090000": 50,
+        "last": 50
+      },
+      "checkpoint_complete": true,
+      "instruction": "pick up the yellow and white mug and place it inside the basket in the middle region",
+      "bddl_sha256": "6836b4b928ebcfd4a2d562154424ed5d7fff8dd4a4cfd6619e675a5274244c17",
+      "states_manifest_sha256": "38887779790590fbc08a16d682a6e83711689f7d7cfe355b8d4b7a751d6e612c",
+      "records": 200,
+      "checkpoints": {
+        "030000": {
+          "num_rollouts": 50,
+          "num_success": 0,
+          "success_indices": [],
+          "mean_reward": 0.0,
+          "success_rate": 0.0
+        },
+        "060000": {
+          "num_rollouts": 50,
+          "num_success": 0,
+          "success_indices": [],
+          "mean_reward": 0.0,
+          "success_rate": 0.0
+        },
+        "090000": {
+          "num_rollouts": 50,
+          "num_success": 0,
+          "success_indices": [],
+          "mean_reward": 0.0,
+          "success_rate": 0.0
+        },
+        "last": {
+          "num_rollouts": 50,
+          "num_success": 0,
+          "success_indices": [],
+          "mean_reward": 0.0,
+          "success_rate": 0.0
+        }
+      }
+    },
+    {
+      "task_id": 14,
+      "output_dir": "/root/smolvla-eval-prep/results/evaluations/libero36_task014_joint32_strict_v1",
+      "summary_exists": true,
+      "checkpoint_counts": {
+        "030000": 50,
+        "060000": 50,
+        "090000": 50,
+        "last": 50
+      },
+      "checkpoint_complete": true,
+      "instruction": "pick up the yellow and white mug and place it inside the basket in the right region",
+      "bddl_sha256": "5488963f0ff89d70988c2d2ad0a01bcef19f7580da0b3faded31a9666b8498a9",
+      "states_manifest_sha256": "ce1f0ec5387f4b2826c4924f19370032d044395f95b623e3da79b8f1b3a9e430",
+      "records": 200,
+      "checkpoints": {
+        "030000": {
+          "num_rollouts": 50,
+          "num_success": 0,
+          "success_indices": [],
+          "mean_reward": 0.0,
+          "success_rate": 0.0
+        },
+        "060000": {
+          "num_rollouts": 50,
+          "num_success": 0,
+          "success_indices": [],
+          "mean_reward": 0.0,
+          "success_rate": 0.0
+        },
+        "090000": {
+          "num_rollouts": 50,
+          "num_success": 0,
+          "success_indices": [],
+          "mean_reward": 0.0,
+          "success_rate": 0.0
+        },
+        "last": {
+          "num_rollouts": 50,
+          "num_success": 0,
+          "success_indices": [],
+          "mean_reward": 0.0,
+          "success_rate": 0.0
+        }
+      }
+    },
+    {
+      "task_id": 16,
+      "output_dir": "/root/smolvla-eval-prep/results/evaluations/libero36_task016_joint32_strict_v1",
+      "summary_exists": true,
+      "checkpoint_counts": {
+        "030000": 50,
+        "060000": 50,
+        "090000": 50,
+        "last": 50
+      },
+      "checkpoint_complete": true,
+      "instruction": "push the white and yellow mug to the middle of the table",
+      "bddl_sha256": "3af78a18ede344cbf09943ab1a3bf51cb25f2cbec7d09c6ad24f36290911bea0",
+      "states_manifest_sha256": "669a31913f4ae812ce7f2d6321677f8b1ee12411fbbd2147c04c94405020f091",
+      "records": 200,
+      "checkpoints": {
+        "030000": {
+          "num_rollouts": 50,
+          "num_success": 0,
+          "success_indices": [],
+          "mean_reward": 0.0,
+          "success_rate": 0.0
+        },
+        "060000": {
+          "num_rollouts": 50,
+          "num_success": 0,
+          "success_indices": [],
+          "mean_reward": 0.0,
+          "success_rate": 0.0
+        },
+        "090000": {
+          "num_rollouts": 50,
+          "num_success": 0,
+          "success_indices": [],
+          "mean_reward": 0.0,
+          "success_rate": 0.0
+        },
+        "last": {
+          "num_rollouts": 50,
+          "num_success": 0,
+          "success_indices": [],
+          "mean_reward": 0.0,
+          "success_rate": 0.0
+        }
+      }
+    },
+    {
+      "task_id": 18,
+      "output_dir": "/root/smolvla-eval-prep/results/evaluations/libero36_task018_joint32_strict_v1",
+      "summary_exists": true,
+      "checkpoint_counts": {
+        "030000": 50,
+        "060000": 50,
+        "090000": 50,
+        "last": 50
+      },
+      "checkpoint_complete": true,
+      "instruction": "pick up the alphabet soup and place it on the plate in the left region",
+      "bddl_sha256": "d49634c1ae81da704a5a769b5cc736091973193c80960ad92e845245506913f5",
+      "states_manifest_sha256": "eb5c2bf7d0fa5e63716ba3c6d6d56c7fdc9ec5bef195e5d536e694e51fc7eac4",
+      "records": 200,
+      "checkpoints": {
+        "030000": {
+          "num_rollouts": 50,
+          "num_success": 0,
+          "success_indices": [],
+          "mean_reward": 0.0,
+          "success_rate": 0.0
+        },
+        "060000": {
+          "num_rollouts": 50,
+          "num_success": 0,
+          "success_indices": [],
+          "mean_reward": 0.0,
+          "success_rate": 0.0
+        },
+        "090000": {
+          "num_rollouts": 50,
+          "num_success": 0,
+          "success_indices": [],
+          "mean_reward": 0.0,
+          "success_rate": 0.0
+        },
+        "last": {
+          "num_rollouts": 50,
+          "num_success": 0,
+          "success_indices": [],
+          "mean_reward": 0.0,
+          "success_rate": 0.0
+        }
+      }
+    },
+    {
+      "task_id": 19,
+      "output_dir": "/root/smolvla-eval-prep/results/evaluations/libero36_task019_joint32_strict_v1",
+      "summary_exists": true,
+      "checkpoint_counts": {
+        "030000": 50,
+        "060000": 50,
+        "090000": 50,
+        "last": 50
+      },
+      "checkpoint_complete": true,
+      "instruction": "pick up the alphabet soup and place it on the plate in the middle region",
+      "bddl_sha256": "87eafe6073fe74b3fbcb1f00e2eca7258c19d5e0eed7236bee7972d9d944b732",
+      "states_manifest_sha256": "6e03736e9bc3ad0839a13cf3bfb2b4a6a519fc0897635e7a41d6fcff787e897c",
+      "records": 200,
+      "checkpoints": {
+        "030000": {
+          "num_rollouts": 50,
+          "num_success": 0,
+          "success_indices": [],
+          "mean_reward": 0.0,
+          "success_rate": 0.0
+        },
+        "060000": {
+          "num_rollouts": 50,
+          "num_success": 0,
+          "success_indices": [],
+          "mean_reward": 0.0,
+          "success_rate": 0.0
+        },
+        "090000": {
+          "num_rollouts": 50,
+          "num_success": 0,
+          "success_indices": [],
+          "mean_reward": 0.0,
+          "success_rate": 0.0
+        },
+        "last": {
+          "num_rollouts": 50,
+          "num_success": 0,
+          "success_indices": [],
+          "mean_reward": 0.0,
+          "success_rate": 0.0
+        }
+      }
+    },
+    {
+      "task_id": 20,
+      "output_dir": "/root/smolvla-eval-prep/results/evaluations/libero36_task020_joint32_strict_v1",
+      "summary_exists": true,
+      "checkpoint_counts": {
+        "030000": 50,
+        "060000": 50,
+        "090000": 50,
+        "last": 50
+      },
+      "checkpoint_complete": true,
+      "instruction": "pick up the alphabet soup and place it on the plate in the right region",
+      "bddl_sha256": "f062677ed5cb59f9547f4eb1520b3f3bd1828e658858603a4b9407966197f848",
+      "states_manifest_sha256": "61464ab3c0a72b6de822bd181089ab1b73a2e31e198df6e2edd4c75f56285761",
+      "records": 200,
+      "checkpoints": {
+        "030000": {
+          "num_rollouts": 50,
+          "num_success": 0,
+          "success_indices": [],
+          "mean_reward": 0.0,
+          "success_rate": 0.0
+        },
+        "060000": {
+          "num_rollouts": 50,
+          "num_success": 0,
+          "success_indices": [],
+          "mean_reward": 0.0,
+          "success_rate": 0.0
+        },
+        "090000": {
+          "num_rollouts": 50,
+          "num_success": 0,
+          "success_indices": [],
+          "mean_reward": 0.0,
+          "success_rate": 0.0
+        },
+        "last": {
+          "num_rollouts": 50,
+          "num_success": 0,
+          "success_indices": [],
+          "mean_reward": 0.0,
+          "success_rate": 0.0
+        }
+      }
+    },
+    {
+      "task_id": 21,
+      "output_dir": "/root/smolvla-eval-prep/results/evaluations/libero36_task021_joint32_strict_v1",
+      "summary_exists": true,
+      "checkpoint_counts": {
+        "030000": 50,
+        "060000": 50,
+        "090000": 50,
+        "last": 50
+      },
+      "checkpoint_complete": true,
+      "instruction": "pick up the alphabet soup and place it inside the basket in the left region",
+      "bddl_sha256": "560e5bd30d19c9ac030dc73258f809ab27f4a994918d953bbe46b10d09a9dbaa",
+      "states_manifest_sha256": "2a5cbbbbbf4278d2e4e79b9636cc209b28acef17b80b430d2a4f532b7d5f25e1",
+      "records": 200,
+      "checkpoints": {
+        "030000": {
+          "num_rollouts": 50,
+          "num_success": 0,
+          "success_indices": [],
+          "mean_reward": 0.0,
+          "success_rate": 0.0
+        },
+        "060000": {
+          "num_rollouts": 50,
+          "num_success": 0,
+          "success_indices": [],
+          "mean_reward": 0.0,
+          "success_rate": 0.0
+        },
+        "090000": {
+          "num_rollouts": 50,
+          "num_success": 0,
+          "success_indices": [],
+          "mean_reward": 0.0,
+          "success_rate": 0.0
+        },
+        "last": {
+          "num_rollouts": 50,
+          "num_success": 0,
+          "success_indices": [],
+          "mean_reward": 0.0,
+          "success_rate": 0.0
+        }
+      }
+    },
+    {
+      "task_id": 22,
+      "output_dir": "/root/smolvla-eval-prep/results/evaluations/libero36_task022_joint32_strict_v1",
+      "summary_exists": true,
+      "checkpoint_counts": {
+        "030000": 50,
+        "060000": 50,
+        "090000": 50,
+        "last": 50
+      },
+      "checkpoint_complete": true,
+      "instruction": "pick up the alphabet soup and place it inside the basket in the middle region",
+      "bddl_sha256": "8f062739b2fbdf954ef126ccf2c29d2543a21989c969543ed0f1059c152e08af",
+      "states_manifest_sha256": "4eaf8b76ba88b1ec69958776ab5ec5d3d4dcae888dad7797f82596f690588077",
+      "records": 200,
+      "checkpoints": {
+        "030000": {
+          "num_rollouts": 50,
+          "num_success": 0,
+          "success_indices": [],
+          "mean_reward": 0.0,
+          "success_rate": 0.0
+        },
+        "060000": {
+          "num_rollouts": 50,
+          "num_success": 0,
+          "success_indices": [],
+          "mean_reward": 0.0,
+          "success_rate": 0.0
+        },
+        "090000": {
+          "num_rollouts": 50,
+          "num_success": 0,
+          "success_indices": [],
+          "mean_reward": 0.0,
+          "success_rate": 0.0
+        },
+        "last": {
+          "num_rollouts": 50,
+          "num_success": 0,
+          "success_indices": [],
+          "mean_reward": 0.0,
+          "success_rate": 0.0
+        }
+      }
+    },
+    {
+      "task_id": 23,
+      "output_dir": "/root/smolvla-eval-prep/results/evaluations/libero36_task023_joint32_strict_v1",
+      "summary_exists": true,
+      "checkpoint_counts": {
+        "030000": 50,
+        "060000": 50,
+        "090000": 50,
+        "last": 50
+      },
+      "checkpoint_complete": true,
+      "instruction": "pick up the alphabet soup and place it inside the basket in the right region",
+      "bddl_sha256": "5046933f286aab4eec1b431ded841186c270ed8d964366b880f2f01e9ffbebcb",
+      "states_manifest_sha256": "f5b5c63644a85be3d3214be88530155c6f991db4a56f89221682184ff40cde86",
+      "records": 200,
+      "checkpoints": {
+        "030000": {
+          "num_rollouts": 50,
+          "num_success": 0,
+          "success_indices": [],
+          "mean_reward": 0.0,
+          "success_rate": 0.0
+        },
+        "060000": {
+          "num_rollouts": 50,
+          "num_success": 0,
+          "success_indices": [],
+          "mean_reward": 0.0,
+          "success_rate": 0.0
+        },
+        "090000": {
+          "num_rollouts": 50,
+          "num_success": 0,
+          "success_indices": [],
+          "mean_reward": 0.0,
+          "success_rate": 0.0
+        },
+        "last": {
+          "num_rollouts": 50,
+          "num_success": 0,
+          "success_indices": [],
+          "mean_reward": 0.0,
+          "success_rate": 0.0
+        }
+      }
+    },
+    {
+      "task_id": 24,
+      "output_dir": "/root/smolvla-eval-prep/results/evaluations/libero36_task024_joint32_strict_v1",
+      "summary_exists": true,
+      "checkpoint_counts": {
+        "030000": 50,
+        "060000": 50,
+        "090000": 50,
+        "last": 50
+      },
+      "checkpoint_complete": true,
+      "instruction": "push the alphabet soup into the left target region",
+      "bddl_sha256": "154f607922786a3c5fc93d6e696b0e3499215f747d3c26bd18a8b44598269f28",
+      "states_manifest_sha256": "8d1f2e5776bf43cf39d970eb1ff594db931c9fda1e8d2f8d591249b40c252f5e",
+      "records": 200,
+      "checkpoints": {
+        "030000": {
+          "num_rollouts": 50,
+          "num_success": 0,
+          "success_indices": [],
+          "mean_reward": 0.0,
+          "success_rate": 0.0
+        },
+        "060000": {
+          "num_rollouts": 50,
+          "num_success": 0,
+          "success_indices": [],
+          "mean_reward": 0.0,
+          "success_rate": 0.0
+        },
+        "090000": {
+          "num_rollouts": 50,
+          "num_success": 0,
+          "success_indices": [],
+          "mean_reward": 0.0,
+          "success_rate": 0.0
+        },
+        "last": {
+          "num_rollouts": 50,
+          "num_success": 0,
+          "success_indices": [],
+          "mean_reward": 0.0,
+          "success_rate": 0.0
+        }
+      }
+    },
+    {
+      "task_id": 25,
+      "output_dir": "/root/smolvla-eval-prep/results/evaluations/libero36_task025_joint32_strict_v1",
+      "summary_exists": true,
+      "checkpoint_counts": {
+        "030000": 50,
+        "060000": 50,
+        "090000": 50,
+        "last": 50
+      },
+      "checkpoint_complete": true,
+      "instruction": "push the alphabet soup into the middle target region",
+      "bddl_sha256": "7d546fc2a7b8a96380cb9326cb08f75ed4918784267fd938aa9a4d2ff2453d4c",
+      "states_manifest_sha256": "c80cf56ec70af32baefc6447b75e1e2a140f6c5727fc148d571c829f5064fb51",
+      "records": 200,
+      "checkpoints": {
+        "030000": {
+          "num_rollouts": 50,
+          "num_success": 0,
+          "success_indices": [],
+          "mean_reward": 0.0,
+          "success_rate": 0.0
+        },
+        "060000": {
+          "num_rollouts": 50,
+          "num_success": 0,
+          "success_indices": [],
+          "mean_reward": 0.0,
+          "success_rate": 0.0
+        },
+        "090000": {
+          "num_rollouts": 50,
+          "num_success": 0,
+          "success_indices": [],
+          "mean_reward": 0.0,
+          "success_rate": 0.0
+        },
+        "last": {
+          "num_rollouts": 50,
+          "num_success": 0,
+          "success_indices": [],
+          "mean_reward": 0.0,
+          "success_rate": 0.0
+        }
+      }
+    },
+    {
+      "task_id": 26,
+      "output_dir": "/root/smolvla-eval-prep/results/evaluations/libero36_task026_joint32_strict_v1",
+      "summary_exists": true,
+      "checkpoint_counts": {
+        "030000": 50,
+        "060000": 50,
+        "090000": 50,
+        "last": 50
+      },
+      "checkpoint_complete": true,
+      "instruction": "push the alphabet soup into the right target region",
+      "bddl_sha256": "af41764b960298e924f6600b47175ed1a4476c4a2c221740572a7ee116b1152e",
+      "states_manifest_sha256": "154e929b8b11b125b9ef6681c88cbe42d28bb6646d57348f5d3dbc26bf5f376d",
+      "records": 200,
+      "checkpoints": {
+        "030000": {
+          "num_rollouts": 50,
+          "num_success": 0,
+          "success_indices": [],
+          "mean_reward": 0.0,
+          "success_rate": 0.0
+        },
+        "060000": {
+          "num_rollouts": 50,
+          "num_success": 0,
+          "success_indices": [],
+          "mean_reward": 0.0,
+          "success_rate": 0.0
+        },
+        "090000": {
+          "num_rollouts": 50,
+          "num_success": 0,
+          "success_indices": [],
+          "mean_reward": 0.0,
+          "success_rate": 0.0
+        },
+        "last": {
+          "num_rollouts": 50,
+          "num_success": 0,
+          "success_indices": [],
+          "mean_reward": 0.0,
+          "success_rate": 0.0
+        }
+      }
+    },
+    {
+      "task_id": 27,
+      "output_dir": "/root/smolvla-eval-prep/results/evaluations/libero36_task027_joint32_strict_v1",
+      "summary_exists": true,
+      "checkpoint_counts": {
+        "030000": 50,
+        "060000": 50,
+        "090000": 50,
+        "last": 50
+      },
+      "checkpoint_complete": true,
+      "instruction": "pick up the cream cheese box and place it on the plate in the left region",
+      "bddl_sha256": "c1b4444fb745632c0bfa80dfc7a16302ef6bc9711554a908037da8bd910a5b7e",
+      "states_manifest_sha256": "c2544c3d95642e5779b7d77de1bbf65ca35944a6702ce0bbfaa2b3f2168a694c",
+      "records": 200,
+      "checkpoints": {
+        "030000": {
+          "num_rollouts": 50,
+          "num_success": 0,
+          "success_indices": [],
+          "mean_reward": 0.0,
+          "success_rate": 0.0
+        },
+        "060000": {
+          "num_rollouts": 50,
+          "num_success": 0,
+          "success_indices": [],
+          "mean_reward": 0.0,
+          "success_rate": 0.0
+        },
+        "090000": {
+          "num_rollouts": 50,
+          "num_success": 0,
+          "success_indices": [],
+          "mean_reward": 0.0,
+          "success_rate": 0.0
+        },
+        "last": {
+          "num_rollouts": 50,
+          "num_success": 0,
+          "success_indices": [],
+          "mean_reward": 0.0,
+          "success_rate": 0.0
+        }
+      }
+    },
+    {
+      "task_id": 28,
+      "output_dir": "/root/smolvla-eval-prep/results/evaluations/libero36_task028_joint32_strict_v1",
+      "summary_exists": true,
+      "checkpoint_counts": {
+        "030000": 50,
+        "060000": 50,
+        "090000": 50,
+        "last": 50
+      },
+      "checkpoint_complete": true,
+      "instruction": "pick up the cream cheese box and place it on the plate in the middle region",
+      "bddl_sha256": "c98c1f0dc32f253f5fecfddc1a040f51c878072753f164a386558ae0c38e7ebf",
+      "states_manifest_sha256": "ed6512a303b2579c766ffd5ffca53760f2a89ae66f02a718366975122568bf3f",
+      "records": 200,
+      "checkpoints": {
+        "030000": {
+          "num_rollouts": 50,
+          "num_success": 0,
+          "success_indices": [],
+          "mean_reward": 0.0,
+          "success_rate": 0.0
+        },
+        "060000": {
+          "num_rollouts": 50,
+          "num_success": 0,
+          "success_indices": [],
+          "mean_reward": 0.0,
+          "success_rate": 0.0
+        },
+        "090000": {
+          "num_rollouts": 50,
+          "num_success": 0,
+          "success_indices": [],
+          "mean_reward": 0.0,
+          "success_rate": 0.0
+        },
+        "last": {
+          "num_rollouts": 50,
+          "num_success": 0,
+          "success_indices": [],
+          "mean_reward": 0.0,
+          "success_rate": 0.0
+        }
+      }
+    },
+    {
+      "task_id": 29,
+      "output_dir": "/root/smolvla-eval-prep/results/evaluations/libero36_task029_joint32_strict_v1",
+      "summary_exists": true,
+      "checkpoint_counts": {
+        "030000": 50,
+        "060000": 50,
+        "090000": 50,
+        "last": 50
+      },
+      "checkpoint_complete": true,
+      "instruction": "pick up the cream cheese box and place it on the plate in the right region",
+      "bddl_sha256": "e2a92dcff9ffb0aea588fadb8b9187a096d5ae94f784d0985718a3faa14ca375",
+      "states_manifest_sha256": "c640d64f5ca7cfe84a979c84b41b6d9fccf35bd890a17e8fba71629249b4b2e0",
+      "records": 200,
+      "checkpoints": {
+        "030000": {
+          "num_rollouts": 50,
+          "num_success": 0,
+          "success_indices": [],
+          "mean_reward": 0.0,
+          "success_rate": 0.0
+        },
+        "060000": {
+          "num_rollouts": 50,
+          "num_success": 0,
+          "success_indices": [],
+          "mean_reward": 0.0,
+          "success_rate": 0.0
+        },
+        "090000": {
+          "num_rollouts": 50,
+          "num_success": 0,
+          "success_indices": [],
+          "mean_reward": 0.0,
+          "success_rate": 0.0
+        },
+        "last": {
+          "num_rollouts": 50,
+          "num_success": 0,
+          "success_indices": [],
+          "mean_reward": 0.0,
+          "success_rate": 0.0
+        }
+      }
+    },
+    {
+      "task_id": 30,
+      "output_dir": "/root/smolvla-eval-prep/results/evaluations/libero36_task030_joint32_strict_v1",
+      "summary_exists": true,
+      "checkpoint_counts": {
+        "030000": 50,
+        "060000": 50,
+        "090000": 50,
+        "last": 50
+      },
+      "checkpoint_complete": true,
+      "instruction": "pick up the cream cheese box and place it inside the basket in the left region",
+      "bddl_sha256": "39229409e137189997fbe01c923777a230b3ea99dc42e99f67c5094d7c1171d9",
+      "states_manifest_sha256": "c26ed6c1f150c18cc977e6628fc251f5195f5af66fa86dac85e974d5a760505b",
+      "records": 200,
+      "checkpoints": {
+        "030000": {
+          "num_rollouts": 50,
+          "num_success": 0,
+          "success_indices": [],
+          "mean_reward": 0.0,
+          "success_rate": 0.0
+        },
+        "060000": {
+          "num_rollouts": 50,
+          "num_success": 0,
+          "success_indices": [],
+          "mean_reward": 0.0,
+          "success_rate": 0.0
+        },
+        "090000": {
+          "num_rollouts": 50,
+          "num_success": 0,
+          "success_indices": [],
+          "mean_reward": 0.0,
+          "success_rate": 0.0
+        },
+        "last": {
+          "num_rollouts": 50,
+          "num_success": 0,
+          "success_indices": [],
+          "mean_reward": 0.0,
+          "success_rate": 0.0
+        }
+      }
+    },
+    {
+      "task_id": 31,
+      "output_dir": "/root/smolvla-eval-prep/results/evaluations/libero36_task031_joint32_strict_v1",
+      "summary_exists": true,
+      "checkpoint_counts": {
+        "030000": 50,
+        "060000": 50,
+        "090000": 50,
+        "last": 50
+      },
+      "checkpoint_complete": true,
+      "instruction": "pick up the cream cheese box and place it inside the basket in the middle region",
+      "bddl_sha256": "1d67e4da0ff44114aa4cc872273f5edaf8b0374121e3525ed1aa422affa7a641",
+      "states_manifest_sha256": "1eaeb02d2881b855f325660e5b55618e49ba6e9197f33f8d20a6d40bb74ad967",
+      "records": 200,
+      "checkpoints": {
+        "030000": {
+          "num_rollouts": 50,
+          "num_success": 0,
+          "success_indices": [],
+          "mean_reward": 0.0,
+          "success_rate": 0.0
+        },
+        "060000": {
+          "num_rollouts": 50,
+          "num_success": 0,
+          "success_indices": [],
+          "mean_reward": 0.0,
+          "success_rate": 0.0
+        },
+        "090000": {
+          "num_rollouts": 50,
+          "num_success": 0,
+          "success_indices": [],
+          "mean_reward": 0.0,
+          "success_rate": 0.0
+        },
+        "last": {
+          "num_rollouts": 50,
+          "num_success": 0,
+          "success_indices": [],
+          "mean_reward": 0.0,
+          "success_rate": 0.0
+        }
+      }
+    },
+    {
+      "task_id": 32,
+      "output_dir": "/root/smolvla-eval-prep/results/evaluations/libero36_task032_joint32_strict_v1",
+      "summary_exists": true,
+      "checkpoint_counts": {
+        "030000": 50,
+        "060000": 50,
+        "090000": 50,
+        "last": 50
+      },
+      "checkpoint_complete": true,
+      "instruction": "pick up the cream cheese box and place it inside the basket in the right region",
+      "bddl_sha256": "53f147d9bf21be265b8a10ba1c5f9e1842850fb55de3fb14bd65532cb30e7a93",
+      "states_manifest_sha256": "2123167333107e4620bcc811ad02056d4f834c3cc60ad51865d7a9e8a1678fc8",
+      "records": 200,
+      "checkpoints": {
+        "030000": {
+          "num_rollouts": 50,
+          "num_success": 0,
+          "success_indices": [],
+          "mean_reward": 0.0,
+          "success_rate": 0.0
+        },
+        "060000": {
+          "num_rollouts": 50,
+          "num_success": 0,
+          "success_indices": [],
+          "mean_reward": 0.0,
+          "success_rate": 0.0
+        },
+        "090000": {
+          "num_rollouts": 50,
+          "num_success": 0,
+          "success_indices": [],
+          "mean_reward": 0.0,
+          "success_rate": 0.0
+        },
+        "last": {
+          "num_rollouts": 50,
+          "num_success": 0,
+          "success_indices": [],
+          "mean_reward": 0.0,
+          "success_rate": 0.0
+        }
+      }
+    },
+    {
+      "task_id": 34,
+      "output_dir": "/root/smolvla-eval-prep/results/evaluations/libero36_task034_joint32_strict_v1",
+      "summary_exists": true,
+      "checkpoint_counts": {
+        "030000": 50,
+        "060000": 50,
+        "090000": 50,
+        "last": 50
+      },
+      "checkpoint_complete": true,
+      "instruction": "push the cream cheese box into the middle target region",
+      "bddl_sha256": "45c903cbbc8ec5140684fde74a693ad6afb4f9e482b22c0124ebd61f5f890c9a",
+      "states_manifest_sha256": "655c0b5782c721935ef4763497c4b4cead851578d2ea1ea099600c75fa2397ab",
+      "records": 200,
+      "checkpoints": {
+        "030000": {
+          "num_rollouts": 50,
+          "num_success": 0,
+          "success_indices": [],
+          "mean_reward": 0.0,
+          "success_rate": 0.0
+        },
+        "060000": {
+          "num_rollouts": 50,
+          "num_success": 0,
+          "success_indices": [],
+          "mean_reward": 0.0,
+          "success_rate": 0.0
+        },
+        "090000": {
+          "num_rollouts": 50,
+          "num_success": 0,
+          "success_indices": [],
+          "mean_reward": 0.0,
+          "success_rate": 0.0
+        },
+        "last": {
+          "num_rollouts": 50,
+          "num_success": 0,
+          "success_indices": [],
+          "mean_reward": 0.0,
+          "success_rate": 0.0
+        }
+      }
+    }
+  ],
+  "task1_strict_historical_note": "Task1/Fold02 gate remains governed by its predefined strict protocol; this aggregate does not unlock Fold02.",
+  "old_bddl_caveat_task_ids": [
+    0,
+    1,
+    2,
+    3
+  ],
+  "directory_aliases": {
+    "3": "libero36_task003_joint32_strict_v2",
+    "11": "libero36_task011_joint32_strict_retry_offline_v1"
+  }
+}
