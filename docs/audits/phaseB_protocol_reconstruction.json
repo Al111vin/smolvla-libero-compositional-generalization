@@ -34,5 +34,22 @@
   },
   "finding": "patched historical protocol path executes end-to-end but does not reproduce historical success on the first fixed state",
   "decision": "do not proceed to joint32 rerun yet; compare historical evaluator hash and camera/preprocessor behavior before Phase C",
-  "fold02": "LOCKED"
+  "fold02": "LOCKED",
+  "v3_helper_control": {
+    "checkpoint": "loco_fold01_formal_v1/020000",
+    "states": 5,
+    "successes": 0,
+    "max_steps": 280,
+    "wait_steps": 10,
+    "n_action_steps": 25,
+    "results_dir": "protocol_reconstruction_phaseB_v3_helper_states_v1"
+  },
+  "confirmed_protocol_gaps": [
+    "historical eval_v3_task0.py defaults MUJOCO_GL=glx, which fails on the headless GPU unless externally overridden to EGL",
+    "historical helper seeds after env.reset/set_init_state, while strict evaluator seeds before reset",
+    "historical helper uses all-zero stabilization action, while strict evaluator uses gripper=-1 dummy action",
+    "historical protocol instruction differs from current LIBERO task object language"
+  ],
+  "phaseB_status": "not_reproduced; exact historical runtime remains unavailable",
+  "phaseC_gate": "blocked until protocol parity or an explicit revised evaluation contract is established"
 }
