@@ -420,4 +420,4 @@ A reconstructed EGL evaluator (`scripts/eval_v3_task0.py`) was run on joint32 ch
 
 ## Phase D decision gate (2026-09-21)
 
-The Phase C reconstructed EGL audit produced 0/15 joint32 successes on task 0 across checkpoints 030000/060000/090000. This is insufficient to justify an inference fix or retraining because no positive-control checkpoint has been validated under the same evaluator. The current recommendation is no retraining until a positive control or exact historical evaluator is recovered; Fold 02 remains locked. Evidence: `results/phaseD_decision_gate_v1.json`.
+The Phase C reconstructed EGL audit produced 0/15 joint32 successes on task 0 across checkpoints 030000/060000/090000. This is insufficient to justify an inference fix or retraining because no positive-control checkpoint has been validated under the same evaluator. The current recommendation is no retraining until a positive control or exact historical evaluator is recovered; Fold 02 remains locked. The public base model control also produced 0/5 under the same evaluator, confirming execution but not supplying a positive policy control. Evidence: `results/phaseD_decision_gate_v1.json`.

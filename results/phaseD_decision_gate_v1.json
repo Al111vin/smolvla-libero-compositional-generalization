@@ -27,5 +27,19 @@
   ],
   "next_gate": "obtain a known-positive checkpoint/task under the same reconstructed evaluator, or recover exact historical evaluator/source",
   "fold02": "LOCKED",
-  "no_training_started": true
+  "no_training_started": true,
+  "additional_control": {
+    "model": "smolvla_base_libero",
+    "task_id": 0,
+    "init_indices": [
+      0,
+      1,
+      2,
+      3,
+      4
+    ],
+    "success": "0/5",
+    "interpretation": "pipeline executes consistently but this is not a positive control"
+  },
+  "positive_control_status": "missing"
 }
