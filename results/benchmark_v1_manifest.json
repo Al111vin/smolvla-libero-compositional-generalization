@@ -1,0 +1,31 @@
+{
+  "benchmark_id": "libero_spatial_task0_transparent_reconstructed_v1",
+  "status": "approved",
+  "approved_utc": "2026-09-22",
+  "evaluator": {
+    "path": "scripts/eval_v3_task0.py",
+    "sha256": "5fb67f7a535e842214c351d09d368b3d2884deb267023fb51e54d3f5d494a2b3"
+  },
+  "suite": "libero_spatial",
+  "task_id": 0,
+  "initialization": {
+    "sources": ["benchmark", "hdf5"],
+    "benchmark_wait_steps": 10,
+    "hdf5_wait_steps": 0,
+    "seed_rule": "seed_base + initialization_index",
+    "seed_rule_warning": "Do not pass seed_base + index to the CLI; the evaluator adds the index once."
+  },
+  "model_io": {
+    "state_dim": 15,
+    "state_order": ["robot0_joint_pos[7]", "robot0_eef_pos[3]", "axis_angle[3]", "robot0_gripper_qpos[2]"],
+    "action_dim": 7,
+    "action_clip": [-1.0, 1.0]
+  },
+  "defaults": {
+    "max_steps": 300,
+    "device": "cuda"
+  },
+  "success_rule": "env success flag OR cumulative reward > 0",
+  "legacy_results_untouched": true,
+  "fold02_gate": "unchanged_locked"
+}

@@ -239,6 +239,18 @@ seed per fold. See the frozen
 [`formal results`](results/V4_LOCO_RESULTS.md), and
 [`post-hoc diagnostic protocol`](results/V4_LOCO_DIAGNOSTIC_PROTOCOL.md).
 
+### Transparent benchmark v1 (approved 2026-09-22)
+
+The project now has an explicitly frozen, transparent reconstructed evaluator
+for the LIBERO Spatial task-0 sanity audit. It is a **new benchmark** and does
+not rewrite historical V3 numbers. The protocol, seed rule, state/action
+schema, and evaluator hash are recorded in
+[`results/BENCHMARK_V1_PROTOCOL.md`](results/BENCHMARK_V1_PROTOCOL.md) and
+[`results/benchmark_v1_manifest.json`](results/benchmark_v1_manifest.json).
+The historical V3 evaluator has not been recovered; therefore a mismatch with
+the legacy 14/20 result remains a documented limitation rather than evidence
+that a model or training run is defective.
+
 ## Current work: LIBERO registered-object 36-task proxy
 
 The next stage expands the study to a balanced Cartesian benchmark:
