@@ -274,6 +274,16 @@ missing historical positive control still prevents attributing it to the
 model or choosing a retraining intervention. See
 [`results/benchmark_v1_joint32_full_20260922/summary.json`](results/benchmark_v1_joint32_full_20260922/summary.json).
 
+### Phase D decision gate (2026-09-22)
+
+The current recommendation is **no retraining and no inference-side change
+yet**. The joint32 matrix is 0/15, but benchmark v1 has not reproduced a
+known-good positive control, so changing the model would confound an unresolved
+protocol question with a model intervention. The four-option comparison and
+the next gate are recorded in
+[`results/phaseD_benchmark_v1_decision_gate_20260922.json`](results/phaseD_benchmark_v1_decision_gate_20260922.json).
+Fold 02 remains locked.
+
 ## Current work: LIBERO registered-object 36-task proxy
 
 The next stage expands the study to a balanced Cartesian benchmark:
