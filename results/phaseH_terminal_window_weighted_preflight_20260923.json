@@ -1,0 +1,14 @@
+{
+  "phase": "H",
+  "preflight": "terminal_window_weighted_v1",
+  "verified_at": "2026-09-23",
+  "training_output_dir": "/root/smolvla-training-prep/results/training/libero36_joint32_terminal_window_weighted_v1",
+  "evaluation_output_dir": "/root/smolvla-eval-prep/results/audits/phaseH_joint32_terminal_window_weighted_strict_v1",
+  "training_output_dir_status": "absent_before_start",
+  "evaluation_output_dir_status": "absent_before_start",
+  "existing_repair_output_preserved": "/root/smolvla-training-prep/results/training/libero36_joint32_gripper_weighted_v1",
+  "checkpoint_overwrite_risk": false,
+  "training_started": false,
+  "approval_required": true,
+  "fold02": "LOCKED"
+}
