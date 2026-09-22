@@ -1,0 +1,77 @@
+{
+  "schema_version": "phaseB_C_recovered_v3_control_v1",
+  "date": "2026-09-22",
+  "purpose": "Re-establish a positive V3 control and compare joint32 checkpoints with the same evaluator and protocol.",
+  "asset_recovery": {
+    "source_host": "a35abd84234d",
+    "destination_host": "cpod-1v6wxcygzn32",
+    "checkpoint_source": "/root/smolvla-libero-compositional-generalization/outputs/smolvla_v3_task0_10k_run1/checkpoints/010000/pretrained_model",
+    "checkpoint_recovered_path": "/root/smolvla-eval-prep/recovered_historical_v3_20260922/outputs/smolvla_v3_task0_10k_run1/checkpoints/010000/pretrained_model",
+    "checkpoint_model_sha256": "84523284fbee2814a3ba124c929ffdb555a1e93890b415a49996895a2cc70903",
+    "hdf5_source": "/root/smolvla-libero-compositional-generalization/data/demos/libero36_task0_5_success_pilot_v1/task_000_layout_1_5_success.hdf5",
+    "hdf5_recovered_path": "/root/smolvla-eval-prep/recovered_historical_v3_20260922/data/demos/libero36_task0_5_success_pilot_v1/task_000_layout_1_5_success.hdf5",
+    "hdf5_sha256": "709e070c5d1b664118fdf632e02cfe7d054aff87c352628a9cc098a2892dac61",
+    "source_destination_hashes_match": true
+  },
+  "evaluator": {
+    "script": "/root/smolvla-libero-compositional-generalization/scripts/eval_v3_task0.py",
+    "script_sha256": "5fb67f7a535e842214c351d09d368b3d2884deb267023fb51e54d3f5d494a2b3",
+    "runtime_host": "cpod-1v6wxcygzn32",
+    "mujoco_gl": "egl",
+    "task_id": 0,
+    "init_source": "benchmark",
+    "init_index": 0,
+    "seed": 12345,
+    "wait_steps": 10,
+    "n_action_steps": 25,
+    "max_steps": 300
+  },
+  "results": [
+    {
+      "model_group": "historical_v3_positive_control",
+      "checkpoint": "010000",
+      "checkpoint_path": "/root/smolvla-eval-prep/recovered_historical_v3_20260922/outputs/smolvla_v3_task0_10k_run1/checkpoints/010000/pretrained_model",
+      "success": true,
+      "total_reward": 1.0,
+      "steps": 82,
+      "summary_path": "/root/smolvla-eval-prep/results/audits/phaseB_historical_v3_recovered_asset_smoke_20260922/eval_v3_task0_010000_benchmark_init0_n25_seed12345_summary.csv"
+    },
+    {
+      "model_group": "joint32",
+      "checkpoint": "030000",
+      "success": false,
+      "total_reward": 0.0,
+      "steps": 300,
+      "summary_path": "/root/smolvla-eval-prep/results/audits/phaseC_recovered_v3_joint32_init0_20260922/030000/eval_v3_task0_030000_benchmark_init0_n25_seed12345_summary.csv"
+    },
+    {
+      "model_group": "joint32",
+      "checkpoint": "060000",
+      "success": false,
+      "total_reward": 0.0,
+      "steps": 300,
+      "summary_path": "/root/smolvla-eval-prep/results/audits/phaseC_recovered_v3_joint32_init0_20260922/060000/eval_v3_task0_060000_benchmark_init0_n25_seed12345_summary.csv"
+    },
+    {
+      "model_group": "joint32",
+      "checkpoint": "090000",
+      "success": false,
+      "total_reward": 0.0,
+      "steps": 300,
+      "summary_path": "/root/smolvla-eval-prep/results/audits/phaseC_recovered_v3_joint32_init0_20260922/090000/eval_v3_task0_090000_benchmark_init0_n25_seed12345_summary.csv"
+    }
+  ],
+  "interpretation": {
+    "verified": [
+      "The recovered historical V3 asset set produces a positive rollout under the shared evaluator.",
+      "All three joint32 checkpoints fail under the same evaluator, task, initialization, seed, and action protocol.",
+      "The prior evaluator/runtime blocker is reduced: a positive control now exists on the current GPU runtime."
+    ],
+    "remaining_limitations": [
+      "This is a one-initialization sanity comparison, not the full historical 20- or 50-initialization reproduction.",
+      "The exact historical evaluator hashes recorded in old manifests were not recovered; the shared evaluator is the repository V3 script with a verified positive control.",
+      "The old GPU itself could not render under its current EGL/GLX libraries, so execution used the recovered assets on the new GPU's EGL runtime."
+    ],
+    "next_gate": "Run a small multi-initialization shared-evaluator comparison (historical control plus joint32) before considering any inference or training intervention. Fold 02 remains locked."
+  }
+}
