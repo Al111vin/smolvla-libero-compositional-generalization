@@ -499,3 +499,53 @@ Using the same recovered V3 evaluator, EGL runtime, task-0 benchmark initializat
 The recommended Phase D follow-up is a minimal, isolated training-contract ablation (state/action ordering and normalization, camera preprocessing, and task-language/task-id mapping checked one variable at a time). No training has started from this plan; see `results/phaseD_minimal_training_contract_ablation_plan_20260922.json`.
 
 The concrete draft currently recommends changing only training-time `n_action_steps` from 25 to 50, matching the recovered V3 checkpoint configuration, with a fresh output directory and the calibrated evaluator held fixed. It is a draft only and requires explicit approval before any training; see `results/phaseD_n_action_steps_ablation_config_draft_v1.json`.
+
+### Joint32 n_action_steps=50 ablation sanity check (2026-09-22)
+
+The approved minimum ablation trained a new checkpoint family with
+`n_action_steps=50` and was evaluated with the strict evaluator on three seen
+tasks (16, 24, and 30), four checkpoints (`030000`, `060000`, `090000`, and
+`last`), and 10 fixed initial states per task/checkpoint. All 120 rollouts
+completed without deterministic-algorithm errors, but **0/120 succeeded**
+(0/40 for each task and checkpoint). This is diagnostic evidence only; it does
+not change the official gate and does not authorize Fold 02.
+
+Primary evidence:
+[`n_action_steps=50 sanity summary`](results/phaseC_joint32_n_action_steps50_seen_sanity_v2_summary_20260922.json).
+
+### Recovered V3 positive-control rerun (2026-09-22)
+
+The recovered historical V3 checkpoint was rerun with the reconstructed
+evaluator using the GPU's EGL backend. Across 20 benchmark initial states at
+`wait_steps=10`, `n_action_steps=25`, and `max_steps=300`, it achieved **13/20
+successes** (mean reward `0.65`). This establishes a runnable positive control
+for the recovered asset and EGL runtime; it is separate from the earlier
+same-named checkpoint candidate whose archived artifacts were incomplete.
+
+Evidence:
+[`recovered V3 positive-control summary`](results/phaseB_historical_v3_recovered_asset_full20_egl_summary_20260922.json).
+
+### Calibrated joint32 task-0 sanity check (2026-09-22)
+
+Using the same `eval_v3_task0.py`, EGL runtime, benchmark initialization rule,
+`wait_steps=10`, `n_action_steps=25`, and `max_steps=300` as the recovered V3
+positive control, joint32 checkpoints `030000`, `060000`, and `090000` were
+each tested on five benchmark states. The result was **0/15 successes** (0/5
+for every checkpoint), with no evaluator or rendering error. This confirms the
+joint32 failure on this task is not caused by the earlier missing-EGL setup;
+it remains a model/checkpoint result under the calibrated protocol.
+
+Evidence:
+[`calibrated joint32 sanity summary`](results/phaseC_joint32_calibrated_eval_v1_summary_20260922.json).
+### Joint32 provenance/contract audit (2026-09-22)
+
+The read-only audit confirms that `libero36_feasible_32_frozen_v1` uses a compact
+`task_index` 0--31 mapping ordered by the original feasible LIBERO task IDs,
+including task 0, and that its language strings match the evaluator task
+instructions. The dataset contracts are `observation.state=[15]` and
+`action=[7]`, matching the calibrated checkpoint metadata. No direct task-index
+or state/action schema mismatch was found to explain the calibrated joint32
+result (0/15 on task 0). The next recommended gate is image preprocessing and
+normalization plus a small replay-contract audit; Fold 02 remains locked.
+
+Evidence: `results/phaseD_joint32_provenance_contract_audit_20260922.json`.
