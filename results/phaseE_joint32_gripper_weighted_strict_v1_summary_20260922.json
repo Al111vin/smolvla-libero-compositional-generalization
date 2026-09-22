@@ -1,0 +1,162 @@
+{
+  "schema_version": "phaseE_joint32_gripper_weighted_strict_v1",
+  "created_utc": "2026-09-22T19:20:28.317937+00:00",
+  "training_output": "/root/smolvla-training-prep/results/training/libero36_joint32_gripper_weighted_v1",
+  "evaluator": "eval_v3_task0.py",
+  "task_id": 0,
+  "n_action_steps": 25,
+  "benchmark_init_indices": [
+    0,
+    1,
+    2,
+    3,
+    4
+  ],
+  "strict_egl": true,
+  "checkpoints": {
+    "030000": {
+      "num_rollouts": 5,
+      "num_success": 0,
+      "success_seeds": [],
+      "records": [
+        {
+          "file": "eval_v3_task0_030000_benchmark_init0_n25_seed12345_summary.csv",
+          "success": "False",
+          "reward": "0.0",
+          "steps": "300",
+          "init_index": "0",
+          "seed": "12345"
+        },
+        {
+          "file": "eval_v3_task0_030000_benchmark_init1_n25_seed12348_summary.csv",
+          "success": "False",
+          "reward": "0.0",
+          "steps": "300",
+          "init_index": "1",
+          "seed": "12348"
+        },
+        {
+          "file": "eval_v3_task0_030000_benchmark_init2_n25_seed12351_summary.csv",
+          "success": "False",
+          "reward": "0.0",
+          "steps": "300",
+          "init_index": "2",
+          "seed": "12351"
+        },
+        {
+          "file": "eval_v3_task0_030000_benchmark_init3_n25_seed12354_summary.csv",
+          "success": "False",
+          "reward": "0.0",
+          "steps": "300",
+          "init_index": "3",
+          "seed": "12354"
+        },
+        {
+          "file": "eval_v3_task0_030000_benchmark_init4_n25_seed12357_summary.csv",
+          "success": "False",
+          "reward": "0.0",
+          "steps": "300",
+          "init_index": "4",
+          "seed": "12357"
+        }
+      ]
+    },
+    "060000": {
+      "num_rollouts": 5,
+      "num_success": 0,
+      "success_seeds": [],
+      "records": [
+        {
+          "file": "eval_v3_task0_060000_benchmark_init0_n25_seed12345_summary.csv",
+          "success": "False",
+          "reward": "0.0",
+          "steps": "300",
+          "init_index": "0",
+          "seed": "12345"
+        },
+        {
+          "file": "eval_v3_task0_060000_benchmark_init1_n25_seed12348_summary.csv",
+          "success": "False",
+          "reward": "0.0",
+          "steps": "300",
+          "init_index": "1",
+          "seed": "12348"
+        },
+        {
+          "file": "eval_v3_task0_060000_benchmark_init2_n25_seed12351_summary.csv",
+          "success": "False",
+          "reward": "0.0",
+          "steps": "300",
+          "init_index": "2",
+          "seed": "12351"
+        },
+        {
+          "file": "eval_v3_task0_060000_benchmark_init3_n25_seed12354_summary.csv",
+          "success": "False",
+          "reward": "0.0",
+          "steps": "300",
+          "init_index": "3",
+          "seed": "12354"
+        },
+        {
+          "file": "eval_v3_task0_060000_benchmark_init4_n25_seed12357_summary.csv",
+          "success": "False",
+          "reward": "0.0",
+          "steps": "300",
+          "init_index": "4",
+          "seed": "12357"
+        }
+      ]
+    },
+    "090000": {
+      "num_rollouts": 5,
+      "num_success": 0,
+      "success_seeds": [],
+      "records": [
+        {
+          "file": "eval_v3_task0_090000_benchmark_init0_n25_seed12345_summary.csv",
+          "success": "False",
+          "reward": "0.0",
+          "steps": "300",
+          "init_index": "0",
+          "seed": "12345"
+        },
+        {
+          "file": "eval_v3_task0_090000_benchmark_init1_n25_seed12348_summary.csv",
+          "success": "False",
+          "reward": "0.0",
+          "steps": "300",
+          "init_index": "1",
+          "seed": "12348"
+        },
+        {
+          "file": "eval_v3_task0_090000_benchmark_init2_n25_seed12351_summary.csv",
+          "success": "False",
+          "reward": "0.0",
+          "steps": "300",
+          "init_index": "2",
+          "seed": "12351"
+        },
+        {
+          "file": "eval_v3_task0_090000_benchmark_init3_n25_seed12354_summary.csv",
+          "success": "False",
+          "reward": "0.0",
+          "steps": "300",
+          "init_index": "3",
+          "seed": "12354"
+        },
+        {
+          "file": "eval_v3_task0_090000_benchmark_init4_n25_seed12357_summary.csv",
+          "success": "False",
+          "reward": "0.0",
+          "steps": "300",
+          "init_index": "4",
+          "seed": "12357"
+        }
+      ]
+    }
+  },
+  "total_rollouts": 15,
+  "total_success": 0,
+  "fold02": "LOCKED"
+}

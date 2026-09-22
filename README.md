@@ -537,6 +537,24 @@ it remains a model/checkpoint result under the calibrated protocol.
 
 Evidence:
 [`calibrated joint32 sanity summary`](results/phaseC_joint32_calibrated_eval_v1_summary_20260922.json).
+
+### Phase E minimal gripper-weighted repair (2026-09-22)
+
+The approved Option B repair trained an isolated checkpoint family with a
+3x loss weight on the gripper action dimension; all other data, optimizer,
+seed, pretrained initialization, and training schedule settings were held
+fixed. Training completed cleanly at 90,000 steps and produced independent
+`030000`, `060000`, and `090000` checkpoints. Under the calibrated EGL
+`eval_v3_task0.py` protocol (`wait_steps=10`, `n_action_steps=25`,
+`max_steps=300`, five benchmark initializations per checkpoint), the repair
+model achieved **0/15 successes**. There were no evaluator/runtime errors;
+all rollouts reached the 300-step limit with zero reward. This minimal repair
+does not improve the calibrated task-0 result, so no further weighting sweep
+is recommended before revisiting the broader training contract. Fold 02
+remains locked.
+
+Evidence:
+[`Phase E weighted strict summary`](results/phaseE_joint32_gripper_weighted_strict_v1_summary_20260922.json).
 ### Joint32 provenance/contract audit (2026-09-22)
 
 The read-only audit confirms that `libero36_feasible_32_frozen_v1` uses a compact

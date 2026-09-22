@@ -1,0 +1,29 @@
+{
+  "schema_version": "phaseE_joint32_gripper_weighted_decision_v1",
+  "date": "2026-09-22",
+  "experiment": "Option B minimal gripper-weighted repair",
+  "training": {
+    "output_dir": "/root/smolvla-training-prep/results/training/libero36_joint32_gripper_weighted_v1",
+    "steps": 90000,
+    "checkpoints": ["030000", "060000", "090000"],
+    "gripper_loss_weight": 3.0,
+    "training_completed": true
+  },
+  "evaluation": {
+    "evaluator": "eval_v3_task0.py",
+    "backend": "egl",
+    "task_id": 0,
+    "benchmark_initializations": [0, 1, 2, 3, 4],
+    "wait_steps": 10,
+    "n_action_steps": 25,
+    "max_steps": 300,
+    "total_rollouts": 15,
+    "total_success": 0,
+    "deterministic_algorithm_errors": 0,
+    "all_rollouts_reached_step_limit": true
+  },
+  "decision": "option_b_does_not_improve_calibrated_task0_result",
+  "next_action": "do_not_expand_gripper_weight_sweep; revisit broader training-contract hypotheses",
+  "fold02": "LOCKED",
+  "source_summary": "phaseE_joint32_gripper_weighted_strict_v1_summary_20260922.json"
+}
