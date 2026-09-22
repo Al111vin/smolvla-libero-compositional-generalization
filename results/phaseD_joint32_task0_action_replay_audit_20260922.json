@@ -1,0 +1,17 @@
+{
+  "phase": "D",
+  "audit": "joint32_task0_action_replay",
+  "date": "2026-09-22",
+  "scope": "read_only",
+  "checkpoint": "libero36_joint32_formal_v1/checkpoints/090000/pretrained_model",
+  "task_index": 0,
+  "task": "pick up the akita black bowl and place it on the plate in the left region",
+  "rows_evaluated": 8,
+  "mean_postprocessed_action_mae": 0.008128811023198068,
+  "max_postprocessed_action_mae": 0.01357595156878233,
+  "mae_per_row": [0.01357595156878233,0.009225579909980297,0.004694467876106501,0.0039725289680063725,0.004262459930032492,0.007630806881934404,0.009861386381089687,0.011807306669652462],
+  "preprocessing": "exact checkpoint preprocessor and postprocessor; no clipping added",
+  "finding": "On eight real task-0 training frames, the 090000 checkpoint reproduces the demonstrated first action closely after the exact saved preprocessing/postprocessing path. This weakens the hypothesis that a global normalization or action-scale mismatch explains the 0/15 closed-loop result.",
+  "limitations": ["Open-loop first-action agreement does not prove long-horizon visual control or placement success", "Only task 0 and eight contiguous frames were sampled"],
+  "decision": {"minimal_adapter_fix": "not supported by this audit", "recommended": "an isolated training-side intervention or data/temporal objective audit, followed by a new checkpoint and calibrated strict evaluation", "fold02": "LOCKED"}
+}

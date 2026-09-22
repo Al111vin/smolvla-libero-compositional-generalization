@@ -570,3 +570,14 @@ not a pixel-identical scene replay; the next decision gate is checkpoint/trainin
 provenance rather than another image-format experiment.
 
 Evidence: `results/phaseD_joint32_image_replay_contract_audit_20260922.json`.
+### Joint32 task-0 action replay audit (2026-09-22)
+
+Using the exact saved checkpoint preprocessor/postprocessor, eight real task-0
+training frames were evaluated open-loop at checkpoint 090000. The mean action
+MAE was `0.00813` (maximum `0.01358`). This weakens a global normalization or
+action-scale mismatch as the explanation for the calibrated 0/15 closed-loop
+result, while not claiming long-horizon success. The next intervention should
+therefore be isolated on the training/data temporal objective, with a new
+checkpoint and the same strict evaluator; Fold 02 remains locked.
+
+Evidence: `results/phaseD_joint32_task0_action_replay_audit_20260922.json`.
