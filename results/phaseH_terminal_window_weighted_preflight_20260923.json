@@ -8,6 +8,10 @@
   "evaluation_output_dir_status": "absent_before_start",
   "existing_repair_output_preserved": "/root/smolvla-training-prep/results/training/libero36_joint32_gripper_weighted_v1",
   "checkpoint_overwrite_risk": false,
+  "wrapper_sha256": "35a3050b6c4d335d5c03c4a633ec5400dab78bc96ef53f9030f4daee7700b5d6",
+  "config_sha256": "bb9188ccd63d1c5158f623f1154e776a84365701d3158067196872e6a1bd16cb",
+  "wrapper_py_compile": true,
+  "config_json_validation": true,
   "training_started": false,
   "approval_required": true,
   "fold02": "LOCKED"
