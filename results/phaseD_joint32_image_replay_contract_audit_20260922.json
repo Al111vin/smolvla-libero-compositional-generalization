@@ -1,0 +1,16 @@
+{
+  "phase": "D",
+  "audit": "joint32_image_replay_contract",
+  "date": "2026-09-22",
+  "scope": "read_only",
+  "source": "frozen LeRobot Parquet dataset, first five rows of one data shard",
+  "verified": {
+    "agentview": {"size": [128,128], "shape": [128,128,3], "dtype": "uint8", "channels": 3, "decoded": true},
+    "wrist": {"size": [128,128], "shape": [128,128,3], "dtype": "uint8", "channels": 3, "decoded": true},
+    "evaluator_transform": "permute HWC->CHW, cast float32, divide by 255 when max>1",
+    "output_contract": "3x128x128 float tensor with values in [0,1]"
+  },
+  "finding": "The frozen dataset JPEG frames satisfy the exact shape/dtype/range assumptions used by the recovered evaluator. No hidden image encoding or dimensional mismatch was observed in the replay sample.",
+  "remaining_uncertainty": "This is a representation contract check, not a pixel-identical scene replay; it does not test trainer-side augmentation internals beyond the saved configuration.",
+  "decision": {"image_contract": "passed", "fold02": "LOCKED", "next": "compare training-loss/checkpoint provenance and define minimal repair options"}
+}

@@ -560,3 +560,13 @@ trainer-side application of `use_imagenet_stats`; the next gate is a small
 loader-to-evaluator frame replay audit. Fold 02 remains locked.
 
 Evidence: `results/phaseD_joint32_image_contract_audit_20260922.json`.
+### Joint32 image replay contract check (2026-09-22)
+
+Five real JPEG frames from the frozen LeRobot shard were decoded successfully
+for both camera streams. They are RGB `uint8`, 128×128, and satisfy the
+evaluator's exact HWC→CHW float32/[0,1] conversion contract. No hidden image
+encoding or dimensional mismatch was found. This is a representation check,
+not a pixel-identical scene replay; the next decision gate is checkpoint/training
+provenance rather than another image-format experiment.
+
+Evidence: `results/phaseD_joint32_image_replay_contract_audit_20260922.json`.
