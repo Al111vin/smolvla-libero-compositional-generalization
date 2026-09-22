@@ -1,0 +1,32 @@
+{
+  "phase": "D",
+  "audit": "joint32_image_preprocessing_contract",
+  "date": "2026-09-22",
+  "scope": "read_only",
+  "evidence": {
+    "dataset_image_shapes": {
+      "observation.images.agentview": [128,128,3],
+      "observation.images.wrist": [128,128,3]
+    },
+    "dataset_encoding": "Parquet image structs with JPEG bytes and relative path",
+    "evaluator_camera_resolution": [128,128],
+    "evaluator_conversion": "HWC uint8 -> CHW float32, divide by 255 when needed",
+    "checkpoint_visual_normalizer": "IDENTITY",
+    "checkpoint_state_normalizer": "MEAN_STD",
+    "checkpoint_action_normalizer": "MEAN_STD",
+    "training_image_transforms_enabled": false,
+    "training_use_imagenet_stats": true,
+    "preprocessor_tokenizer": "SmolVLM2-500M-Video-Instruct, max_length 48"
+  },
+  "findings": [
+    "Resolution, channel order, and [0,1] conversion are aligned between the recovered evaluator and the checkpoint preprocessor contract.",
+    "The checkpoint preprocessor records VISUAL=IDENTITY; image normalization is therefore not an independent runtime mismatch in the evaluator.",
+    "No direct image preprocessing mismatch was found. The training use_imagenet_stats flag is consistent with the saved preprocessor/model contract, but its exact trainer-side application remains a lower-level implementation detail not proven by this read-only audit."
+  ],
+  "decision": {
+    "fold02": "LOCKED",
+    "next_gate": "small trainer-side replay audit comparing one dataset frame after loader preprocessing with one evaluator frame before policy preprocessing",
+    "training_change": false,
+    "confidence": "medium"
+  }
+}

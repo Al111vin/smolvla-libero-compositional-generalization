@@ -549,3 +549,14 @@ result (0/15 on task 0). The next recommended gate is image preprocessing and
 normalization plus a small replay-contract audit; Fold 02 remains locked.
 
 Evidence: `results/phaseD_joint32_provenance_contract_audit_20260922.json`.
+### Joint32 image preprocessing contract audit (2026-09-22)
+
+The read-only comparison found no direct image-contract mismatch: both dataset
+images and the recovered evaluator use 128×128 RGB frames, the evaluator
+converts HWC uint8 frames to CHW float tensors in [0,1], and the saved
+checkpoint preprocessor declares visual normalization as `IDENTITY` (with state
+and action using `MEAN_STD`). The remaining uncertainty is only the exact
+trainer-side application of `use_imagenet_stats`; the next gate is a small
+loader-to-evaluator frame replay audit. Fold 02 remains locked.
+
+Evidence: `results/phaseD_joint32_image_contract_audit_20260922.json`.
