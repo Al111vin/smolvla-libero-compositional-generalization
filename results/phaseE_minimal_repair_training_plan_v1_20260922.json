@@ -1,0 +1,34 @@
+{
+  "phase": "E_design_only",
+  "date": "2026-09-22",
+  "status": "awaiting_explicit_training_approval",
+  "options": [
+    {
+      "id": "A",
+      "name": "Inference-only adapter",
+      "recommendation": "defer",
+      "reason": "No contract mismatch was found and task-0 open-loop action MAE is low."
+    },
+    {
+      "id": "B",
+      "name": "Minimal temporal-objective training ablation",
+      "recommendation": "preferred",
+      "design": "new isolated output directory; same dataset, seed, optimizer and 90000-step budget; change only the approved temporal/action-chunk objective variable",
+      "evaluation": "same EGL strict evaluator, task 0, checkpoints 30000/60000/90000, five benchmark initial states",
+      "gate": "no deterministic errors; improvement over 0/15 with reproducible success evidence"
+    },
+    {
+      "id": "C",
+      "name": "Full data/objective redesign",
+      "recommendation": "defer",
+      "reason": "Premature before a one-variable ablation identifies a causal defect."
+    }
+  ],
+  "safety": [
+    "Never overwrite existing checkpoints or evaluation outputs",
+    "Do not start Fold 02",
+    "Do not alter the calibrated evaluator",
+    "Archive logs, config, summary and decision JSON"
+  ],
+  "required_approval": "Explicit confirmation to start option B training"
+}
