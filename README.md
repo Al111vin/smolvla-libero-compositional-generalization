@@ -258,6 +258,14 @@ pipeline smoke result only; it is preserved under
 [`results/benchmark_v1_smoke_control_20260922/`](results/benchmark_v1_smoke_control_20260922/)
 and does not alter any legacy result or Fold 02 gate.
 
+The first joint32 benchmark-v1 minimal audit is also complete: checkpoints
+030000, 060000, and 090000 were each evaluated on benchmark initialization 0
+with the frozen settings above. All three ran the full 300 control steps with
+reward `0.0` and success `false` (0/3). This is a calibration-stage result
+with one initialization, not a sufficient basis for retraining or Fold 02.
+The machine-readable aggregate is
+[`results/benchmark_v1_joint32_minimal_20260922/summary.json`](results/benchmark_v1_joint32_minimal_20260922/summary.json).
+
 ## Current work: LIBERO registered-object 36-task proxy
 
 The next stage expands the study to a balanced Cartesian benchmark:

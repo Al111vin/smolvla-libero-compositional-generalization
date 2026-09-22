@@ -1,0 +1,2 @@
+suite,task_id,init_source,init_index,demo_index,language,success,total_reward,steps,wait_steps,n_action_steps,seed,checkpoint
+libero_spatial,0,benchmark,0,,pick up the black bowl between the plate and the ramekin and place it on the plate,False,0.0,300,10,25,12345,/root/smolvla-training-prep/results/training/libero36_joint32_formal_v1/checkpoints/030000/pretrained_model
