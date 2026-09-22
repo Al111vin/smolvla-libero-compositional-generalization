@@ -1,0 +1,41 @@
+{
+  "schema_version": "phaseF_next_step_options_v1",
+  "date": "2026-09-22",
+  "evidence_basis": {
+    "phaseE_gripper_weighted": "0/15 calibrated task-0 rollouts",
+    "phaseC_joint32_calibrated": "0/15",
+    "recovered_v3_positive_control": "13/20",
+    "n_action_steps50_ablation": "0/120",
+    "contract_audits": "no confirmed image, state, action, or task-index mismatch"
+  },
+  "options": [
+    {
+      "id": "A",
+      "name": "No change",
+      "decision": "not recommended",
+      "reason": "The calibrated evaluator is positive on the recovered V3 checkpoint while joint32 and the gripper-weighted repair remain at zero."
+    },
+    {
+      "id": "B",
+      "name": "Inference-only adapter change",
+      "decision": "defer",
+      "reason": "No deterministic adapter defect has been demonstrated; changing inference semantics would invalidate the calibrated comparison."
+    },
+    {
+      "id": "C",
+      "name": "Read-only trainer-side replay audit, then one bounded repair only if a concrete mismatch is found",
+      "decision": "recommended",
+      "reason": "The remaining uncertainty is whether the training loader/objective reproduces the intended task-0 state/action contract. This audit can be completed without new training or protocol changes."
+    },
+    {
+      "id": "D",
+      "name": "Full retraining or data redesign",
+      "decision": "defer",
+      "reason": "Premature before the trainer-side replay audit identifies a specific defect."
+    }
+  ],
+  "recommended_next_gate": "Approve a read-only trainer-side task-0 action/state replay audit; do not start training until its result identifies a bounded intervention.",
+  "fold02": "LOCKED",
+  "no_checkpoint_overwrite": true,
+  "no_data_upload": true
+}

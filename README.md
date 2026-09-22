@@ -555,6 +555,19 @@ remains locked.
 
 Evidence:
 [`Phase E weighted strict summary`](results/phaseE_joint32_gripper_weighted_strict_v1_summary_20260922.json).
+
+### Next-step gate after Phase E (2026-09-22)
+
+The gripper-weighted repair is now a negative ablation (`0/15`) and should
+not be expanded into a weight sweep. The recommended next step is a
+**read-only trainer-side task-0 action/state replay audit**. It will compare
+the loader-normalized observations and actions against the evaluator contract
+on representative frozen samples before any additional training is approved.
+An inference-only adapter change and full retraining remain deferred because
+neither has a demonstrated concrete defect to target. Fold 02 remains locked.
+
+Evidence:
+[`Phase F next-step options`](results/phaseF_next_step_options_after_gripper_weighted_v1_20260922.json).
 ### Joint32 provenance/contract audit (2026-09-22)
 
 The read-only audit confirms that `libero36_feasible_32_frozen_v1` uses a compact
