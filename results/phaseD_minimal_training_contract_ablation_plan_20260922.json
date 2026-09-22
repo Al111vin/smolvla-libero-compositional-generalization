@@ -1,0 +1,57 @@
+{
+  "phase": "D",
+  "status": "plan_only_no_training_started",
+  "basis": {
+    "historical_v3_control": "12/20 success under recovered evaluator",
+    "joint32": "0/20 at checkpoints 030000, 060000, 090000 under identical task-0 benchmark protocol",
+    "implication": "runtime/evaluator can reproduce positive behavior; joint32 failure is not explained by checkpoint selection alone"
+  },
+  "options_compared": [
+    {
+      "name": "no_change",
+      "action": "accept current joint32 result",
+      "pros": ["zero compute"],
+      "cons": ["does not identify or repair the training/evaluation failure"],
+      "decision": "not recommended"
+    },
+    {
+      "name": "inference_only_fix",
+      "action": "change state/action adapter or preprocessing without retraining",
+      "pros": ["cheap and reversible"],
+      "cons": ["no isolated evidence yet identifies one adapter defect; risks protocol drift"],
+      "decision": "defer until contract audit isolates a mismatch"
+    },
+    {
+      "name": "minimal_training_contract_ablation",
+      "action": "audit and vary one contract component at a time, keeping data, seed, optimizer, steps and evaluator fixed",
+      "pros": ["causal and bounded; preserves calibrated evaluator"],
+      "cons": ["requires new checkpoints and a small GPU run"],
+      "decision": "recommended"
+    },
+    {
+      "name": "full_retraining",
+      "action": "restart joint32 training with broad changes",
+      "pros": ["may recover behavior if several issues interact"],
+      "cons": ["expensive and uninterpretable before a minimal signal"],
+      "decision": "defer"
+    }
+  ],
+  "recommended_ablation_order": [
+    "freeze and record exact train/eval task language and task-id mapping",
+    "verify observation state ordering, normalization statistics and action dimensionality against the recovered V3 evaluator",
+    "verify camera preprocessing and image key/resolution contract",
+    "run one small isolated contract ablation with a fresh output directory",
+    "evaluate only on the calibrated task-0 20-init protocol before considering broader training"
+  ],
+  "success_gate": {
+    "primary": "measurable success above 0/20 on calibrated evaluator",
+    "secondary": "improvement must replicate at a second checkpoint or independent init subset",
+    "stop_conditions": ["no improvement after isolated ablation", "protocol mismatch discovered", "any result would require changing official evaluator"]
+  },
+  "safety": {
+    "no_fold02": true,
+    "no_overwrite": true,
+    "no_dataset_or_checkpoint_upload": true,
+    "training_requires_explicit_confirmation": true
+  }
+}

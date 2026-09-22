@@ -495,3 +495,5 @@ The old GPU was recovered and supplied the original V3 010000 checkpoint and tas
 ### Full calibrated joint32 audit (2026-09-22)
 
 Using the same recovered V3 evaluator, EGL runtime, task-0 benchmark initializations 0--19, seeds 12345--12364, `wait_steps=10`, `n_action_steps=25`, and `max_steps=300`, the historical V3 control achieved 12/20 successes. Joint32 checkpoints `030000`, `060000`, and `090000` each achieved 0/20; all 20 rollouts per checkpoint reached the step limit with zero reward. This is an evaluation audit, not a causal proof of one root cause and does not unlock Fold 02. Evidence: `results/phaseC_joint32_full60_and_phaseD_options_20260922.json`.
+
+The recommended Phase D follow-up is a minimal, isolated training-contract ablation (state/action ordering and normalization, camera preprocessing, and task-language/task-id mapping checked one variable at a time). No training has started from this plan; see `results/phaseD_minimal_training_contract_ablation_plan_20260922.json`.
