@@ -251,6 +251,13 @@ The historical V3 evaluator has not been recovered; therefore a mismatch with
 the legacy 14/20 result remains a documented limitation rather than evidence
 that a model or training run is defective.
 
+The first benchmark-v1 smoke control completed on the GPU using the existing
+010000 control checkpoint: one benchmark initialization, 300 control steps,
+`n_action_steps=25`, seed 12345, success `false`, reward `0.0`. This is a
+pipeline smoke result only; it is preserved under
+[`results/benchmark_v1_smoke_control_20260922/`](results/benchmark_v1_smoke_control_20260922/)
+and does not alter any legacy result or Fold 02 gate.
+
 ## Current work: LIBERO registered-object 36-task proxy
 
 The next stage expands the study to a balanced Cartesian benchmark:

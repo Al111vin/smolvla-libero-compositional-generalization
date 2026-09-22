@@ -1,0 +1,17 @@
+{
+  "benchmark_id": "libero_spatial_task0_transparent_reconstructed_v1",
+  "checkpoint": "loco_fold01_formal_v1/checkpoints/010000/pretrained_model",
+  "init_source": "benchmark",
+  "init_index": 0,
+  "seed_base": 12345,
+  "effective_seed": 12345,
+  "wait_steps": 10,
+  "n_action_steps": 25,
+  "max_steps": 300,
+  "success": false,
+  "total_reward": 0.0,
+  "steps": 300,
+  "remote_summary_sha256": "193d37cc8bcfcfa5e21184a8fc4bcbd39dc5f62c42a2e153ebe7d212d82f4669",
+  "status": "smoke_completed",
+  "note": "Protocol smoke only; not a historical V3 reproduction claim."
+}
