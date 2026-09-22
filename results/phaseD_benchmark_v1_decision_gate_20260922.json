@@ -8,6 +8,8 @@
     "joint32_initializations_per_checkpoint": 5,
     "control_smoke_rollouts": 1,
     "control_smoke_success": 0,
+    "historical_candidate_rollouts": 5,
+    "historical_candidate_success": 0,
     "historical_v3_evaluator_recovered": false,
     "historical_positive_control_reproduced": false
   },
@@ -38,7 +40,7 @@
     }
   ],
   "recommendation": "A",
-  "next_gate": "Recover the historical evaluator/runtime or obtain a checkpoint known to succeed under the exact benchmark-v1 initialization and preprocessing. Then rerun the same 15-rollout joint32 matrix before selecting an intervention.",
+  "next_gate": "Recover the historical evaluator/runtime or obtain a checkpoint known to succeed under the exact benchmark-v1 initialization and preprocessing. The historical 010000 candidate was tested on five benchmark initializations and yielded 0/5, so it is not a positive control. Do not select an intervention until a positive control exists.",
   "fold02": "LOCKED",
   "legacy_results_untouched": true,
   "created_utc": "2026-09-22"

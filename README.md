@@ -274,6 +274,13 @@ missing historical positive control still prevents attributing it to the
 model or choosing a retraining intervention. See
 [`results/benchmark_v1_joint32_full_20260922/summary.json`](results/benchmark_v1_joint32_full_20260922/summary.json).
 
+As a calibration check, the historical V3 010000 checkpoint that is associated
+with the legacy 14/20 report was also run on five benchmark-v1 initializations;
+it produced 0/5. This is a confirmed protocol mismatch, not a contradiction
+of the legacy result, because the historical evaluator/runtime remains
+unrecovered. The evidence is preserved in
+[`results/benchmark_v1_historical_v3_candidate_20260922/summary.json`](results/benchmark_v1_historical_v3_candidate_20260922/summary.json).
+
 ### Phase D decision gate (2026-09-22)
 
 The current recommendation is **no retraining and no inference-side change

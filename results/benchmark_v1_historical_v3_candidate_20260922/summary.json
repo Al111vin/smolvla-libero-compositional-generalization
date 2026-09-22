@@ -1,0 +1,16 @@
+{
+  "benchmark_id": "libero_spatial_task0_transparent_reconstructed_v1",
+  "candidate": "loco_fold01_formal_v1/checkpoints/010000/pretrained_model",
+  "initialization_indices": [0, 1, 2, 3, 4],
+  "seed_base": 12345,
+  "wait_steps": 10,
+  "n_action_steps": 25,
+  "max_steps": 300,
+  "num_rollouts": 5,
+  "num_success": 0,
+  "mean_reward": 0.0,
+  "all_rollouts_reached_max_steps": true,
+  "historical_legacy_claim": "14/20 under a different/ unrecovered V3 evaluator",
+  "interpretation": "The historical candidate did not provide a positive control under benchmark v1; this does not falsify the legacy claim because the historical evaluator/runtime is still unavailable.",
+  "status": "completed"
+}
