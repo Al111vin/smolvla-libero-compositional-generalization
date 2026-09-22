@@ -280,6 +280,10 @@ it produced 0/5. This is a confirmed protocol mismatch, not a contradiction
 of the legacy result, because the historical evaluator/runtime remains
 unrecovered. The evidence is preserved in
 [`results/benchmark_v1_historical_v3_candidate_20260922/summary.json`](results/benchmark_v1_historical_v3_candidate_20260922/summary.json).
+Repeating the same five initializations with `n_action_steps=50` also produced
+0/5, so the mismatch is not explained by the action horizon alone. Those
+results are preserved under
+[`results/benchmark_v1_historical_v3_n50_candidate_20260922/summary.json`](results/benchmark_v1_historical_v3_n50_candidate_20260922/summary.json).
 
 ### Phase D decision gate (2026-09-22)
 

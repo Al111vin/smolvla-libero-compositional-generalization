@@ -10,6 +10,8 @@
     "control_smoke_success": 0,
     "historical_candidate_rollouts": 5,
     "historical_candidate_success": 0,
+    "historical_candidate_n50_rollouts": 5,
+    "historical_candidate_n50_success": 0,
     "historical_v3_evaluator_recovered": false,
     "historical_positive_control_reproduced": false
   },

@@ -1,0 +1,15 @@
+{
+  "benchmark_id": "libero_spatial_task0_transparent_reconstructed_v1",
+  "candidate": "loco_fold01_formal_v1/checkpoints/010000/pretrained_model",
+  "n_action_steps": 50,
+  "initialization_indices": [0, 1, 2, 3, 4],
+  "seed_base": 12345,
+  "wait_steps": 10,
+  "max_steps": 300,
+  "num_rollouts": 5,
+  "num_success": 0,
+  "mean_reward": 0.0,
+  "all_rollouts_reached_max_steps": true,
+  "interpretation": "The historical candidate also did not provide a positive control at n_action_steps=50 under benchmark v1. This further documents, but does not explain, the mismatch with legacy V3 reports.",
+  "status": "completed"
+}
