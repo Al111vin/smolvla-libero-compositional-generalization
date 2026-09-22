@@ -12,7 +12,7 @@ for ckpt in 030000 060000 090000; do
     mkdir -p "$d"
     MUJOCO_GL=egl /usr/local/miniconda3/envs/py312/bin/python "$EVAL" \
       --checkpoint "$CKPT_ROOT/$ckpt/pretrained_model" \
-      --suite benchmark --task-id 0 --init-index "$i" --seed "$seed" \
+      --task-id 0 --init-source benchmark --init-index "$i" --seed "$seed" \
       --wait-steps 10 --n-action-steps 25 --max-steps 300 --results-dir "$d"
   done
 done
