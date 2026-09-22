@@ -6,6 +6,21 @@
     "joint32": "0/20 at checkpoints 030000, 060000, 090000 under identical task-0 benchmark protocol",
     "implication": "runtime/evaluator can reproduce positive behavior; joint32 failure is not explained by checkpoint selection alone"
   },
+  "static_contract_audit": {
+    "comparison": "recovered V3 checkpoint config vs joint32 checkpoint 030000 config",
+    "matching": [
+      "two 128x128 visual inputs (agentview and wrist)",
+      "15-dimensional observation.state",
+      "7-dimensional action",
+      "MEAN_STD state/action normalization and IDENTITY visual normalization",
+      "resize_imgs_with_padding=[512,512]",
+      "num_steps=10",
+      "same SmolVLM2-500M-Video-Instruct backbone",
+      "freeze_vision_encoder/train_expert_only/train_state_proj settings"
+    ],
+    "difference": "historical V3 checkpoint config has n_action_steps=50; joint32 config has n_action_steps=25; the shared audit explicitly evaluated both with n_action_steps=25, so this is a training-config difference, not an evaluator mismatch in the completed comparison",
+    "interpretation": "no obvious state/action/image schema mismatch is visible in checkpoint configs; n_action_steps remains a candidate training variable but is not sufficient to explain the calibrated 0/60 result"
+  },
   "options_compared": [
     {
       "name": "no_change",
