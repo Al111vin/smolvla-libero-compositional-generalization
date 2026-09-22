@@ -1,0 +1,20 @@
+{
+  "benchmark_id": "libero_spatial_task0_transparent_reconstructed_v1",
+  "model": "libero36_joint32_formal_v1",
+  "checkpoint_steps": [30000, 60000, 90000],
+  "initialization_indices": [0, 1, 2, 3, 4],
+  "seed_base": 12345,
+  "seed_rule": "12345 + initialization_index",
+  "wait_steps": 10,
+  "n_action_steps": 25,
+  "max_steps": 300,
+  "results": {
+    "30000": {"num_rollouts": 5, "num_success": 0, "mean_reward": 0.0},
+    "60000": {"num_rollouts": 5, "num_success": 0, "mean_reward": 0.0},
+    "90000": {"num_rollouts": 5, "num_success": 0, "mean_reward": 0.0}
+  },
+  "total_rollouts": 15,
+  "total_success": 0,
+  "status": "completed",
+  "interpretation": "All 15 rollouts completed at the max step budget without success. This calibrates benchmark v1 but is not a historical V3 reproduction and is not by itself a retraining gate."
+}

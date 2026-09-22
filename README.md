@@ -266,6 +266,14 @@ with one initialization, not a sufficient basis for retraining or Fold 02.
 The machine-readable aggregate is
 [`results/benchmark_v1_joint32_minimal_20260922/summary.json`](results/benchmark_v1_joint32_minimal_20260922/summary.json).
 
+The expanded benchmark-v1 audit is complete as well: 3 checkpoints × 5
+benchmark initializations = 15 rollouts. Results were 0/5 at each checkpoint
+(030000, 060000, 090000), all with reward `0.0` and the full 300-step budget.
+This confirms the observed failure on a small initialization set, but the
+missing historical positive control still prevents attributing it to the
+model or choosing a retraining intervention. See
+[`results/benchmark_v1_joint32_full_20260922/summary.json`](results/benchmark_v1_joint32_full_20260922/summary.json).
+
 ## Current work: LIBERO registered-object 36-task proxy
 
 The next stage expands the study to a balanced Cartesian benchmark:
