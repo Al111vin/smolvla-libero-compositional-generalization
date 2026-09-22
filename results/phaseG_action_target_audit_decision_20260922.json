@@ -1,0 +1,33 @@
+{
+  "phase": "G",
+  "audit": "phaseG_action_target_audit_v1",
+  "status": "complete",
+  "evidence": {
+    "frames": 101660,
+    "episodes": 160,
+    "tasks": 32,
+    "action_dim": 7,
+    "action_min": [-0.4000000059604645, -0.6000000238418579, -0.6000000238418579, -0.05010402947664261, -0.1437094807624817, -0.4000000059604645, -1.0],
+    "action_max": [0.6000000238418579, 0.6000000238418579, 0.30000001192092896, 0.14577561616897583, 0.14149747788906097, 0.4000000059604645, 1.0],
+    "gripper_sign_change_events": 395,
+    "trainer_replay_audit_failures": 0
+  },
+  "interpretation": [
+    "All 160 episodes and 32 tasks were read successfully.",
+    "Action ranges are finite and bounded; no collapsed or missing action dimension was found.",
+    "Late-window actions are not universally sparse, and gripper sign changes occur across all represented task groups rather than one isolated subset.",
+    "These descriptive statistics do not identify a single measurable target-construction defect that would justify another training run by itself."
+  ],
+  "decision": {
+    "start_new_training": false,
+    "recommended_next_step": "Freeze the current repair branch and prepare a small, explicitly designed objective ablation only if the user later approves it; do not launch it automatically from this audit.",
+    "fold02": "LOCKED",
+    "official_task1_conclusion_changed": false
+  },
+  "safety": {
+    "dataset_mutated": false,
+    "checkpoint_overwritten": false,
+    "training_started": false,
+    "old_results_deleted": false
+  }
+}

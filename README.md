@@ -252,6 +252,17 @@ before proposing one bounded objective/data change. Fold 02 remains locked and
 no training is started by this plan.
 See [`Phase G objective/data redesign options`](results/phaseG_objective_data_redesign_options_v1_20260922.json).
 
+### Phase G action-target audit result (2026-09-22)
+
+The read-only audit covered 101,660 frames from all 160 frozen episodes and
+all 32 tasks. Every action dimension was finite and populated; no collapsed
+channel, loader mismatch, or isolated task-group anomaly was identified.
+Because the audit did not reveal one bounded target-construction defect, no
+second repair training run is authorized from this evidence alone. The next
+training change, if approved later, must be a separately designed and
+versioned objective ablation. Fold 02 remains locked.
+See [`Phase G action-target audit decision`](results/phaseG_action_target_audit_decision_20260922.json).
+
 ### Transparent benchmark v1 (approved 2026-09-22)
 
 The project now has an explicitly frozen, transparent reconstructed evaluator
