@@ -8,7 +8,7 @@
     "training_n_action_steps": 25,
     "chunk_size": 50,
     "steps": 90000,
-    "seed": 42
+    "seed": 1000
   },
   "recommended_variant": {
     "name": "libero36_joint32_n_action_steps50_ablation_v1",
@@ -26,7 +26,7 @@
     "freeze_vision_encoder": true,
     "train_expert_only": true,
     "train_state_proj": true,
-    "seed": 42
+    "seed": 1000
   },
   "fixed_variables": [
     "dataset bytes, episode list and task metadata",
