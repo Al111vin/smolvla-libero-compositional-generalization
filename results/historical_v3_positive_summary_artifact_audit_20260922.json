@@ -1,0 +1,27 @@
+{
+  "status": "archived_summary_found_artifacts_missing",
+  "positive_summary_files": [
+    {
+      "path": "results/eval_v3_task0_010000_benchmark_n25_20_summary.csv",
+      "reported_success": "14/20",
+      "sha256": "4e62b52e6c60d8717b6a77c3df54bb7d5460d5769a304503031253404587bb1a"
+    },
+    {
+      "path": "results/eval_v3_task0_010000_hdf5states_50_summary.csv",
+      "reported_success": "50/50",
+      "sha256": "04d7822b7099fc4f14d3bfe7eb6f0b045ab8900a0f95ce812b87e9a6a29790f6"
+    }
+  ],
+  "missing_for_reproduction": [
+    "original checkpoint directory referenced as outputs/smolvla_v3_task0_10k_run1",
+    "task-0 HDF5 demonstration file",
+    "exact evaluator/runtime matching the archived summaries"
+  ],
+  "current_benchmark_v1_comparison": {
+    "same_named_checkpoint_candidate": "loco_fold01_formal_v1/checkpoints/010000",
+    "benchmark_v1_n25": "0/5",
+    "benchmark_v1_n50": "0/5",
+    "interpretation": "Archived positive summaries are historical evidence only and are not a benchmark-v1 positive control."
+  },
+  "fold02": "LOCKED"
+}
