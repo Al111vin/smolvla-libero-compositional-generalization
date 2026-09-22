@@ -1,0 +1,41 @@
+{
+  "schema_version": "phaseG_objective_data_redesign_options_v1",
+  "date": "2026-09-22",
+  "evidence_basis": [
+    "Recovered V3 positive control: 13/20",
+    "Joint32 calibrated task-0: 0/15",
+    "n_action_steps=50 ablation: 0/120",
+    "gripper-weighted repair: 0/15",
+    "trainer-side replay audit: 160/160 representatives match schema and preprocessing"
+  ],
+  "options": [
+    {
+      "id": "A",
+      "name": "Do nothing",
+      "assessment": "reject",
+      "reason": "Repeated calibrated failures remain unexplained by runtime or loader contracts."
+    },
+    {
+      "id": "B",
+      "name": "Targeted action-supervision redesign",
+      "assessment": "recommended after read-only audit",
+      "change": "audit per-dimension action scale, temporal/chunk target construction, and late-stage position/rotation target coverage; then change one supervision variable in a fresh output directory",
+      "risk": "may improve action fitting without solving visual/task generalization"
+    },
+    {
+      "id": "C",
+      "name": "Task-balanced or curriculum retraining",
+      "assessment": "defer",
+      "reason": "The frozen dataset is already exactly five episodes per feasible task; no imbalance defect is shown."
+    },
+    {
+      "id": "D",
+      "name": "Full model/data redesign",
+      "assessment": "defer",
+      "reason": "Too broad before a bounded target-supervision defect is measured."
+    }
+  ],
+  "recommended_gate": "Run a read-only action-target audit over all 160 episodes, including per-dimension ranges, late-stage/release windows, chunk alignment, and target sparsity; do not train until a measurable defect is identified.",
+  "fold02": "LOCKED",
+  "training_started": false
+}

@@ -239,6 +239,19 @@ seed per fold. See the frozen
 [`formal results`](results/V4_LOCO_RESULTS.md), and
 [`post-hoc diagnostic protocol`](results/V4_LOCO_DIAGNOSTIC_PROTOCOL.md).
 
+### Phase G: action-target audit before any further repair training (2026-09-22)
+
+The calibrated joint32 model and the gripper-weighted minimal repair both
+remain at 0 success on their strict task-0 audits. A trainer-side replay audit
+covered all 160 frozen episodes (five per task across 32 tasks) and found no
+loader, state/action shape, task-text, image-range, or normalization mismatch.
+Therefore the next recommended step is a read-only action-target audit, not
+another blind training sweep. It will measure per-dimension action scale and
+sparsity, late-stage/release-window coverage, and 50-step chunk alignment
+before proposing one bounded objective/data change. Fold 02 remains locked and
+no training is started by this plan.
+See [`Phase G objective/data redesign options`](results/phaseG_objective_data_redesign_options_v1_20260922.json).
+
 ### Transparent benchmark v1 (approved 2026-09-22)
 
 The project now has an explicitly frozen, transparent reconstructed evaluator
