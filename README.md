@@ -568,6 +568,22 @@ neither has a demonstrated concrete defect to target. Fold 02 remains locked.
 
 Evidence:
 [`Phase F next-step options`](results/phaseF_next_step_options_after_gripper_weighted_v1_20260922.json).
+
+### Phase F trainer-side replay audit (2026-09-22)
+
+The read-only trainer-side audit covered all 160 frozen training episodes
+(five episodes for each of the 32 feasible tasks) using the 90k weighted
+checkpoint's preprocessor. Every representative first frame loaded without
+error: state shape was 15, action shape was 7, task text matched
+`tasks.parquet`, values were finite, and both images were CHW 128x128 floats
+in `[0,1]`. No loader schema or normalization mismatch was found. Therefore
+another single-variable repair is not justified by the current evidence;
+objective/data redesign requires a new explicit experiment design before any
+further training. Fold 02 remains locked.
+
+Evidence:
+[`Phase F replay audit summary`](results/phaseF_trainer_side_task0_replay_audit_v1_summary_20260922.json),
+[`Phase F replay audit decision`](results/phaseF_trainer_side_task0_replay_audit_decision_20260922.json).
 ### Joint32 provenance/contract audit (2026-09-22)
 
 The read-only audit confirms that `libero36_feasible_32_frozen_v1` uses a compact

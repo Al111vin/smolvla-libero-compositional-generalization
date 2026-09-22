@@ -1,0 +1,24 @@
+{
+  "schema_version": "phaseF_trainer_side_task0_replay_audit_decision_v1",
+  "date": "2026-09-22",
+  "audit": {
+    "dataset_episodes": 160,
+    "dataset_tasks": 32,
+    "representative_rows": 160,
+    "failures": 0,
+    "state_shape": [1, 15],
+    "action_shape": [1, 7],
+    "images": "CHW 128x128 float in [0,1]",
+    "task_metadata_matches": true,
+    "finite_values": true
+  },
+  "conclusion": "no_loader_schema_or_normalization_mismatch_found",
+  "decision": "do_not_start_another_minimal_repair_from_this_audit",
+  "next_options": {
+    "inference_adapter_change": "deferred; no defect identified",
+    "another_single_variable_loss_weight": "not recommended after 0/15 gripper-weighted result",
+    "objective_or_data_redesign": "requires a new explicit design and approval",
+    "full_retraining": "deferred until a bounded objective/data intervention is specified"
+  },
+  "fold02": "LOCKED"
+}
