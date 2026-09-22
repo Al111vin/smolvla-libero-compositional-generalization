@@ -1,0 +1,22 @@
+{
+  "phase": "D",
+  "date": "2026-09-22",
+  "evidence_basis": [
+    "Recovered V3 positive control: 13/20",
+    "Calibrated joint32 task-0 sanity: 0/15",
+    "n_action_steps=50 ablation: 0/120",
+    "Task-index/state-action audit: no direct mismatch",
+    "Image preprocessing/replay contract audit: no direct mismatch"
+  ],
+  "options": [
+    {"id":"A","name":"No change","assessment":"Rejected: repeated calibrated failures are not explained by evaluator or data-shape contracts."},
+    {"id":"B","name":"Inference-only adapter","assessment":"Deferred: no evidence identifies a deterministic state/image adapter defect; changing it would risk invalidating the calibrated protocol."},
+    {"id":"C","name":"Minimal training-side action/state replay audit then bounded repair run","assessment":"Recommended: inspect trainer loader normalization and one-step policy-vs-demo action error before changing the objective; if confirmed, train a new isolated checkpoint with one variable changed."},
+    {"id":"D","name":"Full retraining/data redesign","assessment":"Deferred: premature before the minimal replay audit identifies a concrete defect."}
+  ],
+  "recommendation": "C",
+  "next_gate": "run a read-only trainer-side action/state replay audit on representative task-0 samples; do not overwrite checkpoints or start Fold 02",
+  "fold02": "LOCKED",
+  "github_sync": "pending SSH authentication",
+  "huggingface_sync": "complete"
+}
