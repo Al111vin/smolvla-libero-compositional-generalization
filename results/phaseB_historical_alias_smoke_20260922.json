@@ -1,0 +1,54 @@
+{
+  "schema_version": "phaseB_historical_alias_smoke_v1",
+  "date": "2026-09-22",
+  "purpose": "Read-only sanity check of the historical checkpoint alias before deciding whether model repair or retraining is justified.",
+  "host": "cpod-1v6wxcygzn32",
+  "checkpoint": "/root/smolvla-eval-prep/checkpoint_alias/020000/pretrained_model",
+  "checkpoint_sha256": "d9e3c699dc50562d8c1864a961d5f586bdc1924f3188049c0baa3f1d110486af",
+  "checkpoint_provenance": {
+    "historical_training_family": "loco_fold01_formal_v1",
+    "checkpoint_alias_step": 20000,
+    "config_chunk_size": 50,
+    "config_n_action_steps": 50,
+    "dataset_repo_id": "local/libero36_feasible_32_frozen_v1",
+    "training_episode_indices": "5-159"
+  },
+  "evaluator": {
+    "script": "loco_fold01_strict_eval_phaseB_patched_v1.py",
+    "protocol": "/root/smolvla-eval-prep/configs/loco_fold01_task00_protocol.json",
+    "protocol_sha256": "177121a6be2be6167b6a77c3df54bb7d5460d5769a304503031253404587bb1a",
+    "evaluator_sha256": "6b3adbdb9a663a8d65a659842d7c4c9aa3aaff0b232c8a7f67a14ee8f099b114",
+    "historical_exact_evaluator_sha256": [
+      "6f1dcaee8883772b7ca8cafb67a4997d48fb7465afffb36b4dae94835efa9bc6",
+      "ebf56d01012256ab172715a8400a9826e1ef4cfbee21304153451b72e214649c"
+    ],
+    "exact_historical_evaluator_available": false
+  },
+  "rollout": {
+    "suite": "libero_spatial",
+    "task_id": 0,
+    "init_index": 0,
+    "env_seed": 1000,
+    "policy_seed": 2000,
+    "wait_steps": 10,
+    "requested_n_action_steps": 50,
+    "effective_n_action_steps": 25,
+    "max_steps": 280,
+    "success": false,
+    "total_reward": 0.0,
+    "steps": 280,
+    "output_dir": "/root/smolvla-eval-prep/results/audits/phaseB_historical_alias_smoke_task00_init0_20260922"
+  },
+  "interpretation": {
+    "verified": [
+      "The historical checkpoint alias is present and loadable on the current GPU.",
+      "The current Phase-B evaluator completed one clean rollout with no runtime failure.",
+      "This rollout produced success=false and reward=0 after the full step budget."
+    ],
+    "not_verified": [
+      "This does not reproduce the historical V3 positive result because the exact historical evaluator/runtime and original task0 HDF5 payload remain unavailable.",
+      "The requested n_action_steps=50 was overridden by the evaluator's protocol path to an effective value of 25, so this is not a 50-step historical-protocol reproduction."
+    ],
+    "decision": "Do not start repair training or Fold 02. Recover the exact historical evaluator/runtime and original task0 payload, or explicitly accept benchmark v1 as a new independent evaluation definition."
+  }
+}
