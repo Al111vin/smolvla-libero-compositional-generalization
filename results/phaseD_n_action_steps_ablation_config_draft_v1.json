@@ -1,0 +1,55 @@
+{
+  "status": "draft_only",
+  "training_started": false,
+  "purpose": "isolate whether the training-time action horizon contract contributes to joint32 failure",
+  "baseline": {
+    "checkpoint_family": "libero36_joint32_formal_v1",
+    "pretrained_path": "loco_fold01_formal_v1/checkpoints/020000/pretrained_model",
+    "training_n_action_steps": 25,
+    "chunk_size": 50,
+    "steps": 90000,
+    "seed": 42
+  },
+  "recommended_variant": {
+    "name": "libero36_joint32_n_action_steps50_ablation_v1",
+    "training_n_action_steps": 50,
+    "chunk_size": 50,
+    "output_dir": "/root/smolvla-training-prep/results/training/libero36_joint32_n_action_steps50_ablation_v1",
+    "dataset_repo_id": "local/libero36_feasible_32_frozen_v1",
+    "dataset_root": "/root/smolvla-training-prep/datasets/lerobot/libero36_feasible_32_frozen_v1",
+    "batch_size": 8,
+    "steps": 90000,
+    "save_freq": 30000,
+    "optimizer_lr": 0.00001,
+    "scheduler_warmup_steps": 3000,
+    "scheduler_decay_steps": 90000,
+    "freeze_vision_encoder": true,
+    "train_expert_only": true,
+    "train_state_proj": true,
+    "seed": 42
+  },
+  "fixed_variables": [
+    "dataset bytes, episode list and task metadata",
+    "pretrained initialization",
+    "batch size, optimizer, scheduler, precision and seed",
+    "checkpoint cadence and no-overwrite output policy",
+    "calibrated V3 evaluator, task 0 benchmark init protocol and EGL runtime"
+  ],
+  "evaluation_plan_after_explicit_training_approval": {
+    "checkpoints": [30000, 60000, 90000],
+    "init_indices": "0..19",
+    "seeds": "12345..12364",
+    "wait_steps": 10,
+    "n_action_steps": 25,
+    "max_steps": 300,
+    "output_dir": "/root/smolvla-eval-prep/results/audits/phaseE_joint32_n_action_steps50_20260922",
+    "primary_gate": "success_rate > 0/20 and not attributable to evaluator drift",
+    "replication_gate": "improvement at two checkpoints or on an independent init subset"
+  },
+  "alternatives_rejected_for_now": {
+    "n_action_steps10": "larger protocol change and less direct historical V3 match",
+    "full_retraining_with_multiple_changes": "not causal and too expensive before one-variable evidence",
+    "inference_only_override": "would not test the training-time contract hypothesis"
+  },
+  "approval_boundary": "No training or evaluation is launched by this draft; explicit user approval is required."
+}
