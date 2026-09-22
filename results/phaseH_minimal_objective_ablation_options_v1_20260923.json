@@ -1,0 +1,47 @@
+{
+  "phase": "H",
+  "title": "Minimal objective ablation after Phase G action-target audit",
+  "status": "design_only",
+  "evidence_basis": [
+    "Historical V3 positive control: 13/20 under recovered protocol.",
+    "Calibrated joint32 strict task-0 audit: 0/15.",
+    "n_action_steps=50 ablation: 0/120.",
+    "Gripper-weighted repair: 0/15.",
+    "Trainer-side replay audit: 160/160 episodes readable with matching state/action/task/image structures.",
+    "Phase G action-target audit: 101660 frames, bounded finite actions, no single loader or collapsed-channel defect."
+  ],
+  "options": {
+    "A_terminal_window_weighting": {
+      "change": "Increase loss weight only for the final 20 percent of each episode, with a fresh output directory and unchanged model/data/evaluator settings.",
+      "strength": "Directly targets the late-stage placement/release failure hypothesis.",
+      "risk": "The audit did not prove that terminal targets are underrepresented; may overfit episode ends.",
+      "recommendation": "recommended if a new training run is explicitly approved"
+    },
+    "B_temporal_smoothness_regularizer": {
+      "change": "Add a penalty on action differences across adjacent target frames.",
+      "strength": "Could reduce oscillatory release behavior.",
+      "risk": "May smooth away the demonstrated one-to-two-frame gripper transition and alter the task objective.",
+      "recommendation": "defer"
+    },
+    "C_data_reweighting_by_release_event": {
+      "change": "Oversample or upweight chunks containing gripper sign transitions.",
+      "strength": "Uses the demonstrated release event as a direct training signal.",
+      "risk": "395 sign changes are distributed across task groups; event detection and chunk-boundary semantics need a new validator.",
+      "recommendation": "defer until event/chunk semantics are independently validated"
+    }
+  },
+  "recommended_path": {
+    "choice": "A_terminal_window_weighting",
+    "why": "It is the smallest targeted change aligned with the observed late-stage failure, while leaving state preprocessing, action semantics, evaluator, and dataset contents unchanged.",
+    "minimum_experiment": "One fresh training output directory, one fixed seed, same 90k-step budget and optimizer, then strict task-0 evaluation at 30k/60k/90k using the calibrated evaluator.",
+    "success_gate": "Do not claim improvement from loss alone; require nonzero strict success and an improvement over the 0/15 repair baseline on the predeclared task-0 seeds, with no evaluator/runtime errors.",
+    "approval_required": true,
+    "training_started": false,
+    "fold02": "LOCKED"
+  },
+  "safety": {
+    "existing_checkpoints_overwritten": false,
+    "existing_results_deleted": false,
+    "dataset_mutated": false
+  }
+}

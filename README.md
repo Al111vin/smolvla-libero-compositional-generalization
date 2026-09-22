@@ -263,6 +263,16 @@ training change, if approved later, must be a separately designed and
 versioned objective ablation. Fold 02 remains locked.
 See [`Phase G action-target audit decision`](results/phaseG_action_target_audit_decision_20260922.json).
 
+### Phase H: bounded objective ablation design (2026-09-23)
+
+The audit does not justify another broad sweep. Three single-variable options
+were compared: terminal-window loss weighting, temporal smoothness, and
+release-event chunk reweighting. The recommended candidate is terminal-window
+weighting because it targets the observed late-stage failure while preserving
+the validated state/action semantics and evaluator. This is a design only:
+training has not started and requires explicit approval. See
+[`Phase H objective ablation options`](results/phaseH_minimal_objective_ablation_options_v1_20260923.json).
+
 ### Transparent benchmark v1 (approved 2026-09-22)
 
 The project now has an explicitly frozen, transparent reconstructed evaluator
