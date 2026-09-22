@@ -1,0 +1,44 @@
+{
+  "phase": "C_to_D",
+  "date": "2026-09-22",
+  "protocol": {
+    "evaluator": "scripts/eval_v3_task0.py",
+    "evaluator_sha256": "5fb67f7a535e842214c351d09d368b3d2884deb267023fb51e54d3f5d494a2b3",
+    "task_id": 0,
+    "init_source": "benchmark",
+    "init_indices": "0..19",
+    "seeds": "12345..12364",
+    "wait_steps": 10,
+    "n_action_steps": 25,
+    "max_steps": 300,
+    "render_backend": "egl",
+    "control_output_dir": "/root/smolvla-eval-prep/results/audits/phaseB_historical_v3_full20_20260922",
+    "joint32_output_dir": "/root/smolvla-eval-prep/results/audits/phaseC_joint32_full60_20260922"
+  },
+  "historical_v3_control": {
+    "checkpoint": "recovered task0 V3 010000",
+    "n": 20,
+    "success": 12,
+    "success_rate": 0.6,
+    "failure": 8,
+    "success_init_indices": [3,4,5,6,7,8,9,11,15,16,17,19]
+  },
+  "joint32": {
+    "030000": {"n": 20, "success": 0, "success_rate": 0.0, "failure": 20, "all_reward_zero": true, "all_max_steps": true},
+    "060000": {"n": 20, "success": 0, "success_rate": 0.0, "failure": 20, "all_reward_zero": true, "all_max_steps": true},
+    "090000": {"n": 20, "success": 0, "success_rate": 0.0, "failure": 20, "all_reward_zero": true, "all_max_steps": true}
+  },
+  "interpretation": {
+    "protocol_calibration": "positive control passes on new GPU; evaluator/runtime/checkpoint path is capable of reproducing known-good behavior",
+    "joint32_checkpoint_trend": "no improvement from 030000 to 090000 under this task/init protocol",
+    "current_gate": "joint32 is not viable on this calibrated task0 slice; Fold 02 remains locked",
+    "causal_limit": "this is an evaluation audit, not proof of a single root cause"
+  },
+  "phaseD_options": [
+    {"option": "no_change", "assessment": "rejected as primary next step because 0/60 provides no evidence of usable behavior"},
+    {"option": "inference_only_fix", "assessment": "lowest cost but weakly supported; no single adapter defect has yet been isolated"},
+    {"option": "minimal_training_fix", "assessment": "recommended next investigation: audit training/evaluation contract and run a small isolated ablation before full retraining"},
+    {"option": "full_retraining", "assessment": "defer until a minimal intervention shows a measurable calibrated-evaluator improvement"}
+  ],
+  "next_gate": "design and validate a minimal training-contract ablation; no training or Fold 02 started by this record"
+}
