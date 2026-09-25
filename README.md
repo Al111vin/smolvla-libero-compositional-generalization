@@ -40,6 +40,16 @@ It combines closed-loop LIBERO evaluation, controlled leave-one-combination-out
 > the private Hugging Face dataset; GitHub stores only lightweight evidence and
 > reproducibility metadata.
 
+### Task-balanced sampling proposal (2026-09-23)
+
+The joint32 dataset has five episodes per task, but frame counts range from
+1,280 to 4,900 per task (about 3.8×). An offline audit verified that a
+task-uniform sampler can cover all 32 task indices without modifying the
+dataset. This remains a design-only proposal: no loader integration or
+training has started. The preferred next experiment is an independently
+outputted task-balanced sampler with a loader smoke test and the same strict
+V3 EGL evaluation gate. Fold 02 remains locked.
+
 ### Joint32 formal benchmark status (2026-09-21)
 
 The frozen 32-task feasible set has now been evaluated with the strict
@@ -56,6 +66,19 @@ the GPU and should be archived as a lightweight JSON artifact.
 This aggregate does not change the separately defined Task1 gate and does not
 unlock Fold 02. Tasks 15, 17, 33, and 35 remain excluded as physically
 infeasible Gate 5 cases.
+
+### Phase H terminal-window weighted repair (2026-09-23)
+
+The terminal-window weighted minimal-repair model completed 90,000 training
+steps and was evaluated with the recovered V3 evaluator under EGL. The strict
+diagnostic run covered checkpoints `030000`, `060000`, and `090000`, five
+benchmark initializations per checkpoint (15 rollouts total), with
+`n_action_steps=25` and a 300-step budget. All three checkpoints scored **0/5
+successes**, reward 0.0, and 300 steps on every rollout; no deterministic
+algorithm errors occurred. This diagnostic result does not alter the official
+protocol or unlock Fold 02. Checkpoint files and raw rollout data remain on the
+GPU; GitHub contains only the lightweight summary
+`results/phaseH_terminal_window_weighted_v1_strict_eval_v2_summary_20260923.json`.
 
 ## Demonstration collection status
 
@@ -274,6 +297,17 @@ training has not started and requires explicit approval. See
 [`Phase H objective ablation options`](results/phaseH_minimal_objective_ablation_options_v1_20260923.json).
 
 ### Transparent benchmark v1 (approved 2026-09-22)
+
+#### Task-balanced training follow-up (2026-09-25)
+
+The task-balanced joint32 training completed cleanly for 90,000 steps and
+produced independent 030000, 060000, and 090000 checkpoints. Under the same
+EGL-backed benchmark-v1 evaluator (`wait_steps=10`, `n_action_steps=25`,
+`max_steps=300`, task 0, five fixed benchmark initializations), the new model
+achieved **0/15 successes**: 0/5 at each checkpoint, with reward 0.0 and the
+full 300-step budget on every rollout. This is diagnostic evidence only; it
+does not change the Fold 02 gate. See
+[`task-balanced benchmark summary`](results/phaseL_joint32_task_balanced_benchmark_v1_5init_summary_20260925.json).
 
 The project now has an explicitly frozen, transparent reconstructed evaluator
 for the LIBERO Spatial task-0 sanity audit. It is a **new benchmark** and does
