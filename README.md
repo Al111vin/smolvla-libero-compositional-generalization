@@ -684,6 +684,20 @@ of this weighting variant is recommended.
 Evidence:
 [`Phase M terminal-window benchmark summary`](results/phaseM_terminal_window_weighted_benchmark_v1_5init_summary_20260929.json).
 
+### Phase M2 objective/terminal contract audit (2026-09-29)
+
+A read-only code audit compared the calibrated evaluator's success rule and
+300-step terminal budget with the SmolVLA training objective. The evaluator
+uses environment success or positive reward, while training optimizes the
+flow-matching action loss over padded demonstration action chunks; there is
+no native terminal-success label or temporal-window configuration. This is a
+known objective limitation, not a demonstrated evaluator or preprocessing
+defect. Since the terminal-window intervention was negative, no new training
+was started from this audit and Fold 02 remains locked.
+
+Evidence:
+[`Phase M2 objective/terminal contract audit`](results/phaseM_objective_terminal_contract_audit_20260929.json).
+
 ### Joint32 provenance/contract audit (2026-09-22)
 
 The read-only audit confirms that `libero36_feasible_32_frozen_v1` uses a compact

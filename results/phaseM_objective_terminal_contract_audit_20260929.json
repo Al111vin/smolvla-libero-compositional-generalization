@@ -1,0 +1,31 @@
+{
+  "schema_version": 1,
+  "phase": "M2",
+  "date": "2026-09-29",
+  "status": "read_only_audit_complete",
+  "scope": "joint32 task-0 evaluator versus SmolVLA training objective",
+  "verified": {
+    "evaluator_success_rule": "info.is_success or total_reward > 0; done/reward>0 ends rollout",
+    "evaluator_budget": 300,
+    "training_action_loss": "flow-matching MSE over action horizon and action dimensions after in-episode padding removal",
+    "training_target": "dataset action chunks, with no native terminal-success label",
+    "native_temporal_window_config": false,
+    "native_per_sample_weighting": "RABC only",
+    "terminal_weighted_benchmark": "0/15, no evaluator errors"
+  },
+  "interpretation": {
+    "confirmed_contract_mismatch": false,
+    "remaining_uncertainty": "The supervised action loss does not directly encode environment success or terminal spatial relation, but this is a training-objective limitation rather than a demonstrated implementation bug.",
+    "decision": "Do not claim an inference/evaluator defect and do not repeat terminal-window weighting without a new, explicitly bounded hypothesis. Fold 02 remains locked."
+  },
+  "next_gate": {
+    "recommended": "design one new objective intervention only after specifying an offline proxy and a positive-control check",
+    "alternatives": [
+      "stop additional training and report the negative evidence",
+      "expand read-only benchmark coverage with the calibrated evaluator",
+      "run a bounded release-event objective experiment with offline proxy validation"
+    ],
+    "training_started": false,
+    "legacy_results_untouched": true
+  }
+}
