@@ -762,6 +762,20 @@ The training gate therefore remains closed and Fold 02 remains locked.
 Evidence:
 [`Phase N offline terminal proxy`](results/phaseN_offline_terminal_proxy_20260929.json).
 
+### Phase N action-proxy comparison (2026-09-29)
+
+Existing action CSVs were compared without new rollouts: one recovered
+positive-control success versus 15 joint32 failures. In the final 20% window,
+the positive control had gripper mean `0.999`, std `0.0045`, and zero sign
+changes; joint32 failures averaged gripper mean `0.442`, std `0.2397`, with
+7/15 episodes showing sign changes. This is directionally useful, but the
+positive group has only one rollout and therefore is not sufficient to
+authorize loss weighting or a new training run. A larger positive-control
+sample is required before treating this proxy as causal evidence.
+
+Evidence:
+[`Phase N action-proxy comparison`](results/phaseN_action_proxy_comparison_20260929.json).
+
 ### Joint32 provenance/contract audit (2026-09-22)
 
 The read-only audit confirms that `libero36_feasible_32_frozen_v1` uses a compact

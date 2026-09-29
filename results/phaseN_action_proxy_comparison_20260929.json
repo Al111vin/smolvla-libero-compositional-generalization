@@ -1,0 +1,218 @@
+{
+  "schema_version": 1,
+  "phase": "N",
+  "date": "2026-09-29",
+  "terminal_fraction": 0.2,
+  "groups": {
+    "positive_control": {
+      "num_rollouts": 1,
+      "episodes": [
+        {
+          "file": "/root/smolvla-eval-prep/results/benchmark_v1_recovered_historical_control_task0_20260929/eval_v3_task0_010000_benchmark_init0_n25_seed12345_actions.csv",
+          "steps": 86,
+          "terminal_abs_mean": 0.3290415896132352,
+          "terminal_position_abs_mean": 0.38817192683065377,
+          "terminal_gripper_mean": 0.9989007843865289,
+          "terminal_gripper_std": 0.004532182079669614,
+          "terminal_gripper_sign_changes": 0,
+          "terminal_frame_delta_mean": 0.03652789345903307,
+          "terminal_gripper_abs_max": 1.0
+        }
+      ],
+      "aggregate": {
+        "terminal_abs_mean": 0.3290415896132352,
+        "terminal_position_abs_mean": 0.38817192683065377,
+        "terminal_gripper_mean": 0.9989007843865289,
+        "terminal_gripper_std": 0.004532182079669614,
+        "terminal_frame_delta_mean": 0.03652789345903307,
+        "terminal_gripper_abs_max": 1.0
+      },
+      "episodes_with_gripper_sign_changes": 0
+    },
+    "joint32_failures": {
+      "num_rollouts": 15,
+      "episodes": [
+        {
+          "file": "/root/smolvla-eval-prep/results/benchmark_v1_terminal_window_weighted_multitask_20260929/checkpoint_030000/task_0_init_0/eval_v3_task0_030000_benchmark_init0_n25_seed12345_actions.csv",
+          "steps": 300,
+          "terminal_abs_mean": 0.14041058308475407,
+          "terminal_position_abs_mean": 0.02903174887566517,
+          "terminal_gripper_mean": 0.8815248390038808,
+          "terminal_gripper_std": 0.19604368305293018,
+          "terminal_gripper_sign_changes": 2,
+          "terminal_frame_delta_mean": 0.014333996629330034,
+          "terminal_gripper_abs_max": 0.9904764890670776
+        },
+        {
+          "file": "/root/smolvla-eval-prep/results/benchmark_v1_terminal_window_weighted_multitask_20260929/checkpoint_030000/task_1_init_0/eval_v3_task1_030000_benchmark_init0_n25_seed12346_actions.csv",
+          "steps": 300,
+          "terminal_abs_mean": 0.1423851256871352,
+          "terminal_position_abs_mean": 0.008420817804936734,
+          "terminal_gripper_mean": 0.774106036623319,
+          "terminal_gripper_std": 0.5775695279953098,
+          "terminal_gripper_sign_changes": 1,
+          "terminal_frame_delta_mean": 0.00826671251818001,
+          "terminal_gripper_abs_max": 0.9979345798492432
+        },
+        {
+          "file": "/root/smolvla-eval-prep/results/benchmark_v1_terminal_window_weighted_multitask_20260929/checkpoint_030000/task_2_init_0/eval_v3_task2_030000_benchmark_init0_n25_seed12347_actions.csv",
+          "steps": 300,
+          "terminal_abs_mean": 0.1564864526372514,
+          "terminal_position_abs_mean": 0.045523429904521136,
+          "terminal_gripper_mean": 0.9527395923932394,
+          "terminal_gripper_std": 0.020907037677730948,
+          "terminal_gripper_sign_changes": 0,
+          "terminal_frame_delta_mean": 0.004838956306439308,
+          "terminal_gripper_abs_max": 0.9923826456069946
+        },
+        {
+          "file": "/root/smolvla-eval-prep/results/benchmark_v1_terminal_window_weighted_multitask_20260929/checkpoint_030000/task_3_init_0/eval_v3_task3_030000_benchmark_init0_n25_seed12348_actions.csv",
+          "steps": 300,
+          "terminal_abs_mean": 0.14105503029977193,
+          "terminal_position_abs_mean": 0.02099051113279226,
+          "terminal_gripper_mean": 0.4307447423537572,
+          "terminal_gripper_std": 0.8146417270237639,
+          "terminal_gripper_sign_changes": 2,
+          "terminal_frame_delta_mean": 0.015087467024371155,
+          "terminal_gripper_abs_max": 1.0
+        },
+        {
+          "file": "/root/smolvla-eval-prep/results/benchmark_v1_terminal_window_weighted_multitask_20260929/checkpoint_030000/task_4_init_0/eval_v3_task4_030000_benchmark_init0_n25_seed12349_actions.csv",
+          "steps": 300,
+          "terminal_abs_mean": 0.058659008834746645,
+          "terminal_position_abs_mean": 0.021627502699589563,
+          "terminal_gripper_mean": -0.01023255412777265,
+          "terminal_gripper_std": 0.37231658309353316,
+          "terminal_gripper_sign_changes": 6,
+          "terminal_frame_delta_mean": 0.02254588179911552,
+          "terminal_gripper_abs_max": 0.7828094363212585
+        },
+        {
+          "file": "/root/smolvla-eval-prep/results/benchmark_v1_terminal_window_weighted_multitask_20260929/checkpoint_060000/task_0_init_0/eval_v3_task0_060000_benchmark_init0_n25_seed12345_actions.csv",
+          "steps": 300,
+          "terminal_abs_mean": 0.15002986579070454,
+          "terminal_position_abs_mean": 0.04391039407734449,
+          "terminal_gripper_mean": 0.9088913202285767,
+          "terminal_gripper_std": 0.04062956635755566,
+          "terminal_gripper_sign_changes": 0,
+          "terminal_frame_delta_mean": 0.00738848033850194,
+          "terminal_gripper_abs_max": 0.9883592128753662
+        },
+        {
+          "file": "/root/smolvla-eval-prep/results/benchmark_v1_terminal_window_weighted_multitask_20260929/checkpoint_060000/task_1_init_0/eval_v3_task1_060000_benchmark_init0_n25_seed12346_actions.csv",
+          "steps": 300,
+          "terminal_abs_mean": 0.11449365563298454,
+          "terminal_position_abs_mean": 0.01652446032902743,
+          "terminal_gripper_mean": 0.1996051102876663,
+          "terminal_gripper_std": 0.7321270659832061,
+          "terminal_gripper_sign_changes": 3,
+          "terminal_frame_delta_mean": 0.01902148116858604,
+          "terminal_gripper_abs_max": 0.9294553995132446
+        },
+        {
+          "file": "/root/smolvla-eval-prep/results/benchmark_v1_terminal_window_weighted_multitask_20260929/checkpoint_060000/task_2_init_0/eval_v3_task2_060000_benchmark_init0_n25_seed12347_actions.csv",
+          "steps": 300,
+          "terminal_abs_mean": 0.15740028389250038,
+          "terminal_position_abs_mean": 0.04499111769772652,
+          "terminal_gripper_mean": 0.9579096436500549,
+          "terminal_gripper_std": 0.014574991068393202,
+          "terminal_gripper_sign_changes": 0,
+          "terminal_frame_delta_mean": 0.005332907750164147,
+          "terminal_gripper_abs_max": 0.9986573457717896
+        },
+        {
+          "file": "/root/smolvla-eval-prep/results/benchmark_v1_terminal_window_weighted_multitask_20260929/checkpoint_060000/task_3_init_0/eval_v3_task3_060000_benchmark_init0_n25_seed12348_actions.csv",
+          "steps": 300,
+          "terminal_abs_mean": 0.1769552699544528,
+          "terminal_position_abs_mean": 0.07274521792100536,
+          "terminal_gripper_mean": -0.9929090956846873,
+          "terminal_gripper_std": 0.011140872091061918,
+          "terminal_gripper_sign_changes": 0,
+          "terminal_frame_delta_mean": 0.004115535322346749,
+          "terminal_gripper_abs_max": 1.0
+        },
+        {
+          "file": "/root/smolvla-eval-prep/results/benchmark_v1_terminal_window_weighted_multitask_20260929/checkpoint_060000/task_4_init_0/eval_v3_task4_060000_benchmark_init0_n25_seed12349_actions.csv",
+          "steps": 300,
+          "terminal_abs_mean": 0.06973613130435946,
+          "terminal_position_abs_mean": 0.031650003054851876,
+          "terminal_gripper_mean": -0.2077489251891772,
+          "terminal_gripper_std": 0.3900334888056734,
+          "terminal_gripper_sign_changes": 12,
+          "terminal_frame_delta_mean": 0.02647264194219558,
+          "terminal_gripper_abs_max": 0.7832986116409302
+        },
+        {
+          "file": "/root/smolvla-eval-prep/results/benchmark_v1_terminal_window_weighted_multitask_20260929/checkpoint_090000/task_0_init_0/eval_v3_task0_090000_benchmark_init0_n25_seed12345_actions.csv",
+          "steps": 300,
+          "terminal_abs_mean": 0.15057127577470272,
+          "terminal_position_abs_mean": 0.044349671720475374,
+          "terminal_gripper_mean": 0.9104810396830241,
+          "terminal_gripper_std": 0.031337446349447594,
+          "terminal_gripper_sign_changes": 0,
+          "terminal_frame_delta_mean": 0.007792138952249435,
+          "terminal_gripper_abs_max": 0.9809209108352661
+        },
+        {
+          "file": "/root/smolvla-eval-prep/results/benchmark_v1_terminal_window_weighted_multitask_20260929/checkpoint_090000/task_1_init_0/eval_v3_task1_090000_benchmark_init0_n25_seed12346_actions.csv",
+          "steps": 300,
+          "terminal_abs_mean": 0.15334274370176162,
+          "terminal_position_abs_mean": 0.03482564191864286,
+          "terminal_gripper_mean": 0.9635477979977926,
+          "terminal_gripper_std": 0.01676097951650233,
+          "terminal_gripper_sign_changes": 0,
+          "terminal_frame_delta_mean": 0.006753420956307665,
+          "terminal_gripper_abs_max": 1.0
+        },
+        {
+          "file": "/root/smolvla-eval-prep/results/benchmark_v1_terminal_window_weighted_multitask_20260929/checkpoint_090000/task_2_init_0/eval_v3_task2_090000_benchmark_init0_n25_seed12347_actions.csv",
+          "steps": 300,
+          "terminal_abs_mean": 0.15633029779502458,
+          "terminal_position_abs_mean": 0.04364658839121047,
+          "terminal_gripper_mean": 0.9544898311297099,
+          "terminal_gripper_std": 0.014203585935795394,
+          "terminal_gripper_sign_changes": 0,
+          "terminal_frame_delta_mean": 0.006735798810353868,
+          "terminal_gripper_abs_max": 0.9875409603118896
+        },
+        {
+          "file": "/root/smolvla-eval-prep/results/benchmark_v1_terminal_window_weighted_multitask_20260929/checkpoint_090000/task_3_init_0/eval_v3_task3_090000_benchmark_init0_n25_seed12348_actions.csv",
+          "steps": 300,
+          "terminal_abs_mean": 0.14616032545288493,
+          "terminal_position_abs_mean": 0.032148195194572,
+          "terminal_gripper_mean": 0.8566466346383095,
+          "terminal_gripper_std": 0.34836367076271724,
+          "terminal_gripper_sign_changes": 2,
+          "terminal_frame_delta_mean": 0.014589794555715043,
+          "terminal_gripper_abs_max": 1.0
+        },
+        {
+          "file": "/root/smolvla-eval-prep/results/benchmark_v1_terminal_window_weighted_multitask_20260929/checkpoint_090000/task_4_init_0/eval_v3_task4_090000_benchmark_init0_n25_seed12349_actions.csv",
+          "steps": 300,
+          "terminal_abs_mean": 0.16176432981523076,
+          "terminal_position_abs_mean": 0.05243559732399364,
+          "terminal_gripper_mean": -0.953622023264567,
+          "terminal_gripper_std": 0.015531591208110275,
+          "terminal_gripper_sign_changes": 0,
+          "terminal_frame_delta_mean": 0.006108162164142396,
+          "terminal_gripper_abs_max": 0.9993083477020264
+        }
+      ],
+      "aggregate": {
+        "terminal_abs_mean": 0.13838535864388435,
+        "terminal_position_abs_mean": 0.036188059869757,
+        "terminal_gripper_mean": 0.44174493264820835,
+        "terminal_gripper_std": 0.23974545446144874,
+        "terminal_frame_delta_mean": 0.011292225082533256,
+        "terminal_gripper_abs_max": 0.9620762626330058
+      },
+      "episodes_with_gripper_sign_changes": 7
+    }
+  },
+  "decision": {
+    "positive_control_available": true,
+    "proxy_group_comparison_complete": true,
+    "training_started": false,
+    "fold02": "LOCKED"
+  }
+}
