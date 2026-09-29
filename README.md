@@ -723,6 +723,18 @@ model-side negative result rather than an execution-only failure.
 Evidence:
 [`Recovered historical positive control`](results/phaseM_recovered_historical_control_task0_init0_20260929.json).
 
+### Phase M checkpoint provenance audit (2026-09-29)
+
+The recovered historical V3 positive-control checkpoint and the same-named
+`loco_fold01_formal_v1/010000` training-prep checkpoint were compared by file
+manifest and SHA256. Their model weights, configs, and normalization tensors
+are different artifacts. The recovered path is therefore the only valid
+positive-control reference; the training-prep path must not be substituted
+for it in protocol comparisons.
+
+Evidence:
+[`Phase M checkpoint provenance audit`](results/phaseM_checkpoint_provenance_audit_20260929.json).
+
 ### Joint32 provenance/contract audit (2026-09-22)
 
 The read-only audit confirms that `libero36_feasible_32_frozen_v1` uses a compact

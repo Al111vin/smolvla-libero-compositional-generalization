@@ -1,0 +1,25 @@
+{
+  "schema_version": 1,
+  "phase": "M",
+  "date": "2026-09-29",
+  "status": "read_only_complete",
+  "finding": "The recovered historical positive-control checkpoint and the same-named training-prep checkpoint are different artifacts and must not be substituted for one another.",
+  "artifacts": {
+    "recovered_historical_v3_010000": {
+      "model_safetensors_sha256": "84523284fbee2814a3ba124c929ffdb555a1e93890b415a49996895a2cc70903",
+      "model_bytes": 906712520,
+      "config_sha256": "cbe81da18445be36d2e7e294225be25f5d4ac5bf0d165293a1989fcff720b4f1",
+      "train_config_sha256": "1ab5c3d0887772b00a52fed0d73c9e6ad539223998363c3c0ae17b0a88c157cd"
+    },
+    "training_prep_loco_fold01_formal_v1_010000": {
+      "model_safetensors_sha256": "f5efe80bff013efa3e188bd1f9f9fedcd76753913e6a506dc46a061893ef59dc",
+      "model_bytes": 1197789224,
+      "config_sha256": "a0b102cf317112a5462d17b857fe5ccb243decb1ffea020a275ba8a5851e1810",
+      "train_config_sha256": "637c23ce50e34769e68ab5f833547e36e38436bdda38575d7d4f93436d955b"
+    }
+  },
+  "policy_preprocessor": "same sha256 in both artifacts",
+  "policy_postprocessor": "JSON same; normalization tensor differs",
+  "decision": "Use only the recovered_historical_v3 path as the positive control. Treat the same-named training-prep artifact as a separate model family.",
+  "fold02": "LOCKED"
+}
