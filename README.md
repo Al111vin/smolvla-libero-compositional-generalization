@@ -899,3 +899,16 @@ locked.
 
 Evidence:
 [`Phase N positive-control replay consistency`](results/phaseN_positive_control_replay_consistency_20260929.json).
+
+### Phase N final joint32 decision (2026-09-29)
+
+The joint32 repair-training gate is now formally closed. The project accepts
+the calibrated negative result as the current stage conclusion and will not
+expand GPU experiments without a new falsifiable repair hypothesis. No
+inference patch, checkpoint overwrite, result deletion, or Fold 02 unlock is
+authorized. Reopening requires either an independently reproduced concrete
+implementation defect or a trajectory-matched offline proxy with a
+prespecified threshold.
+
+Evidence:
+[`Phase N final joint32 negative conclusion`](results/phaseN_joint32_final_negative_conclusion_20260929.json).

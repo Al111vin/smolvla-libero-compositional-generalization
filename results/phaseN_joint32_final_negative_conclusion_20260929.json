@@ -1,0 +1,30 @@
+{
+  "schema": "phaseN_joint32_final_negative_conclusion_v1",
+  "date": "2026-09-29",
+  "decision": "stop_joint32_repair_training",
+  "status": "negative_result_accepted_as_formal_stage_conclusion",
+  "evidence": {
+    "calibrated_v3_joint32_benchmark": "0/15 success across checkpoints 030000/060000/090000 and five initializations",
+    "multitask_joint32_benchmark": "0/15 success across tasks 0-4 and checkpoints 030000/060000/090000",
+    "terminal_window_weighted_joint32": "0/15 success",
+    "matched_state_action_capture": "0/5 joint32 success; full 15-D state and 7-D action rows persisted",
+    "objective_contract_audit": "no concrete evaluator, state/action, or terminal-objective defect established",
+    "offline_proxy_gate": "insufficiently discriminative and not trajectory-matched"
+  },
+  "actions": {
+    "new_training": false,
+    "inference_patch": false,
+    "checkpoint_overwrite": false,
+    "result_deletion": false,
+    "fold02_unlock": false,
+    "gpu_runs": "none until a new falsifiable repair hypothesis is explicitly approved"
+  },
+  "reopen_conditions": [
+    "a concrete implementation defect is identified and independently reproduced",
+    "or a trajectory-matched positive/negative proxy is validated with a prespecified threshold"
+  ],
+  "publication": {
+    "github_readme": "update required",
+    "huggingface_lightweight_evidence": "update required"
+  }
+}
