@@ -803,6 +803,19 @@ closed and no loss weighting is authorized.
 Evidence:
 [`Phase N ten-positive-control proxy check`](results/phaseN_action_proxy_10positive_comparison_20260929.json).
 
+### Phase N training gate closure (2026-09-29)
+
+After the calibrated positive-control sample was expanded to ten rollouts,
+the terminal proxy still did not provide a stable, trajectory-matched
+success discriminator. The current evidence therefore does not authorize a
+new objective weighting experiment or an inference-only patch. The project
+keeps the negative joint32 result as the current finding; a future repair
+requires either a concrete implementation defect or a validated offline
+proxy on matched positive/negative trajectories. Fold 02 remains locked.
+
+Evidence:
+[`Phase N training gate closure`](results/phaseN_training_gate_closure_20260929.json).
+
 ### Joint32 provenance/contract audit (2026-09-22)
 
 The read-only audit confirms that `libero36_feasible_32_frozen_v1` uses a compact

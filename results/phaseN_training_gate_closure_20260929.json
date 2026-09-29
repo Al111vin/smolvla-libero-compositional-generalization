@@ -1,0 +1,26 @@
+{
+  "schema_version": 1,
+  "phase": "N",
+  "date": "2026-09-29",
+  "status": "training_gate_closed",
+  "evidence": {
+    "recovered_positive_control_rollouts": 10,
+    "joint32_failure_rollouts": 15,
+    "positive_control_success_rate": "not used for this gate; per-rollout labels remain in source CSVs",
+    "proxy_result": "terminal gripper differences overlap and are trajectory-confounded",
+    "joint32_multitask_benchmark": "0/15",
+    "terminal_window_weighted_benchmark": "0/15"
+  },
+  "decision": {
+    "new_training_authorized": false,
+    "inference_fix_authorized": false,
+    "recommended_current_action": "stop unvalidated intervention sweeps and preserve negative evidence",
+    "reopen_condition": "a concrete defect or a validated offline proxy with matched positive/negative trajectories",
+    "fold02": "LOCKED"
+  },
+  "safety": {
+    "legacy_results_untouched": true,
+    "checkpoints_overwritten": false,
+    "data_uploaded": false
+  }
+}
