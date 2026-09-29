@@ -710,6 +710,19 @@ diagnostic benchmark rather than a Fold 02 gate change.
 Evidence:
 [`Phase M multitask benchmark summary`](results/phaseM_terminal_window_weighted_multitask_benchmark_v1_summary_20260929.json).
 
+### Phase M recovered historical positive control (2026-09-29)
+
+The true recovered historical V3 asset (distinct from the same-named
+training-prep checkpoint) was rerun under the calibrated protocol on task 0,
+benchmark init 0, with `wait_steps=10` and `n_action_steps=25`. It succeeded
+with reward `1.0` in 86 steps and no evaluator error. This restores the
+positive control and confirms that the calibrated evaluator can produce a
+known-good success; the joint32 multi-task `0/15` result therefore remains a
+model-side negative result rather than an execution-only failure.
+
+Evidence:
+[`Recovered historical positive control`](results/phaseM_recovered_historical_control_task0_init0_20260929.json).
+
 ### Joint32 provenance/contract audit (2026-09-22)
 
 The read-only audit confirms that `libero36_feasible_32_frozen_v1` uses a compact
