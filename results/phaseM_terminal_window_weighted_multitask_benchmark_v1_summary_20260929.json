@@ -1,0 +1,390 @@
+{
+  "schema_version": 1,
+  "protocol": {
+    "evaluator": "eval_v3_task0.py",
+    "suite": "libero_spatial",
+    "tasks": [
+      0,
+      1,
+      2,
+      3,
+      4
+    ],
+    "checkpoints": [
+      "030000",
+      "060000",
+      "090000"
+    ],
+    "init_indices": [
+      0
+    ],
+    "wait_steps": 10,
+    "n_action_steps": 25,
+    "max_steps": 300,
+    "seed_rule": "12345+task_id",
+    "output": "terminal_window_weighted"
+  },
+  "num_rollouts": 15,
+  "num_success": 0,
+  "num_errors": 0,
+  "by_checkpoint": {
+    "checkpoint_030000": {
+      "num_rollouts": 5,
+      "num_success": 0,
+      "rewards": [
+        "0.0",
+        "0.0",
+        "0.0",
+        "0.0",
+        "0.0"
+      ],
+      "steps": [
+        "300",
+        "300",
+        "300",
+        "300",
+        "300"
+      ]
+    },
+    "checkpoint_060000": {
+      "num_rollouts": 5,
+      "num_success": 0,
+      "rewards": [
+        "0.0",
+        "0.0",
+        "0.0",
+        "0.0",
+        "0.0"
+      ],
+      "steps": [
+        "300",
+        "300",
+        "300",
+        "300",
+        "300"
+      ]
+    },
+    "checkpoint_090000": {
+      "num_rollouts": 5,
+      "num_success": 0,
+      "rewards": [
+        "0.0",
+        "0.0",
+        "0.0",
+        "0.0",
+        "0.0"
+      ],
+      "steps": [
+        "300",
+        "300",
+        "300",
+        "300",
+        "300"
+      ]
+    }
+  },
+  "by_task": {
+    "task_0_init_0": {
+      "num_rollouts": 3,
+      "num_success": 0,
+      "rewards": [
+        "0.0",
+        "0.0",
+        "0.0"
+      ]
+    },
+    "task_1_init_0": {
+      "num_rollouts": 3,
+      "num_success": 0,
+      "rewards": [
+        "0.0",
+        "0.0",
+        "0.0"
+      ]
+    },
+    "task_2_init_0": {
+      "num_rollouts": 3,
+      "num_success": 0,
+      "rewards": [
+        "0.0",
+        "0.0",
+        "0.0"
+      ]
+    },
+    "task_3_init_0": {
+      "num_rollouts": 3,
+      "num_success": 0,
+      "rewards": [
+        "0.0",
+        "0.0",
+        "0.0"
+      ]
+    },
+    "task_4_init_0": {
+      "num_rollouts": 3,
+      "num_success": 0,
+      "rewards": [
+        "0.0",
+        "0.0",
+        "0.0"
+      ]
+    }
+  },
+  "rows": [
+    {
+      "suite": "libero_spatial",
+      "task_id": "0",
+      "init_source": "benchmark",
+      "init_index": "0",
+      "demo_index": "",
+      "language": "pick up the black bowl between the plate and the ramekin and place it on the plate",
+      "success": "False",
+      "total_reward": "0.0",
+      "steps": "300",
+      "wait_steps": "10",
+      "n_action_steps": "25",
+      "seed": "12345",
+      "checkpoint": "checkpoint_030000",
+      "path": "/root/smolvla-eval-prep/results/benchmark_v1_terminal_window_weighted_multitask_20260929/checkpoint_030000/task_0_init_0/eval_v3_task0_030000_benchmark_init0_n25_seed12345_summary.csv",
+      "task": "task_0_init_0"
+    },
+    {
+      "suite": "libero_spatial",
+      "task_id": "1",
+      "init_source": "benchmark",
+      "init_index": "0",
+      "demo_index": "",
+      "language": "pick up the black bowl next to the ramekin and place it on the plate",
+      "success": "False",
+      "total_reward": "0.0",
+      "steps": "300",
+      "wait_steps": "10",
+      "n_action_steps": "25",
+      "seed": "12346",
+      "checkpoint": "checkpoint_030000",
+      "path": "/root/smolvla-eval-prep/results/benchmark_v1_terminal_window_weighted_multitask_20260929/checkpoint_030000/task_1_init_0/eval_v3_task1_030000_benchmark_init0_n25_seed12346_summary.csv",
+      "task": "task_1_init_0"
+    },
+    {
+      "suite": "libero_spatial",
+      "task_id": "2",
+      "init_source": "benchmark",
+      "init_index": "0",
+      "demo_index": "",
+      "language": "pick up the black bowl from table center and place it on the plate",
+      "success": "False",
+      "total_reward": "0.0",
+      "steps": "300",
+      "wait_steps": "10",
+      "n_action_steps": "25",
+      "seed": "12347",
+      "checkpoint": "checkpoint_030000",
+      "path": "/root/smolvla-eval-prep/results/benchmark_v1_terminal_window_weighted_multitask_20260929/checkpoint_030000/task_2_init_0/eval_v3_task2_030000_benchmark_init0_n25_seed12347_summary.csv",
+      "task": "task_2_init_0"
+    },
+    {
+      "suite": "libero_spatial",
+      "task_id": "3",
+      "init_source": "benchmark",
+      "init_index": "0",
+      "demo_index": "",
+      "language": "pick up the black bowl on the cookie box and place it on the plate",
+      "success": "False",
+      "total_reward": "0.0",
+      "steps": "300",
+      "wait_steps": "10",
+      "n_action_steps": "25",
+      "seed": "12348",
+      "checkpoint": "checkpoint_030000",
+      "path": "/root/smolvla-eval-prep/results/benchmark_v1_terminal_window_weighted_multitask_20260929/checkpoint_030000/task_3_init_0/eval_v3_task3_030000_benchmark_init0_n25_seed12348_summary.csv",
+      "task": "task_3_init_0"
+    },
+    {
+      "suite": "libero_spatial",
+      "task_id": "4",
+      "init_source": "benchmark",
+      "init_index": "0",
+      "demo_index": "",
+      "language": "pick up the black bowl in the top drawer of the wooden cabinet and place it on the plate",
+      "success": "False",
+      "total_reward": "0.0",
+      "steps": "300",
+      "wait_steps": "10",
+      "n_action_steps": "25",
+      "seed": "12349",
+      "checkpoint": "checkpoint_030000",
+      "path": "/root/smolvla-eval-prep/results/benchmark_v1_terminal_window_weighted_multitask_20260929/checkpoint_030000/task_4_init_0/eval_v3_task4_030000_benchmark_init0_n25_seed12349_summary.csv",
+      "task": "task_4_init_0"
+    },
+    {
+      "suite": "libero_spatial",
+      "task_id": "0",
+      "init_source": "benchmark",
+      "init_index": "0",
+      "demo_index": "",
+      "language": "pick up the black bowl between the plate and the ramekin and place it on the plate",
+      "success": "False",
+      "total_reward": "0.0",
+      "steps": "300",
+      "wait_steps": "10",
+      "n_action_steps": "25",
+      "seed": "12345",
+      "checkpoint": "checkpoint_060000",
+      "path": "/root/smolvla-eval-prep/results/benchmark_v1_terminal_window_weighted_multitask_20260929/checkpoint_060000/task_0_init_0/eval_v3_task0_060000_benchmark_init0_n25_seed12345_summary.csv",
+      "task": "task_0_init_0"
+    },
+    {
+      "suite": "libero_spatial",
+      "task_id": "1",
+      "init_source": "benchmark",
+      "init_index": "0",
+      "demo_index": "",
+      "language": "pick up the black bowl next to the ramekin and place it on the plate",
+      "success": "False",
+      "total_reward": "0.0",
+      "steps": "300",
+      "wait_steps": "10",
+      "n_action_steps": "25",
+      "seed": "12346",
+      "checkpoint": "checkpoint_060000",
+      "path": "/root/smolvla-eval-prep/results/benchmark_v1_terminal_window_weighted_multitask_20260929/checkpoint_060000/task_1_init_0/eval_v3_task1_060000_benchmark_init0_n25_seed12346_summary.csv",
+      "task": "task_1_init_0"
+    },
+    {
+      "suite": "libero_spatial",
+      "task_id": "2",
+      "init_source": "benchmark",
+      "init_index": "0",
+      "demo_index": "",
+      "language": "pick up the black bowl from table center and place it on the plate",
+      "success": "False",
+      "total_reward": "0.0",
+      "steps": "300",
+      "wait_steps": "10",
+      "n_action_steps": "25",
+      "seed": "12347",
+      "checkpoint": "checkpoint_060000",
+      "path": "/root/smolvla-eval-prep/results/benchmark_v1_terminal_window_weighted_multitask_20260929/checkpoint_060000/task_2_init_0/eval_v3_task2_060000_benchmark_init0_n25_seed12347_summary.csv",
+      "task": "task_2_init_0"
+    },
+    {
+      "suite": "libero_spatial",
+      "task_id": "3",
+      "init_source": "benchmark",
+      "init_index": "0",
+      "demo_index": "",
+      "language": "pick up the black bowl on the cookie box and place it on the plate",
+      "success": "False",
+      "total_reward": "0.0",
+      "steps": "300",
+      "wait_steps": "10",
+      "n_action_steps": "25",
+      "seed": "12348",
+      "checkpoint": "checkpoint_060000",
+      "path": "/root/smolvla-eval-prep/results/benchmark_v1_terminal_window_weighted_multitask_20260929/checkpoint_060000/task_3_init_0/eval_v3_task3_060000_benchmark_init0_n25_seed12348_summary.csv",
+      "task": "task_3_init_0"
+    },
+    {
+      "suite": "libero_spatial",
+      "task_id": "4",
+      "init_source": "benchmark",
+      "init_index": "0",
+      "demo_index": "",
+      "language": "pick up the black bowl in the top drawer of the wooden cabinet and place it on the plate",
+      "success": "False",
+      "total_reward": "0.0",
+      "steps": "300",
+      "wait_steps": "10",
+      "n_action_steps": "25",
+      "seed": "12349",
+      "checkpoint": "checkpoint_060000",
+      "path": "/root/smolvla-eval-prep/results/benchmark_v1_terminal_window_weighted_multitask_20260929/checkpoint_060000/task_4_init_0/eval_v3_task4_060000_benchmark_init0_n25_seed12349_summary.csv",
+      "task": "task_4_init_0"
+    },
+    {
+      "suite": "libero_spatial",
+      "task_id": "0",
+      "init_source": "benchmark",
+      "init_index": "0",
+      "demo_index": "",
+      "language": "pick up the black bowl between the plate and the ramekin and place it on the plate",
+      "success": "False",
+      "total_reward": "0.0",
+      "steps": "300",
+      "wait_steps": "10",
+      "n_action_steps": "25",
+      "seed": "12345",
+      "checkpoint": "checkpoint_090000",
+      "path": "/root/smolvla-eval-prep/results/benchmark_v1_terminal_window_weighted_multitask_20260929/checkpoint_090000/task_0_init_0/eval_v3_task0_090000_benchmark_init0_n25_seed12345_summary.csv",
+      "task": "task_0_init_0"
+    },
+    {
+      "suite": "libero_spatial",
+      "task_id": "1",
+      "init_source": "benchmark",
+      "init_index": "0",
+      "demo_index": "",
+      "language": "pick up the black bowl next to the ramekin and place it on the plate",
+      "success": "False",
+      "total_reward": "0.0",
+      "steps": "300",
+      "wait_steps": "10",
+      "n_action_steps": "25",
+      "seed": "12346",
+      "checkpoint": "checkpoint_090000",
+      "path": "/root/smolvla-eval-prep/results/benchmark_v1_terminal_window_weighted_multitask_20260929/checkpoint_090000/task_1_init_0/eval_v3_task1_090000_benchmark_init0_n25_seed12346_summary.csv",
+      "task": "task_1_init_0"
+    },
+    {
+      "suite": "libero_spatial",
+      "task_id": "2",
+      "init_source": "benchmark",
+      "init_index": "0",
+      "demo_index": "",
+      "language": "pick up the black bowl from table center and place it on the plate",
+      "success": "False",
+      "total_reward": "0.0",
+      "steps": "300",
+      "wait_steps": "10",
+      "n_action_steps": "25",
+      "seed": "12347",
+      "checkpoint": "checkpoint_090000",
+      "path": "/root/smolvla-eval-prep/results/benchmark_v1_terminal_window_weighted_multitask_20260929/checkpoint_090000/task_2_init_0/eval_v3_task2_090000_benchmark_init0_n25_seed12347_summary.csv",
+      "task": "task_2_init_0"
+    },
+    {
+      "suite": "libero_spatial",
+      "task_id": "3",
+      "init_source": "benchmark",
+      "init_index": "0",
+      "demo_index": "",
+      "language": "pick up the black bowl on the cookie box and place it on the plate",
+      "success": "False",
+      "total_reward": "0.0",
+      "steps": "300",
+      "wait_steps": "10",
+      "n_action_steps": "25",
+      "seed": "12348",
+      "checkpoint": "checkpoint_090000",
+      "path": "/root/smolvla-eval-prep/results/benchmark_v1_terminal_window_weighted_multitask_20260929/checkpoint_090000/task_3_init_0/eval_v3_task3_090000_benchmark_init0_n25_seed12348_summary.csv",
+      "task": "task_3_init_0"
+    },
+    {
+      "suite": "libero_spatial",
+      "task_id": "4",
+      "init_source": "benchmark",
+      "init_index": "0",
+      "demo_index": "",
+      "language": "pick up the black bowl in the top drawer of the wooden cabinet and place it on the plate",
+      "success": "False",
+      "total_reward": "0.0",
+      "steps": "300",
+      "wait_steps": "10",
+      "n_action_steps": "25",
+      "seed": "12349",
+      "checkpoint": "checkpoint_090000",
+      "path": "/root/smolvla-eval-prep/results/benchmark_v1_terminal_window_weighted_multitask_20260929/checkpoint_090000/task_4_init_0/eval_v3_task4_090000_benchmark_init0_n25_seed12349_summary.csv",
+      "task": "task_4_init_0"
+    }
+  ]
+}

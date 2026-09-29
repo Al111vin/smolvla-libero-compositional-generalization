@@ -698,6 +698,18 @@ was started from this audit and Fold 02 remains locked.
 Evidence:
 [`Phase M2 objective/terminal contract audit`](results/phaseM_objective_terminal_contract_audit_20260929.json).
 
+### Phase M multitask benchmark (2026-09-29)
+
+To check whether the task-0 failure was isolated, the same calibrated V3
+evaluator was run on tasks 0--4, init 0, at checkpoints 30k/60k/90k (15
+independent rollouts). The result was `0/15` success: every task and every
+checkpoint reached the 300-step budget with zero reward and no evaluator
+error. This broadens the negative evidence beyond task 0, but remains a
+diagnostic benchmark rather than a Fold 02 gate change.
+
+Evidence:
+[`Phase M multitask benchmark summary`](results/phaseM_terminal_window_weighted_multitask_benchmark_v1_summary_20260929.json).
+
 ### Joint32 provenance/contract audit (2026-09-22)
 
 The read-only audit confirms that `libero36_feasible_32_frozen_v1` uses a compact
