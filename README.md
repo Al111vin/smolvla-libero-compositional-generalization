@@ -790,6 +790,19 @@ authorize loss weighting. The proposed training gate remains closed.
 Evidence:
 [`Phase N expanded positive-control proxy check`](results/phaseN_action_proxy_5init_comparison_20260929.json).
 
+### Phase N ten-positive-control proxy check (2026-09-29)
+
+The recovered V3 positive-control sample was expanded to ten task-0
+initializations and compared with the existing 15 joint32 failures. The
+terminal gripper means were `0.5951` versus `0.4417`, and sign changes
+occurred in 4/10 versus 7/15. The direction remains weak and overlapping;
+the large position-motion difference is confounded by different trajectories.
+This is still not a validated causal proxy, so the training gate remains
+closed and no loss weighting is authorized.
+
+Evidence:
+[`Phase N ten-positive-control proxy check`](results/phaseN_action_proxy_10positive_comparison_20260929.json).
+
 ### Joint32 provenance/contract audit (2026-09-22)
 
 The read-only audit confirms that `libero36_feasible_32_frozen_v1` uses a compact
