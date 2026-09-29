@@ -669,6 +669,21 @@ further training. Fold 02 remains locked.
 Evidence:
 [`Phase F replay audit summary`](results/phaseF_trainer_side_task0_replay_audit_v1_summary_20260922.json),
 [`Phase F replay audit decision`](results/phaseF_trainer_side_task0_replay_audit_decision_20260922.json).
+
+### Phase M terminal-window weighting benchmark (2026-09-29)
+
+The completed terminal-window weighted training run was evaluated on the
+approved benchmark-v1 task-0 protocol at checkpoints 30k, 60k, and 90k,
+using five fixed initializations per checkpoint (15 rollouts total). All
+15 rollouts reached the 300-step limit with zero reward and no evaluator
+errors (`0/15` success at every checkpoint). This diagnostic intervention
+therefore provides no evidence that terminal-window weighting improves the
+joint32 closed-loop objective; Fold 02 remains locked and no further sweep
+of this weighting variant is recommended.
+
+Evidence:
+[`Phase M terminal-window benchmark summary`](results/phaseM_terminal_window_weighted_benchmark_v1_5init_summary_20260929.json).
+
 ### Joint32 provenance/contract audit (2026-09-22)
 
 The read-only audit confirms that `libero36_feasible_32_frozen_v1` uses a compact
