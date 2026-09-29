@@ -776,6 +776,20 @@ sample is required before treating this proxy as causal evidence.
 Evidence:
 [`Phase N action-proxy comparison`](results/phaseN_action_proxy_comparison_20260929.json).
 
+### Phase N expanded positive-control proxy check (2026-09-29)
+
+The positive-control sample was expanded from one to five recovered V3
+rollouts and compared with the 15 joint32 failures. The difference is less
+clean than the original n=1 snapshot: positive controls averaged gripper
+mean `0.6741` and std `0.3553`, while joint32 failures averaged `0.4417` and
+std `0.2397`; sign changes occurred in 2/5 versus 7/15. Position-motion
+statistics also differ because the groups have different task trajectories.
+This expansion therefore does **not** validate a causal terminal proxy or
+authorize loss weighting. The proposed training gate remains closed.
+
+Evidence:
+[`Phase N expanded positive-control proxy check`](results/phaseN_action_proxy_5init_comparison_20260929.json).
+
 ### Joint32 provenance/contract audit (2026-09-22)
 
 The read-only audit confirms that `libero36_feasible_32_frozen_v1` uses a compact
