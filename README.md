@@ -748,6 +748,20 @@ and report the negative evidence instead. Fold 02 remains locked.
 Evidence:
 [`Phase N intervention decision`](results/phaseN_joint32_next_intervention_decision_20260929.json).
 
+### Phase N offline terminal proxy preflight (2026-09-29)
+
+The frozen joint32 dataset was analyzed without GPU training: 160 episodes
+and 101,660 frames were scanned, using the final 20% of each episode as a
+terminal window. A terminal proxy is computable, but it is not yet a
+validated success discriminator: 155/160 episodes contain terminal gripper
+sign changes and the mean terminal gripper standard deviation is `0.5591`.
+This confirms that a release-related signal exists in the data, but does not
+justify weighting it without success-labelled or positive-control validation.
+The training gate therefore remains closed and Fold 02 remains locked.
+
+Evidence:
+[`Phase N offline terminal proxy`](results/phaseN_offline_terminal_proxy_20260929.json).
+
 ### Joint32 provenance/contract audit (2026-09-22)
 
 The read-only audit confirms that `libero36_feasible_32_frozen_v1` uses a compact
