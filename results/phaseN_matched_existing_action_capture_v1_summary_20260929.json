@@ -1,0 +1,20 @@
+{
+  "schema": "phaseN_matched_existing_action_capture_v1",
+  "protocol": "eval_v3_task0_n25_benchmark_init",
+  "positive": {
+    "n": 5,
+    "terminal_gripper_mean": 0.7167506333291531,
+    "terminal_gripper_std_mean": 0.3275116915247619,
+    "sign_change_count_total": 5,
+    "steps_mean": 172.4
+  },
+  "negative": {
+    "n": 5,
+    "terminal_gripper_mean": 0.9096731729507447,
+    "terminal_gripper_std_mean": 0.023905567073485828,
+    "sign_change_count_total": 0,
+    "steps_mean": 300.0
+  },
+  "paired_init_note": "Init indices overlap, but checkpoints and model families differ; diagnostic only, not causal proof.",
+  "source": "/root/smolvla-eval-prep/results/phaseN_matched_existing_action_capture_v1/summary.json"
+}
