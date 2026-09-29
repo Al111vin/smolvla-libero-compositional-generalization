@@ -860,3 +860,16 @@ therefore be isolated on the training/data temporal objective, with a new
 checkpoint and the same strict evaluator; Fold 02 remains locked.
 
 Evidence: `results/phaseD_joint32_task0_action_replay_audit_20260922.json`.
+
+### Phase N matched existing action-capture diagnostic (2026-09-29)
+
+Existing V3 action CSVs were compared for five recovered historical positive
+controls and five joint32 terminal-window-weighted failures at overlapping
+benchmark initializations. The positive group had mean terminal gripper value
+`0.7168` and five total sign changes; the joint32 group had mean `0.9097` and
+zero sign changes. Because the checkpoint and model families differ, this is
+diagnostic evidence only and is not a causal intervention result. No new
+rollouts or training were started, and Fold 02 remains locked.
+
+Evidence:
+[`Phase N matched existing action-capture diagnostic`](results/phaseN_matched_existing_action_capture_v1_summary_20260929.json).
