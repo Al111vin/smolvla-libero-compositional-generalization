@@ -1,0 +1,45 @@
+{
+  "schema_version": 1,
+  "phase": "N",
+  "date": "2026-09-29",
+  "status": "decision_preflight_complete",
+  "evidence": {
+    "recovered_historical_positive_control": "1/1 success, reward 1.0, 86 steps",
+    "joint32_terminal_window_weighted_multitask": "0/15 across tasks 0-4 and checkpoints 30k/60k/90k",
+    "joint32_task0_terminal_window_benchmark": "0/15",
+    "known_loader_and_image_contract_audits": "no direct mismatch found",
+    "checkpoint_provenance": "recovered positive control is a distinct artifact from same-named training-prep checkpoint"
+  },
+  "options": [
+    {
+      "id": "A",
+      "name": "stop new training and report negative evidence",
+      "pros": ["avoids another unvalidated intervention", "preserves compute and clean conclusion"],
+      "cons": ["does not test whether a task-success-aligned objective can recover behavior"]
+    },
+    {
+      "id": "B",
+      "name": "inference-only repair",
+      "pros": ["cheap to test"],
+      "cons": ["no concrete evaluator/state defect remains; high risk of repeating unsupported fixes"]
+    },
+    {
+      "id": "C",
+      "name": "bounded training objective experiment after offline proxy gate",
+      "pros": ["directly tests the remaining objective limitation", "can be isolated in a fresh output family"],
+      "cons": ["requires new training and strict evaluation", "must not start until proxy and config smoke checks pass"]
+    }
+  ],
+  "recommendation": {
+    "primary": "C",
+    "precondition": "first implement and validate an offline release/terminal proxy on frozen demonstrations and a no-GPU training smoke test",
+    "fallback": "A if the proxy cannot be validated or fails to distinguish known-good terminal behavior",
+    "not_started": true
+  },
+  "safety": {
+    "fold02": "LOCKED",
+    "legacy_results_untouched": true,
+    "new_training_started": false,
+    "new_checkpoint_output_required": true
+  }
+}

@@ -735,6 +735,19 @@ for it in protocol comparisons.
 Evidence:
 [`Phase M checkpoint provenance audit`](results/phaseM_checkpoint_provenance_audit_20260929.json).
 
+### Phase N next-intervention decision (2026-09-29)
+
+With the recovered positive control restored and joint32 failing across five
+tasks, three paths were compared. An unsupported inference patch is not
+recommended because no concrete evaluator/state defect remains. The preferred
+path is one bounded training-objective experiment, but only after an offline
+release/terminal proxy and a no-GPU training smoke check are validated. If
+that proxy cannot distinguish known-good terminal behavior, stop new training
+and report the negative evidence instead. Fold 02 remains locked.
+
+Evidence:
+[`Phase N intervention decision`](results/phaseN_joint32_next_intervention_decision_20260929.json).
+
 ### Joint32 provenance/contract audit (2026-09-22)
 
 The read-only audit confirms that `libero36_feasible_32_frozen_v1` uses a compact
