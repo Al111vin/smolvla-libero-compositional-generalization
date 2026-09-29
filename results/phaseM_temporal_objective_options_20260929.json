@@ -2,7 +2,16 @@
   "schema_version": 1,
   "phase": "M",
   "date": "2026-09-29",
-  "status": "design_only",
+  "status": "implementation_preflight_complete",
+  "preflight": {
+    "verified_at": "2026-09-29",
+    "trainer_entrypoint": "lerobot.scripts.lerobot_train",
+    "native_temporal_window_weight_config": false,
+    "native_sample_weight_path": "RABC only",
+    "dataset_batch_metadata": ["frame_index", "episode_index", "index", "timestamp"],
+    "safe_next_step": "implement an isolated wrapper that computes terminal-window sample weights from frame_index and episode metadata, then run compile/unit/batch smoke checks",
+    "full_training_started": false
+  },
   "evidence": {
     "task_balanced_benchmark_success": "0/15",
     "prior_gripper_weighted_success": "0/15",
