@@ -873,3 +873,19 @@ rollouts or training were started, and Fold 02 remains locked.
 
 Evidence:
 [`Phase N matched existing action-capture diagnostic`](results/phaseN_matched_existing_action_capture_v1_summary_20260929.json).
+
+### Phase N matched state/action capture (2026-09-29)
+
+Using the calibrated V3 evaluator with an opt-in diagnostic state capture,
+five overlapping benchmark initializations were run for the recovered
+historical checkpoint and the joint32 terminal-window-weighted checkpoint.
+The recovered control produced `3/5` successes; joint32 produced `0/5`.
+Every CSV contains 15-D state and 7-D action rows. This is a diagnostic
+comparison only: the checkpoints are different model families, so it does not
+authorize a causal repair or new training objective. The initial positive
+control mismatch on two inits is retained as part of the measured variation;
+the historical known-good result remains the separate calibrated control.
+Fold 02 remains locked.
+
+Evidence:
+[`Phase N matched state/action capture`](results/phaseN_matched_state_action_capture_v1_summary_20260929.json).

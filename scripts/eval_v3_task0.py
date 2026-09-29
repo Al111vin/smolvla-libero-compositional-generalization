@@ -49,6 +49,11 @@ def parse_args():
     )
     parser.add_argument("--max-steps", type=int, default=300)
     parser.add_argument(
+        "--capture-state",
+        action="store_true",
+        help="Diagnostic-only: persist the 15-D observation state per step.",
+    )
+    parser.add_argument(
         "--wait-steps",
         type=int,
         default=None,
@@ -317,6 +322,11 @@ def run_episode(args):
             "reward": float(reward),
         }
 
+        if args.capture_state:
+            state = np.asarray(frame["observation.state"], dtype=np.float32).reshape(-1)
+            for index, value in enumerate(state):
+                row[f"state_{index}"] = float(value)
+
         for index in range(7):
             row[f"raw_action_{index}"] = float(
                 raw_action_np[index]
@@ -416,6 +426,9 @@ def run_episode(args):
             f"{prefix}_{index}"
             for index in range(7)
         )
+
+    if args.capture_state:
+        action_fields.extend(f"state_{index}" for index in range(15))
 
     with actions_path.open("w", newline="") as file:
         writer = csv.DictWriter(

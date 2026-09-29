@@ -1,0 +1,121 @@
+{
+  "schema": "phaseN_matched_state_action_capture_v1",
+  "protocol": "eval_v3_task0_n25_benchmark_init",
+  "positive": [
+    {
+      "path": "/root/smolvla-eval-prep/results/phaseN_matched_state_action_capture_v1/positive/init_0/eval_v3_task0_010000_benchmark_init0_n25_seed12345_actions.csv",
+      "steps": 300,
+      "terminal_gripper_mean": -0.7245870649814605,
+      "terminal_gripper_std": 0.7851880545415636,
+      "gripper_sign_changes": 20,
+      "state_dim": 15,
+      "action_dim": 7,
+      "state_rows": 300,
+      "success": false
+    },
+    {
+      "path": "/root/smolvla-eval-prep/results/phaseN_matched_state_action_capture_v1/positive/init_1/eval_v3_task0_010000_benchmark_init1_n25_seed12346_actions.csv",
+      "steps": 82,
+      "terminal_gripper_mean": 0.9861300921440125,
+      "terminal_gripper_std": 0.9864119078785869,
+      "gripper_sign_changes": 1,
+      "state_dim": 15,
+      "action_dim": 7,
+      "state_rows": 82,
+      "success": true
+    },
+    {
+      "path": "/root/smolvla-eval-prep/results/phaseN_matched_state_action_capture_v1/positive/init_2/eval_v3_task0_010000_benchmark_init2_n25_seed12347_actions.csv",
+      "steps": 300,
+      "terminal_gripper_mean": 0.21171520352363588,
+      "terminal_gripper_std": 0.8220914413654254,
+      "gripper_sign_changes": 28,
+      "state_dim": 15,
+      "action_dim": 7,
+      "state_rows": 300,
+      "success": false
+    },
+    {
+      "path": "/root/smolvla-eval-prep/results/phaseN_matched_state_action_capture_v1/positive/init_3/eval_v3_task0_010000_benchmark_init3_n25_seed12348_actions.csv",
+      "steps": 92,
+      "terminal_gripper_mean": 0.997364616394043,
+      "terminal_gripper_std": 0.9788010244967913,
+      "gripper_sign_changes": 1,
+      "state_dim": 15,
+      "action_dim": 7,
+      "state_rows": 92,
+      "success": true
+    },
+    {
+      "path": "/root/smolvla-eval-prep/results/phaseN_matched_state_action_capture_v1/positive/init_4/eval_v3_task0_010000_benchmark_init4_n25_seed12349_actions.csv",
+      "steps": 85,
+      "terminal_gripper_mean": 0.9885676288604737,
+      "terminal_gripper_std": 0.9799793133289597,
+      "gripper_sign_changes": 1,
+      "state_dim": 15,
+      "action_dim": 7,
+      "state_rows": 85,
+      "success": true
+    }
+  ],
+  "negative": [
+    {
+      "path": "/root/smolvla-eval-prep/results/phaseN_matched_state_action_capture_v1/negative/init_0/eval_v3_task0_090000_benchmark_init0_n25_seed12345_actions.csv",
+      "steps": 300,
+      "terminal_gripper_mean": 0.9181885528564453,
+      "terminal_gripper_std": 0.7976027209575738,
+      "gripper_sign_changes": 1,
+      "state_dim": 15,
+      "action_dim": 7,
+      "state_rows": 300,
+      "success": false
+    },
+    {
+      "path": "/root/smolvla-eval-prep/results/phaseN_matched_state_action_capture_v1/negative/init_1/eval_v3_task0_090000_benchmark_init1_n25_seed12346_actions.csv",
+      "steps": 300,
+      "terminal_gripper_mean": 0.9212193155288696,
+      "terminal_gripper_std": 0.7272228262805164,
+      "gripper_sign_changes": 3,
+      "state_dim": 15,
+      "action_dim": 7,
+      "state_rows": 300,
+      "success": false
+    },
+    {
+      "path": "/root/smolvla-eval-prep/results/phaseN_matched_state_action_capture_v1/negative/init_2/eval_v3_task0_090000_benchmark_init2_n25_seed12347_actions.csv",
+      "steps": 300,
+      "terminal_gripper_mean": 0.9211970233917236,
+      "terminal_gripper_std": 0.8117576306552379,
+      "gripper_sign_changes": 3,
+      "state_dim": 15,
+      "action_dim": 7,
+      "state_rows": 300,
+      "success": false
+    },
+    {
+      "path": "/root/smolvla-eval-prep/results/phaseN_matched_state_action_capture_v1/negative/init_3/eval_v3_task0_090000_benchmark_init3_n25_seed12348_actions.csv",
+      "steps": 300,
+      "terminal_gripper_mean": 0.9176490545272827,
+      "terminal_gripper_std": 0.8996533787810754,
+      "gripper_sign_changes": 5,
+      "state_dim": 15,
+      "action_dim": 7,
+      "state_rows": 300,
+      "success": false
+    },
+    {
+      "path": "/root/smolvla-eval-prep/results/phaseN_matched_state_action_capture_v1/negative/init_4/eval_v3_task0_090000_benchmark_init4_n25_seed12349_actions.csv",
+      "steps": 300,
+      "terminal_gripper_mean": 0.8860663461685181,
+      "terminal_gripper_std": 0.9294491370414357,
+      "gripper_sign_changes": 1,
+      "state_dim": 15,
+      "action_dim": 7,
+      "state_rows": 300,
+      "success": false
+    }
+  ],
+  "positive_success_count": 3,
+  "negative_success_count": 0,
+  "interpretation": "Diagnostic only; positive and negative checkpoints differ, so this is not causal evidence."
+}
