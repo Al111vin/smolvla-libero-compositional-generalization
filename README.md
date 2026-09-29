@@ -309,6 +309,12 @@ full 300-step budget on every rollout. This is diagnostic evidence only; it
 does not change the Fold 02 gate. See
 [`task-balanced benchmark summary`](results/phaseL_joint32_task_balanced_benchmark_v1_5init_summary_20260925.json).
 
+This is a negative intervention result: task balancing did not improve the
+calibrated task-0 benchmark, so the sampler change will not be expanded into
+another training sweep. The next gate is a new, explicitly designed temporal
+training-objective or protocol experiment; no additional repair training is
+started from this result alone, and Fold 02 remains locked.
+
 The project now has an explicitly frozen, transparent reconstructed evaluator
 for the LIBERO Spatial task-0 sanity audit. It is a **new benchmark** and does
 not rewrite historical V3 numbers. The protocol, seed rule, state/action
