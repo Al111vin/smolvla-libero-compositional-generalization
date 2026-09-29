@@ -315,6 +315,17 @@ another training sweep. The next gate is a new, explicitly designed temporal
 training-objective or protocol experiment; no additional repair training is
 started from this result alone, and Fold 02 remains locked.
 
+### Phase M temporal-objective options (2026-09-29)
+
+After the negative task-balanced result, three next-step options were compared:
+expand evaluation only, weight release-transition frames, or weight the final
+10--15% terminal window. The recommended candidate is terminal-window
+loss-weighting because it is the smallest isolated test of the remaining
+temporal-supervision hypothesis and does not repeat failed sampler,
+gripper-weighting, or action-horizon changes. This is a design artifact only;
+no new training has started. See
+[`Phase M options`](results/phaseM_temporal_objective_options_20260929.json).
+
 The project now has an explicitly frozen, transparent reconstructed evaluator
 for the LIBERO Spatial task-0 sanity audit. It is a **new benchmark** and does
 not rewrite historical V3 numbers. The protocol, seed rule, state/action

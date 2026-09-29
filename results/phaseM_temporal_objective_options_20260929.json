@@ -1,0 +1,43 @@
+{
+  "schema_version": 1,
+  "phase": "M",
+  "date": "2026-09-29",
+  "status": "design_only",
+  "evidence": {
+    "task_balanced_benchmark_success": "0/15",
+    "prior_gripper_weighted_success": "0/15",
+    "prior_n_action_steps50_success": "0/120",
+    "action_replay_mae": 0.00813,
+    "fold02": "LOCKED"
+  },
+  "options": [
+    {
+      "id": "A",
+      "name": "terminal-window loss weighting",
+      "change": "Increase loss weight only for the final 10-15% of each demonstration window, preserving state/action definitions and sampler.",
+      "pros": ["directly targets release/placement timing", "single training-side variable"],
+      "risks": ["may overfit terminal frames", "requires a fresh isolated checkpoint family"]
+    },
+    {
+      "id": "B",
+      "name": "release-transition auxiliary weighting",
+      "change": "Weight frames around the demonstrated gripper transition while leaving all other frames unchanged.",
+      "pros": ["targets the observed release event", "more localized than full terminal weighting"],
+      "risks": ["can amplify gripper noise", "does not directly fix spatial placement error"]
+    },
+    {
+      "id": "C",
+      "name": "no new training; protocol expansion",
+      "change": "Expand benchmark evaluation across more tasks/initializations before changing the objective.",
+      "pros": ["avoids another unproven training intervention", "better estimates failure scope"],
+      "risks": ["does not address the already-repeated task-0 failure", "consumes evaluation time"]
+    }
+  ],
+  "recommendation": {
+    "option": "A",
+    "reason": "The existing evidence most directly implicates temporal/release-window supervision; A is the smallest isolated change that tests this without repeating failed sampler, gripper, or horizon interventions.",
+    "preconditions": ["config-only validation", "fresh output directory", "smoke training check", "explicit strict benchmark evaluation after training"],
+    "not_started": true
+  },
+  "safety": ["no overwrite", "no deletion", "Fold 02 remains locked", "legacy results remain untouched"]
+}
