@@ -889,3 +889,13 @@ Fold 02 remains locked.
 
 Evidence:
 [`Phase N matched state/action capture`](results/phaseN_matched_state_action_capture_v1_summary_20260929.json).
+
+The follow-up replay audit found partial, not exact, positive-control
+replayability: init3/init4 agree with the prior action-proxy records, while
+init0/init1 swap success and failure. This confirms strong initialization
+sensitivity and means the diagnostic is descriptive rather than a deterministic
+causal comparison. Joint32 remains `0/5` in the matched run; Fold 02 remains
+locked.
+
+Evidence:
+[`Phase N positive-control replay consistency`](results/phaseN_positive_control_replay_consistency_20260929.json).

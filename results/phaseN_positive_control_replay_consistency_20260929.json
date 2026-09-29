@@ -1,0 +1,22 @@
+{
+  "schema": "phaseN_positive_control_replay_consistency_v1",
+  "date": "2026-09-29",
+  "current_state_capture_positive": {
+    "success_count": 3,
+    "num_rollouts": 5,
+    "successful_inits": [1, 3, 4],
+    "failed_inits": [0, 2]
+  },
+  "historical_action_proxy_positive": {
+    "num_rollouts": 5,
+    "historical_failed_inits": [1, 2],
+    "historical_success_inits": [0, 3, 4]
+  },
+  "reconciliation": {
+    "status": "partial_replay_consistency",
+    "note": "The current state-capture positive outcomes overlap the historical action-proxy outcomes on init3/init4, but init0 and init1 swap success/failure. This confirms init sensitivity but does not prove exact replay determinism; it also does not invalidate the separate calibrated historical positive control.",
+    "joint32_current_success_count": 0,
+    "joint32_current_num_rollouts": 5
+  },
+  "decision": "Retain the matched diagnostic as valid descriptive evidence, but do not infer causality across different checkpoint/model families. No training or Fold 02 unlock is authorized."
+}
