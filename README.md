@@ -60,11 +60,14 @@ to this shorter run (warmup 3,000→333; decay horizon 90,000→10,000), so this
 a current-pipeline capability test, not an exposure-matched causal comparison to
 the 90,000-update joint32 run. The first matched-evaluation launch exposed a
 missing EGL environment setting before any rollout was recorded; that failed
-attempt is preserved separately and excluded. An EGL-configured retry is now
-continuing after the fixed-initialization check returned **0/5 successes**. The
-paired 20-initialization diagnostic is still running, but the preregistered
-stable-single-task gate is already not met; no task-count scaling will start.
-This diagnostic does not change the registered LIBERO-36 result or unlock Fold 02.
+attempt is preserved separately and excluded. The EGL-configured retry finished
+with **0/5** successes on the repeated fixed initialization and **8/20** on the
+paired 20-initialization set; the recovered historical checkpoint scored 5/5
+and 13/20 on those respective comparisons. The preregistered stable-single-task
+gate is not met, so no task-count scaling will start. This diagnostic does not
+change the registered LIBERO-36 result or unlock Fold 02. Per-initialization
+outcomes and checkpoint provenance are in
+`results/teacher_native_task0_current_pipeline_10k_eval_summary_20261002.json`.
 Detailed configuration and evidence are in
 `results/teacher_native_task0_stageBC_decision_20261002.json`.
 

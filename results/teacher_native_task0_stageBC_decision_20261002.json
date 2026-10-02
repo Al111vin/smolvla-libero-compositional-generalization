@@ -81,7 +81,13 @@
     "fixed_condition_rewards": [0.0, 0.0, 0.0, 0.0, 0.0],
     "historical_fixed_condition_reference": "5/5 successes for the recovered native V3 checkpoint under the matched task, initialization, and effective seed",
     "stable_single_task_gate": "not met; paired 20-initialization characterization continues, but no task-count scaling should follow this candidate checkpoint",
-    "paired_20_init_status": "running"
+    "paired_20_init_status": "completed",
+    "paired_20_init_successes": 8,
+    "paired_20_init_rollouts": 20,
+    "paired_20_init_success_indices": [3, 5, 6, 7, 9, 14, 15, 17],
+    "historical_paired_successes": 13,
+    "historical_paired_rollouts": 20,
+    "summary_artifact": "results/teacher_native_task0_current_pipeline_10k_eval_summary_20261002.json"
   },
   "exposure_matched_joint32_causal_comparison": false,
   "fold02": "LOCKED",
