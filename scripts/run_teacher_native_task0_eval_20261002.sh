@@ -7,12 +7,30 @@ CKPT="$BASE/results/training/teacher_native_task0_current_pipeline_10k_20261002_
 OUT="$EVAL/results/teacher_native_task0_current_pipeline_10k_eval_20261002_v1"
 PY=/usr/local/miniconda3/envs/py312/bin/python
 SCRIPT="$EVAL/scripts/eval_v3_task0_state_capture_v1.py"
+TRAIN_LOG="$REC/training.log"
+TRAIN_OK_MARKER='TEACHER_SINGLE_TASK_TRAIN_EXIT_CODE=0'
+TRAIN_EXIT_MARKER='TEACHER_SINGLE_TASK_TRAIN_EXIT_CODE='
+
+# Remain unattended across the currently approved single-task training run.
+# Stop on an explicit non-zero train exit or after a bounded one-hour wait.
+for attempt in $(seq 1 120); do
+  if grep -q "$TRAIN_OK_MARKER" "$TRAIN_LOG"; then
+    break
+  fi
+  if grep -q "$TRAIN_EXIT_MARKER" "$TRAIN_LOG"; then
+    echo 'TRAINING_EXITED_NONZERO'; exit 74
+  fi
+  sleep 30
+done
+grep -q "$TRAIN_OK_MARKER" "$TRAIN_LOG" || { echo 'TRAINING_WAIT_TIMEOUT'; exit 74; }
+
 exec 9>"$BASE/teacher_control_gpu.lock"
-flock -n 9 || { echo 'GPU_JOB_LOCKED'; exit 75; }
-test -f "$REC/training.log" || { echo 'TRAIN_LOG_MISSING'; exit 74; }
-grep -q 'TEACHER_SINGLE_TASK_TRAIN_EXIT_CODE=0' "$REC/training.log" || {
-  echo 'TRAINING_NOT_CONFIRMED_SUCCESSFUL'; exit 74;
-}
+locked=0
+for attempt in $(seq 1 24); do
+  if flock -n 9; then locked=1; break; fi
+  sleep 5
+done
+test "$locked" -eq 1 || { echo 'GPU_JOB_LOCKED_AFTER_TRAINING'; exit 75; }
 for step in 002500 005000 007500 010000; do
   test -f "$BASE/results/training/teacher_native_task0_current_pipeline_10k_20261002_v1/checkpoints/$step/pretrained_model/model.safetensors"
 done
