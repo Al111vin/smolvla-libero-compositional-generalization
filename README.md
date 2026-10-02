@@ -112,6 +112,32 @@ passed validation. The validated summary is
 the retry-safe recovery runner is
 [`run_teacher_native_task0_base_init_eval_recovery_20261002.sh`](scripts/run_teacher_native_task0_base_init_eval_recovery_20261002.sh).
 
+A read-only action-trace audit of the 20 paired initializations found similar
+command smoothness in the shared first 60 steps (mean gripper sign-switch rate
+3.95 vs. 3.54 per 100 steps; position-action delta 0.197 vs. 0.193; rotation
+action delta 0.033 vs. 0.034, success vs. failure). Across each full rollout,
+the failure group had more gripper sign switches (12.37 vs. 6.10 per 100 steps)
+and larger mean action deltas (0.244 vs. 0.208 on dimensions 0--2; 0.047 vs.
+0.038 on dimensions 3--5). Because successful episodes often terminate early
+while failures run to the 300-step cap, the full-rollout contrast is
+length-confounded. This is exploratory correlation, not evidence that action
+oscillation causes failure. The first-60 comparison instead suggests there is
+no clear early action-quality separation in this small sample. See the
+[`action-trace audit`](results/teacher_native_task0_base_init_action_trace_audit_20261002.json)
+and its reproducible
+[`audit script`](scripts/audit_teacher_native_task0_base_init_action_traces_20261002.py).
+No additional training or task scaling has been started.
+
+The next bounded diagnostic compares the existing 2,500, 5,000, and 7,500
+checkpoints at the same fixed task-0 initialization (five repeats per checkpoint)
+against the already completed 10,000-step result (0/5). It changes no training
+or data and is only intended to detect whether fixed-init behavior varied over
+the training trajectory; it cannot satisfy the paired-20 gate or authorize
+task-count scaling. The isolated runner and validator are
+[`checkpoint repeat runner`](scripts/run_teacher_native_task0_checkpoint_fixed_repeats_20261002.sh)
+and
+[`checkpoint repeat summarizer`](scripts/summarize_teacher_native_task0_checkpoint_fixed_repeats_20261002.py).
+
 ### Task-balanced sampling proposal (2026-09-23)
 
 The joint32 dataset has five episodes per task, but frame counts range from
