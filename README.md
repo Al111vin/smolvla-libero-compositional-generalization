@@ -128,15 +128,26 @@ and its reproducible
 [`audit script`](scripts/audit_teacher_native_task0_base_init_action_traces_20261002.py).
 No additional training or task scaling has been started.
 
-The next bounded diagnostic compares the existing 2,500, 5,000, and 7,500
-checkpoints at the same fixed task-0 initialization (five repeats per checkpoint)
-against the already completed 10,000-step result (0/5). It changes no training
-or data and is only intended to detect whether fixed-init behavior varied over
-the training trajectory; it cannot satisfy the paired-20 gate or authorize
-task-count scaling. The isolated runner and validator are
+The fixed-init checkpoint progression diagnostic is complete: checkpoints
+2,500, 5,000, and 7,500 each scored **0/5**, matching the existing 10,000-step
+reference at **0/5**. All 15 rollouts passed protocol validation; every rollout
+ran to the 300-step cap with reward 0. This single-initialization diagnostic
+shows no fixed-init success window across the sampled training trajectory, but
+does not establish why training failed, replace the paired-20 result, or
+authorize task-count scaling. See the
+[`checkpoint progression summary`](results/teacher_native_task0_checkpoint_fixed_repeats_20261002.json).
+The isolated runner and validator are
 [`checkpoint repeat runner`](scripts/run_teacher_native_task0_checkpoint_fixed_repeats_20261002.sh)
 and
 [`checkpoint repeat summarizer`](scripts/summarize_teacher_native_task0_checkpoint_fixed_repeats_20261002.py).
+
+The next stage is a read-only training/data-flow audit comparing the current
+single-task run against the recovered historical positive control and its
+available provenance (configuration, data split and statistics, optimizer and
+scheduler, and training curves). This is intended to separate a pipeline or
+supervision mismatch from insufficient optimization exposure before proposing
+any additional training. No longer training run or task-count scaling has been
+started; the single-task gate remains unmet and Fold 02 remains locked.
 
 ### Task-balanced sampling proposal (2026-09-23)
 
