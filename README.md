@@ -141,13 +141,19 @@ The isolated runner and validator are
 and
 [`checkpoint repeat summarizer`](scripts/summarize_teacher_native_task0_checkpoint_fixed_repeats_20261002.py).
 
-The next stage is a read-only training/data-flow audit comparing the current
-single-task run against the recovered historical positive control and its
-available provenance (configuration, data split and statistics, optimizer and
-scheduler, and training curves). This is intended to separate a pipeline or
-supervision mismatch from insufficient optimization exposure before proposing
-any additional training. No longer training run or task-count scaling has been
-started; the single-task gate remains unmet and Fold 02 remains locked.
+The recipe audit verified that the current base-initialized run keeps the same
+50-episode native data and loader, while its peak learning rate is 10x lower
+than the recovered historical successful recipe (1e-5 vs. 1e-4); the exact
+historical dataset revision and several other recipe details are unavailable.
+After comparing a 90k extension (deferred for cost), a multi-factor historical
+recipe recreation (deferred as confounded), and a bounded single-factor test,
+the next selected diagnostic is a 10k single-task run scaling the complete
+cosine learning-rate schedule by 10x. It keeps the initialization, data,
+training code, seed, update count, and evaluation protocol fixed in a new output
+directory. This is not a full historical reproduction. The design is recorded
+in [`LR-scale ablation design`](results/teacher_native_task0_lrscale_ablation_design_20261002.json).
+No training has started for this ablation yet. Task scaling remains prohibited
+unless the single-task gate passes; Fold 02 remains locked.
 
 ### Task-balanced sampling proposal (2026-09-23)
 

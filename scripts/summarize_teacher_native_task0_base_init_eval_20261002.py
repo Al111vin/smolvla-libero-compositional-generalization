@@ -75,6 +75,8 @@ def main() -> None:
     ap.add_argument("--historical-reference", type=Path, required=True)
     ap.add_argument("--output", type=Path, required=True)
     ap.add_argument("--training-log", type=Path)
+    ap.add_argument("--run-id", default=RUN_NAME)
+    ap.add_argument("--training-success-marker", default="TEACHER_BASE_INIT_TRAIN_EXIT_CODE=0")
     args = ap.parse_args()
 
     all_rows = rows_under(args.eval_root)
@@ -111,14 +113,14 @@ def main() -> None:
     training = {"status": "not_included"}
     if args.training_log:
         log = args.training_log.read_text(encoding="utf-8", errors="replace")
-        marker = "TEACHER_BASE_INIT_TRAIN_EXIT_CODE=0"
+        marker = args.training_success_marker
         if marker not in log:
             raise ValueError("Training success marker missing from the supplied training log")
         training = {"status": "completed", "exit_code": 0, "success_marker_verified": True}
 
     result = {
         "schema_version": 1,
-        "run_id": RUN_NAME,
+        "run_id": args.run_id,
         "evaluation_status": "complete_validated_25_of_25",
         "protocol": {
             "task_id": 0,

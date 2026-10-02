@@ -12,11 +12,14 @@ from scripts.lerobot_loco_episode_compat import install_episode_filter_compat
 
 cfg = draccus.parse(TrainPipelineConfig, config_path=sys.argv[1], args=[])
 cfg.validate()
+expected_lr = float(sys.argv[2]) if len(sys.argv) > 2 else 1e-5
 assert not Path(cfg.output_dir).exists(), "output exists"
 assert Path(cfg.policy.pretrained_path, "model.safetensors").is_file()
 assert cfg.steps == 10000 and cfg.batch_size == 8
 assert cfg.policy.chunk_size == 50 and cfg.policy.n_action_steps == 25
-assert cfg.policy.optimizer_lr == 1e-5
+assert abs(cfg.policy.optimizer_lr - expected_lr) < 1e-12
+assert abs(cfg.optimizer.lr - expected_lr) < 1e-12
+assert abs(cfg.scheduler.peak_lr - expected_lr) < 1e-12
 assert cfg.policy.scheduler_decay_steps == 90000
 install_episode_filter_compat()
 ds = make_dataset(cfg)
@@ -44,5 +47,6 @@ print(json.dumps({"passed": True, "frames": ds.num_frames, "episodes": ds.num_ep
                   "action_shape": list(processed["action"].shape),
                   "state_shape": list(processed["observation.state"].shape),
                   "action_normalize_roundtrip_max_abs_diff": diff,
+                  "expected_learning_rate": expected_lr,
                   "output_dir": str(cfg.output_dir), "training_started": False,
                   "gradient_steps": 0}, indent=2))

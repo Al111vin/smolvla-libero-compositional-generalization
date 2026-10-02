@@ -1,0 +1,84 @@
+{
+  "schema_version": 1,
+  "date": "2026-10-02",
+  "stage": "teacher_directed_single_task_capability_diagnosis",
+  "decision_status": "selected_for_unattended_execution_after_preflight",
+  "evidence_basis": {
+    "current_recipe_lr": 1e-05,
+    "historical_positive_control_lr": 0.0001,
+    "current_recipe_base_init_checkpoint_successes": {
+      "fixed_init3": "0/5 at steps 2500, 5000, 7500, and 10000",
+      "paired_20": "9/20 at step 10000"
+    },
+    "paired_exact_mcnemar_p_for_base_init_vs_current_pipeline": 1.0,
+    "data_conversion_and_loader_audits": "passed for all 50 reconstructed native task-0 episodes"
+  },
+  "options_compared": [
+    {
+      "id": "extend_current_recipe_to_90000_steps",
+      "decision": "defer",
+      "reason": "High GPU cost and changes total optimization exposure before testing the clearest configuration difference."
+    },
+    {
+      "id": "reproduce_all_historical_recipe_settings",
+      "decision": "defer",
+      "reason": "Would change several factors simultaneously, and the exact historical dataset revision is unavailable."
+    },
+    {
+      "id": "scale_learning_rate_schedule_10x",
+      "decision": "selected",
+      "reason": "A bounded one-factor test of the largest verified numeric difference between the current recipe and successful historical recipe, using the same current native data, initialization, code path, seed, and update count."
+    }
+  ],
+  "experiment": {
+    "run_id": "teacher_native_task0_base_init_lr10x_current_recipe_10k_20261002_v1",
+    "dataset": "local/libero_spatial_task0_reconstructed_20261002",
+    "episodes": 50,
+    "initialization": "/root/smolvla-training-prep/models/smolvla_base_libero",
+    "updates": 10000,
+    "batch_size": 8,
+    "seed": 1000,
+    "schedule_change": {
+      "peak_lr": {
+        "from": 1e-05,
+        "to": 0.0001
+      },
+      "decay_lr": {
+        "from": 2.5e-07,
+        "to": 2.5e-06
+      },
+      "scale": 10
+    },
+    "all_other_training_settings": "copied unchanged from teacher_native_task0_base_init_current_recipe_10k_20261002_v1",
+    "evaluation": {
+      "checkpoint": 10000,
+      "fixed_init3_repeats": 5,
+      "paired_init_indices": "0..19",
+      "seed_protocol": "same as existing current task0 comparison",
+      "wait_steps": 10,
+      "n_action_steps": 25,
+      "max_steps": 300,
+      "evaluator": "eval_v3_task0_state_capture_v1.py"
+    }
+  },
+  "gates_and_stops": {
+    "single_task_gate": "fixed_init3 5/5 and paired 20-init >=11/20",
+    "task_count_scaling": "prohibited unless the single-task gate passes",
+    "automatic_training_extension": false,
+    "on_preflight_or_training_or_evaluation_error": "stop, preserve all outputs, do not overwrite or retry without a separately justified repair",
+    "fold02": "LOCKED"
+  },
+  "interpretation_limits": [
+    "This tests learning-rate schedule scale only within the current recipe; it is not a full historical training reproduction.",
+    "A pass would support a single-task capability candidate but would not by itself establish generalization or authorize task scaling outside the registered gate.",
+    "A failure would not prove the data pipeline is defective; other verified historical recipe differences remain."
+  ],
+  "implementation": {
+    "config_builder": "scripts/prepare_teacher_native_task0_lrscale_10k_20261002.py",
+    "runner": "scripts/run_teacher_native_task0_lrscale_ablation_20261002.sh",
+    "preflight": "scripts/preflight_teacher_native_task0_20261002.py",
+    "summarizer": "scripts/summarize_teacher_native_task0_base_init_eval_20261002.py",
+    "outputs_are_independent": true,
+    "checkpoint_or_dataset_upload": false
+  }
+}
