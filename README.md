@@ -90,6 +90,14 @@ The evaluation now has a separate CPU-only completion watcher and CSV
 validator; replaying the validator against the prior 25-rollout CSV set
 reproduced its recorded 0/5 fixed and 8/20 paired results, including the
 Wilson interval. This validator does not change the evaluation protocol.
+The historical-base-initialized 10,000-update follow-up has now completed and
+saved all four planned checkpoints. Its evaluation completed the five fixed
+repeats (0/5) and paired initialization 0 before a transient Hugging Face Hub
+processor-resolution disconnect stopped the sequential runner. Those partial
+outputs are preserved unchanged. A cache-only processor load passed, so an
+isolated recovery evaluation is being run for the missing paired initializations
+under the same evaluator, seeds, and protocol; no conclusion will be reported
+until all 25 required records validate.
 
 ### Task-balanced sampling proposal (2026-09-23)
 
