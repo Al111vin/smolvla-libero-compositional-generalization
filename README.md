@@ -58,8 +58,10 @@ an independent output directory. The run used the current joint32 initialization
 and optimizer setup. LeRobot automatically rescaled the 90,000-update scheduler
 to this shorter run (warmup 3,000→333; decay horizon 90,000→10,000), so this is
 a current-pipeline capability test, not an exposure-matched causal comparison to
-the 90,000-update joint32 run. Matched closed-loop assessment is now running;
-until it finishes, single-task learning capability is not yet established. This
+the 90,000-update joint32 run. The first matched-evaluation launch exposed a
+missing EGL environment setting before any rollout was recorded; that failed
+attempt is preserved separately and excluded. An EGL-configured retry is now
+running, so single-task learning capability is not yet established. This
 diagnostic does not change the registered LIBERO-36 result or unlock Fold 02.
 Detailed configuration and evidence are in
 `results/teacher_native_task0_stageBC_decision_20261002.json`.

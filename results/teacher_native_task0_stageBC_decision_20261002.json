@@ -67,6 +67,14 @@
     "runner": "scripts/run_teacher_native_task0_eval_20261002.sh",
     "runner_deployed_to": "/root/smolvla-training-prep/recovery/native_task0_20261002/run_teacher_native_task0_eval_20261002.sh"
   },
+  "evaluation_environment_failure_and_repair": {
+    "first_attempt": "Stopped before recording any rollout: MuJoCo FatalError reported that no OpenGL platform library was loaded; GLFW also reported DISPLAY missing.",
+    "diagnosis": "The first matched-evaluation runner omitted MUJOCO_GL and PYOPENGL_PLATFORM. A previously approved successful task0 repeat runner on this same GPU explicitly exports both as egl; system libEGL and /dev/dri render device are present.",
+    "repair": "Export MUJOCO_GL=egl and PYOPENGL_PLATFORM=egl, use the same CUDA/capture-state evaluator options as the validated historical repeat runner, and retry once in a new v2_egl output directory.",
+    "first_attempt_output_preserved": "/root/smolvla-eval-prep/results/teacher_native_task0_current_pipeline_10k_eval_20261002_v1",
+    "retry_output": "/root/smolvla-eval-prep/results/teacher_native_task0_current_pipeline_10k_eval_20261002_v2_egl",
+    "first_attempt_counts_as_rollout": false
+  },
   "exposure_matched_joint32_causal_comparison": false,
   "fold02": "LOCKED",
   "preflight": {

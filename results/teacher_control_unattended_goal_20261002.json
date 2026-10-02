@@ -24,7 +24,12 @@
   "evaluation_orchestrator_started": true,
   "evaluation_orchestrator_pid": 8885,
   "evaluation_orchestrator_waiting_for_training_success_marker": false,
-  "evaluation_status": "fixed_init3_repeat_01_running",
+  "evaluation_status": "egl_retry_fixed_init3_repeat_01_running",
+  "evaluation_retry_runner_pid": 11672,
+  "evaluation_retry_output": "/root/smolvla-eval-prep/results/teacher_native_task0_current_pipeline_10k_eval_20261002_v2_egl",
+  "evaluation_retry_mujoco_gl": "egl",
+  "evaluation_retry_pyopengl_platform": "egl",
+  "evaluation_v1_environment_failure": "MuJoCo failed before first rollout because MUJOCO_GL and PYOPENGL_PLATFORM were unset; failure output preserved under the v1 evaluation directory and excluded from outcomes",
   "latest_verified_training_metric": {
     "step": 7000,
     "loss": 0.513,
