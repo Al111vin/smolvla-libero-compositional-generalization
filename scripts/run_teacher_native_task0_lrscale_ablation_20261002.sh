@@ -17,15 +17,14 @@ EVAL_OUT="$EVAL/results/$NAME/eval_v1"
 SUMMARY_OUT="$EVAL/results/$NAME/summary.json"
 PY=/usr/local/miniconda3/envs/py312/bin/python
 EVAL_SCRIPT="$EVAL/scripts/eval_v3_task0_state_capture_v1.py"
-PREPARE="$REC/prepare_teacher_native_task0_lrscale_10k_20261002.py"
 PREFLIGHT="$REC/preflight_teacher_native_task0_20261002.py"
 SUMMARIZER="$REC/summarize_teacher_native_task0_base_init_eval_20261002.py"
 REFERENCE="$REC/teacher_native_task0_current_pipeline_10k_eval_summary_20261002.json"
 
-for path in "$TRAIN_OUT" "$EVAL_OUT" "$SUMMARY_OUT" "$CFG" "$PRELIGHT" "$TRAIN_LOG"; do
+for path in "$TRAIN_OUT" "$EVAL_OUT" "$SUMMARY_OUT" "$PRELIGHT" "$TRAIN_LOG"; do
   test ! -e "$path" || { echo "REFUSE_OVERWRITE=$path" >&2; exit 73; }
 done
-test -f "$PREPARE" && test -f "$PREFLIGHT" && test -f "$SUMMARIZER" && test -f "$REFERENCE" && test -f "$EVAL_SCRIPT"
+test -f "$CFG" && test -f "$PREFLIGHT" && test -f "$SUMMARIZER" && test -f "$REFERENCE" && test -f "$EVAL_SCRIPT"
 
 exec 9>"$BASE/teacher_control_gpu.lock"
 flock -n 9 || { echo 'GPU_JOB_LOCKED'; exit 75; }
@@ -38,7 +37,7 @@ fi
 
 cd "$BASE"
 export PYTHONPATH="$BASE${PYTHONPATH:+:$PYTHONPATH}"
-"$PY" "$PREPARE" --output "$CFG"
+"$PY" -c 'import json,sys; c=json.load(open(sys.argv[1])); assert c["job_name"] == "teacher_native_task0_base_init_lr10x_current_recipe_10k_20261002_v1"; assert c["output_dir"] == "/root/smolvla-training-prep/results/training/teacher_native_task0_base_init_lr10x_current_recipe_10k_20261002_v1"; assert c["dataset"]["repo_id"] == "local/libero_spatial_task0_reconstructed_20261002"; assert c["policy"]["pretrained_path"] == "/root/smolvla-training-prep/models/smolvla_base_libero"; assert c["steps"] == 10000 and c["batch_size"] == 8 and c["seed"] == 1000; assert c["policy"]["chunk_size"] == 50 and c["policy"]["n_action_steps"] == 25; assert c["policy"]["optimizer_lr"] == 1e-4 and c["optimizer"]["lr"] == 1e-4 and c["scheduler"]["peak_lr"] == 1e-4 and c["scheduler"]["decay_lr"] == 2.5e-6' "$CFG"
 "$PY" "$PREFLIGHT" "$CFG" 1e-4 > "$PRELIGHT"
 grep -q '"passed": true' "$PRELIGHT"
 
