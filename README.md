@@ -51,15 +51,18 @@ and 5,068 frames. An independent conversion audit found exact float32 agreement
 for every action and state, exact pixel agreement for both cameras, and passing
 samples through the current LeRobot loader and preprocessing.
 
-A bounded **10,000-update single-task control is running** through the current
-official training entry with the existing episode-compatibility patch, using a
-new output directory. The run uses the current joint32 initialization and
-optimizer setup. LeRobot automatically rescales the 90,000-update scheduler to
-this shorter run (warmup 3,000→333; decay horizon 90,000→10,000), so this is a
-current-pipeline capability test, not an exposure-matched causal comparison to
-the 90,000-update joint32 run. Closed-loop results are pending. This diagnostic
-does not change the registered LIBERO-36 result or unlock Fold 02. Detailed
-configuration and evidence are in `results/teacher_native_task0_stageBC_decision_20261002.json`.
+The bounded **10,000-update single-task control completed successfully** through
+the current official training entry with the existing episode-compatibility
+patch. Checkpoints at 2,500, 5,000, 7,500, and 10,000 updates were verified in
+an independent output directory. The run used the current joint32 initialization
+and optimizer setup. LeRobot automatically rescaled the 90,000-update scheduler
+to this shorter run (warmup 3,000→333; decay horizon 90,000→10,000), so this is
+a current-pipeline capability test, not an exposure-matched causal comparison to
+the 90,000-update joint32 run. Matched closed-loop assessment is now running;
+until it finishes, single-task learning capability is not yet established. This
+diagnostic does not change the registered LIBERO-36 result or unlock Fold 02.
+Detailed configuration and evidence are in
+`results/teacher_native_task0_stageBC_decision_20261002.json`.
 
 ### Task-balanced sampling proposal (2026-09-23)
 
