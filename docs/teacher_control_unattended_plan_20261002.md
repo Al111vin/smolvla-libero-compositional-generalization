@@ -22,6 +22,8 @@ control, not a replacement for the protected original 36-task benchmark.
   converted dataset. Old GPU was deleted; never retry it.
 - Custom joint32 task0 (left-region bowl) is NOT native spatial task0.
 - No train/eval/unattended process was found in the current targeted process check.
+- Recovered historical native V3 task0 full benchmark-initialization reference:
+  13/20, mean reward 0.65 (`results/phaseB_historical_v3_recovered_asset_full20_egl_summary_20260922.json`).
 
 ## Stage goals and decision gates
 
@@ -46,11 +48,14 @@ therefore uses 333 warmup steps and 10000 decay steps (from configured 3000 and
 runtime behavior; do not report the schedule as unchanged.
 
 Stage D provisional progression gate: fixed condition 5/5 outcomes and full-init
-performance not materially below matched historical reference (predeclare a 10
-percentage-point practical margin before looking at new outcomes). Small samples
-do not prove statistical equivalence. Before expensive scaling, independently
-repeat a training seed and require the same practical gate. Freeze assessment
-criteria before evaluation; do not lower them after failure.
+performance of at least 11/20 against the matched historical reference of 13/20
+(a predeclared 10 percentage-point practical margin). Paired 20-init assessment
+uses the same task, init indexes 0–19, max_steps=300, wait_steps=10,
+n_action_steps=25, evaluator, and CLI seed schedule as the archived historical
+reference. Fixed-condition repeats use init_index=3, CLI seed=12345 five times.
+Small samples do not prove statistical equivalence. Before expensive scaling,
+independently repeat a training seed and require the same practical gate. Freeze
+assessment criteria before evaluation; do not lower them after failure.
 
 ## Compare alternatives before each mutation
 

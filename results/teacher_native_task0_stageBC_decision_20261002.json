@@ -55,6 +55,18 @@
   "stop_conditions": ["preflight failure", "nonfinite training", "missing checkpoint", "conflicting GPU workload", "output directory exists", "one evidence-backed retry exhausted"],
   "predeclared_primary_checkpoint": 10000,
   "other_saved_checkpoints_diagnostic_only": [2500, 5000, 7500],
+  "stageD_assessment": {
+    "historical_checkpoint_reference": "recovered_historical_v3/smolvla_v3_task0_10k_run1/010000",
+    "historical_20_init_successes": 13,
+    "historical_20_init_rollouts": 20,
+    "historical_mean_reward": 0.65,
+    "historical_evidence": "results/phaseB_historical_v3_recovered_asset_full20_egl_summary_20260922.json",
+    "fixed_repeat_condition": {"task": "libero_spatial task0", "init_index": 3, "cli_seed": 12345, "repeats": 5, "wait_steps": 10, "n_action_steps": 25, "max_steps": 300},
+    "paired_20_init_condition": {"init_indices": "0..19", "cli_seed_by_init": "12345 + init_index; evaluator adds init_index internally", "wait_steps": 10, "n_action_steps": 25, "max_steps": 300},
+    "progression_gate": "fixed condition 5/5 and paired full-init >=11/20 (predeclared 10 percentage-point practical margin to historical 13/20; not a statistical equivalence claim)",
+    "runner": "scripts/run_teacher_native_task0_eval_20261002.sh",
+    "runner_deployed_to": "/root/smolvla-training-prep/recovery/native_task0_20261002/run_teacher_native_task0_eval_20261002.sh"
+  },
   "exposure_matched_joint32_causal_comparison": false,
   "fold02": "LOCKED",
   "preflight": {
@@ -70,7 +82,10 @@
     "training_pid": 3494,
     "command": "python -m scripts.lerobot_train_loco_compat --config_path=recovery/native_task0_20261002/teacher_native_task0_current_pipeline_10k_20261002_v1.json",
     "log": "/root/smolvla-training-prep/recovery/native_task0_20261002/training.log",
-    "last_verified_step": 1082,
+    "last_verified_step": 5105,
+    "checkpoint_002500_written": true,
+    "checkpoint_005000_written": true,
+    "last_progress_snapshot_utc": "2026-10-02T17:20:45Z",
     "loss_finiteness_verification_pending": true
   }
 }
