@@ -100,6 +100,43 @@ unresolved. Never alter multiple variables and claim one-variable causality.
 
 ## Current next step
 
-Rebuild and fully verify native task0 using the existing converter without
---overwrite, then produce stage-C options/config/preflight before GPU training.
-Goal created, heartbeat activation is tracked separately from remote job status.
+Stages A-D's initial current-pipeline pilot and matched assessment are complete.
+The fixed-condition gate failed (0/5), and paired-init performance was 8/20
+versus the historical reference's 13/20. Do not begin task-count scaling.
+
+### Bounded diagnosis follow-up: historical base initialization
+
+Three options were compared in
+`results/teacher_native_task0_training_recipe_difference_audit_20261002.json`:
+
+1. Keep the reconstructed official task0 data and current training recipe fixed,
+   changing only `policy.pretrained_path` to the recovered historical starting
+   base — selected as the lowest-cost one-factor diagnosis.
+2. Reproduce the entire historical recipe — deferred because optimizer,
+   preprocessing, language-padding and historical dataset identity differ, and
+   the original training dataset revision/count are not recorded or currently
+   accessible.
+3. Extend the current initialization to 90k updates — not selected because it
+   changes exposure and scheduler behavior while postponing the direct test of
+   the largest known difference.
+
+No-gradient model construction with the historical base succeeded under the
+current training configuration: 450,046,176 parameters loaded on CUDA, the
+current `num_expert_layers=-1` configuration was honored, and dataset metadata
+remained 50 episodes/5,068 frames. No gradient steps or output artifacts were
+created by this compatibility preflight. This resolves the weight-shape
+compatibility concern but does not guarantee training success.
+
+The next bounded stage is `native_task0_base_init_current_recipe_10k_v1`: keep
+the current dataset, loader, preprocessing, optimizer, scheduler behavior,
+seed, batch, action chunk, update count, and evaluation criteria fixed; change
+only the initialization path. Use a new output directory and run the same
+5-repeat fixed-init plus paired 20-init assessment. If it passes both gates,
+independently repeat the training seed before planning task-count scaling. If
+it fails, stop scaling and compare historical/current preprocessing and
+optimization details; at most one evidence-backed repair is allowed. Fold02
+remains locked throughout.
+
+The unattended heartbeat remains the existing active monitor; it is not a GPU
+job. GPU training/evaluation progress must be checked independently from that
+heartbeat status.

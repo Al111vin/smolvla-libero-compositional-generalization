@@ -71,6 +71,18 @@ outcomes and checkpoint provenance are in
 Detailed configuration and evidence are in
 `results/teacher_native_task0_stageBC_decision_20261002.json`.
 
+The next bounded diagnostic holds that current data/training recipe fixed and
+changes only initialization, using the recovered historical task0 starting
+base rather than the joint32 checkpoint. No-gradient construction through the
+same LeRobot policy factory successfully loaded the historical base under the
+current model configuration (450,046,176 parameters; no training/output was
+performed by the check). This follow-up is not a historical recipe
+reproduction: the old dataset revision and several optimizer/preprocessing
+settings are unavailable or differ. Task-count scaling remains blocked until
+single-task success gates pass. See
+[`training recipe audit`](results/teacher_native_task0_training_recipe_difference_audit_20261002.json)
+and [`unattended plan`](docs/teacher_control_unattended_plan_20261002.md).
+
 ### Task-balanced sampling proposal (2026-09-23)
 
 The joint32 dataset has five episodes per task, but frame counts range from

@@ -1,0 +1,103 @@
+{
+  "schema_version": 1,
+  "date": "2026-10-02",
+  "audit_type": "read_only_training_recipe_provenance_comparison",
+  "inputs": {
+    "historical_checkpoint": "recovered_historical_v3_20260922/outputs/smolvla_v3_task0_10k_run1/checkpoints/010000/pretrained_model",
+    "historical_train_config_sha256": "1ab5c3d0887772b00a52fed0d73c9e6ad539223998363c3c0ae17b0a88c157cd",
+    "historical_policy_config_sha256": "cbe81da18445be36d2e7e294225be25f5d4ac5bf0d165293a1989fcff720b4f1",
+    "historical_initial_base": "/root/smolvla-training-prep/models/smolvla_base_libero",
+    "historical_initial_base_model_sha256": "7cd549ac2351fb069c0ddb3c34ad2d09cfc92b56a15dccdfc2e41467aaca01eb",
+    "current_run_config": "configs/teacher_native_task0_current_pipeline_10k_20261002_v1.json",
+    "current_final_checkpoint_sha256": "046277c840595138634240ce891c444a23da6f49f6a56ef4b75d9d6bab1bb3f9"
+  },
+  "same_or_aligned": [
+    "Both recorded runs use 10000 optimizer steps, batch size 8, seed 1000, and AdamW.",
+    "Both use the same SmolVLA feature schema: agentview+wrist 128x128, 15-D state, 7-D action.",
+    "Both use chunk_size 50, freeze_vision_encoder=true, train_expert_only=true, and train_state_proj=true.",
+    "The current native source contains 50 episodes/5068 frames and passed exact HDF5-to-LeRobot action/state/image audits."
+  ],
+  "verified_recipe_differences": {
+    "initialization": {
+      "historical": "models/smolvla_base_libero (VLM weights loaded from base)",
+      "current": "loco_fold01_formal_v1/checkpoints/020000/pretrained_model (joint32-pretrained initialization)",
+      "interpretation": "Large explicit difference; current run tests whether the joint32 initialization transfers to the native task."
+    },
+    "optimizer_peak_lr": {"historical": 0.0001, "current": 0.00001},
+    "configured_schedule": {
+      "historical": {"warmup_steps": 1000, "decay_steps": 30000, "decay_lr": 0.0000025},
+      "current": {"warmup_steps": 3000, "decay_steps": 90000, "decay_lr": 0.00000025},
+      "current_effective_runtime": {"warmup_steps": 333, "decay_steps": 10000}
+    },
+    "amp": {"historical": false, "current": true},
+    "gradient_clip_norm": {"historical": 10.0, "current": 1.0},
+    "language_padding": {"historical": "max_length", "current": "longest"},
+    "prefix_length": {"historical": 0, "current": -1},
+    "load_vlm_weights": {"historical": true, "current": false},
+    "training_dataset_identity": {
+      "historical_repo_id": "Al111vin/libero_spatial_task0",
+      "historical_episodes_and_revision": "not recorded in the saved train_config; repo is not available under the currently authenticated Hub account",
+      "current_repo_id": "local/libero_spatial_task0_reconstructed_20261002",
+      "current_episode_count": 50,
+      "interpretation": "Historical training-data identity/count cannot be confirmed, so exact recipe reproduction is not currently possible."
+    },
+    "training_n_action_steps": {"historical": 50, "current": 25}
+  },
+  "current_run_interpretation": {
+    "training_exit_code": 0,
+    "steps": 10000,
+    "final_logged_loss": 0.503,
+    "fixed_condition": "0/5 successes (historical checkpoint 5/5)",
+    "paired_20_initializations": "8/20 (historical checkpoint 13/20)",
+    "gate": "single-task stable-learning gate not met",
+    "causal_limit": "The result does not prove a software/data-pipeline defect: initialization, optimizer, scheduler, AMP, clipping, language padding, and historical dataset identity differ."
+  },
+  "options_compared": [
+    {
+      "id": "current_recipe_change_initialization_only",
+      "recommendation": "selected",
+      "change": "Keep the current official dataset, training entry, hyperparameters, seed, updates, and evaluation fixed; use the verified historical starting base models/smolvla_base_libero instead of the joint32 checkpoint.",
+      "benefit": "One-factor follow-up tests whether initialization is a major contributor while preserving the now-verified current loader and data flow.",
+      "cost": "One bounded 10000-step training plus the same 25-rollout evaluation; new independent output directories.",
+      "limitation": "Does not recreate the historical full recipe because other settings and the old dataset revision are unknown."
+    },
+    {
+      "id": "full_historical_recipe_reproduction",
+      "recommendation": "deferred",
+      "benefit": "Closest path to reproducing the known successful recipe.",
+      "cost": "Would change several settings at once and requires the historical dataset/revision, which is not currently accessible.",
+      "limitation": "A positive result would establish capability but not isolate which difference mattered."
+    },
+    {
+      "id": "90k_current_initialization_training",
+      "recommendation": "not_selected",
+      "benefit": "Directly tests whether the shorter current run undertrained.",
+      "cost": "About nine times the optimizer updates and a much longer GPU run.",
+      "limitation": "Changes training exposure and effective schedule together; high cost before testing the clear initialization difference."
+    }
+  ],
+  "selected_next_stage": {
+    "name": "native_task0_base_initialization_ablation_v1",
+    "only_changed_training_variable": "policy.pretrained_path",
+    "source_initialization": "/root/smolvla-training-prep/models/smolvla_base_libero",
+    "expected_current_config": "same as teacher_native_task0_current_pipeline_10k_20261002_v1 except pretrained_path, job_name, and independent output_dir",
+    "training_updates": 10000,
+    "fixed_outcome_gate": "5/5 successes on the fixed condition",
+    "paired_init_practical_gate": "at least 11/20 successes",
+    "task_count_scaling": "prohibited unless the single-task gate passes",
+    "fold02": "LOCKED",
+    "compatibility_preflight": {
+      "passed": true,
+      "method": "current LeRobot make_policy factory with current task0 TrainPipelineConfig and recovered historical base path; no optimizer or gradient steps",
+      "loaded_parameters": 450046176,
+      "device": "cuda:0",
+      "effective_num_expert_layers": -1,
+      "dataset_episodes": 50,
+      "dataset_frames": 5068,
+      "training_started": false,
+      "gradient_steps": 0,
+      "output_written": false
+    },
+    "launch_state": "ready_to_launch_after_deploy_and_final_conflict_check"
+  }
+}

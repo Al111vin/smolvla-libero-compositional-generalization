@@ -9,7 +9,7 @@
   "interval_minutes": 30,
   "stages": ["native_source_recovery", "independent_conversion_and_qc", "current_pipeline_single_task_pilot", "matched_outcome_repeats_and_full_init_assessment", "single_task_training_recipe_difference_diagnosis", "exposure_matched_scaling_design", "research_conclusion_and_publication"],
   "completed": ["historical_fixed_condition_5_of_5_success", "official_native_source_full_hdf5_audit", "independent_conversion_and_qc", "current_pipeline_single_task_pilot", "matched_outcome_repeats_and_full_init_assessment"],
-  "current_stage": "single_task_training_recipe_difference_diagnosis",
+  "current_stage": "historical_base_initialization_ablation",
   "training_started": true,
   "training_pid_at_launch": 3494,
   "conversion_and_preflight_passed": true,
@@ -50,6 +50,11 @@
   "fold02": "LOCKED",
   "old_gpu": "deleted_do_not_connect",
   "safety": "preserve_old_results_one_gpu_workload_no_unbounded_repair_training",
-  "publication": "pending_stage_summary_sync_to_github_and_hugging_face",
+  "recipe_comparison_completed": true,
+  "selected_followup": "native_task0_base_init_current_recipe_10k_20261002_v1",
+  "selected_followup_training_variable": "policy.pretrained_path_only",
+  "selected_followup_compatibility_preflight_passed": true,
+  "selected_followup_training_started": false,
+  "publication": "pending_sync_recipe_audit_config_launcher_and_plan_before_training",
   "host_requirement": "Mac powered_on_and_Codex_running_for_local_heartbeat"
 }
