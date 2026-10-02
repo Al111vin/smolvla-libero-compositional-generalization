@@ -82,6 +82,10 @@ settings are unavailable or differ. Task-count scaling remains blocked until
 single-task success gates pass. See
 [`training recipe audit`](results/teacher_native_task0_training_recipe_difference_audit_20261002.json)
 and [`unattended plan`](docs/teacher_control_unattended_plan_20261002.md).
+The independent 10,000-step run and its bounded evaluation orchestrator have
+now been launched on the current GPU; the first live check observed training
+underway. Results will be reported only after the exit status, checkpoints, and
+all 25 planned rollouts are verified.
 
 ### Task-balanced sampling proposal (2026-09-23)
 

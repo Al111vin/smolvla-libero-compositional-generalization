@@ -54,7 +54,14 @@
   "selected_followup": "native_task0_base_init_current_recipe_10k_20261002_v1",
   "selected_followup_training_variable": "policy.pretrained_path_only",
   "selected_followup_compatibility_preflight_passed": true,
-  "selected_followup_training_started": false,
-  "publication": "pending_sync_recipe_audit_config_launcher_and_plan_before_training",
+  "selected_followup_training_started": true,
+  "selected_followup_training_launcher_pid": 30157,
+  "selected_followup_training_python_pid": 30297,
+  "selected_followup_evaluation_orchestrator_pid": 30158,
+  "selected_followup_first_progress_step": 42,
+  "selected_followup_training_status": "running",
+  "selected_followup_training_output": "/root/smolvla-training-prep/results/training/teacher_native_task0_base_init_current_recipe_10k_20261002_v1",
+  "selected_followup_eval_output": "/root/smolvla-eval-prep/results/teacher_native_task0_base_init_current_recipe_10k_20261002_v1/eval_v1",
+  "publication": "stage_plan_config_and_launchers_synced; awaiting run result summary",
   "host_requirement": "Mac powered_on_and_Codex_running_for_local_heartbeat"
 }

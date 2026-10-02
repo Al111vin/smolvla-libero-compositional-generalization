@@ -98,6 +98,17 @@
       "gradient_steps": 0,
       "output_written": false
     },
-    "launch_state": "ready_to_launch_after_deploy_and_final_conflict_check"
+    "launch_state": "training_started_after_deploy_and_final_conflict_check",
+    "run_id": "teacher_native_task0_base_init_current_recipe_10k_20261002_v1",
+    "training_launcher_pid": 30157,
+    "training_python_pid_at_first_progress_check": 30297,
+    "evaluation_orchestrator_pid": 30158,
+    "first_progress_check": {
+      "optimizer_steps_observed": 42,
+      "training_exit_code": null,
+      "conflict_check": "only the expected task0 trainer was using the GPU",
+      "output_root": "/root/smolvla-training-prep/results/training/teacher_native_task0_base_init_current_recipe_10k_20261002_v1",
+      "evaluation_root": "/root/smolvla-eval-prep/results/teacher_native_task0_base_init_current_recipe_10k_20261002_v1/eval_v1"
+    }
   }
 }
