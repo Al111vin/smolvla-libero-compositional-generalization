@@ -1,0 +1,87 @@
+{
+  "schema_version": 1,
+  "date": "2026-10-02",
+  "stage_id": "teacher_directed_task_scaling_stageE",
+  "status": "design_selected_pending_remote_preflight",
+  "long_term_goal": "distinguish current single-task pipeline capability, insufficient per-task exposure, and multi-task interference before scaling 1->4->8->16->32 tasks",
+  "current_goal_state": {
+    "product_goal_already_active": true,
+    "continue_existing_goal_without_duplicate": true,
+    "fold02": "LOCKED"
+  },
+  "evidence_basis": {
+    "single_task_lr_scale_candidate": "results/teacher_native_task0_lrscale_ablation_20261002.json",
+    "single_task_gate": "passed on native libero_spatial task0: fixed init 5/5 and paired 20-init 12/20; not a LIBERO-36 custom task result",
+    "pilot_data_manifest": "data/demos/libero36_expansion_plan_v1.json",
+    "pilot_tasks": {
+      "0": {"episodes": 5, "frames": 3290, "passed": true, "instruction": "pick up the akita black bowl and place it on the plate in the left region"},
+      "1": {"episodes": 5, "frames": 2800, "passed": true, "instruction": "pick up the akita black bowl and place it on the plate in the middle region"},
+      "2": {"episodes": 5, "frames": 2990, "passed": true, "instruction": "pick up the akita black bowl and place it on the plate in the right region"},
+      "3": {"episodes": 5, "frames": 2980, "passed": true, "instruction": "pick up the akita black bowl and place it inside the basket in the left region"}
+    },
+    "critical_scope_note": "The current native libero_spatial task0 positive-control evaluation is not interchangeable with custom LIBERO-36 task0. The following comparisons must use the same custom task data, environment, initialization states, evaluator, and protocol."
+  },
+  "options_compared": [
+    {
+      "id": "direct_four_task_40k",
+      "decision": "defer",
+      "reason": "Without a task0-only model trained on the same five-demo source, a 4-task failure cannot distinguish multi-task interference from a task/data/protocol mismatch."
+    },
+    {
+      "id": "four_task_10k_total",
+      "decision": "reject",
+      "reason": "This would give each task only about 2500 optimizer updates and confound task count with lower per-task training exposure."
+    },
+    {
+      "id": "matched_custom_task0_then_tasks0_to3",
+      "decision": "recommended",
+      "reason": "First establish a same-source task0-only control on the exact task0 pilot data; only after that gate passes, train tasks 0-3 with equal sampling and four times the total updates so each task receives the same expected sample exposure."
+    }
+  ],
+  "selected_protocol": {
+    "data": "the existing five-success-demo LeRobot pilot datasets for custom LIBERO-36 tasks 0, 1, 2, and 3; do not rebuild or alter datasets",
+    "common_initialization": "the same verified base initialization for both runs; do not initialize the multi-task run from the task0-trained checkpoint",
+    "training_settings_to_hold_fixed": ["official current training entry", "batch_size=8", "seed=1000", "chunk_size=50", "n_action_steps=25", "learning_rate_schedule=the selected 10x task0 schedule", "optimizer and preprocessing", "per-task expected sample exposure"],
+    "stageE1_single_task_control": {
+      "task_ids": [0],
+      "episodes": 5,
+      "optimizer_updates": 10000,
+      "expected_draws_per_task": 80000,
+      "output_directory": "new unique directory; never reuse a prior output"
+    },
+    "stageE2_four_task_comparison": {
+      "task_ids": [0, 1, 2, 3],
+      "batch_composition": "two samples per task in every batch of eight, if the audited loader can guarantee this without changing sample semantics; otherwise stop and revise design before training",
+      "optimizer_updates": 40000,
+      "expected_draws_per_task": 80000,
+      "common_initialization": "same base initialization hash as StageE1"
+    },
+    "evaluation": {
+      "protocol": "strict deterministic custom LIBERO-36 closed-loop evaluator, using held-out benchmark initial states and the exact same per-task evaluator settings for StageE1 and StageE2",
+      "planned_tasks": [0, 1, 2, 3],
+      "planned_primary_measure": "success/reward per task and aggregate; preserve per-init rows",
+      "must_be_verified_before_training": ["task-specific BDDL and language mapping", "held-out initial-state manifests", "strict evaluator task support and positive-control behavior", "same camera/state/action preprocessing as training", "new independent output locations"]
+    }
+  },
+  "gates_and_stops": {
+    "remote_preflight_required": true,
+    "do_not_start_any_training_until": ["GPU is reachable and idle", "all four frozen dataset paths and QC manifests verify", "task0 single-task subset is exactly the same source used by StageE2", "a strict custom-task evaluator is verified for tasks 0-3", "balanced batch sampler passes no-gradient sample provenance tests", "configs and output directories are unique"],
+    "stageE1_gate": "use a predeclared fixed-init repeated condition plus paired held-out initial states; require repeatability and a nontrivial paired success gate before StageE2; finalize exact thresholds after confirming available state manifests and positive-control behavior",
+    "on_failure": "preserve outputs; compare evidence-backed remedies, select one bounded diagnostic, do not automatically extend training or launch a second training run",
+    "on_any_preflight_or_evaluator_error": "stop before training, keep logs, no overwrite",
+    "task_scaling": "only advance to StageE2 if StageE1 gate passes; 8/16/32 scaling remains separately gated",
+    "official_benchmark": "unchanged",
+    "fold02": "LOCKED"
+  },
+  "unresolved_blocker": {
+    "issue": "Current SSH request to the new GPU is being closed by the remote endpoint before authentication.",
+    "effect": "Cannot verify remote dataset files, GPU idleness, task-specific state manifests, or evaluator readiness; no training has been launched for this stage.",
+    "next_action": "Retry read-only SSH inventory when the endpoint is available; if it remains unavailable, keep the goal active and do not claim this stage started."
+  },
+  "artifact_policy": {
+    "preserve_all_old_outputs": true,
+    "no_checkpoint_upload": true,
+    "no_raw_hdf5_parquet_or_rollout_payload_upload": true,
+    "publish_only_readme_scripts_and_lightweight_json_summaries": true
+  }
+}

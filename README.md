@@ -174,6 +174,27 @@ diagnostic stage**. Task IDs/data availability and per-task update exposure
 must be verified before training; no 4-task run has started. This gate does not
 alter the LIBERO-36 benchmark outcome and does not unlock Fold 02.
 
+#### Stage E design decision (2026-10-02)
+
+The recommended next experiment is staged to avoid confusing multi-task
+interference with lower per-task training exposure: first train a task-0-only
+control on the exact five-success-demo custom LIBERO-36 task-0 pilot dataset;
+only if its predeclared held-out closed-loop gate passes, compare it with a
+four-task model on custom tasks 0–3. The four-task run is planned for 40,000
+optimizer updates with task-uniform batches of eight (two samples per task),
+matching the single-task control's expected 80,000 sample draws per task. Both
+runs must use the same base initialization and training recipe, and distinct
+output directories. The previously completed native `libero_spatial` task-0
+control is not interchangeable with custom LIBERO-36 task 0.
+
+No Stage E training has started. The design is gated on read-only GPU checks
+of the frozen dataset and held-out state manifests, plus verification of a
+strict custom-task evaluator for tasks 0–3 and sampler provenance. The current
+GPU SSH endpoint is closing connections before authentication, so these
+checks are pending. No automatic task scaling or Fold 02 unlock is implied.
+See [`Stage E design`](results/teacher_directed_task_scaling_stageE_design_20261002.json)
+for options considered, gates, and stop conditions.
+
 ### Task-balanced sampling proposal (2026-09-23)
 
 The joint32 dataset has five episodes per task, but frame counts range from
