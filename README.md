@@ -40,6 +40,27 @@ It combines closed-loop LIBERO evaluation, controlled leave-one-combination-out
 > the private Hugging Face dataset; GitHub stores only lightweight evidence and
 > reproducibility metadata.
 
+### Teacher-recommended single-task control (2026-10-02)
+
+The historical native LIBERO Spatial task-0 V3 checkpoint succeeded in **5/5**
+repeats at one fixed initialization and evaluation condition, with reward 1 in
+each run. This establishes outcome repeatability at that condition; trajectories
+were not identical. Official native task data was reconstructed from the LIBERO
+Hugging Face source and verified against its published file hash: 50 episodes
+and 5,068 frames. An independent conversion audit found exact float32 agreement
+for every action and state, exact pixel agreement for both cameras, and passing
+samples through the current LeRobot loader and preprocessing.
+
+A bounded **10,000-update single-task control is running** through the current
+official training entry with the existing episode-compatibility patch, using a
+new output directory. The run uses the current joint32 initialization and
+optimizer setup. LeRobot automatically rescales the 90,000-update scheduler to
+this shorter run (warmup 3,000→333; decay horizon 90,000→10,000), so this is a
+current-pipeline capability test, not an exposure-matched causal comparison to
+the 90,000-update joint32 run. Closed-loop results are pending. This diagnostic
+does not change the registered LIBERO-36 result or unlock Fold 02. Detailed
+configuration and evidence are in `results/teacher_native_task0_stageBC_decision_20261002.json`.
+
 ### Task-balanced sampling proposal (2026-09-23)
 
 The joint32 dataset has five episodes per task, but frame counts range from

@@ -1,0 +1,76 @@
+{
+  "date": "2026-10-02",
+  "experiment_type": "diagnostic_native_task_control_not_original_benchmark_result",
+  "stageB": {
+    "conversion_completed": true,
+    "frames": 5068,
+    "episodes": 50,
+    "images_compared_pixel_exact": 10136,
+    "action_max_abs_diff_float32": 0.0,
+    "state_max_abs_diff_float32": 0.0,
+    "task_text_matches": true,
+    "real_loader_samples": [0, 97, 98, 5067],
+    "loader_action_shape": [50, 7],
+    "loader_state_shape": [15],
+    "loader_image_shapes": [3, 128, 128],
+    "finite": true,
+    "passed": true,
+    "source_byte_identity_to_old_converted_dataset": "not_verifiable_old_gpu_deleted"
+  },
+  "options": [
+    {
+      "id": "current_pipeline_capability_pilot",
+      "recommended": true,
+      "benefit": "Directly tests whether current original official train entry and loader can learn historically successful native task",
+      "budget": "one 10000-step run batch8, no automatic budget escalation",
+      "confounders": "Compared with historical model, initial checkpoint and optimizer/schedule may differ; not one-variable historical reproduction",
+      "falsifying_outcome": "Failure at matched closed-loop assessment weakens current capability but does not independently prove a pipeline bug"
+    },
+    {
+      "id": "historical_recipe_reproduction_first",
+      "recommended": false,
+      "benefit": "Closer reproduction of historical training",
+      "cost": "Requires verified original base checkpoint and historical software/preprocessing lineage",
+      "confounders": "Does not directly isolate current joint32 initialization/pipeline",
+      "use_if": "Reserved follow-up after supported differential diagnosis, not an automatic second run"
+    }
+  ],
+  "chosen_config": "configs/teacher_native_task0_current_pipeline_10k_20261002_v1.json",
+  "changes_from_current_joint32": {
+    "dataset": "official native task0 reconstructed, all episodes0..49",
+    "steps": [90000, 10000],
+    "save_freq": [30000, 2500],
+    "log_freq": [1000, 100],
+    "output": "independent teacher_native_task0_current_pipeline_10k_20261002_v1"
+  },
+  "retained_config_values": ["original official training entry with episode compatibility patch", "batch8", "seed1000", "chunk50", "n_action_steps25", "loco_fold01_020000 initialization", "peak_lr1e-5", "configured_warmup3000", "configured_decay90000", "amp", "freeze_vision_encoder", "train_expert_only", "train_state_proj"],
+  "runtime_scheduler_behavior": {
+    "observed": "LeRobot automatically rescales the scheduler when steps < num_decay_steps",
+    "warmup_steps_effective": 333,
+    "decay_steps_effective": 10000,
+    "evidence": "training.log at 2026-10-02 17:09:10: Auto-scaling LR scheduler: num_training_steps (10000) < num_decay_steps (90000). Scaling warmup: 3000 -> 333, decay: 90000 -> 10000 (scale factor: 0.111)",
+    "implication": "This run is a current-pipeline capability test, not an exposure-matched causal comparison to the 90000-update joint32 run."
+  },
+  "initial_model_sha256": "edc130073519e713b243ee368c5c5a7a49f4588622baeeb861cb2b55fa2562c4",
+  "stop_conditions": ["preflight failure", "nonfinite training", "missing checkpoint", "conflicting GPU workload", "output directory exists", "one evidence-backed retry exhausted"],
+  "predeclared_primary_checkpoint": 10000,
+  "other_saved_checkpoints_diagnostic_only": [2500, 5000, 7500],
+  "exposure_matched_joint32_causal_comparison": false,
+  "fold02": "LOCKED",
+  "preflight": {
+    "passed": true,
+    "batch_action_shape": [8, 50, 7],
+    "batch_state_shape": [8, 1, 15],
+    "action_normalize_roundtrip_max_abs_diff": 8.940696716308594e-08,
+    "gradient_steps_in_preflight": 0
+  },
+  "training_started": true,
+  "launch_observation": {
+    "runner_pid": 3392,
+    "training_pid": 3494,
+    "command": "python -m scripts.lerobot_train_loco_compat --config_path=recovery/native_task0_20261002/teacher_native_task0_current_pipeline_10k_20261002_v1.json",
+    "log": "/root/smolvla-training-prep/recovery/native_task0_20261002/training.log",
+    "last_verified_step": 1082,
+    "loss_finiteness_verification_pending": true
+  }
+}

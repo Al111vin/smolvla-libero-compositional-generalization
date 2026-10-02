@@ -1,0 +1,21 @@
+{
+  "date": "2026-10-02",
+  "goal_status": "active",
+  "goal_thread_id": "019f4fb0-3c36-7da0-a436-1bf81b0d54ac",
+  "plan": "docs/teacher_control_unattended_plan_20261002.md",
+  "automation_id": "smolvla",
+  "automation_kind": "heartbeat",
+  "automation_status": "ACTIVE",
+  "interval_minutes": 30,
+  "stages": ["native_source_recovery", "independent_conversion_and_qc", "current_pipeline_single_task_pilot", "matched_outcome_repeats_and_full_init_assessment", "exposure_matched_scaling_design", "research_conclusion_and_publication"],
+  "completed": ["historical_fixed_condition_5_of_5_success", "official_native_source_full_hdf5_audit"],
+  "current_stage": "current_pipeline_single_task_pilot",
+  "training_started": true,
+  "training_pid_at_launch": 3494,
+  "conversion_and_preflight_passed": true,
+  "fold02": "LOCKED",
+  "old_gpu": "deleted_do_not_connect",
+  "safety": "preserve_old_results_one_gpu_workload_no_unbounded_repair_training",
+  "publication": "pending_verified_stage_sync",
+  "host_requirement": "Mac powered_on_and_Codex_running_for_local_heartbeat"
+}

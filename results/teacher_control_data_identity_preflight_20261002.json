@@ -1,0 +1,82 @@
+{
+  "schema": "teacher_control_data_identity_preflight_v1",
+  "date": "2026-10-02",
+  "status": "official_native_source_recovered_and_validated_conversion_stage_started",
+  "positive_control": {
+    "checkpoint": "/root/smolvla-eval-prep/recovered_historical_v3_20260922/outputs/smolvla_v3_task0_10k_run1/checkpoints/010000/pretrained_model",
+    "task_suite": "libero_spatial",
+    "task_id": 0,
+    "language": "pick up the black bowl between the plate and the ramekin and place it on the plate",
+    "init_index": 3,
+    "cli_seed": 12345,
+    "effective_seed": 12348,
+    "n_action_steps": 25,
+    "wait_steps": 10,
+    "max_steps": 300,
+    "success": [true, true, true, true, true],
+    "reward": [1, 1, 1, 1, 1],
+    "steps": [93, 89, 174, 90, 89],
+    "trajectory_identical": false,
+    "source": "/root/smolvla-eval-prep/results/teacher_control_repeats_20261002_v1"
+  },
+  "historical_training_config": {
+    "dataset_repo_id": "Al111vin/libero_spatial_task0",
+    "dataset_root": "datasets/lerobot/libero_spatial_task0",
+    "pretrained_path": "models/smolvla_base_libero",
+    "steps": 10000,
+    "batch_size": 8,
+    "seed": 1000
+  },
+  "current_joint32": {
+    "training_entry": "scripts.lerobot_train_loco_compat -> lerobot.scripts.lerobot_train",
+    "dataset_repo_id": "local/libero36_feasible_32_frozen_v1",
+    "task_index_0_language": "pick up the akita black bowl and place it on the plate in the left region",
+    "episodes_0_to_4_frames": 3290,
+    "pretrained_path": "/root/smolvla-training-prep/results/training/loco_fold01_formal_v1/checkpoints/020000/pretrained_model",
+    "task_identity_matches_native_positive_control": false
+  },
+  "recovered_hdf5": {
+    "path": "/root/smolvla-eval-prep/recovered_historical_v3_20260922/data/demos/libero36_task0_5_success_pilot_v1/task_000_layout_1_5_success.hdf5",
+    "language": "pick up the akita black bowl and place it on the plate in the left region",
+    "bddl": "task_000_layout_1_akita_black_bowl_put_on_top_left.bddl",
+    "is_exact_native_historical_task_dataset": false
+  },
+  "availability": {
+    "exact_dataset_found_on_new_gpu_in_scanned_roots": false,
+    "huggingface_lookup": "Dataset not found under current authentication; does not prove deletion",
+    "old_gpu_117_50_196_63_port_23": "deleted, confirmed by user; do not retry",
+    "official_native_source": {
+      "repo": "yifengzhu-hf/LIBERO-datasets",
+      "revision": "97773100c1474cd0d686ebd173cc0e4fd5442466",
+      "file": "libero_spatial/pick_up_the_black_bowl_between_the_plate_and_the_ramekin_and_place_it_on_the_plate_demo.hdf5",
+      "bytes": 508779600,
+      "sha256": "ff6f26121653c77280eb40a38773a74141c11a8509f3466058cb56dd2cc60ead",
+      "destination": "/root/smolvla-training-prep/recovery/native_task0_20261002",
+      "status": "download_complete_full_hdf5_audit_passed",
+      "verified_episodes": 50,
+      "verified_frames": 5068,
+      "schema_errors": [],
+      "recovery_type": "official_source_reconstruction_not_byte_verified_old_converted_dataset"
+    }
+  },
+  "options": [
+    {"id": "A", "recommend": true, "action": "Restore the exact historical native task dataset, validate task/state/action/image contracts, then train it through the current original joint32 entry."},
+    {"id": "B", "recommend": false, "action": "Train the custom left-region task subset and evaluate its matching BDDL. This is a different control and first requires a matched historical success reference."},
+    {"id": "C", "recommend": false, "action": "Train custom task0 then evaluate native task0. Do not use this cross-task test to diagnose training-pipeline correctness."}
+  ],
+  "budget_proposal_only": {
+    "steps": 10000,
+    "retain_original_joint32_optimizer_and_lr_schedule": true,
+    "is_exposure_matched_to_joint32_90000_steps": false,
+    "future_scaling": "Measure per-task sample exposure and LR exposure before scaling to 4/8/16/32; do not reuse constant global steps as a fair comparison."
+  },
+  "limits": [
+    "Task identity mismatch is verified; it is not established as the cause of joint32 failure.",
+    "Historical fixed-condition success repetition does not establish bitwise determinism or success over all initializations.",
+    "Earlier provenance audit assertion that custom task0 language matches the native evaluator must be qualified before reuse."
+  ],
+  "fold02": "LOCKED",
+  "training_started": false,
+  "old_results_modified": false,
+  "publication": "local audit only; not pushed"
+}
