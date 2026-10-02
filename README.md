@@ -86,6 +86,10 @@ The independent 10,000-step run and its bounded evaluation orchestrator have
 now been launched on the current GPU; the first live check observed training
 underway. Results will be reported only after the exit status, checkpoints, and
 all 25 planned rollouts are verified.
+The evaluation now has a separate CPU-only completion watcher and CSV
+validator; replaying the validator against the prior 25-rollout CSV set
+reproduced its recorded 0/5 fixed and 8/20 paired results, including the
+Wilson interval. This validator does not change the evaluation protocol.
 
 ### Task-balanced sampling proposal (2026-09-23)
 

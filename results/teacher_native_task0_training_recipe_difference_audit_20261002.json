@@ -109,6 +109,16 @@
       "conflict_check": "only the expected task0 trainer was using the GPU",
       "output_root": "/root/smolvla-training-prep/results/training/teacher_native_task0_base_init_current_recipe_10k_20261002_v1",
       "evaluation_root": "/root/smolvla-eval-prep/results/teacher_native_task0_base_init_current_recipe_10k_20261002_v1/eval_v1"
+    },
+    "post_evaluation_validation": {
+      "summarizer_script": "scripts/summarize_teacher_native_task0_base_init_eval_20261002.py",
+      "summary_waiter_script": "scripts/run_teacher_native_task0_base_init_summarize_20261002.sh",
+      "reference_replay_passed": true,
+      "reference_replay_expectations": {"fixed_successes": 0, "paired_successes": 8, "wilson_95_ci": [0.2188, 0.6134]},
+      "gpu_training_or_evaluation_changed": false,
+      "current_summary_watcher_pid": 33570,
+      "watcher_status": "waiting_for_existing_evaluation_completion_marker",
+      "first_deployment_error": "Local scp used the parent working directory; scripts were not copied and no GPU job was changed. Failure log preserved; successful deployment used the correct repository directory and a separate retry log."
     }
   }
 }
