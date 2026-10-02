@@ -152,8 +152,27 @@ cosine learning-rate schedule by 10x. It keeps the initialization, data,
 training code, seed, update count, and evaluation protocol fixed in a new output
 directory. This is not a full historical reproduction. The design is recorded
 in [`LR-scale ablation design`](results/teacher_native_task0_lrscale_ablation_design_20261002.json).
-No training has started for this ablation yet. Task scaling remains prohibited
-unless the single-task gate passes; Fold 02 remains locked.
+The design was subsequently executed; see the dated outcome below.
+
+### 2026-10-02 — Single-task LR-scale outcome and gate
+
+The LR-scale run completed 10,000 updates with exit code 0. Its loss was finite
+through training and fell from 0.406 at 2k updates to about 0.10 near 9k. On the
+registered strict task-0 evaluator, the 10k checkpoint scored **5/5** at the
+repeated fixed init and **12/20** on paired initializations (Wilson 95% CI
+**[0.3866, 0.7812]**). The fixed-init checkpoint progression run for the prior
+lower-LR recipe scored 0/5 at steps 2.5k, 5k, 7.5k, and 10k; its final paired
+score was 9/20. The LR-scale result clears the predeclared single-task gate
+(fixed 5/5 and paired at least 11/20), but the paired exact McNemar comparison
+against the current-pipeline reference is p=0.2188, so this is not a claim of a
+statistically established improvement or a full reproduction of the
+historical recipe. See the
+[`LR-scale strict evaluation summary`](results/teacher_native_task0_lrscale_ablation_20261002.json).
+
+The project may now advance to designing the next **4-task, exposure-matched
+diagnostic stage**. Task IDs/data availability and per-task update exposure
+must be verified before training; no 4-task run has started. This gate does not
+alter the LIBERO-36 benchmark outcome and does not unlock Fold 02.
 
 ### Task-balanced sampling proposal (2026-09-23)
 
