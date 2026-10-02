@@ -90,14 +90,27 @@ The evaluation now has a separate CPU-only completion watcher and CSV
 validator; replaying the validator against the prior 25-rollout CSV set
 reproduced its recorded 0/5 fixed and 8/20 paired results, including the
 Wilson interval. This validator does not change the evaluation protocol.
-The historical-base-initialized 10,000-update follow-up has now completed and
-saved all four planned checkpoints. Its evaluation completed the five fixed
-repeats (0/5) and paired initialization 0 before a transient Hugging Face Hub
-processor-resolution disconnect stopped the sequential runner. Those partial
-outputs are preserved unchanged. A cache-only processor load passed, so an
-isolated recovery evaluation is being run for the missing paired initializations
-under the same evaluator, seeds, and protocol; no conclusion will be reported
-until all 25 required records validate.
+The historical-base-initialized 10,000-update follow-up has completed with all
+four planned checkpoints. At checkpoint 10,000, the five repeats at fixed
+benchmark init 3 produced **0/5** successes; the matched 20-init set produced
+**9/20** (Wilson 95% CI **[0.2582, 0.6579]**). This is one more success than the
+prior current-pipeline initialization (8/20), but the paired exact McNemar
+test is **p=1.0**, so this is not evidence of a reliable improvement. The
+pre-registered single-task gate (fixed 5/5 and paired at least 11/20) is not
+met. This is a bounded current-recipe initialization comparison, not a
+reproduction of the unavailable historical training recipe; task-count scaling
+remains blocked and Fold 02 remains locked.
+
+The initial sequential evaluator stopped after the five fixed repeats and
+paired init 0 because of a transient Hugging Face Hub processor-resolution
+disconnect. Those original outputs and the error log were preserved. A local
+cache-only processor check passed; an isolated recovery run reused the five
+completed fixed repeats and paired init 0, then reran missing paired inits
+1--19 under the same evaluator, seeds, and protocol. All **25/25** records
+passed validation. The validated summary is
+[`historical-base initialization evaluation`](results/teacher_native_task0_base_init_current_recipe_10k_eval_summary_20261002.json);
+the retry-safe recovery runner is
+[`run_teacher_native_task0_base_init_eval_recovery_20261002.sh`](scripts/run_teacher_native_task0_base_init_eval_recovery_20261002.sh).
 
 ### Task-balanced sampling proposal (2026-09-23)
 
