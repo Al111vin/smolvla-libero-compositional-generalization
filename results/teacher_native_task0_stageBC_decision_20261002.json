@@ -75,6 +75,14 @@
     "retry_output": "/root/smolvla-eval-prep/results/teacher_native_task0_current_pipeline_10k_eval_20261002_v2_egl",
     "first_attempt_counts_as_rollout": false
   },
+  "stageD_interim_result": {
+    "fixed_condition_rollouts_completed": 5,
+    "fixed_condition_successes": 0,
+    "fixed_condition_rewards": [0.0, 0.0, 0.0, 0.0, 0.0],
+    "historical_fixed_condition_reference": "5/5 successes for the recovered native V3 checkpoint under the matched task, initialization, and effective seed",
+    "stable_single_task_gate": "not met; paired 20-initialization characterization continues, but no task-count scaling should follow this candidate checkpoint",
+    "paired_20_init_status": "running"
+  },
   "exposure_matched_joint32_causal_comparison": false,
   "fold02": "LOCKED",
   "preflight": {

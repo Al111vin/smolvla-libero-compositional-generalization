@@ -61,8 +61,10 @@ a current-pipeline capability test, not an exposure-matched causal comparison to
 the 90,000-update joint32 run. The first matched-evaluation launch exposed a
 missing EGL environment setting before any rollout was recorded; that failed
 attempt is preserved separately and excluded. An EGL-configured retry is now
-running, so single-task learning capability is not yet established. This
-diagnostic does not change the registered LIBERO-36 result or unlock Fold 02.
+continuing after the fixed-initialization check returned **0/5 successes**. The
+paired 20-initialization diagnostic is still running, but the preregistered
+stable-single-task gate is already not met; no task-count scaling will start.
+This diagnostic does not change the registered LIBERO-36 result or unlock Fold 02.
 Detailed configuration and evidence are in
 `results/teacher_native_task0_stageBC_decision_20261002.json`.
 
