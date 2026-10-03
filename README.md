@@ -1267,8 +1267,9 @@ The compared options and registered protocol are in
 The isolated read-only preflight passed (GPU idle, 77.18 GiB free), and the
 registered runner started at 2026-10-03 11:17 UTC (runner PID 318695; training
 PID 318705). The 10k and 20k checkpoints each have a verified non-empty 1.2
-GB `model.safetensors`. At the latest successful check, the training log had
-advanced to 23,170 / 40,000 and both runner and trainer were still live.
+GB `model.safetensors`. At the latest successful check (12:12 UTC), training
+had reached 24,769 / 40,000; both runner and trainer were live, with about 32
+minutes of training remaining at the observed rate.
 Training and its registered evaluation sequence remain in progress; no rollout
 result is available yet. Model weights are not published.
 The selected comparison trains task 0 alone from episodes 0--49 of the frozen

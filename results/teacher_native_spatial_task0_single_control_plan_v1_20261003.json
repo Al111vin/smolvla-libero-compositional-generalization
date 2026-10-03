@@ -85,6 +85,15 @@
         "gpu_utilization_percent": 34,
         "gpu_memory_used_mib": 2780
       },
+      "latest_progress_check": {
+        "observed_utc": "2026-10-03 12:12 UTC",
+        "step": 24769,
+        "total_steps": 40000,
+        "runner_and_trainer_processes_live": true,
+        "gpu_utilization_percent": 33,
+        "gpu_memory_used_mib": 2780,
+        "training_eta_at_observed_rate_minutes_approx": 32
+      },
       "checkpoint_milestones": {
         "010000": {
           "status": "model_file_verified_nonempty",
