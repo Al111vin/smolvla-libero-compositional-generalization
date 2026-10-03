@@ -3,7 +3,7 @@
   "date": "2026-10-03",
   "phase": "teacher_directed_single_task_control_and_stageE1_review",
   "goal": "establish a stable one-task capability control before scaling task count while holding per-task sample exposure fixed",
-  "status": "stageE1_custom_task0_gate_failed; paired_demo_start_diagnostics_complete; one_step_and_chunk_fit_audits_complete",
+  "status": "stageE1_custom_task0_gate_failed; paired_demo_start_and_action_fit_diagnostics_complete; source_image_parity_complete",
   "historical_native_task0_control": {
     "task": "LIBERO Spatial task 0",
     "instruction": "pick up the black bowl between the plate and the ramekin and place it on the plate",
@@ -186,6 +186,26 @@
       "interpretation": "No evidence of error growth across the predicted chunk on these in-sample demonstrations. This does not resolve why strict held-out and zero-wait closed-loop success remain 0; closed-loop state distribution, execution dynamics, and generalization remain untested by this audit.",
       "formal_benchmark_evidence": false,
       "training_or_checkpoint_modified": false,
+      "fold02": "LOCKED"
+    },
+    "training_image_parity_audit": {
+      "script": "scripts/audit_task0_training_image_parity_v1.py",
+      "script_sha256": "76dff39a8e55b06802c7d5fa85fdaf750abf2f8c49552ae371410e2b5c885022",
+      "summary": "results/teacher_task0_training_image_parity_v1_20261003.json",
+      "summary_sha256": "51a457424de422306a8c32247df6d5154bfcc5ddd6af12e7b1015090101299a2",
+      "source_gpu_summary_sha256": "96167923856b33c6060a1eb6b69d055366abfa59e1c8ae57b3c1708d3995895e",
+      "hdf5_sha256": "709e070c5d1b664118fdf632e02cfe7d054aff87c352628a9cc098a2892dac61",
+      "source_episodes": 5,
+      "task_zero_lerobot_episodes": 5,
+      "episode_mapping": "unique full-sequence exact action plus 15-D state matching; no file-order assumption",
+      "camera_frame_pairs_compared": 6580,
+      "agentview_pixel_exact_frames": 3290,
+      "wrist_pixel_exact_frames": 3290,
+      "pixel_differences": 0,
+      "audit_complete": true,
+      "training_or_dataset_modified": false,
+      "formal_benchmark_evidence": false,
+      "interpretation": "Source HDF5 and frozen LeRobot image payloads match exactly for every task0 frame in both cameras; action and state also match exactly. This closes the raw-data conversion parity gap but does not verify post-preprocessing model tensors or explain closed-loop failure.",
       "fold02": "LOCKED"
     },
     "next_action": "Do not start training or task scaling from this in-sample audit alone. Compare viable evidence-backed diagnostic options before proposing any further GPU work; preserve StageE1 gate failure and keep Fold02 locked."

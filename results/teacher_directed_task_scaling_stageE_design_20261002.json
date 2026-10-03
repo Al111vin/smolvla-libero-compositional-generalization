@@ -2,7 +2,7 @@
   "schema_version": 1,
   "date": "2026-10-02",
   "stage_id": "teacher_directed_task_scaling_stageE",
-  "status": "stageE1_custom_task0_gate_failed_followup_diagnostics_complete_review_pending",
+  "status": "stageE1_gate_failed; action_fit_and_source_image_audits_complete; preprocessing_parity_next",
   "long_term_goal": "distinguish current single-task pipeline capability, insufficient per-task exposure, and multi-task interference before scaling 1->4->8->16->32 tasks",
   "current_goal_state": {
     "product_goal_already_active": true,
@@ -33,6 +33,41 @@
     "selected_diagnostic": "compare every decoded agentview and wrist image in the five task0 source HDF5 episodes against the corresponding task_index=0 episode rows in the frozen LeRobot dataset; identify episode correspondence by exact action/state sequences rather than assuming file order",
     "scope": "read-only data audit; no policy inference, environment rollout, training, dataset modification, or official benchmark change",
     "stop_condition": "stop after a complete five-episode/two-camera pixel comparison; if metadata mapping or decoding prevents an unambiguous comparison, preserve the failure and report the exact limit rather than guessing",
+    "fold02": "LOCKED",
+    "result": {
+      "summary": "results/teacher_task0_training_image_parity_v1_20261003.json",
+      "script": "scripts/audit_task0_training_image_parity_v1.py",
+      "episodes_matched": 5,
+      "task_zero_lerobot_episode_count": 5,
+      "camera_frame_pairs": 6580,
+      "exact_pixel_matches": 6580,
+      "pixel_mismatch_count": 0,
+      "action_state_match_method": "unique full-sequence equality; no file-order assumption",
+      "scope_limit": "raw HDF5-to-LeRobot pixels only; does not compare preprocessed model-input tensors"
+    }
+  },
+  "next_phase_plan_after_image_parity": {
+    "completed_precondition": "All source actions, 15-D states, and decoded pixels in five task0 episodes match the frozen LeRobot dataset exactly. One-step and full-chunk in-sample fit are low, yet strict held-out and zero-wait closed-loop success remain zero.",
+    "options_compared": [
+      {
+        "option": "compare the actual training-loader and evaluation preprocessing outputs on the same matched HDF5/LeRobot frames",
+        "decision": "recommended",
+        "reason": "Raw data parity is now exact, but model-input transforms, tensor layout, resizing, normalization, and task-string handling have not yet been compared end to end. This remains a bounded, read-only way to test train/eval representation mismatch before changing training."
+      },
+      {
+        "option": "collect more strict rollout seeds immediately",
+        "decision": "defer",
+        "reason": "This would sharpen the failure-rate estimate but would not locate a train/evaluation input mismatch, and the task-matched model already failed 50 held-out plus five exact demo starts."
+      },
+      {
+        "option": "change the optimizer, train longer, or add task0 demos now",
+        "decision": "defer",
+        "reason": "The StageE1 task0 gate has failed; changing recipe or data volume before input/preprocessing consistency is checked would confound the teacher-requested single-task pipeline diagnosis."
+      }
+    ],
+    "selected_diagnostic": "compare the tensor dictionaries immediately before the model for identical matched observations processed through the real LeRobot training dataset path and the strict evaluation path; include both camera tensors, observation.state, task text, shapes, dtypes, ranges, and exact or tolerance-based numeric diffs",
+    "scope": "read-only; no optimizer, model updates, benchmark rollouts, data edits, or Fold02 changes",
+    "stop_condition": "one bounded matched-frame audit covering reset, grasp, and placement phases in all five demos; stop and preserve evidence if an API path or provenance cannot be verified",
     "fold02": "LOCKED"
   },
   "evidence_basis": {
@@ -168,6 +203,20 @@
       "task_scaling_started": false,
       "fold02": "LOCKED"
     },
+    "source_image_parity_audit": {
+      "summary": "results/teacher_task0_training_image_parity_v1_20261003.json",
+      "script": "scripts/audit_task0_training_image_parity_v1.py",
+      "source_episodes": 5,
+      "task_zero_lerobot_episodes": 5,
+      "camera_frame_pairs": 6580,
+      "pixel_exact_matches": 6580,
+      "pixel_mismatch_count": 0,
+      "action_and_state_sequences_exact": true,
+      "result": "Raw HDF5-to-frozen-LeRobot data conversion parity is exact for all audited fields in the five task0 episodes.",
+      "limitation": "No comparison yet of final tensors at the actual model boundary after the training loader and evaluation preprocessing pipelines.",
+      "training_started": false,
+      "fold02": "LOCKED"
+    },
     "on_failure": "preserve outputs; compare evidence-backed remedies, select one bounded diagnostic, do not automatically extend training or launch a second training run",
     "on_any_preflight_or_evaluator_error": "stop before training, keep logs, no overwrite",
     "task_scaling": "only advance to StageE2 if StageE1 gate passes; 8/16/32 scaling remains separately gated",
@@ -176,8 +225,8 @@
   },
   "unresolved_blocker": {
     "issue": "StageE1 custom LIBERO-36 task0 control failed its predeclared 28/50 gate. Zero-wait paired inference also returned 0/5 for the task-matched StageE1 checkpoint from recorded action-start states, while sparse one-step teacher-forced action error on training observations was low (overall MAE 0.0107).",
-    "effect": "StageE2 four-task training remains blocked. Data/actions are validated and expert source rollouts passed. Both sparse one-step and full-chunk in-sample fits are low, with no pooled error growth across the chunk; the cause of zero closed-loop success remains unresolved.",
-    "next_action": "Review bounded, falsifiable explanations for the train/closed-loop gap before proposing further GPU work. Do not retrain or scale tasks from these in-sample diagnostics alone."
+    "effect": "StageE2 four-task training remains blocked. All raw source actions, states, and images match the frozen LeRobot task0 data, while the model has low in-sample one-step and chunk fit but zero strict held-out and exact-demo-start closed-loop success. The cause remains unresolved; raw conversion integrity does not prove train/eval tensor-path equivalence.",
+    "next_action": "Compare the real training-loader and strict-evaluator preprocessed tensor dictionaries on the same matched observations, then review the result before any training or scaling."
   },
   "artifact_policy": {
     "preserve_all_old_outputs": true,

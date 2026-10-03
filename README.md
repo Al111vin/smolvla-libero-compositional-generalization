@@ -229,9 +229,17 @@ this alone. Evidence is in the
 and [`Stage E1 control-chain result`](results/teacher_task0_control_chain_stageE1_result_20261003.json).
 The next bounded check is exhaustive read-only image-pixel parity for every
 frame in the five source HDF5 episodes versus the corresponding frozen
-LeRobot task-0 episodes; action/state parity is already exact, while prior
-image checks sampled only three frames per episode. More rollout seeds and
-training changes are deferred until this remaining data-path check is closed.
+LeRobot task-0 episodes. It is complete: all 3,290 frames in each of the two
+cameras matched pixel-for-pixel, and episode correspondence was established by
+exact full-sequence action/state matches rather than file order. Together with
+the earlier all-frame action/state parity, this closes raw source-to-dataset
+conversion parity for the five demonstrations. It does **not** verify the
+preprocessed tensors delivered to the model or explain the closed-loop failure.
+The next bounded check is read-only train-versus-evaluation preprocessing
+parity on matched frames; more rollout seeds and training changes remain
+deferred. Evidence is in the
+[`full-frame image parity summary`](results/teacher_task0_training_image_parity_v1_20261003.json)
+and [`audit script`](scripts/audit_task0_training_image_parity_v1.py).
 
 ### Task-balanced sampling proposal (2026-09-23)
 
