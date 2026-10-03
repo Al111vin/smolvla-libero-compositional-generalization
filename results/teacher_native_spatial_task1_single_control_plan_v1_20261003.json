@@ -2,7 +2,7 @@
   "schema_version": 1,
   "date": "2026-10-03",
   "stage": "native_spatial_task1_single_task_control",
-  "status": "preflight_passed_training_pending",
+  "status": "training_running",
   "current_gate": {
     "native_historical_task0_positive_control": "5/5 repeated success at fixed task/init/evaluator condition",
     "current_pipeline_single_task_task0": "successful LRx10 reference; 12/20 paired and 5/5 fixed condition",
@@ -65,6 +65,10 @@
     "scheduler": "Retain the joint4 40k config scheduler settings (warmup 3000, decay horizon 90000, peak lr 1e-4, decay lr 2.5e-6).",
     "policy": "Keep chunk_size=50, n_action_steps=25, freeze_vision_encoder=true, train_expert_only=true, train_state_proj=true, same cameras/state/action preprocessing.",
     "checkpoints": [10000, 20000, 30000, 40000],
+    "runtime_status": "started_after_passed_read_only_preflight",
+    "remote_runner_pid": 314385,
+    "remote_driver_log": "/root/smolvla-training-prep/recovery/task_scaling_native_spatial_20261003/task1_single_control_v1/unattended_driver.log",
+    "remote_training_log": "/root/smolvla-training-prep/recovery/task_scaling_native_spatial_20261003/task1_single_control_v1/teacher_native_spatial_task1_single_current_recipe_40k_batch2_v1.training.log",
     "matched_update_caveat": "Same optimizer update count and the same two task1 samples per update as joint4; global batch changes from 8 to 2 because the other task samples are removed. The task1-only objective is not a formal causal estimate of interference, but it is exposure- and update-matched."
   },
   "evaluation_design": {

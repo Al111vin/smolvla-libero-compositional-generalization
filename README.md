@@ -1242,7 +1242,8 @@ not a clean causal estimate of interference.
 The read-only preflight passed: the selected LeRobot slice returns task-1 only,
 with 15-D state, 7-D actions, two 128x128 image streams, finite values, and the
 expected evaluator hash. At preflight the GPU was idle and 77.38 GiB remained
-free. The new 40k run has not yet been declared complete; only its final
+free. The 40k task1-only run has started after the preflight (remote runner PID
+314385); completion and checkpoints are still pending. Only its final
 checkpoint will receive the 20 paired task-1 initializations plus four extra
 init3 repeats. V3 evaluation is not strict-deterministic-algorithms evaluation.
 Fold 02 remains locked, and no 8-task run starts automatically.
