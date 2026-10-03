@@ -11,6 +11,30 @@
     "stageE1_custom_task0": "10k training and strict 50-state evaluation completed; 0/50, predeclared gate failed; StageE2 not started",
     "stageE1_result": "results/teacher_task0_control_chain_stageE1_result_20261003.json"
   },
+  "next_phase_plan_after_chunk_fit_audit": {
+    "completed_precondition": "One-step fit is low on sampled training observations and full 50-step in-sample chunk MAE shows no pooled late-horizon increase; strict held-out and zero-wait closed-loop success remain zero.",
+    "options_compared": [
+      {
+        "option": "exhaustive HDF5-to-frozen-LeRobot image parity for every frame in all five task0 episodes and both cameras",
+        "decision": "recommended",
+        "reason": "Action/state parity is already exact on all frames, but image equality was checked only at three sampled frames per episode. This is the remaining unverified part of the data-conversion path and can be checked read-only without model training or benchmark rollouts."
+      },
+      {
+        "option": "repeat more closed-loop seeds immediately",
+        "decision": "defer",
+        "reason": "The current task-matched checkpoint already has 0/50 held-out and 0/5 exact demo-start outcomes; more failures would estimate the rate but would not isolate a data-pipeline cause."
+      },
+      {
+        "option": "change training schedule, add demonstrations, or increase updates now",
+        "decision": "reject for this phase",
+        "reason": "This would alter multiple factors before the remaining image-conversion parity question is closed and would not distinguish workflow/data issues from insufficient exposure."
+      }
+    ],
+    "selected_diagnostic": "compare every decoded agentview and wrist image in the five task0 source HDF5 episodes against the corresponding task_index=0 episode rows in the frozen LeRobot dataset; identify episode correspondence by exact action/state sequences rather than assuming file order",
+    "scope": "read-only data audit; no policy inference, environment rollout, training, dataset modification, or official benchmark change",
+    "stop_condition": "stop after a complete five-episode/two-camera pixel comparison; if metadata mapping or decoding prevents an unambiguous comparison, preserve the failure and report the exact limit rather than guessing",
+    "fold02": "LOCKED"
+  },
   "evidence_basis": {
     "single_task_lr_scale_candidate": "results/teacher_native_task0_lrscale_ablation_20261002.json",
     "single_task_gate": "passed on native libero_spatial task0: fixed init 5/5 and paired 20-init 12/20; not a LIBERO-36 custom task result",

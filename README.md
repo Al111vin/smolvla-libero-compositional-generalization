@@ -227,6 +227,11 @@ this alone. Evidence is in the
 [`full-chunk audit script`](scripts/audit_task0_action_chunk_horizon_fit_v1.py),
 [`Stage E design`](results/teacher_directed_task_scaling_stageE_design_20261002.json),
 and [`Stage E1 control-chain result`](results/teacher_task0_control_chain_stageE1_result_20261003.json).
+The next bounded check is exhaustive read-only image-pixel parity for every
+frame in the five source HDF5 episodes versus the corresponding frozen
+LeRobot task-0 episodes; action/state parity is already exact, while prior
+image checks sampled only three frames per episode. More rollout seeds and
+training changes are deferred until this remaining data-path check is closed.
 
 ### Task-balanced sampling proposal (2026-09-23)
 
