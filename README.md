@@ -202,8 +202,11 @@ evidence and includes no training. The evaluator smoke and decision record are
 in [`evaluator smoke evidence`](results/teacher_stageE_evaluator_smoke_20261002.json),
 [`Stage E design`](results/teacher_directed_task_scaling_stageE_design_20261002.json),
 and [`Stage E1 control-chain result`](results/teacher_task0_control_chain_stageE1_result_20261003.json).
-The diagnostic is being checked after an intermittent GPU SSH reset. No new
-training or task-count scaling will start until its result is reviewed.
+The one-demo smoke completed technically: both checkpoints failed on demo 0
+(0/1 each, reward 0), so it establishes only that the diagnostic pipeline runs,
+not a model comparison. The full five-start paired diagnostic is pending GPU
+SSH recovery. No new training or task-count scaling will start until its result
+is reviewed.
 
 ### Task-balanced sampling proposal (2026-09-23)
 

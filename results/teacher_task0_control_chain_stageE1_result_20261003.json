@@ -125,8 +125,9 @@
     "script_sha256": "7075c1c78e74f9923ac181c20f07cf3a97912cc16f4da9752e8af56334d86bea",
     "scope": "diagnostic only; five HDF5 demonstration initial states; no training and no official benchmark change",
     "smoke_attempted": true,
-    "smoke_result": "not yet reconnected to GPU to verify output after SSH endpoint reset",
-    "full_diagnostic_started": false
+    "smoke_result": "verified complete: on demo_0 both recovered_historical_v3 and stageE1_custom_task0_10k failed (0/1 each, reward 0); strict inference pipeline and unique output writing completed",
+    "full_diagnostic_started": false,
+    "next_action": "run all five paired demonstration starts after GPU SSH reconnects; this remains diagnostic-only and cannot change the formal benchmark or Fold02 gate"
   },
   "safety": {
     "existing_outputs_preserved": true,
