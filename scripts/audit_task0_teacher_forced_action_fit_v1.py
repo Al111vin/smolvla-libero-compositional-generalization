@@ -47,6 +47,12 @@ def main() -> None:
     parser.add_argument("--instruction", required=True)
     parser.add_argument("--expected-hdf5-sha256", required=True)
     parser.add_argument("--stride", type=int, default=5)
+    parser.add_argument(
+        "--inference-seed",
+        type=int,
+        default=None,
+        help="If set, reset CPU/CUDA RNG to this observation-keyed seed before each prediction.",
+    )
     args = parser.parse_args()
 
     if args.output_json.exists():
@@ -77,7 +83,7 @@ def main() -> None:
             demo_names = sorted(source["data"].keys())
             if len(demo_names) != 5:
                 raise AssertionError(f"expected 5 demos, got {len(demo_names)}")
-            for demo_name in demo_names:
+            for demo_ordinal, demo_name in enumerate(demo_names):
                 demo = source[f"data/{demo_name}"]
                 actions = np.asarray(demo["actions"], dtype=np.float32)
                 observations = demo["obs"]
@@ -112,8 +118,13 @@ def main() -> None:
                         "task": args.instruction,
                     }
                     policy.reset()
+                    processed_frame = pre(frame)
+                    if args.inference_seed is not None:
+                        sample_seed = args.inference_seed + demo_ordinal * 1_000_003 + index
+                        torch.manual_seed(sample_seed)
+                        torch.cuda.manual_seed_all(sample_seed)
                     with torch.inference_mode():
-                        predicted = post(policy.select_action(pre(frame)))
+                        predicted = post(policy.select_action(processed_frame))
                     if isinstance(predicted, torch.Tensor):
                         predicted = predicted.detach().cpu().numpy()
                     predicted = np.asarray(predicted, dtype=np.float32).squeeze()
@@ -152,6 +163,12 @@ def main() -> None:
             "sampling": {
                 "episodes": len(demos),
                 "stride": args.stride,
+                "inference_seed": args.inference_seed,
+                "per_observation_seed_formula": (
+                    "inference_seed + demo_ordinal * 1000003 + frame_index"
+                    if args.inference_seed is not None
+                    else None
+                ),
                 "sampled_observation_count": int(pooled.shape[0]),
                 "prediction_mode": "reset policy state at each recorded observation and compare the first predicted action after fixed inverse-normalization to the aligned expert action",
             },

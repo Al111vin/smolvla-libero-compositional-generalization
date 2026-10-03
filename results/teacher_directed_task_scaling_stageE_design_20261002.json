@@ -2,7 +2,7 @@
   "schema_version": 1,
   "date": "2026-10-02",
   "stage_id": "teacher_directed_task_scaling_stageE",
-  "status": "stageE1_gate_failed; recorded_frame_preprocessing_and_live_quaternion_conversion_audits_complete; checkpoint_learning_curve_audit_next",
+  "status": "stageE1_gate_failed; read_only_preprocessing_quaternion_and_seeded_checkpoint_learning_curve_audits_complete; historical_success_control_provenance_audit_next",
   "long_term_goal": "distinguish current single-task pipeline capability, insufficient per-task exposure, and multi-task interference before scaling 1->4->8->16->32 tasks",
   "current_goal_state": {
     "product_goal_already_active": true,
@@ -137,9 +137,48 @@
         "reason": "This would change training variables before checking existing checkpoint learning progress and would not isolate the teacher-requested single-task pipeline question."
       }
     ],
-    "selected_diagnostic": "Use only existing 2500/5000/7500/10000 StageE1 checkpoints. Run identical deterministic teacher-forced inference on the five training demos; record per-checkpoint pooled and per-channel action MAE and compare against checkpoint 10000's existing audit. Do not run policy rollouts or modify checkpoints.",
+    "selected_diagnostic": "Use only existing 2500/5000/7500/10000 StageE1 checkpoints. Run identical teacher-forced inference on the five training demos with a fixed observation-keyed noise seed; record per-checkpoint pooled and per-channel action MAE. Do not run policy rollouts or modify checkpoints.",
     "scope": "Read-only inference; no training, data writes, new evaluation protocol, or Fold02 change. New output path only.",
     "stop_condition": "One inference pass per saved checkpoint. If a checkpoint/config is missing or incompatible, preserve the error and do not substitute another checkpoint.",
+    "fold02": "LOCKED"
+  },
+  "checkpoint_learning_curve_result": {
+    "summary": "results/teacher_task0_checkpoint_learning_curve_v1_20261003.json",
+    "metric": "in-sample one-step action MAE on 665 observations from the same five training demonstrations",
+    "fixed_noise_seed": 20261003,
+    "mae_by_checkpoint_step": {
+      "2500": 0.026476699858903885,
+      "5000": 0.022497043013572693,
+      "7500": 0.010675552301108837,
+      "10000": 0.008693425916135311
+    },
+    "full_10000_repeat_identical": true,
+    "inference_randomness_finding": "Without an explicit RNG seed, SmolVLA samples initial action noise via torch.normal; deterministic-algorithm mode alone did not make the teacher-forced audit repeatable. The corrected audit resets CPU/CUDA RNG per demo/frame and reproduces the full 10000-step result exactly.",
+    "interpretation": "Training-demo action fit improves substantially over the saved training trajectory, but remains in-sample and does not explain the 0/50 strict closed-loop gate or 0/5 zero-wait demo-start result.",
+    "stageE1_gate": "FAILED: 0/50 strict held-out success; unchanged",
+    "stageE2": "BLOCKED",
+    "fold02": "LOCKED"
+  },
+  "next_phase_plan_after_learning_curve": {
+    "options_compared": [
+      {
+        "option": "Read-only provenance audit of the historical purportedly successful checkpoint and its original task/BDDL, environment/evaluator, initialization manifest, and seed-level outcomes.",
+        "decision": "recommended next",
+        "reason": "The historical checkpoint was 0/5 on current custom-task demo starts, so verify whether a valid same-task known-good control exists before changing the training recipe or claiming evaluator stability."
+      },
+      {
+        "option": "Begin StageE2 four-task training now.",
+        "decision": "blocked",
+        "reason": "StageE1 failed its predeclared one-task closed-loop gate; scaling now would violate the teacher-directed prerequisite."
+      },
+      {
+        "option": "Extend training or add demonstrations immediately.",
+        "decision": "defer",
+        "reason": "The fixed-noise teacher-forced curve improves over the existing run, while the unresolved failure is closed-loop; changing optimization/data before validating the historical control would not isolate the cause."
+      }
+    ],
+    "selected_scope": "Read-only artifact/protocol provenance audit. No GPU rollout, training, or task scaling until the original historical task and evaluation conditions are identified.",
+    "stop_condition": "If task identity, seeds, or original success records cannot be recovered from existing evidence, stop and report what is missing; do not substitute another task or checkpoint.",
     "fold02": "LOCKED"
   },
   "evidence_basis": {
@@ -298,7 +337,7 @@
     "unresolved_blocker": {
     "issue": "StageE1 custom LIBERO-36 task0 control failed its predeclared 28/50 gate. Zero-wait paired inference also returned 0/5 for the task-matched StageE1 checkpoint from recorded action-start states, while sparse one-step teacher-forced action error on training observations was low (overall MAE 0.0107).",
     "effect": "StageE2 four-task training remains blocked. Raw actions, states, images, recorded-frame preprocessed inputs, and expert-trajectory live quaternion conversion have no measured mismatch; StageE1 still has 0/50 strict held-out and 0/5 zero-wait demo-start success. The cause remains unresolved and may involve training progression, closed-loop distribution shift, or other dynamics not tested by these diagnostics.",
-    "next_action": "Audit teacher-forced fit at each already-saved StageE1 checkpoint before deciding whether to alter training exposure or data."
+    "next_action": "Complete a read-only provenance audit of the historical purportedly successful checkpoint, original task/BDDL, evaluator, initial-state manifest, and seed-level success records; do not start StageE2 or alter training until the same-task positive control is established."
   },
   "artifact_policy": {
     "preserve_all_old_outputs": true,

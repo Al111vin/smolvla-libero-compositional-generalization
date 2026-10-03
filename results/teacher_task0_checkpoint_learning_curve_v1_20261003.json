@@ -1,0 +1,143 @@
+{
+  "schema_version": 1,
+  "date": "2026-10-03",
+  "goal": "teacher_directed_task_scaling_stageE",
+  "goal_thread_id": "019f4fb0-3c36-7da0-a436-1bf81b0d54ac",
+  "diagnostic_only": true,
+  "formal_benchmark_evidence": false,
+  "training_or_checkpoint_modified": false,
+  "dataset_modified": false,
+  "fold02": "LOCKED",
+  "comparison_design": {
+    "selected": "Run the same one-step teacher-forced action-fit audit over the four already-saved StageE1 checkpoints, using the same 5 training demonstrations, stride 5, HDF5 source, image/state construction, and observation-keyed sampling noise.",
+    "alternatives_deferred": [
+      {
+        "option": "Collect more StageE1 closed-loop seeds",
+        "reason": "The predeclared 0/50 closed-loop failure is already established; another failure-rate estimate would not explain training progression."
+      },
+      {
+        "option": "Start StageE2 or retrain with different settings/data",
+        "reason": "StageE1 has not passed its 28/50 gate, and the existing saved training trajectory had not yet been checked for action-fit progression."
+      }
+    ],
+    "decision_reason": "This bounded read-only comparison directly checks supervised fit progression without changing training, data, evaluation protocol, or checkpoints."
+  },
+  "source": {
+    "training_run": "teacher_native_custom_task0_frozen32_5demo_lr10x_10k_20261002_v2",
+    "checkpoints": [2500, 5000, 7500, 10000],
+    "training_root_remote": "/root/smolvla-training-prep/results/training/teacher_native_custom_task0_frozen32_5demo_lr10x_10k_20261002_v2/checkpoints",
+    "hdf5_remote": "/root/smolvla-eval-prep/recovered_historical_v3_20260922/data/demos/libero36_task0_5_success_pilot_v1/task_000_layout_1_5_success.hdf5",
+    "hdf5_sha256": "709e070c5d1b664118fdf632e02cfe7d054aff87c352628a9cc098a2892dac61",
+    "instruction": "pick up the akita black bowl and place it on the plate in the left region",
+    "episodes": 5,
+    "observations_per_checkpoint": 665,
+    "stride": 5,
+    "checkpoint_verification": "All four checkpoint model.safetensors files were present; the 10000-step SHA256 matches the existing StageE1 control-chain record."
+  },
+  "inference_randomness_audit": {
+    "finding": "SmolVLAPolicy.select_action calls sample_actions with noise=None; the model then samples initial action noise with torch.normal. Strict deterministic-algorithm settings do not seed this RNG input.",
+    "source_code_location_remote": "/usr/local/miniconda3/envs/py312/lib/python3.12/site-packages/lerobot/policies/smolvla/modeling_smolvla.py",
+    "unseeded_same_checkpoint_observations": {
+      "checkpoint_sha256": "14a565d3ea20332d560a717ace5ef7f90081342f8ae2fe06dbcaf9a400845f09",
+      "prior_summary": "results/teacher_task0_teacher_forced_action_fit_v1_20261003.json",
+      "prior_mae": 0.01069940347224474,
+      "unseeded_rerun_mae": 0.00871152151376009,
+      "absolute_difference": 0.0019878819584846497,
+      "interpretation": "The same checkpoint and data gave different unseeded one-step MAE; do not compare unseeded outputs as an exact learning curve."
+    },
+    "fixed_noise_control": {
+      "seed": 20261003,
+      "per_observation_seed_formula": "inference_seed + demo_ordinal * 1000003 + frame_index",
+      "mechanism": "Reset torch CPU and CUDA RNG immediately before each policy prediction, giving the same initial noise for a given demo/frame across checkpoints.",
+      "sparse_same_checkpoint_repeats_identical": true,
+      "full_10000_step_same_checkpoint_repeats_identical": true,
+      "full_repeat_sha256": "0c7a23dcfedd14f42e589d6b6831f763a3831343329332528a59648aee86a30a"
+    },
+    "first_correct_run": "An initial pass used the adjacent teacher_native_task0_current_pipeline checkpoint family. Those outputs are preserved but excluded: its 10000-step model hash differs from the StageE1 checkpoint hash."
+  },
+  "audit_script": {
+    "path": "scripts/audit_task0_teacher_forced_action_fit_v1.py",
+    "sha256": "a1a1b40754c81af95921c3a3649c4ddcdd935e1dbdf4fa598ac7ad2560e5f88b",
+    "change": "Added an optional observation-keyed inference seed; default behavior remains backward-compatible when the option is omitted."
+  },
+  "results": [
+    {
+      "checkpoint_step": 2500,
+      "checkpoint_sha256": "832c285696d7b0acb44ae33929583ca4d185c3e9b1a604e9d556d5c11a365465",
+      "summary": "results/stageE1_seeded_full_002500.json",
+      "summary_sha256": "fd0721ae61dd75c5715cd11603dcf487f26915f37f442af5c0b645ac0cf7bec3",
+      "sample_count": 665,
+      "overall_action_mae": 0.026476699858903885,
+      "mae_by_channel": [0.018254239112138748, 0.011403568089008331, 0.03113960660994053, 0.000931597372982651, 0.0025546110700815916, 0.007889335975050926, 0.11316387355327606],
+      "per_demo_overall_mae": [0.028289038687944412, 0.027866113930940628, 0.02703677862882614, 0.023314381018280983, 0.02587718516588211]
+    },
+    {
+      "checkpoint_step": 5000,
+      "checkpoint_sha256": "c44fb12a7c26e77a62882ee9c2f56f2a5758b9d6ab639ee1f377fe501e7babfe",
+      "summary": "results/stageE1_seeded_full_005000.json",
+      "summary_sha256": "8e2b59e363409c0bc07f7de8ff8a144dd314939468811de2e00575226ef156ef",
+      "sample_count": 665,
+      "overall_action_mae": 0.022497043013572693,
+      "mae_by_channel": [0.00895299669355154, 0.006229983642697334, 0.01720169559121132, 0.0006116402219049633, 0.0015946261119097471, 0.0033000470139086246, 0.11958827078342438],
+      "per_demo_overall_mae": [0.023480212315917015, 0.023777958005666733, 0.023623066022992134, 0.0208640918135643, 0.020739881321787834]
+    },
+    {
+      "checkpoint_step": 7500,
+      "checkpoint_sha256": "7b9cec79a368aa1c361263c87de29150de240f17a59ed43e87236dd9694ceaef",
+      "summary": "results/stageE1_seeded_full_007500.json",
+      "summary_sha256": "b7602e91486a797f4d3754e54ef7e10774d4422133ff22feea766b37d26ff973",
+      "sample_count": 665,
+      "overall_action_mae": 0.010675552301108837,
+      "mae_by_channel": [0.005720623768866062, 0.004183541983366013, 0.008673186413943768, 0.0004285184550099075, 0.0010066351387649775, 0.0024741010274738073, 0.052242279052734375],
+      "per_demo_overall_mae": [0.012340173125267029, 0.014407332986593246, 0.008205938152968884, 0.01041445042937994, 0.00800986960530281]
+    },
+    {
+      "checkpoint_step": 10000,
+      "checkpoint_sha256": "14a565d3ea20332d560a717ace5ef7f90081342f8ae2fe06dbcaf9a400845f09",
+      "summary": "results/stageE1_seeded_full_010000.json",
+      "summary_sha256": "0c7a23dcfedd14f42e589d6b6831f763a3831343329332528a59648aee86a30a",
+      "sample_count": 665,
+      "overall_action_mae": 0.008693425916135311,
+      "mae_by_channel": [0.004678329452872276, 0.0033075064420700073, 0.007844378240406513, 0.00040704707498662174, 0.0009157682652585208, 0.002121654571965337, 0.041579294949769974],
+      "per_demo_overall_mae": [0.009156999178230762, 0.012114993296563625, 0.006684946361929178, 0.009094149805605412, 0.006416041869670153]
+    }
+  ],
+  "interpretation": {
+    "confirmed": "With fixed observation-keyed inference noise, training-set one-step action MAE decreased from 0.02648 at 2500 steps to 0.00869 at 10000 steps (about 67% lower). The 10000-step fixed-noise full result reproduced exactly in a second full run.",
+    "not_monotonic_by_every_channel": "The gripper channel MAE increased slightly from 0.11316 at 2500 to 0.11959 at 5000, then decreased to 0.04158 by 10000.",
+    "does_not_establish": [
+      "This is in-sample teacher-forced fit on five training demonstrations, not held-out generalization.",
+      "Improved action fit does not establish why StageE1 still has 0/50 strict closed-loop successes or 0/5 zero-wait demo-start successes.",
+      "This does not satisfy the StageE1 closed-loop gate and does not authorize StageE2, additional training, or Fold02."
+    ],
+    "stageE1_gate_unchanged": "0/50 strict held-out successes; 0/5 zero-wait demo-start successes; gate remains failed."
+  },
+  "next_phase_plan": {
+    "options_compared": [
+      {
+        "option": "Read-only provenance audit of the historical purportedly successful checkpoint: identify its exact BDDL/task identity, environment/evaluator version, initial-state manifest, and seed-level outcomes; determine whether the reported success is comparable to current StageE1 task0.",
+        "decision": "recommended next",
+        "reason": "The task-matched StageE1 model did not pass, and the historical checkpoint comparison on current custom-task starts was 0/5. Before any training change, establish whether a valid same-task known-good evaluation control actually exists and whether the evaluator reproduces its original conditions."
+      },
+      {
+        "option": "Begin four-task StageE2 training now",
+        "decision": "blocked",
+        "reason": "The one-task StageE1 closed-loop gate failed; scaling now would violate the teacher-directed prerequisite and confound training-pipeline versus multitask conclusions."
+      },
+      {
+        "option": "Extend or alter StageE1 training immediately",
+        "decision": "defer",
+        "reason": "Action fit improves across the saved checkpoints; changing the recipe now would not isolate the unresolved closed-loop gap. First verify the historical control and original evaluation protocol."
+      }
+    ],
+    "selected_scope": "Read-only artifact/protocol provenance audit only; no GPU rollout or training until the original historical task and evaluation conditions are established.",
+    "stop_condition": "If original task identity, seeds, or success records cannot be recovered from existing files, stop and report the exact missing evidence; do not substitute another model/task."
+  },
+  "safety": {
+    "all_prior_outputs_preserved": true,
+    "checkpoints_modified_or_uploaded": false,
+    "raw_hdf5_parquet_or_rollout_payload_uploaded": false,
+    "stageE2_started": false,
+    "fold02_locked": true
+  }
+}

@@ -1,0 +1,132 @@
+{
+  "schema_version": 1,
+  "diagnostic_only": true,
+  "formal_benchmark_evidence": false,
+  "training_or_checkpoint_modified": false,
+  "task_id": 0,
+  "layout_id": 1,
+  "instruction": "pick up the akita black bowl and place it on the plate in the left region",
+  "checkpoint_sha256": "14a565d3ea20332d560a717ace5ef7f90081342f8ae2fe06dbcaf9a400845f09",
+  "hdf5_sha256": "709e070c5d1b664118fdf632e02cfe7d054aff87c352628a9cc098a2892dac61",
+  "sampling": {
+    "episodes": 5,
+    "stride": 5,
+    "inference_seed": 20261003,
+    "per_observation_seed_formula": "inference_seed + demo_ordinal * 1000003 + frame_index",
+    "sampled_observation_count": 665,
+    "prediction_mode": "reset policy state at each recorded observation and compare the first predicted action after fixed inverse-normalization to the aligned expert action"
+  },
+  "absolute_action_error_mae_by_channel": [
+    0.004678329452872276,
+    0.0033075064420700073,
+    0.007844378240406513,
+    0.00040704707498662174,
+    0.0009157682652585208,
+    0.002121654571965337,
+    0.041579294949769974
+  ],
+  "absolute_action_error_mae_overall": 0.008693425916135311,
+  "absolute_action_error_p95_by_channel": [
+    0.014325546100735664,
+    0.010761434212327003,
+    0.023294098675251007,
+    0.0011552388314157724,
+    0.002460791962221265,
+    0.007345482707023621,
+    0.07701963186264038
+  ],
+  "demos": [
+    {
+      "demo": "demo_0",
+      "source_episode_success": true,
+      "source_formal_action_replay_exact": true,
+      "frames": 658,
+      "sampled_frames": 133,
+      "stride": 5,
+      "sampled_action_mae_by_channel": [
+        0.0055194152519106865,
+        0.00438139820471406,
+        0.009127389639616013,
+        0.0003797976823989302,
+        0.0008992014918476343,
+        0.0019285811576992273,
+        0.04186321049928665
+      ],
+      "sampled_action_mae_overall": 0.009156999178230762
+    },
+    {
+      "demo": "demo_1",
+      "source_episode_success": true,
+      "source_formal_action_replay_exact": true,
+      "frames": 658,
+      "sampled_frames": 133,
+      "stride": 5,
+      "sampled_action_mae_by_channel": [
+        0.004538406617939472,
+        0.0029403208754956722,
+        0.007656908594071865,
+        0.00038553582271561027,
+        0.0009951986139640212,
+        0.0027117005083709955,
+        0.06557688862085342
+      ],
+      "sampled_action_mae_overall": 0.012114993296563625
+    },
+    {
+      "demo": "demo_2",
+      "source_episode_success": true,
+      "source_formal_action_replay_exact": true,
+      "frames": 658,
+      "sampled_frames": 133,
+      "stride": 5,
+      "sampled_action_mae_by_channel": [
+        0.004225218668580055,
+        0.0029406838584691286,
+        0.008800556883215904,
+        0.00045890620094724,
+        0.000903437496162951,
+        0.0018451920477673411,
+        0.027620624750852585
+      ],
+      "sampled_action_mae_overall": 0.006684946361929178
+    },
+    {
+      "demo": "demo_3",
+      "source_episode_success": true,
+      "source_formal_action_replay_exact": true,
+      "frames": 658,
+      "sampled_frames": 133,
+      "stride": 5,
+      "sampled_action_mae_by_channel": [
+        0.004565157927572727,
+        0.0032250327058136463,
+        0.007141089998185635,
+        0.00042088283225893974,
+        0.0008965132292360067,
+        0.0020053437910974026,
+        0.04540504887700081
+      ],
+      "sampled_action_mae_overall": 0.009094149805605412
+    },
+    {
+      "demo": "demo_4",
+      "source_episode_success": true,
+      "source_formal_action_replay_exact": true,
+      "frames": 658,
+      "sampled_frames": 133,
+      "stride": 5,
+      "sampled_action_mae_by_channel": [
+        0.004543442279100418,
+        0.003050105646252632,
+        0.006495949346572161,
+        0.0003901126910932362,
+        0.00088449043687433,
+        0.0021174559369683266,
+        0.027430742979049683
+      ],
+      "sampled_action_mae_overall": 0.006416041869670153
+    }
+  ],
+  "interpretation_limit": "Sparse teacher-forced action fit is not a closed-loop success metric and does not establish training causality.",
+  "fold02": "LOCKED"
+}

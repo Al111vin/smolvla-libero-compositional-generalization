@@ -3,7 +3,7 @@
   "date": "2026-10-03",
   "phase": "teacher_directed_single_task_control_and_stageE1_review",
   "goal": "establish a stable one-task capability control before scaling task count while holding per-task sample exposure fixed",
-  "status": "stageE1_custom_task0_gate_failed; paired_demo_start_and_action_fit_diagnostics_complete; source_image_parity_complete",
+  "status": "stageE1_custom_task0_gate_failed; paired_demo_start_data_preprocessing_quaternion_and_seeded_checkpoint_fit_audits_complete; historical_success_control_provenance_audit_next",
   "historical_native_task0_control": {
     "task": "LIBERO Spatial task 0",
     "instruction": "pick up the black bowl between the plate and the ramekin and place it on the plate",
@@ -247,7 +247,26 @@
       "interpretation": "The training collector and strict evaluator produced effectively identical axis-angle values on the exact replayed demonstration quaternions (max difference 1.20e-7). This provides no evidence that this conversion difference explains the custom task0 failure within the demonstrated trajectories; policy-generated states remain outside scope.",
       "fold02": "LOCKED"
     },
-    "next_action": "Do not start training or task scaling from these audits alone. Compare the already-saved StageE1 checkpoint teacher-forced fit at 2500/5000/7500/10000 using one fixed data/protocol path; preserve the 0/50 StageE1 gate failure and keep Fold02 locked."
+    "checkpoint_learning_curve_audit": {
+      "summary": "results/teacher_task0_checkpoint_learning_curve_v1_20261003.json",
+      "script": "scripts/audit_task0_teacher_forced_action_fit_v1.py",
+      "sample_count_per_checkpoint": 665,
+      "fixed_inference_seed": 20261003,
+      "overall_action_mae_by_step": {
+        "2500": 0.026476699858903885,
+        "5000": 0.022497043013572693,
+        "7500": 0.010675552301108837,
+        "10000": 0.008693425916135311
+      },
+      "full_10000_repeat_identical": true,
+      "initial_noise_randomness_found": true,
+      "interpretation": "In-sample action fit improves substantially across saved checkpoints, but this does not establish held-out or closed-loop capability and does not change the StageE1 gate.",
+      "formal_benchmark_evidence": false,
+      "training_started": false,
+      "task_scaling_started": false,
+      "fold02": "LOCKED"
+    },
+    "next_action": "Preserve the failed 0/50 StageE1 gate and audit the historical purportedly successful checkpoint's exact task/BDDL, evaluator, initial-state manifest, and seed-level successes before any training change or task scaling."
   },
   "safety": {
     "existing_outputs_preserved": true,

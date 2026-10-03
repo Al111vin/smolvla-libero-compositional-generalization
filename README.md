@@ -249,9 +249,26 @@ and reward sequences matched the source exactly. On the same live quaternions,
 the collector's robosuite axis-angle conversion and the evaluator's
 quaternion-normalizing helper differed by at most 1.2e-7; this gives no
 evidence that conversion mismatch explains failure on the demonstrated
-trajectories. Policy-generated states remain untested. The next bounded check
-is to compare teacher-forced action fit across the already-saved StageE1
-checkpoints (2,500/5,000/7,500/10,000) without further training or rollouts.
+trajectories. Policy-generated states remain untested. The StageE1
+teacher-forced checkpoint audit is now complete on 665 observations from the
+same five training demonstrations at 2,500/5,000/7,500/10,000 updates, using
+the same observation-keyed action-sampling noise. Overall in-sample action MAE
+decreased from 0.02648 to 0.00869; a full 10,000-step repeat reproduced the
+same result byte-for-byte. This is not held-out or closed-loop evidence and
+does not change the StageE1 result (0/50 strict successes; 0/5 zero-wait
+demo-start successes), so StageE2 and Fold02 remain blocked. The audit also
+found that earlier unseeded one-step estimates varied because SmolVLA samples
+initial action noise when no noise tensor is supplied; strict deterministic
+operator settings alone do not fix that random input. See the
+[`checkpoint learning-curve summary`](results/teacher_task0_checkpoint_learning_curve_v1_20261003.json),
+the four [`2,500-step`](results/stageE1_seeded_full_002500.json),
+[`5,000-step`](results/stageE1_seeded_full_005000.json),
+[`7,500-step`](results/stageE1_seeded_full_007500.json), and
+[`10,000-step`](results/stageE1_seeded_full_010000.json) outputs, and the
+[`seed-aware audit script`](scripts/audit_task0_teacher_forced_action_fit_v1.py).
+The next step is a read-only provenance audit of the historical purportedly
+successful checkpoint and its original task/evaluator/seed conditions before
+considering any training change.
 Evidence is in the
 [`full-frame image parity summary`](results/teacher_task0_training_image_parity_v1_20261003.json)
 and [`audit script`](scripts/audit_task0_training_image_parity_v1.py), plus the
