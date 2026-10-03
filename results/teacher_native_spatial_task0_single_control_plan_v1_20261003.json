@@ -120,5 +120,18 @@
     "checkpoint_created": false,
     "quality_conclusion_inferred": false,
     "reason": "Return to the advisor-ordered task0 single-task control before any task1 or task-count progression experiment."
+  },
+  "publication": {
+    "github": {
+      "branch": "benchmark-v1-sync-20260922",
+      "commit": "d72d832",
+      "status": "pushed"
+    },
+    "hugging_face": {
+      "repo": "Alllvinnn/smolvla-libero-compositional-generalization",
+      "revision": "3ca16ae442ec6039d737bd5db2dc645e2b3bc394",
+      "status": "uploaded_and_verified",
+      "verification": "Downloaded 12 allow-listed lightweight files and byte-compared them with local files; all matched. No data payloads, model weights, secrets, or raw trajectories were uploaded."
+    }
   }
 }
