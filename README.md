@@ -38,7 +38,10 @@ It combines closed-loop LIBERO evaluation, controlled leave-one-combination-out
 > follow-up are also complete, but remain unsuccessful under the strict
 > protocol. **Fold 02 remains locked.** Raw HDF5 and LeRobot data remain in
 > the private Hugging Face dataset; GitHub stores only lightweight evidence and
-> reproducibility metadata.
+> reproducibility metadata. Separately, the teacher-directed native Spatial
+> task-scaling diagnostic is now running a matched four-task (0–3) 40,000-update
+> experiment with equal 80,000 sample draws per task; this diagnostic does not
+> alter the registered LIBERO-36 conclusions.
 
 ### Teacher-recommended single-task control (2026-10-02)
 
