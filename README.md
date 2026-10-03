@@ -315,12 +315,23 @@ passed, including output-path, GPU-idle, disk, evaluator-hash, and data-manifest
 checks. The approved unattended runner started on 2026-10-03 (UTC); training
 first stopped during Accelerate DataLoader wrapping before any optimizer update
 or checkpoint. The wrapper was minimally corrected and passed four tests plus
-a real-dataset Accelerate loader smoke; a separate `40k_v2` run then passed
-preflight and was at approximately 2,619/40,000 updates (latest logged loss
-0.498) at the latest progress check. The failed `40k_v1`
-logs/output are preserved. Run status and process/log paths are recorded in the
+a real-dataset Accelerate loader smoke; the separate `40k_v2` replacement run
+then completed 40,000 updates and its corrected-protocol evaluation completed
+all 89 rollouts (4 checkpoint probes, 80 paired task rollouts, 5 fixed-init
+repeats). Paired success was task0 14/20, task1 13/20, task2 19/20, task3
+18/20; task0's fixed init3 repeat was 4/5, so the predeclared four-task
+progression gate **did not pass**. Do not scale to 8 tasks yet. The paired
+task0 comparison against the single-task baseline was 14/20 vs 12/20
+(two-sided exact McNemar p=0.625), not evidence of a reliable improvement.
+The prior single-task fixed-init result was 5/5 but recorded seed 12348; the
+corrected state-capture evaluator records seed 12351 for this run, so those
+repeat counts are not a seed-matched comparison. The V3 protocol is not
+strict-deterministic-algorithms evaluation. The failed
+`40k_v1` logs/output remain preserved. Run status and process/log paths are recorded in the
 [`stage plan`](results/teacher_task_scaling_next_stage_plan_v1_20261003.json)
 and [`loader recovery report`](results/teacher_native_spatial_4task_loader_integration_recovery_20261003.json).
+The full lightweight evaluation record, including gate outcome and source
+hashes, is [`here`](results/teacher_native_spatial_4task_40k_eval_result_v1_20261003.json).
 The custom LIBERO-36
 StageE1 result remains a separate 0/50, and Fold02 remains locked. See the
 [`replacement-run preflight evidence`](results/teacher_native_spatial_task0_3_preflight_result_v2_20261003.json),

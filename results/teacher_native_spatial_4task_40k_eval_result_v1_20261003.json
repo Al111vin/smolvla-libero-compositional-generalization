@@ -1,0 +1,91 @@
+{
+  "schema_version": 1,
+  "date": "2026-10-03",
+  "run_id": "teacher_native_spatial_tasks0_3_balanced_current_recipe_40k_v2_protocol_corrected_v1",
+  "stage": "matched_native_spatial_4task_diagnostic",
+  "status": "complete_validated",
+  "training": {
+    "steps": 40000,
+    "batch_size": 8,
+    "balanced_samples_per_task_per_batch": 2,
+    "task_ids": [0, 1, 2, 3],
+    "episodes_per_task": 50,
+    "sample_draws_per_task": 80000,
+    "optimizer": "AdamW",
+    "learning_rate": 0.0001,
+    "seed": 1000,
+    "checkpoint_steps": [10000, 20000, 30000, 40000]
+  },
+  "evaluation_protocol": {
+    "evaluator": "eval_v3_task0_state_capture_v1.py",
+    "evaluator_sha256": "89fd36a89dc45a56382219d4c3f6e5d12a3b1689abb3440ec29be346815af7cb",
+    "suite": "libero_spatial",
+    "initialization_indices": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19],
+    "effective_seed_rule": "12345 + 2 * init_index",
+    "wait_steps": 10,
+    "n_action_steps": 25,
+    "max_steps": 300,
+    "deterministic_algorithms_strict": false,
+    "note": "Native V3 protocol matched to the single-task baseline; this is not a strict-deterministic-algorithms evaluation."
+  },
+  "paired_20_initializations": {
+    "task_0": {"successes": 14, "n": 20, "success_rate": 0.70, "wilson_95_ci": [0.481, 0.8545]},
+    "task_1": {"successes": 13, "n": 20, "success_rate": 0.65, "wilson_95_ci": [0.4329, 0.8188]},
+    "task_2": {"successes": 19, "n": 20, "success_rate": 0.95, "wilson_95_ci": [0.7639, 0.9911]},
+    "task_3": {"successes": 18, "n": 20, "success_rate": 0.90, "wilson_95_ci": [0.699, 0.9721]}
+  },
+  "task0_single_task_baseline_comparison": {
+    "baseline_successes": 12,
+    "candidate_joint4_successes": 14,
+    "baseline_only_successes": 1,
+    "candidate_only_successes": 3,
+    "exact_two_sided_mcnemar_p": 0.625,
+    "interpretation": "No statistically persuasive paired improvement detected in this sample."
+  },
+  "task0_fixed_init3_repeatability": {
+    "effective_seed": 12351,
+    "n": 5,
+    "successes": 4,
+    "success_pattern": [true, true, true, true, false],
+    "steps": [106, 104, 104, 105, 300],
+    "prior_single_task_reference_successes": 5,
+    "prior_single_task_reference_n": 5,
+    "prior_single_task_reference_recorded_seed": 12348,
+    "note": "The fifth joint-4 repeat failed at the 300-step cap. The older single-task reference recorded seed 12348, while this corrected state-capture evaluator recorded 12351; do not treat the 5/5 versus 4/5 rates as a seed-matched comparison."
+  },
+  "checkpoint_probe_task0_init3": {
+    "successes": 4,
+    "n": 4,
+    "checkpoint_steps": [10000, 20000, 30000, 40000],
+    "note": "One diagnostic rollout per checkpoint at init_index 3; not a checkpoint-wide success estimate."
+  },
+  "execution_audit": {
+    "rollouts_completed": 89,
+    "summary_csv_count": 89,
+    "action_csv_count": 89,
+    "error_scan": "no Traceback, RuntimeError, FAILED, or ERROR lines found in rollout logs",
+    "summary_sha256": "a93a1dd93a6460418a799d38ea17cf90dd2bea1351e63b3555edde261cf27f3e",
+    "gpu_summary_path": "/root/smolvla-eval-prep/results/teacher_native_spatial_tasks0_3_balanced_current_recipe_40k_v2_protocol_corrected_v1/summary.json"
+  },
+  "progression_gate": {
+    "task0_at_least_8_of_20": true,
+    "task0_fixed_init3_five_of_five": false,
+    "task1_at_least_10_of_20": true,
+    "task2_at_least_10_of_20": true,
+    "task3_at_least_10_of_20": true,
+    "passed": false
+  },
+  "decision": {
+    "task_count_scaling": "do_not_advance_to_8_tasks",
+    "recommended_next_comparison": "Train/evaluate a task-1-only control with matched data exposure and current recipe, then compare it against the joint-4 task-1 result before attributing the lower task-1 score to interference.",
+    "fold02": "LOCKED",
+    "formal_benchmark_changed": false,
+    "datasets_or_checkpoints_uploaded": false
+  },
+  "provenance": {
+    "training_config_sha256": "0676ee11b5a1bd54a48595363dee4790e3d35ed7482172199af28dfad6a9b1cc",
+    "conversion_manifest_sha256": "8bb81e1d1828d2a4be3dd8469e1f2812c35bc4f9a48aea0f7a8da8deb2d11ba1",
+    "training_log": "/root/smolvla-training-prep/recovery/task_scaling_native_spatial_20261003/teacher_native_spatial_tasks0_3_balanced_current_recipe_40k_v2.training.log",
+    "corrected_evaluation_log": "/root/smolvla-training-prep/recovery/task_scaling_native_spatial_20261003/teacher_native_spatial_tasks0_3_balanced_current_recipe_40k_v2_protocol_corrected_v1.eval.log"
+  }
+}
