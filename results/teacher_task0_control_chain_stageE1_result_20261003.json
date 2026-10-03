@@ -230,7 +230,24 @@
       "interpretation": "All 25 recorded observations had exact camera pixels and stored 15-D state match between LeRobot loader and evaluator frame construction, and all model-preprocessor outputs matched exactly after canonicalizing the singleton observation-time dimension. The HDF5 has no raw quaternion, so the dynamic simulator quaternion-to-axis-angle path was not bitwise compared. This closes recorded-frame preprocessing parity, not all live-state construction or closed-loop behavior.",
       "fold02": "LOCKED"
     },
-    "next_action": "Do not start training or task scaling from this in-sample audit alone. Compare viable evidence-backed diagnostic options before proposing any further GPU work; preserve StageE1 gate failure and keep Fold02 locked."
+    "live_quaternion_conversion_audit": {
+      "script": "scripts/audit_task0_live_quaternion_conversion_v2.py",
+      "script_sha256": "6213bb7d3a124722a64ae13507415700a455aecc864e9f1ca1c4d302967e6a7a",
+      "summary": "results/teacher_task0_live_quaternion_conversion_v2_full_20261003.json",
+      "summary_sha256": "85e02f75a10a5cc2e67823dbabd39eccae7c156ffa4a5f30e40c6a10533ac220",
+      "source_gpu_summary_sha256": "018f19aa6d256c83032215d9ee09e76e4bd14281b9d1578fccd27f82ee2a91aa",
+      "episodes": 5,
+      "replayed_observations": 3290,
+      "exact_state_replay": true,
+      "reward_sequence_exact": true,
+      "maximum_converter_difference": 1.1916553432911314e-07,
+      "training_or_checkpoint_modified": false,
+      "dataset_modified": false,
+      "formal_benchmark_evidence": false,
+      "interpretation": "The training collector and strict evaluator produced effectively identical axis-angle values on the exact replayed demonstration quaternions (max difference 1.20e-7). This provides no evidence that this conversion difference explains the custom task0 failure within the demonstrated trajectories; policy-generated states remain outside scope.",
+      "fold02": "LOCKED"
+    },
+    "next_action": "Do not start training or task scaling from these audits alone. Compare the already-saved StageE1 checkpoint teacher-forced fit at 2500/5000/7500/10000 using one fixed data/protocol path; preserve the 0/50 StageE1 gate failure and keep Fold02 locked."
   },
   "safety": {
     "existing_outputs_preserved": true,

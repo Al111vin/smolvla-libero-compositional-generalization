@@ -1,0 +1,60 @@
+{
+  "schema_version": 1,
+  "diagnostic_only": true,
+  "formal_benchmark_evidence": false,
+  "policy_inference_performed": false,
+  "training_or_checkpoint_modified": false,
+  "dataset_modified": false,
+  "hdf5_sha256": "709e070c5d1b664118fdf632e02cfe7d054aff87c352628a9cc098a2892dac61",
+  "bddl_path": "/root/smolvla-training-prep/data/libero_36/bddl/task_000_layout_1_akita_black_bowl_put_on_top_left.bddl",
+  "bddl_sha256": "2908233f31c329c2719c8a088796d5d375082cf89e7d11e1ae460284bcaa667c",
+  "episodes": 1,
+  "total_replayed_observations": 25,
+  "state_tolerance": 1e-06,
+  "all_action_replays_match_stored_observations": false,
+  "training_vs_evaluation_axisangle_max_abs_diff_over_episodes": 1.1826642909440466e-07,
+  "episodes_detail": [
+    {
+      "demo": "demo_0",
+      "seed": 361000,
+      "recorded_frames": 658,
+      "replayed_frames": 25,
+      "source_demo_passed_qc": true,
+      "live_vs_stored_observation_max_abs_diff_by_channel": {
+        "joint_states": {
+          "max_abs_diff": 0.0014937118559936735,
+          "mean_abs_diff": 0.0011717275738303214,
+          "p99_abs_diff": 0.0014899327317891141
+        },
+        "ee_pos": {
+          "max_abs_diff": 0.00021080283534957722,
+          "mean_abs_diff": 0.00018560158516499998,
+          "p99_abs_diff": 0.00021059273432547877
+        },
+        "gripper_states": {
+          "max_abs_diff": 0.00017244341501240767,
+          "mean_abs_diff": 3.0980579183472746e-05,
+          "p99_abs_diff": 0.00016722742986130908
+        },
+        "ee_ori": {
+          "max_abs_diff": 0.0025279363144750377,
+          "mean_abs_diff": 0.0023217110796759284,
+          "p99_abs_diff": 0.0025279011156060117
+        }
+      },
+      "training_vs_evaluation_axisangle_max_abs_diff": {
+        "max_abs_diff": 1.1826642909440466e-07,
+        "mean_abs_diff": 6.832695039094005e-08,
+        "p99_abs_diff": 1.1786931827018065e-07
+      },
+      "live_quaternion_norm_error": {
+        "max_abs_diff": 9.992007221626409e-16,
+        "mean_abs_diff": 5.684341886080802e-16,
+        "p99_abs_diff": 9.45910016980633e-16
+      },
+      "state_replay_within_tolerance": false
+    }
+  ],
+  "interpretation_rule": "Only interpret converter differences as train/eval representation evidence if the replayed joint, position, gripper, and stored training-side axis-angle states all match within tolerance. Any replay mismatch invalidates the converter comparison for that episode.",
+  "fold02": "LOCKED"
+}

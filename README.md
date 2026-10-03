@@ -243,16 +243,23 @@ model inputs on both paths: zero mismatches and maximum absolute difference
 0.0, including both cameras, state, language tokens/mask, and task text. The
 training and strict-evaluation code use the same saved preprocessor factory.
 This closes recorded-frame preprocessing parity but not live simulator state
-construction: the HDF5 contains no raw end-effector quaternion, so the
-collector's and evaluator's quaternion-to-axis-angle paths could not be
-compared bitwise from stored files. The next bounded diagnostic is exact
-action replay of those same five demos to compare both conversions against
-the stored orientation; no policy inference or training is involved. More
-rollout seeds and training changes remain deferred. Evidence is in the
+construction. A follow-up exact action replay used each episode's recorded
+seed and the collector's 20 zero-action settle steps. All 3,290 observations
+and reward sequences matched the source exactly. On the same live quaternions,
+the collector's robosuite axis-angle conversion and the evaluator's
+quaternion-normalizing helper differed by at most 1.2e-7; this gives no
+evidence that conversion mismatch explains failure on the demonstrated
+trajectories. Policy-generated states remain untested. The next bounded check
+is to compare teacher-forced action fit across the already-saved StageE1
+checkpoints (2,500/5,000/7,500/10,000) without further training or rollouts.
+Evidence is in the
 [`full-frame image parity summary`](results/teacher_task0_training_image_parity_v1_20261003.json)
 and [`audit script`](scripts/audit_task0_training_image_parity_v1.py), plus the
 [`preprocessing parity summary`](results/teacher_task0_model_input_preprocessing_parity_v1_20261003.json)
 and [`audit script`](scripts/audit_task0_model_input_preprocessing_parity_v1.py).
+The exact-replay conversion result and its script are in
+[`quaternion conversion summary`](results/teacher_task0_live_quaternion_conversion_v2_full_20261003.json)
+and [`audit script`](scripts/audit_task0_live_quaternion_conversion_v2.py).
 
 ### Task-balanced sampling proposal (2026-09-23)
 

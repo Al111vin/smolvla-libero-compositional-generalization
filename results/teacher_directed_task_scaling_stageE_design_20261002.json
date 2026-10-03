@@ -2,7 +2,7 @@
   "schema_version": 1,
   "date": "2026-10-02",
   "stage_id": "teacher_directed_task_scaling_stageE",
-  "status": "stageE1_gate_failed; recorded_frame_preprocessing_parity_complete; live_quaternion_state_conversion_audit_next",
+  "status": "stageE1_gate_failed; recorded_frame_preprocessing_and_live_quaternion_conversion_audits_complete; checkpoint_learning_curve_audit_next",
   "long_term_goal": "distinguish current single-task pipeline capability, insufficient per-task exposure, and multi-task interference before scaling 1->4->8->16->32 tasks",
   "current_goal_state": {
     "product_goal_already_active": true,
@@ -105,6 +105,41 @@
     "selected_diagnostic": "A read-only, exact-action replay of all five task0 HDF5 demonstrations. At every recorded observation, capture raw robot0_eef_quat and evaluate both the training-side robosuite transform.quat2axisangle and the strict-evaluator quat_xyzw_to_axis_angle, then compare each with the stored 15-D state orientation. Verify action/state replay alignment before interpreting; stop on any replay mismatch.",
     "scope": "No policy, optimizer, dataset, checkpoint, benchmark result, or Fold02 change; unique diagnostic output only; do not upload raw observations or rollout payloads.",
     "stop_condition": "One pass over five demonstrations. If exact replay cannot be reproduced or frame alignment is ambiguous, preserve the failure and stop without trying altered seeds or simulator settings.",
+    "fold02": "LOCKED",
+    "result": {
+      "summary": "results/teacher_task0_live_quaternion_conversion_v2_full_20261003.json",
+      "script": "scripts/audit_task0_live_quaternion_conversion_v2.py",
+      "summary_sha256": "85e02f75a10a5cc2e67823dbabd39eccae7c156ffa4a5f30e40c6a10533ac220",
+      "episodes": 5,
+      "observations": 3290,
+      "state_replay_exact": true,
+      "reward_sequence_exact": true,
+      "max_collector_vs_eval_axisangle_diff": 1.1916553432911314e-07,
+      "scope_limit": "Exact replay covers only the five recorded expert trajectories, not policy-generated states."
+    }
+  },
+  "next_phase_plan_after_live_quaternion_audit": {
+    "completed_precondition": "Raw action/state/image conversion, recorded-frame model preprocessing, and live quaternion conversion on exact expert replays have no measured mismatch. StageE1 remains 0/50 and task scaling remains gated.",
+    "options_compared": [
+      {
+        "option": "Run the existing read-only teacher-forced action-fit diagnostic on saved StageE1 checkpoints 2500, 5000, 7500, and 10000 using the same five demonstrations and observation indices.",
+        "decision": "recommended next",
+        "reason": "This will show whether supervised fit improved or plateaued across the already-saved training trajectory, without changing training. It best separates optimization/progress problems from the currently unsupported preprocessing-mismatch hypothesis."
+      },
+      {
+        "option": "Repeat more closed-loop seeds at checkpoint 10000.",
+        "decision": "defer",
+        "reason": "The existing strict 0/50 result is already a strong failure estimate; additional rollout failures would not explain whether the model fit improved over training."
+      },
+      {
+        "option": "Extend training, add demonstrations, or start task scaling immediately.",
+        "decision": "defer",
+        "reason": "This would change training variables before checking existing checkpoint learning progress and would not isolate the teacher-requested single-task pipeline question."
+      }
+    ],
+    "selected_diagnostic": "Use only existing 2500/5000/7500/10000 StageE1 checkpoints. Run identical deterministic teacher-forced inference on the five training demos; record per-checkpoint pooled and per-channel action MAE and compare against checkpoint 10000's existing audit. Do not run policy rollouts or modify checkpoints.",
+    "scope": "Read-only inference; no training, data writes, new evaluation protocol, or Fold02 change. New output path only.",
+    "stop_condition": "One inference pass per saved checkpoint. If a checkpoint/config is missing or incompatible, preserve the error and do not substitute another checkpoint.",
     "fold02": "LOCKED"
   },
   "evidence_basis": {
@@ -250,7 +285,7 @@
       "pixel_mismatch_count": 0,
       "action_and_state_sequences_exact": true,
       "result": "Raw HDF5-to-frozen-LeRobot data conversion parity is exact for all audited fields in the five task0 episodes.",
-      "limitation": "No comparison yet of final tensors at the actual model boundary after the training loader and evaluation preprocessing pipelines.",
+      "limitation": "This audit verifies raw source-to-frozen-dataset pixel/action/state fidelity only; the separate preprocessing audit covers matched recorded-frame tensors, and the quaternion replay audit covers live orientation conversion on expert trajectories.",
       "training_started": false,
       "fold02": "LOCKED"
     },
@@ -260,10 +295,10 @@
     "official_benchmark": "unchanged",
     "fold02": "LOCKED"
   },
-  "unresolved_blocker": {
+    "unresolved_blocker": {
     "issue": "StageE1 custom LIBERO-36 task0 control failed its predeclared 28/50 gate. Zero-wait paired inference also returned 0/5 for the task-matched StageE1 checkpoint from recorded action-start states, while sparse one-step teacher-forced action error on training observations was low (overall MAE 0.0107).",
-    "effect": "StageE2 four-task training remains blocked. All raw source actions, states, and images match the frozen LeRobot task0 data, while the model has low in-sample one-step and chunk fit but zero strict held-out and exact-demo-start closed-loop success. The cause remains unresolved; raw conversion integrity does not prove train/eval tensor-path equivalence.",
-    "next_action": "Compare the real training-loader and strict-evaluator preprocessed tensor dictionaries on the same matched observations, then review the result before any training or scaling."
+    "effect": "StageE2 four-task training remains blocked. Raw actions, states, images, recorded-frame preprocessed inputs, and expert-trajectory live quaternion conversion have no measured mismatch; StageE1 still has 0/50 strict held-out and 0/5 zero-wait demo-start success. The cause remains unresolved and may involve training progression, closed-loop distribution shift, or other dynamics not tested by these diagnostics.",
+    "next_action": "Audit teacher-forced fit at each already-saved StageE1 checkpoint before deciding whether to alter training exposure or data."
   },
   "artifact_policy": {
     "preserve_all_old_outputs": true,
