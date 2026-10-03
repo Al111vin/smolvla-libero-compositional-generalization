@@ -1,0 +1,36 @@
+{
+  "schema_version": 1,
+  "date": "2026-10-02",
+  "experiment_type": "custom_LIBERO36_evaluator_smoke_only_not_model_capability_evidence",
+  "status": "completed_validated_4_of_4",
+  "evaluator": {
+    "remote_script": "/root/smolvla-eval-prep/scripts/eval_libero_strict_v1.py",
+    "sha256": "ae25bd0b68299ac245399e359d7b44fa9dff2ec887e9eeb96af6d2f691728be3",
+    "protocol": {"steps": 280, "wait_steps": 10, "n_action_steps": 25, "max_states": 1, "strict_determinism": true}
+  },
+  "checkpoint": {
+    "source": "/root/smolvla-training-prep/results/training/teacher_native_task0_base_init_lr10x_current_recipe_10k_20261002_v1/checkpoints/010000/pretrained_model",
+    "sha256": "62bd1a17bc4fcb8fc4d090904e2c5e54b9b70cc16dbb6dd15b869b010c32d406",
+    "scope_note": "trained on native libero_spatial task0, not custom LIBERO-36 tasks 0-3; smoke failures are expected and are not interpreted as task performance"
+  },
+  "initial_state_manifests": {
+    "0": {"count": 50, "sha256": "67517424bc4541be583da634d5718a72c7f104d6d0042fea8e15b362578dab2c", "bddl_sha256": "2908233f31c329c2719c8a088796d5d375082cf89e7d11e1ae460284bcaa667c"},
+    "1": {"count": 50, "sha256": "157ed639a2685c498786ffcddcf8b38d578a44491662fa9811d88bb7ff77c7cb", "bddl_sha256": "e2dd32645afae8c73d435bec40fc37f6e5854a2c940dc83eccf01cb41a6e7eac"},
+    "2": {"count": 50, "sha256": "3b668b7ee2aae6850aac1c1641342c02d2b6def99816dd3d1ec0461dbbdaeac7", "bddl_sha256": "a14cab92406ee788c27559d721860586228d09c8ff87a83a4b81dd0b426b7c33"},
+    "3": {"count": 50, "sha256": "ebcbe81a6e3399c5c43b16435ddf544a49801b30d4f3e180eaf3e509d6c3adf2", "bddl_sha256": "ed747b57830cb367016b6056267ba9a55dc73bba9d5aaf2cf3eb8f0a86f36115"}
+  },
+  "rollouts": [
+    {"task_id": 0, "instruction": "pick up the akita black bowl and place it on the plate in the left region", "completed": true, "success": false, "reward": 0.0, "steps": 280},
+    {"task_id": 1, "instruction": "pick up the akita black bowl and place it on the plate in the middle region", "completed": true, "success": false, "reward": 0.0, "steps": 280},
+    {"task_id": 2, "instruction": "pick up the akita black bowl and place it on the plate in the right region", "completed": true, "success": false, "reward": 0.0, "steps": 280},
+    {"task_id": 3, "instruction": "pick up the akita black bowl and place it inside the basket in the left region", "completed": true, "success": false, "reward": 0.0, "steps": 280}
+  ],
+  "conclusion": {
+    "evaluator_pipeline_smoke_passed": true,
+    "model_capability_inference": "none",
+    "errors": [],
+    "old_results_modified": false,
+    "training_started": false,
+    "fold02": "LOCKED"
+  }
+}

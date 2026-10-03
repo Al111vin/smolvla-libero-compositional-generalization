@@ -176,24 +176,34 @@ alter the LIBERO-36 benchmark outcome and does not unlock Fold 02.
 
 #### Stage E design decision (2026-10-02)
 
-The recommended next experiment is staged to avoid confusing multi-task
-interference with lower per-task training exposure: first train a task-0-only
-control on the exact five-success-demo custom LIBERO-36 task-0 pilot dataset;
-only if its predeclared held-out closed-loop gate passes, compare it with a
-four-task model on custom tasks 0–3. The four-task run is planned for 40,000
-optimizer updates with task-uniform batches of eight (two samples per task),
-matching the single-task control's expected 80,000 sample draws per task. Both
-runs must use the same base initialization and training recipe, and distinct
-output directories. The previously completed native `libero_spatial` task-0
-control is not interchangeable with custom LIBERO-36 task 0.
+The same-frozen-data comparison was selected to avoid confusing multi-task
+interference with lower per-task training exposure. Stage E1 is now complete:
+the task-0-only model trained for 10,000 updates on five episodes (3,290 frames)
+from the frozen 32-task dataset, then received strict evaluation on 50 frozen
+custom-task initial states. It scored **0/50** (95% Wilson CI **[0, 0.0713]**),
+so the predeclared 28/50 gate failed and Stage E2 four-task training was not
+started. This does not alter the formal benchmark result or Fold 02.
 
-No Stage E training has started. The design is gated on read-only GPU checks
-of the frozen dataset and held-out state manifests, plus verification of a
-strict custom-task evaluator for tasks 0–3 and sampler provenance. The current
-GPU SSH endpoint is closing connections before authentication, so these
-checks are pending. No automatic task scaling or Fold 02 unlock is implied.
-See [`Stage E design`](results/teacher_directed_task_scaling_stageE_design_20261002.json)
-for options considered, gates, and stop conditions.
+The data audit compared the five frozen task-0 episodes with the recovered
+source HDF5: all per-frame actions and 15-D states matched exactly; agentview
+and wrist images matched exactly at three sampled frames per episode (not an
+exhaustive image comparison). This weakens the data-conversion-damage
+explanation but does not isolate the training or inference cause. The native
+`libero_spatial` task-0 control is a different task: its recovered V3 checkpoint
+repeatedly succeeds on native benchmark init 3 (5/5), while it scored 0/50 when
+cross-applied to the custom task-0 held-out states. That cross-task result is
+not a valid positive control and must not be used to blame the strict evaluator.
+
+The next bounded diagnostic compares both checkpoints on the five custom
+task-0 demonstration starts under the same BDDL, instruction, frozen camera,
+and strict inference settings. This distinguishes failure to execute familiar
+starts from failure to generalize to held-out states; it is not formal benchmark
+evidence and includes no training. The evaluator smoke and decision record are
+in [`evaluator smoke evidence`](results/teacher_stageE_evaluator_smoke_20261002.json),
+[`Stage E design`](results/teacher_directed_task_scaling_stageE_design_20261002.json),
+and [`Stage E1 control-chain result`](results/teacher_task0_control_chain_stageE1_result_20261003.json).
+The diagnostic is being checked after an intermittent GPU SSH reset. No new
+training or task-count scaling will start until its result is reviewed.
 
 ### Task-balanced sampling proposal (2026-09-23)
 

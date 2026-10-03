@@ -1,0 +1,138 @@
+{
+  "schema_version": 1,
+  "date": "2026-10-03",
+  "phase": "teacher_directed_single_task_control_and_stageE1_review",
+  "goal": "establish a stable one-task capability control before scaling task count while holding per-task sample exposure fixed",
+  "status": "stageE1_custom_task0_gate_failed; follow_up_diagnostic_pending",
+  "historical_native_task0_control": {
+    "task": "LIBERO Spatial task 0",
+    "instruction": "pick up the black bowl between the plate and the ramekin and place it on the plate",
+    "checkpoint_sha256": "84523284fbee2814a3ba124c929ffdb555a1e93890b415a49996895a2cc70903",
+    "repeat_condition": {
+      "init_source": "benchmark",
+      "init_index": 3,
+      "effective_seed": 12348,
+      "wait_steps": 10,
+      "n_action_steps": 25,
+      "max_steps": 300,
+      "repeats": 5,
+      "successes": 5,
+      "steps": [93, 89, 174, 90, 89]
+    },
+    "paired_20_init_result": {
+      "historical_checkpoint_successes": 13,
+      "rollouts": 20,
+      "evidence": "results/phaseB_historical_v3_recovered_asset_full20_egl_summary_20260922.json"
+    },
+    "source": "results/teacher_native_task0_lrscale_ablation_20261002.json",
+    "interpretation": "The known native-task control is repeatable in binary success, although rollout length varies. It is not a positive control for the distinct custom LIBERO-36 task-0 BDDL/instruction."
+  },
+  "current_native_single_task_pipeline_control": {
+    "source": "results/teacher_native_task0_lrscale_ablation_20261002.json",
+    "fixed_init_successes": 5,
+    "fixed_init_rollouts": 5,
+    "paired_init_successes": 12,
+    "paired_init_rollouts": 20,
+    "historical_paired_successes": 13,
+    "single_task_gate_met": true,
+    "scope": "native LIBERO Spatial task 0 only; does not establish capability on custom LIBERO-36 task 0"
+  },
+  "custom_task0_stageE1": {
+    "run_id": "teacher_native_custom_task0_frozen32_5demo_lr10x_10k_20261002_v2",
+    "training": {
+      "status": "completed",
+      "exit_code": 0,
+      "optimizer_updates": 10000,
+      "base_initialization": "/root/smolvla-training-prep/models/smolvla_base_libero",
+      "dataset": "/root/smolvla-training-prep/datasets/lerobot/libero36_feasible_32_frozen_v1",
+      "dataset_repo_id": "local/libero36_feasible_32_frozen_v1",
+      "task_index": 0,
+      "episodes": 5,
+      "frames": 3290,
+      "expected_sample_draws": 80000,
+      "no_gradient_real_loader_preflight_passed": true,
+      "checkpoint_010000_sha256": "14a565d3ea20332d560a717ace5ef7f90081342f8ae2fe06dbcaf9a400845f09",
+      "training_log": "/root/smolvla-training-prep/recovery/task_scaling_stageE_20261002/teacher_native_custom_task0_frozen32_5demo_lr10x_10k_20261002_v2.training.log"
+    },
+    "source_data_parity_audit": {
+      "hdf5": "/root/smolvla-eval-prep/recovered_historical_v3_20260922/data/demos/libero36_task0_5_success_pilot_v1/task_000_layout_1_5_success.hdf5",
+      "hdf5_sha256": "709e070c5d1b664118fdf632e02cfe7d054aff87c352628a9cc098a2892dac61",
+      "episodes_compared": 5,
+      "frames_per_episode": [658, 658, 658, 658, 658],
+      "action_max_abs_diff_each_episode": [0, 0, 0, 0, 0],
+      "observation_state_max_abs_diff_each_episode": [0, 0, 0, 0, 0],
+      "image_pixel_checks": "agentview and wrist images matched exactly at three sampled frames per episode; not an exhaustive all-frame image comparison",
+      "hdf5_task_instruction": "pick up the akita black bowl and place it on the plate in the left region",
+      "interpretation": "The action and state data conversion is exact for all five episodes. This does not establish that the recovered historical checkpoint was trained from these exact bytes or that every image frame is identical."
+    },
+    "strict_evaluation": {
+      "task": "custom LIBERO-36 task 0, layout 1",
+      "instruction": "pick up the akita black bowl and place it on the plate in the left region",
+      "rollouts": 50,
+      "successes": 0,
+      "mean_reward": 0,
+      "wilson_95_ci": [0, 0.0713],
+      "initial_state_manifest_sha256": "67517424bc4541be583da634d5718a72c7f104d6d0042fea8e15b362578dab2c",
+      "bddl_sha256": "2908233f31c329c2719c8a088796d5d375082cf89e7d11e1ae460284bcaa667c",
+      "checkpoint_sha256": "14a565d3ea20332d560a717ace5ef7f90081342f8ae2fe06dbcaf9a400845f09",
+      "strict_deterministic_algorithm_errors": 0,
+      "predeclared_gate": "at least 28/50 success with no evaluator or deterministic-algorithm errors",
+      "gate_passed": false,
+      "stageE2_four_task_run_started": false,
+      "official_benchmark_changed": false,
+      "fold02": "LOCKED",
+      "summary_path": "/root/smolvla-training-prep/recovery/task_scaling_stageE_20261002/teacher_native_custom_task0_frozen32_5demo_lr10x_10k_20261002_v2.result.json"
+    }
+  },
+  "historical_checkpoint_cross_task_probe": {
+    "checkpoint_sha256": "84523284fbee2814a3ba124c929ffdb555a1e93890b415a49996895a2cc70903",
+    "on_custom_task0_same_50_states": {
+      "successes": 0,
+      "rollouts": 50,
+      "initial_state_manifest_sha256": "67517424bc4541be583da634d5718a72c7f104d6d0042fea8e15b362578dab2c",
+      "bddl_sha256": "2908233f31c329c2719c8a088796d5d375082cf89e7d11e1ae460284bcaa667c"
+    },
+    "same_custom_state_index_0_repeats": {
+      "success_pattern": [false, false, false, false, false]
+    },
+    "interpretation": "This is a cross-task diagnostic, not a valid positive control: the checkpoint's confirmed repeatability evidence is on native LIBERO Spatial task 0, whereas these rollouts used the custom LIBERO-36 task, instruction, BDDL, and held-out initial-state manifest. Do not use these 0/50 results to claim evaluator failure or historical checkpoint failure."
+  },
+  "decision": {
+    "stageE1_custom_task0_gate_passed": false,
+    "launch_stageE2_four_task_training": false,
+    "fold02": "LOCKED",
+    "recommended_next_step": "run a diagnostic-only, paired inference check for the current StageE1 and recovered historical checkpoints from the five custom task-0 demonstration initial states under the custom BDDL and instruction; compare with the already verified exact expert replay; then decide whether the issue is training-start execution or held-out generalization",
+    "options_compared": [
+      {
+        "option": "start four-task training now",
+        "decision": "reject",
+        "reason": "The custom task-0 single-task gate failed; scaling would confound task interaction with an unresolved one-task failure."
+      },
+      {
+        "option": "immediately retrain custom task 0 with more steps or altered hyperparameters",
+        "decision": "defer",
+        "reason": "This would consume GPU without isolating whether a policy can execute even the seen demonstration starts."
+      },
+      {
+        "option": "paired seen-demo-start diagnostic without training",
+        "decision": "recommended",
+        "reason": "It holds task, BDDL, camera path, initial states, evaluator, and inference settings fixed across models and distinguishes training-start execution from held-out generalization."
+      }
+    ]
+  },
+  "pending_diagnostic": {
+    "script": "scripts/eval_task0_demo_start_diagnostic_v1.py",
+    "script_sha256": "7075c1c78e74f9923ac181c20f07cf3a97912cc16f4da9752e8af56334d86bea",
+    "scope": "diagnostic only; five HDF5 demonstration initial states; no training and no official benchmark change",
+    "smoke_attempted": true,
+    "smoke_result": "not yet reconnected to GPU to verify output after SSH endpoint reset",
+    "full_diagnostic_started": false
+  },
+  "safety": {
+    "existing_outputs_preserved": true,
+    "no_checkpoints_uploaded": true,
+    "no_raw_dataset_or_rollout_payload_uploaded": true,
+    "no_4_task_training_started": true,
+    "fold02_locked": true
+  }
+}
