@@ -113,6 +113,22 @@
       "limitation": "The HDF5 states are recorded after passive settle; the diagnostic added 10 open-gripper wait actions after restoring each state, so it was not an exact action-start replay.",
       "interpretation": "This does not yet establish failure on exact demonstrated action-start observations or evaluator failure."
     },
+    "zero_wait_demo_start_diagnostic": {
+      "historical_checkpoint_successes": 0,
+      "stageE1_checkpoint_successes": 0,
+      "rollouts_per_checkpoint": 5,
+      "wait_steps": 0,
+      "evidence": "results/teacher_task0_demo_start_diagnostic_20261003_v1_nowait_summary.json",
+      "interpretation": "The task-matched StageE1 model also failed from the recorded action-start states. Historical checkpoint remains a cross-task reference only."
+    },
+    "teacher_forced_action_fit": {
+      "samples": 665,
+      "stride": 5,
+      "overall_mae": 0.01069940347224474,
+      "mae_over_target_mean_abs_range": [0.0503, 0.1474],
+      "evidence": "results/teacher_task0_teacher_forced_action_fit_v1_20261003.json",
+      "interpretation": "Low sparse one-step in-sample error coexists with closed-loop failure; it does not prove cause, so measure action-chunk horizon error before training changes."
+    },
     "on_failure": "preserve outputs; compare evidence-backed remedies, select one bounded diagnostic, do not automatically extend training or launch a second training run",
     "on_any_preflight_or_evaluator_error": "stop before training, keep logs, no overwrite",
     "task_scaling": "only advance to StageE2 if StageE1 gate passes; 8/16/32 scaling remains separately gated",
@@ -120,9 +136,9 @@
     "fold02": "LOCKED"
   },
   "unresolved_blocker": {
-    "issue": "StageE1 custom LIBERO-36 task0 control failed its predeclared 28/50 gate. The paired training-start diagnostic returned 0/5 for each checkpoint, but included 10 open-gripper actions after restoring states that were already captured after passive settle.",
-    "effect": "StageE2 four-task training remains blocked. Data actions/states match exactly, but the diagnostic has not yet tested the precise HDF5 action-start condition; neither evaluator failure nor model inability on exact demonstrated starts is established.",
-    "next_action": "Run a zero-wait paired inference from each HDF5 action-start state, plus exact HDF5 action replay under the same BDDL/environment. Preserve the completed 10-wait diagnostic. Only after that bounded check compare evidence-backed remedies; do not retrain or scale tasks."
+    "issue": "StageE1 custom LIBERO-36 task0 control failed its predeclared 28/50 gate. Zero-wait paired inference also returned 0/5 for the task-matched StageE1 checkpoint from recorded action-start states, while sparse one-step teacher-forced action error on training observations was low (overall MAE 0.0107).",
+    "effect": "StageE2 four-task training remains blocked. Data/actions are validated and expert source rollouts passed. The gap between low sampled one-step error and zero closed-loop success suggests a temporal/chunk or compounding issue, but this is not causal evidence.",
+    "next_action": "Audit predicted action-chunk error across the 50-step horizon on the same HDF5 sequences, preserving the completed diagnostics. Do not retrain or scale tasks until horizon-wise results are interpreted."
   },
   "artifact_policy": {
     "preserve_all_old_outputs": true,

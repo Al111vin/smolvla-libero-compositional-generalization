@@ -194,23 +194,29 @@ repeatedly succeeds on native benchmark init 3 (5/5), while it scored 0/50 when
 cross-applied to the custom task-0 held-out states. That cross-task result is
 not a valid positive control and must not be used to blame the strict evaluator.
 
-The next bounded diagnostic compares both checkpoints on the five custom
-task-0 demonstration starts under the same BDDL, instruction, frozen camera,
-and strict inference settings. This distinguishes failure to execute familiar
-starts from failure to generalize to held-out states; it is not formal benchmark
-evidence and includes no training. The evaluator smoke and decision record are
-in [`evaluator smoke evidence`](results/teacher_stageE_evaluator_smoke_20261002.json),
+The diagnostic-only smoke and five-start paired run completed. With 10 added
+open-gripper wait actions, both checkpoints scored 0/5; because the collector
+stores HDF5 states after passive settle, that was not an exact action-start
+replay. A zero-wait paired rerun then also scored 0/5 for both checkpoints
+(all rewards 0; all reached 280 steps). The historical checkpoint was trained
+on native `libero_spatial` task 0, so its custom-task failures are cross-task
+probes, not a valid positive control. The Stage E1 checkpoint is task-matched.
+All five source HDF5 episodes are marked successful, terminal-held, exact-action
+replays, and passed QC.
+
+A sparse teacher-forced audit of 665 observations across the five training
+episodes found overall one-step action MAE **0.0107**; per-channel error was
+about 5–15% of each channel's mean absolute expert action. This is in-sample
+diagnostic evidence only: it does not establish training causality or explain
+why closed-loop rollout fails. The next check is horizon-wise multi-step action
+chunk fit on the same expert sequences. No additional training or task scaling
+will start before that distinction is reviewed. Evidence is in the
+[`10-wait demo-start diagnostic`](results/teacher_task0_demo_start_diagnostic_20261003_v1_summary.json),
+[`zero-wait diagnostic`](results/teacher_task0_demo_start_diagnostic_20261003_v1_nowait_summary.json),
+[`teacher-forced fit summary`](results/teacher_task0_teacher_forced_action_fit_v1_20261003.json),
+[`fit audit script`](scripts/audit_task0_teacher_forced_action_fit_v1.py),
 [`Stage E design`](results/teacher_directed_task_scaling_stageE_design_20261002.json),
 and [`Stage E1 control-chain result`](results/teacher_task0_control_chain_stageE1_result_20261003.json).
-The one-demo smoke completed technically: both checkpoints failed on demo 0
-(0/1 each, reward 0). The full five-start paired diagnostic then completed:
-both the recovered historical checkpoint and Stage E1 checkpoint scored 0/5
-(all rewards 0; 280 steps per rollout). This run restored each HDF5 initial
-state and then added 10 open-gripper wait actions; because the collector stores
-states after passive settle, it is not an exact action-start replay. A bounded
-zero-wait paired inference plus exact HDF5 action replay is the next diagnostic
-before attributing the result to inability to execute seen demonstrations.
-No retraining or task-count scaling will start before that check is reviewed.
 
 ### Task-balanced sampling proposal (2026-09-23)
 

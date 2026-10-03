@@ -1,0 +1,130 @@
+{
+  "schema_version": 1,
+  "diagnostic_only": true,
+  "formal_benchmark_evidence": false,
+  "training_or_checkpoint_modified": false,
+  "task_id": 0,
+  "layout_id": 1,
+  "instruction": "pick up the akita black bowl and place it on the plate in the left region",
+  "checkpoint_sha256": "14a565d3ea20332d560a717ace5ef7f90081342f8ae2fe06dbcaf9a400845f09",
+  "hdf5_sha256": "709e070c5d1b664118fdf632e02cfe7d054aff87c352628a9cc098a2892dac61",
+  "sampling": {
+    "episodes": 5,
+    "stride": 5,
+    "sampled_observation_count": 665,
+    "prediction_mode": "reset policy state at each recorded observation and compare the first predicted action after fixed inverse-normalization to the aligned expert action"
+  },
+  "absolute_action_error_mae_by_channel": [
+    0.00460013747215271,
+    0.003184538334608078,
+    0.007832037284970284,
+    0.0004099858342669904,
+    0.0008983105653896928,
+    0.0018246914260089397,
+    0.05614613741636276
+  ],
+  "absolute_action_error_mae_overall": 0.01069940347224474,
+  "absolute_action_error_p95_by_channel": [
+    0.013716325163841248,
+    0.010073707439005375,
+    0.025395262986421585,
+    0.0012024601455777884,
+    0.002511945553123951,
+    0.005758787505328655,
+    0.08921051770448685
+  ],
+  "demos": [
+    {
+      "demo": "demo_0",
+      "source_episode_success": true,
+      "source_formal_action_replay_exact": true,
+      "frames": 658,
+      "sampled_frames": 133,
+      "stride": 5,
+      "sampled_action_mae_by_channel": [
+        0.004577839281409979,
+        0.0027596408035606146,
+        0.006654486525803804,
+        0.0003983184869866818,
+        0.0007965770782902837,
+        0.0017674254486337304,
+        0.06180930882692337
+      ],
+      "sampled_action_mae_overall": 0.011251941323280334
+    },
+    {
+      "demo": "demo_1",
+      "source_episode_success": true,
+      "source_formal_action_replay_exact": true,
+      "frames": 658,
+      "sampled_frames": 133,
+      "stride": 5,
+      "sampled_action_mae_by_channel": [
+        0.004012733697891235,
+        0.0027192188426852226,
+        0.008323775604367256,
+        0.00038567726733163,
+        0.0008935878868214786,
+        0.0018577373120933771,
+        0.06316376477479935
+      ],
+      "sampled_action_mae_overall": 0.011622356250882149
+    },
+    {
+      "demo": "demo_2",
+      "source_episode_success": true,
+      "source_formal_action_replay_exact": true,
+      "frames": 658,
+      "sampled_frames": 133,
+      "stride": 5,
+      "sampled_action_mae_by_channel": [
+        0.004604272078722715,
+        0.003274720162153244,
+        0.0069548096507787704,
+        0.0004317615239415318,
+        0.0009639739291742444,
+        0.0020480493549257517,
+        0.08835552632808685
+      ],
+      "sampled_action_mae_overall": 0.015233302488923073
+    },
+    {
+      "demo": "demo_3",
+      "source_episode_success": true,
+      "source_formal_action_replay_exact": true,
+      "frames": 658,
+      "sampled_frames": 133,
+      "stride": 5,
+      "sampled_action_mae_by_channel": [
+        0.00436057522892952,
+        0.0027041358407586813,
+        0.0069358451291918755,
+        0.00039941680734045804,
+        0.0009265849366784096,
+        0.0018935642438009381,
+        0.027508605271577835
+      ],
+      "sampled_action_mae_overall": 0.006389819551259279
+    },
+    {
+      "demo": "demo_4",
+      "source_episode_success": true,
+      "source_formal_action_replay_exact": true,
+      "frames": 658,
+      "sampled_frames": 133,
+      "stride": 5,
+      "sampled_action_mae_by_channel": [
+        0.005445258691906929,
+        0.004464983008801937,
+        0.010291274636983871,
+        0.000434753077570349,
+        0.0009108262602239847,
+        0.001556679606437683,
+        0.039893388748168945
+      ],
+      "sampled_action_mae_overall": 0.008999594487249851
+    }
+  ],
+  "interpretation_limit": "Sparse teacher-forced action fit is not a closed-loop success metric and does not establish training causality.",
+  "fold02": "LOCKED"
+}

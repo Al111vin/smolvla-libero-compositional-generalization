@@ -3,7 +3,7 @@
   "date": "2026-10-03",
   "phase": "teacher_directed_single_task_control_and_stageE1_review",
   "goal": "establish a stable one-task capability control before scaling task count while holding per-task sample exposure fixed",
-  "status": "stageE1_custom_task0_gate_failed; paired_demo_start_diagnostic_complete; exact_action_start_check_pending",
+  "status": "stageE1_custom_task0_gate_failed; paired_demo_start_diagnostics_complete; teacher_forced_fit_audit_complete",
   "historical_native_task0_control": {
     "task": "LIBERO Spatial task 0",
     "instruction": "pick up the black bowl between the plate and the ramekin and place it on the plate",
@@ -65,6 +65,14 @@
       "hdf5_task_instruction": "pick up the akita black bowl and place it on the plate in the left region",
       "interpretation": "The action and state data conversion is exact for all five episodes. This does not establish that the recovered historical checkpoint was trained from these exact bytes or that every image frame is identical."
     },
+    "source_demo_replay_qc": {
+      "episodes": 5,
+      "episodes_successful": 5,
+      "episodes_terminal_success_hold": 5,
+      "episodes_formal_action_replay_exact": 5,
+      "episodes_passed": 5,
+      "source": "HDF5 data/demo_0..demo_4 attributes read-only on the GPU; each contains 658 frames"
+    },
     "strict_evaluation": {
       "task": "custom LIBERO-36 task 0, layout 1",
       "instruction": "pick up the akita black bowl and place it on the plate in the left region",
@@ -101,7 +109,7 @@
     "stageE1_custom_task0_gate_passed": false,
     "launch_stageE2_four_task_training": false,
     "fold02": "LOCKED",
-    "recommended_next_step": "run a diagnostic-only, paired inference check for the current StageE1 and recovered historical checkpoints from the five custom task-0 demonstration initial states under the custom BDDL and instruction; compare with the already verified exact expert replay; then decide whether the issue is training-start execution or held-out generalization",
+    "recommended_next_step": "run a read-only multi-step action-chunk fit audit for StageE1 on the same HDF5 observations and expert action labels; compare horizon-wise error to the low one-step teacher-forced error before any training changes",
     "options_compared": [
       {
         "option": "start four-task training now",
@@ -116,7 +124,7 @@
       {
         "option": "paired seen-demo-start diagnostic without training",
         "decision": "recommended",
-        "reason": "It holds task, BDDL, camera path, initial states, evaluator, and inference settings fixed across models and distinguishes training-start execution from held-out generalization."
+        "reason": "Completed; it revealed a wait-action caveat, then the zero-wait rerun confirmed the 0/5 results from the precise HDF5 action-start states."
       }
     ]
   },
@@ -140,7 +148,27 @@
       "stageE1_custom_task0_10k": {"successes": 0, "rollouts": 5, "mean_reward": 0.0, "steps": [280, 280, 280, 280, 280]}
     },
     "protocol_caveat": "Each HDF5 initial simulator state was restored and then followed by 10 open-gripper wait actions. The collector records the HDF5 state after passive settle, so this is not an exact action-start replay.",
-    "next_action": "perform a bounded zero-wait paired inference and exact HDF5 action replay from the recorded action-start states before interpreting this as failure on seen demonstrations; no retraining or task scaling"
+    "zero_wait_paired_diagnostic": {
+      "summary": "results/teacher_task0_demo_start_diagnostic_20261003_v1_nowait_summary.json",
+      "summary_sha256": "c925ea8050fe3b06bd1b60e132986614877a75b85a3843a3c10839f46b4990fb",
+      "protocol_wait_steps": 0,
+      "recovered_historical_v3": {"successes": 0, "rollouts": 5, "mean_reward": 0.0, "steps": [280, 280, 280, 280, 280]},
+      "stageE1_custom_task0_10k": {"successes": 0, "rollouts": 5, "mean_reward": 0.0, "steps": [280, 280, 280, 280, 280]},
+      "interpretation_limit": "Historical checkpoint was trained for native LIBERO Spatial task 0, not this custom LIBERO-36 task; only the StageE1 checkpoint is a task-matched model."
+    },
+    "teacher_forced_action_fit_audit": {
+      "script": "scripts/audit_task0_teacher_forced_action_fit_v1.py",
+      "script_sha256": "0a094bc22a0546f7520df73ba3aab0dceb203e7e4c27967fb7685c9dc5a9b9ae",
+      "summary": "results/teacher_task0_teacher_forced_action_fit_v1_20261003.json",
+      "summary_sha256": "202d6d1e722a912fa5983fa3339dbbd94659daf7247fa6a19e60eb96625bd3bd",
+      "sampling": "665 frames sampled every five frames across all five training episodes; policy state reset per recorded observation; first postprocessed action compared with aligned expert action",
+      "overall_action_mae": 0.01069940347224474,
+      "mae_by_channel": [0.00460013747215271, 0.003184538334608078, 0.007832037284970284, 0.0004099858342669904, 0.0008983105653896928, 0.0018246914260089397, 0.05614613741636276],
+      "target_mean_absolute_by_channel": [0.09147639572620392, 0.03286445885896683, 0.07469148188829422, 0.0027810465544462204, 0.01279976312071085, 0.02502777799963951, 0.9624060392379761],
+      "mae_over_target_mean_absolute_by_channel": [0.0503, 0.0969, 0.1049, 0.1474, 0.0702, 0.0729, 0.0583],
+      "interpretation": "The current checkpoint closely matches one-step expert actions on these sampled in-distribution observations in absolute terms; this does not explain or override 0/50 held-out and 0/5 zero-wait closed-loop results, and does not prove causal sufficiency."
+    },
+    "next_action": "compare multi-step predicted action-chunk outputs with aligned expert actions on these same observations, especially error growth across the 50-step horizon; do not retrain or scale task count until that distinction is understood"
   },
   "safety": {
     "existing_outputs_preserved": true,
