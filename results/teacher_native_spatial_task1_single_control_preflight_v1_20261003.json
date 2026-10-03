@@ -1,0 +1,43 @@
+{
+  "status": "passed",
+  "training_started": false,
+  "dataset_modified": false,
+  "task_id": 1,
+  "task_text": "pick up the black bowl next to the ramekin and place it on the plate",
+  "episode_indices": [
+    50,
+    99
+  ],
+  "episodes": 50,
+  "frames": 6707,
+  "filtered_dataset_len": 6707,
+  "schema": {
+    "image_shape": [
+      3,
+      128,
+      128
+    ],
+    "state_dim": 15,
+    "action_dim": 7
+  },
+  "normalization_stats_source": "unchanged frozen four-task dataset meta/stats.json",
+  "training": {
+    "steps": 40000,
+    "batch_size": 2,
+    "sample_draws": 80000,
+    "seed": 1000,
+    "learning_rate": 0.0001,
+    "pretrained_path": "/root/smolvla-training-prep/models/smolvla_base_libero"
+  },
+  "training_output": "/root/smolvla-training-prep/results/training/teacher_native_spatial_task1_single_current_recipe_40k_batch2_v1",
+  "evaluation_output": "/root/smolvla-eval-prep/results/teacher_native_spatial_task1_single_current_recipe_40k_batch2_v1",
+  "evaluator_sha256": "89fd36a89dc45a56382219d4c3f6e5d12a3b1689abb3440ec29be346815af7cb",
+  "source_config_sha256": "0676ee11b5a1bd54a48595363dee4790e3d35ed7482172199af28dfad6a9b1cc",
+  "conversion_manifest_sha256": "8bb81e1d1828d2a4be3dd8469e1f2812c35bc4f9a48aea0f7a8da8deb2d11ba1",
+  "global_dataset_stats_sha256": "29aff99c2a83a5a60265e7ccef182f501e41b6e0215f8c8796ee24bf41b55227",
+  "pretrained_model_present": true,
+  "gpu_idle": true,
+  "conflicting_workload_absent": true,
+  "disk_free_gib": 77.38,
+  "new_config_sha256": "4a8e95b31ccb1954ea0fc083c24cce396136f527b5e7dff1a66c0f305ceb7906"
+}

@@ -332,12 +332,15 @@ strict-deterministic-algorithms evaluation. The failed
 and [`loader recovery report`](results/teacher_native_spatial_4task_loader_integration_recovery_20261003.json).
 The full lightweight evaluation record, including gate outcome and source
 hashes, is [`here`](results/teacher_native_spatial_4task_40k_eval_result_v1_20261003.json).
-The next diagnostic is four additional repeats of the successful current-pipeline
-single-task reference at the same benchmark initialization and effective seed
-(init 3, seed 12351) used for the joint-4 fixed-init repeats. A read-only
-preflight caught and corrected a checkpoint/seed-selection error before any
-rollout was launched; the corrected protocol is in the
-[`same-seed control plan`](results/teacher_native_task0_same_seed_repeat_decision_v2_20261003.json).
+The same-effective-seed control is complete: the successful LRx10 single-task
+reference was 5/5 at init 3 / effective seed 12351 (one existing paired row
+plus four new repeats), while the joint-4 checkpoint was 4/5 at that same
+fixed condition. This is a one-initialization repeatability diagnostic, not
+evidence of a reliable model difference; the four-task gate remains failed and
+8-task scaling remains on hold. A read-only preflight caught and corrected a
+checkpoint/seed-selection error before the run. See the
+[`same-seed result`](results/teacher_native_task0_same_seed_repeatability_v1_20261003.json)
+and [`corrected plan`](results/teacher_native_task0_same_seed_repeat_decision_v2_20261003.json).
 The custom LIBERO-36
 StageE1 result remains a separate 0/50, and Fold02 remains locked. See the
 [`replacement-run preflight evidence`](results/teacher_native_spatial_task0_3_preflight_result_v2_20261003.json),
@@ -1224,3 +1227,30 @@ prespecified threshold.
 
 Evidence:
 [`Phase N final joint32 negative conclusion`](results/phaseN_joint32_final_negative_conclusion_20260929.json).
+
+### Native Spatial task-1 single-task control (2026-10-03)
+
+The four-task 40k run did not pass its predeclared progression gate (task0
+init3 fixed repeats were 4/5), so scaling to 8 tasks is not authorized. The
+next bounded comparison is task 1 trained alone with the same base model,
+optimizer, 40k update count, and 80k task-1 sample draws as the four-task run.
+It uses the frozen task-1 slice (episodes 50--99; 50 demonstrations / 6,707
+frames) and retains the four-task normalization statistics. The batch size is
+2 instead of 8, so this is a diagnostic single-task-vs-mixture comparison,
+not a clean causal estimate of interference.
+
+The read-only preflight passed: the selected LeRobot slice returns task-1 only,
+with 15-D state, 7-D actions, two 128x128 image streams, finite values, and the
+expected evaluator hash. At preflight the GPU was idle and 77.38 GiB remained
+free. The new 40k run has not yet been declared complete; only its final
+checkpoint will receive the 20 paired task-1 initializations plus four extra
+init3 repeats. V3 evaluation is not strict-deterministic-algorithms evaluation.
+Fold 02 remains locked, and no 8-task run starts automatically.
+
+Evidence and reproducibility artifacts:
+[`task-1 control plan`](results/teacher_native_spatial_task1_single_control_plan_v1_20261003.json),
+[`preflight record`](results/teacher_native_spatial_task1_single_control_preflight_v1_20261003.json),
+[`generated config`](configs/teacher_native_spatial_task1_single_40k_batch2_20261003.json),
+[`preflight script`](scripts/preflight_teacher_native_spatial_task1_single_v1.py),
+[`runner`](scripts/run_teacher_native_spatial_task1_single_control_v1.sh), and
+[`summarizer`](scripts/summarize_teacher_native_spatial_task1_single_control_v1.py).

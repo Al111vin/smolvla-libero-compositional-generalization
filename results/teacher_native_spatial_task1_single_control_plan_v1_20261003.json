@@ -1,0 +1,102 @@
+{
+  "schema_version": 1,
+  "date": "2026-10-03",
+  "stage": "native_spatial_task1_single_task_control",
+  "status": "preflight_passed_training_pending",
+  "current_gate": {
+    "native_historical_task0_positive_control": "5/5 repeated success at fixed task/init/evaluator condition",
+    "current_pipeline_single_task_task0": "successful LRx10 reference; 12/20 paired and 5/5 fixed condition",
+    "matched_four_task": "40k updates; task0 14/20, task1 13/20, task2 19/20, task3 18/20; fixed task0 init3 4/5",
+    "four_task_progression_gate": "FAILED; do not advance to 8 tasks",
+    "fold02": "LOCKED"
+  },
+  "options_compared": [
+    {
+      "option": "advance_directly_to_8_tasks",
+      "decision": "reject",
+      "reason": "The registered four-task gate failed because task0 fixed-init3 success was 4/5, not 5/5. Increasing task count now would violate the staged gate."
+    },
+    {
+      "option": "repeat_task0_controls_again",
+      "decision": "defer",
+      "reason": "The correct single-task and joint4 checkpoints have now both been observed five times at the same task0 init3/effective seed12351. More repetitions at that one initialization add less information than testing the lowest-scoring joint4 task alone."
+    },
+    {
+      "option": "train_task1_alone_with_matched_per_task_exposure",
+      "decision": "recommended",
+      "reason": "Task1 is the lowest-scoring included task in joint4 (13/20). A task1-only control with the same initialization, optimizer, update count, per-task sample draws, and global normalization statistics distinguishes task difficulty/current single-task learning from task-mixture effects without scaling to more tasks."
+    },
+    {
+      "option": "stop_all_gpu_work",
+      "decision": "not_selected",
+      "reason": "The bounded single-task control directly tests the teacher's requested one-task-versus-multitask distinction and is within the already authorized unattended goal."
+    }
+  ],
+  "data_preflight_evidence": {
+    "source_dataset": "/root/smolvla-training-prep/datasets/lerobot/libero_spatial_tasks0_3_native_20261003_v1",
+    "source_dataset_sha256_manifest": "results/teacher_native_spatial_0_3_conversion_manifest_20261003.json",
+    "selected_task_id": 1,
+    "instruction": "pick up the black bowl next to the ramekin and place it on the plate",
+    "episode_indices": [50, 99],
+    "episodes": 50,
+    "frames": 6707,
+    "schema": "two 3x128x128 image tensors, 15-D state, 7-D action; finite on filtered-loader smoke",
+    "filtered_lerobot_dataset_length": 6707,
+    "preflight_result": "results/teacher_native_spatial_task1_single_control_preflight_v1_20261003.json",
+    "preflight_config": "configs/teacher_native_spatial_task1_single_40k_batch2_20261003.json",
+    "preflight_passed": true,
+    "preflight_timestamp_utc": "2026-10-03",
+    "preflight_config_sha256": "4a8e95b31ccb1954ea0fc083c24cce396136f527b5e7dff1a66c0f305ceb7906",
+    "preflight_evaluator_sha256": "89fd36a89dc45a56382219d4c3f6e5d12a3b1689abb3440ec29be346815af7cb",
+    "gpu_idle_at_preflight": true,
+    "disk_free_gib_at_preflight": 77.38,
+    "normalization_stats": "Retain the frozen four-task dataset meta/stats unchanged so the task1-only comparison uses the same normalization statistics as joint4; do not recompute or modify data."
+  },
+  "training_design": {
+    "job_name": "teacher_native_spatial_task1_single_current_recipe_40k_batch2_v1",
+    "steps": 40000,
+    "batch_size": 2,
+    "sample_draws": 80000,
+    "matched_joint4_task1_draws": 80000,
+    "samples_per_optimizer_step_in_joint4_for_task1": 2,
+    "pretrained_path": "/root/smolvla-training-prep/models/smolvla_base_libero",
+    "seed": 1000,
+    "optimizer": "Same current recipe as joint4: AdamW, lr=1e-4, betas=[0.9,0.95], eps=1e-8, weight_decay=1e-10, grad_clip_norm=1.",
+    "scheduler": "Retain the joint4 40k config scheduler settings (warmup 3000, decay horizon 90000, peak lr 1e-4, decay lr 2.5e-6).",
+    "policy": "Keep chunk_size=50, n_action_steps=25, freeze_vision_encoder=true, train_expert_only=true, train_state_proj=true, same cameras/state/action preprocessing.",
+    "checkpoints": [10000, 20000, 30000, 40000],
+    "matched_update_caveat": "Same optimizer update count and the same two task1 samples per update as joint4; global batch changes from 8 to 2 because the other task samples are removed. The task1-only objective is not a formal causal estimate of interference, but it is exposure- and update-matched."
+  },
+  "evaluation_design": {
+    "evaluator": "/root/smolvla-eval-prep/scripts/eval_v3_task0_state_capture_v1.py",
+    "evaluator_sha256": "89fd36a89dc45a56382219d4c3f6e5d12a3b1689abb3440ec29be346815af7cb",
+    "checkpoint": "step 40000 only (predeclared primary checkpoint)",
+    "task_id": 1,
+    "paired_initializations": "indices 0..19, CLI seed 12345 + init_index; evaluator effective seed 12345 + 2*init_index",
+    "wait_steps": 10,
+    "n_action_steps": 25,
+    "max_steps": 300,
+    "fixed_init3_repeats": "5 total at effective seed12351: include the init3 row from the paired-20 set plus four additional repeats (CLI seed12348).",
+    "primary_comparison": "Paired task1 success outcomes versus joint4 task1 outcomes on the same 20 initialization indices.",
+    "diagnostic_readout": "Report success count and Wilson interval; exact paired discordance/McNemar test if per-init joint4 rows are available; report fixed-init3 repeats separately. This is not a formal benchmark gate."
+  },
+  "interpretation_and_stop_rules": {
+    "task1_alone_learnable_signal": "At least 10/20 paired initializations and 5/5 fixed-init3 observations would be a positive diagnostic signal only, not a formal acceptance threshold.",
+    "if_below_signal": "Do not scale task count. Preserve evidence and compare data/task difficulty, single-task training behavior, and the exact scheduler/exposure before any repair.",
+    "if_positive": "Still do not advance automatically to 8 tasks; compare paired outcomes and predeclared four-task gate, then design the next phase.",
+    "no_repair_loop": "Any preflight, training, checkpoint, or evaluator failure stops this run. Preserve logs and propose evidence-based options before any retry.",
+    "official_conclusion": "Unchanged; Fold02 remains locked."
+  },
+  "safety": {
+    "dataset_modified": false,
+    "existing_checkpoints_overwritten": false,
+    "existing_results_overwritten": false,
+    "data_or_weights_uploaded": false,
+    "training_started": false
+  },
+  "output_paths": {
+    "training": "/root/smolvla-training-prep/results/training/teacher_native_spatial_task1_single_current_recipe_40k_batch2_v1",
+    "evaluation": "/root/smolvla-eval-prep/results/teacher_native_spatial_task1_single_current_recipe_40k_batch2_v1",
+    "recovery": "/root/smolvla-training-prep/recovery/task_scaling_native_spatial_20261003/task1_single_control_v1"
+  }
+}
