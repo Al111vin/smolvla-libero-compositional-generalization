@@ -1,0 +1,90 @@
+{
+  "schema_version": 1,
+  "date": "2026-10-03",
+  "stage": "matched_seed_single_task_vs_joint4_repeatability_diagnostic",
+  "status": "complete_validated",
+  "protocol": {
+    "task_suite": "libero_spatial",
+    "task_id": 0,
+    "initialization_source": "benchmark",
+    "init_index": 3,
+    "evaluator_cli_seed": 12348,
+    "effective_seed": 12351,
+    "seed_rule": "effective_seed = evaluator_cli_seed + init_index",
+    "wait_steps": 10,
+    "n_action_steps": 25,
+    "max_steps": 300,
+    "capture_state": true,
+    "evaluator": "/root/smolvla-eval-prep/scripts/eval_v3_task0_state_capture_v1.py",
+    "evaluator_sha256": "89fd36a89dc45a56382219d4c3f6e5d12a3b1689abb3440ec29be346815af7cb",
+    "strict_deterministic_algorithms": false
+  },
+  "single_task_reference": {
+    "checkpoint_group": "teacher_native_task0_base_init_lr10x_current_recipe_10k_20261002_v1",
+    "checkpoint": "/root/smolvla-training-prep/results/training/teacher_native_task0_base_init_lr10x_current_recipe_10k_20261002_v1/checkpoints/010000/pretrained_model",
+    "model_safetensors_sha256": "62bd1a17bc4fcb8fc4d090904e2c5e54b9b70cc16dbb6dd15b869b010c32d406",
+    "prior_fixed_repeat_result": "5/5 at init_index 3, effective seed 12348",
+    "same_effective_seed_observations": {
+      "n": 5,
+      "successes": 5,
+      "success_pattern": [true, true, true, true, true],
+      "steps": [88, 92, 90, 89, 91],
+      "existing_paired_row": {
+        "success": true,
+        "steps": 88,
+        "summary_csv_sha256": "8696a36ab01f9b2be7adbea4821971509bb02ab7af112ab22b6bf67fb564b90f"
+      },
+      "new_repeat_successes": 4,
+      "new_repeat_summary_csv_sha256": [
+        "3656b3e20631a2aa7bcde937ef692ec34bf4e95c7d7f6ae2150e5f9f98a868d4",
+        "733e2dc22713cd0b7f265863c89485a25eca5ae4071dc32f31ef09347dc16187",
+        "085d3f36b4d12153152f854417f81d1d6313a515d0de736b76eb91e2196e970e",
+        "bb3294568efb2787d2617662cf7dfa587cc98447dccfd5bec69f953684c3d953"
+      ],
+      "new_repeat_action_csv_sha256": [
+        "9924e73d738434246b87cdb14452e4fc9eb2cea0b774827b521133f17b10a8be",
+        "3c3e65278ec80350a59e2c1db2e3930c7d6dadaf8e5db95a8bda05361e71117b",
+        "55af431cde02d6550185037dc433206fc2a8e409161db83ce5209f12f50b52f6",
+        "7ffc627b487e77686fdb756151c48c62a921c15853a3a958d018edae9668248a"
+      ]
+    },
+    "paired_20_init_successes": 12
+  },
+  "joint4_candidate": {
+    "checkpoint_group": "teacher_native_spatial_tasks0_3_balanced_current_recipe_40k_v2",
+    "checkpoint_step": 40000,
+    "model_safetensors_sha256": "13998edc938f3fcb1ea1ec15c1dc5c369a6e40bff83b389964f15194a53ea24c",
+    "same_init_and_effective_seed_result": {
+      "n": 5,
+      "successes": 4,
+      "success_pattern": [true, true, true, true, false],
+      "steps": [106, 104, 104, 105, 300]
+    },
+    "paired_20_init_successes": 14
+  },
+  "execution_audit": {
+    "new_rollouts_completed": 4,
+    "summary_csv_count": 4,
+    "action_csv_count": 4,
+    "runner_completion_marker": true,
+    "runner_log": "/tmp/teacher_native_task0_same_seed_repeat_v2_20261003.runner.log",
+    "gpu_process_remaining": false,
+    "error_scan": "no Traceback, RuntimeError, FAILED, or ERROR lines in the four rollout logs"
+  },
+  "interpretation": {
+    "verified": "At task0 benchmark init3 and effective seed12351, the current-pipeline single-task LRx10 reference succeeded in all five observations (one existing paired-evaluation row plus four new repeats); the matched-exposure joint4 40k checkpoint succeeded in four of its five existing repeats.",
+    "not_established": [
+      "This single initialization does not estimate generalization or prove a reliable difference between models.",
+      "The one failure in the joint4 repeats may reflect execution-level variability; strict deterministic algorithms were not enabled.",
+      "This result does not establish multi-task interference as a cause; training recipe, checkpoint and task mixture differ between the two models."
+    ],
+    "progression_gate": "Remains failed as preregistered because the joint4 task0 fixed-init repeat was 4/5, not 5/5.",
+    "decision": "Do not advance to 8 tasks yet. Next compare a matched task-1-only current-recipe control against the existing joint4 task1 13/20 result, after reviewing exact optimizer/scheduler exposure and unique output preflight.",
+    "fold02": "LOCKED",
+    "formal_libero36_result_changed": false
+  },
+  "artifacts": {
+    "gpu_result_dir": "/root/smolvla-eval-prep/results/teacher_native_task0_same_seed_repeat_v2_20261003",
+    "evidence_uploaded": "Only this lightweight summary and README text; no action CSVs, raw observations, dataset payloads, or checkpoints uploaded."
+  }
+}

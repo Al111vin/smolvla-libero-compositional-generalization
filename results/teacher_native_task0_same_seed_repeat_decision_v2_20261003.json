@@ -2,7 +2,8 @@
   "schema_version": 1,
   "date": "2026-10-03",
   "stage": "teacher_native_task0_same_seed_repeatability_control",
-  "status": "approved_within_unattended_goal",
+  "status": "executed_complete",
+  "completion_result": "teacher_native_task0_same_seed_repeatability_v1_20261003.json",
   "supersedes": "teacher_native_task0_same_seed_repeat_decision_v1_20261003.json",
   "preflight_correction": {
     "v1_execution_started": false,
