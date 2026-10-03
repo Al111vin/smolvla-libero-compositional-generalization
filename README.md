@@ -313,14 +313,14 @@ checks. The approved unattended runner started on 2026-10-03 (UTC); training
 first stopped during Accelerate DataLoader wrapping before any optimizer update
 or checkpoint. The wrapper was minimally corrected and passed four tests plus
 a real-dataset Accelerate loader smoke; a separate `40k_v2` run then passed
-preflight and was at approximately 2,000/40,000 updates (loss 0.557) at the
-latest progress check. The failed `40k_v1`
+preflight and was at approximately 2,619/40,000 updates (latest logged loss
+0.498) at the latest progress check. The failed `40k_v1`
 logs/output are preserved. Run status and process/log paths are recorded in the
 [`stage plan`](results/teacher_task_scaling_next_stage_plan_v1_20261003.json)
 and [`loader recovery report`](results/teacher_native_spatial_4task_loader_integration_recovery_20261003.json).
 The custom LIBERO-36
 StageE1 result remains a separate 0/50, and Fold02 remains locked. See the
-[`preflight evidence`](results/teacher_native_spatial_task0_3_preflight_result_v1_20261003.json),
+[`replacement-run preflight evidence`](results/teacher_native_spatial_task0_3_preflight_result_v2_20261003.json),
 [`conversion manifest`](results/teacher_native_spatial_0_3_conversion_manifest_20261003.json),
 and [`four-task stage plan`](results/teacher_task_scaling_next_stage_plan_v1_20261003.json).
 Evidence is in the
