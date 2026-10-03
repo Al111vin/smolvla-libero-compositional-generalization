@@ -2,7 +2,7 @@
   "schema_version": 1,
   "date": "2026-10-03",
   "stage": "native_spatial_task0_single_task_matched_recipe_control",
-  "status": "training_running",
+  "status": "training_completed_eval_recovery_pending",
   "current_gate": {
     "historical_native_task0_positive_control": "5/5 repeated success at fixed benchmark init3/effective seed12351 under recovered V3 evaluator; 12/20 paired initializations",
     "current_recipe_single_task0_10k": "standard LR 1e-4 run did not pass fixed-init3 repeat; LRx10 reference succeeded but uses different LR",
@@ -86,13 +86,18 @@
         "gpu_memory_used_mib": 2780
       },
       "latest_progress_check": {
-        "observed_utc": "2026-10-03 12:30 UTC",
-        "step": 33528,
+        "observed_utc": "2026-10-03 12:51 UTC",
+        "step": 40000,
         "total_steps": 40000,
-        "checkpoint_030000_model_file_verified_nonempty": true,
-        "checkpoint_030000_model_file_size_bytes": 1197789224,
-        "runner_and_trainer_process_state": "not_confirmed_in_returned_output_excerpt",
-        "evaluation_output_state": "not_confirmed_after_030000_checkpoint"
+        "training_log_end_marker": "End of training",
+        "training_exit_code": 0,
+        "all_four_checkpoint_model_files_verified_nonempty": true,
+        "checkpoint_040000_model_file_size_bytes": 1197789224,
+        "runner_and_trainer_processes_absent": true,
+        "gpu_utilization_percent": 0,
+        "gpu_memory_used_mib": 2,
+        "evaluation_started": false,
+        "runner_error": "Failed before the first evaluator launch because checkpoint_probe/step_010000.log parent directory did not exist."
       },
       "checkpoint_milestones": {
         "010000": {
@@ -117,10 +122,21 @@
           "model_file_size_bytes": 1197789224,
           "training_log_step_when_verified": "33528/40000",
           "weights_uploaded": false
+        },
+        "040000": {
+          "status": "model_file_verified_nonempty",
+          "model_file": "/root/smolvla-training-prep/results/training/teacher_native_spatial_task0_single_current_recipe_40k_batch2_v1/checkpoints/040000/pretrained_model/model.safetensors",
+          "model_file_size_bytes": 1197789224,
+          "training_exit_code": 0,
+          "weights_uploaded": false
         }
       },
       "training_log": "/root/smolvla-training-prep/recovery/task_scaling_native_spatial_20261003/task0_single_control_v1/teacher_native_spatial_task0_single_current_recipe_40k_batch2_v1.training.log",
       "unattended_driver_log": "/root/smolvla-training-prep/recovery/task_scaling_native_spatial_20261003/task0_single_control_v1/unattended_driver.log",
+      "unattended_driver_failure": "line 75 attempted to redirect the first probe log into a missing checkpoint_probe parent; due to set -e, evaluation stopped before any rollout; the existing evaluation root was empty at the inspected time",
+      "evaluation_recovery_decision": "results/teacher_native_spatial_task0_single_eval_recovery_decision_v1_20261003.json",
+      "evaluation_recovery_script": "scripts/resume_teacher_native_spatial_task0_single_eval_v1.sh",
+      "evaluation_recovery_script_sha256": "5f3bb1484a65c41e7e4126b1b87f24910940339ff5c6eb850e95c886e747f115",
       "preflight_report": "results/teacher_native_spatial_task0_single_control_preflight_v1_20261003.json",
       "config": "configs/teacher_native_spatial_task0_single_40k_batch2_20261003.json",
       "invocation_note": "Two initial invocations failed before writing any output because the script directory was not on Python's module search path; the corrected invocation set PYTHONPATH to the training repository root and passed. No data, config, or model was modified by the failed invocations."

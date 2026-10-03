@@ -1,0 +1,52 @@
+{
+  "schema_version": 1,
+  "experiment_id": "teacher_native_spatial_task0_single_current_recipe_40k_batch2_v1",
+  "decision_date_utc": "2026-10-03",
+  "issue": {
+    "training_completed": true,
+    "training_log_evidence": [
+      "End of training",
+      "TEACHER_NATIVE_SPATIAL_TASK0_SINGLE_40K_TRAIN_EXIT_CODE=0"
+    ],
+    "checkpoints_verified_nonempty": [10000, 20000, 30000, 40000],
+    "evaluator_started": false,
+    "failure": "Original runner line 75 could not open checkpoint_probe/step_010000.log because the nested checkpoint_probe directory had not been created. With set -e, the runner exited before launching the first evaluator rollout.",
+    "eval_output_root_was_empty_at_inspection": true,
+    "gpu_was_idle_at_inspection": true
+  },
+  "options_considered": [
+    {
+      "option": "rerun_original_training_and_evaluation_runner",
+      "decision": "reject",
+      "reason": "Its fresh-output guards refuse the existing training/evaluation roots, and bypassing those guards would risk retraining or overwriting existing evidence."
+    },
+    {
+      "option": "manually_create_directories_and_enter_all_evaluator_commands",
+      "decision": "reject",
+      "reason": "This could work, but is harder to audit as one registered 27-rollout sequence and can omit the summarizer or exact stop/overwrite checks."
+    },
+    {
+      "option": "dedicated_evaluation_only_recovery_runner",
+      "decision": "recommended",
+      "reason": "Verifies successful training completion, all four checkpoint weights, evaluator hash, empty result root, GPU availability and no conflicting workload; creates required nested directories; runs the original registered probes and paired/repeat rollouts without retraining; summarizes to the original fresh summary path."
+    }
+  ],
+  "selected_repair": "scripts/resume_teacher_native_spatial_task0_single_eval_v1.sh",
+  "safety_invariants": [
+    "Do not restart training.",
+    "Do not overwrite, delete, or replace existing checkpoints or rollout evidence.",
+    "Use the exact registered evaluator, checkpoints, seeds, and rollout settings.",
+    "Stop on the first evaluator error and preserve partial logs/results.",
+    "Do not change official benchmark conclusions or unlock Fold02 based on this diagnostic."
+  ],
+  "evaluation_plan": {
+    "checkpoint_probes": 3,
+    "paired_final_checkpoint_rollouts": 20,
+    "additional_fixed_init3_repeats": 4,
+    "total_rollouts": 27,
+    "weights_or_datasets_uploaded": false
+  },
+  "recovery_script_sha256": "5f3bb1484a65c41e7e4126b1b87f24910940339ff5c6eb850e95c886e747f115",
+  "local_syntax_check": "bash -n passed",
+  "status": "recovery_script_created_and_syntax_checked_locally; remote launch pending"
+}
