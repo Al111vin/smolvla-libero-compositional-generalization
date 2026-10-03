@@ -1,0 +1,93 @@
+{
+  "schema_version": 1,
+  "status": "passed",
+  "source_hdf5": "/root/smolvla-training-prep/recovery/native_task0_20261002/libero_spatial/pick_up_the_black_bowl_between_the_plate_and_the_ramekin_and_place_it_on_the_plate_demo.hdf5",
+  "source_sha256": "ff6f26121653c77280eb40a38773a74141c11a8509f3466058cb56dd2cc60ead",
+  "dataset_repo_id": "local/libero_spatial_tasks0_3_native_v1",
+  "dataset_root": "/root/smolvla-training-prep/datasets/lerobot/libero_spatial_tasks0_3_native_20261003_v1",
+  "dataset_stats_sha256": "29aff99c2a83a5a60265e7ccef182f501e41b6e0215f8c8796ee24bf41b55227",
+  "task_id": 0,
+  "task_text": "pick up the black bowl between the plate and the ramekin and place it on the plate",
+  "episodes": 50,
+  "frames": 5068,
+  "frames_checked": 5068,
+  "images_checked": 10136,
+  "state_max_abs_diff_float32": 0.0,
+  "action_max_abs_diff_float32": 0.0,
+  "filtered_loader_length": 5068,
+  "filtered_loader_episodes": 50,
+  "filtered_loader_samples": [
+    {
+      "index": 0,
+      "shapes": {
+        "action": [
+          50,
+          7
+        ],
+        "observation.state": [
+          15
+        ],
+        "observation.images.agentview": [
+          3,
+          128,
+          128
+        ],
+        "observation.images.wrist": [
+          3,
+          128,
+          128
+        ]
+      },
+      "finite": true
+    },
+    {
+      "index": 2534,
+      "shapes": {
+        "action": [
+          50,
+          7
+        ],
+        "observation.state": [
+          15
+        ],
+        "observation.images.agentview": [
+          3,
+          128,
+          128
+        ],
+        "observation.images.wrist": [
+          3,
+          128,
+          128
+        ]
+      },
+      "finite": true
+    },
+    {
+      "index": 5067,
+      "shapes": {
+        "action": [
+          50,
+          7
+        ],
+        "observation.state": [
+          15
+        ],
+        "observation.images.agentview": [
+          3,
+          128,
+          128
+        ],
+        "observation.images.wrist": [
+          3,
+          128,
+          128
+        ]
+      },
+      "finite": true
+    }
+  ],
+  "errors": [],
+  "training_started": false,
+  "fold02": "LOCKED"
+}

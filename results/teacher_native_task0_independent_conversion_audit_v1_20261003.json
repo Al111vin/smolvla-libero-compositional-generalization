@@ -1,0 +1,106 @@
+{
+  "source": "/root/smolvla-training-prep/recovery/native_task0_20261002/libero_spatial/pick_up_the_black_bowl_between_the_plate_and_the_ramekin_and_place_it_on_the_plate_demo.hdf5",
+  "root": "/root/smolvla-training-prep/datasets/lerobot/libero_spatial_task0_reconstructed_20261002",
+  "frames_checked": 5068,
+  "episodes": 50,
+  "images_checked": 10136,
+  "state_max_abs_diff_float32": 0.0,
+  "action_max_abs_diff_float32": 0.0,
+  "task_text_matches": true,
+  "loader_smoke": [
+    {
+      "index": 0,
+      "shapes": {
+        "action": [
+          50,
+          7
+        ],
+        "observation.state": [
+          15
+        ],
+        "observation.images.agentview": [
+          3,
+          128,
+          128
+        ],
+        "observation.images.wrist": [
+          3,
+          128,
+          128
+        ]
+      },
+      "finite": true
+    },
+    {
+      "index": 97,
+      "shapes": {
+        "action": [
+          50,
+          7
+        ],
+        "observation.state": [
+          15
+        ],
+        "observation.images.agentview": [
+          3,
+          128,
+          128
+        ],
+        "observation.images.wrist": [
+          3,
+          128,
+          128
+        ]
+      },
+      "finite": true
+    },
+    {
+      "index": 98,
+      "shapes": {
+        "action": [
+          50,
+          7
+        ],
+        "observation.state": [
+          15
+        ],
+        "observation.images.agentview": [
+          3,
+          128,
+          128
+        ],
+        "observation.images.wrist": [
+          3,
+          128,
+          128
+        ]
+      },
+      "finite": true
+    },
+    {
+      "index": 5067,
+      "shapes": {
+        "action": [
+          50,
+          7
+        ],
+        "observation.state": [
+          15
+        ],
+        "observation.images.agentview": [
+          3,
+          128,
+          128
+        ],
+        "observation.images.wrist": [
+          3,
+          128,
+          128
+        ]
+      },
+      "finite": true
+    }
+  ],
+  "errors": [],
+  "passed": true
+}

@@ -1,0 +1,113 @@
+{
+  "schema_version": 1,
+  "date": "2026-10-03",
+  "stage": "native_spatial_task0_single_task_matched_recipe_control",
+  "status": "preflight_passed_pending_unattended_launch",
+  "current_gate": {
+    "historical_native_task0_positive_control": "5/5 repeated success at fixed benchmark init3/effective seed12351 under recovered V3 evaluator; 12/20 paired initializations",
+    "current_recipe_single_task0_10k": "standard LR 1e-4 run did not pass fixed-init3 repeat; LRx10 reference succeeded but uses different LR",
+    "matched_four_task_40k": "task0 14/20; fixed init3 4/5; progression gate remains failed",
+    "task_count_scaling": "do not advance to 8/16/32 before matched current-recipe single-task control",
+    "fold02": "LOCKED"
+  },
+  "options_compared": [
+    {
+      "option": "count_existing_LRx10_task0_10k_as_single_task_gate",
+      "decision": "insufficient_as_primary_gate",
+      "reason": "It proves the pipeline can learn task0 under a higher LR (5/5 fixed init3 and 12/20 paired), but it is not LR-matched to the current 4-task 1e-4 recipe."
+    },
+    {
+      "option": "train_task0_alone_on_its_standalone_dataset",
+      "decision": "defer_as_primary_comparison",
+      "reason": "The standalone native task0 conversion is now fully audited, but its task-only normalization statistics differ from the pooled four-task stats used by the current joint4 checkpoint."
+    },
+    {
+      "option": "train_task0_alone_from_the_frozen_joint4_dataset_slice",
+      "decision": "recommended",
+      "reason": "Use only episodes 0-49 (task0) from the exact frozen 0-3 LeRobot dataset, preserve its global stats, model initialization, optimizer, LR, scheduler, and 40k updates. Batch2 yields the same 80k task0 sample draws as joint4 (2 task0 samples/update x 40k steps), making this the most informative single-task/current-recipe comparison."
+    },
+    {
+      "option": "advance_to_8_tasks_now",
+      "decision": "reject",
+      "reason": "The current four-task fixed-init3 gate is 4/5, not 5/5; this would violate the registered progression gate."
+    }
+  ],
+  "verified_data": {
+    "official_hdf5_source": "yifengzhu-hf/LIBERO-datasets@97773100c1474cd0d686ebd173cc0e4fd5442466",
+    "official_task0_hdf5_sha256": "ff6f26121653c77280eb40a38773a74141c11a8509f3466058cb56dd2cc60ead",
+    "task_identity": "pick up the black bowl between the plate and the ramekin and place it on the plate",
+    "episodes": 50,
+    "frames": 5068,
+    "standalone_conversion_full_audit": "results/teacher_native_task0_independent_conversion_audit_v1_20261003.json",
+    "pooled_dataset_task0_slice_full_audit": "results/teacher_native_task0_multitask_slice_audit_v1_20261003.json",
+    "evidence": "5068/5068 frame state/action exact; 10136/10136 RGB images exact; filtered loader returns task0 only, action[50,7], state[15], two images[3,128,128], all finite; merged manifest source HDF5 hash matches official source."
+  },
+  "training_design": {
+    "run_id": "teacher_native_spatial_task0_single_current_recipe_40k_batch2_v1",
+    "source_dataset_repo_id": "local/libero_spatial_tasks0_3_native_v1",
+    "source_dataset_root": "/root/smolvla-training-prep/datasets/lerobot/libero_spatial_tasks0_3_native_20261003_v1",
+    "selected_episode_indices": [
+      0,
+      49
+    ],
+    "episode_count": 50,
+    "frame_count": 5068,
+    "steps": 40000,
+    "batch_size": 2,
+    "samples_per_optimizer_step": 2,
+    "total_task0_sample_draws": 80000,
+    "matched_joint4_task0_sample_draws": 80000,
+    "seed": 1000,
+    "pretrained_path": "/root/smolvla-training-prep/models/smolvla_base_libero",
+    "optimizer": "same current joint4 recipe: AdamW lr=1e-4, betas=[0.9,0.95], eps=1e-8, weight_decay=1e-10, grad_clip_norm=1",
+    "scheduler_config": "same source config: warmup 3000, decay horizon 90000, peak LR 1e-4, decay LR 2.5e-6",
+    "effective_scheduler_runtime": "trainer auto-scales for 40k steps: warmup 1333, decay horizon 40000",
+    "policy": "chunk_size=50, n_action_steps=25, freeze vision encoder, train expert and state projection; all other preprocessing unchanged",
+    "checkpoints": [
+      10000,
+      20000,
+      30000,
+      40000
+    ],
+    "output_isolation": "fresh unique training, evaluation and recovery roots; no existing checkpoints or results overwritten",
+    "preflight": {
+      "status": "passed",
+      "training_started_during_preflight": false,
+      "gpu_idle": true,
+      "disk_free_gib": 77.18,
+      "generated_config_sha256": "92b7530111f0f135df0367a53100d87ae2d6f38d388436b63742be9e6bca152a",
+      "preflight_report": "results/teacher_native_spatial_task0_single_control_preflight_v1_20261003.json",
+      "config": "configs/teacher_native_spatial_task0_single_40k_batch2_20261003.json",
+      "invocation_note": "Two initial invocations failed before writing any output because the script directory was not on Python's module search path; the corrected invocation set PYTHONPATH to the training repository root and passed. No data, config, or model was modified by the failed invocations."
+    },
+    "limitations": "Single-task batch size is 2 vs joint4 batch size 8; sample draws/task, update count, optimizer and global normalization stats are matched, but optimizer gradient composition is necessarily different."
+  },
+  "evaluation_design": {
+    "evaluator": "/root/smolvla-eval-prep/scripts/eval_v3_task0_state_capture_v1.py",
+    "evaluator_sha256": "89fd36a89dc45a56382219d4c3f6e5d12a3b1689abb3440ec29be346815af7cb",
+    "protocol": "V3 closed-loop; task_id=0; benchmark initializations; wait_steps=10; n_action_steps=25; max_steps=300; capture-state; not strict deterministic-algorithms mode",
+    "paired_final_checkpoint": "init indices 0..19; CSV-recorded effective seed=12345+2*init_index; CLI seed=12345+init_index",
+    "fixed_init3": "five total at recorded/effective seed 12351: paired init3 observation plus four extra repeats using CLI seed 12348",
+    "checkpoint_learning_curve": "one diagnostic init3 rollout at steps 10000, 20000, 30000 using CLI seed 12348; 40000 init3 is already in paired set",
+    "diagnostic_signal": "at least 10/20 paired successes and 5/5 fixed init3 is a positive signal only; compare with existing joint4 14/20 and 4/5 fixed repeats",
+    "interpretation_limit": "V3 residual variability and single-init repeat counts limit causal claims; this does not alter official benchmark conclusions."
+  },
+  "stop_and_next_step_rules": {
+    "if_preflight_fails": "stop before training; preserve failure record; no automatic repair/retry",
+    "if_training_or_eval_fails": "stop and preserve logs/partial outputs; do not overwrite or auto-restart",
+    "if_positive": "do not advance automatically; review the registered four-task gate and design matched-exposure 4-task follow-up before considering 8",
+    "if_negative": "do not scale task count; inspect loss/checkpoint curve and training/data flow against already recorded task0 controls",
+    "fold02": "LOCKED",
+    "official_conclusion_changes": false
+  },
+  "supersedes": [
+    "results/teacher_native_spatial_task1_single_control_plan_v1_20261003.json"
+  ],
+  "scope_correction": {
+    "record": "results/teacher_native_spatial_task1_single_control_scope_correction_v1_20261003.json",
+    "prior_task1_run_stopped_at_step": 4033,
+    "checkpoint_created": false,
+    "quality_conclusion_inferred": false,
+    "reason": "Return to the advisor-ordered task0 single-task control before any task1 or task-count progression experiment."
+  }
+}

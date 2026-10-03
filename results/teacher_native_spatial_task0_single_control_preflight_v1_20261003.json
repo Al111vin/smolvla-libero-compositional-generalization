@@ -1,0 +1,45 @@
+{
+  "status": "passed",
+  "training_started": false,
+  "dataset_modified": false,
+  "task_id": 0,
+  "task_text": "pick up the black bowl between the plate and the ramekin and place it on the plate",
+  "episode_indices": [
+    0,
+    49
+  ],
+  "episodes": 50,
+  "frames": 5068,
+  "filtered_dataset_len": 5068,
+  "schema": {
+    "image_shape": [
+      3,
+      128,
+      128
+    ],
+    "chunked_action_shape": [
+      50,
+      7
+    ],
+    "state_dim": 15
+  },
+  "source_manifest_sha256": "8bb81e1d1828d2a4be3dd8469e1f2812c35bc4f9a48aea0f7a8da8deb2d11ba1",
+  "task0_slice_audit_sha256": "6d71680c9037efa03ad38676a84598381ae50b9b75c0c06aa266bc955c7a2bb4",
+  "global_dataset_stats_sha256": "29aff99c2a83a5a60265e7ccef182f501e41b6e0215f8c8796ee24bf41b55227",
+  "normalization_stats_source": "frozen pooled four-task dataset meta/stats.json, unchanged",
+  "training": {
+    "steps": 40000,
+    "batch_size": 2,
+    "sample_draws": 80000,
+    "seed": 1000,
+    "lr": 0.0001
+  },
+  "training_output": "/root/smolvla-training-prep/results/training/teacher_native_spatial_task0_single_current_recipe_40k_batch2_v1",
+  "evaluation_output": "/root/smolvla-eval-prep/results/teacher_native_spatial_task0_single_current_recipe_40k_batch2_v1",
+  "evaluator_sha256": "89fd36a89dc45a56382219d4c3f6e5d12a3b1689abb3440ec29be346815af7cb",
+  "training_module": "/root/smolvla-training-prep/scripts/lerobot_train_loco_compat.py",
+  "gpu_idle": true,
+  "conflicting_workload_absent": true,
+  "disk_free_gib": 77.18,
+  "new_config_sha256": "92b7530111f0f135df0367a53100d87ae2d6f38d388436b63742be9e6bca152a"
+}

@@ -1,0 +1,29 @@
+{
+  "schema_version": 1,
+  "date": "2026-10-03",
+  "status": "stopped_before_first_checkpoint",
+  "run_id": "teacher_native_spatial_task1_single_current_recipe_40k_batch2_v1",
+  "reason": "Scope correction to follow the advisor's ordered controls: first establish the historical task0 positive control and the current-pipeline single-task task0 control before testing another task or scaling task count.",
+  "verified_remote_evidence": {
+    "training_log": "/root/smolvla-training-prep/recovery/task_scaling_native_spatial_20261003/task1_single_control_v1/teacher_native_spatial_task1_single_current_recipe_40k_batch2_v1.training.log",
+    "driver_log": "/root/smolvla-training-prep/recovery/task_scaling_native_spatial_20261003/task1_single_control_v1/unattended_driver.log",
+    "last_observed_step": 4033,
+    "configured_steps": 40000,
+    "driver_exit_marker": "TRAIN_FAILED_EXIT=143",
+    "training_exit_marker": "TEACHER_NATIVE_SPATIAL_TASK1_SINGLE_40K_TRAIN_EXIT_CODE=143",
+    "checkpoint_output_directory_created": false,
+    "first_checkpoint_step": 10000,
+    "gpu_process_after_stop": false
+  },
+  "interpretation": {
+    "training_success_or_failure_inferred": false,
+    "learning_curve_interpreted": false,
+    "checkpoint_evaluation_performed": false,
+    "dataset_or_existing_checkpoint_modified": false,
+    "partial_logs_and_output_preserved": true,
+    "resume_or_restart_authorized": false
+  },
+  "superseded_by": "results/teacher_native_spatial_task0_single_control_plan_v1_20261003.json",
+  "next_stage": "Complete the isolated task0 current-recipe preflight, then run the registered task0-only control if every preflight check passes.",
+  "fold02": "LOCKED"
+}

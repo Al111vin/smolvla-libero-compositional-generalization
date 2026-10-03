@@ -1228,7 +1228,7 @@ prespecified threshold.
 Evidence:
 [`Phase N final joint32 negative conclusion`](results/phaseN_joint32_final_negative_conclusion_20260929.json).
 
-### Native Spatial task-1 single-task control (2026-10-03)
+### Native Spatial task-1 control attempt (2026-10-03; stopped before checkpoint)
 
 The four-task 40k run did not pass its predeclared progression gate (task0
 init3 fixed repeats were 4/5), so scaling to 8 tasks is not authorized. The
@@ -1239,21 +1239,49 @@ frames) and retains the four-task normalization statistics. The batch size is
 2 instead of 8, so this is a diagnostic single-task-vs-mixture comparison,
 not a clean causal estimate of interference.
 
-The read-only preflight passed: the selected LeRobot slice returns task-1 only,
-with 15-D state, 7-D actions, two 128x128 image streams, finite values, and the
-expected evaluator hash. At preflight the GPU was idle and 77.38 GiB remained
-free. The 40k task1-only run has started after the preflight (remote runner PID
-314385); completion and checkpoints are still pending. Only its final
-checkpoint will receive the 20 paired task-1 initializations plus four extra
-init3 repeats. V3 evaluation is not strict-deterministic-algorithms evaluation.
-The trainer applies the same 40k auto-scaling as the joint4 run (warmup 1,333,
-decay horizon 40,000; peak LR 1e-4).
-Fold 02 remains locked, and no 8-task run starts automatically.
+The read-only preflight passed, but the run was subsequently stopped as a scope
+correction at step 4,033 of 40,000, before the first checkpoint (scheduled at
+10,000). The driver recorded exit code 143; the partial log and output remain
+preserved. This is not a training-quality result: no checkpoint evaluation was
+performed, and no success/failure conclusion is inferred. The task-1 attempt
+is superseded by the advisor-ordered task-0 single-task control below; it will
+not be resumed or restarted automatically.
+
+The stopped-attempt record is
+[`here`](results/teacher_native_spatial_task1_single_control_scope_correction_v1_20261003.json).
+Fold 02 remains locked, and task-count scaling is still gated.
+
+### Native Spatial task-0 single-task matched-recipe control (2026-10-03)
+
+The current stage follows the advisor's order: first verify the historical
+task-0 positive control, then test whether the current training/data pipeline
+can learn that same known-positive task alone, before expanding task count.
+The official source HDF5 contains 50 episodes / 5,068 frames, and a full
+independent conversion audit plus a full task-0 slice parity audit passed:
+all 5,068 state/action frames and 10,136 RGB images matched exactly. The
+filtered LeRobot loader returns task-0 only with finite 15-D state, 7-D
+chunked actions, and two 3x128x128 image streams.
+
+The compared options and registered protocol are in
+[`task-0 control plan`](results/teacher_native_spatial_task0_single_control_plan_v1_20261003.json).
+The isolated read-only preflight has passed (GPU idle, 77.18 GiB free); the
+registered runner has not yet been launched.
+The selected comparison trains task 0 alone from episodes 0--49 of the frozen
+four-task dataset, retaining its pooled normalization statistics and matching
+the joint4 run's task-0 exposure (80,000 sample draws), 40,000 updates, base
+model, optimizer, and learning-rate recipe. Batch size is 2 rather than 8, so
+the comparison changes gradient composition and is diagnostic, not a clean
+causal estimate of interference. Registered checkpoints are 10k/20k/30k/40k;
+the final checkpoint is evaluated on 20 paired benchmark initializations and
+four additional repeats of init3. No task-count expansion or Fold 02 unlock is
+automatic.
 
 Evidence and reproducibility artifacts:
-[`task-1 control plan`](results/teacher_native_spatial_task1_single_control_plan_v1_20261003.json),
-[`preflight record`](results/teacher_native_spatial_task1_single_control_preflight_v1_20261003.json),
-[`generated config`](configs/teacher_native_spatial_task1_single_40k_batch2_20261003.json),
-[`preflight script`](scripts/preflight_teacher_native_spatial_task1_single_v1.py),
-[`runner`](scripts/run_teacher_native_spatial_task1_single_control_v1.sh), and
-[`summarizer`](scripts/summarize_teacher_native_spatial_task1_single_control_v1.py).
+[`official-source audit`](results/teacher_native_task0_official_source_audit_v1_20261003.json),
+[`independent conversion audit`](results/teacher_native_task0_independent_conversion_audit_v1_20261003.json),
+[`pooled task-0 slice audit`](results/teacher_native_task0_multitask_slice_audit_v1_20261003.json),
+[`preflight record`](results/teacher_native_spatial_task0_single_control_preflight_v1_20261003.json),
+[`generated config`](configs/teacher_native_spatial_task0_single_40k_batch2_20261003.json),
+[`preflight script`](scripts/preflight_teacher_native_spatial_task0_single_v1.py),
+[`runner`](scripts/run_teacher_native_spatial_task0_single_control_v1.sh), and
+[`summarizer`](scripts/summarize_teacher_native_spatial_single_task_control_v1.py).
