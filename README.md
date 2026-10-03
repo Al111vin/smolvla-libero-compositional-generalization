@@ -1266,11 +1266,11 @@ The compared options and registered protocol are in
 [`task-0 control plan`](results/teacher_native_spatial_task0_single_control_plan_v1_20261003.json).
 The isolated read-only preflight passed (GPU idle, 77.18 GiB free), and the
 registered runner started at 2026-10-03 11:17 UTC (runner PID 318695; training
-PID 318705). The first 10k checkpoint has a verified non-empty 1.2 GB
-`model.safetensors`; at that check the training log had advanced to 11,032 /
-40,000 and both runner and trainer were still live. Training and its
-registered evaluation sequence remain in progress; no rollout result is
-available yet. Model weights are not published.
+PID 318705). The 10k and 20k checkpoints each have a verified non-empty 1.2
+GB `model.safetensors`. At the latest successful check, the training log had
+advanced to 23,170 / 40,000 and both runner and trainer were still live.
+Training and its registered evaluation sequence remain in progress; no rollout
+result is available yet. Model weights are not published.
 The selected comparison trains task 0 alone from episodes 0--49 of the frozen
 four-task dataset, retaining its pooled normalization statistics and matching
 the joint4 run's task-0 exposure (80,000 sample draws), 40,000 updates, base

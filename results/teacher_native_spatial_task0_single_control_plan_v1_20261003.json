@@ -93,6 +93,14 @@
           "training_progress_when_verified": "11032/40000",
           "runner_and_training_processes_remained_live": true,
           "weights_uploaded": false
+        },
+        "020000": {
+          "status": "model_file_verified_nonempty",
+          "model_file": "/root/smolvla-training-prep/results/training/teacher_native_spatial_task0_single_current_recipe_40k_batch2_v1/checkpoints/020000/pretrained_model/model.safetensors",
+          "model_file_size_human_readable": "1.2G",
+          "training_progress_when_verified": "23170/40000",
+          "runner_and_training_processes_remained_live": true,
+          "weights_uploaded": false
         }
       },
       "training_log": "/root/smolvla-training-prep/recovery/task_scaling_native_spatial_20261003/task0_single_control_v1/teacher_native_spatial_task0_single_current_recipe_40k_batch2_v1.training.log",
