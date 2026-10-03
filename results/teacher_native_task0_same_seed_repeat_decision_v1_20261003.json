@@ -1,0 +1,67 @@
+{
+  "schema_version": 1,
+  "date": "2026-10-03",
+  "stage": "teacher_native_task0_same_seed_control",
+  "status": "approved_within_unattended_goal",
+  "trigger": "The matched 4-task diagnostic completed 89 rollouts but failed its predeclared progression gate: task0 fixed-init3 repeats were 4/5. The historical single-task fixed-init3 reference was 5/5 under recorded seed 12348, while the joint-4 repeats used seed 12351; those rates are not seed-matched.",
+  "options_compared": [
+    {
+      "option": "advance_to_8_tasks",
+      "decision": "reject_for_now",
+      "reason": "The four-task progression gate did not pass; increasing task count would violate the staged decision rule and confound task interference with unresolved repeatability."
+    },
+    {
+      "option": "train_task1_only_now",
+      "decision": "defer",
+      "reason": "A matched task-1-only control may later help distinguish task difficulty from multi-task interference, but the evaluator/positive-control comparison should first be aligned on the exact initialization and seed as advised by the supervisor."
+    },
+    {
+      "option": "rerun_historical_native_task0_positive_control_at_joint4_seed",
+      "decision": "recommended",
+      "reason": "This is the smallest direct check of the known-good single-task checkpoint under the same task, benchmark initialization, seed, action horizon, evaluator, and V3 protocol as the joint-4 fixed-init repeats. It directly resolves the recorded-seed mismatch without training or changing the official benchmark."
+    },
+    {
+      "option": "stop_all_new_runs",
+      "decision": "not_selected",
+      "reason": "The remaining read-only-comparison-cost diagnostic is small, directly addresses the supervisor's first control, and is authorized by the unattended project goal."
+    }
+  ],
+  "selected_protocol": {
+    "checkpoint": "/root/smolvla-training-prep/results/training/teacher_native_task0_base_init_current_recipe_10k_20261002_v1/checkpoints/010000/pretrained_model",
+    "task_id": 0,
+    "initialization_source": "benchmark",
+    "initialization_index": 3,
+    "seed": 12351,
+    "repeats": 5,
+    "wait_steps": 10,
+    "n_action_steps": 25,
+    "max_steps": 300,
+    "capture_state": true,
+    "evaluator": "/root/smolvla-eval-prep/scripts/eval_v3_task0_state_capture_v1.py",
+    "output_dir": "/root/smolvla-eval-prep/results/teacher_native_task0_same_seed_repeat_v1_20261003",
+    "protocol_note": "Same native V3 evaluator/protocol as the joint-4 corrected evaluation; deterministic-algorithm strict mode is not enabled. Each repeat must write to a unique subdirectory."
+  },
+  "comparison_reference": {
+    "checkpoint_group": "joint4_40k",
+    "checkpoint_step": 40000,
+    "initialization_index": 3,
+    "seed": 12351,
+    "repeats": 5,
+    "success_pattern": [true, true, true, true, false],
+    "result_file": "results/teacher_native_spatial_4task_40k_eval_result_v1_20261003.json"
+  },
+  "interpretation_limits": [
+    "Five repeats at one initialization are a repeatability diagnostic, not a generalization estimate.",
+    "A difference of one success between model groups is not by itself evidence of a reliable performance difference.",
+    "This diagnostic cannot unlock Fold02 or change the formal LIBERO-36 result.",
+    "Do not start task-count scaling or retraining from this result alone; compare the complete paired evidence and select a next stage explicitly within the long-term goal."
+  ],
+  "safety": {
+    "training": false,
+    "dataset_write": false,
+    "checkpoint_write": false,
+    "overwrite_existing": false,
+    "upload_data_or_weights": false,
+    "fold02": "LOCKED"
+  }
+}
