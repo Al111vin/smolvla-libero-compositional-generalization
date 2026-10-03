@@ -1,0 +1,55 @@
+{
+  "status": "passed_preflight_training_in_progress",
+  "config_path": "/root/smolvla-training-prep/recovery/task_scaling_native_spatial_20261003/teacher_native_spatial_tasks0_3_balanced_current_recipe_40k_v2.json",
+  "config_sha256": "0676ee11b5a1bd54a48595363dee4790e3d35ed7482172199af28dfad6a9b1cc",
+  "dataset": "local/libero_spatial_tasks0_3_native_v1",
+  "dataset_root": "/root/smolvla-training-prep/datasets/lerobot/libero_spatial_tasks0_3_native_20261003_v1",
+  "dataset_episodes": 200,
+  "dataset_frames": 22709,
+  "task_index_by_libero_id": {
+    "0": 0,
+    "1": 1,
+    "2": 2,
+    "3": 3
+  },
+  "benchmark_init_state_counts": {
+    "0": 50,
+    "1": 50,
+    "2": 50,
+    "3": 50
+  },
+  "optimizer_steps": 40000,
+  "samples_per_task_per_batch": 2,
+  "planned_sample_draws_per_task": 80000,
+  "total_batch_sample_draws": 320000,
+  "evaluator_sha256": "89fd36a89dc45a56382219d4c3f6e5d12a3b1689abb3440ec29be346815af7cb",
+  "disk_free_gib": 83.58,
+  "training_output_and_eval_output_paths_absent": true,
+  "run_id": "teacher_native_spatial_tasks0_3_balanced_current_recipe_40k_v2",
+  "expected_training_output": "/root/smolvla-training-prep/results/training/teacher_native_spatial_tasks0_3_balanced_current_recipe_40k_v2",
+  "expected_evaluation_output": "/root/smolvla-eval-prep/results/teacher_native_spatial_tasks0_3_balanced_current_recipe_40k_v2",
+  "gpu_idle": true,
+  "fold02": "LOCKED",
+  "sampler_accelerate_integration_smoke": {
+    "status": "passed",
+    "unit_tests": "4 passed",
+    "real_lerobot_dataset_batches": 4,
+    "accelerate_rewrap": "passed",
+    "samples_per_task_per_batch": 2,
+    "action_shape": [8, 7],
+    "state_shape": [8, 15]
+  },
+  "training_run": {
+    "status": "in_progress",
+    "run_id": "teacher_native_spatial_tasks0_3_balanced_current_recipe_40k_v2",
+    "started_at_utc_approx": "2026-10-03T06:16:35Z",
+    "supervisor_pid": 271851,
+    "trainer_pid_at_initial_check": 271860,
+    "last_progress_check_utc": "2026-10-03T06:21:56Z",
+    "optimizer_step_at_last_progress_check": 2000,
+    "loss_at_last_progress_check": 0.557,
+    "approx_updates_per_second_from_training_log": 6.2,
+    "unattended_log": "/root/smolvla-training-prep/recovery/task_scaling_native_spatial_20261003/teacher_native_spatial_tasks0_3_balanced_current_recipe_40k_v2.unattended.log",
+    "training_log": "/root/smolvla-training-prep/recovery/task_scaling_native_spatial_20261003/teacher_native_spatial_tasks0_3_balanced_current_recipe_40k_v2.training.log"
+  }
+}

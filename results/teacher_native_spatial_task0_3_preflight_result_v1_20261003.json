@@ -1,0 +1,164 @@
+{
+  "schema_version": 1,
+  "date": "2026-10-03",
+  "stage": "teacher_directed_native_spatial_task0_3_data_loader_evaluator_preflight",
+  "status": "first_launch_failed_during_accelerate_loader_rewrap; replacement_v2_passed_preflight",
+  "options_compared": [
+    {
+      "id": "scale_from_the_verified_current_pipeline_task0_gate_to_native_spatial_tasks0_3",
+      "decision": "recommended",
+      "reason": "Follows the advisor's 1-to-4 sequence; preserves the same native task family; exact per-task sampling quotas hold exposure constant at 80,000 draws per task."
+    },
+    {
+      "id": "train_three_additional_single_task_controls_before_any_joint_run",
+      "decision": "defer",
+      "reason": "Would strengthen per-task difficulty baselines but adds three full GPU runs before the requested first 4-task scaling stage. Reconsider if the 4-task result is ambiguous or collapses."
+    },
+    {
+      "id": "reuse_custom_libero36_tasks_or_nvidia_lerobot_spatial_data",
+      "decision": "reject_for_this_stage",
+      "reason": "Custom LIBERO-36 task 0 is not native Spatial task 0; NVIDIA packaging uses a different 8-D state contract. Either choice would confound this controlled task-count comparison."
+    }
+  ],
+  "source_data": {
+    "hub_repo": "yifengzhu-hf/LIBERO-datasets",
+    "hub_revision": "f13aa24a3da8c43c7225569f28c562979fa0e35a",
+    "suite": "libero_spatial",
+    "episodes_per_task": 50,
+    "tasks": [
+      {
+        "task_id": 0,
+        "frames": 5068,
+        "sha256": "ff6f26121653c77280eb40a38773a74141c11a8509f3466058cb56dd2cc60ead",
+        "matches_existing_validated_task0_hdf5_byte_for_byte": true
+      },
+      {
+        "task_id": 1,
+        "frames": 6707,
+        "sha256": "bf1090dd4826eacb49eb052f17d04798e2a1eb2f74f8d024bc3b9c5d234c25f9"
+      },
+      {
+        "task_id": 2,
+        "frames": 5882,
+        "sha256": "75ede0cf5fbfc925093671b55032ad80f1b1f1cf35442ec6c663460d37d3e0b3"
+      },
+      {
+        "task_id": 3,
+        "frames": 5052,
+        "sha256": "0c053db7317e584632549bddb963bee8a237661b4bd29f0581a245f715e8eb72"
+      }
+    ],
+    "total_episodes": 200,
+    "total_frames": 22709,
+    "hdf5_contract": "all source episodes validated for finite numeric arrays; action 7-D; observation state built as 15-D joint/ee-position/axis-angle/gripper; both RGB cameras uint8 128x128x3"
+  },
+  "conversion": {
+    "status": "complete",
+    "repo_id": "local/libero_spatial_tasks0_3_native_v1",
+    "dataset_root_on_gpu": "/root/smolvla-training-prep/datasets/lerobot/libero_spatial_tasks0_3_native_20261003_v1",
+    "manifest_path_on_gpu": "/root/smolvla-training-prep/recovery/task_scaling_native_spatial_20261003/conversion_manifest.json",
+    "manifest_local_copy": "results/teacher_native_spatial_0_3_conversion_manifest_20261003.json",
+    "episode_count": 200,
+    "frame_count": 22709,
+    "lerobot_task_index_by_libero_task_id": {
+      "0": 0,
+      "1": 1,
+      "2": 2,
+      "3": 3
+    },
+    "sampled_hdf5_to_lerobot_action_round_trip_checks": 36,
+    "max_abs_action_diff": 0.0,
+    "conversion_script_sha256": "895915bc1d771fc04955162de66d7b107f2f0497a6a4a71bd852eb54b506fe79"
+  },
+  "independent_cross_modal_parity_audit": {
+    "status": "passed",
+    "script": "scripts/audit_native_libero_spatial_0_3_lerobot_conversion_v1.py",
+    "script_sha256": "12083e83faf8754889d42f31392db0c0611a122704f1e603c5f6884475323dde",
+    "sampled_frames": 36,
+    "sample_design": "tasks 0-3 x episodes 0/25/49 x first/middle/last frame",
+    "state_max_abs_diff": 0.0,
+    "action_max_abs_diff": 0.0,
+    "agentview_rgb_max_abs_diff": 0,
+    "wrist_rgb_max_abs_diff": 0,
+    "task_index_match": "all sampled records"
+  },
+  "task_balanced_loader": {
+    "v1_finding": "v1 orders task blocks contiguously and can yield homogeneous task-only minibatches; existing v1 unit tests only covered epoch counts and deterministic order.",
+    "v2_unit_tests": "3 passed on GPU py312",
+    "v2_unit_test_script_sha256": "3a5ba37ad460ab23803797f6fc745d1913d029f3a30d8266615d3c3f9d0061e6",
+    "real_lerobot_loader_smoke": {
+      "status": "passed",
+      "batches": 8,
+      "batch_size": 8,
+      "exact_samples_per_task_per_batch": 2,
+      "observed_task_ids": [0, 1, 2, 3],
+      "observation_state_shape": [8, 15],
+      "action_shape": [8, 7],
+      "dataset_frames": 22709,
+      "dataset_episodes": 200
+    },
+    "sampler_v2_script_sha256": "3debab52778e5150a302caeecb0a4ceff246f98994c65843b61f44c728fcf86c"
+  },
+  "evaluator_smoke": {
+    "evaluator": "/root/smolvla-eval-prep/scripts/eval_v3_task0_state_capture_v1.py",
+    "evaluator_sha256": "89fd36a89dc45a56382219d4c3f6e5d12a3b1689abb3440ec29be346815af7cb",
+    "checkpoint": "recovered historical native task0 checkpoint step 10000",
+    "per_task_smoke": {
+      "task_ids": [0, 1, 2, 3],
+      "initialization_index": 0,
+      "seed": 12345,
+      "wait_steps": 0,
+      "n_action_steps": 25,
+      "max_steps": 2,
+      "records": 4,
+      "successes": 0,
+      "interpretation": "Expected protocol smoke outcome at a 2-step cap; only verifies that each native BDDL/init/evaluator path executes, not policy competence."
+    }
+  },
+  "proposed_training": {
+    "status": "failed_before_first_optimizer_update",
+    "run_id": "teacher_native_spatial_tasks0_3_balanced_current_recipe_40k_v1",
+    "initialization": "/root/smolvla-training-prep/models/smolvla_base_libero",
+    "dataset": "local/libero_spatial_tasks0_3_native_v1",
+    "episodes_per_task": 50,
+    "batch_size": 8,
+    "task_quota_per_batch": "2 samples from each task 0-3",
+    "optimizer_updates": 40000,
+    "per_task_sample_draws": 80000,
+    "checkpoint_steps": [10000, 20000, 30000, 40000],
+    "training_code": "LeRobot 0.5.1 standard trainer with an opt-in per-batch balanced sampler wrapper",
+    "baseline": "same current-pipeline native task0 single-task model: fixed init3 5/5; paired 20-inits 12/20; task0 source HDF5 exact SHA match",
+    "evaluation_plan": "same state-capture V3 evaluator, task IDs 0-3, benchmark init indices 0..19, per-index effective seed 12345+2*index, wait 10, n_action_steps 25, max_steps 300; task0 init3 repeated five times for the fixed-condition comparison",
+    "config_sha256": "23115f8e91dade6e9cf49e6e3dcf66e22259ff371e56697229ff24381e978644",
+    "config_path_on_gpu": "/root/smolvla-training-prep/recovery/task_scaling_native_spatial_20261003/teacher_native_spatial_tasks0_3_balanced_current_recipe_40k_v1.json",
+    "output_path_on_gpu": "/root/smolvla-training-prep/results/training/teacher_native_spatial_tasks0_3_balanced_current_recipe_40k_v1",
+    "preflight_path_on_gpu": "/root/smolvla-training-prep/recovery/task_scaling_native_spatial_20261003/teacher_native_spatial_tasks0_3_balanced_current_recipe_40k_v1.preflight.json",
+    "preflight_status": "passed",
+    "benchmark_initial_state_counts": {"0": 50, "1": 50, "2": 50, "3": 50},
+    "disk_free_gib_at_preflight": 84.41,
+    "diagnostic_success_gate_for_any_later_8_task_stage": {
+      "task0_minimum": "at least 8/20 paired inits and 5/5 fixed init3 repeats",
+      "each_of_tasks1_2_3_minimum": "at least 10/20 paired inits",
+      "automatic_fold02_unlock": false
+    }
+  },
+  "remaining_pretraining_gates": [
+    "None. Final config/data/loader/evaluator/GPU/disk/output-path preflight passed; unattended training runner launched and training process was active at the initial post-launch check."
+  ],
+  "safety": {
+    "raw_hdf5_or_lerobot_payload_uploaded": false,
+    "existing_data_or_checkpoints_modified": false,
+    "training_started": true,
+    "optimizer_updates_completed": 0,
+    "checkpoints_produced": false,
+    "failure_class": "task-balanced DataLoader patch rejected Accelerate's internal DataLoaderShard reconstruction (batch_size=1 with an existing task batch_sampler)",
+    "failure_log_on_gpu": "/root/smolvla-training-prep/recovery/task_scaling_native_spatial_20261003/teacher_native_spatial_tasks0_3_balanced_current_recipe_40k_v1.training.log",
+    "unattended_log_on_gpu": "/root/smolvla-training-prep/recovery/task_scaling_native_spatial_20261003/teacher_native_spatial_tasks0_3_balanced_current_recipe_40k_v1.unattended.log",
+    "pre_fix_sampler_preserved_on_gpu": "/root/smolvla-training-prep/recovery/task_scaling_native_spatial_20261003/failed_attempt_20261003/task_balanced_batch_sampler_v2_before_accelerate_fix.py",
+    "training_supervisor_pid": 269473,
+    "training_pid_at_initial_check": 269482,
+    "started_at_utc": "2026-10-03T06:08:32Z",
+    "unattended_log_on_gpu": "/root/smolvla-training-prep/recovery/task_scaling_native_spatial_20261003/teacher_native_spatial_tasks0_3_balanced_current_recipe_40k_v1.unattended.log",
+    "fold02": "LOCKED"
+  }
+}

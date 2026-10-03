@@ -280,19 +280,49 @@ and the two retained [`repeat-4`](results/teacher_control_repeatability_v1_20261
 and [`repeat-5`](results/teacher_control_repeatability_v1_20261003/repeat_05_summary.csv)
 summary rows.
 
-The next teacher-directed step is a read-only preflight for a matched four-task
-native LIBERO-Spatial dataset, not a mixed-family training run. The GPU holds
-the native task-0 demonstration HDF5 but no native task-1--3 HDF5; its existing
-32-task dataset uses distinct custom LIBERO-36 task definitions. The official
-LIBERO project provides a Spatial suite with ten tasks and a programmatic
-dataset downloader ([official dataset page](https://libero-project.github.io/_pages/datasets.html));
-the alternative NVIDIA LeRobot v3 packaging reports an 8-D state, unlike this
-project's validated 15-D native-task state pipeline, so it is not a drop-in
-replacement. Before any training, verify provenance/schema compatibility,
-construct a new 0--3 dataset with 50 episodes per task, and validate matched
-80,000 sample draws per task (40,000 updates, batch 8, two samples per task per
-batch). See the [`four-task stage plan`](results/teacher_task_scaling_next_stage_plan_v1_20261003.json).
-StageE2 on custom LIBERO-36 remains blocked; Fold02 remains locked.
+#### Native Spatial 0–3 matched-data preflight (2026-10-03)
+
+The official Spatial HDF5 files for tasks 0–3 are now recovered at a pinned
+Hub revision and converted into a **new, isolated** LeRobot dataset: 200
+episodes and 22,709 frames. Task 0's source file matches the previously
+validated HDF5 byte-for-byte. Conversion checks preserve 15-D state and 7-D
+actions, and 36 sampled action round trips have `max_abs_diff=0.0`; LeRobot's
+task indices map directly to LIBERO task IDs 0–3. Raw HDF5 and converted
+Parquet/image payloads remain on the GPU and are not published.
+
+The old task-balanced sampler only balanced epoch totals: its task-contiguous
+order could yield homogeneous minibatches. It was not used for this stage. A
+new opt-in v2 sampler passed 3 unit tests and an 8-batch smoke against the real
+LeRobot loader; every batch contained exactly 2 samples from each task, with
+15-D state and 7-D action tensors. The same state-capture V3 evaluator also
+completed a two-step compatibility smoke for each of tasks 0–3. These four
+smokes verify the task/BDDL/evaluator path only; their expected 0/1 rewards do
+not measure model competence.
+
+An independent sampled audit has now confirmed exact state, action, and RGB
+pixel parity on 36 source/converted frame pairs spanning tasks 0–3. The selected
+next comparison is a new 40,000-update four-task run using 8-item
+batches with exactly 2 samples per task per batch: **80,000 sample draws per
+task**, matching the existing native task-0 single-task run's total sample
+exposure. New output/config/checkpoint paths are required. The diagnostic
+progression gate is task 0 at least 8/20 plus 5/5 repeats at init 3, and each
+of tasks 1–3 at least 10/20; these are scaling gates, not formal LIBERO-36
+acceptance criteria. The unique 40,000-update config and final launch preflight
+passed, including output-path, GPU-idle, disk, evaluator-hash, and data-manifest
+checks. The approved unattended runner started on 2026-10-03 (UTC); training
+first stopped during Accelerate DataLoader wrapping before any optimizer update
+or checkpoint. The wrapper was minimally corrected and passed four tests plus
+a real-dataset Accelerate loader smoke; a separate `40k_v2` run then passed
+preflight and was at approximately 2,000/40,000 updates (loss 0.557) at the
+latest progress check. The failed `40k_v1`
+logs/output are preserved. Run status and process/log paths are recorded in the
+[`stage plan`](results/teacher_task_scaling_next_stage_plan_v1_20261003.json)
+and [`loader recovery report`](results/teacher_native_spatial_4task_loader_integration_recovery_20261003.json).
+The custom LIBERO-36
+StageE1 result remains a separate 0/50, and Fold02 remains locked. See the
+[`preflight evidence`](results/teacher_native_spatial_task0_3_preflight_result_v1_20261003.json),
+[`conversion manifest`](results/teacher_native_spatial_0_3_conversion_manifest_20261003.json),
+and [`four-task stage plan`](results/teacher_task_scaling_next_stage_plan_v1_20261003.json).
 Evidence is in the
 [`full-frame image parity summary`](results/teacher_task0_training_image_parity_v1_20261003.json)
 and [`audit script`](scripts/audit_task0_training_image_parity_v1.py), plus the

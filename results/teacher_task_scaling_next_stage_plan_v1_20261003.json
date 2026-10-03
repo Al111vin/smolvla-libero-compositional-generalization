@@ -39,6 +39,80 @@
     ],
     "implication": "Do not start 4-task training from the currently present custom32 dataset; first source a matching official native LIBERO-Spatial HDF5 suite and validate it."
   },
+  "latest_preflight_update_20261003": {
+    "status": "first_training_launch_failed_before_optimizer_update; Accelerate_sampler_integration_fixed_and_v2_run_started_2026-10-03",
+    "source_hub_repo": "yifengzhu-hf/LIBERO-datasets",
+    "source_revision": "f13aa24a3da8c43c7225569f28c562979fa0e35a",
+    "source_files": [
+      {"task_id": 0, "episodes": 50, "frames": 5068, "sha256": "ff6f26121653c77280eb40a38773a74141c11a8509f3466058cb56dd2cc60ead"},
+      {"task_id": 1, "episodes": 50, "frames": 6707, "sha256": "bf1090dd4826eacb49eb052f17d04798e2a1eb2f74f8d024bc3b9c5d234c25f9"},
+      {"task_id": 2, "episodes": 50, "frames": 5882, "sha256": "75ede0cf5fbfc925093671b55032ad80f1b1f1cf35442ec6c663460d37d3e0b3"},
+      {"task_id": 3, "episodes": 50, "frames": 5052, "sha256": "0c053db7317e584632549bddb963bee8a237661b4bd29f0581a245f715e8eb72"}
+    ],
+    "dataset": {
+      "repo_id": "local/libero_spatial_tasks0_3_native_v1",
+      "root": "/root/smolvla-training-prep/datasets/lerobot/libero_spatial_tasks0_3_native_20261003_v1",
+      "episodes": 200,
+      "frames": 22709,
+      "task_index_mapping": {"0": 0, "1": 1, "2": 2, "3": 3},
+      "sampled_action_roundtrip_max_abs_diff": 0.0,
+      "sampled_action_roundtrip_count": 36
+    },
+    "independent_sampled_cross_modal_parity": {
+      "status": "passed",
+      "frames": 36,
+      "state_and_action_max_abs_diff": 0.0,
+      "agentview_and_wrist_max_pixel_diff": 0,
+      "sample_design": "tasks 0-3, episodes 0/25/49, first/middle/last frames"
+    },
+    "sampler_v1_issue_and_v2_resolution": {
+      "v1_issue": "Task-contiguous ordering balanced epoch totals but could create homogeneous batches.",
+      "v2_unit_tests": "3 passed",
+      "real_lerobot_smoke": "8/8 batches had exactly two samples from each task; 15-D state and 7-D action shapes validated."
+    },
+    "evaluator_smoke": {
+      "script": "/root/smolvla-eval-prep/scripts/eval_v3_task0_state_capture_v1.py",
+      "sha256": "89fd36a89dc45a56382219d4c3f6e5d12a3b1689abb3440ec29be346815af7cb",
+      "task_ids": [0, 1, 2, 3],
+      "runs": "one 2-step protocol smoke per task; not competence results"
+    },
+    "training_started": true,
+    "first_launch_outcome": {
+      "run_id": "teacher_native_spatial_tasks0_3_balanced_current_recipe_40k_v1",
+      "status": "failed_before_first_optimizer_update",
+      "failure": "Accelerate DataLoaderShard rewrapped the target dataset with batch_size=1 and an existing batch_sampler; the v2 hook mistakenly treated it as a second primary loader.",
+      "evidence": "training log ends at DataLoader construction with ValueError; no checkpoint file was created; the training output directory and logs are retained unchanged.",
+      "repair_options_compared": [
+        {
+          "option": "pass_through_any_existing_sampler_or_batch_sampler and patch only the initial ordinary loader",
+          "decision": "selected",
+          "reason": "Smallest repair; matches the already-tested task-subset sampler pattern and leaves Accelerate's already-balanced batch structure intact."
+        },
+        {
+          "option": "replace Accelerate DataLoaderShard construction with a custom wrapper",
+          "decision": "rejected",
+          "reason": "More invasive and unnecessary because the existing sampler can be passed through unchanged."
+        },
+        {
+          "option": "replace task balancing with a different training path",
+          "decision": "deferred",
+          "reason": "Would change the experiment variable and weaken the controlled 4-task comparison."
+        }
+      ],
+      "unit_tests_after_fix": "4 passed",
+      "real_lerobot_accelerate_loader_smoke_after_fix": {
+        "status": "passed",
+        "batches": 4,
+        "task_quota": "2 examples per task in every batch",
+        "state_shape": [8, 15],
+        "action_shape": [8, 7]
+      },
+      "pre_fix_sampler_sha256": "3debab52778e5150a302caeecb0a4ceff246f98994c65843b61f44c728fcf86c",
+      "pre_fix_sampler_preserved_on_gpu": "/root/smolvla-training-prep/recovery/task_scaling_native_spatial_20261003/failed_attempt_20261003/task_balanced_batch_sampler_v2_before_accelerate_fix.py"
+    },
+    "independent_sampled_parity_audit_started": true,
+    "independent_sampled_parity_audit_completed": true
+  },
   "proposed_experiment_if_preflight_passes": {
     "tasks": "LIBERO Spatial tasks 0-3",
     "episodes_per_task_target": 50,
@@ -52,6 +126,19 @@
     "gate": "predeclare task-0 non-inferiority and per-task minimum success criteria after the exact 4-task evaluation manifest and positive-control coverage are audited; no Stage 8/16/32 progression until reviewed",
     "fold02": "LOCKED"
   },
+  "four_task_gate_recommendation": {
+    "options_compared": [
+      "Proceed to the advisor's next 4-task stage now that native task0 passed the current-pipeline gate, while holding per-task draws fixed.",
+      "Train separate single-task controls for tasks 1-3 first; stronger task-specific baselines but materially higher cost and beyond the requested 1-to-4 progression.",
+      "Return to custom LIBERO-36 or use the alternate 8-D NVIDIA packaging; reject because it confounds task family or observation schema."
+    ],
+    "recommended": "Use the matched native Spatial tasks0-3 dataset and 40,000 updates with exact per-batch quotas 2/task, yielding 80,000 draws/task; keep all later 8/16/32 steps gated on per-task evaluation.",
+    "proposed_success_gate": {
+      "task0": "at least 8/20 on the paired init set and 5/5 repeated at init index 3",
+      "each_task1_to_3": "at least 10/20 on the paired init set",
+      "note": "These are diagnostic progression thresholds, not formal LIBERO-36 acceptance criteria."
+    }
+  },
   "preflight_before_training": [
     "Verify official source, license, archive integrity, and enough disk space before download.",
     "Check official task-0 BDDL/instruction/HDF5 schema against the already validated 50-episode native task-0 dataset; do not silently substitute if it differs.",
@@ -62,11 +149,35 @@
     "Check GPU idle, configuration uniqueness, adequate disk, and nonexistence of all new output paths immediately before launch."
   ],
   "safety": {
-    "this_stage_training_started": false,
-    "download_started": false,
+    "this_stage_training_started": true,
+    "download_started": true,
+    "source_download_and_conversion_are_in_new_isolated_paths": true,
     "existing_data_modified": false,
     "existing_checkpoints_overwritten": false,
     "github_hf_payload_policy": "publish code, README, lightweight JSON only; no checkpoint, raw HDF5, Parquet, videos, or logs",
+    "fold02": "LOCKED"
+  },
+  "unattended_run_status_20261003": {
+    "status": "training_in_progress",
+    "supervisor_pid": 271851,
+    "training_pid_at_initial_check": 271860,
+    "gpu_host": "cpod-1v6wxcygzn32",
+    "started_at_utc": "2026-10-03T06:16:35Z",
+    "run_id": "teacher_native_spatial_tasks0_3_balanced_current_recipe_40k_v2",
+    "runner_sha256": "896389073acea5221740c44ecdd36b6a8899b496ecc314fa458bbb0be59bb700",
+    "config_sha256": "0676ee11b5a1bd54a48595363dee4790e3d35ed7482172199af28dfad6a9b1cc",
+    "sampler_sha256": "22aeca407667bdf009021a4856ad8262de2365a13e8c970f720c890b3ccdfd29",
+    "supervisor_log": "/root/smolvla-training-prep/recovery/task_scaling_native_spatial_20261003/teacher_native_spatial_tasks0_3_balanced_current_recipe_40k_v2.unattended.log",
+    "training_log": "/root/smolvla-training-prep/recovery/task_scaling_native_spatial_20261003/teacher_native_spatial_tasks0_3_balanced_current_recipe_40k_v2.training.log",
+    "evaluation_output": "/root/smolvla-eval-prep/results/teacher_native_spatial_tasks0_3_balanced_current_recipe_40k_v2",
+    "last_progress_check_utc": "2026-10-03T06:21:56Z",
+    "optimizer_step_at_last_progress_check": 2000,
+    "loss_at_last_progress_check": 0.557,
+    "approx_updates_per_second_from_training_log": 6.2,
+    "checkpoint_overwrite": false,
+    "replacement_preflight_path": "/root/smolvla-training-prep/recovery/task_scaling_native_spatial_20261003/teacher_native_spatial_tasks0_3_balanced_current_recipe_40k_v2.preflight.json",
+    "preflight_status": "passed",
+    "first_launch_failure_report": "results/teacher_native_spatial_4task_loader_integration_recovery_20261003.json",
     "fold02": "LOCKED"
   }
 }

@@ -1,0 +1,71 @@
+{
+  "schema_version": 1,
+  "date": "2026-10-03",
+  "stage": "native_spatial_task0_3_balanced_40k_loader_integration_recovery",
+  "first_attempt": {
+    "run_id": "teacher_native_spatial_tasks0_3_balanced_current_recipe_40k_v1",
+    "status": "failed_before_first_optimizer_update",
+    "error": "The task-balanced DataLoader patch rejected a reconstructed DataLoader with batch_size=1.",
+    "root_cause": "LeRobot initially creates the intended batch_size=8 DataLoader and the task-quota sampler is installed. Accelerate then wraps that loader in DataLoaderShard and internally rebuilds a DataLoader with batch_size=1 plus the already-existing batch_sampler. The patch incorrectly treated this wrapper as a second primary loader.",
+    "optimizer_updates_completed": 0,
+    "checkpoint_files_produced": 0,
+    "existing_checkpoint_overwritten": false,
+    "failed_output_directory_and_logs_preserved": true,
+    "training_log_on_gpu": "/root/smolvla-training-prep/recovery/task_scaling_native_spatial_20261003/teacher_native_spatial_tasks0_3_balanced_current_recipe_40k_v1.training.log",
+    "unattended_log_on_gpu": "/root/smolvla-training-prep/recovery/task_scaling_native_spatial_20261003/teacher_native_spatial_tasks0_3_balanced_current_recipe_40k_v1.unattended.log",
+    "pre_fix_sampler_copy_on_gpu": "/root/smolvla-training-prep/recovery/task_scaling_native_spatial_20261003/failed_attempt_20261003/task_balanced_batch_sampler_v2_before_accelerate_fix.py",
+    "pre_fix_sampler_sha256": "3debab52778e5150a302caeecb0a4ceff246f98994c65843b61f44c728fcf86c"
+  },
+  "repair_options_compared": [
+    {
+      "option": "Pass through any existing sampler or batch_sampler; patch only the initial ordinary DataLoader for the target dataset.",
+      "decision": "selected",
+      "reason": "Smallest change. It leaves Accelerate's already-balanced batches intact and follows an existing tested project pattern."
+    },
+    {
+      "option": "Replace or monkeypatch Accelerate's DataLoaderShard reconstruction.",
+      "decision": "rejected",
+      "reason": "More invasive than necessary and risks altering Accelerate behavior unrelated to task sampling."
+    },
+    {
+      "option": "Replace balanced sampling with a different training path.",
+      "decision": "deferred",
+      "reason": "Would change the controlled experiment variable and confound this task-count comparison."
+    }
+  ],
+  "repair": {
+    "changed_behavior": "The patch now returns through the original PyTorch DataLoader constructor whenever a sampler or batch_sampler is already present. The primary target loader still must have batch_size=8 and receives exactly 2 examples from each task per batch.",
+    "sampler_sha256": "22aeca407667bdf009021a4856ad8262de2365a13e8c970f720c890b3ccdfd29",
+    "unit_tests": "4 passed",
+    "actual_lerobot_accelerate_integration_smoke": {
+      "status": "passed",
+      "batches": 4,
+      "batch_size": 8,
+      "per_task_quota": 2,
+      "state_shape": [8, 15],
+      "action_shape": [8, 7],
+      "accelerate_rewrap": "passed"
+    }
+  },
+  "replacement_run": {
+    "run_id": "teacher_native_spatial_tasks0_3_balanced_current_recipe_40k_v2",
+    "config_sha256": "0676ee11b5a1bd54a48595363dee4790e3d35ed7482172199af28dfad6a9b1cc",
+    "preflight_status": "passed",
+    "preflight_disk_free_gib": 83.58,
+    "training_output": "/root/smolvla-training-prep/results/training/teacher_native_spatial_tasks0_3_balanced_current_recipe_40k_v2",
+    "evaluation_output": "/root/smolvla-eval-prep/results/teacher_native_spatial_tasks0_3_balanced_current_recipe_40k_v2",
+    "status_at_last_check": "training_in_progress",
+    "started_at_utc_approx": "2026-10-03T06:16:35Z",
+    "supervisor_pid": 271851,
+    "trainer_pid_at_initial_check": 271860
+  },
+  "experiment_contract_unchanged": {
+    "tasks": [0, 1, 2, 3],
+    "optimizer_updates": 40000,
+    "batch_size": 8,
+    "samples_per_task_per_batch": 2,
+    "draws_per_task": 80000,
+    "initialization": "/root/smolvla-training-prep/models/smolvla_base_libero",
+    "fold02": "LOCKED"
+  }
+}

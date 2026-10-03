@@ -1,0 +1,2681 @@
+{
+  "status": "complete",
+  "repo_id": "local/libero_spatial_tasks0_3_native_v1",
+  "output": "/root/smolvla-training-prep/datasets/lerobot/libero_spatial_tasks0_3_native_20261003_v1",
+  "fps": 20,
+  "tasks": [
+    {
+      "task_id": 0,
+      "path": "/root/smolvla-training-prep/recovery/task_scaling_native_spatial_20261003/source/libero_spatial/pick_up_the_black_bowl_between_the_plate_and_the_ramekin_and_place_it_on_the_plate_demo.hdf5",
+      "sha256": "ff6f26121653c77280eb40a38773a74141c11a8509f3466058cb56dd2cc60ead",
+      "bytes": 508779600,
+      "language": "pick up the black bowl between the plate and the ramekin and place it on the plate",
+      "episodes": 50,
+      "frames": 5068,
+      "episodes_detail": [
+        {
+          "demo_key": "demo_0",
+          "frames": 98
+        },
+        {
+          "demo_key": "demo_1",
+          "frames": 84
+        },
+        {
+          "demo_key": "demo_2",
+          "frames": 90
+        },
+        {
+          "demo_key": "demo_3",
+          "frames": 97
+        },
+        {
+          "demo_key": "demo_4",
+          "frames": 105
+        },
+        {
+          "demo_key": "demo_5",
+          "frames": 134
+        },
+        {
+          "demo_key": "demo_6",
+          "frames": 92
+        },
+        {
+          "demo_key": "demo_7",
+          "frames": 92
+        },
+        {
+          "demo_key": "demo_8",
+          "frames": 79
+        },
+        {
+          "demo_key": "demo_9",
+          "frames": 89
+        },
+        {
+          "demo_key": "demo_10",
+          "frames": 93
+        },
+        {
+          "demo_key": "demo_11",
+          "frames": 128
+        },
+        {
+          "demo_key": "demo_12",
+          "frames": 86
+        },
+        {
+          "demo_key": "demo_13",
+          "frames": 88
+        },
+        {
+          "demo_key": "demo_14",
+          "frames": 112
+        },
+        {
+          "demo_key": "demo_15",
+          "frames": 84
+        },
+        {
+          "demo_key": "demo_16",
+          "frames": 89
+        },
+        {
+          "demo_key": "demo_17",
+          "frames": 97
+        },
+        {
+          "demo_key": "demo_18",
+          "frames": 75
+        },
+        {
+          "demo_key": "demo_19",
+          "frames": 99
+        },
+        {
+          "demo_key": "demo_20",
+          "frames": 87
+        },
+        {
+          "demo_key": "demo_21",
+          "frames": 121
+        },
+        {
+          "demo_key": "demo_22",
+          "frames": 96
+        },
+        {
+          "demo_key": "demo_23",
+          "frames": 85
+        },
+        {
+          "demo_key": "demo_24",
+          "frames": 100
+        },
+        {
+          "demo_key": "demo_25",
+          "frames": 91
+        },
+        {
+          "demo_key": "demo_26",
+          "frames": 105
+        },
+        {
+          "demo_key": "demo_27",
+          "frames": 113
+        },
+        {
+          "demo_key": "demo_28",
+          "frames": 92
+        },
+        {
+          "demo_key": "demo_29",
+          "frames": 124
+        },
+        {
+          "demo_key": "demo_30",
+          "frames": 127
+        },
+        {
+          "demo_key": "demo_31",
+          "frames": 151
+        },
+        {
+          "demo_key": "demo_32",
+          "frames": 93
+        },
+        {
+          "demo_key": "demo_33",
+          "frames": 111
+        },
+        {
+          "demo_key": "demo_34",
+          "frames": 167
+        },
+        {
+          "demo_key": "demo_35",
+          "frames": 89
+        },
+        {
+          "demo_key": "demo_36",
+          "frames": 102
+        },
+        {
+          "demo_key": "demo_37",
+          "frames": 168
+        },
+        {
+          "demo_key": "demo_38",
+          "frames": 89
+        },
+        {
+          "demo_key": "demo_39",
+          "frames": 108
+        },
+        {
+          "demo_key": "demo_40",
+          "frames": 95
+        },
+        {
+          "demo_key": "demo_41",
+          "frames": 95
+        },
+        {
+          "demo_key": "demo_42",
+          "frames": 109
+        },
+        {
+          "demo_key": "demo_43",
+          "frames": 96
+        },
+        {
+          "demo_key": "demo_44",
+          "frames": 88
+        },
+        {
+          "demo_key": "demo_45",
+          "frames": 90
+        },
+        {
+          "demo_key": "demo_46",
+          "frames": 85
+        },
+        {
+          "demo_key": "demo_47",
+          "frames": 92
+        },
+        {
+          "demo_key": "demo_48",
+          "frames": 96
+        },
+        {
+          "demo_key": "demo_49",
+          "frames": 92
+        }
+      ]
+    },
+    {
+      "task_id": 1,
+      "path": "/root/smolvla-training-prep/recovery/task_scaling_native_spatial_20261003/source/libero_spatial/pick_up_the_black_bowl_next_to_the_ramekin_and_place_it_on_the_plate_demo.hdf5",
+      "sha256": "bf1090dd4826eacb49eb052f17d04798e2a1eb2f74f8d024bc3b9c5d234c25f9",
+      "bytes": 671583385,
+      "language": "pick up the black bowl next to the ramekin and place it on the plate",
+      "episodes": 50,
+      "frames": 6707,
+      "episodes_detail": [
+        {
+          "demo_key": "demo_0",
+          "frames": 152
+        },
+        {
+          "demo_key": "demo_1",
+          "frames": 123
+        },
+        {
+          "demo_key": "demo_2",
+          "frames": 140
+        },
+        {
+          "demo_key": "demo_3",
+          "frames": 175
+        },
+        {
+          "demo_key": "demo_4",
+          "frames": 142
+        },
+        {
+          "demo_key": "demo_5",
+          "frames": 155
+        },
+        {
+          "demo_key": "demo_6",
+          "frames": 145
+        },
+        {
+          "demo_key": "demo_7",
+          "frames": 131
+        },
+        {
+          "demo_key": "demo_8",
+          "frames": 152
+        },
+        {
+          "demo_key": "demo_9",
+          "frames": 127
+        },
+        {
+          "demo_key": "demo_10",
+          "frames": 111
+        },
+        {
+          "demo_key": "demo_11",
+          "frames": 117
+        },
+        {
+          "demo_key": "demo_12",
+          "frames": 114
+        },
+        {
+          "demo_key": "demo_13",
+          "frames": 125
+        },
+        {
+          "demo_key": "demo_14",
+          "frames": 150
+        },
+        {
+          "demo_key": "demo_15",
+          "frames": 128
+        },
+        {
+          "demo_key": "demo_16",
+          "frames": 135
+        },
+        {
+          "demo_key": "demo_17",
+          "frames": 113
+        },
+        {
+          "demo_key": "demo_18",
+          "frames": 112
+        },
+        {
+          "demo_key": "demo_19",
+          "frames": 125
+        },
+        {
+          "demo_key": "demo_20",
+          "frames": 162
+        },
+        {
+          "demo_key": "demo_21",
+          "frames": 134
+        },
+        {
+          "demo_key": "demo_22",
+          "frames": 132
+        },
+        {
+          "demo_key": "demo_23",
+          "frames": 109
+        },
+        {
+          "demo_key": "demo_24",
+          "frames": 189
+        },
+        {
+          "demo_key": "demo_25",
+          "frames": 143
+        },
+        {
+          "demo_key": "demo_26",
+          "frames": 145
+        },
+        {
+          "demo_key": "demo_27",
+          "frames": 116
+        },
+        {
+          "demo_key": "demo_28",
+          "frames": 167
+        },
+        {
+          "demo_key": "demo_29",
+          "frames": 120
+        },
+        {
+          "demo_key": "demo_30",
+          "frames": 154
+        },
+        {
+          "demo_key": "demo_31",
+          "frames": 120
+        },
+        {
+          "demo_key": "demo_32",
+          "frames": 150
+        },
+        {
+          "demo_key": "demo_33",
+          "frames": 117
+        },
+        {
+          "demo_key": "demo_34",
+          "frames": 120
+        },
+        {
+          "demo_key": "demo_35",
+          "frames": 137
+        },
+        {
+          "demo_key": "demo_36",
+          "frames": 120
+        },
+        {
+          "demo_key": "demo_37",
+          "frames": 129
+        },
+        {
+          "demo_key": "demo_38",
+          "frames": 143
+        },
+        {
+          "demo_key": "demo_39",
+          "frames": 124
+        },
+        {
+          "demo_key": "demo_40",
+          "frames": 126
+        },
+        {
+          "demo_key": "demo_41",
+          "frames": 112
+        },
+        {
+          "demo_key": "demo_42",
+          "frames": 137
+        },
+        {
+          "demo_key": "demo_43",
+          "frames": 135
+        },
+        {
+          "demo_key": "demo_44",
+          "frames": 126
+        },
+        {
+          "demo_key": "demo_45",
+          "frames": 133
+        },
+        {
+          "demo_key": "demo_46",
+          "frames": 134
+        },
+        {
+          "demo_key": "demo_47",
+          "frames": 133
+        },
+        {
+          "demo_key": "demo_48",
+          "frames": 141
+        },
+        {
+          "demo_key": "demo_49",
+          "frames": 127
+        }
+      ]
+    },
+    {
+      "task_id": 2,
+      "path": "/root/smolvla-training-prep/recovery/task_scaling_native_spatial_20261003/source/libero_spatial/pick_up_the_black_bowl_from_table_center_and_place_it_on_the_plate_demo.hdf5",
+      "sha256": "75ede0cf5fbfc925093671b55032ad80f1b1f1cf35442ec6c663460d37d3e0b3",
+      "bytes": 589630943,
+      "language": "pick up the black bowl from table center and place it on the plate",
+      "episodes": 50,
+      "frames": 5882,
+      "episodes_detail": [
+        {
+          "demo_key": "demo_0",
+          "frames": 103
+        },
+        {
+          "demo_key": "demo_1",
+          "frames": 123
+        },
+        {
+          "demo_key": "demo_2",
+          "frames": 122
+        },
+        {
+          "demo_key": "demo_3",
+          "frames": 102
+        },
+        {
+          "demo_key": "demo_4",
+          "frames": 111
+        },
+        {
+          "demo_key": "demo_5",
+          "frames": 111
+        },
+        {
+          "demo_key": "demo_6",
+          "frames": 109
+        },
+        {
+          "demo_key": "demo_7",
+          "frames": 123
+        },
+        {
+          "demo_key": "demo_8",
+          "frames": 111
+        },
+        {
+          "demo_key": "demo_9",
+          "frames": 110
+        },
+        {
+          "demo_key": "demo_10",
+          "frames": 109
+        },
+        {
+          "demo_key": "demo_11",
+          "frames": 101
+        },
+        {
+          "demo_key": "demo_12",
+          "frames": 124
+        },
+        {
+          "demo_key": "demo_13",
+          "frames": 122
+        },
+        {
+          "demo_key": "demo_14",
+          "frames": 114
+        },
+        {
+          "demo_key": "demo_15",
+          "frames": 136
+        },
+        {
+          "demo_key": "demo_16",
+          "frames": 105
+        },
+        {
+          "demo_key": "demo_17",
+          "frames": 164
+        },
+        {
+          "demo_key": "demo_18",
+          "frames": 107
+        },
+        {
+          "demo_key": "demo_19",
+          "frames": 98
+        },
+        {
+          "demo_key": "demo_20",
+          "frames": 117
+        },
+        {
+          "demo_key": "demo_21",
+          "frames": 108
+        },
+        {
+          "demo_key": "demo_22",
+          "frames": 117
+        },
+        {
+          "demo_key": "demo_23",
+          "frames": 117
+        },
+        {
+          "demo_key": "demo_24",
+          "frames": 106
+        },
+        {
+          "demo_key": "demo_25",
+          "frames": 117
+        },
+        {
+          "demo_key": "demo_26",
+          "frames": 143
+        },
+        {
+          "demo_key": "demo_27",
+          "frames": 125
+        },
+        {
+          "demo_key": "demo_28",
+          "frames": 111
+        },
+        {
+          "demo_key": "demo_29",
+          "frames": 110
+        },
+        {
+          "demo_key": "demo_30",
+          "frames": 115
+        },
+        {
+          "demo_key": "demo_31",
+          "frames": 122
+        },
+        {
+          "demo_key": "demo_32",
+          "frames": 119
+        },
+        {
+          "demo_key": "demo_33",
+          "frames": 121
+        },
+        {
+          "demo_key": "demo_34",
+          "frames": 131
+        },
+        {
+          "demo_key": "demo_35",
+          "frames": 140
+        },
+        {
+          "demo_key": "demo_36",
+          "frames": 121
+        },
+        {
+          "demo_key": "demo_37",
+          "frames": 129
+        },
+        {
+          "demo_key": "demo_38",
+          "frames": 114
+        },
+        {
+          "demo_key": "demo_39",
+          "frames": 115
+        },
+        {
+          "demo_key": "demo_40",
+          "frames": 108
+        },
+        {
+          "demo_key": "demo_41",
+          "frames": 106
+        },
+        {
+          "demo_key": "demo_42",
+          "frames": 138
+        },
+        {
+          "demo_key": "demo_43",
+          "frames": 93
+        },
+        {
+          "demo_key": "demo_44",
+          "frames": 100
+        },
+        {
+          "demo_key": "demo_45",
+          "frames": 126
+        },
+        {
+          "demo_key": "demo_46",
+          "frames": 125
+        },
+        {
+          "demo_key": "demo_47",
+          "frames": 117
+        },
+        {
+          "demo_key": "demo_48",
+          "frames": 131
+        },
+        {
+          "demo_key": "demo_49",
+          "frames": 135
+        }
+      ]
+    },
+    {
+      "task_id": 3,
+      "path": "/root/smolvla-training-prep/recovery/task_scaling_native_spatial_20261003/source/libero_spatial/pick_up_the_black_bowl_on_the_cookie_box_and_place_it_on_the_plate_demo.hdf5",
+      "sha256": "0c053db7317e584632549bddb963bee8a237661b4bd29f0581a245f715e8eb72",
+      "bytes": 507189857,
+      "language": "pick up the black bowl on the cookie box and place it on the plate",
+      "episodes": 50,
+      "frames": 5052,
+      "episodes_detail": [
+        {
+          "demo_key": "demo_0",
+          "frames": 99
+        },
+        {
+          "demo_key": "demo_1",
+          "frames": 101
+        },
+        {
+          "demo_key": "demo_2",
+          "frames": 95
+        },
+        {
+          "demo_key": "demo_3",
+          "frames": 115
+        },
+        {
+          "demo_key": "demo_4",
+          "frames": 103
+        },
+        {
+          "demo_key": "demo_5",
+          "frames": 99
+        },
+        {
+          "demo_key": "demo_6",
+          "frames": 111
+        },
+        {
+          "demo_key": "demo_7",
+          "frames": 95
+        },
+        {
+          "demo_key": "demo_8",
+          "frames": 111
+        },
+        {
+          "demo_key": "demo_9",
+          "frames": 129
+        },
+        {
+          "demo_key": "demo_10",
+          "frames": 89
+        },
+        {
+          "demo_key": "demo_11",
+          "frames": 97
+        },
+        {
+          "demo_key": "demo_12",
+          "frames": 93
+        },
+        {
+          "demo_key": "demo_13",
+          "frames": 99
+        },
+        {
+          "demo_key": "demo_14",
+          "frames": 100
+        },
+        {
+          "demo_key": "demo_15",
+          "frames": 119
+        },
+        {
+          "demo_key": "demo_16",
+          "frames": 101
+        },
+        {
+          "demo_key": "demo_17",
+          "frames": 94
+        },
+        {
+          "demo_key": "demo_18",
+          "frames": 171
+        },
+        {
+          "demo_key": "demo_19",
+          "frames": 100
+        },
+        {
+          "demo_key": "demo_20",
+          "frames": 96
+        },
+        {
+          "demo_key": "demo_21",
+          "frames": 96
+        },
+        {
+          "demo_key": "demo_22",
+          "frames": 96
+        },
+        {
+          "demo_key": "demo_23",
+          "frames": 97
+        },
+        {
+          "demo_key": "demo_24",
+          "frames": 96
+        },
+        {
+          "demo_key": "demo_25",
+          "frames": 98
+        },
+        {
+          "demo_key": "demo_26",
+          "frames": 92
+        },
+        {
+          "demo_key": "demo_27",
+          "frames": 101
+        },
+        {
+          "demo_key": "demo_28",
+          "frames": 95
+        },
+        {
+          "demo_key": "demo_29",
+          "frames": 106
+        },
+        {
+          "demo_key": "demo_30",
+          "frames": 86
+        },
+        {
+          "demo_key": "demo_31",
+          "frames": 99
+        },
+        {
+          "demo_key": "demo_32",
+          "frames": 99
+        },
+        {
+          "demo_key": "demo_33",
+          "frames": 111
+        },
+        {
+          "demo_key": "demo_34",
+          "frames": 89
+        },
+        {
+          "demo_key": "demo_35",
+          "frames": 101
+        },
+        {
+          "demo_key": "demo_36",
+          "frames": 92
+        },
+        {
+          "demo_key": "demo_37",
+          "frames": 97
+        },
+        {
+          "demo_key": "demo_38",
+          "frames": 97
+        },
+        {
+          "demo_key": "demo_39",
+          "frames": 92
+        },
+        {
+          "demo_key": "demo_40",
+          "frames": 95
+        },
+        {
+          "demo_key": "demo_41",
+          "frames": 114
+        },
+        {
+          "demo_key": "demo_42",
+          "frames": 89
+        },
+        {
+          "demo_key": "demo_43",
+          "frames": 102
+        },
+        {
+          "demo_key": "demo_44",
+          "frames": 113
+        },
+        {
+          "demo_key": "demo_45",
+          "frames": 99
+        },
+        {
+          "demo_key": "demo_46",
+          "frames": 103
+        },
+        {
+          "demo_key": "demo_47",
+          "frames": 90
+        },
+        {
+          "demo_key": "demo_48",
+          "frames": 100
+        },
+        {
+          "demo_key": "demo_49",
+          "frames": 90
+        }
+      ]
+    }
+  ],
+  "episodes": [
+    {
+      "episode_index": 0,
+      "libero_spatial_task_id": 0,
+      "lerobot_task_index": 0,
+      "demo_key": "demo_0",
+      "frames": 98,
+      "language": "pick up the black bowl between the plate and the ramekin and place it on the plate"
+    },
+    {
+      "episode_index": 1,
+      "libero_spatial_task_id": 0,
+      "lerobot_task_index": 0,
+      "demo_key": "demo_1",
+      "frames": 84,
+      "language": "pick up the black bowl between the plate and the ramekin and place it on the plate"
+    },
+    {
+      "episode_index": 2,
+      "libero_spatial_task_id": 0,
+      "lerobot_task_index": 0,
+      "demo_key": "demo_2",
+      "frames": 90,
+      "language": "pick up the black bowl between the plate and the ramekin and place it on the plate"
+    },
+    {
+      "episode_index": 3,
+      "libero_spatial_task_id": 0,
+      "lerobot_task_index": 0,
+      "demo_key": "demo_3",
+      "frames": 97,
+      "language": "pick up the black bowl between the plate and the ramekin and place it on the plate"
+    },
+    {
+      "episode_index": 4,
+      "libero_spatial_task_id": 0,
+      "lerobot_task_index": 0,
+      "demo_key": "demo_4",
+      "frames": 105,
+      "language": "pick up the black bowl between the plate and the ramekin and place it on the plate"
+    },
+    {
+      "episode_index": 5,
+      "libero_spatial_task_id": 0,
+      "lerobot_task_index": 0,
+      "demo_key": "demo_5",
+      "frames": 134,
+      "language": "pick up the black bowl between the plate and the ramekin and place it on the plate"
+    },
+    {
+      "episode_index": 6,
+      "libero_spatial_task_id": 0,
+      "lerobot_task_index": 0,
+      "demo_key": "demo_6",
+      "frames": 92,
+      "language": "pick up the black bowl between the plate and the ramekin and place it on the plate"
+    },
+    {
+      "episode_index": 7,
+      "libero_spatial_task_id": 0,
+      "lerobot_task_index": 0,
+      "demo_key": "demo_7",
+      "frames": 92,
+      "language": "pick up the black bowl between the plate and the ramekin and place it on the plate"
+    },
+    {
+      "episode_index": 8,
+      "libero_spatial_task_id": 0,
+      "lerobot_task_index": 0,
+      "demo_key": "demo_8",
+      "frames": 79,
+      "language": "pick up the black bowl between the plate and the ramekin and place it on the plate"
+    },
+    {
+      "episode_index": 9,
+      "libero_spatial_task_id": 0,
+      "lerobot_task_index": 0,
+      "demo_key": "demo_9",
+      "frames": 89,
+      "language": "pick up the black bowl between the plate and the ramekin and place it on the plate"
+    },
+    {
+      "episode_index": 10,
+      "libero_spatial_task_id": 0,
+      "lerobot_task_index": 0,
+      "demo_key": "demo_10",
+      "frames": 93,
+      "language": "pick up the black bowl between the plate and the ramekin and place it on the plate"
+    },
+    {
+      "episode_index": 11,
+      "libero_spatial_task_id": 0,
+      "lerobot_task_index": 0,
+      "demo_key": "demo_11",
+      "frames": 128,
+      "language": "pick up the black bowl between the plate and the ramekin and place it on the plate"
+    },
+    {
+      "episode_index": 12,
+      "libero_spatial_task_id": 0,
+      "lerobot_task_index": 0,
+      "demo_key": "demo_12",
+      "frames": 86,
+      "language": "pick up the black bowl between the plate and the ramekin and place it on the plate"
+    },
+    {
+      "episode_index": 13,
+      "libero_spatial_task_id": 0,
+      "lerobot_task_index": 0,
+      "demo_key": "demo_13",
+      "frames": 88,
+      "language": "pick up the black bowl between the plate and the ramekin and place it on the plate"
+    },
+    {
+      "episode_index": 14,
+      "libero_spatial_task_id": 0,
+      "lerobot_task_index": 0,
+      "demo_key": "demo_14",
+      "frames": 112,
+      "language": "pick up the black bowl between the plate and the ramekin and place it on the plate"
+    },
+    {
+      "episode_index": 15,
+      "libero_spatial_task_id": 0,
+      "lerobot_task_index": 0,
+      "demo_key": "demo_15",
+      "frames": 84,
+      "language": "pick up the black bowl between the plate and the ramekin and place it on the plate"
+    },
+    {
+      "episode_index": 16,
+      "libero_spatial_task_id": 0,
+      "lerobot_task_index": 0,
+      "demo_key": "demo_16",
+      "frames": 89,
+      "language": "pick up the black bowl between the plate and the ramekin and place it on the plate"
+    },
+    {
+      "episode_index": 17,
+      "libero_spatial_task_id": 0,
+      "lerobot_task_index": 0,
+      "demo_key": "demo_17",
+      "frames": 97,
+      "language": "pick up the black bowl between the plate and the ramekin and place it on the plate"
+    },
+    {
+      "episode_index": 18,
+      "libero_spatial_task_id": 0,
+      "lerobot_task_index": 0,
+      "demo_key": "demo_18",
+      "frames": 75,
+      "language": "pick up the black bowl between the plate and the ramekin and place it on the plate"
+    },
+    {
+      "episode_index": 19,
+      "libero_spatial_task_id": 0,
+      "lerobot_task_index": 0,
+      "demo_key": "demo_19",
+      "frames": 99,
+      "language": "pick up the black bowl between the plate and the ramekin and place it on the plate"
+    },
+    {
+      "episode_index": 20,
+      "libero_spatial_task_id": 0,
+      "lerobot_task_index": 0,
+      "demo_key": "demo_20",
+      "frames": 87,
+      "language": "pick up the black bowl between the plate and the ramekin and place it on the plate"
+    },
+    {
+      "episode_index": 21,
+      "libero_spatial_task_id": 0,
+      "lerobot_task_index": 0,
+      "demo_key": "demo_21",
+      "frames": 121,
+      "language": "pick up the black bowl between the plate and the ramekin and place it on the plate"
+    },
+    {
+      "episode_index": 22,
+      "libero_spatial_task_id": 0,
+      "lerobot_task_index": 0,
+      "demo_key": "demo_22",
+      "frames": 96,
+      "language": "pick up the black bowl between the plate and the ramekin and place it on the plate"
+    },
+    {
+      "episode_index": 23,
+      "libero_spatial_task_id": 0,
+      "lerobot_task_index": 0,
+      "demo_key": "demo_23",
+      "frames": 85,
+      "language": "pick up the black bowl between the plate and the ramekin and place it on the plate"
+    },
+    {
+      "episode_index": 24,
+      "libero_spatial_task_id": 0,
+      "lerobot_task_index": 0,
+      "demo_key": "demo_24",
+      "frames": 100,
+      "language": "pick up the black bowl between the plate and the ramekin and place it on the plate"
+    },
+    {
+      "episode_index": 25,
+      "libero_spatial_task_id": 0,
+      "lerobot_task_index": 0,
+      "demo_key": "demo_25",
+      "frames": 91,
+      "language": "pick up the black bowl between the plate and the ramekin and place it on the plate"
+    },
+    {
+      "episode_index": 26,
+      "libero_spatial_task_id": 0,
+      "lerobot_task_index": 0,
+      "demo_key": "demo_26",
+      "frames": 105,
+      "language": "pick up the black bowl between the plate and the ramekin and place it on the plate"
+    },
+    {
+      "episode_index": 27,
+      "libero_spatial_task_id": 0,
+      "lerobot_task_index": 0,
+      "demo_key": "demo_27",
+      "frames": 113,
+      "language": "pick up the black bowl between the plate and the ramekin and place it on the plate"
+    },
+    {
+      "episode_index": 28,
+      "libero_spatial_task_id": 0,
+      "lerobot_task_index": 0,
+      "demo_key": "demo_28",
+      "frames": 92,
+      "language": "pick up the black bowl between the plate and the ramekin and place it on the plate"
+    },
+    {
+      "episode_index": 29,
+      "libero_spatial_task_id": 0,
+      "lerobot_task_index": 0,
+      "demo_key": "demo_29",
+      "frames": 124,
+      "language": "pick up the black bowl between the plate and the ramekin and place it on the plate"
+    },
+    {
+      "episode_index": 30,
+      "libero_spatial_task_id": 0,
+      "lerobot_task_index": 0,
+      "demo_key": "demo_30",
+      "frames": 127,
+      "language": "pick up the black bowl between the plate and the ramekin and place it on the plate"
+    },
+    {
+      "episode_index": 31,
+      "libero_spatial_task_id": 0,
+      "lerobot_task_index": 0,
+      "demo_key": "demo_31",
+      "frames": 151,
+      "language": "pick up the black bowl between the plate and the ramekin and place it on the plate"
+    },
+    {
+      "episode_index": 32,
+      "libero_spatial_task_id": 0,
+      "lerobot_task_index": 0,
+      "demo_key": "demo_32",
+      "frames": 93,
+      "language": "pick up the black bowl between the plate and the ramekin and place it on the plate"
+    },
+    {
+      "episode_index": 33,
+      "libero_spatial_task_id": 0,
+      "lerobot_task_index": 0,
+      "demo_key": "demo_33",
+      "frames": 111,
+      "language": "pick up the black bowl between the plate and the ramekin and place it on the plate"
+    },
+    {
+      "episode_index": 34,
+      "libero_spatial_task_id": 0,
+      "lerobot_task_index": 0,
+      "demo_key": "demo_34",
+      "frames": 167,
+      "language": "pick up the black bowl between the plate and the ramekin and place it on the plate"
+    },
+    {
+      "episode_index": 35,
+      "libero_spatial_task_id": 0,
+      "lerobot_task_index": 0,
+      "demo_key": "demo_35",
+      "frames": 89,
+      "language": "pick up the black bowl between the plate and the ramekin and place it on the plate"
+    },
+    {
+      "episode_index": 36,
+      "libero_spatial_task_id": 0,
+      "lerobot_task_index": 0,
+      "demo_key": "demo_36",
+      "frames": 102,
+      "language": "pick up the black bowl between the plate and the ramekin and place it on the plate"
+    },
+    {
+      "episode_index": 37,
+      "libero_spatial_task_id": 0,
+      "lerobot_task_index": 0,
+      "demo_key": "demo_37",
+      "frames": 168,
+      "language": "pick up the black bowl between the plate and the ramekin and place it on the plate"
+    },
+    {
+      "episode_index": 38,
+      "libero_spatial_task_id": 0,
+      "lerobot_task_index": 0,
+      "demo_key": "demo_38",
+      "frames": 89,
+      "language": "pick up the black bowl between the plate and the ramekin and place it on the plate"
+    },
+    {
+      "episode_index": 39,
+      "libero_spatial_task_id": 0,
+      "lerobot_task_index": 0,
+      "demo_key": "demo_39",
+      "frames": 108,
+      "language": "pick up the black bowl between the plate and the ramekin and place it on the plate"
+    },
+    {
+      "episode_index": 40,
+      "libero_spatial_task_id": 0,
+      "lerobot_task_index": 0,
+      "demo_key": "demo_40",
+      "frames": 95,
+      "language": "pick up the black bowl between the plate and the ramekin and place it on the plate"
+    },
+    {
+      "episode_index": 41,
+      "libero_spatial_task_id": 0,
+      "lerobot_task_index": 0,
+      "demo_key": "demo_41",
+      "frames": 95,
+      "language": "pick up the black bowl between the plate and the ramekin and place it on the plate"
+    },
+    {
+      "episode_index": 42,
+      "libero_spatial_task_id": 0,
+      "lerobot_task_index": 0,
+      "demo_key": "demo_42",
+      "frames": 109,
+      "language": "pick up the black bowl between the plate and the ramekin and place it on the plate"
+    },
+    {
+      "episode_index": 43,
+      "libero_spatial_task_id": 0,
+      "lerobot_task_index": 0,
+      "demo_key": "demo_43",
+      "frames": 96,
+      "language": "pick up the black bowl between the plate and the ramekin and place it on the plate"
+    },
+    {
+      "episode_index": 44,
+      "libero_spatial_task_id": 0,
+      "lerobot_task_index": 0,
+      "demo_key": "demo_44",
+      "frames": 88,
+      "language": "pick up the black bowl between the plate and the ramekin and place it on the plate"
+    },
+    {
+      "episode_index": 45,
+      "libero_spatial_task_id": 0,
+      "lerobot_task_index": 0,
+      "demo_key": "demo_45",
+      "frames": 90,
+      "language": "pick up the black bowl between the plate and the ramekin and place it on the plate"
+    },
+    {
+      "episode_index": 46,
+      "libero_spatial_task_id": 0,
+      "lerobot_task_index": 0,
+      "demo_key": "demo_46",
+      "frames": 85,
+      "language": "pick up the black bowl between the plate and the ramekin and place it on the plate"
+    },
+    {
+      "episode_index": 47,
+      "libero_spatial_task_id": 0,
+      "lerobot_task_index": 0,
+      "demo_key": "demo_47",
+      "frames": 92,
+      "language": "pick up the black bowl between the plate and the ramekin and place it on the plate"
+    },
+    {
+      "episode_index": 48,
+      "libero_spatial_task_id": 0,
+      "lerobot_task_index": 0,
+      "demo_key": "demo_48",
+      "frames": 96,
+      "language": "pick up the black bowl between the plate and the ramekin and place it on the plate"
+    },
+    {
+      "episode_index": 49,
+      "libero_spatial_task_id": 0,
+      "lerobot_task_index": 0,
+      "demo_key": "demo_49",
+      "frames": 92,
+      "language": "pick up the black bowl between the plate and the ramekin and place it on the plate"
+    },
+    {
+      "episode_index": 50,
+      "libero_spatial_task_id": 1,
+      "lerobot_task_index": 1,
+      "demo_key": "demo_0",
+      "frames": 152,
+      "language": "pick up the black bowl next to the ramekin and place it on the plate"
+    },
+    {
+      "episode_index": 51,
+      "libero_spatial_task_id": 1,
+      "lerobot_task_index": 1,
+      "demo_key": "demo_1",
+      "frames": 123,
+      "language": "pick up the black bowl next to the ramekin and place it on the plate"
+    },
+    {
+      "episode_index": 52,
+      "libero_spatial_task_id": 1,
+      "lerobot_task_index": 1,
+      "demo_key": "demo_2",
+      "frames": 140,
+      "language": "pick up the black bowl next to the ramekin and place it on the plate"
+    },
+    {
+      "episode_index": 53,
+      "libero_spatial_task_id": 1,
+      "lerobot_task_index": 1,
+      "demo_key": "demo_3",
+      "frames": 175,
+      "language": "pick up the black bowl next to the ramekin and place it on the plate"
+    },
+    {
+      "episode_index": 54,
+      "libero_spatial_task_id": 1,
+      "lerobot_task_index": 1,
+      "demo_key": "demo_4",
+      "frames": 142,
+      "language": "pick up the black bowl next to the ramekin and place it on the plate"
+    },
+    {
+      "episode_index": 55,
+      "libero_spatial_task_id": 1,
+      "lerobot_task_index": 1,
+      "demo_key": "demo_5",
+      "frames": 155,
+      "language": "pick up the black bowl next to the ramekin and place it on the plate"
+    },
+    {
+      "episode_index": 56,
+      "libero_spatial_task_id": 1,
+      "lerobot_task_index": 1,
+      "demo_key": "demo_6",
+      "frames": 145,
+      "language": "pick up the black bowl next to the ramekin and place it on the plate"
+    },
+    {
+      "episode_index": 57,
+      "libero_spatial_task_id": 1,
+      "lerobot_task_index": 1,
+      "demo_key": "demo_7",
+      "frames": 131,
+      "language": "pick up the black bowl next to the ramekin and place it on the plate"
+    },
+    {
+      "episode_index": 58,
+      "libero_spatial_task_id": 1,
+      "lerobot_task_index": 1,
+      "demo_key": "demo_8",
+      "frames": 152,
+      "language": "pick up the black bowl next to the ramekin and place it on the plate"
+    },
+    {
+      "episode_index": 59,
+      "libero_spatial_task_id": 1,
+      "lerobot_task_index": 1,
+      "demo_key": "demo_9",
+      "frames": 127,
+      "language": "pick up the black bowl next to the ramekin and place it on the plate"
+    },
+    {
+      "episode_index": 60,
+      "libero_spatial_task_id": 1,
+      "lerobot_task_index": 1,
+      "demo_key": "demo_10",
+      "frames": 111,
+      "language": "pick up the black bowl next to the ramekin and place it on the plate"
+    },
+    {
+      "episode_index": 61,
+      "libero_spatial_task_id": 1,
+      "lerobot_task_index": 1,
+      "demo_key": "demo_11",
+      "frames": 117,
+      "language": "pick up the black bowl next to the ramekin and place it on the plate"
+    },
+    {
+      "episode_index": 62,
+      "libero_spatial_task_id": 1,
+      "lerobot_task_index": 1,
+      "demo_key": "demo_12",
+      "frames": 114,
+      "language": "pick up the black bowl next to the ramekin and place it on the plate"
+    },
+    {
+      "episode_index": 63,
+      "libero_spatial_task_id": 1,
+      "lerobot_task_index": 1,
+      "demo_key": "demo_13",
+      "frames": 125,
+      "language": "pick up the black bowl next to the ramekin and place it on the plate"
+    },
+    {
+      "episode_index": 64,
+      "libero_spatial_task_id": 1,
+      "lerobot_task_index": 1,
+      "demo_key": "demo_14",
+      "frames": 150,
+      "language": "pick up the black bowl next to the ramekin and place it on the plate"
+    },
+    {
+      "episode_index": 65,
+      "libero_spatial_task_id": 1,
+      "lerobot_task_index": 1,
+      "demo_key": "demo_15",
+      "frames": 128,
+      "language": "pick up the black bowl next to the ramekin and place it on the plate"
+    },
+    {
+      "episode_index": 66,
+      "libero_spatial_task_id": 1,
+      "lerobot_task_index": 1,
+      "demo_key": "demo_16",
+      "frames": 135,
+      "language": "pick up the black bowl next to the ramekin and place it on the plate"
+    },
+    {
+      "episode_index": 67,
+      "libero_spatial_task_id": 1,
+      "lerobot_task_index": 1,
+      "demo_key": "demo_17",
+      "frames": 113,
+      "language": "pick up the black bowl next to the ramekin and place it on the plate"
+    },
+    {
+      "episode_index": 68,
+      "libero_spatial_task_id": 1,
+      "lerobot_task_index": 1,
+      "demo_key": "demo_18",
+      "frames": 112,
+      "language": "pick up the black bowl next to the ramekin and place it on the plate"
+    },
+    {
+      "episode_index": 69,
+      "libero_spatial_task_id": 1,
+      "lerobot_task_index": 1,
+      "demo_key": "demo_19",
+      "frames": 125,
+      "language": "pick up the black bowl next to the ramekin and place it on the plate"
+    },
+    {
+      "episode_index": 70,
+      "libero_spatial_task_id": 1,
+      "lerobot_task_index": 1,
+      "demo_key": "demo_20",
+      "frames": 162,
+      "language": "pick up the black bowl next to the ramekin and place it on the plate"
+    },
+    {
+      "episode_index": 71,
+      "libero_spatial_task_id": 1,
+      "lerobot_task_index": 1,
+      "demo_key": "demo_21",
+      "frames": 134,
+      "language": "pick up the black bowl next to the ramekin and place it on the plate"
+    },
+    {
+      "episode_index": 72,
+      "libero_spatial_task_id": 1,
+      "lerobot_task_index": 1,
+      "demo_key": "demo_22",
+      "frames": 132,
+      "language": "pick up the black bowl next to the ramekin and place it on the plate"
+    },
+    {
+      "episode_index": 73,
+      "libero_spatial_task_id": 1,
+      "lerobot_task_index": 1,
+      "demo_key": "demo_23",
+      "frames": 109,
+      "language": "pick up the black bowl next to the ramekin and place it on the plate"
+    },
+    {
+      "episode_index": 74,
+      "libero_spatial_task_id": 1,
+      "lerobot_task_index": 1,
+      "demo_key": "demo_24",
+      "frames": 189,
+      "language": "pick up the black bowl next to the ramekin and place it on the plate"
+    },
+    {
+      "episode_index": 75,
+      "libero_spatial_task_id": 1,
+      "lerobot_task_index": 1,
+      "demo_key": "demo_25",
+      "frames": 143,
+      "language": "pick up the black bowl next to the ramekin and place it on the plate"
+    },
+    {
+      "episode_index": 76,
+      "libero_spatial_task_id": 1,
+      "lerobot_task_index": 1,
+      "demo_key": "demo_26",
+      "frames": 145,
+      "language": "pick up the black bowl next to the ramekin and place it on the plate"
+    },
+    {
+      "episode_index": 77,
+      "libero_spatial_task_id": 1,
+      "lerobot_task_index": 1,
+      "demo_key": "demo_27",
+      "frames": 116,
+      "language": "pick up the black bowl next to the ramekin and place it on the plate"
+    },
+    {
+      "episode_index": 78,
+      "libero_spatial_task_id": 1,
+      "lerobot_task_index": 1,
+      "demo_key": "demo_28",
+      "frames": 167,
+      "language": "pick up the black bowl next to the ramekin and place it on the plate"
+    },
+    {
+      "episode_index": 79,
+      "libero_spatial_task_id": 1,
+      "lerobot_task_index": 1,
+      "demo_key": "demo_29",
+      "frames": 120,
+      "language": "pick up the black bowl next to the ramekin and place it on the plate"
+    },
+    {
+      "episode_index": 80,
+      "libero_spatial_task_id": 1,
+      "lerobot_task_index": 1,
+      "demo_key": "demo_30",
+      "frames": 154,
+      "language": "pick up the black bowl next to the ramekin and place it on the plate"
+    },
+    {
+      "episode_index": 81,
+      "libero_spatial_task_id": 1,
+      "lerobot_task_index": 1,
+      "demo_key": "demo_31",
+      "frames": 120,
+      "language": "pick up the black bowl next to the ramekin and place it on the plate"
+    },
+    {
+      "episode_index": 82,
+      "libero_spatial_task_id": 1,
+      "lerobot_task_index": 1,
+      "demo_key": "demo_32",
+      "frames": 150,
+      "language": "pick up the black bowl next to the ramekin and place it on the plate"
+    },
+    {
+      "episode_index": 83,
+      "libero_spatial_task_id": 1,
+      "lerobot_task_index": 1,
+      "demo_key": "demo_33",
+      "frames": 117,
+      "language": "pick up the black bowl next to the ramekin and place it on the plate"
+    },
+    {
+      "episode_index": 84,
+      "libero_spatial_task_id": 1,
+      "lerobot_task_index": 1,
+      "demo_key": "demo_34",
+      "frames": 120,
+      "language": "pick up the black bowl next to the ramekin and place it on the plate"
+    },
+    {
+      "episode_index": 85,
+      "libero_spatial_task_id": 1,
+      "lerobot_task_index": 1,
+      "demo_key": "demo_35",
+      "frames": 137,
+      "language": "pick up the black bowl next to the ramekin and place it on the plate"
+    },
+    {
+      "episode_index": 86,
+      "libero_spatial_task_id": 1,
+      "lerobot_task_index": 1,
+      "demo_key": "demo_36",
+      "frames": 120,
+      "language": "pick up the black bowl next to the ramekin and place it on the plate"
+    },
+    {
+      "episode_index": 87,
+      "libero_spatial_task_id": 1,
+      "lerobot_task_index": 1,
+      "demo_key": "demo_37",
+      "frames": 129,
+      "language": "pick up the black bowl next to the ramekin and place it on the plate"
+    },
+    {
+      "episode_index": 88,
+      "libero_spatial_task_id": 1,
+      "lerobot_task_index": 1,
+      "demo_key": "demo_38",
+      "frames": 143,
+      "language": "pick up the black bowl next to the ramekin and place it on the plate"
+    },
+    {
+      "episode_index": 89,
+      "libero_spatial_task_id": 1,
+      "lerobot_task_index": 1,
+      "demo_key": "demo_39",
+      "frames": 124,
+      "language": "pick up the black bowl next to the ramekin and place it on the plate"
+    },
+    {
+      "episode_index": 90,
+      "libero_spatial_task_id": 1,
+      "lerobot_task_index": 1,
+      "demo_key": "demo_40",
+      "frames": 126,
+      "language": "pick up the black bowl next to the ramekin and place it on the plate"
+    },
+    {
+      "episode_index": 91,
+      "libero_spatial_task_id": 1,
+      "lerobot_task_index": 1,
+      "demo_key": "demo_41",
+      "frames": 112,
+      "language": "pick up the black bowl next to the ramekin and place it on the plate"
+    },
+    {
+      "episode_index": 92,
+      "libero_spatial_task_id": 1,
+      "lerobot_task_index": 1,
+      "demo_key": "demo_42",
+      "frames": 137,
+      "language": "pick up the black bowl next to the ramekin and place it on the plate"
+    },
+    {
+      "episode_index": 93,
+      "libero_spatial_task_id": 1,
+      "lerobot_task_index": 1,
+      "demo_key": "demo_43",
+      "frames": 135,
+      "language": "pick up the black bowl next to the ramekin and place it on the plate"
+    },
+    {
+      "episode_index": 94,
+      "libero_spatial_task_id": 1,
+      "lerobot_task_index": 1,
+      "demo_key": "demo_44",
+      "frames": 126,
+      "language": "pick up the black bowl next to the ramekin and place it on the plate"
+    },
+    {
+      "episode_index": 95,
+      "libero_spatial_task_id": 1,
+      "lerobot_task_index": 1,
+      "demo_key": "demo_45",
+      "frames": 133,
+      "language": "pick up the black bowl next to the ramekin and place it on the plate"
+    },
+    {
+      "episode_index": 96,
+      "libero_spatial_task_id": 1,
+      "lerobot_task_index": 1,
+      "demo_key": "demo_46",
+      "frames": 134,
+      "language": "pick up the black bowl next to the ramekin and place it on the plate"
+    },
+    {
+      "episode_index": 97,
+      "libero_spatial_task_id": 1,
+      "lerobot_task_index": 1,
+      "demo_key": "demo_47",
+      "frames": 133,
+      "language": "pick up the black bowl next to the ramekin and place it on the plate"
+    },
+    {
+      "episode_index": 98,
+      "libero_spatial_task_id": 1,
+      "lerobot_task_index": 1,
+      "demo_key": "demo_48",
+      "frames": 141,
+      "language": "pick up the black bowl next to the ramekin and place it on the plate"
+    },
+    {
+      "episode_index": 99,
+      "libero_spatial_task_id": 1,
+      "lerobot_task_index": 1,
+      "demo_key": "demo_49",
+      "frames": 127,
+      "language": "pick up the black bowl next to the ramekin and place it on the plate"
+    },
+    {
+      "episode_index": 100,
+      "libero_spatial_task_id": 2,
+      "lerobot_task_index": 2,
+      "demo_key": "demo_0",
+      "frames": 103,
+      "language": "pick up the black bowl from table center and place it on the plate"
+    },
+    {
+      "episode_index": 101,
+      "libero_spatial_task_id": 2,
+      "lerobot_task_index": 2,
+      "demo_key": "demo_1",
+      "frames": 123,
+      "language": "pick up the black bowl from table center and place it on the plate"
+    },
+    {
+      "episode_index": 102,
+      "libero_spatial_task_id": 2,
+      "lerobot_task_index": 2,
+      "demo_key": "demo_2",
+      "frames": 122,
+      "language": "pick up the black bowl from table center and place it on the plate"
+    },
+    {
+      "episode_index": 103,
+      "libero_spatial_task_id": 2,
+      "lerobot_task_index": 2,
+      "demo_key": "demo_3",
+      "frames": 102,
+      "language": "pick up the black bowl from table center and place it on the plate"
+    },
+    {
+      "episode_index": 104,
+      "libero_spatial_task_id": 2,
+      "lerobot_task_index": 2,
+      "demo_key": "demo_4",
+      "frames": 111,
+      "language": "pick up the black bowl from table center and place it on the plate"
+    },
+    {
+      "episode_index": 105,
+      "libero_spatial_task_id": 2,
+      "lerobot_task_index": 2,
+      "demo_key": "demo_5",
+      "frames": 111,
+      "language": "pick up the black bowl from table center and place it on the plate"
+    },
+    {
+      "episode_index": 106,
+      "libero_spatial_task_id": 2,
+      "lerobot_task_index": 2,
+      "demo_key": "demo_6",
+      "frames": 109,
+      "language": "pick up the black bowl from table center and place it on the plate"
+    },
+    {
+      "episode_index": 107,
+      "libero_spatial_task_id": 2,
+      "lerobot_task_index": 2,
+      "demo_key": "demo_7",
+      "frames": 123,
+      "language": "pick up the black bowl from table center and place it on the plate"
+    },
+    {
+      "episode_index": 108,
+      "libero_spatial_task_id": 2,
+      "lerobot_task_index": 2,
+      "demo_key": "demo_8",
+      "frames": 111,
+      "language": "pick up the black bowl from table center and place it on the plate"
+    },
+    {
+      "episode_index": 109,
+      "libero_spatial_task_id": 2,
+      "lerobot_task_index": 2,
+      "demo_key": "demo_9",
+      "frames": 110,
+      "language": "pick up the black bowl from table center and place it on the plate"
+    },
+    {
+      "episode_index": 110,
+      "libero_spatial_task_id": 2,
+      "lerobot_task_index": 2,
+      "demo_key": "demo_10",
+      "frames": 109,
+      "language": "pick up the black bowl from table center and place it on the plate"
+    },
+    {
+      "episode_index": 111,
+      "libero_spatial_task_id": 2,
+      "lerobot_task_index": 2,
+      "demo_key": "demo_11",
+      "frames": 101,
+      "language": "pick up the black bowl from table center and place it on the plate"
+    },
+    {
+      "episode_index": 112,
+      "libero_spatial_task_id": 2,
+      "lerobot_task_index": 2,
+      "demo_key": "demo_12",
+      "frames": 124,
+      "language": "pick up the black bowl from table center and place it on the plate"
+    },
+    {
+      "episode_index": 113,
+      "libero_spatial_task_id": 2,
+      "lerobot_task_index": 2,
+      "demo_key": "demo_13",
+      "frames": 122,
+      "language": "pick up the black bowl from table center and place it on the plate"
+    },
+    {
+      "episode_index": 114,
+      "libero_spatial_task_id": 2,
+      "lerobot_task_index": 2,
+      "demo_key": "demo_14",
+      "frames": 114,
+      "language": "pick up the black bowl from table center and place it on the plate"
+    },
+    {
+      "episode_index": 115,
+      "libero_spatial_task_id": 2,
+      "lerobot_task_index": 2,
+      "demo_key": "demo_15",
+      "frames": 136,
+      "language": "pick up the black bowl from table center and place it on the plate"
+    },
+    {
+      "episode_index": 116,
+      "libero_spatial_task_id": 2,
+      "lerobot_task_index": 2,
+      "demo_key": "demo_16",
+      "frames": 105,
+      "language": "pick up the black bowl from table center and place it on the plate"
+    },
+    {
+      "episode_index": 117,
+      "libero_spatial_task_id": 2,
+      "lerobot_task_index": 2,
+      "demo_key": "demo_17",
+      "frames": 164,
+      "language": "pick up the black bowl from table center and place it on the plate"
+    },
+    {
+      "episode_index": 118,
+      "libero_spatial_task_id": 2,
+      "lerobot_task_index": 2,
+      "demo_key": "demo_18",
+      "frames": 107,
+      "language": "pick up the black bowl from table center and place it on the plate"
+    },
+    {
+      "episode_index": 119,
+      "libero_spatial_task_id": 2,
+      "lerobot_task_index": 2,
+      "demo_key": "demo_19",
+      "frames": 98,
+      "language": "pick up the black bowl from table center and place it on the plate"
+    },
+    {
+      "episode_index": 120,
+      "libero_spatial_task_id": 2,
+      "lerobot_task_index": 2,
+      "demo_key": "demo_20",
+      "frames": 117,
+      "language": "pick up the black bowl from table center and place it on the plate"
+    },
+    {
+      "episode_index": 121,
+      "libero_spatial_task_id": 2,
+      "lerobot_task_index": 2,
+      "demo_key": "demo_21",
+      "frames": 108,
+      "language": "pick up the black bowl from table center and place it on the plate"
+    },
+    {
+      "episode_index": 122,
+      "libero_spatial_task_id": 2,
+      "lerobot_task_index": 2,
+      "demo_key": "demo_22",
+      "frames": 117,
+      "language": "pick up the black bowl from table center and place it on the plate"
+    },
+    {
+      "episode_index": 123,
+      "libero_spatial_task_id": 2,
+      "lerobot_task_index": 2,
+      "demo_key": "demo_23",
+      "frames": 117,
+      "language": "pick up the black bowl from table center and place it on the plate"
+    },
+    {
+      "episode_index": 124,
+      "libero_spatial_task_id": 2,
+      "lerobot_task_index": 2,
+      "demo_key": "demo_24",
+      "frames": 106,
+      "language": "pick up the black bowl from table center and place it on the plate"
+    },
+    {
+      "episode_index": 125,
+      "libero_spatial_task_id": 2,
+      "lerobot_task_index": 2,
+      "demo_key": "demo_25",
+      "frames": 117,
+      "language": "pick up the black bowl from table center and place it on the plate"
+    },
+    {
+      "episode_index": 126,
+      "libero_spatial_task_id": 2,
+      "lerobot_task_index": 2,
+      "demo_key": "demo_26",
+      "frames": 143,
+      "language": "pick up the black bowl from table center and place it on the plate"
+    },
+    {
+      "episode_index": 127,
+      "libero_spatial_task_id": 2,
+      "lerobot_task_index": 2,
+      "demo_key": "demo_27",
+      "frames": 125,
+      "language": "pick up the black bowl from table center and place it on the plate"
+    },
+    {
+      "episode_index": 128,
+      "libero_spatial_task_id": 2,
+      "lerobot_task_index": 2,
+      "demo_key": "demo_28",
+      "frames": 111,
+      "language": "pick up the black bowl from table center and place it on the plate"
+    },
+    {
+      "episode_index": 129,
+      "libero_spatial_task_id": 2,
+      "lerobot_task_index": 2,
+      "demo_key": "demo_29",
+      "frames": 110,
+      "language": "pick up the black bowl from table center and place it on the plate"
+    },
+    {
+      "episode_index": 130,
+      "libero_spatial_task_id": 2,
+      "lerobot_task_index": 2,
+      "demo_key": "demo_30",
+      "frames": 115,
+      "language": "pick up the black bowl from table center and place it on the plate"
+    },
+    {
+      "episode_index": 131,
+      "libero_spatial_task_id": 2,
+      "lerobot_task_index": 2,
+      "demo_key": "demo_31",
+      "frames": 122,
+      "language": "pick up the black bowl from table center and place it on the plate"
+    },
+    {
+      "episode_index": 132,
+      "libero_spatial_task_id": 2,
+      "lerobot_task_index": 2,
+      "demo_key": "demo_32",
+      "frames": 119,
+      "language": "pick up the black bowl from table center and place it on the plate"
+    },
+    {
+      "episode_index": 133,
+      "libero_spatial_task_id": 2,
+      "lerobot_task_index": 2,
+      "demo_key": "demo_33",
+      "frames": 121,
+      "language": "pick up the black bowl from table center and place it on the plate"
+    },
+    {
+      "episode_index": 134,
+      "libero_spatial_task_id": 2,
+      "lerobot_task_index": 2,
+      "demo_key": "demo_34",
+      "frames": 131,
+      "language": "pick up the black bowl from table center and place it on the plate"
+    },
+    {
+      "episode_index": 135,
+      "libero_spatial_task_id": 2,
+      "lerobot_task_index": 2,
+      "demo_key": "demo_35",
+      "frames": 140,
+      "language": "pick up the black bowl from table center and place it on the plate"
+    },
+    {
+      "episode_index": 136,
+      "libero_spatial_task_id": 2,
+      "lerobot_task_index": 2,
+      "demo_key": "demo_36",
+      "frames": 121,
+      "language": "pick up the black bowl from table center and place it on the plate"
+    },
+    {
+      "episode_index": 137,
+      "libero_spatial_task_id": 2,
+      "lerobot_task_index": 2,
+      "demo_key": "demo_37",
+      "frames": 129,
+      "language": "pick up the black bowl from table center and place it on the plate"
+    },
+    {
+      "episode_index": 138,
+      "libero_spatial_task_id": 2,
+      "lerobot_task_index": 2,
+      "demo_key": "demo_38",
+      "frames": 114,
+      "language": "pick up the black bowl from table center and place it on the plate"
+    },
+    {
+      "episode_index": 139,
+      "libero_spatial_task_id": 2,
+      "lerobot_task_index": 2,
+      "demo_key": "demo_39",
+      "frames": 115,
+      "language": "pick up the black bowl from table center and place it on the plate"
+    },
+    {
+      "episode_index": 140,
+      "libero_spatial_task_id": 2,
+      "lerobot_task_index": 2,
+      "demo_key": "demo_40",
+      "frames": 108,
+      "language": "pick up the black bowl from table center and place it on the plate"
+    },
+    {
+      "episode_index": 141,
+      "libero_spatial_task_id": 2,
+      "lerobot_task_index": 2,
+      "demo_key": "demo_41",
+      "frames": 106,
+      "language": "pick up the black bowl from table center and place it on the plate"
+    },
+    {
+      "episode_index": 142,
+      "libero_spatial_task_id": 2,
+      "lerobot_task_index": 2,
+      "demo_key": "demo_42",
+      "frames": 138,
+      "language": "pick up the black bowl from table center and place it on the plate"
+    },
+    {
+      "episode_index": 143,
+      "libero_spatial_task_id": 2,
+      "lerobot_task_index": 2,
+      "demo_key": "demo_43",
+      "frames": 93,
+      "language": "pick up the black bowl from table center and place it on the plate"
+    },
+    {
+      "episode_index": 144,
+      "libero_spatial_task_id": 2,
+      "lerobot_task_index": 2,
+      "demo_key": "demo_44",
+      "frames": 100,
+      "language": "pick up the black bowl from table center and place it on the plate"
+    },
+    {
+      "episode_index": 145,
+      "libero_spatial_task_id": 2,
+      "lerobot_task_index": 2,
+      "demo_key": "demo_45",
+      "frames": 126,
+      "language": "pick up the black bowl from table center and place it on the plate"
+    },
+    {
+      "episode_index": 146,
+      "libero_spatial_task_id": 2,
+      "lerobot_task_index": 2,
+      "demo_key": "demo_46",
+      "frames": 125,
+      "language": "pick up the black bowl from table center and place it on the plate"
+    },
+    {
+      "episode_index": 147,
+      "libero_spatial_task_id": 2,
+      "lerobot_task_index": 2,
+      "demo_key": "demo_47",
+      "frames": 117,
+      "language": "pick up the black bowl from table center and place it on the plate"
+    },
+    {
+      "episode_index": 148,
+      "libero_spatial_task_id": 2,
+      "lerobot_task_index": 2,
+      "demo_key": "demo_48",
+      "frames": 131,
+      "language": "pick up the black bowl from table center and place it on the plate"
+    },
+    {
+      "episode_index": 149,
+      "libero_spatial_task_id": 2,
+      "lerobot_task_index": 2,
+      "demo_key": "demo_49",
+      "frames": 135,
+      "language": "pick up the black bowl from table center and place it on the plate"
+    },
+    {
+      "episode_index": 150,
+      "libero_spatial_task_id": 3,
+      "lerobot_task_index": 3,
+      "demo_key": "demo_0",
+      "frames": 99,
+      "language": "pick up the black bowl on the cookie box and place it on the plate"
+    },
+    {
+      "episode_index": 151,
+      "libero_spatial_task_id": 3,
+      "lerobot_task_index": 3,
+      "demo_key": "demo_1",
+      "frames": 101,
+      "language": "pick up the black bowl on the cookie box and place it on the plate"
+    },
+    {
+      "episode_index": 152,
+      "libero_spatial_task_id": 3,
+      "lerobot_task_index": 3,
+      "demo_key": "demo_2",
+      "frames": 95,
+      "language": "pick up the black bowl on the cookie box and place it on the plate"
+    },
+    {
+      "episode_index": 153,
+      "libero_spatial_task_id": 3,
+      "lerobot_task_index": 3,
+      "demo_key": "demo_3",
+      "frames": 115,
+      "language": "pick up the black bowl on the cookie box and place it on the plate"
+    },
+    {
+      "episode_index": 154,
+      "libero_spatial_task_id": 3,
+      "lerobot_task_index": 3,
+      "demo_key": "demo_4",
+      "frames": 103,
+      "language": "pick up the black bowl on the cookie box and place it on the plate"
+    },
+    {
+      "episode_index": 155,
+      "libero_spatial_task_id": 3,
+      "lerobot_task_index": 3,
+      "demo_key": "demo_5",
+      "frames": 99,
+      "language": "pick up the black bowl on the cookie box and place it on the plate"
+    },
+    {
+      "episode_index": 156,
+      "libero_spatial_task_id": 3,
+      "lerobot_task_index": 3,
+      "demo_key": "demo_6",
+      "frames": 111,
+      "language": "pick up the black bowl on the cookie box and place it on the plate"
+    },
+    {
+      "episode_index": 157,
+      "libero_spatial_task_id": 3,
+      "lerobot_task_index": 3,
+      "demo_key": "demo_7",
+      "frames": 95,
+      "language": "pick up the black bowl on the cookie box and place it on the plate"
+    },
+    {
+      "episode_index": 158,
+      "libero_spatial_task_id": 3,
+      "lerobot_task_index": 3,
+      "demo_key": "demo_8",
+      "frames": 111,
+      "language": "pick up the black bowl on the cookie box and place it on the plate"
+    },
+    {
+      "episode_index": 159,
+      "libero_spatial_task_id": 3,
+      "lerobot_task_index": 3,
+      "demo_key": "demo_9",
+      "frames": 129,
+      "language": "pick up the black bowl on the cookie box and place it on the plate"
+    },
+    {
+      "episode_index": 160,
+      "libero_spatial_task_id": 3,
+      "lerobot_task_index": 3,
+      "demo_key": "demo_10",
+      "frames": 89,
+      "language": "pick up the black bowl on the cookie box and place it on the plate"
+    },
+    {
+      "episode_index": 161,
+      "libero_spatial_task_id": 3,
+      "lerobot_task_index": 3,
+      "demo_key": "demo_11",
+      "frames": 97,
+      "language": "pick up the black bowl on the cookie box and place it on the plate"
+    },
+    {
+      "episode_index": 162,
+      "libero_spatial_task_id": 3,
+      "lerobot_task_index": 3,
+      "demo_key": "demo_12",
+      "frames": 93,
+      "language": "pick up the black bowl on the cookie box and place it on the plate"
+    },
+    {
+      "episode_index": 163,
+      "libero_spatial_task_id": 3,
+      "lerobot_task_index": 3,
+      "demo_key": "demo_13",
+      "frames": 99,
+      "language": "pick up the black bowl on the cookie box and place it on the plate"
+    },
+    {
+      "episode_index": 164,
+      "libero_spatial_task_id": 3,
+      "lerobot_task_index": 3,
+      "demo_key": "demo_14",
+      "frames": 100,
+      "language": "pick up the black bowl on the cookie box and place it on the plate"
+    },
+    {
+      "episode_index": 165,
+      "libero_spatial_task_id": 3,
+      "lerobot_task_index": 3,
+      "demo_key": "demo_15",
+      "frames": 119,
+      "language": "pick up the black bowl on the cookie box and place it on the plate"
+    },
+    {
+      "episode_index": 166,
+      "libero_spatial_task_id": 3,
+      "lerobot_task_index": 3,
+      "demo_key": "demo_16",
+      "frames": 101,
+      "language": "pick up the black bowl on the cookie box and place it on the plate"
+    },
+    {
+      "episode_index": 167,
+      "libero_spatial_task_id": 3,
+      "lerobot_task_index": 3,
+      "demo_key": "demo_17",
+      "frames": 94,
+      "language": "pick up the black bowl on the cookie box and place it on the plate"
+    },
+    {
+      "episode_index": 168,
+      "libero_spatial_task_id": 3,
+      "lerobot_task_index": 3,
+      "demo_key": "demo_18",
+      "frames": 171,
+      "language": "pick up the black bowl on the cookie box and place it on the plate"
+    },
+    {
+      "episode_index": 169,
+      "libero_spatial_task_id": 3,
+      "lerobot_task_index": 3,
+      "demo_key": "demo_19",
+      "frames": 100,
+      "language": "pick up the black bowl on the cookie box and place it on the plate"
+    },
+    {
+      "episode_index": 170,
+      "libero_spatial_task_id": 3,
+      "lerobot_task_index": 3,
+      "demo_key": "demo_20",
+      "frames": 96,
+      "language": "pick up the black bowl on the cookie box and place it on the plate"
+    },
+    {
+      "episode_index": 171,
+      "libero_spatial_task_id": 3,
+      "lerobot_task_index": 3,
+      "demo_key": "demo_21",
+      "frames": 96,
+      "language": "pick up the black bowl on the cookie box and place it on the plate"
+    },
+    {
+      "episode_index": 172,
+      "libero_spatial_task_id": 3,
+      "lerobot_task_index": 3,
+      "demo_key": "demo_22",
+      "frames": 96,
+      "language": "pick up the black bowl on the cookie box and place it on the plate"
+    },
+    {
+      "episode_index": 173,
+      "libero_spatial_task_id": 3,
+      "lerobot_task_index": 3,
+      "demo_key": "demo_23",
+      "frames": 97,
+      "language": "pick up the black bowl on the cookie box and place it on the plate"
+    },
+    {
+      "episode_index": 174,
+      "libero_spatial_task_id": 3,
+      "lerobot_task_index": 3,
+      "demo_key": "demo_24",
+      "frames": 96,
+      "language": "pick up the black bowl on the cookie box and place it on the plate"
+    },
+    {
+      "episode_index": 175,
+      "libero_spatial_task_id": 3,
+      "lerobot_task_index": 3,
+      "demo_key": "demo_25",
+      "frames": 98,
+      "language": "pick up the black bowl on the cookie box and place it on the plate"
+    },
+    {
+      "episode_index": 176,
+      "libero_spatial_task_id": 3,
+      "lerobot_task_index": 3,
+      "demo_key": "demo_26",
+      "frames": 92,
+      "language": "pick up the black bowl on the cookie box and place it on the plate"
+    },
+    {
+      "episode_index": 177,
+      "libero_spatial_task_id": 3,
+      "lerobot_task_index": 3,
+      "demo_key": "demo_27",
+      "frames": 101,
+      "language": "pick up the black bowl on the cookie box and place it on the plate"
+    },
+    {
+      "episode_index": 178,
+      "libero_spatial_task_id": 3,
+      "lerobot_task_index": 3,
+      "demo_key": "demo_28",
+      "frames": 95,
+      "language": "pick up the black bowl on the cookie box and place it on the plate"
+    },
+    {
+      "episode_index": 179,
+      "libero_spatial_task_id": 3,
+      "lerobot_task_index": 3,
+      "demo_key": "demo_29",
+      "frames": 106,
+      "language": "pick up the black bowl on the cookie box and place it on the plate"
+    },
+    {
+      "episode_index": 180,
+      "libero_spatial_task_id": 3,
+      "lerobot_task_index": 3,
+      "demo_key": "demo_30",
+      "frames": 86,
+      "language": "pick up the black bowl on the cookie box and place it on the plate"
+    },
+    {
+      "episode_index": 181,
+      "libero_spatial_task_id": 3,
+      "lerobot_task_index": 3,
+      "demo_key": "demo_31",
+      "frames": 99,
+      "language": "pick up the black bowl on the cookie box and place it on the plate"
+    },
+    {
+      "episode_index": 182,
+      "libero_spatial_task_id": 3,
+      "lerobot_task_index": 3,
+      "demo_key": "demo_32",
+      "frames": 99,
+      "language": "pick up the black bowl on the cookie box and place it on the plate"
+    },
+    {
+      "episode_index": 183,
+      "libero_spatial_task_id": 3,
+      "lerobot_task_index": 3,
+      "demo_key": "demo_33",
+      "frames": 111,
+      "language": "pick up the black bowl on the cookie box and place it on the plate"
+    },
+    {
+      "episode_index": 184,
+      "libero_spatial_task_id": 3,
+      "lerobot_task_index": 3,
+      "demo_key": "demo_34",
+      "frames": 89,
+      "language": "pick up the black bowl on the cookie box and place it on the plate"
+    },
+    {
+      "episode_index": 185,
+      "libero_spatial_task_id": 3,
+      "lerobot_task_index": 3,
+      "demo_key": "demo_35",
+      "frames": 101,
+      "language": "pick up the black bowl on the cookie box and place it on the plate"
+    },
+    {
+      "episode_index": 186,
+      "libero_spatial_task_id": 3,
+      "lerobot_task_index": 3,
+      "demo_key": "demo_36",
+      "frames": 92,
+      "language": "pick up the black bowl on the cookie box and place it on the plate"
+    },
+    {
+      "episode_index": 187,
+      "libero_spatial_task_id": 3,
+      "lerobot_task_index": 3,
+      "demo_key": "demo_37",
+      "frames": 97,
+      "language": "pick up the black bowl on the cookie box and place it on the plate"
+    },
+    {
+      "episode_index": 188,
+      "libero_spatial_task_id": 3,
+      "lerobot_task_index": 3,
+      "demo_key": "demo_38",
+      "frames": 97,
+      "language": "pick up the black bowl on the cookie box and place it on the plate"
+    },
+    {
+      "episode_index": 189,
+      "libero_spatial_task_id": 3,
+      "lerobot_task_index": 3,
+      "demo_key": "demo_39",
+      "frames": 92,
+      "language": "pick up the black bowl on the cookie box and place it on the plate"
+    },
+    {
+      "episode_index": 190,
+      "libero_spatial_task_id": 3,
+      "lerobot_task_index": 3,
+      "demo_key": "demo_40",
+      "frames": 95,
+      "language": "pick up the black bowl on the cookie box and place it on the plate"
+    },
+    {
+      "episode_index": 191,
+      "libero_spatial_task_id": 3,
+      "lerobot_task_index": 3,
+      "demo_key": "demo_41",
+      "frames": 114,
+      "language": "pick up the black bowl on the cookie box and place it on the plate"
+    },
+    {
+      "episode_index": 192,
+      "libero_spatial_task_id": 3,
+      "lerobot_task_index": 3,
+      "demo_key": "demo_42",
+      "frames": 89,
+      "language": "pick up the black bowl on the cookie box and place it on the plate"
+    },
+    {
+      "episode_index": 193,
+      "libero_spatial_task_id": 3,
+      "lerobot_task_index": 3,
+      "demo_key": "demo_43",
+      "frames": 102,
+      "language": "pick up the black bowl on the cookie box and place it on the plate"
+    },
+    {
+      "episode_index": 194,
+      "libero_spatial_task_id": 3,
+      "lerobot_task_index": 3,
+      "demo_key": "demo_44",
+      "frames": 113,
+      "language": "pick up the black bowl on the cookie box and place it on the plate"
+    },
+    {
+      "episode_index": 195,
+      "libero_spatial_task_id": 3,
+      "lerobot_task_index": 3,
+      "demo_key": "demo_45",
+      "frames": 99,
+      "language": "pick up the black bowl on the cookie box and place it on the plate"
+    },
+    {
+      "episode_index": 196,
+      "libero_spatial_task_id": 3,
+      "lerobot_task_index": 3,
+      "demo_key": "demo_46",
+      "frames": 103,
+      "language": "pick up the black bowl on the cookie box and place it on the plate"
+    },
+    {
+      "episode_index": 197,
+      "libero_spatial_task_id": 3,
+      "lerobot_task_index": 3,
+      "demo_key": "demo_47",
+      "frames": 90,
+      "language": "pick up the black bowl on the cookie box and place it on the plate"
+    },
+    {
+      "episode_index": 198,
+      "libero_spatial_task_id": 3,
+      "lerobot_task_index": 3,
+      "demo_key": "demo_48",
+      "frames": 100,
+      "language": "pick up the black bowl on the cookie box and place it on the plate"
+    },
+    {
+      "episode_index": 199,
+      "libero_spatial_task_id": 3,
+      "lerobot_task_index": 3,
+      "demo_key": "demo_49",
+      "frames": 90,
+      "language": "pick up the black bowl on the cookie box and place it on the plate"
+    }
+  ],
+  "episode_count": 200,
+  "frame_count": 22709,
+  "task_index_by_libero_id": {
+    "0": 0,
+    "1": 1,
+    "2": 2,
+    "3": 3
+  },
+  "sampled_action_round_trip_checks": [
+    {
+      "task_id": 0,
+      "demo_key": "demo_0",
+      "frame": 0,
+      "max_abs_diff": 0.0
+    },
+    {
+      "task_id": 0,
+      "demo_key": "demo_0",
+      "frame": 49,
+      "max_abs_diff": 0.0
+    },
+    {
+      "task_id": 0,
+      "demo_key": "demo_0",
+      "frame": 97,
+      "max_abs_diff": 0.0
+    },
+    {
+      "task_id": 0,
+      "demo_key": "demo_25",
+      "frame": 0,
+      "max_abs_diff": 0.0
+    },
+    {
+      "task_id": 0,
+      "demo_key": "demo_25",
+      "frame": 45,
+      "max_abs_diff": 0.0
+    },
+    {
+      "task_id": 0,
+      "demo_key": "demo_25",
+      "frame": 90,
+      "max_abs_diff": 0.0
+    },
+    {
+      "task_id": 0,
+      "demo_key": "demo_49",
+      "frame": 0,
+      "max_abs_diff": 0.0
+    },
+    {
+      "task_id": 0,
+      "demo_key": "demo_49",
+      "frame": 46,
+      "max_abs_diff": 0.0
+    },
+    {
+      "task_id": 0,
+      "demo_key": "demo_49",
+      "frame": 91,
+      "max_abs_diff": 0.0
+    },
+    {
+      "task_id": 1,
+      "demo_key": "demo_0",
+      "frame": 0,
+      "max_abs_diff": 0.0
+    },
+    {
+      "task_id": 1,
+      "demo_key": "demo_0",
+      "frame": 76,
+      "max_abs_diff": 0.0
+    },
+    {
+      "task_id": 1,
+      "demo_key": "demo_0",
+      "frame": 151,
+      "max_abs_diff": 0.0
+    },
+    {
+      "task_id": 1,
+      "demo_key": "demo_25",
+      "frame": 0,
+      "max_abs_diff": 0.0
+    },
+    {
+      "task_id": 1,
+      "demo_key": "demo_25",
+      "frame": 71,
+      "max_abs_diff": 0.0
+    },
+    {
+      "task_id": 1,
+      "demo_key": "demo_25",
+      "frame": 142,
+      "max_abs_diff": 0.0
+    },
+    {
+      "task_id": 1,
+      "demo_key": "demo_49",
+      "frame": 0,
+      "max_abs_diff": 0.0
+    },
+    {
+      "task_id": 1,
+      "demo_key": "demo_49",
+      "frame": 63,
+      "max_abs_diff": 0.0
+    },
+    {
+      "task_id": 1,
+      "demo_key": "demo_49",
+      "frame": 126,
+      "max_abs_diff": 0.0
+    },
+    {
+      "task_id": 2,
+      "demo_key": "demo_0",
+      "frame": 0,
+      "max_abs_diff": 0.0
+    },
+    {
+      "task_id": 2,
+      "demo_key": "demo_0",
+      "frame": 51,
+      "max_abs_diff": 0.0
+    },
+    {
+      "task_id": 2,
+      "demo_key": "demo_0",
+      "frame": 102,
+      "max_abs_diff": 0.0
+    },
+    {
+      "task_id": 2,
+      "demo_key": "demo_25",
+      "frame": 0,
+      "max_abs_diff": 0.0
+    },
+    {
+      "task_id": 2,
+      "demo_key": "demo_25",
+      "frame": 58,
+      "max_abs_diff": 0.0
+    },
+    {
+      "task_id": 2,
+      "demo_key": "demo_25",
+      "frame": 116,
+      "max_abs_diff": 0.0
+    },
+    {
+      "task_id": 2,
+      "demo_key": "demo_49",
+      "frame": 0,
+      "max_abs_diff": 0.0
+    },
+    {
+      "task_id": 2,
+      "demo_key": "demo_49",
+      "frame": 67,
+      "max_abs_diff": 0.0
+    },
+    {
+      "task_id": 2,
+      "demo_key": "demo_49",
+      "frame": 134,
+      "max_abs_diff": 0.0
+    },
+    {
+      "task_id": 3,
+      "demo_key": "demo_0",
+      "frame": 0,
+      "max_abs_diff": 0.0
+    },
+    {
+      "task_id": 3,
+      "demo_key": "demo_0",
+      "frame": 49,
+      "max_abs_diff": 0.0
+    },
+    {
+      "task_id": 3,
+      "demo_key": "demo_0",
+      "frame": 98,
+      "max_abs_diff": 0.0
+    },
+    {
+      "task_id": 3,
+      "demo_key": "demo_25",
+      "frame": 0,
+      "max_abs_diff": 0.0
+    },
+    {
+      "task_id": 3,
+      "demo_key": "demo_25",
+      "frame": 49,
+      "max_abs_diff": 0.0
+    },
+    {
+      "task_id": 3,
+      "demo_key": "demo_25",
+      "frame": 97,
+      "max_abs_diff": 0.0
+    },
+    {
+      "task_id": 3,
+      "demo_key": "demo_49",
+      "frame": 0,
+      "max_abs_diff": 0.0
+    },
+    {
+      "task_id": 3,
+      "demo_key": "demo_49",
+      "frame": 45,
+      "max_abs_diff": 0.0
+    },
+    {
+      "task_id": 3,
+      "demo_key": "demo_49",
+      "frame": 89,
+      "max_abs_diff": 0.0
+    }
+  ],
+  "max_abs_action_diff": 0.0
+}
