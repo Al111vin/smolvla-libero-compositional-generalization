@@ -209,12 +209,22 @@ episodes found overall one-step action MAE **0.0107**; per-channel error was
 about 5–15% of each channel's mean absolute expert action. This is in-sample
 diagnostic evidence only: it does not establish training causality or explain
 why closed-loop rollout fails. The next check is horizon-wise multi-step action
-chunk fit on the same expert sequences. No additional training or task scaling
-will start before that distinction is reviewed. Evidence is in the
+chunk fit on the same expert sequences, now completed: across 615 overlapping
+50-step windows the full-chunk MAE was **0.00978**. The first 25 steps (the
+execution prefix under `n_action_steps=25`) had MAE **0.01041**, versus
+**0.00916** for the remaining 25; all five demonstrations also had a lower
+last-10-step MAE than first-10-step MAE. Thus this in-sample audit does **not**
+show error growing through the predicted chunk. It still does not explain the
+0/50 held-out or 0/5 zero-wait closed-loop outcomes: windows overlap and come
+from the same five training episodes, so the result is neither held-out nor
+closed-loop evidence. No additional training or task scaling will start from
+this alone. Evidence is in the
 [`10-wait demo-start diagnostic`](results/teacher_task0_demo_start_diagnostic_20261003_v1_summary.json),
 [`zero-wait diagnostic`](results/teacher_task0_demo_start_diagnostic_20261003_v1_nowait_summary.json),
 [`teacher-forced fit summary`](results/teacher_task0_teacher_forced_action_fit_v1_20261003.json),
 [`fit audit script`](scripts/audit_task0_teacher_forced_action_fit_v1.py),
+[`full-chunk fit summary`](results/teacher_task0_chunk_fit_horizon_v1_20261003.json),
+[`full-chunk audit script`](scripts/audit_task0_action_chunk_horizon_fit_v1.py),
 [`Stage E design`](results/teacher_directed_task_scaling_stageE_design_20261002.json),
 and [`Stage E1 control-chain result`](results/teacher_task0_control_chain_stageE1_result_20261003.json).
 

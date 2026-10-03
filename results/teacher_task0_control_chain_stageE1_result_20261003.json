@@ -3,7 +3,7 @@
   "date": "2026-10-03",
   "phase": "teacher_directed_single_task_control_and_stageE1_review",
   "goal": "establish a stable one-task capability control before scaling task count while holding per-task sample exposure fixed",
-  "status": "stageE1_custom_task0_gate_failed; paired_demo_start_diagnostics_complete; teacher_forced_fit_audit_complete",
+  "status": "stageE1_custom_task0_gate_failed; paired_demo_start_diagnostics_complete; one_step_and_chunk_fit_audits_complete",
   "historical_native_task0_control": {
     "task": "LIBERO Spatial task 0",
     "instruction": "pick up the black bowl between the plate and the ramekin and place it on the plate",
@@ -109,7 +109,7 @@
     "stageE1_custom_task0_gate_passed": false,
     "launch_stageE2_four_task_training": false,
     "fold02": "LOCKED",
-    "recommended_next_step": "run a read-only multi-step action-chunk fit audit for StageE1 on the same HDF5 observations and expert action labels; compare horizon-wise error to the low one-step teacher-forced error before any training changes",
+    "recommended_next_step": "review the completed one-step and chunk-fit diagnostics together; do not retrain or scale until a new falsifiable cause is identified",
     "options_compared": [
       {
         "option": "start four-task training now",
@@ -168,7 +168,27 @@
       "mae_over_target_mean_absolute_by_channel": [0.0503, 0.0969, 0.1049, 0.1474, 0.0702, 0.0729, 0.0583],
       "interpretation": "The current checkpoint closely matches one-step expert actions on these sampled in-distribution observations in absolute terms; this does not explain or override 0/50 held-out and 0/5 zero-wait closed-loop results, and does not prove causal sufficiency."
     },
-    "next_action": "compare multi-step predicted action-chunk outputs with aligned expert actions on these same observations, especially error growth across the 50-step horizon; do not retrain or scale task count until that distinction is understood"
+    "action_chunk_horizon_fit_audit": {
+      "script": "scripts/audit_task0_action_chunk_horizon_fit_v1.py",
+      "script_sha256": "aeaac51a5535c0c47057828e324c0df5a61e5266761dc86990d4ba04bb1f317c",
+      "summary": "results/teacher_task0_chunk_fit_horizon_v1_20261003.json",
+      "summary_sha256": "0bbc3206e70fbcd22e310a0482c55b7af33d1562b3e9087f5cf5498a89d50be2",
+      "source_gpu_summary_sha256": "27fd66d82ddac1c64de3435be5664bbe2cc314615081bc910cbc69d71505cbe2",
+      "sampled_windows": 615,
+      "source_episodes": 5,
+      "chunk_size": 50,
+      "inference_seed": 42,
+      "overall_action_mae": 0.00978352501988411,
+      "protocol_n_action_steps": 25,
+      "first_25_step_mae": 0.01040850257501006,
+      "remaining_25_step_mae": 0.00915854560211301,
+      "all_five_demo_last10_mae_no_higher_than_first10": true,
+      "interpretation": "No evidence of error growth across the predicted chunk on these in-sample demonstrations. This does not resolve why strict held-out and zero-wait closed-loop success remain 0; closed-loop state distribution, execution dynamics, and generalization remain untested by this audit.",
+      "formal_benchmark_evidence": false,
+      "training_or_checkpoint_modified": false,
+      "fold02": "LOCKED"
+    },
+    "next_action": "Do not start training or task scaling from this in-sample audit alone. Compare viable evidence-backed diagnostic options before proposing any further GPU work; preserve StageE1 gate failure and keep Fold02 locked."
   },
   "safety": {
     "existing_outputs_preserved": true,

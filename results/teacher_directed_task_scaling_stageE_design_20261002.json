@@ -2,7 +2,7 @@
   "schema_version": 1,
   "date": "2026-10-02",
   "stage_id": "teacher_directed_task_scaling_stageE",
-  "status": "stageE1_custom_task0_gate_failed_followup_diagnostic_pending",
+  "status": "stageE1_custom_task0_gate_failed_followup_diagnostics_complete_review_pending",
   "long_term_goal": "distinguish current single-task pipeline capability, insufficient per-task exposure, and multi-task interference before scaling 1->4->8->16->32 tasks",
   "current_goal_state": {
     "product_goal_already_active": true,
@@ -127,7 +127,22 @@
       "overall_mae": 0.01069940347224474,
       "mae_over_target_mean_abs_range": [0.0503, 0.1474],
       "evidence": "results/teacher_task0_teacher_forced_action_fit_v1_20261003.json",
-      "interpretation": "Low sparse one-step in-sample error coexists with closed-loop failure; it does not prove cause, so measure action-chunk horizon error before training changes."
+      "interpretation": "Low sparse one-step in-sample error coexists with closed-loop failure; it does not prove cause. The follow-up full-chunk audit also shows no in-sample horizon-error growth."
+    },
+    "action_chunk_horizon_fit": {
+      "evidence": "results/teacher_task0_chunk_fit_horizon_v1_20261003.json",
+      "script": "scripts/audit_task0_action_chunk_horizon_fit_v1.py",
+      "source_episode_count": 5,
+      "overlapping_windows": 615,
+      "chunk_size": 50,
+      "overall_mae": 0.00978352501988411,
+      "first_25_step_mae": 0.01040850257501006,
+      "remaining_25_step_mae": 0.00915854560211301,
+      "result": "No pooled in-sample error growth across the chunk was observed; each of five demos also had last-10-step MAE no higher than first-10-step MAE.",
+      "limitation": "All windows come from the same five training demonstrations and overlap; this is not held-out evidence or a closed-loop metric.",
+      "training_started": false,
+      "task_scaling_started": false,
+      "fold02": "LOCKED"
     },
     "on_failure": "preserve outputs; compare evidence-backed remedies, select one bounded diagnostic, do not automatically extend training or launch a second training run",
     "on_any_preflight_or_evaluator_error": "stop before training, keep logs, no overwrite",
@@ -137,8 +152,8 @@
   },
   "unresolved_blocker": {
     "issue": "StageE1 custom LIBERO-36 task0 control failed its predeclared 28/50 gate. Zero-wait paired inference also returned 0/5 for the task-matched StageE1 checkpoint from recorded action-start states, while sparse one-step teacher-forced action error on training observations was low (overall MAE 0.0107).",
-    "effect": "StageE2 four-task training remains blocked. Data/actions are validated and expert source rollouts passed. The gap between low sampled one-step error and zero closed-loop success suggests a temporal/chunk or compounding issue, but this is not causal evidence.",
-    "next_action": "Audit predicted action-chunk error across the 50-step horizon on the same HDF5 sequences, preserving the completed diagnostics. Do not retrain or scale tasks until horizon-wise results are interpreted."
+    "effect": "StageE2 four-task training remains blocked. Data/actions are validated and expert source rollouts passed. Both sparse one-step and full-chunk in-sample fits are low, with no pooled error growth across the chunk; the cause of zero closed-loop success remains unresolved.",
+    "next_action": "Review bounded, falsifiable explanations for the train/closed-loop gap before proposing further GPU work. Do not retrain or scale tasks from these in-sample diagnostics alone."
   },
   "artifact_policy": {
     "preserve_all_old_outputs": true,
