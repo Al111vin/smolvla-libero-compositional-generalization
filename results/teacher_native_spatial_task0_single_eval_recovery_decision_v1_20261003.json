@@ -48,5 +48,15 @@
   },
   "recovery_script_sha256": "5f3bb1484a65c41e7e4126b1b87f24910940339ff5c6eb850e95c886e747f115",
   "local_syntax_check": "bash -n passed",
-  "status": "recovery_script_created_and_syntax_checked_locally; remote launch pending"
+  "remote_preflight": {
+    "status": "passed",
+    "eval_root_empty": true,
+    "training_exit_code_zero": true,
+    "all_four_checkpoints_nonempty": true,
+    "registered_and_remote_evaluator_hashes_match": true,
+    "gpu_utilization_percent": 0,
+    "gpu_memory_used_mib": 2
+  },
+  "deployment_attempt": "SCP was attempted after preflight, but the remote endpoint closed the SSH connection; the recovery script was not deployed and no evaluation was launched.",
+  "status": "remote_preflight_passed; script_deployment_pending_after_connection_reset"
 }

@@ -137,6 +137,18 @@
       "evaluation_recovery_decision": "results/teacher_native_spatial_task0_single_eval_recovery_decision_v1_20261003.json",
       "evaluation_recovery_script": "scripts/resume_teacher_native_spatial_task0_single_eval_v1.sh",
       "evaluation_recovery_script_sha256": "5f3bb1484a65c41e7e4126b1b87f24910940339ff5c6eb850e95c886e747f115",
+      "evaluation_recovery_remote_preflight": {
+        "status": "passed",
+        "checks": [
+          "remote recovery-script destination absent",
+          "evaluation root exists and is empty",
+          "training exit marker is zero and all four checkpoints are nonempty",
+          "registered and actual evaluator SHA256 match",
+          "GPU idle at 0 percent utilization and 2 MiB memory"
+        ],
+        "script_transfer": "scp connection was closed by the remote endpoint; script not deployed",
+        "evaluation_started": false
+      },
       "preflight_report": "results/teacher_native_spatial_task0_single_control_preflight_v1_20261003.json",
       "config": "configs/teacher_native_spatial_task0_single_40k_batch2_20261003.json",
       "invocation_note": "Two initial invocations failed before writing any output because the script directory was not on Python's module search path; the corrected invocation set PYTHONPATH to the training repository root and passed. No data, config, or model was modified by the failed invocations."
