@@ -86,13 +86,13 @@
         "gpu_memory_used_mib": 2780
       },
       "latest_progress_check": {
-        "observed_utc": "2026-10-03 12:12 UTC",
-        "step": 24769,
+        "observed_utc": "2026-10-03 12:30 UTC",
+        "step": 33528,
         "total_steps": 40000,
-        "runner_and_trainer_processes_live": true,
-        "gpu_utilization_percent": 33,
-        "gpu_memory_used_mib": 2780,
-        "training_eta_at_observed_rate_minutes_approx": 32
+        "checkpoint_030000_model_file_verified_nonempty": true,
+        "checkpoint_030000_model_file_size_bytes": 1197789224,
+        "runner_and_trainer_process_state": "not_confirmed_in_returned_output_excerpt",
+        "evaluation_output_state": "not_confirmed_after_030000_checkpoint"
       },
       "checkpoint_milestones": {
         "010000": {
@@ -109,6 +109,13 @@
           "model_file_size_human_readable": "1.2G",
           "training_progress_when_verified": "23170/40000",
           "runner_and_training_processes_remained_live": true,
+          "weights_uploaded": false
+        },
+        "030000": {
+          "status": "model_file_verified_nonempty",
+          "model_file": "/root/smolvla-training-prep/results/training/teacher_native_spatial_task0_single_current_recipe_40k_batch2_v1/checkpoints/030000/pretrained_model/model.safetensors",
+          "model_file_size_bytes": 1197789224,
+          "training_log_step_when_verified": "33528/40000",
           "weights_uploaded": false
         }
       },

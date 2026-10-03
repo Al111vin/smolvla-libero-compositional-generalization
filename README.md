@@ -1267,11 +1267,12 @@ The compared options and registered protocol are in
 The isolated read-only preflight passed (GPU idle, 77.18 GiB free), and the
 registered runner started at 2026-10-03 11:17 UTC (runner PID 318695; training
 PID 318705). The 10k and 20k checkpoints each have a verified non-empty 1.2
-GB `model.safetensors`. At the latest successful check (12:12 UTC), training
-had reached 24,769 / 40,000; both runner and trainer were live, with about 32
-minutes of training remaining at the observed rate.
-Training and its registered evaluation sequence remain in progress; no rollout
-result is available yet. Model weights are not published.
+GB `model.safetensors`. The 30k checkpoint's non-empty 1,197,789,224-byte
+`model.safetensors` is now verified as well; the training log had reached
+33,528 / 40,000 at that check. A subsequent SSH query was reset by the remote
+connection limit, so runner status and post-training evaluation outputs still
+need confirmation. No rollout result has been verified yet. Model weights are
+not published.
 The selected comparison trains task 0 alone from episodes 0--49 of the frozen
 four-task dataset, retaining its pooled normalization statistics and matching
 the joint4 run's task-0 exposure (80,000 sample draws), 40,000 updates, base
