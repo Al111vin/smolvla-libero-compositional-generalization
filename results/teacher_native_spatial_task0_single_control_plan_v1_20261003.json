@@ -149,6 +149,16 @@
         "script_transfer": "scp connection was closed by the remote endpoint; script not deployed",
         "evaluation_started": false
       },
+      "latest_ssh_access_diagnostic": {
+        "tcp_port_27360_reachable": true,
+        "ssh_authentication_result": "one explicit-identity attempt returned Permission denied (publickey,password)",
+        "local_public_private_key_fingerprint_match": true,
+        "local_key_fingerprint": "SHA256:ukDF38tRX5aa6qlhceIOkxb00zaEA0EZiUtoIbkAsPM",
+        "private_key_requires_passphrase": false,
+        "ssh_agent_had_identities": false,
+        "verbose_followup": "produced no diagnostic lines and left a local ControlMaster; only the agent-created local processes were terminated",
+        "gpu_files_or_processes_modified": false
+      },
       "preflight_report": "results/teacher_native_spatial_task0_single_control_preflight_v1_20261003.json",
       "config": "configs/teacher_native_spatial_task0_single_40k_batch2_20261003.json",
       "invocation_note": "Two initial invocations failed before writing any output because the script directory was not on Python's module search path; the corrected invocation set PYTHONPATH to the training repository root and passed. No data, config, or model was modified by the failed invocations."

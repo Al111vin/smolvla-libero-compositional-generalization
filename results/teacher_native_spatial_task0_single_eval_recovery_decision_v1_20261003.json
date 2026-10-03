@@ -58,5 +58,15 @@
     "gpu_memory_used_mib": 2
   },
   "deployment_attempt": "SCP was attempted after preflight, but the remote endpoint closed the SSH connection; the recovery script was not deployed and no evaluation was launched.",
-  "status": "remote_preflight_passed; script_deployment_pending_after_connection_reset"
+  "latest_access_diagnostic": {
+    "tcp_port_27360_reachable": true,
+    "ssh_authentication": "one explicit-identity attempt returned Permission denied (publickey,password)",
+    "local_public_private_key_fingerprints_match": true,
+    "key_fingerprint": "SHA256:ukDF38tRX5aa6qlhceIOkxb00zaEA0EZiUtoIbkAsPM",
+    "local_agent_empty_but_identity_was_explicitly_specified": true,
+    "verbose_followup_hung_without_diagnostics": true,
+    "local_agent_created_controlmaster_processes_terminated": true,
+    "remote_state_changed": false
+  },
+  "status": "remote_preflight_passed; script_deployment_pending_due_ssh_access_instability"
 }

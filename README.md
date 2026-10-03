@@ -1274,8 +1274,10 @@ failed when redirecting the first probe log into a missing nested directory.
 The evaluation root was empty, the GPU idle, and the remote preflight confirmed
 all four checkpoints plus the registered evaluator hash. A separate
 evaluation-only recovery runner has been prepared and syntax-checked, but SCP
-was closed by the remote endpoint before deployment; no rollout has launched
-and no evaluation result is available yet. Model weights are not published.
+was closed by the remote endpoint before deployment. A later SSH attempt
+returned public-key denial despite the local key pair matching; the TCP port
+remained reachable. No rollout has launched and no evaluation result is
+available yet. Model weights are not published.
 The selected comparison trains task 0 alone from episodes 0--49 of the frozen
 four-task dataset, retaining its pooled normalization statistics and matching
 the joint4 run's task-0 exposure (80,000 sample draws), 40,000 updates, base
