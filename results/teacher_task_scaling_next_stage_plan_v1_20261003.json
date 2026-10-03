@@ -1,0 +1,72 @@
+{
+  "schema_version": 1,
+  "date": "2026-10-03",
+  "stage": "teacher_directed_task_scaling_after_positive_single_task_control",
+  "current_gate_state": {
+    "recovered_historical_native_task0_control": "same init0/seed/evaluator/checkpoint has 5/5 binary successes; rollout steps vary 82-88",
+    "current_pipeline_native_task0_candidate": "fixed init3 5/5 and paired 20-init 12/20; the registered single-task gate was met",
+    "custom_libero36_stageE1": "0/50 strict successes; remains a separate failed task/environment condition and is not overwritten by native-suite evidence",
+    "fold02": "LOCKED"
+  },
+  "options_compared": [
+    {
+      "id": "mix_custom_libero36_task0_with_native_spatial_tasks",
+      "decision": "reject",
+      "reason": "Task-0 BDDL/instruction and domain differ; mixing task families would confound task-count effects with task definition and source distribution."
+    },
+    {
+      "id": "use_nvidia_lerobot_v3_spatial_suite_directly",
+      "decision": "reject_for_current_recipe",
+      "reason": "The published LeRobot v3 dataset reports an 8-D observation.state schema, whereas the validated current native pipeline consumes 15-D state. Adopting it would require a state/preprocessor adaptation and would no longer be the controlled current pipeline."
+    },
+    {
+      "id": "recover_original_official_libero_spatial_hdf5_suite_then_build_matched_4_task_dataset",
+      "decision": "recommended_next",
+      "reason": "Preserves the historical native task family and can use tasks 0-3 with their official BDDL/instructions. Before any training, verify task-0 byte/provenance compatibility, identical observation/action schema, task mapping, episode counts, matched per-task sample exposure, and evaluator task support."
+    }
+  ],
+  "read_only_gpu_inventory": {
+    "native_spatial_hdf5_found": [
+      "/root/smolvla-training-prep/recovery/native_task0_20261002/libero_spatial/pick_up_the_black_bowl_between_the_plate_and_the_ramekin_and_place_it_on_the_plate_demo.hdf5"
+    ],
+    "native_spatial_task0_hdf5_bytes": 508779600,
+    "native_spatial_tasks_1_to_3_hdf5_present": false,
+    "existing_lerobot_datasets": [
+      "libero_spatial_task0_reconstructed_20261002",
+      "libero36_feasible_32_frozen_v1",
+      "libero36_task1_edge_pinch_v2_demo",
+      "task1_assisted_recovery_success_v2"
+    ],
+    "implication": "Do not start 4-task training from the currently present custom32 dataset; first source a matching official native LIBERO-Spatial HDF5 suite and validate it."
+  },
+  "proposed_experiment_if_preflight_passes": {
+    "tasks": "LIBERO Spatial tasks 0-3",
+    "episodes_per_task_target": 50,
+    "batch_size": 8,
+    "balanced_batch": "2 samples per task in every batch",
+    "optimizer_updates": 40000,
+    "per_task_sample_draws": 80000,
+    "comparison_baseline": "existing current-pipeline native task0 run: 10000 updates x batch 8 = 80000 task0 sample draws; fixed init 5/5 and paired 20-init 12/20",
+    "initialization_and_recipe": "clone the validated current-pipeline single-task candidate recipe without unregistered hyperparameter changes; use unique config/output/checkpoint/evaluation paths",
+    "evaluation": "same native evaluator, task-specific language/BDDL, identical fixed initialization manifest and rollout settings; preserve per-task per-initialization records",
+    "gate": "predeclare task-0 non-inferiority and per-task minimum success criteria after the exact 4-task evaluation manifest and positive-control coverage are audited; no Stage 8/16/32 progression until reviewed",
+    "fold02": "LOCKED"
+  },
+  "preflight_before_training": [
+    "Verify official source, license, archive integrity, and enough disk space before download.",
+    "Check official task-0 BDDL/instruction/HDF5 schema against the already validated 50-episode native task-0 dataset; do not silently substitute if it differs.",
+    "Select exactly 50 episodes for each of tasks 0-3 and compute frozen train/evaluation manifests with no overlap.",
+    "Convert to a new LeRobot dataset root; verify images, 15-D states, 7-D actions, task_index/task text, finiteness, and exact sample counts with the current training loader.",
+    "Run a no-gradient balanced-loader smoke test proving each batch has exactly two examples per task and total per-task draws match the plan.",
+    "Validate same evaluator and strict deterministic settings on all four native tasks; do not treat expert replay as policy success.",
+    "Check GPU idle, configuration uniqueness, adequate disk, and nonexistence of all new output paths immediately before launch."
+  ],
+  "safety": {
+    "this_stage_training_started": false,
+    "download_started": false,
+    "existing_data_modified": false,
+    "existing_checkpoints_overwritten": false,
+    "github_hf_payload_policy": "publish code, README, lightweight JSON only; no checkpoint, raw HDF5, Parquet, videos, or logs",
+    "fold02": "LOCKED"
+  }
+}

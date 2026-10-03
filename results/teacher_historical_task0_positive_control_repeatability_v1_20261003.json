@@ -1,0 +1,103 @@
+{
+  "schema_version": 1,
+  "date": "2026-10-03",
+  "phase": "teacher_directed_historical_positive_control_repeatability",
+  "purpose": "Verify repeated success of the recovered historical positive-control checkpoint under one fixed native LIBERO Spatial task/init/evaluator protocol before interpreting current-pipeline failures.",
+  "scope": {
+    "task_suite": "LIBERO Spatial",
+    "task_id": 0,
+    "instruction": "pick up the black bowl between the plate and the ramekin and place it on the plate",
+    "initialization": "benchmark init index 0",
+    "effective_seed": 12345,
+    "wait_steps": 10,
+    "n_action_steps": 25,
+    "max_steps": 300,
+    "runtime": "new GPU cpod-1v6wxcygzn32, EGL",
+    "evaluator_path_on_gpu": "/root/smolvla-eval-prep/scripts/eval_v3_task0.py",
+    "evaluator_sha256": "5fb67f7a535e842214c351d09d368b3d2884deb267023fb51e54d3f5d494a2b3",
+    "checkpoint_path_on_gpu": "/root/smolvla-eval-prep/recovered_historical_v3_20260922/outputs/smolvla_v3_task0_10k_run1/checkpoints/010000/pretrained_model",
+    "model_safetensors_sha256": "84523284fbee2814a3ba124c929ffdb555a1e93890b415a49996895a2cc70903"
+  },
+  "historical_same_condition_observations": [
+    {
+      "source": "results/phaseB_C_recovered_v3_positive_control_and_joint32_init0_20260922.json",
+      "success": true,
+      "reward": 1.0,
+      "steps": 82
+    },
+    {
+      "source": "results/phaseB_historical_v3_recovered_asset_full20_egl_summary_20260922.json",
+      "success": true,
+      "reward": 1.0,
+      "steps": 88
+    },
+    {
+      "source": "results/phaseM_recovered_historical_control_task0_init0_20260929.json",
+      "success": true,
+      "reward": 1.0,
+      "steps": 86
+    }
+  ],
+  "new_repeats": [
+    {
+      "repeat": 4,
+      "success": true,
+      "reward": 1.0,
+      "steps": 87,
+      "summary_csv": "results/teacher_control_repeatability_v1_20261003/repeat_04_summary.csv",
+      "summary_csv_sha256": "2a70d5479e18783ccd3c76d5a07ebcb7ea1e48b18772f3e9cc5570e7eb00f8ce"
+    },
+    {
+      "repeat": 5,
+      "success": true,
+      "reward": 1.0,
+      "steps": 83,
+      "summary_csv": "results/teacher_control_repeatability_v1_20261003/repeat_05_summary.csv",
+      "summary_csv_sha256": "108fa76f8039e4814752476a591636af40beb4485f3dcd8d9d959a895d7491e2"
+    }
+  ],
+  "aggregate": {
+    "repeats": 5,
+    "successes": 5,
+    "success_fraction": 1.0,
+    "rewards": [1.0, 1.0, 1.0, 1.0, 1.0],
+    "steps": [82, 88, 86, 87, 83],
+    "mean_steps": 85.2,
+    "min_steps": 82,
+    "max_steps": 88,
+    "step_span": 6
+  },
+  "interpretation": {
+    "verified": "Binary success was stable across five repeated executions of the same recovered checkpoint, task, benchmark initialization, seed, evaluator hash, and rollout settings.",
+    "not_claimed": [
+      "Bitwise or trajectory-level determinism: rollout lengths varied from 82 to 88 steps.",
+      "Generalization across initializations: this is one fixed initialization, not a multi-init success-rate estimate.",
+      "Positive-control validity for the distinct custom LIBERO-36 task-0 BDDL/instruction; the historical native task instruction and custom task instruction are not interchangeable."
+    ],
+    "implication": "The recovered historical native-task success is reproducible at the binary outcome level. The prior custom LIBERO-36 StageE1 result remains 0/50 and is not overturned by this native-task control."
+  },
+  "next_stage_options": [
+    {
+      "option": "Proceed directly to 4-task training on the custom LIBERO-36 task set",
+      "decision": "reject_for_now",
+      "reason": "It would mix a native task-0 single-task control with a distinct custom task-0 environment/data condition and would not cleanly test the teacher's single-task-before-scaling sequence."
+    },
+    {
+      "option": "Repeat the same fixed init many more times",
+      "decision": "defer",
+      "reason": "Five of five binary successes already verify the requested fixed-condition control; further identical repetitions add little versus checking task/data/evaluator compatibility for the current-code single-task experiment."
+    },
+    {
+      "option": "Read-only preflight a matched current-pipeline single-task experiment on the exact native task before any task-count scaling",
+      "decision": "recommended",
+      "reason": "This is the next teacher-directed comparison and avoids treating the failed custom task as an interchangeable positive control. Verify frozen data, task semantics, training/evaluator contracts, matched exposure, and unique outputs before deciding whether a training run is justified."
+    }
+  ],
+  "safety": {
+    "training_started": false,
+    "existing_checkpoints_overwritten": false,
+    "existing_results_overwritten": false,
+    "raw_action_traces_published": false,
+    "fold02": "LOCKED"
+  }
+}

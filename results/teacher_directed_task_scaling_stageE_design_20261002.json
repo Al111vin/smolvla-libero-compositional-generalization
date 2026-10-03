@@ -2,14 +2,18 @@
   "schema_version": 1,
   "date": "2026-10-02",
   "stage_id": "teacher_directed_task_scaling_stageE",
-  "status": "stageE1_gate_failed; read_only_preprocessing_quaternion_and_seeded_checkpoint_learning_curve_audits_complete; historical_success_control_provenance_audit_next",
+  "status": "custom_stageE1_gate_failed; native_single_task_gate_passed; historical_positive_control_repeatability_5_of_5; native_4_task_data_preflight_next",
   "long_term_goal": "distinguish current single-task pipeline capability, insufficient per-task exposure, and multi-task interference before scaling 1->4->8->16->32 tasks",
   "current_goal_state": {
     "product_goal_already_active": true,
     "continue_existing_goal_without_duplicate": true,
     "fold02": "LOCKED",
     "stageE1_custom_task0": "10k training and strict 50-state evaluation completed; 0/50, predeclared gate failed; StageE2 not started",
-    "stageE1_result": "results/teacher_task0_control_chain_stageE1_result_20261003.json"
+    "stageE1_result": "results/teacher_task0_control_chain_stageE1_result_20261003.json",
+    "native_task0_single_task_candidate": "predeclared gate met: fixed initialization 5/5 and paired 20-initialization evaluation 12/20",
+    "historical_native_task0_positive_control": "fixed init0/seed12345 repeated five times with 5/5 binary success; step length varied 82-88",
+    "next_stage": "read-only provenance/schema/data preflight for matching native LIBERO-Spatial tasks 0-3; no training until it passes",
+    "next_stage_plan": "results/teacher_task_scaling_next_stage_plan_v1_20261003.json"
   },
   "next_phase_plan_after_chunk_fit_audit": {
     "completed_precondition": "One-step fit is low on sampled training observations and full 50-step in-sample chunk MAE shows no pooled late-horizon increase; strict held-out and zero-wait closed-loop success remain zero.",

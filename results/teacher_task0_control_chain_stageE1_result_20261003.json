@@ -3,7 +3,7 @@
   "date": "2026-10-03",
   "phase": "teacher_directed_single_task_control_and_stageE1_review",
   "goal": "establish a stable one-task capability control before scaling task count while holding per-task sample exposure fixed",
-  "status": "stageE1_custom_task0_gate_failed; paired_demo_start_data_preprocessing_quaternion_and_seeded_checkpoint_fit_audits_complete; historical_success_control_provenance_audit_next",
+  "status": "stageE1_custom_task0_gate_failed; native_single_task_candidate_gate_passed; historical_positive_control_repeatability_5_of_5; native_four_task_preflight_next",
   "historical_native_task0_control": {
     "task": "LIBERO Spatial task 0",
     "instruction": "pick up the black bowl between the plate and the ramekin and place it on the plate",
@@ -26,6 +26,17 @@
     },
     "source": "results/teacher_native_task0_lrscale_ablation_20261002.json",
     "interpretation": "The known native-task control is repeatable in binary success, although rollout length varies. It is not a positive control for the distinct custom LIBERO-36 task-0 BDDL/instruction."
+  },
+  "historical_positive_control_repeatability_init0": {
+    "evidence": "results/teacher_historical_task0_positive_control_repeatability_v1_20261003.json",
+    "checkpoint_sha256": "84523284fbee2814a3ba124c929ffdb555a1e93890b415a49996895a2cc70903",
+    "evaluator_sha256": "5fb67f7a535e842214c351d09d368b3d2884deb267023fb51e54d3f5d494a2b3",
+    "init_index": 0,
+    "effective_seed": 12345,
+    "repeats": 5,
+    "successes": 5,
+    "steps": [82, 88, 86, 87, 83],
+    "interpretation": "Stable binary success under one fixed native LIBERO-Spatial condition; not proof of trajectory determinism or custom LIBERO-36 success."
   },
   "current_native_single_task_pipeline_control": {
     "source": "results/teacher_native_task0_lrscale_ablation_20261002.json",
@@ -266,7 +277,7 @@
       "task_scaling_started": false,
       "fold02": "LOCKED"
     },
-    "next_action": "Preserve the failed 0/50 StageE1 gate and audit the historical purportedly successful checkpoint's exact task/BDDL, evaluator, initial-state manifest, and seed-level successes before any training change or task scaling."
+    "next_action": "Preserve custom StageE1 0/50. Native task0 single-task separately met its gate (fixed init 5/5, paired 20-init 12/20), and recovered historical init0 repeated 5/5. Before task-count scaling, source and validate matching official native LIBERO-Spatial task0-3 demonstrations; currently available custom LIBERO-36 definitions are not interchangeable. Do not launch mixed-family training."
   },
   "safety": {
     "existing_outputs_preserved": true,

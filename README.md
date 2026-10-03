@@ -266,9 +266,33 @@ the four [`2,500-step`](results/stageE1_seeded_full_002500.json),
 [`7,500-step`](results/stageE1_seeded_full_007500.json), and
 [`10,000-step`](results/stageE1_seeded_full_010000.json) outputs, and the
 [`seed-aware audit script`](scripts/audit_task0_teacher_forced_action_fit_v1.py).
-The next step is a read-only provenance audit of the historical purportedly
-successful checkpoint and its original task/evaluator/seed conditions before
-considering any training change.
+The historical native-task positive control has now been repeated five times
+at the same task-0 benchmark initialization, effective seed, evaluator hash,
+wait/action settings, and checkpoint hash: all five succeeded (reward 1.0),
+with rollout length varying from 82 to 88 steps. This verifies binary outcome
+repeatability at one fixed initialization, not trajectory-level determinism or
+multi-initialization generalization. Separately, the current-pipeline native
+task-0 single-task candidate met its registered gate (fixed-init 5/5 and
+paired 20-init 12/20); the custom LIBERO-36 StageE1 remains a distinct 0/50
+failure and is not overturned by the native-suite result. See the
+[`historical positive-control repeatability report`](results/teacher_historical_task0_positive_control_repeatability_v1_20261003.json)
+and the two retained [`repeat-4`](results/teacher_control_repeatability_v1_20261003/repeat_04_summary.csv)
+and [`repeat-5`](results/teacher_control_repeatability_v1_20261003/repeat_05_summary.csv)
+summary rows.
+
+The next teacher-directed step is a read-only preflight for a matched four-task
+native LIBERO-Spatial dataset, not a mixed-family training run. The GPU holds
+the native task-0 demonstration HDF5 but no native task-1--3 HDF5; its existing
+32-task dataset uses distinct custom LIBERO-36 task definitions. The official
+LIBERO project provides a Spatial suite with ten tasks and a programmatic
+dataset downloader ([official dataset page](https://libero-project.github.io/_pages/datasets.html));
+the alternative NVIDIA LeRobot v3 packaging reports an 8-D state, unlike this
+project's validated 15-D native-task state pipeline, so it is not a drop-in
+replacement. Before any training, verify provenance/schema compatibility,
+construct a new 0--3 dataset with 50 episodes per task, and validate matched
+80,000 sample draws per task (40,000 updates, batch 8, two samples per task per
+batch). See the [`four-task stage plan`](results/teacher_task_scaling_next_stage_plan_v1_20261003.json).
+StageE2 on custom LIBERO-36 remains blocked; Fold02 remains locked.
 Evidence is in the
 [`full-frame image parity summary`](results/teacher_task0_training_image_parity_v1_20261003.json)
 and [`audit script`](scripts/audit_task0_training_image_parity_v1.py), plus the
