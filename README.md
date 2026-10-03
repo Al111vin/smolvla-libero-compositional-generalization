@@ -1264,8 +1264,11 @@ chunked actions, and two 3x128x128 image streams.
 
 The compared options and registered protocol are in
 [`task-0 control plan`](results/teacher_native_spatial_task0_single_control_plan_v1_20261003.json).
-The isolated read-only preflight has passed (GPU idle, 77.18 GiB free); the
-registered runner has not yet been launched.
+The isolated read-only preflight passed (GPU idle, 77.18 GiB free), and the
+registered runner started at 2026-10-03 11:17 UTC (runner PID 318695; training
+PID 318705). The first status check observed step 424/40,000, GPU utilization
+34%, and 2,780 MiB GPU memory used. Training and its registered evaluation
+sequence are running; no checkpoint result is available yet.
 The selected comparison trains task 0 alone from episodes 0--49 of the frozen
 four-task dataset, retaining its pooled normalization statistics and matching
 the joint4 run's task-0 exposure (80,000 sample draws), 40,000 updates, base
