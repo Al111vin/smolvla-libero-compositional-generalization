@@ -208,6 +208,28 @@
       "interpretation": "Source HDF5 and frozen LeRobot image payloads match exactly for every task0 frame in both cameras; action and state also match exactly. This closes the raw-data conversion parity gap but does not verify post-preprocessing model tensors or explain closed-loop failure.",
       "fold02": "LOCKED"
     },
+    "model_input_preprocessing_parity_audit": {
+      "script": "scripts/audit_task0_model_input_preprocessing_parity_v1.py",
+      "script_sha256": "113c50d78749823e188b7c382a10f0d296f2a460d9facab18bb848abf3f7e7f8",
+      "summary": "results/teacher_task0_model_input_preprocessing_parity_v1_20261003.json",
+      "summary_sha256": "7b2a2e97aa0bd0189b632c00e9329f978c52a240bb24c529aab0dac32f55d97e",
+      "source_gpu_summary_sha256": "3883138c6a897ce331cdce107cad8b4982b54c65f810244111c182a660531ec8",
+      "gpu_hostname": "cpod-1v6wxcygzn32",
+      "matched_observations": 25,
+      "episodes": 5,
+      "frames_per_episode": [0, 100, 250, 450, 657],
+      "raw_loader_and_evaluation_inputs_exact": true,
+      "processed_model_input_keys_exact": true,
+      "maximum_absolute_difference": 0.0,
+      "training_and_evaluation_use_same_saved_preprocessor_factory": true,
+      "train_image_transforms_enabled": false,
+      "actual_live_quaternion_conversion_bitwise_compared": false,
+      "training_or_checkpoint_modified": false,
+      "dataset_modified": false,
+      "formal_benchmark_evidence": false,
+      "interpretation": "All 25 recorded observations had exact camera pixels and stored 15-D state match between LeRobot loader and evaluator frame construction, and all model-preprocessor outputs matched exactly after canonicalizing the singleton observation-time dimension. The HDF5 has no raw quaternion, so the dynamic simulator quaternion-to-axis-angle path was not bitwise compared. This closes recorded-frame preprocessing parity, not all live-state construction or closed-loop behavior.",
+      "fold02": "LOCKED"
+    },
     "next_action": "Do not start training or task scaling from this in-sample audit alone. Compare viable evidence-backed diagnostic options before proposing any further GPU work; preserve StageE1 gate failure and keep Fold02 locked."
   },
   "safety": {

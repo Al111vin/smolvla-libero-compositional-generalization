@@ -1,0 +1,5099 @@
+{
+  "schema_version": 1,
+  "diagnostic_only": true,
+  "formal_benchmark_evidence": false,
+  "training_or_checkpoint_modified": false,
+  "dataset_modified": false,
+  "checkpoint_sha256": "14a565d3ea20332d560a717ace5ef7f90081342f8ae2fe06dbcaf9a400845f09",
+  "hdf5_sha256": "709e070c5d1b664118fdf632e02cfe7d054aff87c352628a9cc098a2892dac61",
+  "policy_preprocessor_json_sha256": "3e51f4ee42bd3b434a74128bb7e5958064b3c1f5bd03d650a68b8ea6f91410a6",
+  "dataset_repo_id": "local/libero36_feasible_32_frozen_v1",
+  "dataset_root": "/root/smolvla-training-prep/datasets/lerobot/libero36_feasible_32_frozen_v1",
+  "source_hdf5": "/root/smolvla-eval-prep/recovered_historical_v3_20260922/data/demos/libero36_task0_5_success_pilot_v1/task_000_layout_1_5_success.hdf5",
+  "checkpoint_path": "/root/smolvla-training-prep/results/training/teacher_native_custom_task0_frozen32_5demo_lr10x_10k_20261002_v2/checkpoints/010000/pretrained_model",
+  "remote_full_output": "/root/smolvla-training-prep/recovery/task_scaling_stageE_20261002/teacher_task0_input_preproc_parity_v1_20261003_full_v2/summary.json",
+  "remote_smoke_output": "/root/smolvla-training-prep/recovery/task_scaling_stageE_20261002/teacher_task0_input_preproc_parity_v1_20261003_smoke_v2/summary.json",
+  "gpu_hostname": "cpod-1v6wxcygzn32",
+  "audit_script": "scripts/audit_task0_model_input_preprocessing_parity_v1.py",
+  "audit_script_sha256": "113c50d78749823e188b7c382a10f0d296f2a460d9facab18bb848abf3f7e7f8",
+  "remote_raw_summary_sha256": "3883138c6a897ce331cdce107cad8b4982b54c65f810244111c182a660531ec8",
+  "remote_smoke_summary_sha256": "8c9ad2befbdc2ccb4d8a060f46630c7898d70be896b8abd3fb2e6e258e20a1a1",
+  "smoke_test": {
+    "matched_observation_count": 5,
+    "raw_loader_vs_eval_inputs_exact": true,
+    "processed_model_inputs_exact": true,
+    "mismatch_count": 0
+  },
+  "smoke_iteration_note": "The first smoke attempt failed at config parsing before producing results because SmolVLAConfig.from_pretrained received the factory type field. The script was corrected to use LeRobot's make_policy_config factory; a fresh v2 smoke output was used and passed. The first diagnostic log was preserved.",
+  "evaluation_code_provenance": {
+    "eval_v3_task0_py_sha256": "5fb67f7a535e842214c351d09d368b3d2884deb267023fb51e54d3f5d494a2b3",
+    "strict_evaluator_py_sha256": "ae25bd0b68299ac245399e359d7b44fa9dff2ec887e9eeb96af6d2f691728be3",
+    "training_collector_py_sha256": "9b69357b01340866b0527cac1226e82aed0ce83cbbe2bf409fb0cd8d9f58852f",
+    "lerobot_converter_py_sha256": "3f4062dbd2ff1193821d3495383fe19352f07acf2896903e0822141d323155ea",
+    "train_and_eval_use_same_saved_preprocessor_factory": true,
+    "train_image_augmentation_enabled": false,
+    "train_image_stats_option": true,
+    "actual_live_quaternion_conversion_bitwise_compared": false,
+    "quaternion_limit": "HDF5 stores ee_ori axis-angle and does not retain the original robot0_eef_quat. Training collection calls robosuite transform.quat2axisangle; evaluation calls quat_xyzw_to_axis_angle, whose formula is the same axis-angle expression after explicit quaternion normalization. Exact parity for live quaternions was therefore not measured in this audit."
+  },
+  "training_image_transforms_enabled": false,
+  "training_use_imagenet_stats": true,
+  "policy_visual_normalization": "IDENTITY",
+  "policy_state_normalization": "MEAN_STD",
+  "delta_timestamps_resolved_by_official_factory": {
+    "observation.images.agentview": [
+      0.0
+    ],
+    "observation.images.wrist": [
+      0.0
+    ],
+    "observation.state": [
+      0.0
+    ],
+    "action": [
+      0.0,
+      0.05,
+      0.1,
+      0.15,
+      0.2,
+      0.25,
+      0.3,
+      0.35,
+      0.4,
+      0.45,
+      0.5,
+      0.55,
+      0.6,
+      0.65,
+      0.7,
+      0.75,
+      0.8,
+      0.85,
+      0.9,
+      0.95,
+      1.0,
+      1.05,
+      1.1,
+      1.15,
+      1.2,
+      1.25,
+      1.3,
+      1.35,
+      1.4,
+      1.45,
+      1.5,
+      1.55,
+      1.6,
+      1.65,
+      1.7,
+      1.75,
+      1.8,
+      1.85,
+      1.9,
+      1.95,
+      2.0,
+      2.05,
+      2.1,
+      2.15,
+      2.2,
+      2.25,
+      2.3,
+      2.35,
+      2.4,
+      2.45
+    ]
+  },
+  "samples_per_episode": null,
+  "sampled_frames_per_episode": [
+    0,
+    100,
+    250,
+    450,
+    657
+  ],
+  "matched_observation_count": 25,
+  "raw_loader_vs_eval_inputs_exact": true,
+  "raw_input_mismatch_count": 0,
+  "processed_model_inputs_exact": true,
+  "processed_input_mismatch_count": 0,
+  "mapping_method": "task0 LeRobot episode ids 0-4 and frame ids are verified from returned row fields; full HDF5-to-dataset action/state/pixel parity was previously completed",
+  "checks": [
+    {
+      "episode_index": 0,
+      "hdf5_demo": "demo_0",
+      "frame_index": 0,
+      "dataset_task": "pick up the akita black bowl and place it on the plate in the left region",
+      "raw_images_and_state_exact": true,
+      "training_processor_keys": [
+        "action",
+        "info",
+        "next.done",
+        "next.reward",
+        "next.truncated",
+        "observation.images.agentview",
+        "observation.images.wrist",
+        "observation.language.attention_mask",
+        "observation.language.tokens",
+        "observation.state",
+        "task"
+      ],
+      "evaluation_processor_keys": [
+        "action",
+        "info",
+        "next.done",
+        "next.reward",
+        "next.truncated",
+        "observation.images.agentview",
+        "observation.images.wrist",
+        "observation.language.attention_mask",
+        "observation.language.tokens",
+        "observation.state",
+        "task"
+      ],
+      "processor_key_sets_equal": true,
+      "processed_model_input_comparison": {
+        "action": {
+          "equal": true,
+          "train_type": "NoneType",
+          "eval_type": "NoneType",
+          "train_value": null,
+          "eval_value": null
+        },
+        "info": {
+          "equal": true,
+          "train_type": "dict",
+          "eval_type": "dict",
+          "train_value": "{}",
+          "eval_value": "{}"
+        },
+        "next.done": {
+          "equal": true,
+          "train_type": "bool",
+          "eval_type": "bool",
+          "train_value": false,
+          "eval_value": false
+        },
+        "next.reward": {
+          "equal": true,
+          "train_type": "float",
+          "eval_type": "float",
+          "train_value": 0.0,
+          "eval_value": 0.0
+        },
+        "next.truncated": {
+          "equal": true,
+          "train_type": "bool",
+          "eval_type": "bool",
+          "train_value": false,
+          "eval_value": false
+        },
+        "observation.images.agentview": {
+          "equal": true,
+          "train_shape": [
+            1,
+            1,
+            3,
+            128,
+            128
+          ],
+          "eval_shape": [
+            1,
+            3,
+            128,
+            128
+          ],
+          "canonical_shape": [
+            1,
+            3,
+            128,
+            128
+          ],
+          "dtype_train": "torch.float32",
+          "dtype_eval": "torch.float32",
+          "max_abs_diff": 0.0,
+          "mean_abs_diff": 0.0,
+          "train_min": 0.0235294122248888,
+          "train_max": 0.9176470637321472
+        },
+        "observation.images.wrist": {
+          "equal": true,
+          "train_shape": [
+            1,
+            1,
+            3,
+            128,
+            128
+          ],
+          "eval_shape": [
+            1,
+            3,
+            128,
+            128
+          ],
+          "canonical_shape": [
+            1,
+            3,
+            128,
+            128
+          ],
+          "dtype_train": "torch.float32",
+          "dtype_eval": "torch.float32",
+          "max_abs_diff": 0.0,
+          "mean_abs_diff": 0.0,
+          "train_min": 0.003921568859368563,
+          "train_max": 0.9882352948188782
+        },
+        "observation.language.attention_mask": {
+          "equal": true,
+          "train_shape": [
+            1,
+            48
+          ],
+          "eval_shape": [
+            1,
+            48
+          ],
+          "canonical_shape": [
+            1,
+            48
+          ],
+          "dtype_train": "torch.bool",
+          "dtype_eval": "torch.bool",
+          "max_abs_diff": 0.0,
+          "mean_abs_diff": 0.0,
+          "train_min": 0.0,
+          "train_max": 1.0
+        },
+        "observation.language.tokens": {
+          "equal": true,
+          "train_shape": [
+            1,
+            48
+          ],
+          "eval_shape": [
+            1,
+            48
+          ],
+          "canonical_shape": [
+            1,
+            48
+          ],
+          "dtype_train": "torch.int64",
+          "dtype_eval": "torch.int64",
+          "max_abs_diff": 0.0,
+          "mean_abs_diff": 0.0,
+          "train_min": 2.0,
+          "train_max": 46345.0
+        },
+        "observation.state": {
+          "equal": true,
+          "train_shape": [
+            1,
+            1,
+            15
+          ],
+          "eval_shape": [
+            1,
+            15
+          ],
+          "canonical_shape": [
+            1,
+            15
+          ],
+          "dtype_train": "torch.float32",
+          "dtype_eval": "torch.float32",
+          "max_abs_diff": 0.0,
+          "mean_abs_diff": 0.0,
+          "train_min": -2.2659878730773926,
+          "train_max": 1.8211723566055298
+        },
+        "task": {
+          "equal": true,
+          "train_type": "list",
+          "eval_type": "list",
+          "train_value": "['pick up the akita black bowl and place it on the plate in the left region\\n']",
+          "eval_value": "['pick up the akita black bowl and place it on the plate in the left region\\n']"
+        }
+      },
+      "unequal_processed_keys": []
+    },
+    {
+      "episode_index": 0,
+      "hdf5_demo": "demo_0",
+      "frame_index": 100,
+      "dataset_task": "pick up the akita black bowl and place it on the plate in the left region",
+      "raw_images_and_state_exact": true,
+      "training_processor_keys": [
+        "action",
+        "info",
+        "next.done",
+        "next.reward",
+        "next.truncated",
+        "observation.images.agentview",
+        "observation.images.wrist",
+        "observation.language.attention_mask",
+        "observation.language.tokens",
+        "observation.state",
+        "task"
+      ],
+      "evaluation_processor_keys": [
+        "action",
+        "info",
+        "next.done",
+        "next.reward",
+        "next.truncated",
+        "observation.images.agentview",
+        "observation.images.wrist",
+        "observation.language.attention_mask",
+        "observation.language.tokens",
+        "observation.state",
+        "task"
+      ],
+      "processor_key_sets_equal": true,
+      "processed_model_input_comparison": {
+        "action": {
+          "equal": true,
+          "train_type": "NoneType",
+          "eval_type": "NoneType",
+          "train_value": null,
+          "eval_value": null
+        },
+        "info": {
+          "equal": true,
+          "train_type": "dict",
+          "eval_type": "dict",
+          "train_value": "{}",
+          "eval_value": "{}"
+        },
+        "next.done": {
+          "equal": true,
+          "train_type": "bool",
+          "eval_type": "bool",
+          "train_value": false,
+          "eval_value": false
+        },
+        "next.reward": {
+          "equal": true,
+          "train_type": "float",
+          "eval_type": "float",
+          "train_value": 0.0,
+          "eval_value": 0.0
+        },
+        "next.truncated": {
+          "equal": true,
+          "train_type": "bool",
+          "eval_type": "bool",
+          "train_value": false,
+          "eval_value": false
+        },
+        "observation.images.agentview": {
+          "equal": true,
+          "train_shape": [
+            1,
+            1,
+            3,
+            128,
+            128
+          ],
+          "eval_shape": [
+            1,
+            3,
+            128,
+            128
+          ],
+          "canonical_shape": [
+            1,
+            3,
+            128,
+            128
+          ],
+          "dtype_train": "torch.float32",
+          "dtype_eval": "torch.float32",
+          "max_abs_diff": 0.0,
+          "mean_abs_diff": 0.0,
+          "train_min": 0.03529411926865578,
+          "train_max": 0.9333333373069763
+        },
+        "observation.images.wrist": {
+          "equal": true,
+          "train_shape": [
+            1,
+            1,
+            3,
+            128,
+            128
+          ],
+          "eval_shape": [
+            1,
+            3,
+            128,
+            128
+          ],
+          "canonical_shape": [
+            1,
+            3,
+            128,
+            128
+          ],
+          "dtype_train": "torch.float32",
+          "dtype_eval": "torch.float32",
+          "max_abs_diff": 0.0,
+          "mean_abs_diff": 0.0,
+          "train_min": 0.03529411926865578,
+          "train_max": 0.9607843160629272
+        },
+        "observation.language.attention_mask": {
+          "equal": true,
+          "train_shape": [
+            1,
+            48
+          ],
+          "eval_shape": [
+            1,
+            48
+          ],
+          "canonical_shape": [
+            1,
+            48
+          ],
+          "dtype_train": "torch.bool",
+          "dtype_eval": "torch.bool",
+          "max_abs_diff": 0.0,
+          "mean_abs_diff": 0.0,
+          "train_min": 0.0,
+          "train_max": 1.0
+        },
+        "observation.language.tokens": {
+          "equal": true,
+          "train_shape": [
+            1,
+            48
+          ],
+          "eval_shape": [
+            1,
+            48
+          ],
+          "canonical_shape": [
+            1,
+            48
+          ],
+          "dtype_train": "torch.int64",
+          "dtype_eval": "torch.int64",
+          "max_abs_diff": 0.0,
+          "mean_abs_diff": 0.0,
+          "train_min": 2.0,
+          "train_max": 46345.0
+        },
+        "observation.state": {
+          "equal": true,
+          "train_shape": [
+            1,
+            1,
+            15
+          ],
+          "eval_shape": [
+            1,
+            15
+          ],
+          "canonical_shape": [
+            1,
+            15
+          ],
+          "dtype_train": "torch.float32",
+          "dtype_eval": "torch.float32",
+          "max_abs_diff": 0.0,
+          "mean_abs_diff": 0.0,
+          "train_min": -2.199842691421509,
+          "train_max": 1.8147339820861816
+        },
+        "task": {
+          "equal": true,
+          "train_type": "list",
+          "eval_type": "list",
+          "train_value": "['pick up the akita black bowl and place it on the plate in the left region\\n']",
+          "eval_value": "['pick up the akita black bowl and place it on the plate in the left region\\n']"
+        }
+      },
+      "unequal_processed_keys": []
+    },
+    {
+      "episode_index": 0,
+      "hdf5_demo": "demo_0",
+      "frame_index": 250,
+      "dataset_task": "pick up the akita black bowl and place it on the plate in the left region",
+      "raw_images_and_state_exact": true,
+      "training_processor_keys": [
+        "action",
+        "info",
+        "next.done",
+        "next.reward",
+        "next.truncated",
+        "observation.images.agentview",
+        "observation.images.wrist",
+        "observation.language.attention_mask",
+        "observation.language.tokens",
+        "observation.state",
+        "task"
+      ],
+      "evaluation_processor_keys": [
+        "action",
+        "info",
+        "next.done",
+        "next.reward",
+        "next.truncated",
+        "observation.images.agentview",
+        "observation.images.wrist",
+        "observation.language.attention_mask",
+        "observation.language.tokens",
+        "observation.state",
+        "task"
+      ],
+      "processor_key_sets_equal": true,
+      "processed_model_input_comparison": {
+        "action": {
+          "equal": true,
+          "train_type": "NoneType",
+          "eval_type": "NoneType",
+          "train_value": null,
+          "eval_value": null
+        },
+        "info": {
+          "equal": true,
+          "train_type": "dict",
+          "eval_type": "dict",
+          "train_value": "{}",
+          "eval_value": "{}"
+        },
+        "next.done": {
+          "equal": true,
+          "train_type": "bool",
+          "eval_type": "bool",
+          "train_value": false,
+          "eval_value": false
+        },
+        "next.reward": {
+          "equal": true,
+          "train_type": "float",
+          "eval_type": "float",
+          "train_value": 0.0,
+          "eval_value": 0.0
+        },
+        "next.truncated": {
+          "equal": true,
+          "train_type": "bool",
+          "eval_type": "bool",
+          "train_value": false,
+          "eval_value": false
+        },
+        "observation.images.agentview": {
+          "equal": true,
+          "train_shape": [
+            1,
+            1,
+            3,
+            128,
+            128
+          ],
+          "eval_shape": [
+            1,
+            3,
+            128,
+            128
+          ],
+          "canonical_shape": [
+            1,
+            3,
+            128,
+            128
+          ],
+          "dtype_train": "torch.float32",
+          "dtype_eval": "torch.float32",
+          "max_abs_diff": 0.0,
+          "mean_abs_diff": 0.0,
+          "train_min": 0.03529411926865578,
+          "train_max": 0.9843137264251709
+        },
+        "observation.images.wrist": {
+          "equal": true,
+          "train_shape": [
+            1,
+            1,
+            3,
+            128,
+            128
+          ],
+          "eval_shape": [
+            1,
+            3,
+            128,
+            128
+          ],
+          "canonical_shape": [
+            1,
+            3,
+            128,
+            128
+          ],
+          "dtype_train": "torch.float32",
+          "dtype_eval": "torch.float32",
+          "max_abs_diff": 0.0,
+          "mean_abs_diff": 0.0,
+          "train_min": 0.03921568766236305,
+          "train_max": 0.9529411792755127
+        },
+        "observation.language.attention_mask": {
+          "equal": true,
+          "train_shape": [
+            1,
+            48
+          ],
+          "eval_shape": [
+            1,
+            48
+          ],
+          "canonical_shape": [
+            1,
+            48
+          ],
+          "dtype_train": "torch.bool",
+          "dtype_eval": "torch.bool",
+          "max_abs_diff": 0.0,
+          "mean_abs_diff": 0.0,
+          "train_min": 0.0,
+          "train_max": 1.0
+        },
+        "observation.language.tokens": {
+          "equal": true,
+          "train_shape": [
+            1,
+            48
+          ],
+          "eval_shape": [
+            1,
+            48
+          ],
+          "canonical_shape": [
+            1,
+            48
+          ],
+          "dtype_train": "torch.int64",
+          "dtype_eval": "torch.int64",
+          "max_abs_diff": 0.0,
+          "mean_abs_diff": 0.0,
+          "train_min": 2.0,
+          "train_max": 46345.0
+        },
+        "observation.state": {
+          "equal": true,
+          "train_shape": [
+            1,
+            1,
+            15
+          ],
+          "eval_shape": [
+            1,
+            15
+          ],
+          "canonical_shape": [
+            1,
+            15
+          ],
+          "dtype_train": "torch.float32",
+          "dtype_eval": "torch.float32",
+          "max_abs_diff": 0.0,
+          "mean_abs_diff": 0.0,
+          "train_min": -1.9716063737869263,
+          "train_max": 1.9979137182235718
+        },
+        "task": {
+          "equal": true,
+          "train_type": "list",
+          "eval_type": "list",
+          "train_value": "['pick up the akita black bowl and place it on the plate in the left region\\n']",
+          "eval_value": "['pick up the akita black bowl and place it on the plate in the left region\\n']"
+        }
+      },
+      "unequal_processed_keys": []
+    },
+    {
+      "episode_index": 0,
+      "hdf5_demo": "demo_0",
+      "frame_index": 450,
+      "dataset_task": "pick up the akita black bowl and place it on the plate in the left region",
+      "raw_images_and_state_exact": true,
+      "training_processor_keys": [
+        "action",
+        "info",
+        "next.done",
+        "next.reward",
+        "next.truncated",
+        "observation.images.agentview",
+        "observation.images.wrist",
+        "observation.language.attention_mask",
+        "observation.language.tokens",
+        "observation.state",
+        "task"
+      ],
+      "evaluation_processor_keys": [
+        "action",
+        "info",
+        "next.done",
+        "next.reward",
+        "next.truncated",
+        "observation.images.agentview",
+        "observation.images.wrist",
+        "observation.language.attention_mask",
+        "observation.language.tokens",
+        "observation.state",
+        "task"
+      ],
+      "processor_key_sets_equal": true,
+      "processed_model_input_comparison": {
+        "action": {
+          "equal": true,
+          "train_type": "NoneType",
+          "eval_type": "NoneType",
+          "train_value": null,
+          "eval_value": null
+        },
+        "info": {
+          "equal": true,
+          "train_type": "dict",
+          "eval_type": "dict",
+          "train_value": "{}",
+          "eval_value": "{}"
+        },
+        "next.done": {
+          "equal": true,
+          "train_type": "bool",
+          "eval_type": "bool",
+          "train_value": false,
+          "eval_value": false
+        },
+        "next.reward": {
+          "equal": true,
+          "train_type": "float",
+          "eval_type": "float",
+          "train_value": 0.0,
+          "eval_value": 0.0
+        },
+        "next.truncated": {
+          "equal": true,
+          "train_type": "bool",
+          "eval_type": "bool",
+          "train_value": false,
+          "eval_value": false
+        },
+        "observation.images.agentview": {
+          "equal": true,
+          "train_shape": [
+            1,
+            1,
+            3,
+            128,
+            128
+          ],
+          "eval_shape": [
+            1,
+            3,
+            128,
+            128
+          ],
+          "canonical_shape": [
+            1,
+            3,
+            128,
+            128
+          ],
+          "dtype_train": "torch.float32",
+          "dtype_eval": "torch.float32",
+          "max_abs_diff": 0.0,
+          "mean_abs_diff": 0.0,
+          "train_min": 0.03529411926865578,
+          "train_max": 0.886274516582489
+        },
+        "observation.images.wrist": {
+          "equal": true,
+          "train_shape": [
+            1,
+            1,
+            3,
+            128,
+            128
+          ],
+          "eval_shape": [
+            1,
+            3,
+            128,
+            128
+          ],
+          "canonical_shape": [
+            1,
+            3,
+            128,
+            128
+          ],
+          "dtype_train": "torch.float32",
+          "dtype_eval": "torch.float32",
+          "max_abs_diff": 0.0,
+          "mean_abs_diff": 0.0,
+          "train_min": 0.019607843831181526,
+          "train_max": 0.9058823585510254
+        },
+        "observation.language.attention_mask": {
+          "equal": true,
+          "train_shape": [
+            1,
+            48
+          ],
+          "eval_shape": [
+            1,
+            48
+          ],
+          "canonical_shape": [
+            1,
+            48
+          ],
+          "dtype_train": "torch.bool",
+          "dtype_eval": "torch.bool",
+          "max_abs_diff": 0.0,
+          "mean_abs_diff": 0.0,
+          "train_min": 0.0,
+          "train_max": 1.0
+        },
+        "observation.language.tokens": {
+          "equal": true,
+          "train_shape": [
+            1,
+            48
+          ],
+          "eval_shape": [
+            1,
+            48
+          ],
+          "canonical_shape": [
+            1,
+            48
+          ],
+          "dtype_train": "torch.int64",
+          "dtype_eval": "torch.int64",
+          "max_abs_diff": 0.0,
+          "mean_abs_diff": 0.0,
+          "train_min": 2.0,
+          "train_max": 46345.0
+        },
+        "observation.state": {
+          "equal": true,
+          "train_shape": [
+            1,
+            1,
+            15
+          ],
+          "eval_shape": [
+            1,
+            15
+          ],
+          "canonical_shape": [
+            1,
+            15
+          ],
+          "dtype_train": "torch.float32",
+          "dtype_eval": "torch.float32",
+          "max_abs_diff": 0.0,
+          "mean_abs_diff": 0.0,
+          "train_min": -2.1431398391723633,
+          "train_max": 2.5456676483154297
+        },
+        "task": {
+          "equal": true,
+          "train_type": "list",
+          "eval_type": "list",
+          "train_value": "['pick up the akita black bowl and place it on the plate in the left region\\n']",
+          "eval_value": "['pick up the akita black bowl and place it on the plate in the left region\\n']"
+        }
+      },
+      "unequal_processed_keys": []
+    },
+    {
+      "episode_index": 0,
+      "hdf5_demo": "demo_0",
+      "frame_index": 657,
+      "dataset_task": "pick up the akita black bowl and place it on the plate in the left region",
+      "raw_images_and_state_exact": true,
+      "training_processor_keys": [
+        "action",
+        "info",
+        "next.done",
+        "next.reward",
+        "next.truncated",
+        "observation.images.agentview",
+        "observation.images.wrist",
+        "observation.language.attention_mask",
+        "observation.language.tokens",
+        "observation.state",
+        "task"
+      ],
+      "evaluation_processor_keys": [
+        "action",
+        "info",
+        "next.done",
+        "next.reward",
+        "next.truncated",
+        "observation.images.agentview",
+        "observation.images.wrist",
+        "observation.language.attention_mask",
+        "observation.language.tokens",
+        "observation.state",
+        "task"
+      ],
+      "processor_key_sets_equal": true,
+      "processed_model_input_comparison": {
+        "action": {
+          "equal": true,
+          "train_type": "NoneType",
+          "eval_type": "NoneType",
+          "train_value": null,
+          "eval_value": null
+        },
+        "info": {
+          "equal": true,
+          "train_type": "dict",
+          "eval_type": "dict",
+          "train_value": "{}",
+          "eval_value": "{}"
+        },
+        "next.done": {
+          "equal": true,
+          "train_type": "bool",
+          "eval_type": "bool",
+          "train_value": false,
+          "eval_value": false
+        },
+        "next.reward": {
+          "equal": true,
+          "train_type": "float",
+          "eval_type": "float",
+          "train_value": 0.0,
+          "eval_value": 0.0
+        },
+        "next.truncated": {
+          "equal": true,
+          "train_type": "bool",
+          "eval_type": "bool",
+          "train_value": false,
+          "eval_value": false
+        },
+        "observation.images.agentview": {
+          "equal": true,
+          "train_shape": [
+            1,
+            1,
+            3,
+            128,
+            128
+          ],
+          "eval_shape": [
+            1,
+            3,
+            128,
+            128
+          ],
+          "canonical_shape": [
+            1,
+            3,
+            128,
+            128
+          ],
+          "dtype_train": "torch.float32",
+          "dtype_eval": "torch.float32",
+          "max_abs_diff": 0.0,
+          "mean_abs_diff": 0.0,
+          "train_min": 0.03529411926865578,
+          "train_max": 0.8313725590705872
+        },
+        "observation.images.wrist": {
+          "equal": true,
+          "train_shape": [
+            1,
+            1,
+            3,
+            128,
+            128
+          ],
+          "eval_shape": [
+            1,
+            3,
+            128,
+            128
+          ],
+          "canonical_shape": [
+            1,
+            3,
+            128,
+            128
+          ],
+          "dtype_train": "torch.float32",
+          "dtype_eval": "torch.float32",
+          "max_abs_diff": 0.0,
+          "mean_abs_diff": 0.0,
+          "train_min": 0.0313725508749485,
+          "train_max": 0.8470588326454163
+        },
+        "observation.language.attention_mask": {
+          "equal": true,
+          "train_shape": [
+            1,
+            48
+          ],
+          "eval_shape": [
+            1,
+            48
+          ],
+          "canonical_shape": [
+            1,
+            48
+          ],
+          "dtype_train": "torch.bool",
+          "dtype_eval": "torch.bool",
+          "max_abs_diff": 0.0,
+          "mean_abs_diff": 0.0,
+          "train_min": 0.0,
+          "train_max": 1.0
+        },
+        "observation.language.tokens": {
+          "equal": true,
+          "train_shape": [
+            1,
+            48
+          ],
+          "eval_shape": [
+            1,
+            48
+          ],
+          "canonical_shape": [
+            1,
+            48
+          ],
+          "dtype_train": "torch.int64",
+          "dtype_eval": "torch.int64",
+          "max_abs_diff": 0.0,
+          "mean_abs_diff": 0.0,
+          "train_min": 2.0,
+          "train_max": 46345.0
+        },
+        "observation.state": {
+          "equal": true,
+          "train_shape": [
+            1,
+            1,
+            15
+          ],
+          "eval_shape": [
+            1,
+            15
+          ],
+          "canonical_shape": [
+            1,
+            15
+          ],
+          "dtype_train": "torch.float32",
+          "dtype_eval": "torch.float32",
+          "max_abs_diff": 0.0,
+          "mean_abs_diff": 0.0,
+          "train_min": -2.077622652053833,
+          "train_max": 1.6424498558044434
+        },
+        "task": {
+          "equal": true,
+          "train_type": "list",
+          "eval_type": "list",
+          "train_value": "['pick up the akita black bowl and place it on the plate in the left region\\n']",
+          "eval_value": "['pick up the akita black bowl and place it on the plate in the left region\\n']"
+        }
+      },
+      "unequal_processed_keys": []
+    },
+    {
+      "episode_index": 1,
+      "hdf5_demo": "demo_1",
+      "frame_index": 0,
+      "dataset_task": "pick up the akita black bowl and place it on the plate in the left region",
+      "raw_images_and_state_exact": true,
+      "training_processor_keys": [
+        "action",
+        "info",
+        "next.done",
+        "next.reward",
+        "next.truncated",
+        "observation.images.agentview",
+        "observation.images.wrist",
+        "observation.language.attention_mask",
+        "observation.language.tokens",
+        "observation.state",
+        "task"
+      ],
+      "evaluation_processor_keys": [
+        "action",
+        "info",
+        "next.done",
+        "next.reward",
+        "next.truncated",
+        "observation.images.agentview",
+        "observation.images.wrist",
+        "observation.language.attention_mask",
+        "observation.language.tokens",
+        "observation.state",
+        "task"
+      ],
+      "processor_key_sets_equal": true,
+      "processed_model_input_comparison": {
+        "action": {
+          "equal": true,
+          "train_type": "NoneType",
+          "eval_type": "NoneType",
+          "train_value": null,
+          "eval_value": null
+        },
+        "info": {
+          "equal": true,
+          "train_type": "dict",
+          "eval_type": "dict",
+          "train_value": "{}",
+          "eval_value": "{}"
+        },
+        "next.done": {
+          "equal": true,
+          "train_type": "bool",
+          "eval_type": "bool",
+          "train_value": false,
+          "eval_value": false
+        },
+        "next.reward": {
+          "equal": true,
+          "train_type": "float",
+          "eval_type": "float",
+          "train_value": 0.0,
+          "eval_value": 0.0
+        },
+        "next.truncated": {
+          "equal": true,
+          "train_type": "bool",
+          "eval_type": "bool",
+          "train_value": false,
+          "eval_value": false
+        },
+        "observation.images.agentview": {
+          "equal": true,
+          "train_shape": [
+            1,
+            1,
+            3,
+            128,
+            128
+          ],
+          "eval_shape": [
+            1,
+            3,
+            128,
+            128
+          ],
+          "canonical_shape": [
+            1,
+            3,
+            128,
+            128
+          ],
+          "dtype_train": "torch.float32",
+          "dtype_eval": "torch.float32",
+          "max_abs_diff": 0.0,
+          "mean_abs_diff": 0.0,
+          "train_min": 0.0235294122248888,
+          "train_max": 0.9176470637321472
+        },
+        "observation.images.wrist": {
+          "equal": true,
+          "train_shape": [
+            1,
+            1,
+            3,
+            128,
+            128
+          ],
+          "eval_shape": [
+            1,
+            3,
+            128,
+            128
+          ],
+          "canonical_shape": [
+            1,
+            3,
+            128,
+            128
+          ],
+          "dtype_train": "torch.float32",
+          "dtype_eval": "torch.float32",
+          "max_abs_diff": 0.0,
+          "mean_abs_diff": 0.0,
+          "train_min": 0.003921568859368563,
+          "train_max": 0.9686274528503418
+        },
+        "observation.language.attention_mask": {
+          "equal": true,
+          "train_shape": [
+            1,
+            48
+          ],
+          "eval_shape": [
+            1,
+            48
+          ],
+          "canonical_shape": [
+            1,
+            48
+          ],
+          "dtype_train": "torch.bool",
+          "dtype_eval": "torch.bool",
+          "max_abs_diff": 0.0,
+          "mean_abs_diff": 0.0,
+          "train_min": 0.0,
+          "train_max": 1.0
+        },
+        "observation.language.tokens": {
+          "equal": true,
+          "train_shape": [
+            1,
+            48
+          ],
+          "eval_shape": [
+            1,
+            48
+          ],
+          "canonical_shape": [
+            1,
+            48
+          ],
+          "dtype_train": "torch.int64",
+          "dtype_eval": "torch.int64",
+          "max_abs_diff": 0.0,
+          "mean_abs_diff": 0.0,
+          "train_min": 2.0,
+          "train_max": 46345.0
+        },
+        "observation.state": {
+          "equal": true,
+          "train_shape": [
+            1,
+            1,
+            15
+          ],
+          "eval_shape": [
+            1,
+            15
+          ],
+          "canonical_shape": [
+            1,
+            15
+          ],
+          "dtype_train": "torch.float32",
+          "dtype_eval": "torch.float32",
+          "max_abs_diff": 0.0,
+          "mean_abs_diff": 0.0,
+          "train_min": -2.2659878730773926,
+          "train_max": 1.8211723566055298
+        },
+        "task": {
+          "equal": true,
+          "train_type": "list",
+          "eval_type": "list",
+          "train_value": "['pick up the akita black bowl and place it on the plate in the left region\\n']",
+          "eval_value": "['pick up the akita black bowl and place it on the plate in the left region\\n']"
+        }
+      },
+      "unequal_processed_keys": []
+    },
+    {
+      "episode_index": 1,
+      "hdf5_demo": "demo_1",
+      "frame_index": 100,
+      "dataset_task": "pick up the akita black bowl and place it on the plate in the left region",
+      "raw_images_and_state_exact": true,
+      "training_processor_keys": [
+        "action",
+        "info",
+        "next.done",
+        "next.reward",
+        "next.truncated",
+        "observation.images.agentview",
+        "observation.images.wrist",
+        "observation.language.attention_mask",
+        "observation.language.tokens",
+        "observation.state",
+        "task"
+      ],
+      "evaluation_processor_keys": [
+        "action",
+        "info",
+        "next.done",
+        "next.reward",
+        "next.truncated",
+        "observation.images.agentview",
+        "observation.images.wrist",
+        "observation.language.attention_mask",
+        "observation.language.tokens",
+        "observation.state",
+        "task"
+      ],
+      "processor_key_sets_equal": true,
+      "processed_model_input_comparison": {
+        "action": {
+          "equal": true,
+          "train_type": "NoneType",
+          "eval_type": "NoneType",
+          "train_value": null,
+          "eval_value": null
+        },
+        "info": {
+          "equal": true,
+          "train_type": "dict",
+          "eval_type": "dict",
+          "train_value": "{}",
+          "eval_value": "{}"
+        },
+        "next.done": {
+          "equal": true,
+          "train_type": "bool",
+          "eval_type": "bool",
+          "train_value": false,
+          "eval_value": false
+        },
+        "next.reward": {
+          "equal": true,
+          "train_type": "float",
+          "eval_type": "float",
+          "train_value": 0.0,
+          "eval_value": 0.0
+        },
+        "next.truncated": {
+          "equal": true,
+          "train_type": "bool",
+          "eval_type": "bool",
+          "train_value": false,
+          "eval_value": false
+        },
+        "observation.images.agentview": {
+          "equal": true,
+          "train_shape": [
+            1,
+            1,
+            3,
+            128,
+            128
+          ],
+          "eval_shape": [
+            1,
+            3,
+            128,
+            128
+          ],
+          "canonical_shape": [
+            1,
+            3,
+            128,
+            128
+          ],
+          "dtype_train": "torch.float32",
+          "dtype_eval": "torch.float32",
+          "max_abs_diff": 0.0,
+          "mean_abs_diff": 0.0,
+          "train_min": 0.027450980618596077,
+          "train_max": 0.9333333373069763
+        },
+        "observation.images.wrist": {
+          "equal": true,
+          "train_shape": [
+            1,
+            1,
+            3,
+            128,
+            128
+          ],
+          "eval_shape": [
+            1,
+            3,
+            128,
+            128
+          ],
+          "canonical_shape": [
+            1,
+            3,
+            128,
+            128
+          ],
+          "dtype_train": "torch.float32",
+          "dtype_eval": "torch.float32",
+          "max_abs_diff": 0.0,
+          "mean_abs_diff": 0.0,
+          "train_min": 0.0313725508749485,
+          "train_max": 0.9411764740943909
+        },
+        "observation.language.attention_mask": {
+          "equal": true,
+          "train_shape": [
+            1,
+            48
+          ],
+          "eval_shape": [
+            1,
+            48
+          ],
+          "canonical_shape": [
+            1,
+            48
+          ],
+          "dtype_train": "torch.bool",
+          "dtype_eval": "torch.bool",
+          "max_abs_diff": 0.0,
+          "mean_abs_diff": 0.0,
+          "train_min": 0.0,
+          "train_max": 1.0
+        },
+        "observation.language.tokens": {
+          "equal": true,
+          "train_shape": [
+            1,
+            48
+          ],
+          "eval_shape": [
+            1,
+            48
+          ],
+          "canonical_shape": [
+            1,
+            48
+          ],
+          "dtype_train": "torch.int64",
+          "dtype_eval": "torch.int64",
+          "max_abs_diff": 0.0,
+          "mean_abs_diff": 0.0,
+          "train_min": 2.0,
+          "train_max": 46345.0
+        },
+        "observation.state": {
+          "equal": true,
+          "train_shape": [
+            1,
+            1,
+            15
+          ],
+          "eval_shape": [
+            1,
+            15
+          ],
+          "canonical_shape": [
+            1,
+            15
+          ],
+          "dtype_train": "torch.float32",
+          "dtype_eval": "torch.float32",
+          "max_abs_diff": 0.0,
+          "mean_abs_diff": 0.0,
+          "train_min": -2.199842691421509,
+          "train_max": 1.8147339820861816
+        },
+        "task": {
+          "equal": true,
+          "train_type": "list",
+          "eval_type": "list",
+          "train_value": "['pick up the akita black bowl and place it on the plate in the left region\\n']",
+          "eval_value": "['pick up the akita black bowl and place it on the plate in the left region\\n']"
+        }
+      },
+      "unequal_processed_keys": []
+    },
+    {
+      "episode_index": 1,
+      "hdf5_demo": "demo_1",
+      "frame_index": 250,
+      "dataset_task": "pick up the akita black bowl and place it on the plate in the left region",
+      "raw_images_and_state_exact": true,
+      "training_processor_keys": [
+        "action",
+        "info",
+        "next.done",
+        "next.reward",
+        "next.truncated",
+        "observation.images.agentview",
+        "observation.images.wrist",
+        "observation.language.attention_mask",
+        "observation.language.tokens",
+        "observation.state",
+        "task"
+      ],
+      "evaluation_processor_keys": [
+        "action",
+        "info",
+        "next.done",
+        "next.reward",
+        "next.truncated",
+        "observation.images.agentview",
+        "observation.images.wrist",
+        "observation.language.attention_mask",
+        "observation.language.tokens",
+        "observation.state",
+        "task"
+      ],
+      "processor_key_sets_equal": true,
+      "processed_model_input_comparison": {
+        "action": {
+          "equal": true,
+          "train_type": "NoneType",
+          "eval_type": "NoneType",
+          "train_value": null,
+          "eval_value": null
+        },
+        "info": {
+          "equal": true,
+          "train_type": "dict",
+          "eval_type": "dict",
+          "train_value": "{}",
+          "eval_value": "{}"
+        },
+        "next.done": {
+          "equal": true,
+          "train_type": "bool",
+          "eval_type": "bool",
+          "train_value": false,
+          "eval_value": false
+        },
+        "next.reward": {
+          "equal": true,
+          "train_type": "float",
+          "eval_type": "float",
+          "train_value": 0.0,
+          "eval_value": 0.0
+        },
+        "next.truncated": {
+          "equal": true,
+          "train_type": "bool",
+          "eval_type": "bool",
+          "train_value": false,
+          "eval_value": false
+        },
+        "observation.images.agentview": {
+          "equal": true,
+          "train_shape": [
+            1,
+            1,
+            3,
+            128,
+            128
+          ],
+          "eval_shape": [
+            1,
+            3,
+            128,
+            128
+          ],
+          "canonical_shape": [
+            1,
+            3,
+            128,
+            128
+          ],
+          "dtype_train": "torch.float32",
+          "dtype_eval": "torch.float32",
+          "max_abs_diff": 0.0,
+          "mean_abs_diff": 0.0,
+          "train_min": 0.027450980618596077,
+          "train_max": 0.9843137264251709
+        },
+        "observation.images.wrist": {
+          "equal": true,
+          "train_shape": [
+            1,
+            1,
+            3,
+            128,
+            128
+          ],
+          "eval_shape": [
+            1,
+            3,
+            128,
+            128
+          ],
+          "canonical_shape": [
+            1,
+            3,
+            128,
+            128
+          ],
+          "dtype_train": "torch.float32",
+          "dtype_eval": "torch.float32",
+          "max_abs_diff": 0.0,
+          "mean_abs_diff": 0.0,
+          "train_min": 0.03921568766236305,
+          "train_max": 0.9372549057006836
+        },
+        "observation.language.attention_mask": {
+          "equal": true,
+          "train_shape": [
+            1,
+            48
+          ],
+          "eval_shape": [
+            1,
+            48
+          ],
+          "canonical_shape": [
+            1,
+            48
+          ],
+          "dtype_train": "torch.bool",
+          "dtype_eval": "torch.bool",
+          "max_abs_diff": 0.0,
+          "mean_abs_diff": 0.0,
+          "train_min": 0.0,
+          "train_max": 1.0
+        },
+        "observation.language.tokens": {
+          "equal": true,
+          "train_shape": [
+            1,
+            48
+          ],
+          "eval_shape": [
+            1,
+            48
+          ],
+          "canonical_shape": [
+            1,
+            48
+          ],
+          "dtype_train": "torch.int64",
+          "dtype_eval": "torch.int64",
+          "max_abs_diff": 0.0,
+          "mean_abs_diff": 0.0,
+          "train_min": 2.0,
+          "train_max": 46345.0
+        },
+        "observation.state": {
+          "equal": true,
+          "train_shape": [
+            1,
+            1,
+            15
+          ],
+          "eval_shape": [
+            1,
+            15
+          ],
+          "canonical_shape": [
+            1,
+            15
+          ],
+          "dtype_train": "torch.float32",
+          "dtype_eval": "torch.float32",
+          "max_abs_diff": 0.0,
+          "mean_abs_diff": 0.0,
+          "train_min": -1.945847511291504,
+          "train_max": 1.9898425340652466
+        },
+        "task": {
+          "equal": true,
+          "train_type": "list",
+          "eval_type": "list",
+          "train_value": "['pick up the akita black bowl and place it on the plate in the left region\\n']",
+          "eval_value": "['pick up the akita black bowl and place it on the plate in the left region\\n']"
+        }
+      },
+      "unequal_processed_keys": []
+    },
+    {
+      "episode_index": 1,
+      "hdf5_demo": "demo_1",
+      "frame_index": 450,
+      "dataset_task": "pick up the akita black bowl and place it on the plate in the left region",
+      "raw_images_and_state_exact": true,
+      "training_processor_keys": [
+        "action",
+        "info",
+        "next.done",
+        "next.reward",
+        "next.truncated",
+        "observation.images.agentview",
+        "observation.images.wrist",
+        "observation.language.attention_mask",
+        "observation.language.tokens",
+        "observation.state",
+        "task"
+      ],
+      "evaluation_processor_keys": [
+        "action",
+        "info",
+        "next.done",
+        "next.reward",
+        "next.truncated",
+        "observation.images.agentview",
+        "observation.images.wrist",
+        "observation.language.attention_mask",
+        "observation.language.tokens",
+        "observation.state",
+        "task"
+      ],
+      "processor_key_sets_equal": true,
+      "processed_model_input_comparison": {
+        "action": {
+          "equal": true,
+          "train_type": "NoneType",
+          "eval_type": "NoneType",
+          "train_value": null,
+          "eval_value": null
+        },
+        "info": {
+          "equal": true,
+          "train_type": "dict",
+          "eval_type": "dict",
+          "train_value": "{}",
+          "eval_value": "{}"
+        },
+        "next.done": {
+          "equal": true,
+          "train_type": "bool",
+          "eval_type": "bool",
+          "train_value": false,
+          "eval_value": false
+        },
+        "next.reward": {
+          "equal": true,
+          "train_type": "float",
+          "eval_type": "float",
+          "train_value": 0.0,
+          "eval_value": 0.0
+        },
+        "next.truncated": {
+          "equal": true,
+          "train_type": "bool",
+          "eval_type": "bool",
+          "train_value": false,
+          "eval_value": false
+        },
+        "observation.images.agentview": {
+          "equal": true,
+          "train_shape": [
+            1,
+            1,
+            3,
+            128,
+            128
+          ],
+          "eval_shape": [
+            1,
+            3,
+            128,
+            128
+          ],
+          "canonical_shape": [
+            1,
+            3,
+            128,
+            128
+          ],
+          "dtype_train": "torch.float32",
+          "dtype_eval": "torch.float32",
+          "max_abs_diff": 0.0,
+          "mean_abs_diff": 0.0,
+          "train_min": 0.027450980618596077,
+          "train_max": 0.8745098114013672
+        },
+        "observation.images.wrist": {
+          "equal": true,
+          "train_shape": [
+            1,
+            1,
+            3,
+            128,
+            128
+          ],
+          "eval_shape": [
+            1,
+            3,
+            128,
+            128
+          ],
+          "canonical_shape": [
+            1,
+            3,
+            128,
+            128
+          ],
+          "dtype_train": "torch.float32",
+          "dtype_eval": "torch.float32",
+          "max_abs_diff": 0.0,
+          "mean_abs_diff": 0.0,
+          "train_min": 0.01568627543747425,
+          "train_max": 0.9058823585510254
+        },
+        "observation.language.attention_mask": {
+          "equal": true,
+          "train_shape": [
+            1,
+            48
+          ],
+          "eval_shape": [
+            1,
+            48
+          ],
+          "canonical_shape": [
+            1,
+            48
+          ],
+          "dtype_train": "torch.bool",
+          "dtype_eval": "torch.bool",
+          "max_abs_diff": 0.0,
+          "mean_abs_diff": 0.0,
+          "train_min": 0.0,
+          "train_max": 1.0
+        },
+        "observation.language.tokens": {
+          "equal": true,
+          "train_shape": [
+            1,
+            48
+          ],
+          "eval_shape": [
+            1,
+            48
+          ],
+          "canonical_shape": [
+            1,
+            48
+          ],
+          "dtype_train": "torch.int64",
+          "dtype_eval": "torch.int64",
+          "max_abs_diff": 0.0,
+          "mean_abs_diff": 0.0,
+          "train_min": 2.0,
+          "train_max": 46345.0
+        },
+        "observation.state": {
+          "equal": true,
+          "train_shape": [
+            1,
+            1,
+            15
+          ],
+          "eval_shape": [
+            1,
+            15
+          ],
+          "canonical_shape": [
+            1,
+            15
+          ],
+          "dtype_train": "torch.float32",
+          "dtype_eval": "torch.float32",
+          "max_abs_diff": 0.0,
+          "mean_abs_diff": 0.0,
+          "train_min": -2.146965265274048,
+          "train_max": 2.547722578048706
+        },
+        "task": {
+          "equal": true,
+          "train_type": "list",
+          "eval_type": "list",
+          "train_value": "['pick up the akita black bowl and place it on the plate in the left region\\n']",
+          "eval_value": "['pick up the akita black bowl and place it on the plate in the left region\\n']"
+        }
+      },
+      "unequal_processed_keys": []
+    },
+    {
+      "episode_index": 1,
+      "hdf5_demo": "demo_1",
+      "frame_index": 657,
+      "dataset_task": "pick up the akita black bowl and place it on the plate in the left region",
+      "raw_images_and_state_exact": true,
+      "training_processor_keys": [
+        "action",
+        "info",
+        "next.done",
+        "next.reward",
+        "next.truncated",
+        "observation.images.agentview",
+        "observation.images.wrist",
+        "observation.language.attention_mask",
+        "observation.language.tokens",
+        "observation.state",
+        "task"
+      ],
+      "evaluation_processor_keys": [
+        "action",
+        "info",
+        "next.done",
+        "next.reward",
+        "next.truncated",
+        "observation.images.agentview",
+        "observation.images.wrist",
+        "observation.language.attention_mask",
+        "observation.language.tokens",
+        "observation.state",
+        "task"
+      ],
+      "processor_key_sets_equal": true,
+      "processed_model_input_comparison": {
+        "action": {
+          "equal": true,
+          "train_type": "NoneType",
+          "eval_type": "NoneType",
+          "train_value": null,
+          "eval_value": null
+        },
+        "info": {
+          "equal": true,
+          "train_type": "dict",
+          "eval_type": "dict",
+          "train_value": "{}",
+          "eval_value": "{}"
+        },
+        "next.done": {
+          "equal": true,
+          "train_type": "bool",
+          "eval_type": "bool",
+          "train_value": false,
+          "eval_value": false
+        },
+        "next.reward": {
+          "equal": true,
+          "train_type": "float",
+          "eval_type": "float",
+          "train_value": 0.0,
+          "eval_value": 0.0
+        },
+        "next.truncated": {
+          "equal": true,
+          "train_type": "bool",
+          "eval_type": "bool",
+          "train_value": false,
+          "eval_value": false
+        },
+        "observation.images.agentview": {
+          "equal": true,
+          "train_shape": [
+            1,
+            1,
+            3,
+            128,
+            128
+          ],
+          "eval_shape": [
+            1,
+            3,
+            128,
+            128
+          ],
+          "canonical_shape": [
+            1,
+            3,
+            128,
+            128
+          ],
+          "dtype_train": "torch.float32",
+          "dtype_eval": "torch.float32",
+          "max_abs_diff": 0.0,
+          "mean_abs_diff": 0.0,
+          "train_min": 0.027450980618596077,
+          "train_max": 0.8235294222831726
+        },
+        "observation.images.wrist": {
+          "equal": true,
+          "train_shape": [
+            1,
+            1,
+            3,
+            128,
+            128
+          ],
+          "eval_shape": [
+            1,
+            3,
+            128,
+            128
+          ],
+          "canonical_shape": [
+            1,
+            3,
+            128,
+            128
+          ],
+          "dtype_train": "torch.float32",
+          "dtype_eval": "torch.float32",
+          "max_abs_diff": 0.0,
+          "mean_abs_diff": 0.0,
+          "train_min": 0.027450980618596077,
+          "train_max": 0.9450980424880981
+        },
+        "observation.language.attention_mask": {
+          "equal": true,
+          "train_shape": [
+            1,
+            48
+          ],
+          "eval_shape": [
+            1,
+            48
+          ],
+          "canonical_shape": [
+            1,
+            48
+          ],
+          "dtype_train": "torch.bool",
+          "dtype_eval": "torch.bool",
+          "max_abs_diff": 0.0,
+          "mean_abs_diff": 0.0,
+          "train_min": 0.0,
+          "train_max": 1.0
+        },
+        "observation.language.tokens": {
+          "equal": true,
+          "train_shape": [
+            1,
+            48
+          ],
+          "eval_shape": [
+            1,
+            48
+          ],
+          "canonical_shape": [
+            1,
+            48
+          ],
+          "dtype_train": "torch.int64",
+          "dtype_eval": "torch.int64",
+          "max_abs_diff": 0.0,
+          "mean_abs_diff": 0.0,
+          "train_min": 2.0,
+          "train_max": 46345.0
+        },
+        "observation.state": {
+          "equal": true,
+          "train_shape": [
+            1,
+            1,
+            15
+          ],
+          "eval_shape": [
+            1,
+            15
+          ],
+          "canonical_shape": [
+            1,
+            15
+          ],
+          "dtype_train": "torch.float32",
+          "dtype_eval": "torch.float32",
+          "max_abs_diff": 0.0,
+          "mean_abs_diff": 0.0,
+          "train_min": -2.0803182125091553,
+          "train_max": 1.6439154148101807
+        },
+        "task": {
+          "equal": true,
+          "train_type": "list",
+          "eval_type": "list",
+          "train_value": "['pick up the akita black bowl and place it on the plate in the left region\\n']",
+          "eval_value": "['pick up the akita black bowl and place it on the plate in the left region\\n']"
+        }
+      },
+      "unequal_processed_keys": []
+    },
+    {
+      "episode_index": 2,
+      "hdf5_demo": "demo_2",
+      "frame_index": 0,
+      "dataset_task": "pick up the akita black bowl and place it on the plate in the left region",
+      "raw_images_and_state_exact": true,
+      "training_processor_keys": [
+        "action",
+        "info",
+        "next.done",
+        "next.reward",
+        "next.truncated",
+        "observation.images.agentview",
+        "observation.images.wrist",
+        "observation.language.attention_mask",
+        "observation.language.tokens",
+        "observation.state",
+        "task"
+      ],
+      "evaluation_processor_keys": [
+        "action",
+        "info",
+        "next.done",
+        "next.reward",
+        "next.truncated",
+        "observation.images.agentview",
+        "observation.images.wrist",
+        "observation.language.attention_mask",
+        "observation.language.tokens",
+        "observation.state",
+        "task"
+      ],
+      "processor_key_sets_equal": true,
+      "processed_model_input_comparison": {
+        "action": {
+          "equal": true,
+          "train_type": "NoneType",
+          "eval_type": "NoneType",
+          "train_value": null,
+          "eval_value": null
+        },
+        "info": {
+          "equal": true,
+          "train_type": "dict",
+          "eval_type": "dict",
+          "train_value": "{}",
+          "eval_value": "{}"
+        },
+        "next.done": {
+          "equal": true,
+          "train_type": "bool",
+          "eval_type": "bool",
+          "train_value": false,
+          "eval_value": false
+        },
+        "next.reward": {
+          "equal": true,
+          "train_type": "float",
+          "eval_type": "float",
+          "train_value": 0.0,
+          "eval_value": 0.0
+        },
+        "next.truncated": {
+          "equal": true,
+          "train_type": "bool",
+          "eval_type": "bool",
+          "train_value": false,
+          "eval_value": false
+        },
+        "observation.images.agentview": {
+          "equal": true,
+          "train_shape": [
+            1,
+            1,
+            3,
+            128,
+            128
+          ],
+          "eval_shape": [
+            1,
+            3,
+            128,
+            128
+          ],
+          "canonical_shape": [
+            1,
+            3,
+            128,
+            128
+          ],
+          "dtype_train": "torch.float32",
+          "dtype_eval": "torch.float32",
+          "max_abs_diff": 0.0,
+          "mean_abs_diff": 0.0,
+          "train_min": 0.0235294122248888,
+          "train_max": 0.9176470637321472
+        },
+        "observation.images.wrist": {
+          "equal": true,
+          "train_shape": [
+            1,
+            1,
+            3,
+            128,
+            128
+          ],
+          "eval_shape": [
+            1,
+            3,
+            128,
+            128
+          ],
+          "canonical_shape": [
+            1,
+            3,
+            128,
+            128
+          ],
+          "dtype_train": "torch.float32",
+          "dtype_eval": "torch.float32",
+          "max_abs_diff": 0.0,
+          "mean_abs_diff": 0.0,
+          "train_min": 0.003921568859368563,
+          "train_max": 0.9882352948188782
+        },
+        "observation.language.attention_mask": {
+          "equal": true,
+          "train_shape": [
+            1,
+            48
+          ],
+          "eval_shape": [
+            1,
+            48
+          ],
+          "canonical_shape": [
+            1,
+            48
+          ],
+          "dtype_train": "torch.bool",
+          "dtype_eval": "torch.bool",
+          "max_abs_diff": 0.0,
+          "mean_abs_diff": 0.0,
+          "train_min": 0.0,
+          "train_max": 1.0
+        },
+        "observation.language.tokens": {
+          "equal": true,
+          "train_shape": [
+            1,
+            48
+          ],
+          "eval_shape": [
+            1,
+            48
+          ],
+          "canonical_shape": [
+            1,
+            48
+          ],
+          "dtype_train": "torch.int64",
+          "dtype_eval": "torch.int64",
+          "max_abs_diff": 0.0,
+          "mean_abs_diff": 0.0,
+          "train_min": 2.0,
+          "train_max": 46345.0
+        },
+        "observation.state": {
+          "equal": true,
+          "train_shape": [
+            1,
+            1,
+            15
+          ],
+          "eval_shape": [
+            1,
+            15
+          ],
+          "canonical_shape": [
+            1,
+            15
+          ],
+          "dtype_train": "torch.float32",
+          "dtype_eval": "torch.float32",
+          "max_abs_diff": 0.0,
+          "mean_abs_diff": 0.0,
+          "train_min": -2.2659878730773926,
+          "train_max": 1.8211723566055298
+        },
+        "task": {
+          "equal": true,
+          "train_type": "list",
+          "eval_type": "list",
+          "train_value": "['pick up the akita black bowl and place it on the plate in the left region\\n']",
+          "eval_value": "['pick up the akita black bowl and place it on the plate in the left region\\n']"
+        }
+      },
+      "unequal_processed_keys": []
+    },
+    {
+      "episode_index": 2,
+      "hdf5_demo": "demo_2",
+      "frame_index": 100,
+      "dataset_task": "pick up the akita black bowl and place it on the plate in the left region",
+      "raw_images_and_state_exact": true,
+      "training_processor_keys": [
+        "action",
+        "info",
+        "next.done",
+        "next.reward",
+        "next.truncated",
+        "observation.images.agentview",
+        "observation.images.wrist",
+        "observation.language.attention_mask",
+        "observation.language.tokens",
+        "observation.state",
+        "task"
+      ],
+      "evaluation_processor_keys": [
+        "action",
+        "info",
+        "next.done",
+        "next.reward",
+        "next.truncated",
+        "observation.images.agentview",
+        "observation.images.wrist",
+        "observation.language.attention_mask",
+        "observation.language.tokens",
+        "observation.state",
+        "task"
+      ],
+      "processor_key_sets_equal": true,
+      "processed_model_input_comparison": {
+        "action": {
+          "equal": true,
+          "train_type": "NoneType",
+          "eval_type": "NoneType",
+          "train_value": null,
+          "eval_value": null
+        },
+        "info": {
+          "equal": true,
+          "train_type": "dict",
+          "eval_type": "dict",
+          "train_value": "{}",
+          "eval_value": "{}"
+        },
+        "next.done": {
+          "equal": true,
+          "train_type": "bool",
+          "eval_type": "bool",
+          "train_value": false,
+          "eval_value": false
+        },
+        "next.reward": {
+          "equal": true,
+          "train_type": "float",
+          "eval_type": "float",
+          "train_value": 0.0,
+          "eval_value": 0.0
+        },
+        "next.truncated": {
+          "equal": true,
+          "train_type": "bool",
+          "eval_type": "bool",
+          "train_value": false,
+          "eval_value": false
+        },
+        "observation.images.agentview": {
+          "equal": true,
+          "train_shape": [
+            1,
+            1,
+            3,
+            128,
+            128
+          ],
+          "eval_shape": [
+            1,
+            3,
+            128,
+            128
+          ],
+          "canonical_shape": [
+            1,
+            3,
+            128,
+            128
+          ],
+          "dtype_train": "torch.float32",
+          "dtype_eval": "torch.float32",
+          "max_abs_diff": 0.0,
+          "mean_abs_diff": 0.0,
+          "train_min": 0.0470588244497776,
+          "train_max": 0.9333333373069763
+        },
+        "observation.images.wrist": {
+          "equal": true,
+          "train_shape": [
+            1,
+            1,
+            3,
+            128,
+            128
+          ],
+          "eval_shape": [
+            1,
+            3,
+            128,
+            128
+          ],
+          "canonical_shape": [
+            1,
+            3,
+            128,
+            128
+          ],
+          "dtype_train": "torch.float32",
+          "dtype_eval": "torch.float32",
+          "max_abs_diff": 0.0,
+          "mean_abs_diff": 0.0,
+          "train_min": 0.03921568766236305,
+          "train_max": 0.9098039269447327
+        },
+        "observation.language.attention_mask": {
+          "equal": true,
+          "train_shape": [
+            1,
+            48
+          ],
+          "eval_shape": [
+            1,
+            48
+          ],
+          "canonical_shape": [
+            1,
+            48
+          ],
+          "dtype_train": "torch.bool",
+          "dtype_eval": "torch.bool",
+          "max_abs_diff": 0.0,
+          "mean_abs_diff": 0.0,
+          "train_min": 0.0,
+          "train_max": 1.0
+        },
+        "observation.language.tokens": {
+          "equal": true,
+          "train_shape": [
+            1,
+            48
+          ],
+          "eval_shape": [
+            1,
+            48
+          ],
+          "canonical_shape": [
+            1,
+            48
+          ],
+          "dtype_train": "torch.int64",
+          "dtype_eval": "torch.int64",
+          "max_abs_diff": 0.0,
+          "mean_abs_diff": 0.0,
+          "train_min": 2.0,
+          "train_max": 46345.0
+        },
+        "observation.state": {
+          "equal": true,
+          "train_shape": [
+            1,
+            1,
+            15
+          ],
+          "eval_shape": [
+            1,
+            15
+          ],
+          "canonical_shape": [
+            1,
+            15
+          ],
+          "dtype_train": "torch.float32",
+          "dtype_eval": "torch.float32",
+          "max_abs_diff": 0.0,
+          "mean_abs_diff": 0.0,
+          "train_min": -2.199842691421509,
+          "train_max": 1.8147339820861816
+        },
+        "task": {
+          "equal": true,
+          "train_type": "list",
+          "eval_type": "list",
+          "train_value": "['pick up the akita black bowl and place it on the plate in the left region\\n']",
+          "eval_value": "['pick up the akita black bowl and place it on the plate in the left region\\n']"
+        }
+      },
+      "unequal_processed_keys": []
+    },
+    {
+      "episode_index": 2,
+      "hdf5_demo": "demo_2",
+      "frame_index": 250,
+      "dataset_task": "pick up the akita black bowl and place it on the plate in the left region",
+      "raw_images_and_state_exact": true,
+      "training_processor_keys": [
+        "action",
+        "info",
+        "next.done",
+        "next.reward",
+        "next.truncated",
+        "observation.images.agentview",
+        "observation.images.wrist",
+        "observation.language.attention_mask",
+        "observation.language.tokens",
+        "observation.state",
+        "task"
+      ],
+      "evaluation_processor_keys": [
+        "action",
+        "info",
+        "next.done",
+        "next.reward",
+        "next.truncated",
+        "observation.images.agentview",
+        "observation.images.wrist",
+        "observation.language.attention_mask",
+        "observation.language.tokens",
+        "observation.state",
+        "task"
+      ],
+      "processor_key_sets_equal": true,
+      "processed_model_input_comparison": {
+        "action": {
+          "equal": true,
+          "train_type": "NoneType",
+          "eval_type": "NoneType",
+          "train_value": null,
+          "eval_value": null
+        },
+        "info": {
+          "equal": true,
+          "train_type": "dict",
+          "eval_type": "dict",
+          "train_value": "{}",
+          "eval_value": "{}"
+        },
+        "next.done": {
+          "equal": true,
+          "train_type": "bool",
+          "eval_type": "bool",
+          "train_value": false,
+          "eval_value": false
+        },
+        "next.reward": {
+          "equal": true,
+          "train_type": "float",
+          "eval_type": "float",
+          "train_value": 0.0,
+          "eval_value": 0.0
+        },
+        "next.truncated": {
+          "equal": true,
+          "train_type": "bool",
+          "eval_type": "bool",
+          "train_value": false,
+          "eval_value": false
+        },
+        "observation.images.agentview": {
+          "equal": true,
+          "train_shape": [
+            1,
+            1,
+            3,
+            128,
+            128
+          ],
+          "eval_shape": [
+            1,
+            3,
+            128,
+            128
+          ],
+          "canonical_shape": [
+            1,
+            3,
+            128,
+            128
+          ],
+          "dtype_train": "torch.float32",
+          "dtype_eval": "torch.float32",
+          "max_abs_diff": 0.0,
+          "mean_abs_diff": 0.0,
+          "train_min": 0.04313725605607033,
+          "train_max": 0.9960784316062927
+        },
+        "observation.images.wrist": {
+          "equal": true,
+          "train_shape": [
+            1,
+            1,
+            3,
+            128,
+            128
+          ],
+          "eval_shape": [
+            1,
+            3,
+            128,
+            128
+          ],
+          "canonical_shape": [
+            1,
+            3,
+            128,
+            128
+          ],
+          "dtype_train": "torch.float32",
+          "dtype_eval": "torch.float32",
+          "max_abs_diff": 0.0,
+          "mean_abs_diff": 0.0,
+          "train_min": 0.03921568766236305,
+          "train_max": 0.9529411792755127
+        },
+        "observation.language.attention_mask": {
+          "equal": true,
+          "train_shape": [
+            1,
+            48
+          ],
+          "eval_shape": [
+            1,
+            48
+          ],
+          "canonical_shape": [
+            1,
+            48
+          ],
+          "dtype_train": "torch.bool",
+          "dtype_eval": "torch.bool",
+          "max_abs_diff": 0.0,
+          "mean_abs_diff": 0.0,
+          "train_min": 0.0,
+          "train_max": 1.0
+        },
+        "observation.language.tokens": {
+          "equal": true,
+          "train_shape": [
+            1,
+            48
+          ],
+          "eval_shape": [
+            1,
+            48
+          ],
+          "canonical_shape": [
+            1,
+            48
+          ],
+          "dtype_train": "torch.int64",
+          "dtype_eval": "torch.int64",
+          "max_abs_diff": 0.0,
+          "mean_abs_diff": 0.0,
+          "train_min": 2.0,
+          "train_max": 46345.0
+        },
+        "observation.state": {
+          "equal": true,
+          "train_shape": [
+            1,
+            1,
+            15
+          ],
+          "eval_shape": [
+            1,
+            15
+          ],
+          "canonical_shape": [
+            1,
+            15
+          ],
+          "dtype_train": "torch.float32",
+          "dtype_eval": "torch.float32",
+          "max_abs_diff": 0.0,
+          "mean_abs_diff": 0.0,
+          "train_min": -1.938093900680542,
+          "train_max": 2.009953022003174
+        },
+        "task": {
+          "equal": true,
+          "train_type": "list",
+          "eval_type": "list",
+          "train_value": "['pick up the akita black bowl and place it on the plate in the left region\\n']",
+          "eval_value": "['pick up the akita black bowl and place it on the plate in the left region\\n']"
+        }
+      },
+      "unequal_processed_keys": []
+    },
+    {
+      "episode_index": 2,
+      "hdf5_demo": "demo_2",
+      "frame_index": 450,
+      "dataset_task": "pick up the akita black bowl and place it on the plate in the left region",
+      "raw_images_and_state_exact": true,
+      "training_processor_keys": [
+        "action",
+        "info",
+        "next.done",
+        "next.reward",
+        "next.truncated",
+        "observation.images.agentview",
+        "observation.images.wrist",
+        "observation.language.attention_mask",
+        "observation.language.tokens",
+        "observation.state",
+        "task"
+      ],
+      "evaluation_processor_keys": [
+        "action",
+        "info",
+        "next.done",
+        "next.reward",
+        "next.truncated",
+        "observation.images.agentview",
+        "observation.images.wrist",
+        "observation.language.attention_mask",
+        "observation.language.tokens",
+        "observation.state",
+        "task"
+      ],
+      "processor_key_sets_equal": true,
+      "processed_model_input_comparison": {
+        "action": {
+          "equal": true,
+          "train_type": "NoneType",
+          "eval_type": "NoneType",
+          "train_value": null,
+          "eval_value": null
+        },
+        "info": {
+          "equal": true,
+          "train_type": "dict",
+          "eval_type": "dict",
+          "train_value": "{}",
+          "eval_value": "{}"
+        },
+        "next.done": {
+          "equal": true,
+          "train_type": "bool",
+          "eval_type": "bool",
+          "train_value": false,
+          "eval_value": false
+        },
+        "next.reward": {
+          "equal": true,
+          "train_type": "float",
+          "eval_type": "float",
+          "train_value": 0.0,
+          "eval_value": 0.0
+        },
+        "next.truncated": {
+          "equal": true,
+          "train_type": "bool",
+          "eval_type": "bool",
+          "train_value": false,
+          "eval_value": false
+        },
+        "observation.images.agentview": {
+          "equal": true,
+          "train_shape": [
+            1,
+            1,
+            3,
+            128,
+            128
+          ],
+          "eval_shape": [
+            1,
+            3,
+            128,
+            128
+          ],
+          "canonical_shape": [
+            1,
+            3,
+            128,
+            128
+          ],
+          "dtype_train": "torch.float32",
+          "dtype_eval": "torch.float32",
+          "max_abs_diff": 0.0,
+          "mean_abs_diff": 0.0,
+          "train_min": 0.03921568766236305,
+          "train_max": 0.8274509906768799
+        },
+        "observation.images.wrist": {
+          "equal": true,
+          "train_shape": [
+            1,
+            1,
+            3,
+            128,
+            128
+          ],
+          "eval_shape": [
+            1,
+            3,
+            128,
+            128
+          ],
+          "canonical_shape": [
+            1,
+            3,
+            128,
+            128
+          ],
+          "dtype_train": "torch.float32",
+          "dtype_eval": "torch.float32",
+          "max_abs_diff": 0.0,
+          "mean_abs_diff": 0.0,
+          "train_min": 0.01568627543747425,
+          "train_max": 0.8980392217636108
+        },
+        "observation.language.attention_mask": {
+          "equal": true,
+          "train_shape": [
+            1,
+            48
+          ],
+          "eval_shape": [
+            1,
+            48
+          ],
+          "canonical_shape": [
+            1,
+            48
+          ],
+          "dtype_train": "torch.bool",
+          "dtype_eval": "torch.bool",
+          "max_abs_diff": 0.0,
+          "mean_abs_diff": 0.0,
+          "train_min": 0.0,
+          "train_max": 1.0
+        },
+        "observation.language.tokens": {
+          "equal": true,
+          "train_shape": [
+            1,
+            48
+          ],
+          "eval_shape": [
+            1,
+            48
+          ],
+          "canonical_shape": [
+            1,
+            48
+          ],
+          "dtype_train": "torch.int64",
+          "dtype_eval": "torch.int64",
+          "max_abs_diff": 0.0,
+          "mean_abs_diff": 0.0,
+          "train_min": 2.0,
+          "train_max": 46345.0
+        },
+        "observation.state": {
+          "equal": true,
+          "train_shape": [
+            1,
+            1,
+            15
+          ],
+          "eval_shape": [
+            1,
+            15
+          ],
+          "canonical_shape": [
+            1,
+            15
+          ],
+          "dtype_train": "torch.float32",
+          "dtype_eval": "torch.float32",
+          "max_abs_diff": 0.0,
+          "mean_abs_diff": 0.0,
+          "train_min": -2.1449036598205566,
+          "train_max": 2.5343894958496094
+        },
+        "task": {
+          "equal": true,
+          "train_type": "list",
+          "eval_type": "list",
+          "train_value": "['pick up the akita black bowl and place it on the plate in the left region\\n']",
+          "eval_value": "['pick up the akita black bowl and place it on the plate in the left region\\n']"
+        }
+      },
+      "unequal_processed_keys": []
+    },
+    {
+      "episode_index": 2,
+      "hdf5_demo": "demo_2",
+      "frame_index": 657,
+      "dataset_task": "pick up the akita black bowl and place it on the plate in the left region",
+      "raw_images_and_state_exact": true,
+      "training_processor_keys": [
+        "action",
+        "info",
+        "next.done",
+        "next.reward",
+        "next.truncated",
+        "observation.images.agentview",
+        "observation.images.wrist",
+        "observation.language.attention_mask",
+        "observation.language.tokens",
+        "observation.state",
+        "task"
+      ],
+      "evaluation_processor_keys": [
+        "action",
+        "info",
+        "next.done",
+        "next.reward",
+        "next.truncated",
+        "observation.images.agentview",
+        "observation.images.wrist",
+        "observation.language.attention_mask",
+        "observation.language.tokens",
+        "observation.state",
+        "task"
+      ],
+      "processor_key_sets_equal": true,
+      "processed_model_input_comparison": {
+        "action": {
+          "equal": true,
+          "train_type": "NoneType",
+          "eval_type": "NoneType",
+          "train_value": null,
+          "eval_value": null
+        },
+        "info": {
+          "equal": true,
+          "train_type": "dict",
+          "eval_type": "dict",
+          "train_value": "{}",
+          "eval_value": "{}"
+        },
+        "next.done": {
+          "equal": true,
+          "train_type": "bool",
+          "eval_type": "bool",
+          "train_value": false,
+          "eval_value": false
+        },
+        "next.reward": {
+          "equal": true,
+          "train_type": "float",
+          "eval_type": "float",
+          "train_value": 0.0,
+          "eval_value": 0.0
+        },
+        "next.truncated": {
+          "equal": true,
+          "train_type": "bool",
+          "eval_type": "bool",
+          "train_value": false,
+          "eval_value": false
+        },
+        "observation.images.agentview": {
+          "equal": true,
+          "train_shape": [
+            1,
+            1,
+            3,
+            128,
+            128
+          ],
+          "eval_shape": [
+            1,
+            3,
+            128,
+            128
+          ],
+          "canonical_shape": [
+            1,
+            3,
+            128,
+            128
+          ],
+          "dtype_train": "torch.float32",
+          "dtype_eval": "torch.float32",
+          "max_abs_diff": 0.0,
+          "mean_abs_diff": 0.0,
+          "train_min": 0.0313725508749485,
+          "train_max": 0.8274509906768799
+        },
+        "observation.images.wrist": {
+          "equal": true,
+          "train_shape": [
+            1,
+            1,
+            3,
+            128,
+            128
+          ],
+          "eval_shape": [
+            1,
+            3,
+            128,
+            128
+          ],
+          "canonical_shape": [
+            1,
+            3,
+            128,
+            128
+          ],
+          "dtype_train": "torch.float32",
+          "dtype_eval": "torch.float32",
+          "max_abs_diff": 0.0,
+          "mean_abs_diff": 0.0,
+          "train_min": 0.03921568766236305,
+          "train_max": 0.9058823585510254
+        },
+        "observation.language.attention_mask": {
+          "equal": true,
+          "train_shape": [
+            1,
+            48
+          ],
+          "eval_shape": [
+            1,
+            48
+          ],
+          "canonical_shape": [
+            1,
+            48
+          ],
+          "dtype_train": "torch.bool",
+          "dtype_eval": "torch.bool",
+          "max_abs_diff": 0.0,
+          "mean_abs_diff": 0.0,
+          "train_min": 0.0,
+          "train_max": 1.0
+        },
+        "observation.language.tokens": {
+          "equal": true,
+          "train_shape": [
+            1,
+            48
+          ],
+          "eval_shape": [
+            1,
+            48
+          ],
+          "canonical_shape": [
+            1,
+            48
+          ],
+          "dtype_train": "torch.int64",
+          "dtype_eval": "torch.int64",
+          "max_abs_diff": 0.0,
+          "mean_abs_diff": 0.0,
+          "train_min": 2.0,
+          "train_max": 46345.0
+        },
+        "observation.state": {
+          "equal": true,
+          "train_shape": [
+            1,
+            1,
+            15
+          ],
+          "eval_shape": [
+            1,
+            15
+          ],
+          "canonical_shape": [
+            1,
+            15
+          ],
+          "dtype_train": "torch.float32",
+          "dtype_eval": "torch.float32",
+          "max_abs_diff": 0.0,
+          "mean_abs_diff": 0.0,
+          "train_min": -2.073903799057007,
+          "train_max": 1.6322613954544067
+        },
+        "task": {
+          "equal": true,
+          "train_type": "list",
+          "eval_type": "list",
+          "train_value": "['pick up the akita black bowl and place it on the plate in the left region\\n']",
+          "eval_value": "['pick up the akita black bowl and place it on the plate in the left region\\n']"
+        }
+      },
+      "unequal_processed_keys": []
+    },
+    {
+      "episode_index": 3,
+      "hdf5_demo": "demo_3",
+      "frame_index": 0,
+      "dataset_task": "pick up the akita black bowl and place it on the plate in the left region",
+      "raw_images_and_state_exact": true,
+      "training_processor_keys": [
+        "action",
+        "info",
+        "next.done",
+        "next.reward",
+        "next.truncated",
+        "observation.images.agentview",
+        "observation.images.wrist",
+        "observation.language.attention_mask",
+        "observation.language.tokens",
+        "observation.state",
+        "task"
+      ],
+      "evaluation_processor_keys": [
+        "action",
+        "info",
+        "next.done",
+        "next.reward",
+        "next.truncated",
+        "observation.images.agentview",
+        "observation.images.wrist",
+        "observation.language.attention_mask",
+        "observation.language.tokens",
+        "observation.state",
+        "task"
+      ],
+      "processor_key_sets_equal": true,
+      "processed_model_input_comparison": {
+        "action": {
+          "equal": true,
+          "train_type": "NoneType",
+          "eval_type": "NoneType",
+          "train_value": null,
+          "eval_value": null
+        },
+        "info": {
+          "equal": true,
+          "train_type": "dict",
+          "eval_type": "dict",
+          "train_value": "{}",
+          "eval_value": "{}"
+        },
+        "next.done": {
+          "equal": true,
+          "train_type": "bool",
+          "eval_type": "bool",
+          "train_value": false,
+          "eval_value": false
+        },
+        "next.reward": {
+          "equal": true,
+          "train_type": "float",
+          "eval_type": "float",
+          "train_value": 0.0,
+          "eval_value": 0.0
+        },
+        "next.truncated": {
+          "equal": true,
+          "train_type": "bool",
+          "eval_type": "bool",
+          "train_value": false,
+          "eval_value": false
+        },
+        "observation.images.agentview": {
+          "equal": true,
+          "train_shape": [
+            1,
+            1,
+            3,
+            128,
+            128
+          ],
+          "eval_shape": [
+            1,
+            3,
+            128,
+            128
+          ],
+          "canonical_shape": [
+            1,
+            3,
+            128,
+            128
+          ],
+          "dtype_train": "torch.float32",
+          "dtype_eval": "torch.float32",
+          "max_abs_diff": 0.0,
+          "mean_abs_diff": 0.0,
+          "train_min": 0.0,
+          "train_max": 0.9176470637321472
+        },
+        "observation.images.wrist": {
+          "equal": true,
+          "train_shape": [
+            1,
+            1,
+            3,
+            128,
+            128
+          ],
+          "eval_shape": [
+            1,
+            3,
+            128,
+            128
+          ],
+          "canonical_shape": [
+            1,
+            3,
+            128,
+            128
+          ],
+          "dtype_train": "torch.float32",
+          "dtype_eval": "torch.float32",
+          "max_abs_diff": 0.0,
+          "mean_abs_diff": 0.0,
+          "train_min": 0.003921568859368563,
+          "train_max": 0.8352941274642944
+        },
+        "observation.language.attention_mask": {
+          "equal": true,
+          "train_shape": [
+            1,
+            48
+          ],
+          "eval_shape": [
+            1,
+            48
+          ],
+          "canonical_shape": [
+            1,
+            48
+          ],
+          "dtype_train": "torch.bool",
+          "dtype_eval": "torch.bool",
+          "max_abs_diff": 0.0,
+          "mean_abs_diff": 0.0,
+          "train_min": 0.0,
+          "train_max": 1.0
+        },
+        "observation.language.tokens": {
+          "equal": true,
+          "train_shape": [
+            1,
+            48
+          ],
+          "eval_shape": [
+            1,
+            48
+          ],
+          "canonical_shape": [
+            1,
+            48
+          ],
+          "dtype_train": "torch.int64",
+          "dtype_eval": "torch.int64",
+          "max_abs_diff": 0.0,
+          "mean_abs_diff": 0.0,
+          "train_min": 2.0,
+          "train_max": 46345.0
+        },
+        "observation.state": {
+          "equal": true,
+          "train_shape": [
+            1,
+            1,
+            15
+          ],
+          "eval_shape": [
+            1,
+            15
+          ],
+          "canonical_shape": [
+            1,
+            15
+          ],
+          "dtype_train": "torch.float32",
+          "dtype_eval": "torch.float32",
+          "max_abs_diff": 0.0,
+          "mean_abs_diff": 0.0,
+          "train_min": -2.2659878730773926,
+          "train_max": 1.8211723566055298
+        },
+        "task": {
+          "equal": true,
+          "train_type": "list",
+          "eval_type": "list",
+          "train_value": "['pick up the akita black bowl and place it on the plate in the left region\\n']",
+          "eval_value": "['pick up the akita black bowl and place it on the plate in the left region\\n']"
+        }
+      },
+      "unequal_processed_keys": []
+    },
+    {
+      "episode_index": 3,
+      "hdf5_demo": "demo_3",
+      "frame_index": 100,
+      "dataset_task": "pick up the akita black bowl and place it on the plate in the left region",
+      "raw_images_and_state_exact": true,
+      "training_processor_keys": [
+        "action",
+        "info",
+        "next.done",
+        "next.reward",
+        "next.truncated",
+        "observation.images.agentview",
+        "observation.images.wrist",
+        "observation.language.attention_mask",
+        "observation.language.tokens",
+        "observation.state",
+        "task"
+      ],
+      "evaluation_processor_keys": [
+        "action",
+        "info",
+        "next.done",
+        "next.reward",
+        "next.truncated",
+        "observation.images.agentview",
+        "observation.images.wrist",
+        "observation.language.attention_mask",
+        "observation.language.tokens",
+        "observation.state",
+        "task"
+      ],
+      "processor_key_sets_equal": true,
+      "processed_model_input_comparison": {
+        "action": {
+          "equal": true,
+          "train_type": "NoneType",
+          "eval_type": "NoneType",
+          "train_value": null,
+          "eval_value": null
+        },
+        "info": {
+          "equal": true,
+          "train_type": "dict",
+          "eval_type": "dict",
+          "train_value": "{}",
+          "eval_value": "{}"
+        },
+        "next.done": {
+          "equal": true,
+          "train_type": "bool",
+          "eval_type": "bool",
+          "train_value": false,
+          "eval_value": false
+        },
+        "next.reward": {
+          "equal": true,
+          "train_type": "float",
+          "eval_type": "float",
+          "train_value": 0.0,
+          "eval_value": 0.0
+        },
+        "next.truncated": {
+          "equal": true,
+          "train_type": "bool",
+          "eval_type": "bool",
+          "train_value": false,
+          "eval_value": false
+        },
+        "observation.images.agentview": {
+          "equal": true,
+          "train_shape": [
+            1,
+            1,
+            3,
+            128,
+            128
+          ],
+          "eval_shape": [
+            1,
+            3,
+            128,
+            128
+          ],
+          "canonical_shape": [
+            1,
+            3,
+            128,
+            128
+          ],
+          "dtype_train": "torch.float32",
+          "dtype_eval": "torch.float32",
+          "max_abs_diff": 0.0,
+          "mean_abs_diff": 0.0,
+          "train_min": 0.03921568766236305,
+          "train_max": 0.9333333373069763
+        },
+        "observation.images.wrist": {
+          "equal": true,
+          "train_shape": [
+            1,
+            1,
+            3,
+            128,
+            128
+          ],
+          "eval_shape": [
+            1,
+            3,
+            128,
+            128
+          ],
+          "canonical_shape": [
+            1,
+            3,
+            128,
+            128
+          ],
+          "dtype_train": "torch.float32",
+          "dtype_eval": "torch.float32",
+          "max_abs_diff": 0.0,
+          "mean_abs_diff": 0.0,
+          "train_min": 0.03921568766236305,
+          "train_max": 0.9176470637321472
+        },
+        "observation.language.attention_mask": {
+          "equal": true,
+          "train_shape": [
+            1,
+            48
+          ],
+          "eval_shape": [
+            1,
+            48
+          ],
+          "canonical_shape": [
+            1,
+            48
+          ],
+          "dtype_train": "torch.bool",
+          "dtype_eval": "torch.bool",
+          "max_abs_diff": 0.0,
+          "mean_abs_diff": 0.0,
+          "train_min": 0.0,
+          "train_max": 1.0
+        },
+        "observation.language.tokens": {
+          "equal": true,
+          "train_shape": [
+            1,
+            48
+          ],
+          "eval_shape": [
+            1,
+            48
+          ],
+          "canonical_shape": [
+            1,
+            48
+          ],
+          "dtype_train": "torch.int64",
+          "dtype_eval": "torch.int64",
+          "max_abs_diff": 0.0,
+          "mean_abs_diff": 0.0,
+          "train_min": 2.0,
+          "train_max": 46345.0
+        },
+        "observation.state": {
+          "equal": true,
+          "train_shape": [
+            1,
+            1,
+            15
+          ],
+          "eval_shape": [
+            1,
+            15
+          ],
+          "canonical_shape": [
+            1,
+            15
+          ],
+          "dtype_train": "torch.float32",
+          "dtype_eval": "torch.float32",
+          "max_abs_diff": 0.0,
+          "mean_abs_diff": 0.0,
+          "train_min": -2.199842691421509,
+          "train_max": 1.8147339820861816
+        },
+        "task": {
+          "equal": true,
+          "train_type": "list",
+          "eval_type": "list",
+          "train_value": "['pick up the akita black bowl and place it on the plate in the left region\\n']",
+          "eval_value": "['pick up the akita black bowl and place it on the plate in the left region\\n']"
+        }
+      },
+      "unequal_processed_keys": []
+    },
+    {
+      "episode_index": 3,
+      "hdf5_demo": "demo_3",
+      "frame_index": 250,
+      "dataset_task": "pick up the akita black bowl and place it on the plate in the left region",
+      "raw_images_and_state_exact": true,
+      "training_processor_keys": [
+        "action",
+        "info",
+        "next.done",
+        "next.reward",
+        "next.truncated",
+        "observation.images.agentview",
+        "observation.images.wrist",
+        "observation.language.attention_mask",
+        "observation.language.tokens",
+        "observation.state",
+        "task"
+      ],
+      "evaluation_processor_keys": [
+        "action",
+        "info",
+        "next.done",
+        "next.reward",
+        "next.truncated",
+        "observation.images.agentview",
+        "observation.images.wrist",
+        "observation.language.attention_mask",
+        "observation.language.tokens",
+        "observation.state",
+        "task"
+      ],
+      "processor_key_sets_equal": true,
+      "processed_model_input_comparison": {
+        "action": {
+          "equal": true,
+          "train_type": "NoneType",
+          "eval_type": "NoneType",
+          "train_value": null,
+          "eval_value": null
+        },
+        "info": {
+          "equal": true,
+          "train_type": "dict",
+          "eval_type": "dict",
+          "train_value": "{}",
+          "eval_value": "{}"
+        },
+        "next.done": {
+          "equal": true,
+          "train_type": "bool",
+          "eval_type": "bool",
+          "train_value": false,
+          "eval_value": false
+        },
+        "next.reward": {
+          "equal": true,
+          "train_type": "float",
+          "eval_type": "float",
+          "train_value": 0.0,
+          "eval_value": 0.0
+        },
+        "next.truncated": {
+          "equal": true,
+          "train_type": "bool",
+          "eval_type": "bool",
+          "train_value": false,
+          "eval_value": false
+        },
+        "observation.images.agentview": {
+          "equal": true,
+          "train_shape": [
+            1,
+            1,
+            3,
+            128,
+            128
+          ],
+          "eval_shape": [
+            1,
+            3,
+            128,
+            128
+          ],
+          "canonical_shape": [
+            1,
+            3,
+            128,
+            128
+          ],
+          "dtype_train": "torch.float32",
+          "dtype_eval": "torch.float32",
+          "max_abs_diff": 0.0,
+          "mean_abs_diff": 0.0,
+          "train_min": 0.03921568766236305,
+          "train_max": 0.9843137264251709
+        },
+        "observation.images.wrist": {
+          "equal": true,
+          "train_shape": [
+            1,
+            1,
+            3,
+            128,
+            128
+          ],
+          "eval_shape": [
+            1,
+            3,
+            128,
+            128
+          ],
+          "canonical_shape": [
+            1,
+            3,
+            128,
+            128
+          ],
+          "dtype_train": "torch.float32",
+          "dtype_eval": "torch.float32",
+          "max_abs_diff": 0.0,
+          "mean_abs_diff": 0.0,
+          "train_min": 0.05098039284348488,
+          "train_max": 0.9411764740943909
+        },
+        "observation.language.attention_mask": {
+          "equal": true,
+          "train_shape": [
+            1,
+            48
+          ],
+          "eval_shape": [
+            1,
+            48
+          ],
+          "canonical_shape": [
+            1,
+            48
+          ],
+          "dtype_train": "torch.bool",
+          "dtype_eval": "torch.bool",
+          "max_abs_diff": 0.0,
+          "mean_abs_diff": 0.0,
+          "train_min": 0.0,
+          "train_max": 1.0
+        },
+        "observation.language.tokens": {
+          "equal": true,
+          "train_shape": [
+            1,
+            48
+          ],
+          "eval_shape": [
+            1,
+            48
+          ],
+          "canonical_shape": [
+            1,
+            48
+          ],
+          "dtype_train": "torch.int64",
+          "dtype_eval": "torch.int64",
+          "max_abs_diff": 0.0,
+          "mean_abs_diff": 0.0,
+          "train_min": 2.0,
+          "train_max": 46345.0
+        },
+        "observation.state": {
+          "equal": true,
+          "train_shape": [
+            1,
+            1,
+            15
+          ],
+          "eval_shape": [
+            1,
+            15
+          ],
+          "canonical_shape": [
+            1,
+            15
+          ],
+          "dtype_train": "torch.float32",
+          "dtype_eval": "torch.float32",
+          "max_abs_diff": 0.0,
+          "mean_abs_diff": 0.0,
+          "train_min": -1.9229118824005127,
+          "train_max": 1.999464988708496
+        },
+        "task": {
+          "equal": true,
+          "train_type": "list",
+          "eval_type": "list",
+          "train_value": "['pick up the akita black bowl and place it on the plate in the left region\\n']",
+          "eval_value": "['pick up the akita black bowl and place it on the plate in the left region\\n']"
+        }
+      },
+      "unequal_processed_keys": []
+    },
+    {
+      "episode_index": 3,
+      "hdf5_demo": "demo_3",
+      "frame_index": 450,
+      "dataset_task": "pick up the akita black bowl and place it on the plate in the left region",
+      "raw_images_and_state_exact": true,
+      "training_processor_keys": [
+        "action",
+        "info",
+        "next.done",
+        "next.reward",
+        "next.truncated",
+        "observation.images.agentview",
+        "observation.images.wrist",
+        "observation.language.attention_mask",
+        "observation.language.tokens",
+        "observation.state",
+        "task"
+      ],
+      "evaluation_processor_keys": [
+        "action",
+        "info",
+        "next.done",
+        "next.reward",
+        "next.truncated",
+        "observation.images.agentview",
+        "observation.images.wrist",
+        "observation.language.attention_mask",
+        "observation.language.tokens",
+        "observation.state",
+        "task"
+      ],
+      "processor_key_sets_equal": true,
+      "processed_model_input_comparison": {
+        "action": {
+          "equal": true,
+          "train_type": "NoneType",
+          "eval_type": "NoneType",
+          "train_value": null,
+          "eval_value": null
+        },
+        "info": {
+          "equal": true,
+          "train_type": "dict",
+          "eval_type": "dict",
+          "train_value": "{}",
+          "eval_value": "{}"
+        },
+        "next.done": {
+          "equal": true,
+          "train_type": "bool",
+          "eval_type": "bool",
+          "train_value": false,
+          "eval_value": false
+        },
+        "next.reward": {
+          "equal": true,
+          "train_type": "float",
+          "eval_type": "float",
+          "train_value": 0.0,
+          "eval_value": 0.0
+        },
+        "next.truncated": {
+          "equal": true,
+          "train_type": "bool",
+          "eval_type": "bool",
+          "train_value": false,
+          "eval_value": false
+        },
+        "observation.images.agentview": {
+          "equal": true,
+          "train_shape": [
+            1,
+            1,
+            3,
+            128,
+            128
+          ],
+          "eval_shape": [
+            1,
+            3,
+            128,
+            128
+          ],
+          "canonical_shape": [
+            1,
+            3,
+            128,
+            128
+          ],
+          "dtype_train": "torch.float32",
+          "dtype_eval": "torch.float32",
+          "max_abs_diff": 0.0,
+          "mean_abs_diff": 0.0,
+          "train_min": 0.0313725508749485,
+          "train_max": 0.8392156958580017
+        },
+        "observation.images.wrist": {
+          "equal": true,
+          "train_shape": [
+            1,
+            1,
+            3,
+            128,
+            128
+          ],
+          "eval_shape": [
+            1,
+            3,
+            128,
+            128
+          ],
+          "canonical_shape": [
+            1,
+            3,
+            128,
+            128
+          ],
+          "dtype_train": "torch.float32",
+          "dtype_eval": "torch.float32",
+          "max_abs_diff": 0.0,
+          "mean_abs_diff": 0.0,
+          "train_min": 0.01568627543747425,
+          "train_max": 0.8980392217636108
+        },
+        "observation.language.attention_mask": {
+          "equal": true,
+          "train_shape": [
+            1,
+            48
+          ],
+          "eval_shape": [
+            1,
+            48
+          ],
+          "canonical_shape": [
+            1,
+            48
+          ],
+          "dtype_train": "torch.bool",
+          "dtype_eval": "torch.bool",
+          "max_abs_diff": 0.0,
+          "mean_abs_diff": 0.0,
+          "train_min": 0.0,
+          "train_max": 1.0
+        },
+        "observation.language.tokens": {
+          "equal": true,
+          "train_shape": [
+            1,
+            48
+          ],
+          "eval_shape": [
+            1,
+            48
+          ],
+          "canonical_shape": [
+            1,
+            48
+          ],
+          "dtype_train": "torch.int64",
+          "dtype_eval": "torch.int64",
+          "max_abs_diff": 0.0,
+          "mean_abs_diff": 0.0,
+          "train_min": 2.0,
+          "train_max": 46345.0
+        },
+        "observation.state": {
+          "equal": true,
+          "train_shape": [
+            1,
+            1,
+            15
+          ],
+          "eval_shape": [
+            1,
+            15
+          ],
+          "canonical_shape": [
+            1,
+            15
+          ],
+          "dtype_train": "torch.float32",
+          "dtype_eval": "torch.float32",
+          "max_abs_diff": 0.0,
+          "mean_abs_diff": 0.0,
+          "train_min": -2.1795969009399414,
+          "train_max": 2.5260400772094727
+        },
+        "task": {
+          "equal": true,
+          "train_type": "list",
+          "eval_type": "list",
+          "train_value": "['pick up the akita black bowl and place it on the plate in the left region\\n']",
+          "eval_value": "['pick up the akita black bowl and place it on the plate in the left region\\n']"
+        }
+      },
+      "unequal_processed_keys": []
+    },
+    {
+      "episode_index": 3,
+      "hdf5_demo": "demo_3",
+      "frame_index": 657,
+      "dataset_task": "pick up the akita black bowl and place it on the plate in the left region",
+      "raw_images_and_state_exact": true,
+      "training_processor_keys": [
+        "action",
+        "info",
+        "next.done",
+        "next.reward",
+        "next.truncated",
+        "observation.images.agentview",
+        "observation.images.wrist",
+        "observation.language.attention_mask",
+        "observation.language.tokens",
+        "observation.state",
+        "task"
+      ],
+      "evaluation_processor_keys": [
+        "action",
+        "info",
+        "next.done",
+        "next.reward",
+        "next.truncated",
+        "observation.images.agentview",
+        "observation.images.wrist",
+        "observation.language.attention_mask",
+        "observation.language.tokens",
+        "observation.state",
+        "task"
+      ],
+      "processor_key_sets_equal": true,
+      "processed_model_input_comparison": {
+        "action": {
+          "equal": true,
+          "train_type": "NoneType",
+          "eval_type": "NoneType",
+          "train_value": null,
+          "eval_value": null
+        },
+        "info": {
+          "equal": true,
+          "train_type": "dict",
+          "eval_type": "dict",
+          "train_value": "{}",
+          "eval_value": "{}"
+        },
+        "next.done": {
+          "equal": true,
+          "train_type": "bool",
+          "eval_type": "bool",
+          "train_value": false,
+          "eval_value": false
+        },
+        "next.reward": {
+          "equal": true,
+          "train_type": "float",
+          "eval_type": "float",
+          "train_value": 0.0,
+          "eval_value": 0.0
+        },
+        "next.truncated": {
+          "equal": true,
+          "train_type": "bool",
+          "eval_type": "bool",
+          "train_value": false,
+          "eval_value": false
+        },
+        "observation.images.agentview": {
+          "equal": true,
+          "train_shape": [
+            1,
+            1,
+            3,
+            128,
+            128
+          ],
+          "eval_shape": [
+            1,
+            3,
+            128,
+            128
+          ],
+          "canonical_shape": [
+            1,
+            3,
+            128,
+            128
+          ],
+          "dtype_train": "torch.float32",
+          "dtype_eval": "torch.float32",
+          "max_abs_diff": 0.0,
+          "mean_abs_diff": 0.0,
+          "train_min": 0.0313725508749485,
+          "train_max": 0.9921568632125854
+        },
+        "observation.images.wrist": {
+          "equal": true,
+          "train_shape": [
+            1,
+            1,
+            3,
+            128,
+            128
+          ],
+          "eval_shape": [
+            1,
+            3,
+            128,
+            128
+          ],
+          "canonical_shape": [
+            1,
+            3,
+            128,
+            128
+          ],
+          "dtype_train": "torch.float32",
+          "dtype_eval": "torch.float32",
+          "max_abs_diff": 0.0,
+          "mean_abs_diff": 0.0,
+          "train_min": 0.03529411926865578,
+          "train_max": 0.929411768913269
+        },
+        "observation.language.attention_mask": {
+          "equal": true,
+          "train_shape": [
+            1,
+            48
+          ],
+          "eval_shape": [
+            1,
+            48
+          ],
+          "canonical_shape": [
+            1,
+            48
+          ],
+          "dtype_train": "torch.bool",
+          "dtype_eval": "torch.bool",
+          "max_abs_diff": 0.0,
+          "mean_abs_diff": 0.0,
+          "train_min": 0.0,
+          "train_max": 1.0
+        },
+        "observation.language.tokens": {
+          "equal": true,
+          "train_shape": [
+            1,
+            48
+          ],
+          "eval_shape": [
+            1,
+            48
+          ],
+          "canonical_shape": [
+            1,
+            48
+          ],
+          "dtype_train": "torch.int64",
+          "dtype_eval": "torch.int64",
+          "max_abs_diff": 0.0,
+          "mean_abs_diff": 0.0,
+          "train_min": 2.0,
+          "train_max": 46345.0
+        },
+        "observation.state": {
+          "equal": true,
+          "train_shape": [
+            1,
+            1,
+            15
+          ],
+          "eval_shape": [
+            1,
+            15
+          ],
+          "canonical_shape": [
+            1,
+            15
+          ],
+          "dtype_train": "torch.float32",
+          "dtype_eval": "torch.float32",
+          "max_abs_diff": 0.0,
+          "mean_abs_diff": 0.0,
+          "train_min": -2.067552089691162,
+          "train_max": 1.624276041984558
+        },
+        "task": {
+          "equal": true,
+          "train_type": "list",
+          "eval_type": "list",
+          "train_value": "['pick up the akita black bowl and place it on the plate in the left region\\n']",
+          "eval_value": "['pick up the akita black bowl and place it on the plate in the left region\\n']"
+        }
+      },
+      "unequal_processed_keys": []
+    },
+    {
+      "episode_index": 4,
+      "hdf5_demo": "demo_4",
+      "frame_index": 0,
+      "dataset_task": "pick up the akita black bowl and place it on the plate in the left region",
+      "raw_images_and_state_exact": true,
+      "training_processor_keys": [
+        "action",
+        "info",
+        "next.done",
+        "next.reward",
+        "next.truncated",
+        "observation.images.agentview",
+        "observation.images.wrist",
+        "observation.language.attention_mask",
+        "observation.language.tokens",
+        "observation.state",
+        "task"
+      ],
+      "evaluation_processor_keys": [
+        "action",
+        "info",
+        "next.done",
+        "next.reward",
+        "next.truncated",
+        "observation.images.agentview",
+        "observation.images.wrist",
+        "observation.language.attention_mask",
+        "observation.language.tokens",
+        "observation.state",
+        "task"
+      ],
+      "processor_key_sets_equal": true,
+      "processed_model_input_comparison": {
+        "action": {
+          "equal": true,
+          "train_type": "NoneType",
+          "eval_type": "NoneType",
+          "train_value": null,
+          "eval_value": null
+        },
+        "info": {
+          "equal": true,
+          "train_type": "dict",
+          "eval_type": "dict",
+          "train_value": "{}",
+          "eval_value": "{}"
+        },
+        "next.done": {
+          "equal": true,
+          "train_type": "bool",
+          "eval_type": "bool",
+          "train_value": false,
+          "eval_value": false
+        },
+        "next.reward": {
+          "equal": true,
+          "train_type": "float",
+          "eval_type": "float",
+          "train_value": 0.0,
+          "eval_value": 0.0
+        },
+        "next.truncated": {
+          "equal": true,
+          "train_type": "bool",
+          "eval_type": "bool",
+          "train_value": false,
+          "eval_value": false
+        },
+        "observation.images.agentview": {
+          "equal": true,
+          "train_shape": [
+            1,
+            1,
+            3,
+            128,
+            128
+          ],
+          "eval_shape": [
+            1,
+            3,
+            128,
+            128
+          ],
+          "canonical_shape": [
+            1,
+            3,
+            128,
+            128
+          ],
+          "dtype_train": "torch.float32",
+          "dtype_eval": "torch.float32",
+          "max_abs_diff": 0.0,
+          "mean_abs_diff": 0.0,
+          "train_min": 0.0235294122248888,
+          "train_max": 0.9176470637321472
+        },
+        "observation.images.wrist": {
+          "equal": true,
+          "train_shape": [
+            1,
+            1,
+            3,
+            128,
+            128
+          ],
+          "eval_shape": [
+            1,
+            3,
+            128,
+            128
+          ],
+          "canonical_shape": [
+            1,
+            3,
+            128,
+            128
+          ],
+          "dtype_train": "torch.float32",
+          "dtype_eval": "torch.float32",
+          "max_abs_diff": 0.0,
+          "mean_abs_diff": 0.0,
+          "train_min": 0.003921568859368563,
+          "train_max": 0.8392156958580017
+        },
+        "observation.language.attention_mask": {
+          "equal": true,
+          "train_shape": [
+            1,
+            48
+          ],
+          "eval_shape": [
+            1,
+            48
+          ],
+          "canonical_shape": [
+            1,
+            48
+          ],
+          "dtype_train": "torch.bool",
+          "dtype_eval": "torch.bool",
+          "max_abs_diff": 0.0,
+          "mean_abs_diff": 0.0,
+          "train_min": 0.0,
+          "train_max": 1.0
+        },
+        "observation.language.tokens": {
+          "equal": true,
+          "train_shape": [
+            1,
+            48
+          ],
+          "eval_shape": [
+            1,
+            48
+          ],
+          "canonical_shape": [
+            1,
+            48
+          ],
+          "dtype_train": "torch.int64",
+          "dtype_eval": "torch.int64",
+          "max_abs_diff": 0.0,
+          "mean_abs_diff": 0.0,
+          "train_min": 2.0,
+          "train_max": 46345.0
+        },
+        "observation.state": {
+          "equal": true,
+          "train_shape": [
+            1,
+            1,
+            15
+          ],
+          "eval_shape": [
+            1,
+            15
+          ],
+          "canonical_shape": [
+            1,
+            15
+          ],
+          "dtype_train": "torch.float32",
+          "dtype_eval": "torch.float32",
+          "max_abs_diff": 0.0,
+          "mean_abs_diff": 0.0,
+          "train_min": -2.2659878730773926,
+          "train_max": 1.8211723566055298
+        },
+        "task": {
+          "equal": true,
+          "train_type": "list",
+          "eval_type": "list",
+          "train_value": "['pick up the akita black bowl and place it on the plate in the left region\\n']",
+          "eval_value": "['pick up the akita black bowl and place it on the plate in the left region\\n']"
+        }
+      },
+      "unequal_processed_keys": []
+    },
+    {
+      "episode_index": 4,
+      "hdf5_demo": "demo_4",
+      "frame_index": 100,
+      "dataset_task": "pick up the akita black bowl and place it on the plate in the left region",
+      "raw_images_and_state_exact": true,
+      "training_processor_keys": [
+        "action",
+        "info",
+        "next.done",
+        "next.reward",
+        "next.truncated",
+        "observation.images.agentview",
+        "observation.images.wrist",
+        "observation.language.attention_mask",
+        "observation.language.tokens",
+        "observation.state",
+        "task"
+      ],
+      "evaluation_processor_keys": [
+        "action",
+        "info",
+        "next.done",
+        "next.reward",
+        "next.truncated",
+        "observation.images.agentview",
+        "observation.images.wrist",
+        "observation.language.attention_mask",
+        "observation.language.tokens",
+        "observation.state",
+        "task"
+      ],
+      "processor_key_sets_equal": true,
+      "processed_model_input_comparison": {
+        "action": {
+          "equal": true,
+          "train_type": "NoneType",
+          "eval_type": "NoneType",
+          "train_value": null,
+          "eval_value": null
+        },
+        "info": {
+          "equal": true,
+          "train_type": "dict",
+          "eval_type": "dict",
+          "train_value": "{}",
+          "eval_value": "{}"
+        },
+        "next.done": {
+          "equal": true,
+          "train_type": "bool",
+          "eval_type": "bool",
+          "train_value": false,
+          "eval_value": false
+        },
+        "next.reward": {
+          "equal": true,
+          "train_type": "float",
+          "eval_type": "float",
+          "train_value": 0.0,
+          "eval_value": 0.0
+        },
+        "next.truncated": {
+          "equal": true,
+          "train_type": "bool",
+          "eval_type": "bool",
+          "train_value": false,
+          "eval_value": false
+        },
+        "observation.images.agentview": {
+          "equal": true,
+          "train_shape": [
+            1,
+            1,
+            3,
+            128,
+            128
+          ],
+          "eval_shape": [
+            1,
+            3,
+            128,
+            128
+          ],
+          "canonical_shape": [
+            1,
+            3,
+            128,
+            128
+          ],
+          "dtype_train": "torch.float32",
+          "dtype_eval": "torch.float32",
+          "max_abs_diff": 0.0,
+          "mean_abs_diff": 0.0,
+          "train_min": 0.03921568766236305,
+          "train_max": 0.9333333373069763
+        },
+        "observation.images.wrist": {
+          "equal": true,
+          "train_shape": [
+            1,
+            1,
+            3,
+            128,
+            128
+          ],
+          "eval_shape": [
+            1,
+            3,
+            128,
+            128
+          ],
+          "canonical_shape": [
+            1,
+            3,
+            128,
+            128
+          ],
+          "dtype_train": "torch.float32",
+          "dtype_eval": "torch.float32",
+          "max_abs_diff": 0.0,
+          "mean_abs_diff": 0.0,
+          "train_min": 0.0313725508749485,
+          "train_max": 0.9411764740943909
+        },
+        "observation.language.attention_mask": {
+          "equal": true,
+          "train_shape": [
+            1,
+            48
+          ],
+          "eval_shape": [
+            1,
+            48
+          ],
+          "canonical_shape": [
+            1,
+            48
+          ],
+          "dtype_train": "torch.bool",
+          "dtype_eval": "torch.bool",
+          "max_abs_diff": 0.0,
+          "mean_abs_diff": 0.0,
+          "train_min": 0.0,
+          "train_max": 1.0
+        },
+        "observation.language.tokens": {
+          "equal": true,
+          "train_shape": [
+            1,
+            48
+          ],
+          "eval_shape": [
+            1,
+            48
+          ],
+          "canonical_shape": [
+            1,
+            48
+          ],
+          "dtype_train": "torch.int64",
+          "dtype_eval": "torch.int64",
+          "max_abs_diff": 0.0,
+          "mean_abs_diff": 0.0,
+          "train_min": 2.0,
+          "train_max": 46345.0
+        },
+        "observation.state": {
+          "equal": true,
+          "train_shape": [
+            1,
+            1,
+            15
+          ],
+          "eval_shape": [
+            1,
+            15
+          ],
+          "canonical_shape": [
+            1,
+            15
+          ],
+          "dtype_train": "torch.float32",
+          "dtype_eval": "torch.float32",
+          "max_abs_diff": 0.0,
+          "mean_abs_diff": 0.0,
+          "train_min": -2.199842691421509,
+          "train_max": 1.8147339820861816
+        },
+        "task": {
+          "equal": true,
+          "train_type": "list",
+          "eval_type": "list",
+          "train_value": "['pick up the akita black bowl and place it on the plate in the left region\\n']",
+          "eval_value": "['pick up the akita black bowl and place it on the plate in the left region\\n']"
+        }
+      },
+      "unequal_processed_keys": []
+    },
+    {
+      "episode_index": 4,
+      "hdf5_demo": "demo_4",
+      "frame_index": 250,
+      "dataset_task": "pick up the akita black bowl and place it on the plate in the left region",
+      "raw_images_and_state_exact": true,
+      "training_processor_keys": [
+        "action",
+        "info",
+        "next.done",
+        "next.reward",
+        "next.truncated",
+        "observation.images.agentview",
+        "observation.images.wrist",
+        "observation.language.attention_mask",
+        "observation.language.tokens",
+        "observation.state",
+        "task"
+      ],
+      "evaluation_processor_keys": [
+        "action",
+        "info",
+        "next.done",
+        "next.reward",
+        "next.truncated",
+        "observation.images.agentview",
+        "observation.images.wrist",
+        "observation.language.attention_mask",
+        "observation.language.tokens",
+        "observation.state",
+        "task"
+      ],
+      "processor_key_sets_equal": true,
+      "processed_model_input_comparison": {
+        "action": {
+          "equal": true,
+          "train_type": "NoneType",
+          "eval_type": "NoneType",
+          "train_value": null,
+          "eval_value": null
+        },
+        "info": {
+          "equal": true,
+          "train_type": "dict",
+          "eval_type": "dict",
+          "train_value": "{}",
+          "eval_value": "{}"
+        },
+        "next.done": {
+          "equal": true,
+          "train_type": "bool",
+          "eval_type": "bool",
+          "train_value": false,
+          "eval_value": false
+        },
+        "next.reward": {
+          "equal": true,
+          "train_type": "float",
+          "eval_type": "float",
+          "train_value": 0.0,
+          "eval_value": 0.0
+        },
+        "next.truncated": {
+          "equal": true,
+          "train_type": "bool",
+          "eval_type": "bool",
+          "train_value": false,
+          "eval_value": false
+        },
+        "observation.images.agentview": {
+          "equal": true,
+          "train_shape": [
+            1,
+            1,
+            3,
+            128,
+            128
+          ],
+          "eval_shape": [
+            1,
+            3,
+            128,
+            128
+          ],
+          "canonical_shape": [
+            1,
+            3,
+            128,
+            128
+          ],
+          "dtype_train": "torch.float32",
+          "dtype_eval": "torch.float32",
+          "max_abs_diff": 0.0,
+          "mean_abs_diff": 0.0,
+          "train_min": 0.03921568766236305,
+          "train_max": 0.9882352948188782
+        },
+        "observation.images.wrist": {
+          "equal": true,
+          "train_shape": [
+            1,
+            1,
+            3,
+            128,
+            128
+          ],
+          "eval_shape": [
+            1,
+            3,
+            128,
+            128
+          ],
+          "canonical_shape": [
+            1,
+            3,
+            128,
+            128
+          ],
+          "dtype_train": "torch.float32",
+          "dtype_eval": "torch.float32",
+          "max_abs_diff": 0.0,
+          "mean_abs_diff": 0.0,
+          "train_min": 0.03921568766236305,
+          "train_max": 0.9647058844566345
+        },
+        "observation.language.attention_mask": {
+          "equal": true,
+          "train_shape": [
+            1,
+            48
+          ],
+          "eval_shape": [
+            1,
+            48
+          ],
+          "canonical_shape": [
+            1,
+            48
+          ],
+          "dtype_train": "torch.bool",
+          "dtype_eval": "torch.bool",
+          "max_abs_diff": 0.0,
+          "mean_abs_diff": 0.0,
+          "train_min": 0.0,
+          "train_max": 1.0
+        },
+        "observation.language.tokens": {
+          "equal": true,
+          "train_shape": [
+            1,
+            48
+          ],
+          "eval_shape": [
+            1,
+            48
+          ],
+          "canonical_shape": [
+            1,
+            48
+          ],
+          "dtype_train": "torch.int64",
+          "dtype_eval": "torch.int64",
+          "max_abs_diff": 0.0,
+          "mean_abs_diff": 0.0,
+          "train_min": 2.0,
+          "train_max": 46345.0
+        },
+        "observation.state": {
+          "equal": true,
+          "train_shape": [
+            1,
+            1,
+            15
+          ],
+          "eval_shape": [
+            1,
+            15
+          ],
+          "canonical_shape": [
+            1,
+            15
+          ],
+          "dtype_train": "torch.float32",
+          "dtype_eval": "torch.float32",
+          "max_abs_diff": 0.0,
+          "mean_abs_diff": 0.0,
+          "train_min": -1.96426522731781,
+          "train_max": 1.9940828084945679
+        },
+        "task": {
+          "equal": true,
+          "train_type": "list",
+          "eval_type": "list",
+          "train_value": "['pick up the akita black bowl and place it on the plate in the left region\\n']",
+          "eval_value": "['pick up the akita black bowl and place it on the plate in the left region\\n']"
+        }
+      },
+      "unequal_processed_keys": []
+    },
+    {
+      "episode_index": 4,
+      "hdf5_demo": "demo_4",
+      "frame_index": 450,
+      "dataset_task": "pick up the akita black bowl and place it on the plate in the left region",
+      "raw_images_and_state_exact": true,
+      "training_processor_keys": [
+        "action",
+        "info",
+        "next.done",
+        "next.reward",
+        "next.truncated",
+        "observation.images.agentview",
+        "observation.images.wrist",
+        "observation.language.attention_mask",
+        "observation.language.tokens",
+        "observation.state",
+        "task"
+      ],
+      "evaluation_processor_keys": [
+        "action",
+        "info",
+        "next.done",
+        "next.reward",
+        "next.truncated",
+        "observation.images.agentview",
+        "observation.images.wrist",
+        "observation.language.attention_mask",
+        "observation.language.tokens",
+        "observation.state",
+        "task"
+      ],
+      "processor_key_sets_equal": true,
+      "processed_model_input_comparison": {
+        "action": {
+          "equal": true,
+          "train_type": "NoneType",
+          "eval_type": "NoneType",
+          "train_value": null,
+          "eval_value": null
+        },
+        "info": {
+          "equal": true,
+          "train_type": "dict",
+          "eval_type": "dict",
+          "train_value": "{}",
+          "eval_value": "{}"
+        },
+        "next.done": {
+          "equal": true,
+          "train_type": "bool",
+          "eval_type": "bool",
+          "train_value": false,
+          "eval_value": false
+        },
+        "next.reward": {
+          "equal": true,
+          "train_type": "float",
+          "eval_type": "float",
+          "train_value": 0.0,
+          "eval_value": 0.0
+        },
+        "next.truncated": {
+          "equal": true,
+          "train_type": "bool",
+          "eval_type": "bool",
+          "train_value": false,
+          "eval_value": false
+        },
+        "observation.images.agentview": {
+          "equal": true,
+          "train_shape": [
+            1,
+            1,
+            3,
+            128,
+            128
+          ],
+          "eval_shape": [
+            1,
+            3,
+            128,
+            128
+          ],
+          "canonical_shape": [
+            1,
+            3,
+            128,
+            128
+          ],
+          "dtype_train": "torch.float32",
+          "dtype_eval": "torch.float32",
+          "max_abs_diff": 0.0,
+          "mean_abs_diff": 0.0,
+          "train_min": 0.03921568766236305,
+          "train_max": 0.8823529481887817
+        },
+        "observation.images.wrist": {
+          "equal": true,
+          "train_shape": [
+            1,
+            1,
+            3,
+            128,
+            128
+          ],
+          "eval_shape": [
+            1,
+            3,
+            128,
+            128
+          ],
+          "canonical_shape": [
+            1,
+            3,
+            128,
+            128
+          ],
+          "dtype_train": "torch.float32",
+          "dtype_eval": "torch.float32",
+          "max_abs_diff": 0.0,
+          "mean_abs_diff": 0.0,
+          "train_min": 0.01568627543747425,
+          "train_max": 0.8941176533699036
+        },
+        "observation.language.attention_mask": {
+          "equal": true,
+          "train_shape": [
+            1,
+            48
+          ],
+          "eval_shape": [
+            1,
+            48
+          ],
+          "canonical_shape": [
+            1,
+            48
+          ],
+          "dtype_train": "torch.bool",
+          "dtype_eval": "torch.bool",
+          "max_abs_diff": 0.0,
+          "mean_abs_diff": 0.0,
+          "train_min": 0.0,
+          "train_max": 1.0
+        },
+        "observation.language.tokens": {
+          "equal": true,
+          "train_shape": [
+            1,
+            48
+          ],
+          "eval_shape": [
+            1,
+            48
+          ],
+          "canonical_shape": [
+            1,
+            48
+          ],
+          "dtype_train": "torch.int64",
+          "dtype_eval": "torch.int64",
+          "max_abs_diff": 0.0,
+          "mean_abs_diff": 0.0,
+          "train_min": 2.0,
+          "train_max": 46345.0
+        },
+        "observation.state": {
+          "equal": true,
+          "train_shape": [
+            1,
+            1,
+            15
+          ],
+          "eval_shape": [
+            1,
+            15
+          ],
+          "canonical_shape": [
+            1,
+            15
+          ],
+          "dtype_train": "torch.float32",
+          "dtype_eval": "torch.float32",
+          "max_abs_diff": 0.0,
+          "mean_abs_diff": 0.0,
+          "train_min": -2.149364709854126,
+          "train_max": 2.5270111560821533
+        },
+        "task": {
+          "equal": true,
+          "train_type": "list",
+          "eval_type": "list",
+          "train_value": "['pick up the akita black bowl and place it on the plate in the left region\\n']",
+          "eval_value": "['pick up the akita black bowl and place it on the plate in the left region\\n']"
+        }
+      },
+      "unequal_processed_keys": []
+    },
+    {
+      "episode_index": 4,
+      "hdf5_demo": "demo_4",
+      "frame_index": 657,
+      "dataset_task": "pick up the akita black bowl and place it on the plate in the left region",
+      "raw_images_and_state_exact": true,
+      "training_processor_keys": [
+        "action",
+        "info",
+        "next.done",
+        "next.reward",
+        "next.truncated",
+        "observation.images.agentview",
+        "observation.images.wrist",
+        "observation.language.attention_mask",
+        "observation.language.tokens",
+        "observation.state",
+        "task"
+      ],
+      "evaluation_processor_keys": [
+        "action",
+        "info",
+        "next.done",
+        "next.reward",
+        "next.truncated",
+        "observation.images.agentview",
+        "observation.images.wrist",
+        "observation.language.attention_mask",
+        "observation.language.tokens",
+        "observation.state",
+        "task"
+      ],
+      "processor_key_sets_equal": true,
+      "processed_model_input_comparison": {
+        "action": {
+          "equal": true,
+          "train_type": "NoneType",
+          "eval_type": "NoneType",
+          "train_value": null,
+          "eval_value": null
+        },
+        "info": {
+          "equal": true,
+          "train_type": "dict",
+          "eval_type": "dict",
+          "train_value": "{}",
+          "eval_value": "{}"
+        },
+        "next.done": {
+          "equal": true,
+          "train_type": "bool",
+          "eval_type": "bool",
+          "train_value": false,
+          "eval_value": false
+        },
+        "next.reward": {
+          "equal": true,
+          "train_type": "float",
+          "eval_type": "float",
+          "train_value": 0.0,
+          "eval_value": 0.0
+        },
+        "next.truncated": {
+          "equal": true,
+          "train_type": "bool",
+          "eval_type": "bool",
+          "train_value": false,
+          "eval_value": false
+        },
+        "observation.images.agentview": {
+          "equal": true,
+          "train_shape": [
+            1,
+            1,
+            3,
+            128,
+            128
+          ],
+          "eval_shape": [
+            1,
+            3,
+            128,
+            128
+          ],
+          "canonical_shape": [
+            1,
+            3,
+            128,
+            128
+          ],
+          "dtype_train": "torch.float32",
+          "dtype_eval": "torch.float32",
+          "max_abs_diff": 0.0,
+          "mean_abs_diff": 0.0,
+          "train_min": 0.0313725508749485,
+          "train_max": 1.0
+        },
+        "observation.images.wrist": {
+          "equal": true,
+          "train_shape": [
+            1,
+            1,
+            3,
+            128,
+            128
+          ],
+          "eval_shape": [
+            1,
+            3,
+            128,
+            128
+          ],
+          "canonical_shape": [
+            1,
+            3,
+            128,
+            128
+          ],
+          "dtype_train": "torch.float32",
+          "dtype_eval": "torch.float32",
+          "max_abs_diff": 0.0,
+          "mean_abs_diff": 0.0,
+          "train_min": 0.03921568766236305,
+          "train_max": 0.929411768913269
+        },
+        "observation.language.attention_mask": {
+          "equal": true,
+          "train_shape": [
+            1,
+            48
+          ],
+          "eval_shape": [
+            1,
+            48
+          ],
+          "canonical_shape": [
+            1,
+            48
+          ],
+          "dtype_train": "torch.bool",
+          "dtype_eval": "torch.bool",
+          "max_abs_diff": 0.0,
+          "mean_abs_diff": 0.0,
+          "train_min": 0.0,
+          "train_max": 1.0
+        },
+        "observation.language.tokens": {
+          "equal": true,
+          "train_shape": [
+            1,
+            48
+          ],
+          "eval_shape": [
+            1,
+            48
+          ],
+          "canonical_shape": [
+            1,
+            48
+          ],
+          "dtype_train": "torch.int64",
+          "dtype_eval": "torch.int64",
+          "max_abs_diff": 0.0,
+          "mean_abs_diff": 0.0,
+          "train_min": 2.0,
+          "train_max": 46345.0
+        },
+        "observation.state": {
+          "equal": true,
+          "train_shape": [
+            1,
+            1,
+            15
+          ],
+          "eval_shape": [
+            1,
+            15
+          ],
+          "canonical_shape": [
+            1,
+            15
+          ],
+          "dtype_train": "torch.float32",
+          "dtype_eval": "torch.float32",
+          "max_abs_diff": 0.0,
+          "mean_abs_diff": 0.0,
+          "train_min": -2.0674679279327393,
+          "train_max": 1.6275702714920044
+        },
+        "task": {
+          "equal": true,
+          "train_type": "list",
+          "eval_type": "list",
+          "train_value": "['pick up the akita black bowl and place it on the plate in the left region\\n']",
+          "eval_value": "['pick up the akita black bowl and place it on the plate in the left region\\n']"
+        }
+      },
+      "unequal_processed_keys": []
+    }
+  ],
+  "interpretation_limit": "All 25 matched recorded observations have exact raw loader/evaluation image and stored 15-D state equality, and exact equality after the saved training preprocessor is applied to both paths (including image tensors, state, language tokens/mask, and task). The strict evaluator uses the same saved preprocessor factory. This does not compare the runtime simulator quaternion-to-axis-angle conversion against the training collector at the same live quaternion, because the source HDF5 contains no raw quaternion. It also does not run the model or test simulator-generated states outside the demonstrations.",
+  "fold02": "LOCKED"
+}

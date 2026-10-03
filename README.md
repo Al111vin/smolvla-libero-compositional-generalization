@@ -234,12 +234,25 @@ cameras matched pixel-for-pixel, and episode correspondence was established by
 exact full-sequence action/state matches rather than file order. Together with
 the earlier all-frame action/state parity, this closes raw source-to-dataset
 conversion parity for the five demonstrations. It does **not** verify the
-preprocessed tensors delivered to the model or explain the closed-loop failure.
-The next bounded check is read-only train-versus-evaluation preprocessing
-parity on matched frames; more rollout seeds and training changes remain
-deferred. Evidence is in the
+closed-loop failure. A follow-up read-only train-versus-evaluation
+preprocessing parity check on matched frames is complete. Across 25
+observations sampled from
+all five task-0 demonstrations, raw loader/evaluator images and stored 15-D
+states matched exactly, and the saved training preprocessor produced identical
+model inputs on both paths: zero mismatches and maximum absolute difference
+0.0, including both cameras, state, language tokens/mask, and task text. The
+training and strict-evaluation code use the same saved preprocessor factory.
+This closes recorded-frame preprocessing parity but not live simulator state
+construction: the HDF5 contains no raw end-effector quaternion, so the
+collector's and evaluator's quaternion-to-axis-angle paths could not be
+compared bitwise from stored files. The next bounded diagnostic is exact
+action replay of those same five demos to compare both conversions against
+the stored orientation; no policy inference or training is involved. More
+rollout seeds and training changes remain deferred. Evidence is in the
 [`full-frame image parity summary`](results/teacher_task0_training_image_parity_v1_20261003.json)
-and [`audit script`](scripts/audit_task0_training_image_parity_v1.py).
+and [`audit script`](scripts/audit_task0_training_image_parity_v1.py), plus the
+[`preprocessing parity summary`](results/teacher_task0_model_input_preprocessing_parity_v1_20261003.json)
+and [`audit script`](scripts/audit_task0_model_input_preprocessing_parity_v1.py).
 
 ### Task-balanced sampling proposal (2026-09-23)
 

@@ -2,7 +2,7 @@
   "schema_version": 1,
   "date": "2026-10-02",
   "stage_id": "teacher_directed_task_scaling_stageE",
-  "status": "stageE1_gate_failed; action_fit_and_source_image_audits_complete; preprocessing_parity_next",
+  "status": "stageE1_gate_failed; recorded_frame_preprocessing_parity_complete; live_quaternion_state_conversion_audit_next",
   "long_term_goal": "distinguish current single-task pipeline capability, insufficient per-task exposure, and multi-task interference before scaling 1->4->8->16->32 tasks",
   "current_goal_state": {
     "product_goal_already_active": true,
@@ -68,6 +68,43 @@
     "selected_diagnostic": "compare the tensor dictionaries immediately before the model for identical matched observations processed through the real LeRobot training dataset path and the strict evaluation path; include both camera tensors, observation.state, task text, shapes, dtypes, ranges, and exact or tolerance-based numeric diffs",
     "scope": "read-only; no optimizer, model updates, benchmark rollouts, data edits, or Fold02 changes",
     "stop_condition": "one bounded matched-frame audit covering reset, grasp, and placement phases in all five demos; stop and preserve evidence if an API path or provenance cannot be verified",
+    "fold02": "LOCKED"
+  },
+  "preprocessing_parity_result": {
+    "summary": "results/teacher_task0_model_input_preprocessing_parity_v1_20261003.json",
+    "script": "scripts/audit_task0_model_input_preprocessing_parity_v1.py",
+    "summary_sha256": "7b2a2e97aa0bd0189b632c00e9329f978c52a240bb24c529aab0dac32f55d97e",
+    "gpu_raw_summary_sha256": "3883138c6a897ce331cdce107cad8b4982b54c65f810244111c182a660531ec8",
+    "observations": 25,
+    "episodes": 5,
+    "sampled_frames": [0, 100, 250, 450, 657],
+    "raw_loader_evaluator_mismatches": 0,
+    "processed_model_input_mismatches": 0,
+    "max_abs_diff": 0.0,
+    "scope_limit": "HDF5 has no raw quaternion; exact bitwise comparison of the collector and live evaluator quaternion-to-axis-angle conversion was not possible from stored files."
+  },
+  "next_phase_plan_after_preprocessing_parity": {
+    "completed_precondition": "Train-loader and strict-evaluator model-preprocessor outputs are exactly equal on 25 matched recorded frames; HDF5/LeRobot actions, states, and pixels are already exact. StageE1 remains 0/50 and StageE2 remains gated off.",
+    "options_compared": [
+      {
+        "option": "Replay the five recorded expert action sequences and compare each live simulator quaternion converted by the training collector and evaluation functions against the stored HDF5 ee_ori.",
+        "decision": "recommended next",
+        "reason": "The HDF5 does not retain raw quaternions, and code inspection found training collection uses robosuite quat2axisangle while eval uses its own quaternion-normalizing helper. Exact action replay can close this remaining upstream state-construction question without policy inference or training."
+      },
+      {
+        "option": "Collect more model closed-loop rollouts now.",
+        "decision": "defer",
+        "reason": "More failures would not tell whether live state construction differs, and the existing 0/50 gate is already a strong negative outcome."
+      },
+      {
+        "option": "Change training schedule, add demonstrations, or start task scaling now.",
+        "decision": "reject for this diagnostic stage",
+        "reason": "That would alter training factors before resolving the only remaining identified input-construction uncertainty and would not isolate current pipeline capability from data/representation issues."
+      }
+    ],
+    "selected_diagnostic": "A read-only, exact-action replay of all five task0 HDF5 demonstrations. At every recorded observation, capture raw robot0_eef_quat and evaluate both the training-side robosuite transform.quat2axisangle and the strict-evaluator quat_xyzw_to_axis_angle, then compare each with the stored 15-D state orientation. Verify action/state replay alignment before interpreting; stop on any replay mismatch.",
+    "scope": "No policy, optimizer, dataset, checkpoint, benchmark result, or Fold02 change; unique diagnostic output only; do not upload raw observations or rollout payloads.",
+    "stop_condition": "One pass over five demonstrations. If exact replay cannot be reproduced or frame alignment is ambiguous, preserve the failure and stop without trying altered seeds or simulator settings.",
     "fold02": "LOCKED"
   },
   "evidence_basis": {
