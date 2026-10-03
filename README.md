@@ -203,10 +203,14 @@ in [`evaluator smoke evidence`](results/teacher_stageE_evaluator_smoke_20261002.
 [`Stage E design`](results/teacher_directed_task_scaling_stageE_design_20261002.json),
 and [`Stage E1 control-chain result`](results/teacher_task0_control_chain_stageE1_result_20261003.json).
 The one-demo smoke completed technically: both checkpoints failed on demo 0
-(0/1 each, reward 0), so it establishes only that the diagnostic pipeline runs,
-not a model comparison. The full five-start paired diagnostic is pending GPU
-SSH recovery. No new training or task-count scaling will start until its result
-is reviewed.
+(0/1 each, reward 0). The full five-start paired diagnostic then completed:
+both the recovered historical checkpoint and Stage E1 checkpoint scored 0/5
+(all rewards 0; 280 steps per rollout). This run restored each HDF5 initial
+state and then added 10 open-gripper wait actions; because the collector stores
+states after passive settle, it is not an exact action-start replay. A bounded
+zero-wait paired inference plus exact HDF5 action replay is the next diagnostic
+before attributing the result to inability to execute seen demonstrations.
+No retraining or task-count scaling will start before that check is reviewed.
 
 ### Task-balanced sampling proposal (2026-09-23)
 

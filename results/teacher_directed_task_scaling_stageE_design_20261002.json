@@ -106,6 +106,13 @@
       "stageE2_started": false,
       "evidence": "results/teacher_task0_control_chain_stageE1_result_20261003.json"
     },
+    "paired_demo_start_diagnostic": {
+      "historical_checkpoint": "0/5 success, reward 0, all 280 steps",
+      "stageE1_checkpoint": "0/5 success, reward 0, all 280 steps",
+      "evidence": "results/teacher_task0_demo_start_diagnostic_20261003_v1_summary.json",
+      "limitation": "The HDF5 states are recorded after passive settle; the diagnostic added 10 open-gripper wait actions after restoring each state, so it was not an exact action-start replay.",
+      "interpretation": "This does not yet establish failure on exact demonstrated action-start observations or evaluator failure."
+    },
     "on_failure": "preserve outputs; compare evidence-backed remedies, select one bounded diagnostic, do not automatically extend training or launch a second training run",
     "on_any_preflight_or_evaluator_error": "stop before training, keep logs, no overwrite",
     "task_scaling": "only advance to StageE2 if StageE1 gate passes; 8/16/32 scaling remains separately gated",
@@ -113,9 +120,9 @@
     "fold02": "LOCKED"
   },
   "unresolved_blocker": {
-    "issue": "StageE1 custom LIBERO-36 task0 control failed its predeclared 28/50 gate; the native LIBERO Spatial historical positive control is not the same task. SSH access has also been intermittent during the follow-up diagnostic.",
-    "effect": "StageE2 four-task training is blocked by the failed StageE1 gate. Source-to-frozen-data action and state fidelity is confirmed, but held-out generalization versus failure to execute even seen demo starts has not yet been isolated.",
-    "next_action": "Verify the launched paired demo-start smoke. If it passes technically, run the five-demo-start diagnostic for the historical and StageE1 checkpoints, compare it to exact expert replay, then choose one bounded remedy. Do not retrain or scale tasks before interpreting that result."
+    "issue": "StageE1 custom LIBERO-36 task0 control failed its predeclared 28/50 gate. The paired training-start diagnostic returned 0/5 for each checkpoint, but included 10 open-gripper actions after restoring states that were already captured after passive settle.",
+    "effect": "StageE2 four-task training remains blocked. Data actions/states match exactly, but the diagnostic has not yet tested the precise HDF5 action-start condition; neither evaluator failure nor model inability on exact demonstrated starts is established.",
+    "next_action": "Run a zero-wait paired inference from each HDF5 action-start state, plus exact HDF5 action replay under the same BDDL/environment. Preserve the completed 10-wait diagnostic. Only after that bounded check compare evidence-backed remedies; do not retrain or scale tasks."
   },
   "artifact_policy": {
     "preserve_all_old_outputs": true,

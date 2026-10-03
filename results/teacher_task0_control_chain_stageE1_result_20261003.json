@@ -3,7 +3,7 @@
   "date": "2026-10-03",
   "phase": "teacher_directed_single_task_control_and_stageE1_review",
   "goal": "establish a stable one-task capability control before scaling task count while holding per-task sample exposure fixed",
-  "status": "stageE1_custom_task0_gate_failed; follow_up_diagnostic_pending",
+  "status": "stageE1_custom_task0_gate_failed; paired_demo_start_diagnostic_complete; exact_action_start_check_pending",
   "historical_native_task0_control": {
     "task": "LIBERO Spatial task 0",
     "instruction": "pick up the black bowl between the plate and the ramekin and place it on the plate",
@@ -126,8 +126,21 @@
     "scope": "diagnostic only; five HDF5 demonstration initial states; no training and no official benchmark change",
     "smoke_attempted": true,
     "smoke_result": "verified complete: on demo_0 both recovered_historical_v3 and stageE1_custom_task0_10k failed (0/1 each, reward 0); strict inference pipeline and unique output writing completed",
-    "full_diagnostic_started": false,
-    "next_action": "run all five paired demonstration starts after GPU SSH reconnects; this remains diagnostic-only and cannot change the formal benchmark or Fold02 gate"
+    "full_diagnostic_started": true,
+    "full_diagnostic_completed": true,
+    "full_diagnostic_first_attempt": "failed before rollout: ModuleNotFoundError for eval_v3_task0 because the eval scripts directory was not on PYTHONPATH; original log retained and no output directory was created",
+    "runtime_fix": "set PYTHONPATH=/root/smolvla-eval-prep/scripts; no source, model, data, or inference protocol changes",
+    "full_diagnostic_output_dir": "/root/smolvla-eval-prep/results/evaluations/teacher_task0_demo_start_diagnostic_20261003_v1/full_retry1",
+    "full_diagnostic_log": "/root/smolvla-training-prep/recovery/task_scaling_stageE_20261002/teacher_task0_demo_start_diagnostic_20261003_v1.full_retry1.log",
+    "full_diagnostic_pid_at_launch": 147753,
+    "full_diagnostic_summary_local_copy": "results/teacher_task0_demo_start_diagnostic_20261003_v1_summary.json",
+    "full_diagnostic_summary_sha256": "13ee9605de0092fbb9111c796fdb8953cfa4c5ea852d0dbb7c92270d40649050",
+    "full_diagnostic_result": {
+      "recovered_historical_v3": {"successes": 0, "rollouts": 5, "mean_reward": 0.0, "steps": [280, 280, 280, 280, 280]},
+      "stageE1_custom_task0_10k": {"successes": 0, "rollouts": 5, "mean_reward": 0.0, "steps": [280, 280, 280, 280, 280]}
+    },
+    "protocol_caveat": "Each HDF5 initial simulator state was restored and then followed by 10 open-gripper wait actions. The collector records the HDF5 state after passive settle, so this is not an exact action-start replay.",
+    "next_action": "perform a bounded zero-wait paired inference and exact HDF5 action replay from the recorded action-start states before interpreting this as failure on seen demonstrations; no retraining or task scaling"
   },
   "safety": {
     "existing_outputs_preserved": true,
