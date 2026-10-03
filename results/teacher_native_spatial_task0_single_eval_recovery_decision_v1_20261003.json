@@ -58,7 +58,7 @@
     "gpu_memory_used_mib": 2
   },
   "deployment_attempt": "SCP was attempted after preflight, but the remote endpoint closed the SSH connection; the recovery script was not deployed and no evaluation was launched.",
-  "latest_access_diagnostic": {
+  "previous_access_diagnostic": {
     "checked_at_utc": "2026-10-03T13:24:17Z",
     "latest_batchmode_ssh_attempt": "Connection closed by 117.50.184.29 port 27360 before remote command execution; no remote state was observed or changed.",
     "tcp_port_27360_reachable": true,
@@ -70,5 +70,20 @@
     "local_agent_created_controlmaster_processes_terminated": true,
     "remote_state_changed": false
   },
-  "status": "remote_preflight_passed; script_deployment_pending_due_ssh_access_instability"
+  "latest_access_diagnostic": {
+    "checked_at_utc": "2026-10-03T13:51:43Z",
+    "ssh_batchmode_result": "Permission denied (publickey,password)",
+    "remote_script_present": false,
+    "file_manager_upload": "not completed; the local desktop became unavailable while the native file picker was open",
+    "gpu_status": {
+      "model": "NVIDIA GeForce RTX 5090",
+      "utilization_percent": 0,
+      "memory_used_mib": 2,
+      "evaluation_or_training_process_found": false
+    },
+    "remote_state_changed": false,
+    "evaluation_started": false,
+    "next_action": "wait for the user to unlock the Mac and confirm SSH access is restored; do not retry SSH or alter keys before that"
+  },
+  "status": "remote_preflight_passed; deployment_pending_user_unlock_and_ssh_auth_recovery"
 }
