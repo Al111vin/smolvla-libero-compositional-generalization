@@ -1,0 +1,80 @@
+{
+  "schema_version": 1,
+  "date": "2026-10-03",
+  "stage": "teacher_native_task0_same_seed_repeatability_control",
+  "status": "approved_within_unattended_goal",
+  "supersedes": "teacher_native_task0_same_seed_repeat_decision_v1_20261003.json",
+  "preflight_correction": {
+    "v1_execution_started": false,
+    "v1_checkpoint_was_wrong": "/root/smolvla-training-prep/results/training/teacher_native_task0_base_init_current_recipe_10k_20261002_v1/checkpoints/010000/pretrained_model",
+    "v1_checkpoint_actual_result": "0/5 fixed-init3 repeats, seed 12348, 300 steps each; this is not a positive control",
+    "correct_single_task_reference": "/root/smolvla-training-prep/results/training/teacher_native_task0_base_init_lr10x_current_recipe_10k_20261002_v1/checkpoints/010000/pretrained_model",
+    "correct_reference_evidence": "5/5 fixed-init3 at effective seed 12348 and 12/20 paired initializations; the paired row for init_index 3 at effective seed 12351 is success=True",
+    "seed_semantics": "The evaluator computes effective_seed = CLI_seed + init_index. For init_index=3 and target effective seed=12351, pass CLI --seed 12348; passing 12351 would instead yield 12354."
+  },
+  "options_compared": [
+    {
+      "option": "advance_to_8_tasks",
+      "decision": "reject_for_now",
+      "reason": "The predeclared four-task gate failed at task0 fixed-init3 4/5, so task-count scaling is not authorized by the staged decision rule."
+    },
+    {
+      "option": "repeat_the_correct_single_task_control_at_the_joint4_effective_seed",
+      "decision": "recommended",
+      "reason": "The LRx10 current-pipeline single-task checkpoint is the one with a validated 5/5 fixed-init result and is the reference used for the paired task0 comparison. Four new repeats at the joint-4 effective seed 12351, combined with its existing paired init3 success, yield five matched-seed observations without retraining."
+    },
+    {
+      "option": "retrain_single_task_or_task1_only_now",
+      "decision": "defer",
+      "reason": "Training would add a new variable before resolving the fixed-seed evaluation comparison; current 20-init paired evidence already exists for task0."
+    },
+    {
+      "option": "stop_all_new_runs",
+      "decision": "not_selected",
+      "reason": "Four isolated inference-only repeats are a bounded, direct follow-up to the teacher's repeatability control and fit the active unattended goal."
+    }
+  ],
+  "selected_protocol": {
+    "checkpoint": "/root/smolvla-training-prep/results/training/teacher_native_task0_base_init_lr10x_current_recipe_10k_20261002_v1/checkpoints/010000/pretrained_model",
+    "checkpoint_model_safetensors_sha256": "62bd1a17bc4fcb8fc4d090904e2c5e54b9b70cc16dbb6dd15b869b010c32d406",
+    "task_id": 0,
+    "initialization_source": "benchmark",
+    "initialization_index": 3,
+    "evaluator_cli_seed": 12348,
+    "effective_seed": 12351,
+    "new_repeats": 4,
+    "combined_n_including_existing_paired_init3_row": 5,
+    "wait_steps": 10,
+    "n_action_steps": 25,
+    "max_steps": 300,
+    "capture_state": true,
+    "evaluator": "/root/smolvla-eval-prep/scripts/eval_v3_task0_state_capture_v1.py",
+    "evaluator_sha256": "89fd36a89dc45a56382219d4c3f6e5d12a3b1689abb3440ec29be346815af7cb",
+    "existing_reference_row": "/root/smolvla-eval-prep/results/teacher_native_task0_base_init_lr10x_current_recipe_10k_20261002_v1/eval_v1/paired_20_init/eval_v3_task0_010000_benchmark_init3_n25_seed12351_summary.csv",
+    "new_output_dir": "/root/smolvla-eval-prep/results/teacher_native_task0_same_seed_repeat_v2_20261003",
+    "output_policy": "Use a new root and one unique results subdirectory per new repeat; do not reuse or overwrite any prior evaluation directory."
+  },
+  "comparison_reference": {
+    "checkpoint_group": "joint4_current_recipe_40k",
+    "checkpoint_step": 40000,
+    "initialization_index": 3,
+    "effective_seed": 12351,
+    "repeats": 5,
+    "success_pattern": [true, true, true, true, false],
+    "result_file": "results/teacher_native_spatial_4task_40k_eval_result_v1_20261003.json"
+  },
+  "interpretation_limits": [
+    "Five repeats at one initialization are a fixed-condition repeatability check, not a generalization estimate.",
+    "A 5/5 versus 4/5 difference at one initialization is not by itself a reliable model-performance difference.",
+    "The existing paired 20-initialization comparison remains the broader matched-seed comparison; this follow-up only audits repeatability at init3.",
+    "This run does not alter the official LIBERO-36 result, authorize 8-task scaling, or unlock Fold02."
+  ],
+  "safety": {
+    "training": false,
+    "dataset_write": false,
+    "checkpoint_write": false,
+    "overwrite_existing": false,
+    "upload_data_or_weights": false,
+    "fold02": "LOCKED"
+  }
+}

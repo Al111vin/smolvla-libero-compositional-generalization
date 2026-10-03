@@ -2,7 +2,12 @@
   "schema_version": 1,
   "date": "2026-10-03",
   "stage": "teacher_native_task0_same_seed_control",
-  "status": "approved_within_unattended_goal",
+  "status": "superseded_before_execution",
+  "supersession_note": {
+    "superseded_by": "teacher_native_task0_same_seed_repeat_decision_v2_20261003.json",
+    "execution_started": false,
+    "reason": "Read-only preflight showed the checkpoint selected in v1 is the standard-LR base-initialized single-task model whose five init3/seed12348 repeats were all failures. It is not the 5/5 current-pipeline single-task reference. V1 also confused evaluator CLI seed with the effective seed; the evaluator adds init_index internally. No rollout was launched under v1."
+  },
   "trigger": "The matched 4-task diagnostic completed 89 rollouts but failed its predeclared progression gate: task0 fixed-init3 repeats were 4/5. The historical single-task fixed-init3 reference was 5/5 under recorded seed 12348, while the joint-4 repeats used seed 12351; those rates are not seed-matched.",
   "options_compared": [
     {

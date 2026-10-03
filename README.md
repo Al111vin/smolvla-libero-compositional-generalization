@@ -332,10 +332,12 @@ strict-deterministic-algorithms evaluation. The failed
 and [`loader recovery report`](results/teacher_native_spatial_4task_loader_integration_recovery_20261003.json).
 The full lightweight evaluation record, including gate outcome and source
 hashes, is [`here`](results/teacher_native_spatial_4task_40k_eval_result_v1_20261003.json).
-The next diagnostic is a five-repeat historical task-0 positive-control run at
-the same benchmark initialization and seed (init 3, seed 12351) used for the
-joint-4 fixed-init repeats; the stage choice and stop conditions are recorded
-in the [`same-seed control plan`](results/teacher_native_task0_same_seed_repeat_decision_v1_20261003.json).
+The next diagnostic is four additional repeats of the successful current-pipeline
+single-task reference at the same benchmark initialization and effective seed
+(init 3, seed 12351) used for the joint-4 fixed-init repeats. A read-only
+preflight caught and corrected a checkpoint/seed-selection error before any
+rollout was launched; the corrected protocol is in the
+[`same-seed control plan`](results/teacher_native_task0_same_seed_repeat_decision_v2_20261003.json).
 The custom LIBERO-36
 StageE1 result remains a separate 0/50, and Fold02 remains locked. See the
 [`replacement-run preflight evidence`](results/teacher_native_spatial_task0_3_preflight_result_v2_20261003.json),
