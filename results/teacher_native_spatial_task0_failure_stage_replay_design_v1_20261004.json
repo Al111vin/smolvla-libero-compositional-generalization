@@ -101,6 +101,16 @@
     "This replay does not change formal LIBERO-36 results, any training/evaluation success gate, task-count authorization, or Fold02 status.",
     "After completion, compare classified and unclassified failures against successful traces, then separately review a falsifiable training/data hypothesis before any new training plan."
   ],
+  "implementation_status": {
+    "runner": "scripts/replay_teacher_native_spatial_task0_failure_stages_v1.py",
+    "runner_sha256": "677ece2fbcf271019412079b18a8a9ce11a1afda8efe309412926ca1b0c1f325",
+    "offline_unit_tests": "tests/test_task0_failure_stage_replay_v1.py",
+    "offline_unit_test_count": 7,
+    "offline_unit_tests_status": "passed_using_python_unittest",
+    "pytest_available": false,
+    "smoke_or_simulator_replay_started": false,
+    "review_note": "Stage summaries preserve first observed step and mark non-monotone proxy sequences ambiguous; tests use synthetic CSVs only. Runtime replay remains unexecuted and requires explicit authorization."
+  },
   "execution_authorization_required": true,
   "execution_started": false,
   "next_action": "Review this design and authorize only the bounded 24-trace replay if desired. No training, policy rollout, task-count expansion, or Fold02 unlock is authorized by this design."
