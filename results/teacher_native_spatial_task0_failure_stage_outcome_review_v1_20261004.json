@@ -1,0 +1,121 @@
+{
+  "schema_version": 1,
+  "review_date_utc": "2026-10-04",
+  "experiment_id": "teacher_native_spatial_task0_failure_stage_outcome_review_v1_20261004",
+  "status": "completed_read_only_outcome_review_stage_proxy_positive_control_failed",
+  "scope": {
+    "source": "existing private replay manifest and lightweight experiment result records",
+    "raw_trace_downloaded": false,
+    "remote_files_modified": false,
+    "training_started": false,
+    "policy_inference_started": false,
+    "task_count_expansion": "LOCKED",
+    "fold02": "LOCKED"
+  },
+  "evidence": {
+    "replay_execution_result": {
+      "path": "results/teacher_native_spatial_task0_failure_stage_replay_v1_20261004_execution_result.json",
+      "sha256": "b0989386bec7f03a0448c2ba052226f7831b7d930160c7ad8a53f3aeb03eed7c"
+    },
+    "single_task_40k_result": {
+      "path": "results/teacher_native_spatial_task0_single_40k_eval_result_v1_20261004.json",
+      "sha256": "d335fd1b5acc0b7bd98b4344ec1074f3f3f2ef276259b6fd95c5a0f28c62fdf8"
+    },
+    "matched_four_task_40k_result": {
+      "path": "results/teacher_native_spatial_4task_40k_eval_result_v1_20261003.json",
+      "sha256": "cf97bdbd63c8e438117c79b68f3052ecdff1629f1dad1183220e82a23bb50167"
+    },
+    "official_task0_hdf5_sha256": "ff6f26121653c77280eb40a38773a74141c11a8509f3466058cb56dd2cc60ead"
+  },
+  "replay_integrity": {
+    "traces": 24,
+    "artifact_sha256_matches": "24/24",
+    "source_replay_success_step_reward_parity": "24/24",
+    "exact_robot_state_max_abs_diff_zero": "24/24",
+    "source_outcomes": {
+      "success": 14,
+      "failure": 10
+    },
+    "official_benchmark_evidence": false
+  },
+  "outcome_conditioned_stage_proxy_counts": {
+    "predeclared_proxy_order": ["approach", "grasp", "lift", "transport", "placement_terminal"],
+    "successes": {
+      "n": 14,
+      "cap_300": 0,
+      "proxy_events_observed": {
+        "approach": 5,
+        "grasp": 13,
+        "lift": 14,
+        "transport": 14,
+        "placement_terminal": 14
+      },
+      "monotone_and_classification_valid": 3,
+      "ambiguous_or_nonmonotone": 11
+    },
+    "failures": {
+      "n": 10,
+      "cap_300": 10,
+      "proxy_events_observed": {
+        "approach": 0,
+        "grasp": 0,
+        "lift": 1,
+        "transport": 0,
+        "placement_terminal": 0
+      },
+      "monotone_and_classification_valid": 9,
+      "ambiguous_or_nonmonotone": 1,
+      "first_unreached_proxy_labels": {
+        "approach": 9,
+        "ambiguous_nonmonotone_sequence": 1
+      }
+    },
+    "positive_control_warning": "The approach proxy (end-effector-to-bowl distance <= 0.05 m) is present in only 5/14 successful traces, while later grasp/lift/transport/placement proxies are present in 13/14, 14/14, 14/14, and 14/14. Therefore this approach threshold is not a valid necessary predecessor for successful stage classification in this replay; the nine failure labels of approach are not causal findings.",
+    "sequence_summary": {
+      "monotone": 12,
+      "ambiguous_nonmonotone": 12,
+      "classification_invalid": 12
+    },
+    "interpretation_limit": "Preserve the predeclared threshold and observed counts; do not retrospectively tune the threshold against these outcomes. Stage proxies are descriptive and cannot identify policy causality or separate policy limits from simulator variability."
+  },
+  "learning_hypothesis_review": {
+    "data_or_conversion_pipeline_defect": {
+      "status": "not_currently_evidenced_not_ruled_out",
+      "supporting_checks": "Official HDF5 provenance/hash and the independent/pooled conversion audits passed; task-0 frame/state/action/RGB parity and filtered-loader schema checks passed before training.",
+      "limit": "These checks do not prove every training-time behavior correct, but no concrete conversion or evaluator defect is identified by current evidence."
+    },
+    "single_task_optimization_or_training_exposure_insufficient": {
+      "status": "plausible_unresolved",
+      "evidence": "The current-recipe single-task 40k checkpoint scored 11/20 paired and 3/5 fixed-init3; available single init3 checkpoint probes show a 10k failure and 20k/30k successes, but each checkpoint probe is one rollout and is not a success-rate estimate.",
+      "limit": "The full learning curve has not been audited; the small rollout sample and failed stage-proxy positive control prevent attributing the result to insufficient training."
+    },
+    "multi_task_interference": {
+      "status": "not_supported_by_current_task0_pair_not_ruled_out",
+      "evidence": "On 20 paired task-0 initializations, current-recipe single-task was 11/20 and matched joint-4 was 14/20; discordant counts were single-only 1 and joint-4-only 4 (exact two-sided McNemar p=0.375). Fixed-init3 was 3/5 versus 4/5, with only five repeated rollouts.",
+      "limit": "These small samples neither show a joint-4 harm nor establish equivalence; no causal no-interference claim is warranted."
+    }
+  },
+  "options_compared": [
+    {
+      "option": "Treat nine approach labels as proof of approach-stage policy failure",
+      "decision": "reject",
+      "reason": "The approach proxy misses 9/14 successful traces even though later stage events and official success occur; the positive-control validity condition fails."
+    },
+    {
+      "option": "Retrospectively change proxy thresholds or rerun the same 24 traces",
+      "decision": "reject",
+      "reason": "Post-hoc threshold tuning would be outcome leakage, and an identical replay adds no information or repairs the proxy definition. Preserve the completed artifacts unchanged."
+    },
+    {
+      "option": "Immediately extend/repeat training or scale to eight tasks",
+      "decision": "defer_training_reject_scaling",
+      "reason": "Current task-0 fixed-init3 repeatability is 3/5, below the registered 5/5 gate; task scaling is not authorized. More training has no registered falsifiable contrast yet."
+    },
+    {
+      "option": "Review full existing learning-curve/checkpoint evidence and register a future matched falsifiable contrast only after instrument positive controls are validated",
+      "decision": "recommended_next",
+      "reason": "This uses existing evidence first, avoids duplicate compute, and separates what is currently known about data flow, optimization, and task interference without changing the failed gate."
+    }
+  ],
+  "next_action": "Keep 8/16/32-task scaling and Fold02 locked. First audit the full existing training curve and checkpoint probes read-only, then prepare (but do not launch) a protocol that validates every stage proxy on independent successful controls before comparing failures. Any new training or policy rollout requires a separately reviewed hypothesis, unique output roots, and explicit authorization."
+}

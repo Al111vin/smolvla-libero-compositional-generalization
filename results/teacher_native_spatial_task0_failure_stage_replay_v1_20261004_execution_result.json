@@ -91,11 +91,11 @@
   },
   "interpretation": {
     "diagnostic_only": true,
-    "source_outcome_replay_parity": "The runner was designed to stop on replay outcome, step-count, reward, robot-state, contact-proxy, or placement-proxy mismatch. The final persisted per-trace parity flags remain pending direct artifact audit.",
+    "source_outcome_replay_parity": "Authenticated read-only post-run audit verified all 24 artifacts and per-trace source/replay outcome, step-count, reward, and exact robot-state parity (zero maximum absolute state difference); see the outcome-conditioned review for subgroup results.",
     "stage_proxy_limit": "Stage events are descriptive simulator proxies; they do not establish causality or distinguish policy limitation from simulator variability.",
     "task0_repeatability_gate": "failed; the separate fixed-init3 result remains 3/5",
     "task_count_expansion": "not authorized",
     "fold02": "LOCKED",
-    "next_step": "When the Mac is available, finish the read-only audit of the attempt3 manifest contents, all 24 trace JSONL files, parity flags, stage labels, execution log, process list, and GPU state. Preserve all attempts. Do not train or start another replay automatically."
+    "next_step": "The read-only artifact and outcome-conditioned audits are complete; see results/teacher_native_spatial_task0_failure_stage_outcome_review_v1_20261004.json. Do not rerun or overwrite the completed replay. Next inspect the full existing learning curve/checkpoint probes and register only a future protocol whose stage proxies pass independent successful positive controls. Keep task-count scaling blocked and Fold02 locked."
   }
 }

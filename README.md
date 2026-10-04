@@ -1362,3 +1362,20 @@ task-count scaling remains locked, and Fold 02 remains locked. See the
 [runner](scripts/replay_teacher_native_spatial_task0_failure_stages_v1.py),
 [offline tests](tests/test_task0_failure_stage_replay_v1.py), and
 [replay execution record](results/teacher_native_spatial_task0_failure_stage_replay_v1_20261004_execution_result.json).
+
+A subsequent outcome-conditioned review found an important positive-control
+limitation: the predeclared approach proxy (end-effector-to-bowl distance
+`<= 0.05 m`) appeared in only 5/14 successful traces, despite later grasp/lift/
+transport/placement proxies appearing in 13/14, 14/14, 14/14, and 14/14.
+Therefore the nine failure labels of “approach not reached” are not causal
+findings, and the threshold must not be retrospectively tuned on these same
+outcomes. On the existing paired task-0 comparison, current-recipe single-task
+was 11/20 versus matched joint-4 at 14/20 (exact McNemar `p=0.375`; single-only
+1, joint-4-only 4): this does not support a multi-task-harm claim and is too
+small to establish equivalence. The 3/5 single-task fixed-init3 gate remains
+failed. The recommended next step is a read-only audit of the complete existing
+learning curve/checkpoint probes, then a reviewed future protocol whose stage
+proxies pass independent successful positive controls. This review launched no
+new training or policy inference; task scaling remains blocked by the failed
+gate, and Fold 02 remains locked. See the
+[outcome-conditioned review](results/teacher_native_spatial_task0_failure_stage_outcome_review_v1_20261004.json).
