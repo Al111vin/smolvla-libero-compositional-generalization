@@ -103,13 +103,13 @@
   ],
   "implementation_status": {
     "runner": "scripts/replay_teacher_native_spatial_task0_failure_stages_v1.py",
-    "runner_sha256": "677ece2fbcf271019412079b18a8a9ce11a1afda8efe309412926ca1b0c1f325",
+    "runner_sha256": "ecd80985de32589dea60fa5d6a085a44d7f9d4224779e7435ea6e7212794194c",
     "offline_unit_tests": "tests/test_task0_failure_stage_replay_v1.py",
-    "offline_unit_test_count": 7,
+    "offline_unit_test_count": 8,
     "offline_unit_tests_status": "passed_using_python_unittest",
     "pytest_available": false,
     "smoke_or_simulator_replay_started": false,
-    "review_note": "Stage summaries preserve first observed step and mark non-monotone proxy sequences ambiguous; tests use synthetic CSVs only. Runtime replay remains unexecuted and requires explicit authorization."
+    "review_note": "Stage summaries preserve first observed step and mark non-monotone proxy sequences ambiguous; tests use synthetic CSVs only. Runtime replay is fail-closed behind the required --authorize-execution flag and remains unexecuted pending user authorization."
   },
   "execution_authorization_required": true,
   "execution_started": false,

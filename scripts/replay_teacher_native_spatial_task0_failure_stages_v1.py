@@ -408,6 +408,13 @@ def validate_output_root(output_root: Path, cases: list[dict[str, Any]]) -> None
         raise ProtocolError("Output root must not contain any source trace")
 
 
+def require_execution_authorization(args: argparse.Namespace) -> None:
+    if not bool(getattr(args, "authorize_execution", False)):
+        raise ProtocolError(
+            "Simulator replay is disabled unless --authorize-execution is explicitly supplied"
+        )
+
+
 def _replay_trace(env, task, initial_states, case: dict[str, Any]) -> tuple[dict[str, Any], list[dict[str, Any]]]:
     import numpy as np
     import torch
@@ -587,6 +594,7 @@ def run(args: argparse.Namespace) -> int:
     cases, inventory = validate_source_records(manifest_path, records)
     output_root = Path(args.results_dir).expanduser().resolve()
     validate_output_root(output_root, cases)
+    require_execution_authorization(args)
     output_root.parent.mkdir(parents=True, exist_ok=True)
     output_root.mkdir(exist_ok=False)
     completed: list[dict[str, Any]] = []
@@ -689,6 +697,11 @@ def main() -> int:
     parser.add_argument("--manifest", required=True, help="Private 24-trace input manifest JSON")
     parser.add_argument("--results-dir", required=True, help="New, absent private output root")
     parser.add_argument("--validate-only", action="store_true", help="Validate manifest and CSVs without creating output or importing LIBERO")
+    parser.add_argument(
+        "--authorize-execution",
+        action="store_true",
+        help="Required fail-closed acknowledgement before creating output or starting simulator replay",
+    )
     args = parser.parse_args()
     manifest_path = Path(args.manifest).expanduser().resolve()
     data = json.loads(manifest_path.read_text(encoding="utf-8"))

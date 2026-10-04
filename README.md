@@ -1332,7 +1332,7 @@ GPU rollout. See the [structured audit](results/teacher_native_spatial_task0_sin
 The follow-up is specified as a post-hoc replay of the 24 existing
 final-checkpoint action traces (20 paired initializations plus four registered
 init3 repeats), not new policy inference or training. The replay runner and
-seven offline unit tests are now implemented; the tests use synthetic CSVs and
+eight offline unit tests are now implemented; the tests use synthetic CSVs and
 do not read private traces or start a simulator. The runner replays saved
 actions with object-pose, finger-contact/grasp-proxy, lift, target-proximity,
 and native placement/success logging. A trace is stage-classifiable only if
@@ -1341,7 +1341,8 @@ the replay is retained as invalid for stage classification. It records first
 observed proxy steps and marks non-monotone sequences ambiguous instead of
 forcing a stage label. Raw traces remain on the private evaluation host, and
 the proposal does not pass either success gate or authorize task-count scaling.
-Simulator execution remains pending review and explicit authorization. See the
+Simulator execution is fail-closed behind an explicit
+`--authorize-execution` flag and remains pending user authorization. See the
 [replay design](results/teacher_native_spatial_task0_failure_stage_replay_design_v1_20261004.json),
 [runner](scripts/replay_teacher_native_spatial_task0_failure_stages_v1.py), and
 [offline tests](tests/test_task0_failure_stage_replay_v1.py).

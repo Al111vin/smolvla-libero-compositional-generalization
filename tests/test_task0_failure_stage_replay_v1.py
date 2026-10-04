@@ -132,6 +132,15 @@ class Task0FailureStageReplayTests(unittest.TestCase):
         with self.assertRaises(REPLAY.ProtocolError):
             REPLAY.parse_bool("unknown", "success")
 
+    def test_simulator_execution_requires_explicit_flag(self):
+        with self.assertRaisesRegex(REPLAY.ProtocolError, "--authorize-execution"):
+            REPLAY.require_execution_authorization(
+                __import__("argparse").Namespace(authorize_execution=False)
+            )
+        REPLAY.require_execution_authorization(
+            __import__("argparse").Namespace(authorize_execution=True)
+        )
+
     def test_source_csv_preflight_checks_registered_run_and_outcome_counts(self):
         with tempfile.TemporaryDirectory() as temp_dir:
             root = Path(temp_dir)
