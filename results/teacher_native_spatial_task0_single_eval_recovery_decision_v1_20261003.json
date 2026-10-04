@@ -85,5 +85,61 @@
     "evaluation_started": false,
     "next_action": "wait for the user to unlock the Mac and confirm SSH access is restored; do not retry SSH or alter keys before that"
   },
-  "status": "remote_preflight_passed; deployment_pending_user_unlock_and_ssh_auth_recovery"
+  "most_recent_ssh_retest": {
+    "checked_at_utc": "2026-10-03T14:56:28Z",
+    "method": "single read-only SSH BatchMode probe using the previously verified GPU identity file; no key changes and no password prompt",
+    "result": "connection reset during SSH key exchange before authentication or remote command execution",
+    "error": "kex_exchange_identification: read: Connection reset by peer; Connection reset by 117.50.184.29 port 27360",
+    "remote_state_observed": false,
+    "remote_state_changed": false,
+    "evaluation_started": false,
+    "next_action": "wait for the user to confirm the Compshare GPU is online and SSH port 27360 is valid; do not retry or change keys before that"
+  },
+  "latest_recovery_attempt": {
+    "checked_at_utc": "2026-10-03T15:15:01Z",
+    "read_only_ssh_and_gpu_preflight": {
+      "passed": true,
+      "host": "cpod-1v6wxcygzn32",
+      "gpu": "NVIDIA GeForce RTX 5090",
+      "utilization_percent": 0,
+      "memory_used_mib": 2,
+      "training_exit_code_zero": true,
+      "all_four_checkpoints_nonempty": true,
+      "checkpoint_bytes_each": 1197789224,
+      "evaluation_root_empty": true,
+      "registered_evaluator_sha256": "89fd36a89dc45a56382219d4c3f6e5d12a3b1689abb3440ec29be346815af7cb",
+      "remote_recovery_script_absent_before_transfer": true
+    },
+    "deployment": {
+      "scp_result": "connection closed by 117.50.184.29 port 27360; scp reported Connection closed",
+      "post_transfer_read_only_check": "SSH connection was also closed before the remote path could be inspected",
+      "remote_script_state_after_attempt": "unverified; it may be absent, partial, or complete",
+      "evaluation_started": false,
+      "no_automatic_retry": true
+    },
+    "next_action": "wait for the user to confirm Compshare SSH endpoint stability before any further transfer attempt; inspect destination state read-only before deciding how to proceed"
+  },
+  "latest_recovery_execution": {
+    "result_file": "results/teacher_native_spatial_task0_single_40k_eval_result_v1_20261004.json",
+    "remote_summary_path": "summary.json (private remote workspace; values transcribed into the allow-listed result record)",
+    "runner_sha256": "5f3bb1484a65c41e7e4126b1b87f24910940339ff5c6eb850e95c886e747f115",
+    "evaluator_sha256": "89fd36a89dc45a56382219d4c3f6e5d12a3b1689abb3440ec29be346815af7cb",
+    "remote_preflight_passed": true,
+    "remote_exit_code": 0,
+    "training_rerun": false,
+    "rollouts_completed": 27,
+    "paired_final_checkpoint": {
+      "single_task_successes": "11/20",
+      "joint4_successes": "14/20",
+      "single_task_only": 1,
+      "joint4_only": 4,
+      "exact_two_sided_mcnemar_p": 0.375
+    },
+    "fixed_init3_repeats": "3/5",
+    "checkpoint_probes": {"10000": false, "20000": true, "30000": true},
+    "fold02": "LOCKED",
+    "task_count_expansion": "not_authorized; do not proceed to 8 tasks",
+    "remote_outputs_and_logs_preserved": true
+  },
+  "status": "evaluation_complete_exit_0; diagnostic_not_stable; no_task_count_expansion"
 }

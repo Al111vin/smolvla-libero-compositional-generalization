@@ -1,0 +1,71 @@
+{
+  "schema_version": 1,
+  "experiment_id": "teacher_native_spatial_task0_single_current_recipe_40k_batch2_v1",
+  "result_date_utc": "2026-10-04",
+  "status": "completed_diagnostic_not_stable",
+  "execution": {
+    "runner": "scripts/resume_teacher_native_spatial_task0_single_eval_v1.sh",
+    "runner_sha256": "5f3bb1484a65c41e7e4126b1b87f24910940339ff5c6eb850e95c886e747f115",
+    "remote_command": "bash <registered evaluation-only recovery runner>",
+    "remote_exit_code": 0,
+    "remote_preflight_passed": true,
+    "training_rerun": false,
+    "evaluator_sha256": "89fd36a89dc45a56382219d4c3f6e5d12a3b1689abb3440ec29be346815af7cb",
+    "checkpoint_probes": {
+      "10000": {"success": false, "steps": 300},
+      "20000": {"success": true, "steps": 80},
+      "30000": {"success": true, "steps": 86}
+    },
+    "evaluation_protocol": {
+      "suite": "libero_spatial",
+      "task_id": 0,
+      "final_checkpoint_step": 40000,
+      "paired_initializations": 20,
+      "additional_fixed_init3_repeats": 4,
+      "effective_seed_rule": "12345 + 2 * init_index (CSV-recorded evaluator seed)",
+      "wait_steps": 10,
+      "n_action_steps": 25,
+      "max_steps": 300,
+      "strict_deterministic_algorithms": false
+    },
+    "total_rollouts": 27,
+    "remote_evidence_root": "private remote evaluation workspace (not published)",
+    "remote_summary_path": "summary.json (private remote workspace; values transcribed into this record)",
+    "remote_log_inventory": [
+      "checkpoint_probe/step_010000.log",
+      "checkpoint_probe/step_020000.log",
+      "checkpoint_probe/step_030000.log",
+      "fixed_task0_init3/repeat_01.log",
+      "fixed_task0_init3/repeat_02.log",
+      "fixed_task0_init3/repeat_03.log",
+      "fixed_task0_init3/repeat_04.log"
+    ]
+  },
+  "paired_final_checkpoint_results": {
+    "n": 20,
+    "single_task_successes": 11,
+    "single_task_wilson_95_ci": [0.3421, 0.7418],
+    "joint4_successes": 14,
+    "joint4_wilson_95_ci": [0.481, 0.8545],
+    "single_task_only_successes": 1,
+    "joint4_only_successes": 4,
+    "exact_two_sided_mcnemar_p": 0.375
+  },
+  "fixed_init3_repeatability": {
+    "effective_seed": 12351,
+    "n": 5,
+    "successes": 3,
+    "success_pattern": [false, false, true, true, true],
+    "steps": [300, 300, 88, 84, 117],
+    "interpretation": "Includes the paired init3 row plus the four registered additional repeats; fixed-condition diagnostic, not an independent five-seed sample."
+  },
+  "interpretation": {
+    "positive_diagnostic_signal": false,
+    "formal_acceptance": false,
+    "causal_limit": "Single-task batch2 versus joint4 batch8 changes gradient composition; task-0 exposure (80,000 sample draws), optimizer updates, base/LR recipe, and pooled normalization statistics are matched. This is diagnostic, not a clean causal estimate of multitask interference.",
+    "decision": "Do not expand to 8 tasks. The registered diagnostic target of at least 10/20 paired successes was met, but fixed init3 repeatability was 3/5 rather than 5/5. Continue single-task diagnosis and review the registered four-task gate/matched-exposure design before any later scale decision.",
+    "official_benchmark_changed": false,
+    "fold02": "LOCKED"
+  },
+  "source_note": "Values transcribed from the completed private remote summary.json and terminal completion record; per-rollout CSVs and logs remain in the private workspace. Checkpoints, training datasets, HDF5, credentials, and private keys were not transferred."
+}

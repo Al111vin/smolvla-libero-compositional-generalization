@@ -1273,15 +1273,27 @@ non-empty (1,197,789,224 bytes). Evaluation did not begin: the original runner
 failed when redirecting the first probe log into a missing nested directory.
 The evaluation root was empty, the GPU idle, and the remote preflight confirmed
 all four checkpoints plus the registered evaluator hash. A separate
-evaluation-only recovery runner has been prepared and syntax-checked, but SCP
-was closed by the remote endpoint before deployment. The latest SSH check on
-2026-10-03 returned `Permission denied (publickey,password)`. The GPU was
-subsequently observed idle (RTX 5090, 0% utilization, 2 MiB used), and the
-recovery script was confirmed absent from its remote destination. A browser-based
-file transfer could not be completed while the native file picker was open. No
-rollout has launched and no evaluation result is available
-yet. Model weights are not published; recovery resumes after local access and
-SSH authentication are restored.
+evaluation-only recovery runner was transferred through the Compshare JupyterLab
+file UI after direct SSH/SCP access failed. Its byte-for-byte SHA256 and remote
+`bash -n` check matched the locally registered runner; read-only preflight then
+passed (training exit code 0, all four nonempty checkpoints, empty evaluation
+root, matching registered evaluator SHA256, idle RTX 5090). The existing
+evaluation-only runner completed once with exit code 0: three checkpoint probes,
+20 paired final-checkpoint initializations, and four additional fixed-init3
+repeats (27 rollouts total; no retraining). The checkpoint probes were 0/1 at
+10k, 1/1 at 20k, and 1/1 at 30k. On the 20 paired initializations the single-task
+model succeeded 11/20 (Wilson 95% CI 0.3421–0.7418), versus 14/20 for the joint4
+baseline (0.481–0.8545); discordant outcomes were 1 single-task-only and 4
+joint4-only (exact two-sided McNemar p=0.375). Across the paired init3 row plus
+four additional fixed-condition repeats, init3 succeeded 3/5 (pattern
+fail, fail, success, success, success). Thus the 10/20 diagnostic count was met,
+but the predeclared fixed-init3 5/5 repeatability target was not. This is not
+stable single-task success and does not isolate a causal multitask-interference
+effect because batch size/gradient composition differs. No task-count expansion
+is authorized: task-count scaling and Fold 02 remain locked. The official
+benchmark conclusion is unchanged; model weights and datasets remain private.
+See the complete [structured evaluation result](results/teacher_native_spatial_task0_single_40k_eval_result_v1_20261004.json)
+and [recovery decision record](results/teacher_native_spatial_task0_single_eval_recovery_decision_v1_20261003.json).
 The selected comparison trains task 0 alone from episodes 0--49 of the frozen
 four-task dataset, retaining its pooled normalization statistics and matching
 the joint4 run's task-0 exposure (80,000 sample draws), 40,000 updates, base
