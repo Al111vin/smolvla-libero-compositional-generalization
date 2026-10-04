@@ -1328,3 +1328,14 @@ expansion or Fold 02 unlock follows from this audit. The next candidate is a
 separately registered, instrumented evaluation-only diagnosis; it requires a
 predeclared rubric, a unique output root, and explicit authorization before any
 GPU rollout. See the [structured audit](results/teacher_native_spatial_task0_single_40k_failure_stage_audit_v1_20261004.json).
+
+The proposed follow-up is now specified as a post-hoc replay of the 24 existing
+final-checkpoint action traces (20 paired initializations plus four registered
+init3 repeats), not new policy inference or training. It would replay saved
+actions with object-pose, finger-contact/grasp-proxy, lift, target-proximity,
+and native placement/success logging. A trace is stage-classifiable only if
+robot-state, reward, length, and terminal-success parity checks pass; otherwise
+the replay is retained as invalid for stage attribution. Raw traces remain on
+the private evaluation host, and the proposal does not pass either success gate
+or authorize task-count scaling. Execution remains pending protocol review and
+explicit authorization. See the [replay design](results/teacher_native_spatial_task0_failure_stage_replay_design_v1_20261004.json).

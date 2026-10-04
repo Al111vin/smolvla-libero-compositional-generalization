@@ -1,0 +1,107 @@
+{
+  "schema_version": 1,
+  "date_utc": "2026-10-04",
+  "experiment_id": "teacher_native_spatial_task0_failure_stage_replay_v1_20261004",
+  "stage": "posthoc_instrumented_action_trace_replay_design",
+  "status": "design_prepared_execution_not_authorized",
+  "objective": "Classify where the already-recorded final-checkpoint task-0 traces first stop satisfying predeclared approach/grasp/lift/transport/placement observables, without policy inference, retraining, changing formal evaluation, or advancing task count.",
+  "evidence_basis": {
+    "official_hdf5_sha256": "ff6f26121653c77280eb40a38773a74141c11a8509f3466058cb56dd2cc60ead",
+    "official_source_audit": "results/teacher_native_task0_official_source_audit_v1_20261003.json",
+    "independent_conversion_audit": "results/teacher_native_task0_independent_conversion_audit_v1_20261003.json",
+    "eval_result": "results/teacher_native_spatial_task0_single_40k_eval_result_v1_20261004.json",
+    "eval_result_sha256": "d335fd1b5acc0b7bd98b4344ec1074f3f3f2ef276259b6fd95c5a0f28c62fdf8",
+    "failure_stage_proxy_audit": "results/teacher_native_spatial_task0_single_40k_failure_stage_audit_v1_20261004.json",
+    "failure_stage_proxy_audit_sha256": "374166387117e3acdede51c9e4dac1d0c3f871e452d5a5109c9a276100dc2c8f",
+    "task0_evaluator": "scripts/eval_v3_task0.py",
+    "task0_evaluator_sha256": "89fd36a89dc45a56382219d4c3f6e5d12a3b1689abb3440ec29be346815af7cb",
+    "instrumentation_reference": "scripts/eval_v4_loco_diagnostics.py",
+    "instrumentation_reference_sha256": "fd018cd04176eae9d4de1e15fddacc22afc97d1f6a279a23c74cb925aabdd00b"
+  },
+  "current_gate_snapshot": {
+    "historical_native_task0_positive_control": "5/5 fixed-condition repeated success; binary outcome repeatability verified, not generalization",
+    "current_pipeline_lr10x_task0_10k": "5/5 fixed init3 and 12/20 paired; passed its registered single-task diagnostic gate, but is not the matched 40k/batch2 control",
+    "current_recipe_task0_40k_batch2": "3/5 fixed init3 and 11/20 paired; failed the registered 5/5 fixed-repeat criterion, so stable success under this matched-recipe control is not demonstrated",
+    "matched_joint4_task0_40k": "4/5 fixed init3 and 14/20 paired; failed its registered fixed-repeat progression criterion",
+    "task_count_scaling": "LOCKED; do not advance to 8/16/32 on these results",
+    "fold02": "LOCKED"
+  },
+  "options_compared": [
+    {
+      "option": "retrain_or_extend_training_immediately",
+      "decision": "reject_for_this_diagnostic",
+      "reason": "Training changes the policy and adds cost but cannot locate the already-observed failures in the task sequence."
+    },
+    {
+      "option": "repeat_uninstrumented_policy_rollouts",
+      "decision": "reject_for_now",
+      "reason": "The existing outcome/action/state audit already shows cap-limited failures; another uninstrumented pass still lacks object/contact/stage observables and can duplicate evidence."
+    },
+    {
+      "option": "instrumented_policy_reruns",
+      "decision": "defer",
+      "reason": "New inference can produce different outcomes and would confound stage diagnosis with execution variability. Consider only if action-trace replay is invalid and after a separately reviewed protocol."
+    },
+    {
+      "option": "replay_existing_final_checkpoint_action_traces_with_object_and_contact_logging",
+      "decision": "selected_for_review",
+      "reason": "It adds object pose, contact/grasp proxy, lift, target proximity, and placement observables to already-recorded policy actions without changing the policy, checkpoint, or success-rate evidence. Replay parity is a fail-closed prerequisite."
+    },
+    {
+      "option": "scale_task_count_or_unlock_fold02",
+      "decision": "reject",
+      "reason": "The matched current-recipe task-0 5/5 repeatability gate and the matched joint4 fixed-repeat progression gate both failed; this diagnostic cannot override either gate."
+    }
+  ],
+  "selected_protocol": {
+    "mode": "simulator_replay_of_recorded_applied_actions_only",
+    "policy_inference": false,
+    "training": false,
+    "dataset_write": false,
+    "checkpoint_write": false,
+    "official_benchmark_evidence": false,
+    "source_population": "existing private task-0 final-checkpoint evaluation records only",
+    "trace_selection": "20 paired init indices 0..19 at step 40000 plus the four registered additional fixed-init3 repeats; exclude the 10k/20k/30k probes because this audit targets final-checkpoint failure stages",
+    "expected_trace_count": 24,
+    "source_data_handling": "Resolve existing summary/action CSV pairs in place on the private evaluation host; do not download or publish raw traces.",
+    "initialization_protocol": "Reproduce eval_v3_task0 semantics exactly: reset, set the recorded benchmark initial state, execute the registered 10 zero-action wait steps, then replay each recorded applied_action in order.",
+    "per_step_capture": [
+      "source robot state_0..state_14 and replay robot state before each recorded action",
+      "target bowl, target plate, and any BDDL-confirmed ramekin pose relative to the end effector and target",
+      "left/right finger-pad contact with the bowl and the simulator grasp proxy",
+      "bowl lift relative to its post-wait baseline",
+      "bowl/plate and bowl/ramekin contact, plate-support predicate, and official env.check_success()",
+      "replay reward and source action step index"
+    ],
+    "runtime_object_validation": "Before any trace replay, resolve target object names from the active official task BDDL/environment observations. Require the bowl and plate; record a ramekin only if that object is present. Fail closed on missing/ambiguous object or geometry names; do not infer object identity from a guessed key.",
+    "predeclared_stage_proxies": {
+      "approach": "end-effector to bowl distance <= 0.05 m at any captured pre-action state",
+      "grasp": "bilateral left/right finger-pad contact and the simulator grasp proxy; require agreement during preflight",
+      "lift": "bowl z displacement >= 0.03 m relative to post-wait baseline",
+      "transport": "bowl XY distance to plate center <= 0.08 m",
+      "placement_terminal": "native plate-on-top predicate and official task success; require agreement during preflight and capture release/contact sequence without claiming grasp from gripper qpos alone"
+    },
+    "stage_label_rule": "Report every stage event and its first step. For an unsuccessful trace, label only the earliest proxy not observed before trace end as the first-unreached stage; retain later events and mark ambiguous/non-monotone sequences rather than forcing a single causal explanation.",
+    "replay_validity_gates": {
+      "trace_inventory": "exactly 24 distinct final-checkpoint source records; all inputs and hashes listed in a private manifest",
+      "pre_action_robot_state_max_abs_tolerance": 1e-6,
+      "reward_max_abs_tolerance": 1e-7,
+      "episode_steps_and_final_success": "must exactly match the corresponding source summary",
+      "contact_proxy_consistency": "bilateral contacts must agree with simulator grasp proxy during the positive-control replay; official success must agree with the native plate-support predicate",
+      "failure_action": "on any gate failure, preserve partial outputs, label the trace/replay invalid for stage classification, and stop; no automatic retry or modification of old evidence"
+    },
+    "smoke_then_full": "After explicit authorization and fresh-root preflight, replay one deterministically selected recorded success and one failure as a smoke. Proceed to the remaining selected traces only if both pass all parity and instrumentation checks; otherwise preserve and stop.",
+    "unique_private_output_root": "/root/smolvla-eval-prep/results/teacher_native_spatial_task0_failure_stage_replay_v1_20261004",
+    "output_policy": "New root must be verified absent before launch. Keep per-step replay traces and logs private on the evaluation host; publish only a lightweight aggregate, protocol/version/hash record, and interpretation limits.",
+    "resource_policy": "No GPU is needed for policy inference because no policy is run; simulator replay resource and duration must be measured in preflight. Do not start any remote process until explicit user authorization."
+  },
+  "stop_and_interpretation_rules": [
+    "A replay mismatch makes stage classifications for that trace invalid; it does not imply the source policy trace was wrong.",
+    "Object/contact/stage proxies are descriptive and do not prove why the policy failed or distinguish policy limitation from simulator variability.",
+    "This replay does not change formal LIBERO-36 results, any training/evaluation success gate, task-count authorization, or Fold02 status.",
+    "After completion, compare classified and unclassified failures against successful traces, then separately review a falsifiable training/data hypothesis before any new training plan."
+  ],
+  "execution_authorization_required": true,
+  "execution_started": false,
+  "next_action": "Review this design and authorize only the bounded 24-trace replay if desired. No training, policy rollout, task-count expansion, or Fold02 unlock is authorized by this design."
+}
