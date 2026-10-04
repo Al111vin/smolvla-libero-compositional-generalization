@@ -1,0 +1,86 @@
+{
+  "schema_version": 1,
+  "audit_date_utc": "2026-10-04",
+  "experiment_id": "teacher_native_spatial_task0_single_current_recipe_40k_batch2_v1",
+  "status": "read_only_robot_state_proxy_audit_complete_stage_unclassified",
+  "scope": {
+    "source": "existing private remote summary/action CSVs only",
+    "task_id": 0,
+    "paired_final_checkpoint_rollouts": 20,
+    "all_task0_rollouts_including_probes_and_repeats": 27,
+    "files_modified": false,
+    "rollouts_repeated": false,
+    "training_started": false,
+    "fold02": "LOCKED"
+  },
+  "source_protocol": {
+    "runner_sha256": "5f3bb1484a65c41e7e4126b1b87f24910940339ff5c6eb850e95c886e747f115",
+    "evaluator_sha256": "89fd36a89dc45a56382219d4c3f6e5d12a3b1689abb3440ec29be346815af7cb",
+    "checkpoint_step": 40000,
+    "paired_init_seed_rule": "12345 + 2 * init_index",
+    "wait_steps": 10,
+    "n_action_steps": 25,
+    "max_steps": 300
+  },
+  "paired_rollout_outcomes": {
+    "successes": 11,
+    "failures": 9,
+    "failures_at_max_step_cap": 9
+  },
+  "robot_only_proxy_metrics": {
+    "definitions": {
+      "eef_path_xyz_native_units": "sum of Euclidean distances between consecutive captured end-effector xyz states (state_7..state_9); the audit does not assert a physical unit",
+      "gripper_state_range": "per-rollout max minus min of captured gripper state (state_13)",
+      "steps": "registered evaluator rollout steps"
+    },
+    "success_group": {
+      "n": 11,
+      "mean_steps": 92.1,
+      "mean_eef_path_xyz_native_units": 0.854,
+      "mean_gripper_state_range": 0.037
+    },
+    "failure_group": {
+      "n": 9,
+      "mean_steps": 300.0,
+      "mean_eef_path_xyz_native_units": 2.045,
+      "mean_gripper_state_range": 0.040
+    }
+  },
+  "interpretation": {
+    "supported": "In this small paired set, failures all reached the 300-step cap and had a longer mean end-effector path than successes.",
+    "not_supported": [
+      "The logs do not establish whether a failure occurred during approach, grasp, transport, release, placement, or terminal verification.",
+      "Similar aggregate gripper-state ranges do not establish successful contact or grasp.",
+      "These descriptive differences do not show that path length caused failure or distinguish policy limitation from environment variability."
+    ],
+    "missing_observables": [
+      "object pose relative to gripper and target",
+      "contact/collision and grasp state",
+      "task-stage or terminal-condition transitions"
+    ],
+    "sampling_limit": "The 20 paired initializations each have one final-checkpoint rollout; fixed-init3 repeats are reported separately and are not independent seeds."
+  },
+  "options_compared": [
+    {
+      "option": "treat longer path as proof of a grasp/placement failure",
+      "decision": "reject",
+      "reason": "The captured state/action schema has no object pose, contact, or grasp observables."
+    },
+    {
+      "option": "repeat the same training or rerun the same evaluation immediately",
+      "decision": "defer",
+      "reason": "It adds compute without adding the missing failure-stage observables and risks duplicating completed evidence."
+    },
+    {
+      "option": "freeze a separate instrumented, evaluation-only diagnostic protocol with object/contact/stage logging",
+      "decision": "recommended_for_review",
+      "reason": "It can distinguish approach/grasp/transport/placement/termination hypotheses without changing training or overwriting this evaluation. It requires a new unique output root, a predeclared stage rubric and explicit authorization before any GPU rollouts."
+    },
+    {
+      "option": "scale task count or unlock Fold02",
+      "decision": "reject",
+      "reason": "The predeclared single-task fixed-init3 gate failed (3/5), and this audit does not change that result."
+    }
+  ],
+  "next_action": "Do not launch another GPU workload automatically. If authorized, first register and review an instrumented evaluation-only protocol, then run only the bounded diagnostic; keep task-count scaling and Fold02 locked."
+}

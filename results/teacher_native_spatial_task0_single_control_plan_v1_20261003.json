@@ -211,11 +211,25 @@
       },
       {
         "option": "read_only_failure_stage_audit_then_select_a_bounded_followup",
-        "decision": "recommended",
-        "reason": "Classify the existing paired and fixed-init3 failures using their compact summaries/state captures, then compare only hypotheses supported by evidence (for example, grasp/contact versus placement/termination). This is the lowest-cost next test of whether residual failures are process/evaluation variability or policy/training limitations."
+        "decision": "selected_and_completed_as_robot_state_proxy_audit",
+        "reason": "A read-only outcome-conditioned path/step audit is complete. It confirms that paired failures ran to the cap and had longer end-effector paths, but the saved traces omit object/contact/stage observables, so it cannot classify grasp versus placement or determine policy limitation versus environment variability."
       }
     ],
-    "next_action": "Perform the bounded read-only failure-stage audit on existing remote evidence; do not retrain, expand task count, alter the benchmark, or unlock Fold02 automatically. Any subsequent GPU workload requires its own registered protocol and clear authorization."
+    "failure_stage_audit": {
+      "record": "results/teacher_native_spatial_task0_single_40k_failure_stage_audit_v1_20261004.json",
+      "status": "completed_read_only_proxy_audit",
+      "paired_final_checkpoint": {
+        "successes": 11,
+        "failures": 9,
+        "failures_at_300_step_cap": 9,
+        "mean_eef_path_xyz_native_units_success": 0.854,
+        "mean_eef_path_xyz_native_units_failure": 2.045,
+        "mean_steps_success": 92.1,
+        "mean_steps_failure": 300.0
+      },
+      "limitation": "Existing evaluator captures robot state/actions/reward but not object pose, contact/grasp state, or task-stage transitions; failure stages remain unclassified."
+    },
+    "next_action": "Do not retrain, rerun the same evaluation, scale task count, alter the benchmark, or unlock Fold02. An instrumented evaluation-only diagnosis may be considered only after its protocol is registered and reviewed and explicit authorization is given for the GPU rollouts."
   },
   "stop_and_next_step_rules": {
     "if_preflight_fails": "stop before training; preserve failure record; no automatic repair/retry",

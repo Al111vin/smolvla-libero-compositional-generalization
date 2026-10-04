@@ -1313,3 +1313,18 @@ Evidence and reproducibility artifacts:
 [`preflight script`](scripts/preflight_teacher_native_spatial_task0_single_v1.py),
 [`runner`](scripts/run_teacher_native_spatial_task0_single_control_v1.sh), and
 [`summarizer`](scripts/summarize_teacher_native_spatial_single_task_control_v1.py).
+
+### Bounded failure-stage audit
+
+A read-only pass over the existing 27 task-0 summary/action CSV pairs found 11/20
+successes on the final checkpoint's paired initializations; all 9 paired failures
+reached the 300-step cap. Their mean captured end-effector xyz path was 2.045
+environment-native units, versus 0.854 for successes (mean steps 300 versus
+92.1). This is a descriptive
+robot-state proxy only: the saved traces omit object pose, contact/grasp state,
+and task-stage transitions, so they cannot identify whether failures occurred
+during grasp, transport, placement, or terminal verification. No task-count
+expansion or Fold 02 unlock follows from this audit. The next candidate is a
+separately registered, instrumented evaluation-only diagnosis; it requires a
+predeclared rubric, a unique output root, and explicit authorization before any
+GPU rollout. See the [structured audit](results/teacher_native_spatial_task0_single_40k_failure_stage_audit_v1_20261004.json).
