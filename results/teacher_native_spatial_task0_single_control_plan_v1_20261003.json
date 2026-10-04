@@ -194,6 +194,29 @@
     "task_count_expansion": "not authorized",
     "fold02": "LOCKED"
   },
+  "post_evaluation_diagnostic_review": {
+    "training_log_tail_observation": "Read-only view of the existing training log near steps 38000-40000 showed loss values around 0.089-0.112, gradient norms around 1.67-1.99, and the scheduled learning-rate decay to 2.5e-6. No late-training loss explosion or obvious stall was visible in this tail; this is not a full-curve audit.",
+    "checkpoint_probe_interpretation": "The registered init3 probe failed at 10k (300-step cap) and succeeded at 20k (80 steps) and 30k (86 steps). At 40k the broader 20-init set includes the paired init3 success, but five fixed-condition init3 observations are 3/5. This is evidence of a learned task signal with unresolved repeatability, not stable single-task success.",
+    "pipeline_evidence": "Official HDF5 provenance, frame/state/action/RGB parity, and filtered-loader audits passed before training; the registered evaluator and recovery runner completed all planned rollouts with exit code zero. No concrete data-conversion or evaluator-launch defect is currently evidenced. Per-failure trajectory stages have not yet been classified.",
+    "options_compared": [
+      {
+        "option": "scale_directly_to_8_tasks",
+        "decision": "reject",
+        "reason": "The four-task progression gate failed, and current-recipe task0 fixed-init3 repeatability is 3/5 rather than 5/5."
+      },
+      {
+        "option": "repeat_the_same_40k_training_run_immediately",
+        "decision": "defer",
+        "reason": "The existing run has stable-looking terminal loss but unresolved closed-loop failures; an identical run adds compute without first identifying a falsifiable failure hypothesis."
+      },
+      {
+        "option": "read_only_failure_stage_audit_then_select_a_bounded_followup",
+        "decision": "recommended",
+        "reason": "Classify the existing paired and fixed-init3 failures using their compact summaries/state captures, then compare only hypotheses supported by evidence (for example, grasp/contact versus placement/termination). This is the lowest-cost next test of whether residual failures are process/evaluation variability or policy/training limitations."
+      }
+    ],
+    "next_action": "Perform the bounded read-only failure-stage audit on existing remote evidence; do not retrain, expand task count, alter the benchmark, or unlock Fold02 automatically. Any subsequent GPU workload requires its own registered protocol and clear authorization."
+  },
   "stop_and_next_step_rules": {
     "if_preflight_fails": "stop before training; preserve failure record; no automatic repair/retry",
     "if_training_or_eval_fails": "stop and preserve logs/partial outputs; do not overwrite or auto-restart",
