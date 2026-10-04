@@ -2,12 +2,13 @@
   "schema_version": 1,
   "date": "2026-10-03",
   "stage": "native_spatial_task0_single_task_matched_recipe_control",
-  "status": "training_completed_eval_recovery_pending",
+  "status": "training_and_eval_completed_diagnostic_repeatability_gate_failed",
   "current_gate": {
     "historical_native_task0_positive_control": "5/5 repeated success at fixed benchmark init3/effective seed12351 under recovered V3 evaluator; 12/20 paired initializations",
     "current_recipe_single_task0_10k": "standard LR 1e-4 run did not pass fixed-init3 repeat; LRx10 reference succeeded but uses different LR",
     "matched_four_task_40k": "task0 14/20; fixed init3 4/5; progression gate remains failed",
-    "task_count_scaling": "do not advance to 8/16/32 before matched current-recipe single-task control",
+    "matched_current_recipe_single_task0_40k": "task0 11/20 paired; fixed init3 3/5. The paired-count diagnostic threshold was met, but the registered 5/5 fixed-init3 repeatability condition was not; stable single-task success is not demonstrated.",
+    "task_count_scaling": "do not advance to 8/16/32; current-recipe single-task fixed-init3 repeatability failed and the four-task progression gate remains failed",
     "fold02": "LOCKED"
   },
   "options_compared": [
@@ -175,6 +176,24 @@
     "diagnostic_signal": "at least 10/20 paired successes and 5/5 fixed init3 is a positive signal only; compare with existing joint4 14/20 and 4/5 fixed repeats",
     "interpretation_limit": "V3 residual variability and single-init repeat counts limit causal claims; this does not alter official benchmark conclusions."
   },
+  "completed_evaluation": {
+    "result_file": "results/teacher_native_spatial_task0_single_40k_eval_result_v1_20261004.json",
+    "recovery_runner_sha256": "5f3bb1484a65c41e7e4126b1b87f24910940339ff5c6eb850e95c886e747f115",
+    "evaluator_sha256": "89fd36a89dc45a56382219d4c3f6e5d12a3b1689abb3440ec29be346815af7cb",
+    "exit_code": 0,
+    "training_rerun": false,
+    "rollouts_completed": 27,
+    "checkpoint_probes": {"10000": "0/1", "20000": "1/1", "30000": "1/1"},
+    "final_checkpoint_paired_task0": "11/20",
+    "matched_joint4_task0": "14/20",
+    "fixed_init3_task0": "3/5",
+    "paired_count_threshold_met": true,
+    "fixed_init3_5_of_5_threshold_met": false,
+    "diagnostic_repeatability_gate_passed": false,
+    "official_benchmark_changed": false,
+    "task_count_expansion": "not authorized",
+    "fold02": "LOCKED"
+  },
   "stop_and_next_step_rules": {
     "if_preflight_fails": "stop before training; preserve failure record; no automatic repair/retry",
     "if_training_or_eval_fails": "stop and preserve logs/partial outputs; do not overwrite or auto-restart",
@@ -196,12 +215,12 @@
   "publication": {
     "github": {
       "branch": "benchmark-v1-sync-20260922",
-      "commit": "d72d832",
+      "commit": "f8fc6c646af141f21c7bb818db83f4b46c2b8ac3",
       "status": "pushed"
     },
     "hugging_face": {
       "repo": "Alllvinnn/smolvla-libero-compositional-generalization",
-      "revision": "3ca16ae442ec6039d737bd5db2dc645e2b3bc394",
+      "revision": "c4ee43d101e11cd64894838e140126293645dee5",
       "status": "uploaded_and_verified",
       "verification": "Downloaded 12 allow-listed lightweight files and byte-compared them with local files; all matched. No data payloads, model weights, secrets, or raw trajectories were uploaded."
     }
