@@ -83,7 +83,7 @@
     },
     "stage_label_rule": "Report every stage event and its first step. For an unsuccessful trace, label only the earliest proxy not observed before trace end as the first-unreached stage; retain later events and mark ambiguous/non-monotone sequences rather than forcing a single causal explanation.",
     "replay_validity_gates": {
-      "trace_inventory": "exactly 24 distinct final-checkpoint source records; all inputs and hashes listed in a private manifest",
+      "trace_inventory": "exactly 24 distinct final-checkpoint source records; a private manifest builder enumerates each summary/action pair and pins both SHA256 hashes; the replay runner recomputes and verifies every hash before simulation",
       "pre_action_robot_state_max_abs_tolerance": 1e-6,
       "reward_max_abs_tolerance": 1e-7,
       "episode_steps_and_final_success": "must exactly match the corresponding source summary",
@@ -103,13 +103,17 @@
   ],
   "implementation_status": {
     "runner": "scripts/replay_teacher_native_spatial_task0_failure_stages_v1.py",
-    "runner_sha256": "ecd80985de32589dea60fa5d6a085a44d7f9d4224779e7435ea6e7212794194c",
+    "runner_sha256": "0e5a7ab2926fb5259748261b1fa8e51929d03f6d64a193358375dcf96c60dfa2",
+    "manifest_builder": "scripts/build_teacher_native_spatial_task0_failure_stage_manifest_v1.py",
+    "manifest_builder_sha256": "d71fdc25b34f0ff25f520ff12b00d89d4dc51ba5905370854f76cb4f429c59eb",
+    "manifest_builder_behavior": "Reads only the selected private paired/repeat CSV roots; requires the exact 20+4 final-checkpoint inventory, task/run/seed/outcome mapping, and writes a hash-pinned manifest with exclusive-create semantics. It does not create simulator outputs or launch LIBERO.",
     "offline_unit_tests": "tests/test_task0_failure_stage_replay_v1.py",
-    "offline_unit_test_count": 8,
+    "offline_unit_test_count": 10,
+    "offline_unit_tests_sha256": "a5272f8792b6a17d9132851686cf393581574030768e29f6c04cc5102ac1437d",
     "offline_unit_tests_status": "passed_using_python_unittest",
     "pytest_available": false,
     "smoke_or_simulator_replay_started": false,
-    "review_note": "Stage summaries preserve first observed step and mark non-monotone proxy sequences ambiguous; tests use synthetic CSVs only. Runtime replay is fail-closed behind the required --authorize-execution flag and remains unexecuted pending user authorization."
+    "review_note": "Stage summaries preserve first observed step and mark non-monotone proxy sequences ambiguous; tests use synthetic CSVs only. Input CSV hashes are pinned by the manifest builder and rechecked by the replay runner. Runtime replay is fail-closed behind the required --authorize-execution flag and remains unexecuted pending user authorization."
   },
   "execution_authorization_required": true,
   "execution_started": false,

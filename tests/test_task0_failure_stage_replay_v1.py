@@ -12,6 +12,11 @@ SPEC = importlib.util.spec_from_file_location("task0_failure_stage_replay", SCRI
 REPLAY = importlib.util.module_from_spec(SPEC)
 assert SPEC and SPEC.loader
 SPEC.loader.exec_module(REPLAY)
+BUILDER_PATH = Path(__file__).resolve().parents[1] / "scripts" / "build_teacher_native_spatial_task0_failure_stage_manifest_v1.py"
+BUILDER_SPEC = importlib.util.spec_from_file_location("task0_failure_manifest_builder", BUILDER_PATH)
+BUILDER = importlib.util.module_from_spec(BUILDER_SPEC)
+assert BUILDER_SPEC and BUILDER_SPEC.loader
+BUILDER_SPEC.loader.exec_module(BUILDER)
 
 
 def manifest_records():
@@ -26,7 +31,9 @@ def manifest_records():
                 "effective_seed": 12345 + 2 * index,
                 "expected_success": index % 2 == 0 or index == 1,
                 "summary_csv": f"paired/{index}_summary.csv",
+                "summary_sha256": "0" * 64,
                 "actions_csv": f"paired/{index}_actions.csv",
+                "actions_sha256": "0" * 64,
             }
         )
     for repeat in range(4):
@@ -39,7 +46,9 @@ def manifest_records():
                 "effective_seed": 12351,
                 "expected_success": repeat != 0,
                 "summary_csv": f"repeats/{repeat}_summary.csv",
+                "summary_sha256": "0" * 64,
                 "actions_csv": f"repeats/{repeat}_actions.csv",
+                "actions_sha256": "0" * 64,
             }
         )
     return rows
@@ -156,7 +165,7 @@ class Task0FailureStageReplayTests(unittest.TestCase):
                     "task_id": 0,
                     "init_source": "benchmark",
                     "init_index": record["init_index"],
-                    "language": "pick up the black bowl and place it on the plate",
+                    "language": "pick up the black bowl between the plate and the ramekin and place it on the plate",
                     "success": str(source_success).lower(),
                     "total_reward": 1 if source_success else 0,
                     "steps": 1,
@@ -182,6 +191,8 @@ class Task0FailureStageReplayTests(unittest.TestCase):
                     writer = csv.DictWriter(file, fieldnames=sorted(REPLAY.ACTION_FIELDS))
                     writer.writeheader()
                     writer.writerow(action_row)
+                record["summary_sha256"] = REPLAY.sha256_file(summary_path)
+                record["actions_sha256"] = REPLAY.sha256_file(actions_path)
 
             manifest_path = root / "manifest.json"
             normalized = {
@@ -202,6 +213,85 @@ class Task0FailureStageReplayTests(unittest.TestCase):
             output.mkdir()
             with self.assertRaises(REPLAY.ProtocolError):
                 REPLAY.validate_output_root(output, cases)
+
+    def test_source_hash_mismatch_fails_closed(self):
+        with tempfile.TemporaryDirectory() as temp_dir:
+            root = Path(temp_dir)
+            records = manifest_records()
+            record = records[0]
+            summary_path = root / record["summary_csv"]
+            summary_path.parent.mkdir(parents=True, exist_ok=True)
+            summary_row = {
+                "suite": "libero_spatial", "task_id": 0, "init_source": "benchmark",
+                "init_index": 0, "language": "pick up the black bowl between the plate and the ramekin and place it on the plate",
+                "success": "true", "total_reward": 1, "steps": 1, "wait_steps": 10,
+                "n_action_steps": 25, "seed": 12345,
+                "checkpoint": "/r/teacher_native_spatial_task0_single_current_recipe_40k_batch2_v1/checkpoints/040000/pretrained_model",
+            }
+            with summary_path.open("w", newline="", encoding="utf-8") as file:
+                writer = csv.DictWriter(file, fieldnames=sorted(REPLAY.SUMMARY_FIELDS))
+                writer.writeheader()
+                writer.writerow(summary_row)
+            action_path = root / record["actions_csv"]
+            action_path.parent.mkdir(parents=True, exist_ok=True)
+            action_row = {"step": 0, "reward": 1}
+            action_row.update({f"state_{i}": 0 for i in range(15)})
+            action_row.update({f"applied_action_{i}": 0 for i in range(7)})
+            with action_path.open("w", newline="", encoding="utf-8") as file:
+                writer = csv.DictWriter(file, fieldnames=sorted(REPLAY.ACTION_FIELDS))
+                writer.writeheader()
+                writer.writerow(action_row)
+            record["summary_sha256"] = REPLAY.sha256_file(summary_path)
+            record["actions_sha256"] = "f" * 64
+            manifest_path = root / "manifest.json"
+            manifest_path.write_text("{}", encoding="utf-8")
+            with self.assertRaisesRegex(REPLAY.ProtocolError, "Action CSV SHA256 mismatch"):
+                REPLAY.validate_source_records(manifest_path, [record])
+
+    def test_manifest_builder_pins_exact_registered_24_trace_inventory(self):
+        with tempfile.TemporaryDirectory() as temp_dir:
+            root = Path(temp_dir)
+            paired_root = root / "paired"
+            repeats_root = root / "repeats"
+            paired_root.mkdir()
+            repeats_root.mkdir()
+            paired_success = set(range(11)) - {3} | {11}
+
+            def write_trace(directory, trace_name, group, index, success):
+                directory.mkdir(parents=True, exist_ok=True)
+                summary_path = directory / f"{trace_name}_summary.csv"
+                action_path = directory / f"{trace_name}_actions.csv"
+                summary = {
+                    "suite": "libero_spatial", "task_id": 0, "init_source": "benchmark",
+                    "init_index": index,
+                    "language": "pick up the black bowl between the plate and the ramekin and place it on the plate",
+                    "success": str(success).lower(), "total_reward": int(success), "steps": 1,
+                    "wait_steps": 10, "n_action_steps": 25, "seed": 12345 + 2 * index,
+                    "checkpoint": f"/root/{group}/teacher_native_spatial_task0_single_current_recipe_40k_batch2_v1/checkpoints/040000/pretrained_model",
+                }
+                with summary_path.open("w", newline="", encoding="utf-8") as stream:
+                    writer = csv.DictWriter(stream, fieldnames=sorted(REPLAY.SUMMARY_FIELDS))
+                    writer.writeheader()
+                    writer.writerow(summary)
+                action = {"step": 0, "reward": int(success)}
+                action.update({f"state_{i}": 0 for i in range(15)})
+                action.update({f"applied_action_{i}": 0 for i in range(7)})
+                with action_path.open("w", newline="", encoding="utf-8") as stream:
+                    writer = csv.DictWriter(stream, fieldnames=sorted(REPLAY.ACTION_FIELDS))
+                    writer.writeheader()
+                    writer.writerow(action)
+
+            for index in range(20):
+                write_trace(paired_root / f"init_{index:02d}", "trace", "paired", index, index in paired_success)
+            for repeat in range(4):
+                write_trace(repeats_root / f"repeat_{repeat + 1:02d}", "trace", "fixed", 3, repeat > 0)
+
+            manifest = BUILDER.build_manifest(paired_root, repeats_root)
+            self.assertEqual(len(manifest["traces"]), 24)
+            self.assertEqual(manifest["inventory_preflight"]["paired_count"], 20)
+            self.assertEqual(manifest["inventory_preflight"]["fixed_init3_repeat_count"], 4)
+            self.assertTrue(all(len(row["summary_sha256"]) == 64 for row in manifest["traces"]))
+            self.assertTrue(all(len(row["actions_sha256"]) == 64 for row in manifest["traces"]))
 
 
 if __name__ == "__main__":

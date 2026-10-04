@@ -65,8 +65,11 @@ MANIFEST_FIELDS = {
     "effective_seed",
     "expected_success",
     "summary_csv",
+    "summary_sha256",
     "actions_csv",
+    "actions_sha256",
 }
+TASK0_TEXT = "pick up the black bowl between the plate and the ramekin and place it on the plate"
 
 
 class ProtocolError(RuntimeError):
@@ -206,6 +209,8 @@ def validate_source_records(
         expected_index = int(item["init_index"])
         if summary["suite"] != TASK_SUITE or int(summary["task_id"]) != TASK_ID:
             raise ProtocolError(f"Wrong suite/task in {paths['summary_csv']}")
+        if summary["language"].strip() != TASK0_TEXT:
+            raise ProtocolError(f"Wrong task language in {paths['summary_csv']}")
         if summary["init_source"] != "benchmark" or int(summary["init_index"]) != expected_index:
             raise ProtocolError(f"Initialization mismatch in {paths['summary_csv']}")
         if int(summary["seed"]) != int(item["effective_seed"]):
@@ -237,12 +242,18 @@ def validate_source_records(
             states.append(state)
             actions.append(action)
             rewards.append(finite_float(row["reward"], "action.reward"))
+        summary_sha = sha256_file(paths["summary_csv"])
+        actions_sha = sha256_file(paths["actions_csv"])
+        if str(item["summary_sha256"]).lower() != summary_sha:
+            raise ProtocolError(f"Summary CSV SHA256 mismatch for {item['trace_id']}")
+        if str(item["actions_sha256"]).lower() != actions_sha:
+            raise ProtocolError(f"Action CSV SHA256 mismatch for {item['trace_id']}")
         item.update(
             {
                 "summary_path": str(paths["summary_csv"]),
                 "actions_path": str(paths["actions_csv"]),
-                "summary_sha256": sha256_file(paths["summary_csv"]),
-                "actions_sha256": sha256_file(paths["actions_csv"]),
+                "summary_sha256": summary_sha,
+                "actions_sha256": actions_sha,
                 "source_success": source_success,
                 "source_total_reward": total_reward,
                 "source_steps": steps,
