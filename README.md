@@ -39,9 +39,10 @@ It combines closed-loop LIBERO evaluation, controlled leave-one-combination-out
 > protocol. **Fold 02 remains locked.** Raw HDF5 and LeRobot data remain in
 > the private Hugging Face dataset; GitHub stores only lightweight evidence and
 > reproducibility metadata. Separately, the teacher-directed native Spatial
-> task-scaling diagnostic is now running a matched four-task (0–3) 40,000-update
-> experiment with equal 80,000 sample draws per task; this diagnostic does not
-> alter the registered LIBERO-36 conclusions.
+> matched four-task (0–3) 40,000-update diagnostic is complete and did not pass
+> its progression gate, so scaling to 8 tasks remains on hold. The later task-0
+> single-current-recipe control also missed its fixed-initialization repeat
+> gate. These diagnostics do not alter the registered LIBERO-36 conclusions.
 
 ### Teacher-recommended single-task control (2026-10-02)
 
@@ -1324,29 +1325,40 @@ environment-native units, versus 0.854 for successes (mean steps 300 versus
 robot-state proxy only: the saved traces omit object pose, contact/grasp state,
 and task-stage transitions, so they cannot identify whether failures occurred
 during grasp, transport, placement, or terminal verification. No task-count
-expansion or Fold 02 unlock follows from this audit. The next candidate is a
-separately registered, instrumented evaluation-only diagnosis; it requires a
-predeclared rubric, a unique output root, and explicit authorization before any
-GPU rollout. See the [structured audit](results/teacher_native_spatial_task0_single_40k_failure_stage_audit_v1_20261004.json).
+expansion or Fold 02 unlock follows from this audit. A separately registered
+post-hoc replay of the existing action traces was subsequently completed (see
+below); it remains a descriptive diagnostic. Any future online instrumented
+diagnosis would require a predeclared rubric, a unique output root, and explicit
+authorization before a GPU rollout. See the [structured audit](results/teacher_native_spatial_task0_single_40k_failure_stage_audit_v1_20261004.json).
 
-The follow-up is specified as a post-hoc replay of the 24 existing
-final-checkpoint action traces (20 paired initializations plus four registered
-init3 repeats), not new policy inference or training. The replay runner, a
-deterministic private-trace manifest builder, and ten offline unit tests are
-now implemented; the tests use synthetic CSVs and do not read private traces
-or start a simulator. The builder requires the exact 20+4 final-checkpoint
-inventory and pins each summary/action CSV SHA256; the replay runner recomputes
-and verifies those hashes before simulator execution. The runner replays saved
-actions with object-pose, finger-contact/grasp-proxy, lift, target-proximity,
-and native placement/success logging. A trace is stage-classifiable only if
-robot-state, reward, length, and terminal-success parity checks pass; otherwise
-the replay is retained as invalid for stage classification. It records first
-observed proxy steps and marks non-monotone sequences ambiguous instead of
-forcing a stage label. Raw traces remain on the private evaluation host, and
-the proposal does not pass either success gate or authorize task-count scaling.
-Simulator execution is fail-closed behind an explicit
-`--authorize-execution` flag and remains pending user authorization. See the
+The follow-up was a post-hoc replay of the 24 existing final-checkpoint action
+traces (20 paired initializations plus four registered init3 repeats), not new
+policy inference or training. The replay runner, deterministic private-trace
+manifest builder, and ten offline unit tests were implemented; the tests use
+synthetic CSVs and do not read private traces or start a simulator. The builder
+requires the exact 20+4 final-checkpoint inventory and pins each summary/action
+CSV SHA256; the replay runner recomputes and verifies those hashes before
+simulator execution. The runner replays saved actions with object-pose,
+finger-contact/grasp-proxy, lift, target-proximity, and native placement/success
+logging. A trace is stage-classifiable only if robot-state, reward, length, and
+terminal-success parity checks pass; otherwise the replay is retained as
+invalid for stage classification. It records first observed proxy steps and
+marks non-monotone sequences ambiguous instead of forcing a stage label.
+
+The authorized diagnostic replay completed in an isolated new result
+directory: **24/24** trace files were present and matched their manifest SHA256;
+success, step count, reward, and exact saved-state parity matched the source
+for **24/24** traces. The source outcomes were **14 successes and 10 failures**.
+The descriptive stage proxy marked 12 sequences monotone and 12 ambiguous; the
+first-unreached label was `approach` for 9 failures and ambiguous for 1. The
+four additional fixed-init3 repeats had 3/4 successes. These labels are
+diagnostic proxies, not causal failure-stage findings or formal benchmark
+evidence. Raw traces remain on the private evaluation host; the replay did not
+train or run policy inference. The paired-count threshold was met, but the
+combined fixed-init3 repeatability result was 3/5, below its 5/5 gate;
+task-count scaling remains locked, and Fold 02 remains locked. See the
 [replay design](results/teacher_native_spatial_task0_failure_stage_replay_design_v1_20261004.json),
 [manifest builder](scripts/build_teacher_native_spatial_task0_failure_stage_manifest_v1.py),
-[runner](scripts/replay_teacher_native_spatial_task0_failure_stages_v1.py), and
-[offline tests](tests/test_task0_failure_stage_replay_v1.py).
+[runner](scripts/replay_teacher_native_spatial_task0_failure_stages_v1.py),
+[offline tests](tests/test_task0_failure_stage_replay_v1.py), and
+[replay execution record](results/teacher_native_spatial_task0_failure_stage_replay_v1_20261004_execution_result.json).

@@ -1,0 +1,101 @@
+{
+  "schema_version": 1,
+  "experiment_id": "teacher_native_spatial_task0_failure_stage_replay_v1_20261004",
+  "observed_date_utc": "2026-10-04",
+  "status": "remote_replay_completed_per_trace_parity_and_artifact_audit_verified",
+  "execution": {
+    "mode": "simulator_replay_of_recorded_applied_actions_only",
+    "training": false,
+    "policy_inference": false,
+    "dataset_modified": false,
+    "checkpoint_modified": false,
+    "official_benchmark_evidence": false,
+    "runner_path": "/run/write/fs/replay_teacher_native_spatial_task0_failure_stages_v1.py",
+    "runner_sha256": "0e5a7ab2926fb5259748261b1fa8e51929d03f6d64a193358375dcf96c60dfa2",
+    "helper_path": "/run/write/fs/eval_v3_task0.py",
+    "helper_sha256": "bc6bd730b9e88c0cd3685336d90b920a62b2b82116f857f0a8a408e5594cabac",
+    "helper_source_sha256": "96d9c530d2d77b3b30e4651c73f0fd112f3bb895f0fcacccf683c30a5f5056a6",
+    "pinned_local_evaluator_function_source_matches_helper": true,
+    "trace_manifest_path": "/root/smolvla-eval-prep/results/teacher_native_spatial_task0_failure_stage_replay_manifest_v1_20261004.json",
+    "trace_manifest_count": 24,
+    "results_root": "/root/smolvla-eval-prep/results/teacher_native_spatial_task0_failure_stage_replay_v1_20261004_attempt3_pathfix",
+    "execution_log": "/root/smolvla-eval-prep/results/teacher_native_spatial_task0_failure_stage_replay_v1_20261004_attempt3_pathfix.execution.log",
+    "fresh_results_root_verified_absent_before_launch": true,
+    "fresh_log_verified_absent_before_launch": true,
+    "terminal_prompt_returned_after_summary": true
+  },
+  "terminal_completion_summary_observed": {
+    "traces_completed": 24,
+    "source_successes": 14,
+    "source_failures": 10,
+    "monotone_proxy_classifications": 12,
+    "ambiguous_nonmonotone_sequences": 12,
+    "first_unreached_stage_counts": {
+      "approach": 9,
+      "ambiguous_nonmonotone_sequence": 1
+    }
+  },
+  "terminal_individual_trace_lines_observed": {
+    "evidence_source": "Authenticated Compshare Jupyter terminal read-back of the remote manifest after completion.",
+    "persistence_independently_verified": true,
+    "scope_note": "All 24 remote compressed trace files were present, SHA-256 matched the manifest, and per-trace replay outcomes, steps, rewards, and state-difference checks were audited. The monotone/ambiguous stage labels remain descriptive diagnostics, not causal evidence.",
+    "parity_audit": {
+      "trace_files_present": 24,
+      "trace_sha256_matches_manifest": 24,
+      "success_parity": 24,
+      "step_parity": 24,
+      "reward_parity": 24,
+      "state_max_abs_diff_zero": 24
+    },
+    "traces": [
+      {"trace_id": "paired_init_0", "success": false, "steps": 300, "first_unreached_stage": "approach"},
+      {"trace_id": "paired_init_1", "success": true, "steps": 97, "first_unreached_stage": null},
+      {"trace_id": "paired_init_2", "success": true, "steps": 114, "first_unreached_stage": null},
+      {"trace_id": "paired_init_3", "success": false, "steps": 300, "first_unreached_stage": "ambiguous_nonmonotone_sequence"},
+      {"trace_id": "paired_init_4", "success": true, "steps": 114, "first_unreached_stage": null},
+      {"trace_id": "paired_init_5", "success": false, "steps": 300, "first_unreached_stage": "approach"},
+      {"trace_id": "paired_init_6", "success": true, "steps": 86, "first_unreached_stage": null},
+      {"trace_id": "paired_init_7", "success": true, "steps": 88, "first_unreached_stage": null},
+      {"trace_id": "paired_init_8", "success": false, "steps": 300, "first_unreached_stage": "approach"},
+      {"trace_id": "paired_init_9", "success": true, "steps": 87, "first_unreached_stage": null},
+      {"trace_id": "paired_init_10", "success": false, "steps": 300, "first_unreached_stage": "approach"},
+      {"trace_id": "paired_init_11", "success": true, "steps": 84, "first_unreached_stage": null},
+      {"trace_id": "paired_init_12", "success": false, "steps": 300, "first_unreached_stage": "approach"},
+      {"trace_id": "paired_init_13", "success": false, "steps": 300, "first_unreached_stage": "approach"},
+      {"trace_id": "paired_init_14", "success": false, "steps": 300, "first_unreached_stage": "approach"},
+      {"trace_id": "paired_init_15", "success": true, "steps": 84, "first_unreached_stage": null},
+      {"trace_id": "paired_init_16", "success": true, "steps": 84, "first_unreached_stage": null},
+      {"trace_id": "paired_init_17", "success": true, "steps": 85, "first_unreached_stage": null},
+      {"trace_id": "paired_init_18", "success": false, "steps": 300, "first_unreached_stage": "approach"},
+      {"trace_id": "paired_init_19", "success": true, "steps": 90, "first_unreached_stage": null},
+      {"trace_id": "fixed_init3_repeat_01", "success": false, "steps": 300, "first_unreached_stage": "approach"},
+      {"trace_id": "fixed_init3_repeat_02", "success": true, "steps": 88, "first_unreached_stage": null},
+      {"trace_id": "fixed_init3_repeat_03", "success": true, "steps": 84, "first_unreached_stage": null},
+      {"trace_id": "fixed_init3_repeat_04", "success": true, "steps": 117, "first_unreached_stage": null}
+    ]
+  },
+  "remote_manifest_readback_observed": {
+    "method": "Authenticated Compshare Jupyter Contents API read-only GET",
+    "file_exists": true,
+    "last_modified_utc": "2026-10-04T17:44:11.477351Z",
+    "visible_manifest_status": "completed_diagnostic_not_formal_evidence",
+    "content_fully_audited": true
+  },
+  "verification_limits": {
+    "remote_manifest_metadata_read_back_after_completion": true,
+    "remote_manifest_content_fully_audited": true,
+    "remote_per_trace_jsonl_files_read_back_after_completion": true,
+    "post_run_process_and_gpu_idle_rechecked": true,
+    "reason": "Authenticated read-only Compshare terminal audit completed after the run.",
+    "interpretation": "The 24-trace replay completed in the designated fresh results directory. All trace artifacts exist and match manifest hashes; source/replay success, steps, rewards, and state-difference checks match for all 24. No matching replay/evaluator process remained, and the RTX 5090 reported 0% utilization and 2 MiB used. This remains diagnostic replay, not policy inference or official benchmark evidence."
+  },
+  "interpretation": {
+    "diagnostic_only": true,
+    "source_outcome_replay_parity": "The runner was designed to stop on replay outcome, step-count, reward, robot-state, contact-proxy, or placement-proxy mismatch. The final persisted per-trace parity flags remain pending direct artifact audit.",
+    "stage_proxy_limit": "Stage events are descriptive simulator proxies; they do not establish causality or distinguish policy limitation from simulator variability.",
+    "task0_repeatability_gate": "failed; the separate fixed-init3 result remains 3/5",
+    "task_count_expansion": "not authorized",
+    "fold02": "LOCKED",
+    "next_step": "When the Mac is available, finish the read-only audit of the attempt3 manifest contents, all 24 trace JSONL files, parity flags, stage labels, execution log, process list, and GPU state. Preserve all attempts. Do not train or start another replay automatically."
+  }
+}
