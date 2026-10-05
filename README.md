@@ -1431,3 +1431,20 @@ could at most validate parity/instrumentation; a necessary-stage claim needs
 untouched successful controls. No three-trace replay, policy inference, or
 training was launched. See the
 [archived-positive replay feasibility design](results/teacher_native_spatial_task0_archived_positive_replay_feasibility_design_v1_20261005.json).
+
+### Single-task budget-extension follow-up (80k design)
+
+The current-recipe 40k single-task run remains below its registered repeatability
+gate (11/20 paired successes; fixed init3 3/5). A single-task 80k total-budget
+contrast is registered to test the undertraining hypothesis while holding the
+per-step recipe, task-0 data slice, batch size, seed, base initialization, and
+normalization source fixed. The training contrast is explicitly authorized only
+after its preflight gates pass; it is not task-count scaling. Local design and
+offline checks are recorded, but the remote preflight and current GPU/job state
+are unverified. In particular, the authorized three-trace V3 parity attempt has
+conflicting local/handoff status and must be reconciled from its unique remote
+output before any 80k training. A new policy evaluation/inference is not covered
+by the training authorization and requires separate authorization. No 80k run
+or policy evaluation is claimed as started here; 4/8/16/32 scaling and Fold 02
+remain locked. See the [80k contrast design](results/teacher_native_spatial_task0_post40k_single_variable_budget_extension_design_v1_20261005.json)
+and [current preflight status](results/teacher_native_spatial_task0_80k_preflight_status_v1_20261005.json).

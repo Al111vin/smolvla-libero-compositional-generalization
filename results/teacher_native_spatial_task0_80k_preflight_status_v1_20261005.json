@@ -1,0 +1,87 @@
+{
+  "schema_version": 1,
+  "audit_date_utc": "2026-10-05",
+  "experiment_id": "teacher_native_spatial_task0_single_current_recipe_80k_batch2_v1",
+  "status": "local_preflight_passed_remote_preflight_unverified",
+  "workspace": {
+    "branch": "benchmark-v1-sync-20260922",
+    "head": "10dc6a489c50ef426d89000c3e096e616dfdfad4",
+    "head_matches_origin_tracking_ref_at_check": true
+  },
+  "local_evidence": {
+    "80k_design_path": "results/teacher_native_spatial_task0_post40k_single_variable_budget_extension_design_v1_20261005.json",
+    "80k_design_sha256": "e0da83e651a99d35b152779ad080dc05b0af2c8960f03ad0ad29c43f44c6e37b",
+    "40k_config_path": "configs/teacher_native_spatial_task0_single_40k_batch2_20261003.json",
+    "40k_config_sha256": "92b7530111f0f135df0367a53100d87ae2d6f38d388436b63742be9e6bca152a",
+    "scheduler_math": {
+      "raw_warmup_steps": 3000,
+      "raw_decay_steps": 90000,
+      "40k_effective_warmup_steps": 1333,
+      "40k_effective_decay_steps": 40000,
+      "80k_effective_warmup_steps": 2666,
+      "80k_effective_decay_steps": 80000,
+      "rounding": "Python int truncation, not nearest-integer rounding",
+      "basis": "Previously inspected installed LeRobot scheduler implementation scales warmup by num_training_steps / num_decay_steps and applies int()."
+    },
+    "design_json_parse": "passed",
+    "archived_v3_offline_tests": {
+      "command": "python3 -m unittest -v tests/test_archived_v3_task0_replay_manifest_v1.py tests/test_archived_v3_task0_positive_parity_replay_v1.py",
+      "passed": 12,
+      "failed": 0
+    },
+    "expanded_task0_replay_offline_tests": {
+      "command": "python3 -m unittest -v tests/test_task0_failure_stage_replay_v1.py tests/test_archived_v3_task0_replay_manifest_v1.py tests/test_archived_v3_task0_positive_parity_replay_v1.py",
+      "passed": 22,
+      "failed": 0
+    },
+    "current_turn_local_recheck": {
+      "date_utc": "2026-10-05",
+      "result_json_parse": "passed",
+      "evidence_hashes_rechecked": {
+        "40k_evaluation": "d335fd1b5acc0b7bd98b4344ec1074f3f3f2ef276259b6fd95c5a0f28c62fdf8",
+        "40k_training_curve_review": "ecfe061f695d376b7c12acf1320fd8f431ef22cd22b3dc5c9470e45524375d3b",
+        "stage_measurement_design": "0cd8a604b46fd72e87fa9f857e760d0fec3f70a17bfbb6a81e344248ff53a595",
+        "40k_control_plan": "07fdf1398ddc6e3728b9e309e6c0f212042989c8845273e18858a2e415223b54",
+        "40k_config": "92b7530111f0f135df0367a53100d87ae2d6f38d388436b63742be9e6bca152a"
+      },
+      "branch_head": "10dc6a489c50ef426d89000c3e096e616dfdfad4",
+      "origin_tracking_head_matches": true,
+      "hdf5_source_and_converted_dataset_present_in_this_workspace": false,
+      "interpretation": "Prior remote audit records support successful source validation, independent conversion, exact task-0 slice parity, and a passed 40k preflight; this local recheck did not rerun conversion or access the remote data/GPU."
+    },
+    "user_authorization": {
+      "80k_training_after_preflight": true,
+      "new_policy_evaluation_or_inference": false,
+      "task_count_expansion": false,
+      "fold02": false
+    }
+  },
+  "remote_preflight": {
+    "freshly_verified_this_turn": false,
+    "reason": "The Codex computer-use endpoint reports the Mac is locked and could not unlock it; the authenticated Compshare browser session is therefore unavailable.",
+    "current_access_probe": {
+      "date_utc": "2026-10-05",
+      "tool": "cua.getState",
+      "result": "Native desktop unavailable: Mac is locked; automatic unlock failed; browser session not exposed.",
+      "gpu_or_job_state_inferred": false
+    },
+    "last_local_authorization_record_says": "The three-trace V3 replay had not started and remote output absence was not verified.",
+    "handoff_summary_conflict": "A newer conversation handoff reports that the replay was attempted and invalidated on the first trace with preserved output, but the corresponding remote result/log is not available in the current workspace to independently verify.",
+    "required_before_80k_training": [
+      "Reconcile the V3 replay state from its unique remote output and log; confirm the failure was preserved and formally invalidated, or complete the authorized parity run if it was not actually run.",
+      "Verify frozen dataset root, exact task-0 slice and dataset audit/revision.",
+      "Freshly hash the base initialization and confirm the resolved 80k trainer config matches the registered recipe except for total steps and the isolated output root.",
+      "Confirm the installed scheduler resolves to 2666 warmup steps and 80000 decay steps; abort on mismatch.",
+      "Verify GPU process state, available disk, and that all output/log/config paths are absent before exclusive creation.",
+      "Confirm the training entry point will not launch policy inference/evaluation, which remains unauthorized."
+    ]
+  },
+  "execution": {
+    "80k_training_launched_from_this_turn": false,
+    "80k_remote_training_current_status": "unknown_due_to_unavailable_authenticated_ui",
+    "policy_evaluation_launched_from_this_turn": false,
+    "new_80k_output_root_current_presence": "not_checked",
+    "fold02_actioned_from_this_turn": false
+  },
+  "interpretation_limit": "Local scheduler correction and offline tests do not verify current remote GPU, dataset, base-model, output-path, replay, or trainer runtime state. No remote job was launched from this audit."
+}

@@ -1,0 +1,122 @@
+{
+  "schema_version": 1,
+  "design_date_utc": "2026-10-05",
+  "status": "training_authorized_preflight_pending_policy_evaluation_not_authorized",
+  "experiment_family": "teacher_native_spatial_task0_single_current_recipe_budget_extension",
+  "objective": "After measurement-parity work, test the falsifiable single-task undertraining hypothesis without changing the data, base model, optimizer, batch size, or per-step recipe: does doubling the proportional training horizon from 40k to 80k updates make the native task-0 controller meet the already registered repeatability diagnostic?",
+  "evidence_basis": {
+    "single_task_40k_eval": {
+      "path": "results/teacher_native_spatial_task0_single_40k_eval_result_v1_20261004.json",
+      "sha256": "d335fd1b5acc0b7bd98b4344ec1074f3f3f2ef276259b6fd95c5a0f28c62fdf8",
+      "result": "11/20 paired; fixed-init3 3/5; registered repeatability gate failed"
+    },
+    "full_training_curve_review": {
+      "path": "results/teacher_native_spatial_task0_40k_training_curve_review_v1_20261005.json",
+      "sha256": "ecfe061f695d376b7c12acf1320fd8f431ef22cd22b3dc5c9470e45524375d3b",
+      "result": "all eight 5k block means decreased; this is optimization evidence, not closed-loop success or proof that more training helps"
+    },
+    "measurement_protocol_design": {
+      "path": "results/teacher_native_spatial_task0_stage_measurement_next_protocol_design_v1_20261005.json",
+      "sha256": "0cd8a604b46fd72e87fa9f857e760d0fec3f70a17bfbb6a81e344248ff53a595",
+      "status": "design_only_no_execution_authorized"
+    },
+    "current_40k_plan": {
+      "path": "results/teacher_native_spatial_task0_single_control_plan_v1_20261003.json",
+      "sha256": "07fdf1398ddc6e3728b9e309e6c0f212042989c8845273e18858a2e415223b54"
+    },
+    "current_40k_config": {
+      "path": "configs/teacher_native_spatial_task0_single_40k_batch2_20261003.json",
+      "sha256": "92b7530111f0f135df0367a53100d87ae2d6f38d388436b63742be9e6bca152a"
+    },
+    "earlier_lr_scale_design": {
+      "path": "results/teacher_native_task0_lrscale_ablation_design_20261002.json",
+      "sha256": "c1d6db0f03c4b1520fc99ac3674d3bd3662a500659a45275a32b688e64865c86",
+      "limitation": "The 10k LRx10 result used a different batch/data-normalization comparison context and is not a matched 40k task-count contrast."
+    }
+  },
+  "alternatives": [
+    {
+      "option": "Stop at 40k and infer from decreasing training loss",
+      "decision": "reject_as_resolution",
+      "reason": "The fixed-init3 gate failed. The loss curve does not establish closed-loop capability or rule out undertraining."
+    },
+    {
+      "option": "Repeat the same 40k run with a new training seed",
+      "decision": "defer",
+      "reason": "This estimates run-to-run seed sensitivity but does not directly test the undertraining hypothesis suggested by the still-decreasing loss curve."
+    },
+    {
+      "option": "Change learning rate or batch size now",
+      "decision": "reject_as_first_followup",
+      "reason": "A learning-rate change would revisit a previously explored factor in a different 10k context; a batch-size change alters gradient composition and can break the registered per-task sample-exposure match. Neither is justified before measurement parity and a clean budget contrast."
+    },
+    {
+      "option": "Run a single-task 80k total-budget contrast under the same proportional recipe",
+      "decision": "recommended_design_only_after_gates_and_separate_authorization",
+      "reason": "It changes one registered treatment factor—total update/sample-exposure budget—while preserving the same per-step current recipe and its proportional scheduler rule. It directly tests whether the 40k horizon was insufficient, without task-count expansion."
+    },
+    {
+      "option": "Advance to 8/16/32 tasks or unlock Fold02",
+      "decision": "reject_locked",
+      "reason": "The 40k single-task repeatability gate failed, and this design cannot authorize task scaling or Fold02."
+    }
+  ],
+  "proposed_protocol_if_later_authorized": {
+    "treatment_variable": "Total training horizon, 40,000 versus 80,000 optimizer updates, using the trainer's same proportional warmup/decay schedule rule. The treatment is the complete budget/horizon package; this is not a pure sample-count effect independent of the LR trajectory.",
+    "hold_fixed": [
+      "the verified frozen four-task LeRobot dataset root and task-0 episode indices 0-49 only",
+      "the same pooled four-task normalization statistics",
+      "the same base initialization, freshly hash-pinned before execution",
+      "batch_size=2, seed=1000, optimizer, peak/floor LR, policy, preprocessing, no image augmentation, and data sampler semantics",
+      "all environment/software versions and trainer entry point"
+    ],
+    "80k_expected_exposure": {
+      "task0_sample_draws": 160000,
+      "effective_warmup_steps_expected_from_same_scaling_rule": 2666,
+      "effective_decay_horizon_steps_expected_from_same_scaling_rule": 80000,
+      "warmup_rounding_derivation": "The installed trainer computes int(num_warmup_steps * (num_training_steps / num_decay_steps)); with 3000, 80000, and 90000 this truncates 2666.666... to 2666, not 2667.",
+      "preflight_requirement": "Inspect the actual resolved scheduler and logged LR at warmup, midpoint, and final steps; confirm the 80k run resolves to 2666 warmup and 80000 decay steps under the same proportional schedule family as the 40k baseline; abort on any mismatch."
+    },
+    "checkpoints": [40000, 80000],
+    "freshness_and_evaluation": {
+      "paired_init_rule": "Before any evaluation, audit all available evaluation manifests and select the lowest 20 benchmark task-0 initialization indices not previously used by the current-recipe task0 40k evaluation; selection must be deterministic and independent of outcomes. If 20 unused indices cannot be established, stop and revise the design before authorization.",
+      "paired_models": "Evaluate both the existing 40k checkpoint and the new 80k checkpoint on the same selected 20 inits, with identical evaluator, seeds, wait/action-step and step-limit protocol.",
+      "fixed_repeat": "Run five registered repeats at benchmark init3 for the candidate 80k checkpoint using the frozen prior effective-seed protocol; report these as a fixed-condition repeatability check, not five independent initializations.",
+      "existing_gate": "Candidate positive diagnostic requires at least 11/20 paired-set successes and 5/5 fixed-init3 successes; report paired discordance and exact McNemar test against the 40k checkpoint. A pass triggers review only, not automatic task scaling."
+    },
+    "output_isolation": {
+      "training_root": "/root/smolvla-training-prep/results/training/teacher_native_spatial_task0_single_current_recipe_80k_batch2_v1",
+      "evaluation_root": "/root/smolvla-eval-prep/results/teacher_native_spatial_task0_single_current_recipe_80k_batch2_v1",
+      "policy": "Freshly verify both proposed roots and all log/config paths are absent; use exclusive creation and preserve any failed attempt. If a path exists, do not overwrite or silently choose a new name."
+    },
+    "stop_rules": [
+      "Do not start this contrast until the currently authorized three-trace V3 parity run is complete or explicitly invalidated with preserved evidence.",
+      "Require a separate explicit user authorization for training and the new policy evaluation; the existing three-trace replay authorization does not cover either.",
+      "Stop before training if dataset, base, sampler, schedule, GPU-idle, free-space, or unique-path preflight differs from the registered design.",
+      "On any runtime or evaluator error, preserve logs and partial outputs, stop, and do not auto-retry or relax gates.",
+      "Keep task-count expansion and Fold02 locked regardless of the outcome until their separately registered gates are satisfied and explicitly reviewed."
+    ]
+  },
+  "user_authorization_record": {
+    "source": "explicit_user_message in this conversation",
+    "scope": "Authorize the registered single-task 80k training contrast after all listed preflight gates pass.",
+    "exclusions": [
+      "This record does not independently authorize the new policy evaluation or inference.",
+      "No task-count expansion; Fold 02 remains locked."
+    ]
+  },
+  "execution_state": {
+    "design_only": true,
+    "training_authorized": true,
+    "policy_evaluation_authorized": false,
+    "training_started": false,
+    "policy_inference_started": false,
+    "task_count_expansion": "LOCKED",
+    "fold02": "LOCKED"
+  },
+  "interpretation_limits": [
+    "A pass would support—but not prove broadly—that more single-task updates under this current pipeline improve the registered outcome gate.",
+    "A failure would not prove the pipeline is broken or that task mixtures are beneficial; it would falsify only this registered 80k-budget candidate under the specified conditions.",
+    "This experiment would not estimate a clean multi-task-interference effect, validate stage-causality thresholds, or change official LIBERO benchmark results."
+  ]
+}
