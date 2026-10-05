@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "design_date_utc": "2026-10-05",
-  "status": "static_feasibility_design_only_no_execution_authorized",
+  "status": "three_trace_parity_execution_authorized_remote_state_unverified",
   "objective": "Decide whether the three hash-pinned historical V3 successful action/state traces can safely check instrumentation and, separately, what evidence would be needed for a necessary-stage claim.",
   "basis": {
     "candidate_inventory": "results/teacher_native_spatial_task0_archived_positive_trace_inventory_v1_20261005.json",
@@ -42,7 +42,7 @@
     },
     {
       "option": "Use the three archived traces for a separately implemented recorded-action parity and object-instrumentation smoke only",
-      "decision": "conditionally_useful_after_separate_authorization",
+      "decision": "authorized_for_bounded_parity_only_after_remote_state_and_hash_preflight",
       "reason": "No policy inference is needed and all source actions/states are hash-pinned, but replay parity is unproven and prior proxy exposure limits the inference."
     },
     {
@@ -56,7 +56,7 @@
       "reason": "The matched 40k single-task fixed-init3 gate failed and no validated stage diagnosis or one-variable intervention justifies expansion."
     }
   ],
-  "proposed_bounded_replay_if_authorized_later": {
+  "authorized_bounded_replay_protocol": {
     "mode": "recorded_applied_actions_only_no_policy_loading_or_inference",
     "source_selection": "Exactly the three hash-pinned V3 010000 successes in the inventory, ordered init1 then init3 then init4; no outcome- or stage-based substitution on failure.",
     "preflight": [
@@ -76,15 +76,30 @@
     "instrumentation": "Only after parity, record target bowl/plate/ramekin poses, correct-object contacts, native support predicate and official success. Keep raw traces private; report descriptive values without assigning a causal failure stage or tuning a threshold.",
     "stop_rule": "On the first source, environment, parity or object-identity mismatch, preserve the fresh output/log, mark invalid, stop all remaining traces, and never auto-retry or silently relax tolerance.",
     "output_root_policy": "Use a new experiment-specific private results root; do not reuse the 24-trace output roots or modify archived source CSVs. Publish only a lightweight summary after verification.",
-    "execution_authorization": "The existing user approval was for the old 24 traces only. This design does not authorize a three-trace replay or new policy inference."
+    "execution_authorization": {
+      "status": "explicit_user_authorization_recorded",
+      "scope": "Replay exactly the three archived historical V3 native task-0 positive traces init1, init3, and init4 in an independent output directory for source/replay parity diagnosis only.",
+      "exclusions": [
+        "no training",
+        "no policy loading or inference",
+        "no additional traces",
+        "no threshold tuning or causal failure-stage attribution",
+        "no task-count expansion",
+        "Fold02 remains locked"
+      ],
+      "execution_status": "not_freshly_verified",
+      "remote_state_rule": "Before any launch, inspect the unique output root, source-manifest path, and log path. Preserve and reconcile any existing output; run only if all are absent and every remote hash/preflight passes. Never overwrite or retry a failed replay."
+    }
   },
   "interpretation_gate": "Even if all three future replays pass parity, they would verify only that these historical successful source actions can be reproduced and object observables read consistently. A necessary-stage rule would still need an independently predeclared definition tested on untouched successful controls. The current 0.05 m approach rule has already failed on the current-recipe successes.",
   "current_execution": {
-    "three_trace_replay_started": false,
+    "three_trace_replay_status": "not_freshly_verified_remote_output_and_log_required",
+    "last_local_authorization_record_status": "started_false_at_that_check",
+    "handoff_conflict": "A later handoff reports first-trace failure with preserved output; inspect the unique remote output/log before deciding whether a run is still needed.",
     "new_policy_inference_started": false,
     "training_started": false,
     "task_count_expansion": "LOCKED",
     "fold02": "LOCKED"
   },
-  "recommended_next_action": "Keep the three archives as hash-pinned instrumentation candidates; only if a new replay is explicitly authorized, implement an isolated parity-only runner and offline tests before execution. For a necessary-stage claim, prepare a separate frozen-observable, untouched-positive-control protocol requiring its own inference authorization."
+  "recommended_next_action": "With replay authorization now explicit, first inspect and reconcile the unique remote output and log. If a prior attempt exists, preserve and audit it without rerunning. Only if the unique output, source-manifest path, and log are absent and all source/runtime hashes pass may the exact three-trace parity protocol run once. Keep the 80k training behind its separate registered preflight; no policy inference, task expansion, or Fold02 unlock is included. A necessary-stage claim still requires a separate frozen-observable protocol and untouched positive controls."
 }

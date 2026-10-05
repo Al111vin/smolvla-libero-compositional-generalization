@@ -1414,10 +1414,14 @@ current remote evaluator hash are registered in the
 [archived positive-trace inventory](results/teacher_native_spatial_task0_archived_positive_trace_inventory_v1_20261005.json).
 They belong to a different checkpoint/run family from the current-recipe 40k
 24-trace diagnostic set, but Phase N previously inspected their action/gripper
-proxies. They are candidates for a future independently checked replay, not
-pristine evidence for tuning thresholds. No replay or new policy rollout was
-run; source/replay parity and necessary-stage events remain unverified.
-Single-task gating still fails and Fold 02 remains locked.
+proxies. They are candidates for an independently checked replay, not pristine
+evidence for tuning thresholds. The user has explicitly authorized a single
+parity-only replay of exactly these three traces; that authorization excludes
+policy inference, training, threshold tuning, and causal stage claims. Local
+records conflict with a later handoff about whether a first-trace attempt
+already occurred, so the unique remote output and log must be reconciled before
+any launch or retry. Source/replay parity and necessary-stage events remain
+unverified. Single-task gating still fails and Fold 02 remains locked.
 
 A static feasibility review confirmed the three V3 traces have the recorded
 pre-action 15-D state, applied 7-D action, and post-action reward needed for a
@@ -1428,8 +1432,11 @@ the target for `plate_1`; its ramekin key is
 `glazed_rim_porcelain_ramekin_1`, not the old runner's optional `ramekin_1`.
 This strengthens the need for fail-closed object identity checks. These archives
 could at most validate parity/instrumentation; a necessary-stage claim needs
-untouched successful controls. No three-trace replay, policy inference, or
-training was launched. See the
+untouched successful controls. The bounded three-trace replay is authorized,
+but its remote execution state is unverified; inspect and preserve any unique
+existing output before deciding whether the one authorized attempt remains to
+be run. The replay approval does not authorize policy inference or training.
+See the
 [archived-positive replay feasibility design](results/teacher_native_spatial_task0_archived_positive_replay_feasibility_design_v1_20261005.json).
 
 ### Single-task budget-extension follow-up (80k design)
@@ -1441,9 +1448,9 @@ per-step recipe, task-0 data slice, batch size, seed, base initialization, and
 normalization source fixed. The training contrast is explicitly authorized only
 after its preflight gates pass; it is not task-count scaling. Local design and
 offline checks are recorded, but the remote preflight and current GPU/job state
-are unverified. In particular, the authorized three-trace V3 parity attempt has
-conflicting local/handoff status and must be reconciled from its unique remote
-output before any 80k training. A new policy evaluation/inference is not covered
+are unverified. In particular, the explicitly authorized three-trace V3 parity
+replay has conflicting local/handoff execution status and must be reconciled
+from its unique remote output before any 80k training. A new policy evaluation/inference is not covered
 by the training authorization and requires separate authorization. No 80k run
 or policy evaluation is claimed as started here; 4/8/16/32 scaling and Fold 02
 remain locked. See the [80k contrast design](results/teacher_native_spatial_task0_post40k_single_variable_budget_extension_design_v1_20261005.json)
