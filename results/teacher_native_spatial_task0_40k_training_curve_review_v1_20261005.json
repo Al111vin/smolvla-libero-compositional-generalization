@@ -1,0 +1,106 @@
+{
+  "schema_version": 1,
+  "review_date_utc": "2026-10-05",
+  "experiment_id": "teacher_native_spatial_task0_single_current_recipe_40k_batch2_v1",
+  "status": "completed_read_only_full_training_curve_review",
+  "scope": {
+    "training_started": false,
+    "evaluation_started": false,
+    "policy_inference_started": false,
+    "remote_files_modified": false,
+    "raw_trace_downloaded": false,
+    "task_count_scaling": "LOCKED",
+    "fold02": "LOCKED"
+  },
+  "source_integrity": {
+    "remote_training_log": "/root/smolvla-training-prep/recovery/task_scaling_native_spatial_20261003/task0_single_control_v1/teacher_native_spatial_task0_single_current_recipe_40k_batch2_v1.training.log",
+    "remote_training_log_sha256": "4ff5798344f452bc208e0cf435ffdb4ff42db2f161d18d60f0cb556f3af3fdb9",
+    "remote_host": "cpod-1v6wxcygzn32",
+    "read_method": "Authenticated SSH, read-only SHA256 and extraction of existing ot_train.py:451 records; no remote write",
+    "single_task_evaluation": {
+      "path": "results/teacher_native_spatial_task0_single_40k_eval_result_v1_20261004.json",
+      "sha256": "d335fd1b5acc0b7bd98b4344ec1074f3f3f2ef276259b6fd95c5a0f28c62fdf8"
+    },
+    "matched_four_task_evaluation": {
+      "path": "results/teacher_native_spatial_4task_40k_eval_result_v1_20261003.json",
+      "sha256": "cf97bdbd63c8e438117c79b68f3052ecdff1629f1dad1183220e82a23bb50167"
+    },
+    "outcome_conditioned_replay_review": {
+      "path": "results/teacher_native_spatial_task0_failure_stage_outcome_review_v1_20261004.json",
+      "sha256": "9f6cedc14a308b06c1b0aca686e30f7128fb1aaf6788e9260720e91dd95c44d1"
+    }
+  },
+  "log_coverage": {
+    "training_exit_code_from_prior_verified_record": 0,
+    "logged_steps": 40000,
+    "expected_record_interval_steps": 100,
+    "parsed_records": 400,
+    "distinct_record_steps": 400,
+    "missing_expected_record_steps": 0,
+    "nonfinite_loss_gradient_or_lr_records": 0,
+    "checkpoint_steps": [10000, 20000, 30000, 40000]
+  },
+  "curve": {
+    "units": "logged training loss and gradient norm; mean over 50 records per 5000-step block",
+    "blocks": [
+      {"end_step": 5000, "records": 50, "mean_loss": 0.75510, "min_loss": 0.530, "max_loss": 2.675, "mean_gradient_norm": 5.63084},
+      {"end_step": 10000, "records": 50, "mean_loss": 0.46384, "min_loss": 0.387, "max_loss": 0.590, "mean_gradient_norm": 3.65458},
+      {"end_step": 15000, "records": 50, "mean_loss": 0.31898, "min_loss": 0.257, "max_loss": 0.392, "mean_gradient_norm": 3.13064},
+      {"end_step": 20000, "records": 50, "mean_loss": 0.21510, "min_loss": 0.166, "max_loss": 0.267, "mean_gradient_norm": 2.70238},
+      {"end_step": 25000, "records": 50, "mean_loss": 0.15022, "min_loss": 0.116, "max_loss": 0.175, "mean_gradient_norm": 2.31782},
+      {"end_step": 30000, "records": 50, "mean_loss": 0.11700, "min_loss": 0.095, "max_loss": 0.142, "mean_gradient_norm": 2.05146},
+      {"end_step": 35000, "records": 50, "mean_loss": 0.10602, "min_loss": 0.086, "max_loss": 0.126, "mean_gradient_norm": 1.91400},
+      {"end_step": 40000, "records": 50, "mean_loss": 0.10046, "min_loss": 0.087, "max_loss": 0.117, "mean_gradient_norm": 1.84592}
+    ],
+    "first_record": {"step": 100, "loss": 2.675, "gradient_norm": 22.528, "learning_rate": 0.0000039},
+    "checkpoint_records": [
+      {"step": 10000, "loss": 0.389, "gradient_norm": 3.361, "learning_rate": 0.000086},
+      {"step": 20000, "loss": 0.175, "gradient_norm": 2.442, "learning_rate": 0.000051},
+      {"step": 30000, "loss": 0.098, "gradient_norm": 1.865, "learning_rate": 0.000017},
+      {"step": 40000, "loss": 0.093, "gradient_norm": 1.827, "learning_rate": 0.0000025}
+    ],
+    "minimum_logged_loss": {"step": 31800, "value": 0.086},
+    "maximum_logged_loss": {"step": 100, "value": 2.675},
+    "observation": "All eight 5000-step block means decrease. The last block mean is 0.10046 versus 0.10602 in the preceding block; no logged late loss explosion is present. This is an optimization observation, not a closed-loop success or convergence claim."
+  },
+  "closed_loop_evidence": {
+    "single_task_checkpoint_init3_probes": {
+      "10000": "0/1; failed at 300-step cap",
+      "20000": "1/1; succeeded in 80 steps",
+      "30000": "1/1; succeeded in 86 steps"
+    },
+    "final_40000_paired_initializations": "11/20 single-task versus 14/20 matched joint4; exact paired McNemar p=0.375",
+    "final_40000_fixed_init3": "3/5; registered 5/5 repeatability criterion failed",
+    "interpretation": "The 10k/20k/30k probes have one rollout each and cannot estimate a checkpoint success-rate curve. Decreasing training loss and successful single probes do not override the failed final repeatability gate."
+  },
+  "hypotheses": {
+    "data_conversion_or_loader_defect": "No concrete defect identified by prior full source/frame/state/action/RGB and filtered-loader parity audits; not logically ruled out for every runtime behavior.",
+    "insufficient_training_or_optimization_mismatch": "Unresolved. Continued loss decrease is compatible with ongoing fitting, but neither proves more updates will improve closed-loop success nor identifies an optimal schedule.",
+    "multitask_interference": "Not supported by the observed task0 pair (single 11/20, joint4 14/20), and not ruled out. Batch2 versus batch8 changes gradient composition, so the contrast is diagnostic rather than causal.",
+    "failure_stage": "Unresolved. The replay approach proxy appears in only 5/14 successful traces, so its nine failure labels cannot be interpreted causally or tuned retrospectively on those outcomes."
+  },
+  "options_compared": [
+    {
+      "option": "Extend or repeat the 40k run immediately",
+      "decision": "defer",
+      "benefit": "Could test additional exposure or training-seed sensitivity.",
+      "cost_and_confounders": "New GPU cost; the present loss curve alone does not specify a falsifiable contrast, and a repeated or extended recipe changes exposure or seed without validating stage diagnostics.",
+      "falsifying_outcome": "Another low-loss checkpoint still fails the predeclared closed-loop repeatability gate."
+    },
+    {
+      "option": "Retune stage thresholds on the same 24 replay traces",
+      "decision": "reject",
+      "benefit": "Could raise apparent positive-control detection on the observed sample.",
+      "cost_and_confounders": "Outcome leakage; would not independently validate a necessary stage sequence or repair causality.",
+      "falsifying_outcome": "An untouched successful positive-control set fails the retuned proxy."
+    },
+    {
+      "option": "Register a future positive-control-validated stage protocol before any new intervention",
+      "decision": "recommended_next_design_only",
+      "benefit": "Can separate measurement validity from policy failure and preserve a falsifiable follow-up.",
+      "cost_and_confounders": "Needs an independent, hash-pinned successful control set and a separately reviewed execution scope; no new run is authorized by this review.",
+      "falsifying_outcome": "The proposed stage observables fail on the independent successful controls or replay parity fails."
+    }
+  ],
+  "decision": "Do not infer stable single-task learning from loss alone. Keep task-count expansion and Fold02 locked. Prepare, but do not execute, an independent positive-control protocol and a one-variable training/data hypothesis only after measurement validity is established."
+}

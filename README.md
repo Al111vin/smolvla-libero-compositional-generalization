@@ -1379,3 +1379,19 @@ proxies pass independent successful positive controls. This review launched no
 new training or policy inference; task scaling remains blocked by the failed
 gate, and Fold 02 remains locked. See the
 [outcome-conditioned review](results/teacher_native_spatial_task0_failure_stage_outcome_review_v1_20261004.json).
+
+The complete existing 40k single-task training log was then audited read-only:
+SHA256 `4ff5798344f452bc208e0cf435ffdb4ff42db2f161d18d60f0cb556f3af3fdb9`,
+with all 400 expected 100-step loss/gradient/LR records present. Mean logged
+training loss fell across each successive 5k-step block, from 0.75510 in the
+first block to 0.10046 in the last; the final record was 0.093. No late loss
+explosion appears in the logged curve. This shows a decreasing logged training
+objective, not stable closed-loop success or a need for more updates. The registered
+single-init3 checkpoint probes were 0/1 at 10k and 1/1 at 20k and 30k, too
+small to estimate a checkpoint success-rate curve; the 40k result remains
+11/20 paired and 3/5 fixed-init3, below the repeatability gate. The next
+recommended step is to prepare an independently positive-control-validated
+stage protocol before any new intervention, without retuning proxies on the
+same 24 traces. No training or evaluation was started by this review; task
+scaling and Fold 02 remain locked. See the
+[full-curve review](results/teacher_native_spatial_task0_40k_training_curve_review_v1_20261005.json).
