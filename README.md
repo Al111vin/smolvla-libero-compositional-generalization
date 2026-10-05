@@ -44,6 +44,23 @@ It combines closed-loop LIBERO evaluation, controlled leave-one-combination-out
 > single-current-recipe control also missed its fixed-initialization repeat
 > gate. These diagnostics do not alter the registered LIBERO-36 conclusions.
 
+### Teacher-directed task-0 budget follow-up (2026-10-05)
+
+The authorized 80,000-update single-task comparison has **not started**; its
+preflight is still incomplete, and no policy inference/evaluation is authorized
+as part of that training approval. A read-only authenticated Compshare snapshot
+confirmed the recovered official task-0 source HDF5 hash and base initialization
+hash. The separate replay-parity attempt using the historical V3 init1/3/4
+positives failed on init1 because the replay terminal-success flag disagreed;
+the run was invalidated after that first mismatch, init1/3/4 were not completed,
+and automatic retry is disabled. Its failure evidence is preserved and must not
+be rerun or counted as parity validation. At that same snapshot the RTX 5090
+was idle, the 80k config and output root were absent remotely, and 71 GB was
+free on `/`; these are point-in-time observations, not a current resource
+claim. The remaining runtime-resolved config/scheduler checks must pass before
+the one authorized 80k training run. See
+[`80k preflight status`](results/teacher_native_spatial_task0_80k_preflight_status_v1_20261005.json).
+
 ### Teacher-recommended single-task control (2026-10-02)
 
 The historical native LIBERO Spatial task-0 V3 checkpoint succeeded in **5/5**
