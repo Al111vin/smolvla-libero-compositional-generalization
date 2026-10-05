@@ -49,6 +49,35 @@
       "hdf5_source_and_converted_dataset_present_in_this_workspace": false,
       "interpretation": "Prior remote audit records support successful source validation, independent conversion, exact task-0 slice parity, and a passed 40k preflight; this local recheck did not rerun conversion or access the remote data/GPU."
     },
+    "current_turn_config_preparation": {
+      "date_utc": "2026-10-05",
+      "status": "prepared_static_only_remote_preflight_pending",
+      "branch": "benchmark-v1-sync-20260922",
+      "base_commit_before_preparation": "09a97deeef39a1a8c2df5faa304398b3fbb4fa37",
+      "generator": "scripts/prepare_teacher_native_spatial_task0_80k_config_v1.py",
+      "generator_sha256": "fc0bc9cd620aa92cbbe902acd339bac09b4bc0ec737d9a6e024206d5828a4d3b",
+      "offline_tests": {
+        "file": "tests/test_prepare_teacher_native_spatial_task0_80k_config_v1.py",
+        "sha256": "5387c10d7bd0b100a34776f122828ea13a686b11dea67979853d7e50c1be2dbf",
+        "passed": 5,
+        "failed": 0
+      },
+      "config": {
+        "file": "configs/teacher_native_spatial_task0_single_current_recipe_80k_batch2_v1.json",
+        "sha256": "c79765254e18d35577b5dfe65f8acb35d85ed458d7b92f53459e481d78cae628",
+        "changed_paths_from_40k_baseline": ["job_name", "output_dir", "steps"],
+        "steps": 80000,
+        "batch_size": 2,
+        "task0_episodes": "0-49",
+        "sample_draws": 160000,
+        "training_started": false
+      },
+      "config_manifest": {
+        "file": "results/teacher_native_spatial_task0_single_current_recipe_80k_config_manifest_v1_20261005.json",
+        "sha256": "8df180bf86c8dcda87af7f9cbd2e2331940e6cf0a879189a93202a335bae4618"
+      },
+      "interpretation": "The config is a local static artifact only. It does not prove that the remote dataset, base model, installed scheduler, free disk, output paths, or GPU state currently pass preflight."
+    },
     "user_authorization": {
       "80k_training_after_preflight": true,
       "new_policy_evaluation_or_inference": false,

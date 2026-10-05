@@ -1448,3 +1448,10 @@ by the training authorization and requires separate authorization. No 80k run
 or policy evaluation is claimed as started here; 4/8/16/32 scaling and Fold 02
 remain locked. See the [80k contrast design](results/teacher_native_spatial_task0_post40k_single_variable_budget_extension_design_v1_20261005.json)
 and [current preflight status](results/teacher_native_spatial_task0_80k_preflight_status_v1_20261005.json).
+An isolated 80k config is now prepared from the registered 40k config; a fail-closed
+builder/test suite proves only `job_name`, `output_dir`, and `steps` change. This
+is local static preparation, not a fresh remote runtime preflight. See the
+[prepared 80k config](configs/teacher_native_spatial_task0_single_current_recipe_80k_batch2_v1.json),
+[builder](scripts/prepare_teacher_native_spatial_task0_80k_config_v1.py),
+[offline tests](tests/test_prepare_teacher_native_spatial_task0_80k_config_v1.py),
+and [config manifest](results/teacher_native_spatial_task0_single_current_recipe_80k_config_manifest_v1_20261005.json).
