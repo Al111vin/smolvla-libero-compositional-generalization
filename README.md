@@ -1395,3 +1395,14 @@ stage protocol before any new intervention, without retuning proxies on the
 same 24 traces. No training or evaluation was started by this review; task
 scaling and Fold 02 remain locked. See the
 [full-curve review](results/teacher_native_spatial_task0_40k_training_curve_review_v1_20261005.json).
+
+The next measurement step is registered as a design only: first inventory
+disjoint archived successful action traces without modifying them. If eligible
+traces exist, any later replay must pass source/replay parity and test proposed
+necessary stage events on untouched successful controls; a single missed event
+invalidates a necessary-stage claim. The already-inspected 24 traces cannot
+serve as that untouched confirmatory set, and no threshold may be tuned on
+their outcomes. If no eligible archive exists, a fresh positive-control
+collection would need a separately approved protocol. This design launches no
+replay, policy inference, training, or task expansion; Fold 02 stays locked.
+See the [stage-measurement protocol design](results/teacher_native_spatial_task0_stage_measurement_next_protocol_design_v1_20261005.json).

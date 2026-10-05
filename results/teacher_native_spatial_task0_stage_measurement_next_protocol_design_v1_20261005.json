@@ -1,0 +1,63 @@
+{
+  "schema_version": 1,
+  "design_date_utc": "2026-10-05",
+  "status": "design_only_no_execution_authorized",
+  "objective": "Validate task-0 stage measurements on independent successful controls before assigning any failure stage or proposing a one-variable policy intervention.",
+  "basis": {
+    "full_training_curve_review": "results/teacher_native_spatial_task0_40k_training_curve_review_v1_20261005.json",
+    "full_training_curve_review_sha256": "ecfe061f695d376b7c12acf1320fd8f431ef22cd22b3dc5c9470e45524375d3b",
+    "outcome_conditioned_replay_review": "results/teacher_native_spatial_task0_failure_stage_outcome_review_v1_20261004.json",
+    "outcome_conditioned_replay_review_sha256": "9f6cedc14a308b06c1b0aca686e30f7128fb1aaf6788e9260720e91dd95c44d1",
+    "existing_replay_population": "24 final-checkpoint traces, including 14 source successes and 10 failures; already inspected and ineligible as an untouched confirmatory set",
+    "invalidated_proxy": "The predeclared end-effector-to-bowl <=0.05 m approach event appeared in only 5/14 successful traces. It is not a validated necessary predecessor under the existing capture semantics.",
+    "closed_loop_gate": "40k single-task task0: 11/20 paired and 3/5 fixed-init3; registered 5/5 repeatability criterion failed",
+    "fold02": "LOCKED"
+  },
+  "alternatives": [
+    {
+      "option": "Relabel the nine existing failures as approach failures or tune the 0.05 m threshold on the same outcomes",
+      "decision": "reject",
+      "benefit": "Would produce a superficially complete stage table without new simulator work.",
+      "cost_and_bias": "The purported necessary approach event is absent in most successful controls; outcome-guided tuning on the 24 traces leaks the answer and cannot validate the label.",
+      "falsifier": "Any successful untouched control without the tuned necessary approach event invalidates that stage rule."
+    },
+    {
+      "option": "Inventory genuinely disjoint archived successful action traces and validate simulator-native observables by action replay only",
+      "decision": "recommended_first",
+      "benefit": "Could validate measurement using existing policy actions without training or fresh policy inference, while preserving an independent confirmatory population.",
+      "cost_and_bias": "Archived action/state traces and exact task/reset/protocol metadata may not exist; replay parity, object identity, and success checks are mandatory. This design does not authorize replay execution.",
+      "falsifier": "No disjoint success traces exist, replay parity fails, or a claimed necessary stage event is absent on any untouched successful control."
+    },
+    {
+      "option": "Register a fresh instrumented successful-control collection using a frozen positive model",
+      "decision": "fallback_design_only_requires_separate_authorization",
+      "benefit": "Can create a disjoint confirmatory set with exact capture semantics if archived traces are insufficient.",
+      "cost_and_bias": "Requires new policy inference/GPU rollouts, unique private output roots, a fixed checkpoint/evaluator, declared seeds/initializations, and separate explicit approval."
+    },
+    {
+      "option": "Immediately retrain or expand to more tasks",
+      "decision": "reject",
+      "benefit": "Would produce more checkpoints or task-count results.",
+      "cost_and_bias": "The single-task repeatability and four-task progression gates failed; measurement validity is unresolved, so such runs have no predeclared causal interpretation."
+    }
+  ],
+  "pre_execution_inventory": {
+    "mode": "read_only",
+    "requirements": [
+      "Enumerate archived success-trace locations, exact task/BDDL, checkpoint family, evaluator and seed/init metadata without moving or publishing raw traces.",
+      "Exclude every action trajectory in the already-inspected 24-trace population from an untouched confirmatory set.",
+      "Pin immutable source file hashes before selecting controls; record a fixed inventory and selection rule rather than choosing by convenient stage events.",
+      "If no eligible disjoint successes exist, record that limitation and prepare a separately authorized collection protocol; do not improvise a new rollout."
+    ]
+  },
+  "measurement_validity_rules": {
+    "source_replay_parity": "For any future recorded-action replay, require exact success and step-count agreement, reward tolerance and robot-state tolerance from the registered replay protocol before using stage observations.",
+    "object_identity": "Resolve bowl/plate names from the active official task BDDL and simulator; fail closed on missing or ambiguous objects.",
+    "necessary_event_claim": "A stage proxy may be called a necessary predecessor only if it is observed in every untouched successful positive control under the frozen capture semantics; any miss invalidates that claim for this protocol.",
+    "thresholds": "Do not tune thresholds using the already-inspected 24 outcomes or the untouched confirmatory set. If exploratory calibration is needed, predeclare a separate development set and then freeze the rule before confirmatory evaluation.",
+    "native_terminal": "The official task success predicate is the terminal ground truth. Geometric/contact proxies remain descriptive unless separately validated as necessary stage events.",
+    "failed_validation": "Preserve raw observations and mark stage classification invalid or ambiguous. Do not silently substitute a relaxed proxy or retroactively reclassify existing failures."
+  },
+  "future_experiment_gate": "After measurement validity, register a single falsifiable training/data hypothesis with one controlled variable, matched per-task sample and learning-rate exposure, independent output roots, fixed evaluation criteria and stop conditions. New training or policy inference still requires a separate explicit authorization; no task-count expansion or Fold02 unlock follows from this design.",
+  "next_safe_action": "Read-only inventory of disjoint archived successful controls and their metadata; do not execute replay or policy inference during inventory."
+}
