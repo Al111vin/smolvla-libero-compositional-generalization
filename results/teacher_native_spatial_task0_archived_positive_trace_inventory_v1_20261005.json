@@ -1,0 +1,77 @@
+{
+  "schema_version": 1,
+  "inventory_date_utc": "2026-10-05",
+  "status": "read_only_candidate_inventory_no_replay_or_policy_execution",
+  "objective": "Identify archived native-task-0 successes with recorded actions and robot state, separate from the already-inspected current-recipe 24-trace population.",
+  "selection_rule": "From all five historical V3 010000 Phase N positive-checkpoint benchmark initializations 0-4, retain every run whose archived native terminal summary reports success=True. Do not select on any geometric or stage proxy.",
+  "source_archive": {
+    "root_on_gpu": "/root/smolvla-eval-prep/results/phaseN_matched_state_action_capture_v1/positive",
+    "remote_summary_json": "/root/smolvla-eval-prep/results/phaseN_matched_state_action_capture_v1/summary.json",
+    "remote_summary_json_sha256": "e0c07929458b6b57988e4c98f473c98d9dfc485450dd8f39f1185227110821cc",
+    "repository_summary": "results/phaseN_matched_state_action_capture_v1_summary_20260929.json",
+    "task_suite": "libero_spatial",
+    "task_id": 0,
+    "instruction": "pick up the black bowl between the plate and the ramekin and place it on the plate",
+    "official_task_bddl_on_gpu": "/usr/local/miniconda3/envs/py312/lib/python3.12/site-packages/libero/libero/bddl_files/libero_spatial/pick_up_the_black_bowl_between_the_plate_and_the_ramekin_and_place_it_on_the_plate.bddl",
+    "official_task_bddl_sha256_observed_current_gpu": "9b59eb1287802868ad9bc78d58e6d36d4ba31134e679cfdbdf4b0feb660c959b",
+    "checkpoint": "/root/smolvla-eval-prep/recovered_historical_v3_20260922/outputs/smolvla_v3_task0_10k_run1/checkpoints/010000/pretrained_model",
+    "checkpoint_model_safetensors_sha256_from_prior_audit": "84523284fbee2814a3ba124c929ffdb555a1e93890b415a49996895a2cc70903",
+    "current_remote_evaluator": "/root/smolvla-eval-prep/scripts/eval_v3_task0.py",
+    "current_remote_evaluator_sha256": "5fb67f7a535e842214c351d09d368b3d2884deb267023fb51e54d3f5d494a2b3",
+    "evaluator_hash_scope": "Current remote file hash matches the prior historical positive-control repeatability record; the Phase N source-time evaluator hash was not independently embedded in the archived CSVs.",
+    "init_source": "benchmark",
+    "wait_steps": 10,
+    "n_action_steps": 25,
+    "capture_columns": "step, reward, raw_action_0..6, processed_action_0..6, applied_action_0..6, state_0..14",
+    "state_dim": 15,
+    "action_dim": 7
+  },
+  "candidate_successes": [
+    {
+      "init_index": 1,
+      "seed": 12346,
+      "success": true,
+      "total_reward": 1.0,
+      "steps": 82,
+      "actions_csv": "init_1/eval_v3_task0_010000_benchmark_init1_n25_seed12346_actions.csv",
+      "actions_csv_sha256": "14b1a826073693925c73862e5102215b0cb3f5b358d616222e72619b30575865",
+      "actions_csv_lines_including_header": 83,
+      "summary_csv": "init_1/eval_v3_task0_010000_benchmark_init1_n25_seed12346_summary.csv",
+      "summary_csv_sha256": "3146b0c8bd2d07420fc7da6922a75cb4f54d5632bf43120405902a8014d61b27"
+    },
+    {
+      "init_index": 3,
+      "seed": 12348,
+      "success": true,
+      "total_reward": 1.0,
+      "steps": 92,
+      "actions_csv": "init_3/eval_v3_task0_010000_benchmark_init3_n25_seed12348_actions.csv",
+      "actions_csv_sha256": "d7de1722614b612f6cf545e7f3f319fc9934a342b84235b0667cc74970e63d4e",
+      "actions_csv_lines_including_header": 93,
+      "summary_csv": "init_3/eval_v3_task0_010000_benchmark_init3_n25_seed12348_summary.csv",
+      "summary_csv_sha256": "653de06a0392668ad138654a40b01a86f5a11681be27a337675e97c6929e722a"
+    },
+    {
+      "init_index": 4,
+      "seed": 12349,
+      "success": true,
+      "total_reward": 1.0,
+      "steps": 85,
+      "actions_csv": "init_4/eval_v3_task0_010000_benchmark_init4_n25_seed12349_actions.csv",
+      "actions_csv_sha256": "4e81eabb0a4ca55cb7cf7ffceaa24b3e2adf084480da55133b1265c4c89181b3",
+      "actions_csv_lines_including_header": 86,
+      "summary_csv": "init_4/eval_v3_task0_010000_benchmark_init4_n25_seed12349_summary.csv",
+      "summary_csv_sha256": "7f5563bb323d2522d757970120571b86848499e3c8ea0bcebb9a0ca754e83087"
+    }
+  ],
+  "scope_and_limits": {
+    "disjointness": "Different archived historical V3 checkpoint/run family and source action files from the current-recipe 40k 24-trace diagnostic replay; no claim that benchmark init indices are disjoint.",
+    "prior_exposure": "These Phase N traces were previously examined for gripper/action proxies. They are candidate independent source actions for a future stage-observable falsification check, not a pristine population for all proxy discovery or threshold tuning.",
+    "cross_model_limit": "Historical V3 010000 positive control is not the current-recipe 40k policy; success of one does not establish success or failure stage of the other.",
+    "replay_status": "No replay of these three traces has been run in this inventory. Source/replay success, step, reward and robot-state parity are unverified.",
+    "measurement_status": "No object-identity or necessary-stage event has been validated on these traces. A missed event in any successful control invalidates a necessary-predecessor claim under frozen capture semantics.",
+    "publication": "Only this lightweight inventory is publishable. Raw action/state CSVs, checkpoints, datasets, credentials and logs remain on the GPU.",
+    "fold02": "LOCKED"
+  },
+  "recommended_next_action": "Design a separately authorized recorded-action replay against these hash-pinned files, with exact task/reset/evaluator compatibility and source/replay parity checks before any stage interpretation. Do not run replay, policy inference or training from this inventory alone."
+}

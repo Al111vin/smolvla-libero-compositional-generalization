@@ -1406,3 +1406,15 @@ their outcomes. If no eligible archive exists, a fresh positive-control
 collection would need a separately approved protocol. This design launches no
 replay, policy inference, training, or task expansion; Fold 02 stays locked.
 See the [stage-measurement protocol design](results/teacher_native_spatial_task0_stage_measurement_next_protocol_design_v1_20261005.json).
+
+A read-only archive inventory found three historical V3 task-0 successful
+trajectories (benchmark inits 1, 3, 4) with recorded applied actions and 15-D
+robot state. Their action and summary CSV hashes, seeds, task BDDL hash, and
+current remote evaluator hash are registered in the
+[archived positive-trace inventory](results/teacher_native_spatial_task0_archived_positive_trace_inventory_v1_20261005.json).
+They belong to a different checkpoint/run family from the current-recipe 40k
+24-trace diagnostic set, but Phase N previously inspected their action/gripper
+proxies. They are candidates for a future independently checked replay, not
+pristine evidence for tuning thresholds. No replay or new policy rollout was
+run; source/replay parity and necessary-stage events remain unverified.
+Single-task gating still fails and Fold 02 remains locked.
