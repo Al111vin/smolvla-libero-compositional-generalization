@@ -16,6 +16,9 @@
     "official_task_bddl_sha256_observed_current_gpu": "9b59eb1287802868ad9bc78d58e6d36d4ba31134e679cfdbdf4b0feb660c959b",
     "checkpoint": "/root/smolvla-eval-prep/recovered_historical_v3_20260922/outputs/smolvla_v3_task0_10k_run1/checkpoints/010000/pretrained_model",
     "checkpoint_model_safetensors_sha256_from_prior_audit": "84523284fbee2814a3ba124c929ffdb555a1e93890b415a49996895a2cc70903",
+    "current_remote_state_capture_script": "/root/smolvla-eval-prep/scripts/eval_v3_task0_state_capture_v1.py",
+    "current_remote_state_capture_script_sha256": "89fd36a89dc45a56382219d4c3f6e5d12a3b1689abb3440ec29be346815af7cb",
+    "state_capture_script_hash_scope": "Current remote file hash matches repository scripts/eval_v3_task0.py and its visible reset, action and state-capture semantics; the Phase N source-time file hash was not embedded in the archived CSVs.",
     "current_remote_evaluator": "/root/smolvla-eval-prep/scripts/eval_v3_task0.py",
     "current_remote_evaluator_sha256": "5fb67f7a535e842214c351d09d368b3d2884deb267023fb51e54d3f5d494a2b3",
     "evaluator_hash_scope": "Current remote file hash matches the prior historical positive-control repeatability record; the Phase N source-time evaluator hash was not independently embedded in the archived CSVs.",
@@ -25,6 +28,14 @@
     "capture_columns": "step, reward, raw_action_0..6, processed_action_0..6, applied_action_0..6, state_0..14",
     "state_dim": 15,
     "action_dim": 7
+  },
+  "official_bddl_object_identity_observed_current_gpu": {
+    "target_bowl": "akita_black_bowl_1",
+    "other_black_bowl": "akita_black_bowl_2",
+    "target_plate": "plate_1",
+    "ramekin": "glazed_rim_porcelain_ramekin_1",
+    "goal_predicate": "(On akita_black_bowl_1 plate_1)",
+    "scope": "Read from the currently installed BDDL whose SHA256 is recorded above; require a fresh BDDL/hash and live-object check before any future replay."
   },
   "candidate_successes": [
     {

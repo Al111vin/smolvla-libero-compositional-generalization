@@ -1418,3 +1418,16 @@ proxies. They are candidates for a future independently checked replay, not
 pristine evidence for tuning thresholds. No replay or new policy rollout was
 run; source/replay parity and necessary-stage events remain unverified.
 Single-task gating still fails and Fold 02 remains locked.
+
+A static feasibility review confirmed the three V3 traces have the recorded
+pre-action 15-D state, applied 7-D action, and post-action reward needed for a
+future parity attempt. The old 24-trace runner is not reusable unchanged: it
+requires the current 40k checkpoint and hardcodes the invalidated stage proxy.
+The official BDDL has two black bowls and identifies `akita_black_bowl_1` as
+the target for `plate_1`; its ramekin key is
+`glazed_rim_porcelain_ramekin_1`, not the old runner's optional `ramekin_1`.
+This strengthens the need for fail-closed object identity checks. These archives
+could at most validate parity/instrumentation; a necessary-stage claim needs
+untouched successful controls. No three-trace replay, policy inference, or
+training was launched. See the
+[archived-positive replay feasibility design](results/teacher_native_spatial_task0_archived_positive_replay_feasibility_design_v1_20261005.json).

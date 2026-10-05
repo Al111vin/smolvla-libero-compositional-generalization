@@ -1,0 +1,90 @@
+{
+  "schema_version": 1,
+  "design_date_utc": "2026-10-05",
+  "status": "static_feasibility_design_only_no_execution_authorized",
+  "objective": "Decide whether the three hash-pinned historical V3 successful action/state traces can safely check instrumentation and, separately, what evidence would be needed for a necessary-stage claim.",
+  "basis": {
+    "candidate_inventory": "results/teacher_native_spatial_task0_archived_positive_trace_inventory_v1_20261005.json",
+    "current_recipe_24_trace_review": "results/teacher_native_spatial_task0_failure_stage_outcome_review_v1_20261004.json",
+    "prior_replay_runner": "scripts/replay_teacher_native_spatial_task0_failure_stages_v1.py",
+    "prior_replay_runner_sha256": "0e5a7ab2926fb5259748261b1fa8e51929d03f6d64a193358375dcf96c60dfa2",
+    "current_remote_state_capture_script_sha256": "89fd36a89dc45a56382219d4c3f6e5d12a3b1689abb3440ec29be346815af7cb",
+    "current_remote_eval_v3_task0_sha256": "5fb67f7a535e842214c351d09d368b3d2884deb267023fb51e54d3f5d494a2b3",
+    "official_native_task0_bddl_sha256": "9b59eb1287802868ad9bc78d58e6d36d4ba31134e679cfdbdf4b0feb660c959b"
+  },
+  "static_findings": [
+    {
+      "finding": "The existing 24-trace runner cannot be used unchanged.",
+      "evidence": "It requires exactly 20 paired plus four fixed-init3 traces, a 40k current-recipe checkpoint, and a specific historical experiment_id; it also executes the previously invalidated approach threshold. The candidate set contains exactly three successful V3 010000 traces.",
+      "implication": "A separate versioned validator/runner and independent output root would be required; do not edit or rerun the 24-trace job in place."
+    },
+    {
+      "finding": "The source CSVs contain the minimum data for a parity attempt, not proof of parity.",
+      "evidence": "The current state-capture script records pre-action observation.state as 15 float32 values, then applied 7-D action and post-action reward for each step. The three source summaries and line counts match 82, 92, and 85 steps.",
+      "implication": "An authorized replay could compare pre-action robot state, each reward, final success and exact step count; all checks must pass before using any simulator-native observation. Source-time capture-script hash remains unproven because the CSVs do not embed it."
+    },
+    {
+      "finding": "The official task contains two black bowls and a specifically named ramekin.",
+      "evidence": "The current BDDL names akita_black_bowl_1 and akita_black_bowl_2, glazed_rim_porcelain_ramekin_1 and plate_1; its goal is (On akita_black_bowl_1 plate_1).",
+      "implication": "Object identity must come from the hash-pinned BDDL goal and be verified against live simulator object/observation keys. The old runner's optional ramekin_1 key is not the BDDL name and cannot silently stand for the true ramekin."
+    },
+    {
+      "finding": "These three histories cannot rescue the failed current-recipe approach proxy.",
+      "evidence": "The 0.05 m approach proxy occurred in only 5 of 14 current-recipe successful diagnostic traces; Phase N had also previously inspected action/gripper behavior on the three V3 candidates.",
+      "implication": "Treat these archives as instrumentation/parity candidates, not pristine threshold-development or confirmatory necessary-stage evidence. Do not relabel the nine current-recipe failures from this archive."
+    }
+  ],
+  "alternatives": [
+    {
+      "option": "Run the existing 24-trace runner directly on the three V3 sources",
+      "decision": "reject",
+      "reason": "Its fixed inventory, checkpoint and stage assumptions reject or misinterpret this different population."
+    },
+    {
+      "option": "Use the three archived traces for a separately implemented recorded-action parity and object-instrumentation smoke only",
+      "decision": "conditionally_useful_after_separate_authorization",
+      "reason": "No policy inference is needed and all source actions/states are hash-pinned, but replay parity is unproven and prior proxy exposure limits the inference."
+    },
+    {
+      "option": "Collect a new, disjoint successful control set with a frozen positive model and predeclared observables",
+      "decision": "required_for_future_confirmatory_stage_validation_if_that_claim_is_pursued",
+      "reason": "A genuinely untouched population could falsify a frozen necessary-event rule, but requires separately authorized new policy inference and dedicated private outputs."
+    },
+    {
+      "option": "Retrain or advance 4-to-8-to-16-to-32 tasks now",
+      "decision": "reject",
+      "reason": "The matched 40k single-task fixed-init3 gate failed and no validated stage diagnosis or one-variable intervention justifies expansion."
+    }
+  ],
+  "proposed_bounded_replay_if_authorized_later": {
+    "mode": "recorded_applied_actions_only_no_policy_loading_or_inference",
+    "source_selection": "Exactly the three hash-pinned V3 010000 successes in the inventory, ordered init1 then init3 then init4; no outcome- or stage-based substitution on failure.",
+    "preflight": [
+      "Require exact source CSV, current capture-script, active task BDDL, and new runner/helper hashes; compare archived CSV hashes to the pinned inventory before importing LIBERO.",
+      "Validate one summary row and step-contiguous applied_action_0..6, state_0..14, reward rows; reject NaN/Inf, action outside [-1,1], wrong native instruction, seed, init, wait-step count, n_action_steps, or checkpoint identity.",
+      "Require the intended output root and log path to be absent, use exclusive creation, and never overwrite or auto-retry failed outputs.",
+      "Before action playback, confirm that the current official BDDL goal and the simulator objects resolve uniquely to akita_black_bowl_1, plate_1 and glazed_rim_porcelain_ramekin_1; fail closed if names or hash differ."
+    ],
+    "reset_and_seed": "Match the source capture script: env.reset, benchmark task0 initial state at the recorded index, ten zero-action wait steps, then effective_seed=12345+init_index before recorded actions. The source state in each row is the pre-action 15-D observation.state; its reward is post-action.",
+    "parity_gates": {
+      "pre_action_robot_state_max_abs": "At most 1e-6 for every dimension/step, using the same state transform as the pinned capture script.",
+      "per_step_reward_max_abs": "At most 1e-7 for every step.",
+      "episode_total_reward_max_abs": "At most 1e-7.",
+      "episode_steps": "Exact 82, 92 and 85 source-summary agreement, respectively.",
+      "terminal_success": "Exact success=true agreement with the source summary and official native success predicate; record any info/reward disagreement as invalid rather than resolving it post hoc."
+    },
+    "instrumentation": "Only after parity, record target bowl/plate/ramekin poses, correct-object contacts, native support predicate and official success. Keep raw traces private; report descriptive values without assigning a causal failure stage or tuning a threshold.",
+    "stop_rule": "On the first source, environment, parity or object-identity mismatch, preserve the fresh output/log, mark invalid, stop all remaining traces, and never auto-retry or silently relax tolerance.",
+    "output_root_policy": "Use a new experiment-specific private results root; do not reuse the 24-trace output roots or modify archived source CSVs. Publish only a lightweight summary after verification.",
+    "execution_authorization": "The existing user approval was for the old 24 traces only. This design does not authorize a three-trace replay or new policy inference."
+  },
+  "interpretation_gate": "Even if all three future replays pass parity, they would verify only that these historical successful source actions can be reproduced and object observables read consistently. A necessary-stage rule would still need an independently predeclared definition tested on untouched successful controls. The current 0.05 m approach rule has already failed on the current-recipe successes.",
+  "current_execution": {
+    "three_trace_replay_started": false,
+    "new_policy_inference_started": false,
+    "training_started": false,
+    "task_count_expansion": "LOCKED",
+    "fold02": "LOCKED"
+  },
+  "recommended_next_action": "Keep the three archives as hash-pinned instrumentation candidates; only if a new replay is explicitly authorized, implement an isolated parity-only runner and offline tests before execution. For a necessary-stage claim, prepare a separate frozen-observable, untouched-positive-control protocol requiring its own inference authorization."
+}
