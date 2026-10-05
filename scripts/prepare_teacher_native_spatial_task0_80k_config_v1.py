@@ -66,6 +66,18 @@ def build_candidate(source: dict, design: dict) -> tuple[dict, dict]:
     if execution.get("task_count_expansion") != "LOCKED" or execution.get("fold02") != "LOCKED":
         raise ValueError("Task expansion and Fold 02 must remain locked")
 
+    # The 80k authorization covers training only, not policy rollout/inference.
+    # LeRobot's training loop gates environment rollouts on both a positive
+    # evaluation frequency and a configured environment; preserve the baseline's
+    # null environment and reject any offline eval split/step schedule as well.
+    if source.get("env") is not None:
+        raise ValueError("Policy environment evaluation is not authorized")
+    dataset_cfg = source.get("dataset", {})
+    if dataset_cfg.get("eval_split", 0) != 0:
+        raise ValueError("Offline held-out evaluation is not authorized")
+    if source.get("eval_steps", 0) != 0:
+        raise ValueError("Offline held-out evaluation steps must remain disabled")
+
     proposed = copy.deepcopy(source)
     proposed["job_name"] = RUN_NAME
     proposed["output_dir"] = protocol["output_isolation"]["training_root"]
@@ -102,6 +114,14 @@ def build_candidate(source: dict, design: dict) -> tuple[dict, dict]:
             "configured_decay_steps": scheduler["num_decay_steps"],
             "expected_effective_warmup_steps": warmup,
             "expected_effective_decay_horizon_steps": 80000,
+            "runtime_confirmation_required": True,
+        },
+        "policy_evaluation_guard": {
+            "env": proposed["env"],
+            "dataset_eval_split": proposed["dataset"].get("eval_split", 0),
+            "eval_steps": proposed.get("eval_steps", 0),
+            "eval_freq_retained_from_baseline": proposed.get("eval_freq"),
+            "interpretation": "A positive environment-evaluation frequency must not trigger rollouts while env is null; the resolved runtime config and trainer behavior must be freshly verified before training.",
             "runtime_confirmation_required": True,
         },
         "remote_checks_not_performed": [

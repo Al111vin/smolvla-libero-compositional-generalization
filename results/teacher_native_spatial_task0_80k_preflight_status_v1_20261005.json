@@ -39,10 +39,33 @@
       "result_json_parse": "passed",
       "offline_regression_tests": {
         "command": "python3 -m unittest -v tests/test_archived_v3_task0_replay_manifest_v1.py tests/test_archived_v3_task0_positive_parity_replay_v1.py tests/test_prepare_teacher_native_spatial_task0_80k_config_v1.py",
-        "passed": 17,
+        "passed": 19,
         "failed": 0
       },
       "git_diff_check": "passed",
+      "policy_evaluation_guard_review": {
+        "timestamp_utc": "2026-10-05T03:19:24Z",
+        "local_config": {
+          "env": null,
+          "dataset_eval_split": "not explicit; resolved runtime value must be verified as 0",
+          "eval_steps": "not explicit; resolved runtime value must be verified as 0",
+          "eval_freq": 20000,
+          "eval_n_episodes": 50
+        },
+        "official_reference_review": {
+          "source_config_url": "https://github.com/huggingface/lerobot/blob/main/src/lerobot/configs/train.py",
+          "training_loop_url": "https://github.com/huggingface/lerobot/blob/main/src/lerobot/scripts/lerobot_train.py",
+          "observed_rule": "Current upstream performs in-training environment rollouts only when an environment is configured and the evaluation frequency fires; held-out loss evaluation is gated by positive eval_steps and an eval dataloader.",
+          "scope_limit": "This documents current upstream only, not the installed remote compatibility trainer version or source hash."
+        },
+        "builder_guard": "Reject non-null environment configuration, non-zero dataset eval_split, or non-zero eval_steps; preserves the registered baseline config unchanged.",
+        "builder_sha256": "8754850fc6d394638ce40b40b43f2f90a353d689cc4937eee4ce90d0cf203b45",
+        "test_file_sha256": "b77723404afbe4895885d2841e0eba15639c4814c9060fe20defe563bd29bb34",
+        "candidate_config_sha256_unchanged": "c79765254e18d35577b5dfe65f8acb35d85ed458d7b92f53459e481d78cae628",
+        "result": "Static guard added and tested; training remains unauthorized to launch until the exact remote resolved config and trainer behavior prove no policy evaluation will occur.",
+        "training_started": false,
+        "policy_inference_started": false
+      },
       "evidence_hashes_rechecked": {
         "40k_evaluation": "d335fd1b5acc0b7bd98b4344ec1074f3f3f2ef276259b6fd95c5a0f28c62fdf8",
         "40k_training_curve_review": "ecfe061f695d376b7c12acf1320fd8f431ef22cd22b3dc5c9470e45524375d3b",

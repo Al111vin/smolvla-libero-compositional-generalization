@@ -1455,3 +1455,9 @@ is local static preparation, not a fresh remote runtime preflight. See the
 [builder](scripts/prepare_teacher_native_spatial_task0_80k_config_v1.py),
 [offline tests](tests/test_prepare_teacher_native_spatial_task0_80k_config_v1.py),
 and [config manifest](results/teacher_native_spatial_task0_single_current_recipe_80k_config_manifest_v1_20261005.json).
+The baseline config retains `eval_freq=20000` and an eval episode count, but its
+environment is null; the local builder now rejects any environment rollout,
+nonzero held-out split, or nonzero eval-step schedule. Because the remote
+compatibility trainer is not currently reachable, the resolved remote config
+and exact trainer behavior must still be checked before launch; the 80k run must
+not perform policy inference/evaluation under the current authorization.
