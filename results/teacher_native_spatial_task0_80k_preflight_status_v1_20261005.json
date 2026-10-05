@@ -37,6 +37,12 @@
     "current_turn_local_recheck": {
       "date_utc": "2026-10-05",
       "result_json_parse": "passed",
+      "offline_regression_tests": {
+        "command": "python3 -m unittest -v tests/test_archived_v3_task0_replay_manifest_v1.py tests/test_archived_v3_task0_positive_parity_replay_v1.py tests/test_prepare_teacher_native_spatial_task0_80k_config_v1.py",
+        "passed": 17,
+        "failed": 0
+      },
+      "git_diff_check": "passed",
       "evidence_hashes_rechecked": {
         "40k_evaluation": "d335fd1b5acc0b7bd98b4344ec1074f3f3f2ef276259b6fd95c5a0f28c62fdf8",
         "40k_training_curve_review": "ecfe061f695d376b7c12acf1320fd8f431ef22cd22b3dc5c9470e45524375d3b",
@@ -88,6 +94,18 @@
   "remote_preflight": {
     "freshly_verified_this_turn": false,
     "reason": "The Codex computer-use endpoint reports the Mac is locked and could not unlock it; the authenticated Compshare browser session is therefore unavailable.",
+    "latest_access_probe_utc": {
+      "timestamp": "2026-10-05T03:08:18Z",
+      "cua": "Mac locked; automatic unlock failed; no authenticated browser tab or attached terminal session exposed.",
+      "ssh": {
+        "target": "cpod-1v6wxcygzn32-s1.podtcp.compshare.cn:27360",
+        "command_scope": "read-only hostname and nvidia-smi probe",
+        "result": "connection reset during key exchange; no remote command executed",
+        "exit_code": 255
+      },
+      "ssh_agent": "no identities loaded; no key material or password was read or requested",
+      "gpu_or_job_state_inferred": false
+    },
     "current_access_probe": {
       "date_utc": "2026-10-05",
       "tool": "cua.getState",
