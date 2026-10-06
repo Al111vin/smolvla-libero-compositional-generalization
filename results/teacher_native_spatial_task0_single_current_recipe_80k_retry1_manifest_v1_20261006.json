@@ -1,0 +1,33 @@
+{
+  "schema_version": 1,
+  "experiment_id": "teacher_native_spatial_task0_single_current_recipe_80k_batch2_v1_retry1_20261006",
+  "status": "local_retry_config_prepared_remote_preflight_pending",
+  "training_started": false,
+  "user_authorization": "User explicitly authorized one corrected 80k training attempt in this chat on 2026-10-06.",
+  "source_80k_config_sha256": "c79765254e18d35577b5dfe65f8acb35d85ed458d7b92f53459e481d78cae628",
+  "retry_config_sha256": "8724976d8d8428b80eb1297d73995bfd2c4d5fd7fa8c74bd0246abe95ba3fa4c",
+  "changed_config_paths_vs_registered_80k_candidate": [
+    "job_name",
+    "output_dir"
+  ],
+  "preserved_failed_attempt_output_dir_do_not_touch": "/root/smolvla-training-prep/results/training/teacher_native_spatial_task0_single_current_recipe_80k_batch2_v1",
+  "new_output_dir_must_be_absent_before_launch": "/root/smolvla-training-prep/results/training/teacher_native_spatial_task0_single_current_recipe_80k_batch2_v1_retry1_20261006",
+  "log_placement": "Outside the training output directory; never mkdir the training output directory before LeRobot validation.",
+  "training": {
+    "steps": 80000,
+    "batch_size": 2,
+    "seed": 1000
+  },
+  "policy_evaluation_authorized": false,
+  "policy_evaluation_started": false,
+  "fold02": "LOCKED",
+  "task_count_expansion": "LOCKED",
+  "remote_preflight_required": [
+    "Resolve the correct registered conversion manifest path and verify its hash against the 8bb81e1d...11ba1 source-manifest reference; do not compare it to the distinct source/preflight_manifest.json.",
+    "Verify converted dataset tree, metadata/statistics, exact task-0 slice, frozen data and model hashes.",
+    "Verify installed trainer/scheduler hashes and runtime-resolved config/warmup/decay.",
+    "Verify GPU/process exclusivity, disk, lock availability, and absence of retry config/log/PID/output paths.",
+    "Verify trainer env=null and no policy rollout/evaluation path is enabled."
+  ],
+  "launch_guard": "Single attempt only after all remote preflight checks pass; use a new absent output path, keep the log outside it, and let LeRobot create the output directory."
+}

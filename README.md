@@ -64,6 +64,22 @@ matched; these are point-in-time observations, not a current resource claim.
 No training is claimed as started. See
 [`80k preflight status`](results/teacher_native_spatial_task0_80k_preflight_status_v1_20261005.json).
 
+On 2026-10-06 the user explicitly authorized **one corrected manual retry**.
+The preserved failed-attempt directory above remains untouched. A local-only
+retry config has been prepared at
+`configs/teacher_native_spatial_task0_single_current_recipe_80k_batch2_v1_retry1_20261006.json`
+(SHA-256 `8724976d8d8428b80eb1297d73995bfd2c4d5fd7fa8c74bd0246abe95ba3fa4c`);
+relative to the registered 80k candidate it changes only the job name and a
+new isolated output path. Its preparation test passes. This is **not** a remote
+preflight or launch: the current Compshare session was unavailable while the
+Mac was locked, so the retry config has not been staged, GPU/data/runtime state
+has not been refreshed, and no training has started. If access returns, verify
+all remote hashes and path absence first; keep the log outside the not-yet-created
+training output directory so LeRobot can create that directory itself. Policy
+evaluation remains unauthorized; Fold 02 and task-count expansion remain
+locked. See the
+[`retry preparation manifest`](results/teacher_native_spatial_task0_single_current_recipe_80k_retry1_manifest_v1_20261006.json).
+
 ### Teacher-recommended single-task control (2026-10-02)
 
 The historical native LIBERO Spatial task-0 V3 checkpoint succeeded in **5/5**
