@@ -2,10 +2,10 @@
   "schema_version": 1,
   "audit_date_utc": "2026-10-05",
   "experiment_id": "teacher_native_spatial_task0_single_current_recipe_80k_batch2_v1",
-  "status": "local_preflight_passed_remote_preflight_unverified",
+  "status": "launch_aborted_before_training_output_directory_validation",
   "workspace": {
     "branch": "benchmark-v1-sync-20260922",
-    "head": "10dc6a489c50ef426d89000c3e096e616dfdfad4",
+    "head": "ccea6bc053ad7e17145a9fed6f8fe1f720d66da2",
     "head_matches_origin_tracking_ref_at_check": true
   },
   "local_evidence": {
@@ -116,9 +116,9 @@
   },
   "remote_preflight": {
     "freshly_verified_this_turn": true,
-    "reason": "An authenticated JupyterLab terminal was available for a read-only snapshot; the Mac then locked during the same turn, so the remaining preflight and any launch could not continue.",
+    "reason": "Authenticated JupyterLab checks completed. Runtime/config/data/model/GPU/disk preflight passed. One launcher invocation then exited before training because LeRobot rejects an already-existing output directory; the unique failed-attempt directory and log are preserved and must not be deleted or retried.",
     "latest_authenticated_remote_snapshot_utc": {
-      "observed_at": "2026-10-05T08:22Z",
+        "observed_at": "2026-10-05T08:22Z (historical preflight snapshot; superseded by launch-attempt snapshot below)",
       "access": "Compshare JupyterLab terminal, read-only commands",
       "v3_positive_replay": {
         "output_dir": "/root/smolvla-eval-prep/results/teacher_native_spatial_task0_archived_positive_replay_v1_20261005",
@@ -159,7 +159,7 @@
         "output_root_presence": "absent at snapshot",
         "training_started": false
       },
-      "remaining_gate": "The 80k config must be staged to the absent path, its hash verified, then resolved under the current remote runtime to confirm only the registered step/job/output differences, eval_steps=0, eval_split=0, env=null, and effective scheduler warmup=2666/decay=80000. Recheck GPU exclusivity and storage/output absence immediately before launch."
+      "remaining_gate": "Preflight passed. The single launch attempt aborted before training when LeRobot's validation rejected the newly created output directory. Preserve that attempt and stop; do not remove it, switch to a new path, or retry automatically."
     },
     "pre_snapshot_ssh_probe_utc": {
       "timestamp": "2026-10-05T03:08:18Z",
@@ -174,10 +174,23 @@
       "gpu_or_job_state_inferred": false
     },
     "current_access_probe": {
-      "date_utc": "2026-10-05",
+      "date_utc": "2026-10-06",
       "tool": "Compshare JupyterLab browser session after snapshot",
-      "result": "Mac locked; remote terminal unavailable for remaining checks.",
+      "result": "Authenticated JupyterLab terminal available; final preflight and one launch attempt were directly observed.",
       "gpu_or_job_state_inferred": false
+    },
+    "latest_authenticated_launch_attempt": {
+      "remote_time_as_displayed": "Tue Oct 6 00:01:23 Asia 2026",
+      "access": "Authenticated Compshare JupyterLab terminal",
+      "launcher_pid": 1560733,
+      "launcher_exit": 1,
+      "training_started": false,
+      "failure": "LeRobot TrainPipelineConfig.validate raised FileExistsError because the unique output directory already existed when resume was false; the launch wrapper had created it first to hold train.log.",
+      "preserved_remote_output_dir": "/root/smolvla-training-prep/results/training/teacher_native_spatial_task0_single_current_recipe_80k_batch2_v1",
+      "preserved_files": ["launcher.pid", "train.log"],
+      "retry": "prohibited; do not delete, overwrite, switch paths, or relaunch automatically",
+      "post_failure_gpu": "RTX 5090, 0% utilization, 2 MiB of 32607 MiB",
+      "policy_evaluation_or_inference": false
     },
     "prior_local_authorization_record_says": "The three-trace V3 replay had not started and remote output absence was not verified; superseded by the authenticated snapshot above.",
     "handoff_summary_conflict": "Resolved by the authenticated remote snapshot above: the attempt failed at init1, the output is preserved, and the run is invalidated. Do not rerun.",
@@ -192,10 +205,13 @@
   },
   "execution": {
     "80k_training_launched_from_this_turn": false,
-    "80k_remote_training_current_status": "not_started_in_latest_authenticated_snapshot; no matching process observed; recheck before launch",
+    "80k_launch_attempted_from_this_turn": true,
+    "launcher_pid": 1560733,
+    "launcher_exit_code": 1,
+    "80k_remote_training_current_status": "not_started; the sole launcher exited before training during output-directory validation; no retry permitted",
     "policy_evaluation_launched_from_this_turn": false,
-    "new_80k_output_root_current_presence": "absent_in_latest_authenticated_snapshot; recheck before launch",
+    "new_80k_output_root_current_presence": "present_and_preserved_after_failed_launch_attempt; contains launcher.pid and train.log; do not delete or reuse",
     "fold02_actioned_from_this_turn": false
   },
-  "interpretation_limit": "This is a point-in-time authenticated remote snapshot, not a launch authorization bypass. The V3 parity replay is invalidated; the 80k config remains unstaged and runtime-resolved scheduler/config gates remain pending. No 80k training or policy evaluation was launched."
+  "interpretation_limit": "The V3 parity replay is invalidated and must not be rerun. The 80k runtime preflight passed, but its sole launcher invocation exited before training because its output directory had already been created for logging. The failed-attempt directory and log are preserved; do not delete, overwrite, switch paths, or retry automatically. No 80k training, checkpoint, or policy evaluation was produced."
 }

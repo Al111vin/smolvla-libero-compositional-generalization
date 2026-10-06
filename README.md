@@ -46,19 +46,22 @@ It combines closed-loop LIBERO evaluation, controlled leave-one-combination-out
 
 ### Teacher-directed task-0 budget follow-up (2026-10-05)
 
-The authorized 80,000-update single-task comparison has **not started**; its
-preflight is still incomplete, and no policy inference/evaluation is authorized
-as part of that training approval. A read-only authenticated Compshare snapshot
-confirmed the recovered official task-0 source HDF5 hash and base initialization
-hash. The separate replay-parity attempt using the historical V3 init1/3/4
+The authorized 80,000-update single-task comparison did **not start**. The
+runtime-resolved config, trainer, scheduler, dataset/model hashes, GPU
+exclusivity, and free-space checks passed. A single launcher invocation then
+exited before training began: the launcher had created the unique output
+directory for its log, while LeRobot validates that this directory must not
+already exist when resume is false. The resulting train.log and launcher.pid
+are retained in that isolated directory; do not remove, overwrite, change
+paths, or retry automatically. No checkpoint or policy evaluation was
+produced. The separate replay-parity attempt using the historical V3 init1/3/4
 positives failed on init1 because the replay terminal-success flag disagreed;
-the run was invalidated after that first mismatch, init1/3/4 were not completed,
-and automatic retry is disabled. Its failure evidence is preserved and must not
-be rerun or counted as parity validation. At that same snapshot the RTX 5090
-was idle, the 80k config and output root were absent remotely, and 71 GB was
-free on `/`; these are point-in-time observations, not a current resource
-claim. The remaining runtime-resolved config/scheduler checks must pass before
-the one authorized 80k training run. See
+it was invalidated after that first mismatch, init1/3/4 were not completed,
+and automatic retry is disabled. Its failure evidence is preserved and must
+not be rerun or counted as parity validation. The final pre-launch snapshot
+showed RTX 5090 idle (0%, 2 MiB), 71 GB free on /, and the config/source hashes
+matched; these are point-in-time observations, not a current resource claim.
+No training is claimed as started. See
 [`80k preflight status`](results/teacher_native_spatial_task0_80k_preflight_status_v1_20261005.json).
 
 ### Teacher-recommended single-task control (2026-10-02)
@@ -1462,14 +1465,14 @@ The current-recipe 40k single-task run remains below its registered repeatabilit
 gate (11/20 paired successes; fixed init3 3/5). A single-task 80k total-budget
 contrast is registered to test the undertraining hypothesis while holding the
 per-step recipe, task-0 data slice, batch size, seed, base initialization, and
-normalization source fixed. The training contrast is explicitly authorized only
-after its preflight gates pass; it is not task-count scaling. Local design and
-offline checks are recorded, but the remote preflight and current GPU/job state
-are unverified. In particular, the explicitly authorized three-trace V3 parity
-replay has conflicting local/handoff execution status and must be reconciled
-from its unique remote output before any 80k training. A new policy evaluation/inference is not covered
-by the training authorization and requires separate authorization. No 80k run
-or policy evaluation is claimed as started here; 4/8/16/32 scaling and Fold 02
+normalization source fixed. The one preflight-gated launch attempt aborted
+before training because its unique output directory was created before
+LeRobot's empty-output-directory validation. Preserve the failed attempt's
+output and log; do not delete, change paths, or retry automatically under the
+stop-on-error protocol. The V3 parity replay was invalidated on its first
+init1 mismatch and must not be rerun. A new policy evaluation/inference is not
+covered by the training authorization. No 80k training or policy evaluation
+is claimed as started here; 4/8/16/32 scaling and Fold 02
 remain locked. See the [80k contrast design](results/teacher_native_spatial_task0_post40k_single_variable_budget_extension_design_v1_20261005.json)
 and [current preflight status](results/teacher_native_spatial_task0_80k_preflight_status_v1_20261005.json).
 An isolated 80k config is now prepared from the registered 40k config; a fail-closed
@@ -1480,8 +1483,9 @@ is local static preparation, not a fresh remote runtime preflight. See the
 [offline tests](tests/test_prepare_teacher_native_spatial_task0_80k_config_v1.py),
 and [config manifest](results/teacher_native_spatial_task0_single_current_recipe_80k_config_manifest_v1_20261005.json).
 The baseline config retains `eval_freq=20000` and an eval episode count, but its
-environment is null; the local builder now rejects any environment rollout,
-nonzero held-out split, or nonzero eval-step schedule. Because the remote
-compatibility trainer is not currently reachable, the resolved remote config
-and exact trainer behavior must still be checked before launch; the 80k run must
-not perform policy inference/evaluation under the current authorization.
+environment is null; the local builder rejects any environment rollout,
+nonzero held-out split, or nonzero eval-step schedule. The installed remote
+trainer was inspected and gates environment rollouts on a non-null environment;
+the resolved 80k config and scheduler values matched the registered design.
+The launch nevertheless aborted before training as documented above. This
+authorization does not permit policy inference/evaluation.
