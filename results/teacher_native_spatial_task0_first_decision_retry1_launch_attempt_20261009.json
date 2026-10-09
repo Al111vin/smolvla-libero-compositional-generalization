@@ -1,0 +1,14 @@
+{
+  "schema_version": 1,
+  "status": "failed_before_child_launch",
+  "supervisor_pid": 263679,
+  "authenticated_terminal_evidence": "PID absent; supervisor traceback reports CONFLICTING_PIDS [263679]; result directory absent",
+  "cause": "Argv-aware guard classified its own supervisor as a conflicting workload.",
+  "policy_calls": 0,
+  "closed_loop_action_steps": 0,
+  "deployment_hashes": "All four registered SHA256 values matched remote files before launch; evaluator SHA matched.",
+  "preserved_remote_directory": "/root/smolvla-eval-prep/recovery/teacher_native_spatial_task0_full_input_rng_diagnostic_v1_retry1_20261009",
+  "next_hypothesis": "Exclude only the guard caller PID, while preserving detection of every other supervisor/trainer/evaluator; add a regression test before registering a separate bounded retry.",
+  "automatic_retry": false,
+  "scientific_result": "No policy inference or stability evidence produced; Fold02 and task scaling remain locked."
+}
