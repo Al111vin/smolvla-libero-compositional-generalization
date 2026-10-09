@@ -1716,3 +1716,19 @@ cause or causal interference is established. All raw observations remain remote;
 no GPU policy or rendering was used. Eight-task and Fold02 remain locked.
 See the [12-case result](results/teacher_native_spatial_4task_cpu_observers_result_v2_20261009.json)
 and [contact review](results/teacher_native_spatial_4task_cpu_contact_review_v1_20261009.json).
+
+The next prespecified diagnostic reuses single020000 and joint080000 checkpoints,
+not new training. Saved training/scheduler states and a full CPU reconstruction
+confirm20k updates and40k sample draws per task with identical nominal pre-update
+LR exposure (maximum error0). Sample identities/order and shared Adam history
+are not matched. The fixed40-rollout paired-init0..19 comparison has a90-minute
+wall limit and no retries; five offline supervisor/audit tests passed. Independent
+checkpoint/evaluator/deployment hashes, absent paths and resource checks passed
+before its one-shot launch at2026-10-09T22:34:37UTC (supervisor480799). The
+22:36:14UTC snapshot confirmed the same live supervisor, two verified rollouts
+and no exit marker. Completion and midpoint policy outcomes remain unproven.
+Do not relaunch or choose a best checkpoint to replace the failed final gate.
+Eight-task expansion and Fold02 remain locked. See the
+[midpoint design](results/teacher_native_spatial_4task_intermediate_control_design_v1_20261009.json),
+[exposure preflight](results/teacher_native_spatial_4task_midpoint_exposure_preflight_v1_20261009.json)
+and [launch evidence](results/teacher_native_spatial_4task_midpoint_launch_v1_20261009.json).
