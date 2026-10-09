@@ -1,0 +1,13 @@
+{
+  "status": "authenticated_early_training_numeric_snapshot",
+  "observation_utc_window": "2026-10-09T14:59:58Z/2026-10-09T15:00:49Z",
+  "latest_progress": 5428,
+  "total_updates": 160000,
+  "supervisor_pid": 315683,
+  "trainer_pid": 315694,
+  "recent_logged_metrics": {"updates": [5000, 5100, 5200, 5300, 5400], "loss": [0.632, 0.573, 0.578, 0.573, 0.580], "gradient_norm": [5.459, 5.023, 4.424, 5.131, 5.092], "post_update_lr_rounded": [0.000093, 0.000095, 0.000097, 0.000098, 0.0001]},
+  "exit_marker_present": false,
+  "scope": "Five recent rounded logged metric observations are finite. This is not full-run numerical validation, exact pre-update LR verification, learning success or policy evaluation.",
+  "raw_training_log_uploaded": false,
+  "fold02": "locked"
+}
