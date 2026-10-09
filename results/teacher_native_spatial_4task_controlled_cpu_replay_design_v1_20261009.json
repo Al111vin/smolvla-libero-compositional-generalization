@@ -1,0 +1,20 @@
+{
+  "status": "registered_design_pending_cpu_headless_feasibility",
+  "version": "controlled_task0_single_joint_cpu_stage_replay_v1",
+  "question": "Do lost task0 starts fail at different physical stages despite matched initial inputs and nominal sample/LR exposure?",
+  "evidence_gap": "Existing CSVs contain robot states/actions/rewards but no object poses/contact histories; command metrics cannot identify grasp/lift/placement failures.",
+  "options": [
+    {"id": "infer_stages_from_robot_csv", "decision": "reject", "reason": "Missing object/contact evidence would require unsupported labels"},
+    {"id": "new_policy_evaluation_or_training", "decision": "defer", "reason": "Does not fill existing trajectory evidence gap efficiently and adds GPU cost"},
+    {"id": "headless_policy_free_cpu_replay", "decision": "selected_for_feasibility", "reason": "Replay stored applied actions and collect object/contact state; preserve original outcomes and require exact recorded-state/reward parity before interpreting stages"}
+  ],
+  "cases": {"models": ["single40k", "joint160k"], "paired_inits": [3,0,12,13,14,6], "total": 12, "pilot_first": ["joint160k_init3", "single40k_init3"]},
+  "budget": {"max_replays": 12, "max_actions_per_replay": 300, "policy_inference_calls": 0, "new_training_updates": 0, "gpu_rendering": false, "automatic_retries": 0},
+  "before_execution": ["Inspect installed native environment constructor and controlled hooks to reproduce actual reset/RNG order", "Confirm headless environment uses CPU with no camera renderer or GPU policy", "Pin input CSV/protocol/capture hashes, code/environment versions and independent output paths", "Register object/contact stage proxies and observer behavior before replay", "Verify no conflicting process and preserve all existing evidence"],
+  "parity_requirements": ["Match initial simulator and model-array digests to captured controlled start", "Match all15 recorded pre-action robot-state values at existing1e-6 tolerance and reward at1e-7 tolerance", "Use stored applied actions with identical wait10/init/seed/terminal conventions", "Stop at first mismatch, preserve failure, interpret no unmatched subsequent physical-stage evidence"],
+  "limits": ["Headless replay does not validate camera/image parity", "Robot/reward parity is required but observer proxies remain diagnostic rather than causal proof", "No repeated training seeds; do not claim isolated gradient interference", "HistoricalV3 invalidated attempt remains unchanged; this is a new controlled diagnostic version"],
+  "execution": "not started",
+  "new_gpu_budget": 0,
+  "eight_task_progression": "locked_by_registered_task0_retention_gate",
+  "fold02": "locked"
+}

@@ -1682,3 +1682,15 @@ and unsupported training extensions are rejected. No new GPU budget is assigned.
 See the [final result](results/teacher_native_spatial_4task_final_eval_result_v1_20261009.json),
 [matched baseline](results/teacher_native_spatial_4task_task0_baseline_comparison_v1_20261009.json)
 and [progression decision](results/teacher_native_spatial_4task_progression_decision_v1_20261009.json).
+
+CPU-only inspection of the four task0 lost starts, gained init6 and positive
+init3 found no uniform action-metric failure mechanism. Three lost starts had
+more first60 gripper sign changes, but the faster successful joint-init3 did
+too. The stored15-dimensional robot state contains no object/contact history,
+so grasp/lift/placement stages cannot be assigned from these CSVs alone. A new
+bounded headless, policy-free CPU replay design selects at most12 stored traces,
+with initial-state/model-array and full robot-state/reward parity required
+before interpreting object/contact proxies. Feasibility and execution remain
+pending; no new GPU inference or training is budgeted. See the
+[existing-trace review](results/teacher_native_spatial_4task_task0_existing_trace_review_v1_20261009.json)
+and [CPU replay design](results/teacher_native_spatial_4task_controlled_cpu_replay_design_v1_20261009.json).

@@ -1,0 +1,278 @@
+{
+  "status": "read_only_existing_traces_descriptive_comparison",
+  "metric_source_sha256": "71390c3ee352ed79b1153e5b51017cf12c4ebf7012e555707b9fdc50174b955e",
+  "review": "Lost starts0/12/13 have more first60 gripper sign changes; loss14 does not. All four have lower translational action step-delta than baseline. Successful joint-init3 also has more gripper changes, so these metrics do not establish a uniform failure mechanism. Loss14 has baseline reward at296 actions versus joint timeout300; other lost baselines finish117..124. This is descriptive timing evidence, not physical-stage identification.",
+  "observed_at_utc": "2026-10-09T22:13:14.865343+00:00",
+  "selected_lost_inits": [
+    0,
+    12,
+    13,
+    14
+  ],
+  "selected_gain_init": 6,
+  "selected_fixed_positive_init": 3,
+  "common_prefix_steps": 60,
+  "records": [
+    {
+      "init": 0,
+      "single": {
+        "steps": 124,
+        "reward": 1,
+        "prefix60": {
+          "gripper_sign_changes_per_100_steps": 1.694915254237288,
+          "applied_action_dim_0_2_step_delta_l2_mean": 0.13385042523512475,
+          "applied_action_dim_3_5_step_delta_l2_mean": 0.016187341551230697,
+          "applied_any_dimension_at_clip_boundary_fraction": 0.38333333333333336
+        },
+        "first_eef_xyz": [
+          -0.21124155819416046,
+          -0.011087832972407341,
+          1.174249529838562
+        ],
+        "last_eef_xyz": [
+          0.05429152026772499,
+          0.134747713804245,
+          0.9421219825744629
+        ]
+      },
+      "joint": {
+        "steps": 300,
+        "reward": 0,
+        "prefix60": {
+          "gripper_sign_changes_per_100_steps": 3.389830508474576,
+          "applied_action_dim_0_2_step_delta_l2_mean": 0.11847036593952459,
+          "applied_action_dim_3_5_step_delta_l2_mean": 0.018253552694818473,
+          "applied_any_dimension_at_clip_boundary_fraction": 0.11666666666666667
+        },
+        "first_eef_xyz": [
+          -0.21124155819416046,
+          -0.011087832972407341,
+          1.174249529838562
+        ],
+        "last_eef_xyz": [
+          -0.006207785103470087,
+          0.2714073359966278,
+          0.9873554110527039
+        ]
+      }
+    },
+    {
+      "init": 6,
+      "single": {
+        "steps": 300,
+        "reward": 0,
+        "prefix60": {
+          "gripper_sign_changes_per_100_steps": 1.694915254237288,
+          "applied_action_dim_0_2_step_delta_l2_mean": 0.139014792103881,
+          "applied_action_dim_3_5_step_delta_l2_mean": 0.020125465301729824,
+          "applied_any_dimension_at_clip_boundary_fraction": 0.18333333333333332
+        },
+        "first_eef_xyz": [
+          -0.20505717396736145,
+          0.0012845882447436452,
+          1.1745331287384033
+        ],
+        "last_eef_xyz": [
+          0.10345088690519333,
+          0.16462481021881104,
+          1.019867181777954
+        ]
+      },
+      "joint": {
+        "steps": 89,
+        "reward": 1,
+        "prefix60": {
+          "gripper_sign_changes_per_100_steps": 1.694915254237288,
+          "applied_action_dim_0_2_step_delta_l2_mean": 0.13804606995480764,
+          "applied_action_dim_3_5_step_delta_l2_mean": 0.020456367332254703,
+          "applied_any_dimension_at_clip_boundary_fraction": 0.16666666666666666
+        },
+        "first_eef_xyz": [
+          -0.20505717396736145,
+          0.0012845882447436452,
+          1.1745331287384033
+        ],
+        "last_eef_xyz": [
+          0.07784280180931091,
+          0.14994101226329803,
+          0.9692755341529846
+        ]
+      }
+    },
+    {
+      "init": 12,
+      "single": {
+        "steps": 118,
+        "reward": 1,
+        "prefix60": {
+          "gripper_sign_changes_per_100_steps": 3.389830508474576,
+          "applied_action_dim_0_2_step_delta_l2_mean": 0.13384995022482152,
+          "applied_action_dim_3_5_step_delta_l2_mean": 0.02179041249652224,
+          "applied_any_dimension_at_clip_boundary_fraction": 0.25
+        },
+        "first_eef_xyz": [
+          -0.20706242322921753,
+          -0.004955202341079712,
+          1.1752707958221436
+        ],
+        "last_eef_xyz": [
+          0.0684586763381958,
+          0.136529341340065,
+          0.9433765411376953
+        ]
+      },
+      "joint": {
+        "steps": 300,
+        "reward": 0,
+        "prefix60": {
+          "gripper_sign_changes_per_100_steps": 5.084745762711865,
+          "applied_action_dim_0_2_step_delta_l2_mean": 0.12780936310394153,
+          "applied_action_dim_3_5_step_delta_l2_mean": 0.02369418942623153,
+          "applied_any_dimension_at_clip_boundary_fraction": 0.25
+        },
+        "first_eef_xyz": [
+          -0.20706242322921753,
+          -0.004955202341079712,
+          1.1752707958221436
+        ],
+        "last_eef_xyz": [
+          0.08663837611675262,
+          0.2740834355354309,
+          1.0044572353363037
+        ]
+      }
+    },
+    {
+      "init": 13,
+      "single": {
+        "steps": 117,
+        "reward": 1,
+        "prefix60": {
+          "gripper_sign_changes_per_100_steps": 1.694915254237288,
+          "applied_action_dim_0_2_step_delta_l2_mean": 0.13637170866510331,
+          "applied_action_dim_3_5_step_delta_l2_mean": 0.018436852319764347,
+          "applied_any_dimension_at_clip_boundary_fraction": 0.31666666666666665
+        },
+        "first_eef_xyz": [
+          -0.20922216773033142,
+          -0.013980168849229813,
+          1.177774429321289
+        ],
+        "last_eef_xyz": [
+          0.05548085644841194,
+          0.14945515990257263,
+          0.9445881247520447
+        ]
+      },
+      "joint": {
+        "steps": 300,
+        "reward": 0,
+        "prefix60": {
+          "gripper_sign_changes_per_100_steps": 5.084745762711865,
+          "applied_action_dim_0_2_step_delta_l2_mean": 0.12373560318813578,
+          "applied_action_dim_3_5_step_delta_l2_mean": 0.015296688863899018,
+          "applied_any_dimension_at_clip_boundary_fraction": 0.11666666666666667
+        },
+        "first_eef_xyz": [
+          -0.20922216773033142,
+          -0.013980168849229813,
+          1.177774429321289
+        ],
+        "last_eef_xyz": [
+          0.08223054558038712,
+          0.2318839728832245,
+          0.9599612951278687
+        ]
+      }
+    },
+    {
+      "init": 14,
+      "single": {
+        "steps": 296,
+        "reward": 1,
+        "prefix60": {
+          "gripper_sign_changes_per_100_steps": 1.694915254237288,
+          "applied_action_dim_0_2_step_delta_l2_mean": 0.13803359404019763,
+          "applied_action_dim_3_5_step_delta_l2_mean": 0.01680051707381763,
+          "applied_any_dimension_at_clip_boundary_fraction": 0.25
+        },
+        "first_eef_xyz": [
+          -0.206004336476326,
+          -0.005962424911558628,
+          1.1864914894104004
+        ],
+        "last_eef_xyz": [
+          0.00743481982499361,
+          0.27114400267601013,
+          0.9607608914375305
+        ]
+      },
+      "joint": {
+        "steps": 300,
+        "reward": 0,
+        "prefix60": {
+          "gripper_sign_changes_per_100_steps": 1.694915254237288,
+          "applied_action_dim_0_2_step_delta_l2_mean": 0.13674559885431162,
+          "applied_action_dim_3_5_step_delta_l2_mean": 0.018036477198395393,
+          "applied_any_dimension_at_clip_boundary_fraction": 0.16666666666666666
+        },
+        "first_eef_xyz": [
+          -0.206004336476326,
+          -0.005962424911558628,
+          1.1864914894104004
+        ],
+        "last_eef_xyz": [
+          0.028251204639673233,
+          0.2801629304885864,
+          0.9129921197891235
+        ]
+      }
+    },
+    {
+      "init": 3,
+      "single": {
+        "steps": 299,
+        "reward": 1,
+        "prefix60": {
+          "gripper_sign_changes_per_100_steps": 1.694915254237288,
+          "applied_action_dim_0_2_step_delta_l2_mean": 0.13709628497005022,
+          "applied_action_dim_3_5_step_delta_l2_mean": 0.02090255264369514,
+          "applied_any_dimension_at_clip_boundary_fraction": 0.3333333333333333
+        },
+        "first_eef_xyz": [
+          -0.2163240909576416,
+          -0.011191511526703835,
+          1.1665178537368774
+        ],
+        "last_eef_xyz": [
+          0.03317327797412872,
+          0.2006807029247284,
+          0.9346221685409546
+        ]
+      },
+      "joint": {
+        "steps": 94,
+        "reward": 1,
+        "prefix60": {
+          "gripper_sign_changes_per_100_steps": 3.389830508474576,
+          "applied_action_dim_0_2_step_delta_l2_mean": 0.11822344431359255,
+          "applied_action_dim_3_5_step_delta_l2_mean": 0.019320135579223775,
+          "applied_any_dimension_at_clip_boundary_fraction": 0.13333333333333333
+        },
+        "first_eef_xyz": [
+          -0.2163240909576416,
+          -0.011191511526703835,
+          1.1665178537368774
+        ],
+        "last_eef_xyz": [
+          0.05276693031191826,
+          0.1478472352027893,
+          0.9560950994491577
+        ]
+      }
+    }
+  ],
+  "state_definition": "7joint +3eefXYZ +3axisangle +2gripper; no object poses/contact traces",
+  "interpretation_limit": "Robot/action differences cannot identify grasp, lift or placement failures. Prefix metrics are exploratory and no causal oscillation claim follows. No policy inference or simulator replay performed.",
+  "metric_source": "scripts/audit_teacher_native_task0_base_init_action_traces_20261002.py:action_metrics"
+}
