@@ -1,0 +1,11 @@
+{
+  "schema_version": 1,
+  "status": "launched_once_pending_completion",
+  "supervisor_pid": 263693,
+  "preflight": "Authenticated fresh deployment/result paths and no GPU compute process; all four deployed hashes matched; frozen evaluator and final model SHA256 matched before launch",
+  "deployment": "/root/smolvla-eval-prep/recovery/teacher_native_spatial_task0_full_input_rng_diagnostic_v1_retry2_20261009",
+  "result": "/root/smolvla-eval-prep/results/teacher_native_spatial_task0_full_input_rng_diagnostic_v1_retry2_20261009",
+  "budget": "3 sequential child processes, 2 first policy calls each, 600-second timeout each, no predicted action applied",
+  "completion": "Not yet verified; inspect this PID and retained exit_code/results, never relaunch this path",
+  "old_evidence": "v1 and retry1 preserved"
+}
