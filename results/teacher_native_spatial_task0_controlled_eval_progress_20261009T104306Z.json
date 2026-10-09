@@ -1,0 +1,17 @@
+{
+  "schema_version": 1,
+  "observed_at_utc": "2026-10-09T10:43:06Z",
+  "observation": "authenticated SSH using existing ControlMaster",
+  "status": "verified_wait",
+  "supervisor_pid": 264357,
+  "supervisor_state": "Ss",
+  "active_child_pid": 265127,
+  "active_child_state": "Rl",
+  "active_rollout": "paired_4_r0_80k",
+  "verified_rollouts": 9,
+  "registered_rollouts": 48,
+  "exit_marker_present": false,
+  "gate_conclusion": "pending complete outcomes and provenance audit",
+  "next_action": "Observe the same supervised chain; do not restart or modify its deployment",
+  "fold02_and_scaling": "locked pending stable single-task gate"
+}
