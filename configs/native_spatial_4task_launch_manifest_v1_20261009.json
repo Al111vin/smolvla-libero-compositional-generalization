@@ -1,0 +1,19 @@
+{
+  "gpu_lock": "/root/smolvla-training-prep/teacher_control_gpu.lock",
+  "output": "/root/smolvla-training-prep/results/training/teacher_native_spatial_4task_homogeneous_160k_batch2_v1_20261009",
+  "external_prefix": "/root/smolvla-training-prep/recovery/exposure_matched_4task_v1_20261009/teacher_native_spatial_4task_homogeneous_160k_batch2_v1_20261009",
+  "cwd": "/root/smolvla-training-prep",
+  "minimum_free_bytes": 42949672960,
+  "conflict_tokens": ["lerobot_train", "exposure_matched_train_wrapper_v1.py", "eval_v3_task0_state_capture_v1.py", "eval_controlled_environment_v1.py", "eval_scaling_environment_v1.py"],
+  "command": ["/usr/bin/env", "HF_HUB_OFFLINE=1", "TRANSFORMERS_OFFLINE=1", "/usr/local/miniconda3/envs/py312/bin/python", "/root/smolvla-training-prep/recovery/exposure_matched_4task_v1_20261009/scripts/exposure_matched_train_wrapper_v1.py", "--config_path=/root/smolvla-training-prep/recovery/exposure_matched_4task_v1_20261009/configs/teacher_native_spatial_4task_homogeneous_160k_batch2_v1_20261009.json"],
+  "pinned_files": {
+    "/root/smolvla-training-prep/recovery/exposure_matched_4task_v1_20261009/scripts/exposure_matched_blocks_v1.py": "f8aa8855673c0a213b597baad9ba7810d9fcfecfa7c5f500cfa7b9a2e5c97290",
+    "/root/smolvla-training-prep/recovery/exposure_matched_4task_v1_20261009/scripts/exposure_matched_train_wrapper_v1.py": "00e08e78118e0527ca475f89ab6bcbe471d617232b18f909119408e6a7df4bca",
+    "/root/smolvla-training-prep/recovery/exposure_matched_4task_v1_20261009/configs/teacher_native_spatial_4task_homogeneous_160k_batch2_v1_20261009.json": "2cd9b7e1e3d075404157fdaefd0547c8eb83515728f7626173aa6fef479b3101",
+    "/root/smolvla-training-prep/models/smolvla_base_libero/model.safetensors": "7cd549ac2351fb069c0ddb3c34ad2d09cfc92b56a15dccdfc2e41467aaca01eb",
+    "/root/smolvla-training-prep/datasets/lerobot/libero_spatial_tasks0_3_native_20261003_v1/meta/stats.json": "29aff99c2a83a5a60265e7ccef182f501e41b6e0215f8c8796ee24bf41b55227",
+    "/root/smolvla-training-prep/recovery/task_scaling_native_spatial_20261003/conversion_manifest.json": "8bb81e1d1828d2a4be3dd8469e1f2812c35bc4f9a48aea0f7a8da8deb2d11ba1",
+    "/usr/local/miniconda3/envs/py312/lib/python3.12/site-packages/lerobot/scripts/lerobot_train.py": "e08ba26017674ac8453683e7b54810325fb381f20cb32a161c5d9aa690483449",
+    "/usr/local/miniconda3/envs/py312/lib/python3.12/site-packages/lerobot/optim/schedulers.py": "a5f116be52f8faddee3c96c3f506325cb89adaf9e5f374ba27fdd27caa29b865"
+  }
+}
