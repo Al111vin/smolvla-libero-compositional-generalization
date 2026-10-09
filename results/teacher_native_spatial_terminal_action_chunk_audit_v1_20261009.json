@@ -1,0 +1,14 @@
+{
+  "status": "authenticated_cpu_all_episode_terminal_chunks_passed",
+  "dataset_frames": 22709,
+  "episode_terminal_chunks_checked": 200,
+  "chunk_shape": [50, 7],
+  "all_terminal_pad_counts": 49,
+  "first_action_unpadded": true,
+  "all_padded_actions_equal_episode_final_action": true,
+  "episode_index_matches_arrow_metadata": true,
+  "method": "Derive all episode-ending row indices from Arrow episode_index changes; load each with action delta timestamps i/20, i0..49 and compare every padded action to its own terminal action.",
+  "scope_limit": "Every terminal chunk checked, not every interior chunk. Fresh-base processor and actual integrated update-policy tests remain pending.",
+  "gpu_work": "none",
+  "fold02": "locked"
+}
