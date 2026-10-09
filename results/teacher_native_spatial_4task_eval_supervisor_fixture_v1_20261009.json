@@ -1,0 +1,13 @@
+{
+  "status": "file_backed_interface_simulation_passed",
+  "test_source": "tests/test_scaling_supervisor_fixture_v1.py",
+  "complete_simulated_rollouts": 96,
+  "verified_record_count": 96,
+  "completion_gate_calculated_only_after_all_rows": true,
+  "first_child_failure_test": {"simulated_returncode": 7, "calls": 1, "exit_marker": 1, "completion_absent": true},
+  "dependencies": "Real local supervisor, schedule, CSV validation and gate; subprocess policy calls replaced with synthetic file producers",
+  "hardware": "CPU only, no policy weights loaded, no GPU inference",
+  "scope_limit": "Execution-interface evidence only. Synthetic success flags are fixtures, never research outcomes.",
+  "real_evaluation_started": false,
+  "fold02": "locked"
+}
