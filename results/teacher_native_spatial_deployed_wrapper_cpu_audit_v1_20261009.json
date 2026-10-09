@@ -1,0 +1,17 @@
+{
+  "status": "authenticated_deployed_complete_wrapper_cpu_test_passed",
+  "deployment": "/root/smolvla-training-prep/recovery/exposure_matched_4task_v1_20261009",
+  "created_only_when_absent": true,
+  "actual_installed_update_policy_calls": 8,
+  "two_balanced_blocks_lr_exact": true,
+  "mutated_optimizer_lr_rejected": true,
+  "sha256": {
+    "scripts/exposure_matched_blocks_v1.py": "f8aa8855673c0a213b597baad9ba7810d9fcfecfa7c5f500cfa7b9a2e5c97290",
+    "scripts/exposure_matched_train_wrapper_v1.py": "00e08e78118e0527ca475f89ab6bcbe471d617232b18f909119408e6a7df4bca",
+    "configs/teacher_native_spatial_4task_homogeneous_160k_batch2_v1_20261009.json": "2cd9b7e1e3d075404157fdaefd0547c8eb83515728f7626173aa6fef479b3101"
+  },
+  "deployment_note": "macOS tar also emitted AppleDouble metadata files; preserved, not executable entrypoints. Registered source/config hashes match local files.",
+  "scope_limit": "Actual installed trainer functions with scalarCPU toy model, not SmolVLA GPU training. Final model/code/data provenance and resource/output-path launch checks remain required.",
+  "gpu_training_started": false,
+  "fold02": "locked"
+}
