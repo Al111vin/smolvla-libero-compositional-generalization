@@ -1,0 +1,18 @@
+{
+  "status": "authenticated_real_dataset_cpu_loader_smoke_passed",
+  "dataset": "local/libero_spatial_tasks0_3_native_v1",
+  "frames": 22709,
+  "episodes": 200,
+  "loader": "DataLoaderShard",
+  "workers": 4,
+  "checked_batches": 32,
+  "checked_draws_per_task": {"0": 16, "1": 16, "2": 16, "3": 16},
+  "all_checked_batches_homogeneous": true,
+  "every_checked_four_batch_block_balanced": true,
+  "finite_state_action_and_images": true,
+  "two_camera_batch_shapes": [2, 3, 128, 128],
+  "scope_limit": "Real expert dataset loading test only, not full-frame parity and not a training result. Delta action chunking/processor/training-wrapper integration remains to be tested.",
+  "existing_audit_review": "Existing four-task conversion audit samples only36 frames; it cannot satisfy the registered full22709-frame parity requirement. Preserve historical script and results, add independent full audit.",
+  "gpu_work": "none",
+  "fold02": "locked"
+}
