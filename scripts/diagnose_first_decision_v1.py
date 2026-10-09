@@ -60,6 +60,11 @@ def main():
         policy.reset()
         frame = v3.observation_to_frame(obs, task.language)
         batch = pre(frame)
+        # Validate every capture interface before spending policy-call budget.
+        frame_digest = digest_tree(frame)
+        pixels_digest = digest_tree({k: obs[k] for k in ("agentview_image", "robot0_eye_in_hand_image")})
+        simulator_state_digest = digest_tree(env.sim.get_state().flatten())
+        digest_tree(batch)
 
         def snapshot():
             return {"python": random.getstate(), "numpy": np.random.get_state(),
@@ -79,9 +84,9 @@ def main():
                     "processed": v3.action_to_numpy(processed).tolist()}
 
         calls = paired_first_calls(policy, batch, snapshot, restore, infer)
-        result = {"model_digest": model_digest, "frame_digest": digest_tree(frame),
-                  "pixels_digest": digest_tree({k: obs[k] for k in ("agentview_image", "robot0_eye_in_hand_image")}),
-                  "simulator_state_digest": digest_tree(env.sim.get_state().flatten()),
+        result = {"model_digest": model_digest, "frame_digest": frame_digest,
+                  "pixels_digest": pixels_digest,
+                  "simulator_state_digest": simulator_state_digest,
                   "calls": calls, "torch_version": torch.__version__,
                   "deterministic": torch.are_deterministic_algorithms_enabled(),
                   "matmul_tf32": torch.backends.cuda.matmul.allow_tf32,
