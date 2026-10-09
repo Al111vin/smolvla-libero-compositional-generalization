@@ -1,0 +1,22 @@
+{
+  "status": "parity_passed",
+  "version": "controlled_cpu_joint_init3_parity_pilot_v1",
+  "remote_result": "/root/smolvla-eval-prep/recovery/controlled_cpu_joint_init3_parity_pilot_v1_20261009/result.json",
+  "execution_exit_code": 0,
+  "verified_steps": 94,
+  "initial_model_array_digests": "all matched",
+  "initial_simulator_digest": "1b7428a2e0c0c0e8fdc659168701f06c96ad66a1a42e2ee0060c61cf4f03650a",
+  "max_robot_state_error": 0.0,
+  "all_rewards_matched": true,
+  "final_reward": 1.0,
+  "source_actions_sha256": "6538c8e53bb4e800853da75bce8f1b237aff75d28c9f397cd2cfaa0dc655b905",
+  "source_protocol_sha256": "4b3e6520b901deed3ab7cbc3fff96d471d574a0b33c1e3a9243ceaa733b3526b",
+  "source_capture_sha256": "2107c5ee03126c6afd5a7f1ced944ba2d4c7ba5cb079844b29b0aee98001b170",
+  "policy_calls": 0,
+  "gpu_rendering": false,
+  "physical_stage_interpretation": false,
+  "scope": "One joint init3 trace only; images and other starts unproven. No causal interference claim.",
+  "next": "Register object/contact observers and independent bounded multi-case replay.",
+  "eight_task_progression": "locked",
+  "fold02": "locked"
+}
