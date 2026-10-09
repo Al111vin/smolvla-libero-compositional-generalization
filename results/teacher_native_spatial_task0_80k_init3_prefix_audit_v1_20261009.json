@@ -1,0 +1,20 @@
+{
+  "schema_version": 1,
+  "method": "Authenticated remote read-only comparison of existing five init3 action CSVs; no policy inference, replay, or training",
+  "baseline": "paired init3 success, 88 steps",
+  "effective_seed": 12351,
+  "comparison_threshold": 0.000001,
+  "extra_repeats": [
+    {"repeat": 1, "success": false, "compared_steps": 88, "step0_state_max_abs": 0.0, "step0_raw_action_max_abs": 0.14956039190292358, "step0_applied_action_max_abs": 0.06523948907852173},
+    {"repeat": 2, "success": true, "compared_steps": 85, "step0_state_max_abs": 0.0, "step0_raw_action_max_abs": 0.07459962368011475, "step0_applied_action_max_abs": 0.04325217008590698},
+    {"repeat": 3, "success": true, "compared_steps": 88, "step0_state_max_abs": 0.0, "step0_raw_action_max_abs": 0.05608513951301575, "step0_applied_action_max_abs": 0.03134125471115112},
+    {"repeat": 4, "success": true, "compared_steps": 88, "step0_state_max_abs": 0.0, "step0_raw_action_max_abs": 0.15136364102363586, "step0_applied_action_max_abs": 0.04132795333862305}
+  ],
+  "first_difference": {"all_extra_repeats_raw_and_applied_action": 0, "all_extra_repeats_robot_state": 1},
+  "evidence": "Actions diverge at the first decision despite identical recorded 15D robot state and the same reported seed. State divergence follows at step1.",
+  "limits": "The recorded robot state does not include pixels or object poses. Identical state is not identical full policy input. This cannot distinguish image/reset variation, policy loading/RNG differences, or GPU numerical nondeterminism; none is established as cause.",
+  "next_falsifiable_question": "Are full first-observation pixels and post-load policy/RNG states identical across independent fixed-init3 evaluations? Register an instrumented bounded diagnostic before executing it.",
+  "choice": "Prioritize full-input and RNG provenance diagnostic over additional training or task scaling.",
+  "old_evidence_modified": false,
+  "new_gpu_jobs": 0
+}

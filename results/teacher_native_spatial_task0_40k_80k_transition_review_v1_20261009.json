@@ -1,0 +1,16 @@
+{
+  "schema_version": 1,
+  "verified_at_utc": "2026-10-09T09:07:35Z",
+  "source": "Authenticated read-only historical 40k per-init summaries and completed 80k registered summaries",
+  "both_success_init_indices": [1,4,7,9,11,15,16,17,19],
+  "both_failure_init_indices": [5,8,10,12,13,14,18],
+  "40k_failure_80k_success_init_indices": [0,3],
+  "40k_success_80k_failure_init_indices": [2,6],
+  "net_paired_success_change": 0,
+  "exact_two_sided_mcnemar_p": 1.0,
+  "interpretation": "Equal aggregate counts conceal two gains and two regressions. This historical same-init comparison gives no directional paired benefit signal; dependence and known V3 variability prevent causal claims.",
+  "next_hypothesis_candidate": "Separate reset/environment/replay variability from policy sampling/numerical variability using archived fixed-init3 state/action summaries before any new rollout.",
+  "alternatives": {"more_training": "defer: no directional paired gain from doubled budget", "task_scaling": "defer: fixed-init gate failed", "read_only_archive_analysis": "preferred next: no GPU policy execution, preserve evidence"},
+  "new_gpu_job_started": false,
+  "stability_gate_passed": false
+}

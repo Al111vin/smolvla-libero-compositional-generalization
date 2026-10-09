@@ -1,0 +1,24 @@
+{
+  "schema_version": 1,
+  "status": "registered_not_executed",
+  "basis": "80k fixed-init3 archived robot state is identical at decision0 but raw/applied actions differ at decision0 across all four repeats; 4/5 success does not meet stability gate.",
+  "hypotheses": {
+    "H_input": "Reported benchmark init and robot state match but full first policy input differs (pixels, language or preprocessed tensors).",
+    "H_loading": "Some model/processor state differs after checkpoint loading despite identical checkpoint files; evaluator seeds only after loading and reset.",
+    "H_rng_numeric": "Identical full input, model/processor state and RNG state still yield different first actions under current numerical settings."
+  },
+  "alternatives": [
+    {"option": "another larger training budget", "decision": "defer", "reason": "40k to 80k yielded two gains and two regressions, no net paired benefit; does not isolate first-action variation"},
+    {"option": "repeat unchanged full rollouts", "decision": "reject now", "reason": "Would reconfirm variation without distinguishing its source"},
+    {"option": "bounded instrumented first-decision diagnostic", "decision": "select", "reason": "Measures complete input, loaded state and RNG provenance with minimal new policy execution"}
+  ],
+  "budget": {"independent_processes": 3, "benchmark_init": 3, "effective_policy_seed": 12351, "environment_wait_steps_per_process": 10, "first_policy_calls_per_process": 2, "maximum_policy_calls": 6, "closed_loop_action_steps": 0, "timeout_seconds_per_process": 600, "training_steps": 0, "automatic_retries": 0},
+  "conditions": "Unchanged frozen V3 evaluator path/hash and final080000 checkpoint; EGL, current precision/config; no seeding before model load or reset in baseline measurement because that would change the tested protocol. Both calls use the same captured preprocessed batch with restored CPU/CUDA/NumPy/Python RNG and reset policy state; do not step environment with predicted actions.",
+  "capture": ["checkpoint/evaluator/instrumentation SHA256", "all loaded model state tensor digest after load", "processor tensor state/digest", "full initial simulator state digest", "agentview and wrist image bytes/shape/dtype digests", "15D robot state and language digest", "recursive preprocessed batch tensor/non-tensor digest", "Python/NumPy/Torch CPU and all CUDA RNG digests immediately before each policy call", "raw and postprocessed first-action vectors and within-process maximum differences", "runtime precision, deterministic flags, TF32 flags and device/software versions"],
+  "analysis_rules": ["Cross-process input differences support H_input but do not establish why inputs changed", "Input match with loaded model/processor difference supports H_loading", "Within-process action differences with identical batch/state/RNG support numerical or untracked policy-state variation, not automatically GPU causality", "Cross-process action differences require checking all captured dimensions before attribution", "Identical first actions do not establish closed-loop stability or replay parity"],
+  "preflight": ["inspect actual installed policy load/reset/select_action and processor implementation", "offline instrumentation tests with fake policy/batch and RNG restore", "checkpoint and frozen evaluator hashes", "exclusive GPU lock and no conflicting jobs", "all independent output/log/PID/exit paths absent", "bounded timeout and stop-on-error"],
+  "output_version": "teacher_native_spatial_task0_full_input_rng_diagnostic_v1_20261009",
+  "evidence_rules": "Keep observations/tensors/images/logs remote; sync only lightweight derived digests/metrics and authorized code. Preserve all old results; this is new diagnosis, not rerun or repair of invalidated historical V3 replay.",
+  "scientific_gate": "No gate relaxation. Fold02 and task-count expansion remain locked.",
+  "execution_authority": "Covered by user's bounded protocol-change/evaluation authorization; requires successful implementation/preflight before execution."
+}
