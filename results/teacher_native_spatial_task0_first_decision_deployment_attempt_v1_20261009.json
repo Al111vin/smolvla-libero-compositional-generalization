@@ -1,0 +1,12 @@
+{
+  "schema_version": 1,
+  "status": "deployment_not_started_missing_parent_directory",
+  "target": "/root/smolvla-eval-prep/recovery/teacher_native_spatial_task0_full_input_rng_diagnostic_v1_20261009",
+  "preflight": "Target and result paths absent, GPU compute list empty, GPU lock available",
+  "error": "mkdir failed because /root/smolvla-eval-prep/recovery parent does not exist; set -eu stopped before tar extraction",
+  "uploaded_files": 0,
+  "policy_calls": 0,
+  "gpu_job_started": false,
+  "registered_hashes": {"helper": "d098b099ebad38c750abc0f0d142109695daaa3823d0901ff6b13db9106d8981", "diagnostic": "4e514b4c3ca120e125de59c3ff2e54fe053d6a9eb39d55dcb234a57e573ac87a", "supervisor": "020325e4eb4d4ef4ff26a90226f008d39c9ad637e3238c4ac29efd42086582d1"},
+  "next": "Inspect remote parent directory topology, then register correction for creating the missing organizational parent without reusing an existing experiment path. No automatic retry performed."
+}

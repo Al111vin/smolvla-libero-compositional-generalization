@@ -7,6 +7,7 @@ import os
 from pathlib import Path
 import subprocess
 import sys
+from diagnostic_process_guard_v1 import conflicting_processes
 
 
 def main():
@@ -16,6 +17,7 @@ def main():
     parser.add_argument("--evaluator", required=True)
     parser.add_argument("--runner-sha256", required=True)
     parser.add_argument("--helper-sha256", required=True)
+    parser.add_argument("--guard-sha256", required=True)
     args = parser.parse_args()
     root = Path(args.root)
     if root.exists():
@@ -24,13 +26,14 @@ def main():
     helper = runner.with_name("first_decision_provenance_v1.py")
     assert hashlib.sha256(runner.read_bytes()).hexdigest() == args.runner_sha256
     assert hashlib.sha256(helper.read_bytes()).hexdigest() == args.helper_sha256
+    guard = runner.with_name("diagnostic_process_guard_v1.py")
+    assert hashlib.sha256(guard.read_bytes()).hexdigest() == args.guard_sha256
     with open("/root/smolvla-training-prep/teacher_control_gpu.lock", "r+") as lock:
         fcntl.flock(lock, fcntl.LOCK_EX | fcntl.LOCK_NB)
         assert not subprocess.check_output(["nvidia-smi", "--query-compute-apps=pid",
             "--format=csv,noheader"], text=True).strip()
-        processes = subprocess.check_output(["ps", "-eo", "args"], text=True).splitlines()
-        conflicts = ("lerobot_train", "eval_v3_task0_state_capture_v1.py", "diagnose_first_decision_v1.py")
-        assert not any(any(marker in line for marker in conflicts) for line in processes)
+        conflicts = conflicting_processes()
+        assert not conflicts, ("CONFLICTING_PIDS", conflicts)
         assert os.statvfs(root.parent).f_bavail * os.statvfs(root.parent).f_frsize > 2_000_000_000
         root.mkdir()
         code = 1

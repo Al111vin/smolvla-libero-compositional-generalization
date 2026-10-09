@@ -1,0 +1,15 @@
+{
+  "schema_version": 1,
+  "supervisor_pid": 263644,
+  "status": "stopped_before_result_creation_at_process_guard",
+  "deployment_hashes_matched": true,
+  "evaluator_hash_matched": true,
+  "paths_absent_before_launch": true,
+  "error": "Conflict-process guard assertion triggered before result directory creation and before child process launch.",
+  "policy_calls": 0,
+  "result_directory_created": false,
+  "failure_log": "/root/smolvla-eval-prep/recovery/teacher_native_spatial_task0_full_input_rng_diagnostic_v1_20261009/supervisor.log",
+  "hypothesis": "Substring scan may match the launcher's own inline Python command containing registered diagnostic filenames. Must inspect actual process argv before claiming false positive or weakening guard.",
+  "next": "Read-only inspect process inventory; retain old launcher/log/code and register corrected guard/version before any retry.",
+  "automatic_retry": false
+}

@@ -1,0 +1,13 @@
+{
+  "schema_version": 1,
+  "status": "registered_before_corrected_launch",
+  "old_attempt": "PID263644 stopped at process substring guard, before creating result directory or launching child; authenticated subsequent inventory found PID absent and no matching workload/GPU compute process",
+  "hypothesis": "Substring process scanning can incorrectly classify inline launcher source text as running diagnostic code; argv token matching should distinguish launcher text from actual script/module execution.",
+  "evidence_limit": "Original offending process argv was not archived; exact historic match is not proven. Unit tests reproduce the guard's source-text false-positive class.",
+  "alternatives": {"disable_guard": "reject", "exact argv script/module detection plus retained GPU lock/compute check": "select", "repeat_identical_launch": "reject"},
+  "new_version_and_path_suffix": "teacher_native_spatial_task0_full_input_rng_diagnostic_v1_retry1_20261009",
+  "budget": {"processes": 3, "calls_per_process": 2, "total_calls": 6, "timeout_seconds_per_process": 600, "closed_loop_predicted_actions": 0, "automatic_retries": 0},
+  "old_evidence": "All v1 remote code/log/PID and local error records protected; retry1 has independent deployment/result/log/PID paths",
+  "preconditions": "All four code hashes, frozen evaluator/final checkpoint, CPU compatibility, exclusive lock/GPU, fresh paths and finite supervisor; no conflicting process",
+  "scientific_scope": "First-input/state/RNG diagnostic only; no stability acceptance or task expansion"
+}

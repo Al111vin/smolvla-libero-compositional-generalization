@@ -1,0 +1,9 @@
+{
+  "schema_version": 1,
+  "hypothesis": "Deployment failure was solely an absent organizational parent; diagnostic execution was never reached.",
+  "verified": "Authenticated read-only check: eval base exists, recovery parent absent, result path absent; previous set-e mkdir stopped before extraction.",
+  "alternatives": {"change_experiment_path": "reject: unnecessary provenance change", "create_missing_parent_then_exclusive_child": "select: minimal correction", "reuse_old_evidence_directory": "reject"},
+  "bounded_action": "Create /root/smolvla-eval-prep/recovery once, create registered fresh child exclusively, extract only three registered code files and verify exact hashes. Any error stops. No policy execution in deployment.",
+  "protocol_and_budget_changed": false,
+  "old_failure_record_preserved": true
+}
