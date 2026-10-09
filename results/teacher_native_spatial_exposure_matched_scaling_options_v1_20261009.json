@@ -1,0 +1,32 @@
+{
+  "schema_version": 1,
+  "status": "design_only_no_training_launch",
+  "entry_gate": "controlled task0 40k13/20 and init3 5/5; full48 revalidation passed",
+  "baseline": {"tasks": 1, "batch_size": 2, "optimizer_updates": 40000, "sample_draws_per_task": 80000, "learning_rate_reference": "actual installed40k scheduler sequence, not an assumed cosine formula"},
+  "options": [
+    {"id": "fixed_total_updates_batch2", "decision": "reject_primary", "reason": "40k updates across4 tasks yields only20k draws/task; task count and underexposure are confounded"},
+    {"id": "mixed_batch8_40k_exact2_per_task", "decision": "secondary_possible", "reason": "Matches80k draws/task and baseline LR exposure by update, but changes batch size and simultaneous gradient averaging. Existing historical4-task artifacts cannot be treated as this fresh controlled comparison"},
+    {"id": "task_homogeneous_batch2_balanced_blocks_160k", "decision": "selected_for_preflight", "reason": "Preserves batch2 and40k task-specific updates/task. Each block contains one update/task and uses the same baseline LR for all4 updates, matching sample-weighted LR exposure exactly. Interleaved Adam state and other-task updates remain the intended multitask treatment, not an isolated gradient-interference proof"}
+  ],
+  "proposed_first_stage": {
+    "suite": "official native LIBERO Spatial",
+    "task_ids": [0,1,2,3],
+    "episodes_per_task": 50,
+    "batch_size": 2,
+    "blocks": 40000,
+    "optimizer_updates": 160000,
+    "updates_per_task": 40000,
+    "sample_draws_per_task": 80000,
+    "task_order": "one occurrence/task/block, seeded permutation registered before launch",
+    "lr_rule": "block k uses the actual baseline optimizer LR at baseline update k for every task update; verify before/after scheduler.step conventions and final off-by-one boundaries",
+    "initialization": "same pretrained base as successful40k run; no warm-start from task0 checkpoint",
+    "evaluation": "controlled environment-seed protocol per task,20 paired init0..19 plus4 extra init3/model;80 rollouts total at final checkpoint; no adaptive count",
+    "progression_gate": "retain task0 at least11/20 and5/5 init3; tasks1..3 at least10/20 each. Diagnostic thresholds only; do not weaken after observing outcomes",
+    "budget_limit": "one160k-update4-task training and80 final evaluations after successful preflight; no concurrent job; no automatic8-task launch"
+  },
+  "identifiability_limits": ["No single-task positive baselines for tasks1..3 yet; their failure alone cannot establish interference", "Same previously used benchmark init set is diagnostic, not held-out generalization", "Task-homogeneous gradients differ from mixed-batch averaging; report explicitly", "Exact LR exposure does not equate Adam momentum histories or cumulative parameter displacement"],
+  "required_preflight": ["Reverify official HDF5/task mapping and all-frame state/action/image parity for all4 tasks; prior36-frame checks are insufficient", "Reverify source model, statistics and preprocessing choices; global multitask statistics can change task0 scaling and must be compared with frozen baseline statistics", "Implement and test exact balanced-block sampler and baseline-indexed LR adapter without editing historical files", "Verify actual Accelerate loader quotas, complete draw counts, scheduler LR traces and optimizer-step ordering", "Pin finite training/evaluation manifests, code hashes and independent config/output/log/PID paths", "Verify GPU idle, lock availability, disk and path nonexistence immediately before launch"],
+  "future_stages": "8/16/32 remain planning targets, not authorized immediate launches. Official Spatial has only10 tasks; expanding beyond10 needs an explicit suite/task-family design and independent controls, not invented Spatial task IDs.",
+  "fold02": "locked",
+  "old_evidence": "All historical4-task experiments and old V3 invalidation retained unchanged"
+}
