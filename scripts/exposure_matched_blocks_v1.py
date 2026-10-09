@@ -70,6 +70,50 @@ def baseline_lr_for_update(baseline_pre_step_lrs, update_index, task_count):
     return baseline_pre_step_lrs[block]
 
 
+class HomogeneousBlockBatchSampler:
+    def __init__(self, dataset, *, blocks, seed, expected_tasks=(0, 1, 2, 3)):
+        self.batch_size = 2
+        self.drop_last = True
+        self.blocks = blocks
+        self.seed = seed
+        values = dataset.hf_dataset.data.column("task_index").to_pylist()
+        self.pools = {}
+        for index, task in enumerate(values):
+            self.pools.setdefault(int(task), []).append(index)
+        if tuple(sorted(self.pools)) != tuple(expected_tasks):
+            raise ValueError("dataset task mapping differs from registered tasks")
+        if blocks <= 0:
+            raise ValueError("positive finite blocks required")
+
+    def __iter__(self):
+        for _, _, batch in balanced_batches(self.pools, blocks=self.blocks,
+                                            batch_size=2, seed=self.seed):
+            yield batch
+
+    def __len__(self):
+        return self.blocks * len(self.pools)
+
+
+def install_homogeneous_loader_patch(*, repo_id, blocks, seed):
+    from torch.utils.data import DataLoader
+    original = DataLoader.__init__
+
+    def patched(self, dataset, *args, **kwargs):
+        if getattr(dataset, "repo_id", None) == repo_id:
+            if kwargs.get("batch_sampler") is not None:
+                return original(self, dataset, *args, **kwargs)
+            if args or kwargs.get("batch_size") != 2 or kwargs.get("sampler") is not None:
+                raise ValueError("unexpected target loader options")
+            sampler = HomogeneousBlockBatchSampler(dataset, blocks=blocks, seed=seed)
+            for key in ("batch_size", "shuffle", "sampler", "drop_last"):
+                kwargs.pop(key, None)
+            kwargs["batch_sampler"] = sampler
+        return original(self, dataset, *args, **kwargs)
+
+    DataLoader.__init__ = patched
+    return DataLoader, original
+
+
 class BlockSchedulerAdapter:
     """Single-process facade; call once AFTER each optimizer update.
 

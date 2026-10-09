@@ -1,0 +1,13 @@
+{
+  "status": "authenticated_cpu_synthetic_loader_full_budget_passed",
+  "installed_wrapper": "DataLoaderShard",
+  "batches": 160000,
+  "batch_size": 2,
+  "sample_draws_per_task": {"0": 80000, "1": 80000, "2": 80000, "3": 80000},
+  "all_batches_homogeneous": true,
+  "every_four_batch_block_has_each_task_once": true,
+  "test_dataset": "Unequal synthetic task pools with3/4/5/6 indices, forcing repeated pool rollover; no expert-data or learning result claimed.",
+  "execution": "Authenticated CPU interpreter, module streamed without remote file save; num_workers0, single process, no GPU work.",
+  "remaining": "Real LeRobot dataset with configured workers4, full-frame parity, independent training wrapper and manifests still need validation.",
+  "fold02": "locked"
+}
