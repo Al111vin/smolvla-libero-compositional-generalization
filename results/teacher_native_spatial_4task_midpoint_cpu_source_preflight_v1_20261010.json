@@ -1,0 +1,44 @@
+{
+  "status": "sources_and_absent_root_passed",
+  "sources": [
+    {
+      "case": "joint80k_init0",
+      "source": "/root/smolvla-eval-prep/results/task0_matched_midpoint_eval_v1_20261009/paired_0_r0_joint80k",
+      "hashes": {
+        "protocol.json": "ddb33912df19a9b6699515d3b69c8bf0dc623e6b924586cb538da08129a2462f",
+        "first_input.json": "bd53493b37196a2d116cf2ffe2c155e97398cd922c647965d38206dd794f616c",
+        "eval_v3_task0_080000_benchmark_init0_n25_seed12345_actions.csv": "78ae792f178f5858f8db640f3a0cad62b47df9e3e74acb5da6cd3642269adf45"
+      }
+    },
+    {
+      "case": "joint160k_init0",
+      "source": "/root/smolvla-eval-prep/results/native_spatial_4task_controlled_final_eval_v1_20261009/task0_paired_0_r0_160k",
+      "hashes": {
+        "protocol.json": "9961198d7328768f5ff8aaeb5aa3eaab4cc955c971b863316b475c747858f5ac",
+        "first_input.json": "4cce50aa1d4f44b9f72ad4a7d1c44c314f572de83518b111c8f1cf1bbe35a8c7",
+        "eval_v3_task0_160000_benchmark_init0_n25_seed12345_actions.csv": "e014b20083ee68efc9fdf89e337ba6782db95871a4abe701ceb9119cd37b02e1"
+      }
+    },
+    {
+      "case": "joint80k_init8",
+      "source": "/root/smolvla-eval-prep/results/task0_matched_midpoint_eval_v1_20261009/paired_8_r0_joint80k",
+      "hashes": {
+        "protocol.json": "418fa73774be7ca982c8ad6b2605ab1d219b43ff7cd6993231b46b82b59c636e",
+        "first_input.json": "d24aa62b85ebbcb9c42d330d9ea968134719a053c1451705e2ab22a57d82293c",
+        "eval_v3_task0_080000_benchmark_init8_n25_seed12361_actions.csv": "23579cbbbdd073fcb052e2441d37c33100e566bc6acf6b2f34abd6580521f633"
+      }
+    },
+    {
+      "case": "joint160k_init8",
+      "source": "/root/smolvla-eval-prep/results/native_spatial_4task_controlled_final_eval_v1_20261009/task0_paired_8_r0_160k",
+      "hashes": {
+        "protocol.json": "5ee3cf77fc219350ada5a9c910fdf13fef575f1ae88f12c75c72fb2548e27408",
+        "first_input.json": "450537b39a67ef9bca3b992bf983099ca68cd3ef0fc166822032b021c9368e46",
+        "eval_v3_task0_160000_benchmark_init8_n25_seed12361_actions.csv": "37af681ef36a377fdbece77455c71ce29391d1cf99e982ef086d65ad5e374b1a"
+      }
+    }
+  ],
+  "root": "/root/smolvla-eval-prep/recovery/midpoint_cpu_object_contact_observers_v1_20261010",
+  "deployment": "not_created",
+  "policy_calls": 0
+}
