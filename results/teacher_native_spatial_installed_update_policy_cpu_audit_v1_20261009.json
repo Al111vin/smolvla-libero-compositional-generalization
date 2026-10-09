@@ -1,0 +1,12 @@
+{
+  "status": "authenticated_installed_update_policy_cpu_check_passed",
+  "actual_update_policy_calls": 8,
+  "accelerator_step_scheduler_with_optimizer": false,
+  "pre_step_lrs": [7.496251874062968e-8, 7.496251874062968e-8, 7.496251874062968e-8, 7.496251874062968e-8, 1.4992503748125775e-7, 1.4992503748125775e-7, 1.4992503748125775e-7, 1.4992503748125775e-7],
+  "scheduler_last_epoch": 8,
+  "finite_loss": true,
+  "method": "Actual installed lerobot_train.update_policy with CPU scalar toy module, AdamW and new real LambdaLR factory; exact installed trainer Accelerator setting. No robot policy loaded.",
+  "scope_limit": "Verifies real update function and scheduler ordering for two successful blocks. Not complete wrapper/config integration or CUDA mixed-precision validation.",
+  "gpu_work": "none",
+  "fold02": "locked"
+}
