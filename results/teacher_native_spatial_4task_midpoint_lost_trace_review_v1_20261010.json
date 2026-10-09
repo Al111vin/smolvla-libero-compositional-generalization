@@ -1,0 +1,62 @@
+{
+  "status": "four_existing_traces_reviewed",
+  "readouts": [
+    {
+      "init": 0,
+      "condition": "joint80k",
+      "success": "True",
+      "steps": 144,
+      "gripper_sign_changes_first60": 2,
+      "max_applied_action_l2": 1.595296269069581
+    },
+    {
+      "init": 0,
+      "condition": "joint160k",
+      "success": "False",
+      "steps": 300,
+      "gripper_sign_changes_first60": 2,
+      "max_applied_action_l2": 1.5770216604091372
+    },
+    {
+      "init": 0,
+      "first_exact_divergence_step": {
+        "raw_action": 0,
+        "processed_action": 0,
+        "applied_action": 0,
+        "state": 1
+      }
+    },
+    {
+      "init": 8,
+      "condition": "joint80k",
+      "success": "True",
+      "steps": 239,
+      "gripper_sign_changes_first60": 1,
+      "max_applied_action_l2": 1.5833833627256833
+    },
+    {
+      "init": 8,
+      "condition": "joint160k",
+      "success": "False",
+      "steps": 300,
+      "gripper_sign_changes_first60": 0,
+      "max_applied_action_l2": 1.5102900646499204
+    },
+    {
+      "init": 8,
+      "first_exact_divergence_step": {
+        "raw_action": 0,
+        "processed_action": 0,
+        "applied_action": 0,
+        "state": 1
+      }
+    }
+  ],
+  "policy_calls": 0,
+  "limits": [
+    "Robot-only state cannot assign object stages",
+    "Selected losses are not an unbiased success-rate sample",
+    "Different actions do not identify causal training mechanism"
+  ],
+  "interpretation": "Both lost cases diverge at first action despite matched starts. Neither increased early gripper switching nor larger applied-action norms uniformly explains the losses. Robot-only state cannot resolve grasp/transport/placement; conditional headless observer replay is justified before choosing training intervention."
+}
