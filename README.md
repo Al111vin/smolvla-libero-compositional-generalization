@@ -1560,3 +1560,12 @@ matched its own supervisor's evaluator argument. A new bounded retry excludes
 only the caller PID and still detects other supervisors; all ten offline tests
 pass. No GPU inference result is claimed by these tests. See the
 [retry2 registration](results/teacher_native_spatial_task0_first_decision_retry2_design_20261009.json).
+
+Retry2 completed all six first calls with exit 0. Every within-process pair was
+exact under restored input/RNG; model and processor hashes matched across all
+three processes, but camera pixels and preprocessed inputs differed despite
+identical flattened simulation state. This is not a GPU-nondeterminism finding
+or a closed-loop stability pass. Installed reset code can modify fixture model
+poses outside the flattened state, a candidate mechanism requiring direct array
+capture before causal attribution. See the [completion record](results/teacher_native_spatial_task0_first_decision_retry2_completion_20261009.json)
+and [read-only reset audit](results/teacher_native_spatial_task0_render_reset_source_audit_20261009.json).

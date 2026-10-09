@@ -1,0 +1,15 @@
+{
+  "schema_version": 1,
+  "status": "authenticated_readonly_source_audit",
+  "evidence": [
+    "Frozen diagnostic seeds NumPy/Torch only after environment construction, reset, init-state restoration and wait10; Python random is not explicitly seeded.",
+    "Installed LIBERO env_wrapper.py set_init_state calls regenerate_obs_from_state: set_state, sim.forward, observable refresh; it does not restore model arrays.",
+    "Installed bddl_base_domain.py _reset_internal lines740-778 samples placements before setting fixture sim.model.body_pos/body_quat. These model arrays are outside flattened dynamic simulation state."
+  ],
+  "hypothesis": "Unseeded reset can change fixture/model geometry outside flattened dynamic state, producing different camera inputs even after identical benchmark state restoration.",
+  "limits": "Source mechanism exists, but current task0 model arrays were not captured; fixture geometry is not yet proven to cause these three pixel differences. Rendering/cache/camera variation remains an alternative.",
+  "selected_next_contrast": "Environment-only capture of model body/camera/light/material/texture arrays and both camera hashes; compare three frozen-order resets with three resets seeded before environment construction. No policy inference or training; identical benchmark init3 and wait10.",
+  "alternatives": {"increase_training": "reject until input provenance explained", "declare_GPU_nondeterminism": "reject input not controlled", "environment_only_model_provenance": "select lowest-cost discriminating test"},
+  "proposed_budget": {"environment_processes": 6, "policy_calls": 0, "predicted_actions": 0, "timeout_seconds_each": 120},
+  "execution": "Not launched; register exact code/hashes/new paths and tests first. Old V3 protocol and results remain unchanged."
+}
