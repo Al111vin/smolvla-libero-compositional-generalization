@@ -1622,3 +1622,13 @@ task/protocol correspondence are required before applying the registered gates;
 offline tests are interface evidence, not policy outcomes. Training and this
 evaluation have not launched. No automatic eight-task launch follows, and Fold02
 remains locked. See the [registration](results/teacher_native_spatial_4task_final_eval_registration_v1_20261009.json).
+
+The registered four-task160k one-shot training subsequently launched under the
+existing GPU lock (supervisor315683, trainer315694), with external logs and no
+precreated training output. Its first authenticated optimization snapshot showed
+390/160000 updates and the same trainer occupying GPU memory. This is running
+training evidence, not completion or policy success. The bounded96 evaluation
+supervisor is prepared but has not executed; final checkpoint verification and
+independent deployment checks are still required. No eight-task run or Fold02
+unlock is implied. See the [launch evidence](results/teacher_native_spatial_4task_launch_v1_20261009.json)
+and [optimizer observation](results/teacher_native_spatial_4task_first_optimizer_observation_v1_20261009.json).
