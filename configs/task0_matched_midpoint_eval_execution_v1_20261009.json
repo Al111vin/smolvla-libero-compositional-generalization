@@ -1,0 +1,28 @@
+{
+  "root": "/root/smolvla-eval-prep/results/task0_matched_midpoint_eval_v1_20261009",
+  "recovery": "/root/smolvla-eval-prep/recovery/task0_matched_midpoint_eval_v1_20261009",
+  "evaluator": "/root/smolvla-eval-prep/scripts/eval_v3_task0_state_capture_v1.py",
+  "code_hashes": {
+    "run_midpoint_eval_v1.py": "2bb100332844e0d41636c7e84f299952b77168f95a319552bd8eb674d45c2c7f",
+    "midpoint_eval_schedule_v1.py": "7431331acd8fa4f2f865d6faf956f4585a36ffb20e4fcf52183621a6519e4a8e",
+    "controlled_eval_schedule_v1.py": "c32b3125a17f024e3df93cbdcb8db93b3f9c1bea260eedc6b8004d6d75cf720b",
+    "eval_controlled_environment_v1.py": "a9dbc00d5f52e84b4b5bcb04b21b4adef575f02acc245aeeae05fabbb716ca57",
+    "controlled_eval_hooks_v1.py": "88c519c9d3733fdb9c6b74a88e7d4ee15930fb492d360d7d4b083728bfd31ae2",
+    "capture_reset_render_provenance_v1.py": "08a28b35654c1e7af9aec78fcca84e03c0db233810fd1f2e1b74931f8bade6fc",
+    "first_decision_provenance_v1.py": "d098b099ebad38c750abc0f0d142109695daaa3823d0901ff6b13db9106d8981",
+    "diagnostic_process_guard_v1.py": "e5f24725836e4c9178b247332cb33e1eafa9224ed22e4d016fff4778787cd49f"
+  },
+  "models": {
+    "single20k": {
+      "path": "/root/smolvla-training-prep/results/training/teacher_native_spatial_task0_single_current_recipe_40k_batch2_v1/checkpoints/020000/pretrained_model",
+      "sha": "a4a5f35ade2fa06363128d9b0ec5af4dc10281a63d79c3ac4a07e89e594d369a"
+    },
+    "joint80k": {
+      "path": "/root/smolvla-training-prep/results/training/teacher_native_spatial_4task_homogeneous_160k_batch2_v1_20261009/checkpoints/080000/pretrained_model",
+      "sha": "92959b0c1197c961fbabb5cc49c2f705b82a837889fee082053df8938309b8e5"
+    }
+  },
+  "rollout_budget": 40,
+  "wall_budget_seconds": 5400,
+  "automatic_retries": 0
+}
