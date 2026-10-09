@@ -1,0 +1,14 @@
+{
+  "status": "authenticated_optimizer_progress_observed",
+  "supervisor_pid": 315683,
+  "trainer_pid": 315694,
+  "observed_progress": 390,
+  "registered_total_updates": 160000,
+  "training_start_log_utc": "2026-10-09T14:49:24Z",
+  "gpu_compute_process": 315694,
+  "gpu_memory_mib": 2770,
+  "exit_marker_present": false,
+  "scope": "Time-specific live snapshot, not completion or policy success",
+  "next_action": "Monitor same run; prepare bounded96 evaluation without concurrent GPU execution",
+  "fold02": "locked"
+}
