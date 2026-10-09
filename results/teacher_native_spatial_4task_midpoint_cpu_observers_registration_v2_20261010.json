@@ -1,0 +1,14 @@
+{
+  "status": "registered_before_retry",
+  "parent": "teacher_native_spatial_4task_midpoint_cpu_observers_registration_v1_20261010.json",
+  "failure_analysis": "V1 forced MUJOCO_GL=osmesa, importing unavailable OpenGL backend before environment creation. Installed MuJoCo explicitly supports disable; CUDA_VISIBLE_DEVICES empty and MUJOCO_GL=disable ControlEnv import passed without constructing environment.",
+  "alternatives": ["Install OSMesa: rejected unnecessary dependency mutation", "EGL rendering: rejected unnecessary GPU context", "Disable rendering import: selected; consistent with all renderer flags false"],
+  "change": "Only MUJOCO_GL=osmesa to disable and fresh independent recovery root; code, seeds, source hashes, parity tolerances and observer thresholds unchanged",
+  "root": "/root/smolvla-eval-prep/recovery/midpoint_cpu_object_contact_observers_v2_20261010",
+  "script_sha256": "32f204cce6c1a7d6d7adb7612a38eb98913a8a599edcee48fa8eb8599fd91f4d",
+  "sources": "Same four hash-pinned cases in midpoint_cpu_source_preflight_v1",
+  "budget": {"traces": 4, "timeout_seconds_each": 120, "max_actions_each": 300, "policy_calls": 0, "automatic_retries": 0, "gpu_rendering": false},
+  "stop": "First error/mismatch stops and preserves all evidence; never reuse v1 outputs",
+  "eight_task_expansion_locked": true,
+  "fold02_locked": true
+}
