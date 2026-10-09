@@ -1,0 +1,53 @@
+{
+  "status": "descriptive_outcome_contrasts",
+  "midpoint_single_to_joint": {
+    "reference_successes": 10,
+    "candidate_successes": 12,
+    "gains": [
+      0,
+      6,
+      8,
+      11
+    ],
+    "losses": [
+      14,
+      19
+    ],
+    "exact_mcnemar_two_sided_p": 0.6875,
+    "automatic_checkpoint_selection": false,
+    "progression_gate_replaced": false
+  },
+  "single_midpoint_to_final": {
+    "reference_successes": 10,
+    "candidate_successes": 13,
+    "gains": [
+      0,
+      11,
+      12,
+      13
+    ],
+    "losses": [
+      19
+    ],
+    "exact_mcnemar_two_sided_p": 0.375,
+    "automatic_checkpoint_selection": false,
+    "progression_gate_replaced": false
+  },
+  "joint_midpoint_to_final": {
+    "reference_successes": 12,
+    "candidate_successes": 10,
+    "gains": [],
+    "losses": [
+      0,
+      8
+    ],
+    "exact_mcnemar_two_sided_p": 0.5,
+    "automatic_checkpoint_selection": false,
+    "progression_gate_replaced": false
+  },
+  "cross_stage_start_provenance": "not_yet_revalidated; cross-stage contrasts are provisional outcome descriptions",
+  "interpretation": "Midpoint joint advantage10to12 reverses at final13to10. Counts do not support guaranteed monotonic improvement or a stable multitask disadvantage. No contrast establishes causal interference; shared Adam and sample identity/order remain unmatched.",
+  "next": "Read-only cross-stage provenance audit before interpreting learning trajectories. Compare bounded interventions only afterward; no new GPU budget assigned.",
+  "eight_task_expansion_locked": true,
+  "fold02_locked": true
+}
