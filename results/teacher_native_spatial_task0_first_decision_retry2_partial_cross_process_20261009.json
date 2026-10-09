@@ -1,0 +1,15 @@
+{
+  "schema_version": 1,
+  "status": "partial_2_of_3_processes",
+  "within_process_exact_pairs": 2,
+  "cross_process_model_equal": true,
+  "cross_process_processor_equal": true,
+  "cross_process_flat_simulator_state_equal": true,
+  "cross_process_pixels_equal": false,
+  "cross_process_preprocessed_input_equal": false,
+  "cross_process_aggregate_rng_equal": false,
+  "cross_process_first_action_equal": false,
+  "interpretation": "Identical flattened simulator state does not establish identical visual policy input. Both observed processes reproduce their first output exactly when input and RNG are restored internally. Cross-process action difference is not evidence of numeric nondeterminism because both input and aggregate RNG differ.",
+  "limits": "Third process pending; aggregate RNG includes Python random, which follows frozen V3 semantics and is not explicitly seeded. Pixel variation source and causal contribution remain unresolved.",
+  "next": "Finish current bounded chain; then separate visual-input variation from RNG components before any new intervention or training."
+}
