@@ -6,9 +6,30 @@ import hashlib
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[1] / 'scripts'))
 from run_scaling_eval_v1 import scaling_conflicts, unique_csv, validate_checkpoint, CHECKPOINT_FILES
+from run_scaling_eval_v1 import validate_code_manifest, REQUIRED_CODE
 
 
 class GuardTests(unittest.TestCase):
+    def test_all_execution_dependencies_must_be_pinned(self):
+        with tempfile.TemporaryDirectory() as temp:
+            root = Path(temp)
+            hashes = {}
+            for name in REQUIRED_CODE:
+                (root / name).write_bytes(b'code-fixture')
+                hashes[name] = hashlib.sha256(b'code-fixture').hexdigest()
+            validate_code_manifest(root, hashes)
+            for name in REQUIRED_CODE:
+                incomplete = dict(hashes)
+                del incomplete[name]
+                with self.assertRaises(ValueError):
+                    validate_code_manifest(root, incomplete)
+            bad = dict(hashes, unexpected='wrong')
+            with self.assertRaises(ValueError):
+                validate_code_manifest(root, bad)
+            (root / next(iter(REQUIRED_CODE))).write_bytes(b'modified')
+            with self.assertRaises(ValueError):
+                validate_code_manifest(root, hashes)
+
     def test_each_checkpoint_file_required_nonempty_and_model_pinned(self):
         with tempfile.TemporaryDirectory() as temp:
             root = Path(temp)

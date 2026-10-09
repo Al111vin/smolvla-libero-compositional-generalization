@@ -12,6 +12,19 @@ from scaling_eval_schedule_v1 import schedule, validate_protocol, validate_rollo
 from diagnostic_process_guard_v1 import conflicting_processes
 from capture_reset_render_provenance_v1 import EVALUATOR_SHA
 
+REQUIRED_CODE = frozenset({'run_scaling_eval_v1.py', 'eval_scaling_environment_v1.py',
+    'scaling_eval_schedule_v1.py', 'diagnostic_process_guard_v1.py',
+    'controlled_eval_hooks_v1.py', 'first_decision_provenance_v1.py',
+    'capture_reset_render_provenance_v1.py'})
+
+
+def validate_code_manifest(base, hashes):
+    if set(hashes) != REQUIRED_CODE:
+        raise ValueError('Incomplete or unexpected code manifest')
+    for name, sha in hashes.items():
+        if hashlib.sha256((base / name).read_bytes()).hexdigest() != sha:
+            raise ValueError('Code hash mismatch: ' + name)
+
 
 def scaling_conflicts(proc_root=Path('/proc'), caller_pid=None):
     import os
@@ -61,9 +74,7 @@ def run(manifest):
         fcntl.flock(lock, fcntl.LOCK_EX | fcntl.LOCK_NB)
         if root.exists() or root.is_symlink():
             raise FileExistsError(root)
-        for name, sha in manifest['code_hashes'].items():
-            if hashlib.sha256((base / name).read_bytes()).hexdigest() != sha:
-                raise ValueError('Code hash mismatch: ' + name)
+        validate_code_manifest(base, manifest['code_hashes'])
         if hashlib.sha256(Path(manifest['evaluator']).read_bytes()).hexdigest() != EVALUATOR_SHA:
             raise ValueError('Frozen evaluator hash mismatch')
         checkpoint = Path(manifest['checkpoint'])
