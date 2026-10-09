@@ -1,0 +1,15 @@
+{
+  "status": "stopped_preserved_failure",
+  "first_case": "joint80k_init0",
+  "phase": "runtime_import_before_environment_creation",
+  "error": "MUJOCO_GL=osmesa import failed: OpenGL _p.GL is None; AttributeError glGetError",
+  "hypothesis": "Explicit osmesa setting selects an unavailable rendering backend even though headless replay requests no renderer. This is runtime configuration failure, not trajectory parity failure.",
+  "subsequent_cases_started": 0,
+  "policy_calls": 0,
+  "automatic_retries": 0,
+  "preserved_root": "/root/smolvla-eval-prep/recovery/midpoint_cpu_object_contact_observers_v1_20261010",
+  "preserved_files": ["execution.lock", "joint80k_init0.log", "scripts", "results"],
+  "next": "Read-only import/backend diagnosis; register a fresh bounded runtime-only version before retry. Do not install dependencies or overwrite this attempt blindly.",
+  "eight_task_expansion_locked": true,
+  "fold02_locked": true
+}
