@@ -1,0 +1,13 @@
+{
+  "status": "authenticated_cpu_saved_processor_boundary_check_passed",
+  "method": "Load successful40k saved policy_preprocessor with CPU device override and local tokenizer only; process one real two-row dataset batch through batch_to_transition and transition_to_batch.",
+  "task_index_exactly_preserved": true,
+  "task_index": [0, 0],
+  "action_shape": [2, 7],
+  "state_shape": [2, 15],
+  "finite_normalized_state_action": true,
+  "scope_limit": "Saved baseline processor and one task0 batch only. No50-action delta timestamps requested here; chunked training batches and fresh-base processor construction remain separate required checks.",
+  "installed_source": "Converters explicitly preserve task_index in complementary data; trainer invokes preprocessor before update_policy.",
+  "gpu_work": "none",
+  "fold02": "locked"
+}
