@@ -1,0 +1,18 @@
+{
+  "status": "design_selected_not_executed",
+  "evidence": "Matched starts across all20 inits/four conditions; joint midpoint12/20 to final10/20 loses only init0 and8. Exact paired p0.5; single midpoint10/20 to final13/20. No causal interference established.",
+  "hypothesis": "The two joint lost successes reflect different observable contact/lift/transport paths after additional optimization, rather than different starting inputs. This is a trajectory diagnostic, not an identification of the training cause.",
+  "options": [
+    {"name": "existing_action_and_state_trace_review", "training_updates": 0, "policy_rollouts": 0, "selected": true, "reason": "Cheapest falsifiable first step; detect divergence timing and whether failure phenotypes are shared before choosing an intervention."},
+    {"name": "headless_object_contact_replay", "training_updates": 0, "policy_rollouts": 0, "selected": false, "reason": "Conditional next step only if stored robot/action evidence cannot distinguish stages. At most4 traces, fresh independent paths, exact initial/model/state/reward parity required; previous contact proxies not treated as necessary grasp conditions."},
+    {"name": "second_training_seed", "selected": false, "reason": "Would estimate seed variability but incurs substantial new GPU time and does not localize existing failure. Requires a separately registered bounded budget and matched exposure preflight."},
+    {"name": "longer_training_or_more_tasks", "selected": false, "reason": "No evidence of guaranteed monotonic benefit. Final progression gate failed; no blind extension or eight-task launch."}
+  ],
+  "selected_cases": {"conditions": ["joint080000", "joint160000"], "init_ids": [0,8], "traces": 4, "selection_scope": "All and only the lost midpoint-to-final successes; selected diagnostic cases, not a new success-rate estimate."},
+  "review_budget": {"max_saved_actions_each": 300, "gpu_policy_calls": 0, "training_updates": 0, "new_policy_evaluations": 0},
+  "readouts": ["first raw/processed/applied action and robot-state divergence", "gripper sign transitions and bounded action norms", "official success/reward and termination step", "whether robot-only state is insufficient for object-stage attribution"],
+  "stop_rules": ["Any source/protocol/initial-state mismatch: preserve evidence and stop", "No stage assignment from robot-only CSVs", "No causal gradient interference claim", "No automatic training restart or checkpoint promotion"],
+  "eight_task_expansion_locked": true,
+  "fold02_locked": true,
+  "new_gpu_budget": 0
+}
