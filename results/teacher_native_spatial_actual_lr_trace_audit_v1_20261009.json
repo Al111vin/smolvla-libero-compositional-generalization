@@ -1,0 +1,23 @@
+{
+  "status": "authenticated_installed_scheduler_cpu_trace_passed",
+  "method": "CPU scalar AdamW parameter; installed CosineDecayWithWarmupSchedulerConfig(3000,90000,0.0001,0.0000025).build(optimizer,40000); capture LR before optimizer.step then scheduler.step for each update. No policy loaded, no GPU work, no remote files written.",
+  "baseline_updates": 40000,
+  "actual_warmup_steps": 1333,
+  "actual_decay_steps": 40000,
+  "baseline_pre_step_float64_little_endian_sha256": "f016f3a3a2cf10c6c53105ced8eebba7d7e3d57a16555989fd53c43ffe570e6c",
+  "fourfold_expanded_float64_little_endian_sha256": "8c1ebc42a6fa86a3cee7e7e2734d057e52a626c72c1a5187d2db209446161408",
+  "pre_optimizer_lr_by_zero_based_update": {
+    "0": 7.496251874062968e-8,
+    "1": 1.4992503748125775e-7,
+    "1332": 9.992503748125938e-5,
+    "1333": 9.973307578934096e-5,
+    "39998": 2.50000060142902e-6,
+    "39999": 2.5000001503572566e-6
+  },
+  "post_final_scheduler_lr_not_used_for_training_update": 2.5e-6,
+  "per_task_sample_weighted_lr_sum": [3.967034526490337, 3.967034526490337, 3.967034526490337, 3.967034526490337],
+  "decision": "Use baseline scheduler index floor(completed_multitask_updates/4), with baseline build budget40000, not a native scheduler built for160000. Preserve installed warmup-to-cosine transition, including its small downward discontinuity.",
+  "scope_limit": "This verifies actual installed CPU scheduler reference, not yet Accelerate integration, real dataset loader or full training wrapper. Historical training LR identity is inferred from pinned recipe and installed implementation, not a captured historical pre-step trace.",
+  "remaining": ["independent runtime adapter and Accelerate loader tests", "full four-task parity", "finite manifest and final resource checks"],
+  "fold02": "locked"
+}
