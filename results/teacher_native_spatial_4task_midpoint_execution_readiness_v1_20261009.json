@@ -1,0 +1,19 @@
+{
+  "status": "schedule_and_syntax_checked_full_supervisor_fixture_pending",
+  "models": ["single20k", "joint80k"],
+  "paired_inits": "0..19, interleaved single/joint",
+  "rollouts": 40,
+  "new_training_updates": 0,
+  "wall_budget_seconds": 5400,
+  "per_rollout_timeout_seconds": 600,
+  "stop_on": "first subprocess/protocol/hash/input/state/CSV failure or wall-budget exhaustion",
+  "automatic_retries": 0,
+  "supervisor_sha256": "24547c7bde6c3ae3ba2512713b646ce23d18ca5214e7c4028b60686a7ac98641",
+  "schedule_sha256": "7431331acd8fa4f2f865d6faf956f4585a36ffb20e4fcf52183621a6519e4a8e",
+  "checks_passed": ["Exactly40 unique keys covering20 init pairs with fixed models and no repetitions", "Original protocol validator rejects301-step cap", "Supervisor syntax compiles"],
+  "pending": ["Synthetic full40 supervisor fixture and fail-closed failure tests", "Independent manifest/deployment/log/PID/output absence checks", "Current GPU/process/lock/disk checks", "Final read-only checkpoint and all dependency hashes"],
+  "execution": "not_started",
+  "interpretation": "Compare paired midpoint vs final outcomes descriptively; no best-checkpoint selection, gate replacement or causal interference claim",
+  "eight_task_progression": "locked",
+  "fold02": "locked"
+}
