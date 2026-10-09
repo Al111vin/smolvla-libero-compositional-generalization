@@ -2,12 +2,32 @@ import sys
 from pathlib import Path
 import tempfile
 import unittest
+import hashlib
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[1] / 'scripts'))
-from run_scaling_eval_v1 import scaling_conflicts, unique_csv
+from run_scaling_eval_v1 import scaling_conflicts, unique_csv, validate_checkpoint, CHECKPOINT_FILES
 
 
 class GuardTests(unittest.TestCase):
+    def test_each_checkpoint_file_required_nonempty_and_model_pinned(self):
+        with tempfile.TemporaryDirectory() as temp:
+            root = Path(temp)
+            sha = hashlib.sha256(b'fixture').hexdigest()
+            for name in CHECKPOINT_FILES:
+                (root / name).write_bytes(b'fixture')
+            validate_checkpoint(root, sha)
+            for name in CHECKPOINT_FILES:
+                path = root / name
+                path.unlink()
+                with self.assertRaises(ValueError):
+                    validate_checkpoint(root, sha)
+                path.touch()
+                with self.assertRaises(ValueError):
+                    validate_checkpoint(root, sha)
+                path.write_bytes(b'fixture')
+            with self.assertRaises(ValueError):
+                validate_checkpoint(root, 'wrong')
+
     def test_csv_requires_exactly_one_file(self):
         with tempfile.TemporaryDirectory() as temp:
             root = Path(temp)

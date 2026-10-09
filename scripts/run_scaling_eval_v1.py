@@ -39,6 +39,21 @@ def unique_csv(target, pattern):
         return list(csv.DictReader(stream))
 
 
+CHECKPOINT_FILES = ('model.safetensors', 'config.json', 'train_config.json',
+                    'policy_preprocessor.json', 'policy_postprocessor.json',
+                    'policy_preprocessor_step_5_normalizer_processor.safetensors',
+                    'policy_postprocessor_step_0_unnormalizer_processor.safetensors')
+
+
+def validate_checkpoint(checkpoint, model_sha):
+    for name in CHECKPOINT_FILES:
+        path = checkpoint / name
+        if not path.is_file() or path.stat().st_size == 0:
+            raise ValueError('Incomplete checkpoint: ' + name)
+    if hashlib.sha256((checkpoint / 'model.safetensors').read_bytes()).hexdigest() != model_sha:
+        raise ValueError('Checkpoint hash mismatch')
+
+
 def run(manifest):
     root = Path(manifest['root'])
     base = Path(__file__).parent
@@ -52,16 +67,7 @@ def run(manifest):
         if hashlib.sha256(Path(manifest['evaluator']).read_bytes()).hexdigest() != EVALUATOR_SHA:
             raise ValueError('Frozen evaluator hash mismatch')
         checkpoint = Path(manifest['checkpoint'])
-        required = ['model.safetensors', 'config.json', 'train_config.json',
-                    'policy_preprocessor.json', 'policy_postprocessor.json',
-                    'policy_preprocessor_step_5_normalizer_processor.safetensors',
-                    'policy_postprocessor_step_0_unnormalizer_processor.safetensors']
-        for name in required:
-            path = checkpoint / name
-            if not path.is_file() or path.stat().st_size == 0:
-                raise ValueError('Incomplete checkpoint: ' + name)
-        if hashlib.sha256((checkpoint / 'model.safetensors').read_bytes()).hexdigest() != manifest['model_sha']:
-            raise ValueError('Checkpoint hash mismatch')
+        validate_checkpoint(checkpoint, manifest['model_sha'])
         if scaling_conflicts():
             raise RuntimeError('Process conflict')
         if subprocess.check_output(['nvidia-smi', '--query-compute-apps=pid',
