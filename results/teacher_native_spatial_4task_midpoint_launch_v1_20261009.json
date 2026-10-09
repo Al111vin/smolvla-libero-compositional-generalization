@@ -1,0 +1,15 @@
+{
+  "status": "launched_once",
+  "pid": 480799,
+  "utc": "2026-10-09T22:34:37.320461+00:00",
+  "rollout_budget": 40,
+  "wall_budget_seconds": 5400,
+  "manifest_sha256": "9626a8fa3d40282ea7207d9952b7d918d4dfd7df41c82b8da60f52eec2e0ac73",
+  "preflight": {
+    "checkpoint_and_evaluator_hashes": "passed",
+    "independent_eight_code_hashes": "passed",
+    "free_bytes": 56242515968,
+    "outputs_absent": "passed",
+    "gpu_and_process_exclusivity": "passed"
+  }
+}
