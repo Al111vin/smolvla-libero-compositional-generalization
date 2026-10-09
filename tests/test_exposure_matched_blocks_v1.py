@@ -1,6 +1,6 @@
 import unittest
 from collections import Counter
-from scripts.exposure_matched_blocks_v1 import balanced_batches, baseline_lr_for_update, BlockSchedulerAdapter
+from scripts.exposure_matched_blocks_v1 import balanced_batches, baseline_lr_for_update, BlockSchedulerAdapter, require_executed_optimizer_update
 
 
 class FakeScheduler:
@@ -23,6 +23,13 @@ class FakeScheduler:
 
 
 class ExposureTests(unittest.TestCase):
+    def test_skipped_update_fail_closed(self):
+        optimizer = type("Optimizer", (), {"step_was_skipped": False})()
+        require_executed_optimizer_update(optimizer)
+        optimizer.step_was_skipped = True
+        with self.assertRaises(RuntimeError):
+            require_executed_optimizer_update(optimizer)
+
     def test_adapter_and_resume(self):
         adapter = BlockSchedulerAdapter(FakeScheduler(), task_count=4, blocks=3)
         trace = []

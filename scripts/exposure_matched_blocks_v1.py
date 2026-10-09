@@ -6,6 +6,12 @@ metrics (which are recorded AFTER scheduler.step).
 import random
 
 
+def require_executed_optimizer_update(optimizer):
+    """Abort rather than silently change per-task effective update exposure."""
+    if getattr(optimizer, "step_was_skipped", False):
+        raise RuntimeError("optimizer update skipped; stop and preserve exposure-mismatch evidence")
+
+
 def build_block_lambda_scheduler(optimizer, baseline_config, *, blocks, task_count):
     """Real PyTorch scheduler recognized by Accelerator.prepare.
 

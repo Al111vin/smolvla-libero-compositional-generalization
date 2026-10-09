@@ -1,0 +1,11 @@
+{
+  "status": "authenticated_cpu_scheduler_skip_and_resume_checks_passed",
+  "simulated_accelerated_optimizer_overflow": "Setting the installed wrapper overflow flag caused AcceleratedScheduler.step to leave LR and last_epoch unchanged.",
+  "checkpoint_resume": "Restored actual optimizer and scheduler state after5 updates; next11 pre-optimizer LRs matched uninterrupted CPU reference exactly; final last_epoch16.",
+  "scope": "CPU scalar optimizer test and simulated overflow flag, not a real CUDA AMP overflow or full LeRobot checkpoint resume.",
+  "design_consequence": "A skipped update would consume a task batch without its planned optimizer update. Merely retaining scheduler LR is insufficient: subsequent task-block alignment would shift. Registered training integration must fail closed on any skipped optimizer update, preserving evidence; do not silently consume another task or extend budget.",
+  "guard_added": "require_executed_optimizer_update; must be called after every training optimizer update in the independent wrapper",
+  "remaining": "Wrapper/actual loader/full data parity/manifests/resource checks pending; guard not yet integrated into training.",
+  "gpu_work": "none",
+  "fold02": "locked"
+}
