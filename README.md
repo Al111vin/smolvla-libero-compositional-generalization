@@ -1741,3 +1741,12 @@ initializations, not a best-checkpoint selection or replacement for the failed
 final progression gate. No fixed-init repetition gate was tested at midpoint.
 Eight-task expansion and Fold02 remain locked; no additional training is started.
 See the [midpoint result](results/teacher_native_spatial_4task_midpoint_final_result_v1_20261010.json).
+
+The subsequent read-only cross-stage audit found identical first-decision
+environment/model-array, simulator, image, frame, processed-input, processor
+and RNG captures across all20 init IDs and all four conditions. Descriptive
+midpoint-to-final counts are single10to13/20 and joint12to10/20; joint loses
+inits0 and8 with no gains (exact paired p=0.5). This supports neither guaranteed
+monotonic improvement nor a causal interference conclusion. No new GPU work
+was started. See [contrasts](results/teacher_native_spatial_4task_midpoint_contrasts_v1_20261010.json)
+and the subsequent [cross-stage audit](results/teacher_native_spatial_4task_cross_stage_provenance_v1_20261010.json).

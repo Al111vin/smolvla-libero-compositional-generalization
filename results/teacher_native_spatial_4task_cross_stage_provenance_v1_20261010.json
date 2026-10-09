@@ -1,0 +1,23 @@
+{
+  "status": "passed",
+  "initializations": 20,
+  "conditions": 4,
+  "fields": [
+    "model_arrays",
+    "simulator_state",
+    "images",
+    "frame",
+    "input",
+    "processor",
+    "rng"
+  ],
+  "mismatches": [],
+  "policy_calls": 0,
+  "conditions_compared": [
+    "single020000",
+    "joint080000",
+    "single040000",
+    "joint160000"
+  ],
+  "scope": "Saved first-decision provenance only; does not assert historical V3 parity, heldout generalization, causal interference, or matched training sample identities."
+}
