@@ -1,0 +1,243 @@
+{
+  "version": "controlled_cpu_object_contact_observers_v2",
+  "status": "completed12_all_parity_passed",
+  "root": "/root/smolvla-eval-prep/recovery/controlled_cpu_object_contact_observers_v2_20261009",
+  "policy_calls": 0,
+  "gpu_rendering": false,
+  "records": [
+    {
+      "model": "single40k",
+      "init": 3,
+      "status": "parity_passed",
+      "verified_steps": 299,
+      "max_robot_state_error": 0,
+      "final_reward": 1,
+      "first_proxy_steps": {
+        "approach": null,
+        "lift": 185,
+        "transport": 193,
+        "official_success": 299
+      },
+      "source_hashes": {
+        "protocol.json": "0c0805dd974dc0d1e55cb96ab8cb77ae8e90deff5676d7870432770455402fc4",
+        "first_input.json": "fe38ade51fa505b04e55c385c3d7ab9976f996b2b59a8626886a3b6657a5dbbf",
+        "eval_v3_task0_040000_benchmark_init3_n25_seed12351_actions.csv": "15334f1ca1e98f0a32f5b9ed234de9f5e3ba21171f6032bace2cf364b7361d8a"
+      }
+    },
+    {
+      "model": "joint160k",
+      "init": 3,
+      "status": "parity_passed",
+      "verified_steps": 94,
+      "max_robot_state_error": 0,
+      "final_reward": 1,
+      "first_proxy_steps": {
+        "approach": null,
+        "lift": 70,
+        "transport": 75,
+        "official_success": 94
+      },
+      "source_hashes": {
+        "protocol.json": "4b3e6520b901deed3ab7cbc3fff96d471d574a0b33c1e3a9243ceaa733b3526b",
+        "first_input.json": "2107c5ee03126c6afd5a7f1ced944ba2d4c7ba5cb079844b29b0aee98001b170",
+        "eval_v3_task0_160000_benchmark_init3_n25_seed12351_actions.csv": "6538c8e53bb4e800853da75bce8f1b237aff75d28c9f397cd2cfaa0dc655b905"
+      }
+    },
+    {
+      "model": "single40k",
+      "init": 0,
+      "status": "parity_passed",
+      "verified_steps": 124,
+      "max_robot_state_error": 0,
+      "final_reward": 1,
+      "first_proxy_steps": {
+        "approach": 81,
+        "lift": 96,
+        "transport": 101,
+        "official_success": 124
+      },
+      "source_hashes": {
+        "protocol.json": "7f39617207a90a2054768137f0673ee56bb93e828ddeb0f62c063a7b4525e3e1",
+        "first_input.json": "31926d054219b525201a124df1b650556635cba266fbcd526ee0237055db7c61",
+        "eval_v3_task0_040000_benchmark_init0_n25_seed12345_actions.csv": "8f1a7a0aebf8e3ba56f1c769882eb518cd37ddb5ed26fba38b76c3d79d752d2e"
+      }
+    },
+    {
+      "model": "joint160k",
+      "init": 0,
+      "status": "parity_passed",
+      "verified_steps": 300,
+      "max_robot_state_error": 0,
+      "final_reward": 0,
+      "first_proxy_steps": {
+        "approach": 92,
+        "lift": 121,
+        "transport": 126,
+        "official_success": null
+      },
+      "source_hashes": {
+        "protocol.json": "9961198d7328768f5ff8aaeb5aa3eaab4cc955c971b863316b475c747858f5ac",
+        "first_input.json": "4cce50aa1d4f44b9f72ad4a7d1c44c314f572de83518b111c8f1cf1bbe35a8c7",
+        "eval_v3_task0_160000_benchmark_init0_n25_seed12345_actions.csv": "e014b20083ee68efc9fdf89e337ba6782db95871a4abe701ceb9119cd37b02e1"
+      }
+    },
+    {
+      "model": "single40k",
+      "init": 12,
+      "status": "parity_passed",
+      "verified_steps": 118,
+      "max_robot_state_error": 0,
+      "final_reward": 1,
+      "first_proxy_steps": {
+        "approach": 79,
+        "lift": 94,
+        "transport": 99,
+        "official_success": 118
+      },
+      "source_hashes": {
+        "protocol.json": "2aa8c2767c63e7b717667d4531deba4bc94cc3304cb3a4377af072549922c787",
+        "first_input.json": "c86afa6626d9d3cf92321d28a1f2a131bd42520c0bed88474151d1c5e3eb49f7",
+        "eval_v3_task0_040000_benchmark_init12_n25_seed12369_actions.csv": "a6dcae20f7a1a97b861468f9402ead62fea18679aba3a47fa79dc589b9d3eb74"
+      }
+    },
+    {
+      "model": "joint160k",
+      "init": 12,
+      "status": "parity_passed",
+      "verified_steps": 300,
+      "max_robot_state_error": 0,
+      "final_reward": 0,
+      "first_proxy_steps": {
+        "approach": null,
+        "lift": null,
+        "transport": null,
+        "official_success": null
+      },
+      "source_hashes": {
+        "protocol.json": "470cb54a8c8c8d81435303426ad8e125c5bcdc081d3af30a7c45c47fac88cbe3",
+        "first_input.json": "7100137776d225cf4fabea30536a9bbff2b60cf8eec5c5279ebd2c4acfc8b0c0",
+        "eval_v3_task0_160000_benchmark_init12_n25_seed12369_actions.csv": "0e7454e38ab55671dca670929ffa6556bb9e5d3355e5083b10643948ead3bd95"
+      }
+    },
+    {
+      "model": "single40k",
+      "init": 13,
+      "status": "parity_passed",
+      "verified_steps": 117,
+      "max_robot_state_error": 0,
+      "final_reward": 1,
+      "first_proxy_steps": {
+        "approach": null,
+        "lift": 95,
+        "transport": 99,
+        "official_success": 117
+      },
+      "source_hashes": {
+        "protocol.json": "52b902c3bbb52bb357a9f4534064597926adc58969e3c10bfa073c97e406504b",
+        "first_input.json": "752993176f72bb637c74173e58a061a3f29ef32169bb4bbde1d9a1b943130a27",
+        "eval_v3_task0_040000_benchmark_init13_n25_seed12371_actions.csv": "4b063f1c16b773cb98289c0977e2cdda51a139d134122de7b5363bb3af2e3400"
+      }
+    },
+    {
+      "model": "joint160k",
+      "init": 13,
+      "status": "parity_passed",
+      "verified_steps": 300,
+      "max_robot_state_error": 0,
+      "final_reward": 0,
+      "first_proxy_steps": {
+        "approach": null,
+        "lift": null,
+        "transport": null,
+        "official_success": null
+      },
+      "source_hashes": {
+        "protocol.json": "e3c9161f3f806dfbe1e361e036ba6353a806e2d448a370e5174e6030ce1d45de",
+        "first_input.json": "5433579f233f7bf227e0085b29644f0ae1d80255012f338e5dbb5addd49e0626",
+        "eval_v3_task0_160000_benchmark_init13_n25_seed12371_actions.csv": "7a2cb38bccb47a018e2aa6fa02dcdd068f95f02f158c1c35b2cc30320def01fa"
+      }
+    },
+    {
+      "model": "single40k",
+      "init": 14,
+      "status": "parity_passed",
+      "verified_steps": 296,
+      "max_robot_state_error": 0,
+      "final_reward": 1,
+      "first_proxy_steps": {
+        "approach": null,
+        "lift": 92,
+        "transport": 99,
+        "official_success": 296
+      },
+      "source_hashes": {
+        "protocol.json": "793e5ef5ca2c6be062517b3a048f411924dfe065efd4b173ecd11959c9c96f17",
+        "first_input.json": "0d83f85f2e4cbec4f4a392dfd57488539905c1a029b2f602b34ad3e1a3f666b6",
+        "eval_v3_task0_040000_benchmark_init14_n25_seed12373_actions.csv": "31789a6da0693ca3c6a999d7ec72a51b54a495313df68ccfc9ef6a9ecc875bc4"
+      }
+    },
+    {
+      "model": "joint160k",
+      "init": 14,
+      "status": "parity_passed",
+      "verified_steps": 300,
+      "max_robot_state_error": 0,
+      "final_reward": 0,
+      "first_proxy_steps": {
+        "approach": null,
+        "lift": null,
+        "transport": null,
+        "official_success": null
+      },
+      "source_hashes": {
+        "protocol.json": "fb9f69ec0e316dcc52d564a7637aa6c26f603e937f317a52409b2a386779064a",
+        "first_input.json": "821361725e1ff184ebe6a03ef87d9ef927f86e97222f9e51fce1d7d254a39719",
+        "eval_v3_task0_160000_benchmark_init14_n25_seed12373_actions.csv": "a3c64985324466568db89d07d5aa58c45e802163129f76cd0cc2335eb676b535"
+      }
+    },
+    {
+      "model": "single40k",
+      "init": 6,
+      "status": "parity_passed",
+      "verified_steps": 300,
+      "max_robot_state_error": 0,
+      "final_reward": 0,
+      "first_proxy_steps": {
+        "approach": null,
+        "lift": null,
+        "transport": null,
+        "official_success": null
+      },
+      "source_hashes": {
+        "protocol.json": "93afca884f7e444dfcd44d1b0dbc045ac5f32a1916bea31ec2527c35c647e0d1",
+        "first_input.json": "ae054a56e79d2a7453ec3ab415471f1a6a647cd36f7d3ea1f08ae96a99291613",
+        "eval_v3_task0_040000_benchmark_init6_n25_seed12357_actions.csv": "3686a41b8097a5d02805dff4c8b43e2845d6d8c3bcc9d0ed3452096d0e761393"
+      }
+    },
+    {
+      "model": "joint160k",
+      "init": 6,
+      "status": "parity_passed",
+      "verified_steps": 89,
+      "max_robot_state_error": 0,
+      "final_reward": 1,
+      "first_proxy_steps": {
+        "approach": null,
+        "lift": 67,
+        "transport": 72,
+        "official_success": 89
+      },
+      "source_hashes": {
+        "protocol.json": "949c7d68deb4070028d92ba66702b300b948b90aca1504d95809a2445016e69a",
+        "first_input.json": "1cc32a1c3af23ba6f11fbb2b14b4c5926a4c235e8d13e363f7d03a0f2f82a52a",
+        "eval_v3_task0_160000_benchmark_init6_n25_seed12357_actions.csv": "88931ab98b3d5ed864d83f490a14765533e765da6883b752a636c457f8a8f5f9"
+      }
+    }
+  ],
+  "limits": [
+    "Proxies can be nonmonotone; raw contact semantic validation pending",
+    "No image parity or causal interference claim"
+  ],
+  "eight_task_progression": "locked",
+  "fold02": "locked"
+}
