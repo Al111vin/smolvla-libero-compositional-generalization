@@ -1,0 +1,13 @@
+{
+  "status": "authenticated_cpu_four_task_first_frame_chunk_check_passed",
+  "delta_timestamps": "action i/20 for i0..49",
+  "checked_global_rows": [0, 5068, 11775, 17657],
+  "task_ids": [0, 1, 2, 3],
+  "each_action_shape": [50, 7],
+  "each_action_is_pad_shape": [50],
+  "each_pad_count": 0,
+  "finite_actions": true,
+  "scope_limit": "Only first frame of each task; terminal padding and every episode-boundary chunk still need independent checks. No processor or policy invocation in this test.",
+  "gpu_work": "none",
+  "fold02": "locked"
+}
