@@ -8,7 +8,7 @@ import os
 from pathlib import Path
 import subprocess
 import sys
-from controlled_eval_schedule_v1 import schedule, validate_protocol, environment_signature
+from controlled_eval_schedule_v1 import schedule, validate_protocol, environment_signature, validate_rollout
 from diagnostic_process_guard_v1 import conflicting_processes
 
 
@@ -64,6 +64,10 @@ def main():
                 assert len(summaries)==1
                 with summaries[0].open() as f: summary=list(csv.DictReader(f))
                 assert len(summary)==1 and summary[0]["success"] in ("True","False")
+                action_files=list(target.glob("*_actions.csv"))
+                assert len(action_files)==1
+                with action_files[0].open() as f: actions=list(csv.DictReader(f))
+                validate_rollout(row,summary[0],actions)
                 records.append(dict(row,success=summary[0]["success"]=="True",steps=int(summary[0]["steps"])))
                 with (root/(row["key"]+".verified.json")).open("x") as f: json.dump(records[-1],f)
                 print("VERIFIED",row["key"],flush=True)
