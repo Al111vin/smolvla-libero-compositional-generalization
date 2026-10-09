@@ -1,0 +1,11 @@
+{
+  "schema_version": 1,
+  "status": "installed_interfaces_verified_no_policy_execution",
+  "environment_source": "/usr/local/miniconda3/envs/py312/lib/python3.12/site-packages/libero/libero/envs/env_wrapper.py",
+  "verified": {"OffScreenRenderEnv_base": "ControlEnv", "sim_property": "returns self.env.sim", "get_sim_state": "self.env.sim.get_state().flatten()", "set_init_state": "regenerate_obs_from_state", "processor_steps_state_config_interfaces": true},
+  "prior_path_probe": "Assumed /root/smolvla-eval-prep/LIBERO path absent; import/inspect located actual installed module. No installed code changed.",
+  "reset_limit": "Installed reset internally retries RandomizationError; supervisor total 600s timeout bounds that loop. Diagnostic does not alter historical reset behavior.",
+  "policy_calls": 0,
+  "remaining_execution_gates": ["exclusive fresh deployment of registered code and hash match", "checkpoint/evaluator hash and GPU/lock/process/disk/path preflight", "SSH-independent bounded supervisor launch with external PID/log"],
+  "conclusions": "Interface compatibility only, not proof of full input identity, first-action determinism, or single-task stability."
+}

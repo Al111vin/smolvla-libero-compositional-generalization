@@ -1544,3 +1544,12 @@ the preserved historical 40k counts of 11/20 and 3/5. The required 5/5 repeat
 gate is still not met; no task scaling or Fold02 unlock follows. This diagnostic
 does not establish a reliable improvement or deterministic replay parity.
 See the [80k final evaluation result](results/teacher_native_spatial_task0_80k_final_eval_result_v1_20261009.json).
+
+A read-only review of the five 80k init3 traces found identical recorded robot
+state at step 0 but different first actions; robot state first diverged at step 1.
+Pixels/object state were not captured in those traces, so the cause is unresolved.
+A bounded full-input/model/processor/RNG diagnostic is registered (three processes,
+two first calls each, no predicted action applied). CPU processor compatibility and
+installed environment interfaces have been verified; GPU execution is not yet
+claimed. See the [diagnostic design](results/teacher_native_spatial_task0_full_input_rng_diagnostic_design_v1_20261009.json)
+and [interface audit](results/teacher_native_spatial_task0_first_decision_interface_audit_v1_20261009.json).
