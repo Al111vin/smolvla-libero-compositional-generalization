@@ -1,0 +1,18 @@
+{
+  "status": "authenticated_readonly_resource_and_hash_snapshot_passed_not_launch_gate",
+  "hashes_match_previous_registration": {
+    "base_model": "7cd549ac2351fb069c0ddb3c34ad2d09cfc92b56a15dccdfc2e41467aaca01eb",
+    "dataset_stats": "29aff99c2a83a5a60265e7ccef182f501e41b6e0215f8c8796ee24bf41b55227",
+    "installed_trainer": "e08ba26017674ac8453683e7b54810325fb381f20cb32a161c5d9aa690483449",
+    "installed_scheduler": "a5f116be52f8faddee3c96c3f506325cb89adaf9e5f374ba27fdd27caa29b865"
+  },
+  "gpu_compute_processes": [],
+  "disk_free_gib": 58.502872467041016,
+  "existing_gpu_lock_available": true,
+  "training_output_and_external_log_pid_exit_paths_absent": true,
+  "run_id": "teacher_native_spatial_4task_homogeneous_160k_batch2_v1_20261009",
+  "recovery": "/root/smolvla-training-prep/recovery/exposure_matched_4task_v1_20261009",
+  "training_started": false,
+  "remaining": "Finite evaluation manifest and supervisor launch gate must still be registered; fresh exclusivity/resources/hash/path checks under held lock immediately before launch. This snapshot does not reserve resources.",
+  "fold02": "locked"
+}
