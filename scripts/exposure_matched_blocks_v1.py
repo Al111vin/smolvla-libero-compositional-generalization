@@ -6,6 +6,29 @@ metrics (which are recorded AFTER scheduler.step).
 import random
 
 
+def build_block_lambda_scheduler(optimizer, baseline_config, *, blocks, task_count):
+    """Real PyTorch scheduler recognized by Accelerator.prepare.
+
+    The facade below is an offline specification only. Use this factory for
+    training so AMP-skipped optimizer updates also skip scheduler advancement.
+    """
+    from torch.optim.lr_scheduler import LambdaLR
+    if blocks <= 0 or task_count <= 0:
+        raise ValueError("positive finite budget required")
+    baseline = baseline_config.build(optimizer, blocks)
+    if not isinstance(baseline, LambdaLR) or baseline.last_epoch != 0:
+        raise ValueError("expected freshly initialized LambdaLR baseline")
+
+    def expand(fn):
+        def lr_factor(completed_updates):
+            if not 0 <= completed_updates <= blocks * task_count:
+                raise ValueError("scheduler budget exhausted")
+            return fn(completed_updates // task_count)
+        return lr_factor
+
+    return LambdaLR(optimizer, [expand(fn) for fn in baseline.lr_lambdas], last_epoch=-1)
+
+
 def balanced_batches(indices_by_task, *, blocks, batch_size, seed):
     if blocks <= 0 or batch_size <= 0:
         raise ValueError("positive finite blocks and batch size required")

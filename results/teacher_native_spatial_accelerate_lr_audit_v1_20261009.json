@@ -1,0 +1,13 @@
+{
+  "status": "authenticated_cpu_accelerate_full_budget_trace_passed",
+  "finding": "Plain facade is not a PyTorch LRScheduler and must not be used as the training scheduler. Added real LambdaLR factory so Accelerator.prepare recognizes and wraps it.",
+  "runtime_wrapper": "AcceleratedScheduler",
+  "num_processes": 1,
+  "scalar_cpu_optimizer_updates": 160000,
+  "expanded_pre_optimizer_lr_trace_sha256": "8c1ebc42a6fa86a3cee7e7e2734d057e52a626c72c1a5187d2db209446161408",
+  "matches_registered_baseline_fourfold_trace": true,
+  "last_epoch": 160000,
+  "execution": "Local module streamed into authenticated remote CPU interpreter without saving remote script; no model, data or GPU training loaded.",
+  "remaining": "Actual dataset loader, training wrapper integration, AMP-skipped-step behavior and checkpoint save/resume integration still require preflight. Single-process contract only; distributed use not validated.",
+  "fold02": "locked"
+}
