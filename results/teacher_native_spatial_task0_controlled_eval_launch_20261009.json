@@ -1,0 +1,12 @@
+{
+  "schema_version": 1,
+  "status": "supervisor_launched_once_completion_pending",
+  "supervisor_pid": 264357,
+  "deployment": "/root/smolvla-eval-prep/recovery/task0_controlled_eval_v1_20261009",
+  "manifest": "configs/task0_controlled_eval_v1_20261009.json",
+  "prelaunch_verified": "Fresh deployment/result/log/PID; all7deployed code hashes and frozen evaluator matched",
+  "supervisor_preconditions": "Rehashes both checkpoint files before acquiring exclusiveGPUlock and checking all other workloads; no child may run before these pass",
+  "budget": "48interleaved rollouts,600second timeout each,no automatic retries,no training",
+  "next": "Inspect samePID and retained outputs/exit_code; do not launch again or reuse paths",
+  "scientific_status": "No completed outcome yet; Fold02/scaling remain locked"
+}
