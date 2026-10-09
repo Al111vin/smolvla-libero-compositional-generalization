@@ -10,6 +10,7 @@ import sys
 
 from scaling_eval_schedule_v1 import schedule, validate_protocol, validate_rollout, gate
 from diagnostic_process_guard_v1 import conflicting_processes
+from capture_reset_render_provenance_v1 import EVALUATOR_SHA
 
 
 def scaling_conflicts(proc_root=Path('/proc'), caller_pid=None):
@@ -48,7 +49,17 @@ def run(manifest):
         for name, sha in manifest['code_hashes'].items():
             if hashlib.sha256((base / name).read_bytes()).hexdigest() != sha:
                 raise ValueError('Code hash mismatch: ' + name)
+        if hashlib.sha256(Path(manifest['evaluator']).read_bytes()).hexdigest() != EVALUATOR_SHA:
+            raise ValueError('Frozen evaluator hash mismatch')
         checkpoint = Path(manifest['checkpoint'])
+        required = ['model.safetensors', 'config.json', 'train_config.json',
+                    'policy_preprocessor.json', 'policy_postprocessor.json',
+                    'policy_preprocessor_step_5_normalizer_processor.safetensors',
+                    'policy_postprocessor_step_0_unnormalizer_processor.safetensors']
+        for name in required:
+            path = checkpoint / name
+            if not path.is_file() or path.stat().st_size == 0:
+                raise ValueError('Incomplete checkpoint: ' + name)
         if hashlib.sha256((checkpoint / 'model.safetensors').read_bytes()).hexdigest() != manifest['model_sha']:
             raise ValueError('Checkpoint hash mismatch')
         if scaling_conflicts():
