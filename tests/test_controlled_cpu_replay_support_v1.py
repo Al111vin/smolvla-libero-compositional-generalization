@@ -1,6 +1,7 @@
 import importlib.util
 from pathlib import Path
 import unittest
+import tempfile
 from types import SimpleNamespace
 
 spec = importlib.util.spec_from_file_location("support", Path(__file__).resolve().parents[1] / "scripts/controlled_cpu_replay_support_v1.py")
@@ -9,6 +10,13 @@ spec.loader.exec_module(support)
 
 
 class ReplaySupportTests(unittest.TestCase):
+    def test_case_parent_and_reuse_refusal(self):
+        with tempfile.TemporaryDirectory() as directory:
+            case = Path(directory) / 'new' / 'experiment' / 'case'
+            support.create_case_output(case)
+            self.assertTrue(case.is_dir())
+            with self.assertRaises(FileExistsError):
+                support.create_case_output(case)
     def test_reset_failure_never_retries(self):
         calls = []
         def fail():

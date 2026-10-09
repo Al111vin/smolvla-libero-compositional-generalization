@@ -7,7 +7,7 @@ import json
 import os
 from pathlib import Path
 import random
-from controlled_cpu_replay_support_v1 import ENVIRONMENT_SEED, headless_kwargs, initialize_replay
+from controlled_cpu_replay_support_v1 import ENVIRONMENT_SEED, headless_kwargs, initialize_replay, create_case_output
 from first_decision_provenance_v1 import digest_tree
 from capture_reset_render_provenance_v1 import capture_model
 
@@ -25,7 +25,7 @@ def main():
     root = Path(args.output)
     source = Path(args.source)
     assert source.is_dir() and source.resolve() != root.resolve()
-    root.mkdir(exist_ok=False)
+    create_case_output(root)
     record = {'status': 'started', 'policy_calls': 0, 'gpu_rendering': False,
               'physical_stage_interpretation': False, 'automatic_retries': 0,
               'source_hashes': {}, 'verified_steps': 0}

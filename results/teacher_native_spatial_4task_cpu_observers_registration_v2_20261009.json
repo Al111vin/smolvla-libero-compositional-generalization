@@ -1,0 +1,16 @@
+{
+  "version": "controlled_cpu_object_contact_observers_v2",
+  "status": "registered_before_execution",
+  "parent": "teacher_native_spatial_4task_cpu_observers_registration_v1_20261009.json",
+  "failure_analysis": "V1 failed before simulation because missing parent directory; explicit parent creation fixes filesystem-only cause. No physics, observer, seed, tolerance or task change.",
+  "script_sha256": "9a6c4c9d4b8e7833c84f041fef7bbc02bc2cb7955d9bc46fdab02f81247f9164",
+  "support_sha256": "6ed483d3029b1e0cd7fd810e947e38f79dd5b7b58bb07cec33fa2f0a2cfdd1ea",
+  "root": "/root/smolvla-eval-prep/recovery/controlled_cpu_object_contact_observers_v2_20261009",
+  "order": "single40k then joint160k for each init3,0,12,13,14,6",
+  "budget": {"traces": 12, "max_actions_each": 300, "timeout_seconds_each": 120, "policy_calls": 0, "gpu_rendering": false, "automatic_retries": 0},
+  "offline_checks": "4 tests passed including missing-parent creation and existing-case refusal",
+  "observers_and_parity": "Identical to registered v1; first mismatch stops entire chain",
+  "old_evidence": "preserved",
+  "eight_task_progression": "locked",
+  "fold02": "locked"
+}

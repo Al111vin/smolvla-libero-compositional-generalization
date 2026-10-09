@@ -3,6 +3,12 @@
 ENVIRONMENT_SEED = 12351
 
 
+def create_case_output(path):
+    """Create missing experiment parent, but never reuse an existing case."""
+    path.parent.mkdir(parents=True, exist_ok=True)
+    path.mkdir(exist_ok=False)
+
+
 def bounded_reset(env):
     """One native reset only: propagate randomization failure, never silently retry."""
     return env.env.reset()
