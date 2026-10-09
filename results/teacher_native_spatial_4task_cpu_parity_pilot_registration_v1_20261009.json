@@ -1,0 +1,16 @@
+{
+  "version": "controlled_cpu_joint_init3_parity_pilot_v1",
+  "status": "registered_before_execution",
+  "hypothesis": "Disabling rendering while retaining native physics constructor settings preserves compiled-model, simulator-start, robot-state and reward evidence for the stored joint init3 trajectory.",
+  "pilot_script_sha256": "731f175d435af0ff6db7f5cb166098c0ec0bb709c2d707ace312bc7f70c47716",
+  "support_sha256": "d0758fc07350f3108754c94d8ae0bcdb3b87bff1840c78517bebcd816553e8b4",
+  "installed_env_wrapper_sha256": "a782fb76c9792268d28979474fe72849e1e98ada49c8e997a65359a8d6b6acd0",
+  "independent_output": "/root/smolvla-eval-prep/recovery/controlled_cpu_joint_init3_parity_pilot_v1_20261009",
+  "budget": {"traces": 1, "max_actions": 300, "wall_timeout_seconds": 120, "policy_calls": 0, "gpu_rendering": false, "retries": 0},
+  "protocol": "Seed Python and NumPy12351 immediately before ControlEnv constructor; one direct native reset; benchmark init3; ten float32 zero actions, stopping on done; reseed NumPy12351; compare exact captured model-array/simulator digests before replay; compare every float32 pre-action robot state at1e-6 and reward at1e-7; same done-or-positive-reward termination.",
+  "physical_stage_observers": "not executed in this feasibility-only pilot; register separately after parity passes",
+  "failure": "Stop at first mismatch; preserve result and old evidence; no automatic retry or progression.",
+  "limits": ["No image parity claim", "No policy reproducibility claim", "Historical invalidated V3 attempt unchanged"],
+  "eight_task_progression": "locked",
+  "fold02": "locked"
+}
