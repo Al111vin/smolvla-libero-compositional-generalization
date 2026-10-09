@@ -1,0 +1,170 @@
+{
+  "status": "all4_cpu_replays_parity_passed",
+  "records": [
+    {
+      "status": "parity_passed",
+      "policy_calls": 0,
+      "gpu_rendering": false,
+      "physical_stage_interpretation": false,
+      "automatic_retries": 0,
+      "source_hashes": {
+        "protocol.json": "ddb33912df19a9b6699515d3b69c8bf0dc623e6b924586cb538da08129a2462f",
+        "first_input.json": "bd53493b37196a2d116cf2ffe2c155e97398cd922c647965d38206dd794f616c",
+        "eval_v3_task0_080000_benchmark_init0_n25_seed12345_actions.csv": "78ae792f178f5858f8db640f3a0cad62b47df9e3e74acb5da6cd3642269adf45"
+      },
+      "verified_steps": 144,
+      "bddl_sha256": "9b59eb1287802868ad9bc78d58e6d36d4ba31134e679cfdbdf4b0feb660c959b",
+      "model_arrays": {
+        "body_pos": "93fa0d766b0a7a529e9dfb7be9598af681ade9905ac42d61206ad1f6f14a0b86",
+        "body_quat": "40827f87f8ad9b9ae4d31839316980904ad54c40024d348e4da5bf981370eaa8",
+        "geom_pos": "242772319f0f50e4ed90683c9af15bf47abbd3febf9d6cc6c0d8b29055a51f06",
+        "geom_quat": "ab2d58475da581809452685980f3addb703f8cd22373114c7a82836ce5d9d214",
+        "geom_rgba": "6a697b326ce424d662012009aaebf3eaa61a39c2abca9fbe3ff230d62245ff7e",
+        "cam_pos": "89a1f10a779c4f2c32ff26911add2e966748ccdb25b1a3d74abe00cc001a8c97",
+        "cam_quat": "8feba6a3289c2ac5b7501002e257fceefff7ee1c97ccdd81c5f61f2c989a6096",
+        "cam_fovy": "be914fc7e245060aee991a073e5c9ab1bb80dc4413f8fa5b8ee5ce98944f680a",
+        "light_pos": "f38eb14423eda6bbbfb7659a20711e4e447980c708fbc9e2e04be6c472b679e2",
+        "light_dir": "d396f19e5f597871cd8957c2951eaf51591f911c80726e9d988971a8af963ee7",
+        "light_diffuse": "cbeafca976396fd28a8f03d77cd2fefed09223f91543abc6908c76b7730ada96",
+        "mat_rgba": "6b74cc2633d3d7376e5d79f70e020a618cb92adfc1088ce9afa01f790ce027ef",
+        "mat_texid": "4f6a8923eef8a9f42534a89349f88cc566c79af3b17bf7474e5a679eb75f6bfb",
+        "tex_data": "081f929a6bae344ec676589a406e03b416dcaa9b33b5ec5aa1d3715d65be2c49"
+      },
+      "simulator_state": "7f4de653f01683bb443e184cca16fcee98226d7e176e279640f809b3bef1de20",
+      "first_proxy_steps": {
+        "approach": 93,
+        "lift": 62,
+        "transport": 68,
+        "official_success": 144
+      },
+      "max_robot_state_error": 0,
+      "final_reward": 1,
+      "case": "joint80k_init0"
+    },
+    {
+      "status": "parity_passed",
+      "policy_calls": 0,
+      "gpu_rendering": false,
+      "physical_stage_interpretation": false,
+      "automatic_retries": 0,
+      "source_hashes": {
+        "protocol.json": "9961198d7328768f5ff8aaeb5aa3eaab4cc955c971b863316b475c747858f5ac",
+        "first_input.json": "4cce50aa1d4f44b9f72ad4a7d1c44c314f572de83518b111c8f1cf1bbe35a8c7",
+        "eval_v3_task0_160000_benchmark_init0_n25_seed12345_actions.csv": "e014b20083ee68efc9fdf89e337ba6782db95871a4abe701ceb9119cd37b02e1"
+      },
+      "verified_steps": 300,
+      "bddl_sha256": "9b59eb1287802868ad9bc78d58e6d36d4ba31134e679cfdbdf4b0feb660c959b",
+      "model_arrays": {
+        "body_pos": "93fa0d766b0a7a529e9dfb7be9598af681ade9905ac42d61206ad1f6f14a0b86",
+        "body_quat": "40827f87f8ad9b9ae4d31839316980904ad54c40024d348e4da5bf981370eaa8",
+        "geom_pos": "242772319f0f50e4ed90683c9af15bf47abbd3febf9d6cc6c0d8b29055a51f06",
+        "geom_quat": "ab2d58475da581809452685980f3addb703f8cd22373114c7a82836ce5d9d214",
+        "geom_rgba": "6a697b326ce424d662012009aaebf3eaa61a39c2abca9fbe3ff230d62245ff7e",
+        "cam_pos": "89a1f10a779c4f2c32ff26911add2e966748ccdb25b1a3d74abe00cc001a8c97",
+        "cam_quat": "8feba6a3289c2ac5b7501002e257fceefff7ee1c97ccdd81c5f61f2c989a6096",
+        "cam_fovy": "be914fc7e245060aee991a073e5c9ab1bb80dc4413f8fa5b8ee5ce98944f680a",
+        "light_pos": "f38eb14423eda6bbbfb7659a20711e4e447980c708fbc9e2e04be6c472b679e2",
+        "light_dir": "d396f19e5f597871cd8957c2951eaf51591f911c80726e9d988971a8af963ee7",
+        "light_diffuse": "cbeafca976396fd28a8f03d77cd2fefed09223f91543abc6908c76b7730ada96",
+        "mat_rgba": "6b74cc2633d3d7376e5d79f70e020a618cb92adfc1088ce9afa01f790ce027ef",
+        "mat_texid": "4f6a8923eef8a9f42534a89349f88cc566c79af3b17bf7474e5a679eb75f6bfb",
+        "tex_data": "081f929a6bae344ec676589a406e03b416dcaa9b33b5ec5aa1d3715d65be2c49"
+      },
+      "simulator_state": "7f4de653f01683bb443e184cca16fcee98226d7e176e279640f809b3bef1de20",
+      "first_proxy_steps": {
+        "approach": 92,
+        "lift": 121,
+        "transport": 126,
+        "official_success": null
+      },
+      "max_robot_state_error": 0,
+      "final_reward": 0,
+      "case": "joint160k_init0"
+    },
+    {
+      "status": "parity_passed",
+      "policy_calls": 0,
+      "gpu_rendering": false,
+      "physical_stage_interpretation": false,
+      "automatic_retries": 0,
+      "source_hashes": {
+        "protocol.json": "418fa73774be7ca982c8ad6b2605ab1d219b43ff7cd6993231b46b82b59c636e",
+        "first_input.json": "d24aa62b85ebbcb9c42d330d9ea968134719a053c1451705e2ab22a57d82293c",
+        "eval_v3_task0_080000_benchmark_init8_n25_seed12361_actions.csv": "23579cbbbdd073fcb052e2441d37c33100e566bc6acf6b2f34abd6580521f633"
+      },
+      "verified_steps": 239,
+      "bddl_sha256": "9b59eb1287802868ad9bc78d58e6d36d4ba31134e679cfdbdf4b0feb660c959b",
+      "model_arrays": {
+        "body_pos": "93fa0d766b0a7a529e9dfb7be9598af681ade9905ac42d61206ad1f6f14a0b86",
+        "body_quat": "40827f87f8ad9b9ae4d31839316980904ad54c40024d348e4da5bf981370eaa8",
+        "geom_pos": "242772319f0f50e4ed90683c9af15bf47abbd3febf9d6cc6c0d8b29055a51f06",
+        "geom_quat": "ab2d58475da581809452685980f3addb703f8cd22373114c7a82836ce5d9d214",
+        "geom_rgba": "6a697b326ce424d662012009aaebf3eaa61a39c2abca9fbe3ff230d62245ff7e",
+        "cam_pos": "89a1f10a779c4f2c32ff26911add2e966748ccdb25b1a3d74abe00cc001a8c97",
+        "cam_quat": "8feba6a3289c2ac5b7501002e257fceefff7ee1c97ccdd81c5f61f2c989a6096",
+        "cam_fovy": "be914fc7e245060aee991a073e5c9ab1bb80dc4413f8fa5b8ee5ce98944f680a",
+        "light_pos": "f38eb14423eda6bbbfb7659a20711e4e447980c708fbc9e2e04be6c472b679e2",
+        "light_dir": "d396f19e5f597871cd8957c2951eaf51591f911c80726e9d988971a8af963ee7",
+        "light_diffuse": "cbeafca976396fd28a8f03d77cd2fefed09223f91543abc6908c76b7730ada96",
+        "mat_rgba": "6b74cc2633d3d7376e5d79f70e020a618cb92adfc1088ce9afa01f790ce027ef",
+        "mat_texid": "4f6a8923eef8a9f42534a89349f88cc566c79af3b17bf7474e5a679eb75f6bfb",
+        "tex_data": "081f929a6bae344ec676589a406e03b416dcaa9b33b5ec5aa1d3715d65be2c49"
+      },
+      "simulator_state": "3500632dbe096b398c9674b9c3b6145eee069142eeceb77fc917fb51858dbb54",
+      "first_proxy_steps": {
+        "approach": 210,
+        "lift": 222,
+        "transport": 226,
+        "official_success": 239
+      },
+      "max_robot_state_error": 0,
+      "final_reward": 1,
+      "case": "joint80k_init8"
+    },
+    {
+      "status": "parity_passed",
+      "policy_calls": 0,
+      "gpu_rendering": false,
+      "physical_stage_interpretation": false,
+      "automatic_retries": 0,
+      "source_hashes": {
+        "protocol.json": "5ee3cf77fc219350ada5a9c910fdf13fef575f1ae88f12c75c72fb2548e27408",
+        "first_input.json": "450537b39a67ef9bca3b992bf983099ca68cd3ef0fc166822032b021c9368e46",
+        "eval_v3_task0_160000_benchmark_init8_n25_seed12361_actions.csv": "37af681ef36a377fdbece77455c71ce29391d1cf99e982ef086d65ad5e374b1a"
+      },
+      "verified_steps": 300,
+      "bddl_sha256": "9b59eb1287802868ad9bc78d58e6d36d4ba31134e679cfdbdf4b0feb660c959b",
+      "model_arrays": {
+        "body_pos": "93fa0d766b0a7a529e9dfb7be9598af681ade9905ac42d61206ad1f6f14a0b86",
+        "body_quat": "40827f87f8ad9b9ae4d31839316980904ad54c40024d348e4da5bf981370eaa8",
+        "geom_pos": "242772319f0f50e4ed90683c9af15bf47abbd3febf9d6cc6c0d8b29055a51f06",
+        "geom_quat": "ab2d58475da581809452685980f3addb703f8cd22373114c7a82836ce5d9d214",
+        "geom_rgba": "6a697b326ce424d662012009aaebf3eaa61a39c2abca9fbe3ff230d62245ff7e",
+        "cam_pos": "89a1f10a779c4f2c32ff26911add2e966748ccdb25b1a3d74abe00cc001a8c97",
+        "cam_quat": "8feba6a3289c2ac5b7501002e257fceefff7ee1c97ccdd81c5f61f2c989a6096",
+        "cam_fovy": "be914fc7e245060aee991a073e5c9ab1bb80dc4413f8fa5b8ee5ce98944f680a",
+        "light_pos": "f38eb14423eda6bbbfb7659a20711e4e447980c708fbc9e2e04be6c472b679e2",
+        "light_dir": "d396f19e5f597871cd8957c2951eaf51591f911c80726e9d988971a8af963ee7",
+        "light_diffuse": "cbeafca976396fd28a8f03d77cd2fefed09223f91543abc6908c76b7730ada96",
+        "mat_rgba": "6b74cc2633d3d7376e5d79f70e020a618cb92adfc1088ce9afa01f790ce027ef",
+        "mat_texid": "4f6a8923eef8a9f42534a89349f88cc566c79af3b17bf7474e5a679eb75f6bfb",
+        "tex_data": "081f929a6bae344ec676589a406e03b416dcaa9b33b5ec5aa1d3715d65be2c49"
+      },
+      "simulator_state": "3500632dbe096b398c9674b9c3b6145eee069142eeceb77fc917fb51858dbb54",
+      "first_proxy_steps": {
+        "approach": null,
+        "lift": null,
+        "transport": null,
+        "official_success": null
+      },
+      "max_robot_state_error": 0,
+      "final_reward": 0,
+      "case": "joint160k_init8"
+    }
+  ],
+  "policy_calls": 0,
+  "gpu_rendering": false,
+  "interpretation": "init0 final reaches lift/transport proxies without success; init8 final reaches neither. Midpoint succeeds on both. These selected traces show heterogeneous observable failure, not a uniform causal training mechanism. Proxy absence does not prove absent grasp; no persistence/heldout claims.",
+  "eight_task_expansion_locked": true,
+  "fold02_locked": true
+}
