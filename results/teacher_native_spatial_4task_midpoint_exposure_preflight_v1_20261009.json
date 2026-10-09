@@ -1,0 +1,85 @@
+{
+  "status": "matched_midpoint_exposure_preflight_passed",
+  "checkpoint_states": {
+    "single": {
+      "training_step": {
+        "step": 20000
+      },
+      "scheduler": {
+        "base_lrs": [
+          0.0001
+        ],
+        "last_epoch": 20000,
+        "_step_count": 20001,
+        "_is_initial": false,
+        "_get_lr_called_within_step": false,
+        "_last_lr": [
+          0.00005125
+        ],
+        "lr_lambdas": [
+          null
+        ]
+      },
+      "batch_size": 2,
+      "scheduler_config": {
+        "type": "cosine_decay_with_warmup",
+        "num_warmup_steps": 3000,
+        "num_decay_steps": 90000,
+        "peak_lr": 0.0001,
+        "decay_lr": 0.0000025
+      },
+      "model_sha256": "a4a5f35ade2fa06363128d9b0ec5af4dc10281a63d79c3ac4a07e89e594d369a"
+    },
+    "joint": {
+      "training_step": {
+        "step": 80000
+      },
+      "scheduler": {
+        "base_lrs": [
+          0.0001
+        ],
+        "last_epoch": 80000,
+        "_step_count": 80001,
+        "_is_initial": false,
+        "_get_lr_called_within_step": false,
+        "_last_lr": [
+          0.00005125
+        ],
+        "lr_lambdas": [
+          null
+        ]
+      },
+      "batch_size": 2,
+      "scheduler_config": {
+        "type": "cosine_decay_with_warmup",
+        "num_warmup_steps": 3000,
+        "num_decay_steps": 90000,
+        "peak_lr": 0.0001,
+        "decay_lr": 0.0000025
+      },
+      "model_sha256": "92959b0c1197c961fbabb5cc49c2f705b82a837889fee082053df8938309b8e5"
+    }
+  },
+  "reconstruction": {
+    "status": "cpu_midpoint_exposure_reconstruction_passed",
+    "single_updates": 20000,
+    "joint_updates": 80000,
+    "sample_draws_per_task": {
+      "0": 40000,
+      "1": 40000,
+      "2": 40000,
+      "3": 40000
+    },
+    "all80000_pre_optimizer_lrs_max_error": 0,
+    "endpoint_lr": 0.00005125,
+    "joint_endpoint_lr": 0.00005125,
+    "limits": "Reconstruction plus guarded training evidence, not a saved per-update LR trace or same sampled frames/order."
+  },
+  "remote_code_hashes_match_local": true,
+  "limits": [
+    "Nominal sample draws and LR exposure match; sample identities/order and interleaved Adam history differ",
+    "Evaluation not started"
+  ],
+  "eight_task_progression": "locked",
+  "fold02": "locked"
+}
