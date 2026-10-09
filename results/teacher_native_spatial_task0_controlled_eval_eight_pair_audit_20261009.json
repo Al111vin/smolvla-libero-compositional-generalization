@@ -1,0 +1,16 @@
+{
+  "schema_version": 1,
+  "observed_at_utc": "2026-10-09T10:48:23.897236Z",
+  "status": "partial_authenticated_provenance_audit",
+  "verified_rollouts": 16,
+  "registered_rollouts": 48,
+  "completed_matched_init_indices": [0, 1, 2, 3, 4, 5, 6, 7],
+  "all_eight_pairs_equal_fields": ["model_arrays", "simulator_state", "images", "frame", "input", "processor", "rng"],
+  "supervisor_pid": 264357,
+  "supervisor_state": "Ss",
+  "active_child_pid": 265729,
+  "active_child_state": "Rl",
+  "exit_marker_present": false,
+  "interpretation": "Eight completed paired starts have matching captured environment, visual inputs, processor and RNG. This does not establish full-chain completion, fixed-init repeat stability, historical V3 parity or unused-init generalization.",
+  "next_action": "Observe same supervisor and require complete48 outcomes and all repeat provenance before gate review"
+}
