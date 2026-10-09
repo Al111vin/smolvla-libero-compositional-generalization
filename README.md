@@ -1606,3 +1606,11 @@ avoiding a preprocessing change. Task0 training episodes are restricted, but its
 statistics provenance is not task0-only; no held-out generalization claim follows.
 Sampler/LR/data/resource preflight remains pending and no scaling run has launched.
 See the [statistics audit](results/teacher_native_spatial_baseline_statistics_audit_v1_20261009.json).
+
+The independent authenticated full-data audit now passes all22709 frames,
+45418 camera images and200 episodes across native Spatial tasks0..3, with exact
+state/action/pixel and episode/frame/task-index correspondence to hashed official
+sources. This supersedes the coverage limitation of the old36-frame sample without
+altering its evidence. Four-task training has not launched; integrated-wrapper and
+final launch checks remain pending. Fold02 remains locked.
+See the [full parity result](results/teacher_native_spatial_full_parity_v1_20261009.json).

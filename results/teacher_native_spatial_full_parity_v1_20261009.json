@@ -1,0 +1,23 @@
+{
+  "status": "passed",
+  "authenticated_remote_exit_code": 0,
+  "audit_script": "scripts/audit_native_spatial_full_parity_v1.py",
+  "frames": 22709,
+  "images": 45418,
+  "episodes": 200,
+  "frames_by_task": {"0": 5068, "1": 6707, "2": 5882, "3": 5052},
+  "source_sha256": {
+    "0": "ff6f26121653c77280eb40a38773a74141c11a8509f3466058cb56dd2cc60ead",
+    "1": "bf1090dd4826eacb49eb052f17d04798e2a1eb2f74f8d024bc3b9c5d234c25f9",
+    "2": "75ede0cf5fbfc925093671b55032ad80f1b1f1cf35442ec6c663460d37d3e0b3",
+    "3": "0c053db7317e584632549bddb963bee8a237661b4bd29f0581a245f715e8eb72"
+  },
+  "manifest_sha256": "8bb81e1d1828d2a4be3dd8469e1f2812c35bc4f9a48aea0f7a8da8deb2d11ba1",
+  "all_state_action_image_checks_exact": true,
+  "all_episode_frame_task_indices_exact": true,
+  "finite_state_action_images": true,
+  "cpu_only": true,
+  "scope": "Every converted frame compared with official HDF5 source using float32 state/action and reconstructed uint8 pixels. No policy inference or training; not a learning/generalization result.",
+  "remaining_preflight": "Integrated wrapper, action chunking/processor contract, manifests and final resource/path checks",
+  "fold02": "locked"
+}
