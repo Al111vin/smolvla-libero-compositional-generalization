@@ -1,9 +1,14 @@
 import random
 import unittest
-from scripts.first_decision_provenance_v1 import digest_tree, paired_first_calls
+from scripts.first_decision_provenance_v1 import digest_tree, paired_first_calls, processor_state
 
 
 class ProvenanceTests(unittest.TestCase):
+    def test_processor_interface_fails_closed(self):
+        class Pipeline:
+            steps = [object()]
+        with self.assertRaisesRegex(TypeError, "state_dict"):
+            processor_state(Pipeline())
     def test_mapping_order_and_type(self):
         self.assertEqual(digest_tree({"a": 1, "b": 2}), digest_tree({"b": 2, "a": 1}))
         self.assertNotEqual(digest_tree([1]), digest_tree((1,)))

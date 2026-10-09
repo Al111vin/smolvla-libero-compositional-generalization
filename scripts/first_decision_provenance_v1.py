@@ -4,6 +4,20 @@ import hashlib
 import json
 
 
+def processor_state(pipeline):
+    """Explicit step interface; reject absent state/config rather than omit it."""
+    steps = pipeline.steps
+    result = []
+    for step in steps:
+        if not callable(getattr(step, "state_dict", None)):
+            raise TypeError("Processor step lacks state_dict")
+        if not callable(getattr(step, "get_config", None)):
+            raise TypeError("Processor step lacks get_config")
+        result.append({"class": type(step).__module__ + "." + type(step).__qualname__,
+                       "config": step.get_config(), "state": step.state_dict()})
+    return result
+
+
 def digest_tree(value):
     """Hash typed nested values, including tensor dtype/shape and exact bytes."""
     h = hashlib.sha256()
