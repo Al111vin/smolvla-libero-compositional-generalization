@@ -1,0 +1,18 @@
+{
+  "root": "/root/smolvla-eval-prep/results/task0_controlled_eval_v1_20261009",
+  "deployment": "/root/smolvla-eval-prep/recovery/task0_controlled_eval_v1_20261009",
+  "evaluator": "/root/smolvla-eval-prep/scripts/eval_v3_task0_state_capture_v1.py",
+  "models": {
+    "40k": {"path": "/root/smolvla-training-prep/results/training/teacher_native_spatial_task0_single_current_recipe_40k_batch2_v1/checkpoints/040000/pretrained_model", "sha": "7c480b7d34c3bc4d494538cd26a4a82560d16b8a116424f086a7b1e956ce6ddf"},
+    "80k": {"path": "/root/smolvla-training-prep/results/training/teacher_native_spatial_task0_single_current_recipe_80k_batch2_v1_retry1_20261006/checkpoints/080000/pretrained_model", "sha": "51cbcf9a467d0c2d5c504b6decc7281a1d4b68337e141a8d990820081a07e96a"}
+  },
+  "code_hashes": {
+    "eval_controlled_environment_v1.py": "a9dbc00d5f52e84b4b5bcb04b21b4adef575f02acc245aeeae05fabbb716ca57",
+    "controlled_eval_hooks_v1.py": "88c519c9d3733fdb9c6b74a88e7d4ee15930fb492d360d7d4b083728bfd31ae2",
+    "controlled_eval_schedule_v1.py": "c32b3125a17f024e3df93cbdcb8db93b3f9c1bea260eedc6b8004d6d75cf720b",
+    "run_controlled_eval_v1.py": "17cd7b5fe3da681a2b46f011176bc55c99ca8ad59cfbab6c69d2bd350ed9d4bd",
+    "diagnostic_process_guard_v1.py": "e5f24725836e4c9178b247332cb33e1eafa9224ed22e4d016fff4778787cd49f",
+    "first_decision_provenance_v1.py": "d098b099ebad38c750abc0f0d142109695daaa3823d0901ff6b13db9106d8981",
+    "capture_reset_render_provenance_v1.py": "08a28b35654c1e7af9aec78fcca84e03c0db233810fd1f2e1b74931f8bade6fc"
+  }
+}

@@ -1,0 +1,12 @@
+{
+  "schema_version": 1,
+  "status": "readonly_resource_and_manifest_checks_passed_not_deployed",
+  "manifest": "configs/task0_controlled_eval_v1_20261009.json",
+  "local_code_hashes_matched": 7,
+  "authenticated_remote_checks": {"deployment_absent": true, "result_absent": true, "gpu_compute_processes": 0, "disk_available_report": "59G"},
+  "checkpoint40k_sha256": "7c480b7d34c3bc4d494538cd26a4a82560d16b8a116424f086a7b1e956ce6ddf",
+  "checkpoint80k_sha256": "51cbcf9a467d0c2d5c504b6decc7281a1d4b68337e141a8d990820081a07e96a",
+  "provenance": "Original40k path/size and completed training already registered in single_control_plan_v1; current bytes pinned here. Historical40k model SHA was not present in that completion entry, so this is current hash pinning, not proof of historical byte identity.",
+  "next": "Deploy frozen manifest and7files exclusively; verify remote hashes, frozen evaluator and process/lock preconditions; launch only after remaining checks",
+  "no_rollouts_started": true
+}
