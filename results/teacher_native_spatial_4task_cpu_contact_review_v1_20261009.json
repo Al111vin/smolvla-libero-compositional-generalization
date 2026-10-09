@@ -1,0 +1,351 @@
+{
+  "status": "read_only_completed12_contact_summary",
+  "records": [
+    {
+      "case": "joint160k_init0",
+      "steps": 300,
+      "reward": 0,
+      "observation_sha256": "45230b0c80c92118095c3c9f29a40516b7e2174581cf6d79ea5ed4e4c06b6c73",
+      "first_proxy_steps": {
+        "approach": 92,
+        "lift": 121,
+        "transport": 126,
+        "official_success": null
+      },
+      "fingerpad_contacts": {
+        "left_steps": 33,
+        "right_steps": 29,
+        "simultaneous_steps": 21,
+        "first_simultaneous": 118
+      },
+      "final_bowl_xyz": [
+        0.03732610702631128,
+        0.14112625383584637,
+        0.9082540186780925
+      ],
+      "final_plate_xyz": [
+        0.0825998701304477,
+        0.21174547728840917,
+        0.9025055625214341
+      ]
+    },
+    {
+      "case": "joint160k_init12",
+      "steps": 300,
+      "reward": 0,
+      "observation_sha256": "9d57714cef7215eb91ffe14aa32c749a67ccda6e342d172ab49f2914c39c7009",
+      "first_proxy_steps": {
+        "approach": null,
+        "lift": null,
+        "transport": null,
+        "official_success": null
+      },
+      "fingerpad_contacts": {
+        "left_steps": 0,
+        "right_steps": 0,
+        "simultaneous_steps": 0,
+        "first_simultaneous": null
+      },
+      "final_bowl_xyz": [
+        -0.07435195212702567,
+        0.18431792041172795,
+        0.8984070750980836
+      ],
+      "final_plate_xyz": [
+        0.06454302870184059,
+        0.21327023162461756,
+        0.902506338529415
+      ]
+    },
+    {
+      "case": "joint160k_init13",
+      "steps": 300,
+      "reward": 0,
+      "observation_sha256": "d8bd41bb27db85555882c583fa870ebaa1e327cb227b94c8f179b0c4f7487de9",
+      "first_proxy_steps": {
+        "approach": null,
+        "lift": null,
+        "transport": null,
+        "official_success": null
+      },
+      "fingerpad_contacts": {
+        "left_steps": 0,
+        "right_steps": 16,
+        "simultaneous_steps": 0,
+        "first_simultaneous": null
+      },
+      "final_bowl_xyz": [
+        -0.07649445218053286,
+        0.22026141079228,
+        0.8984070750980836
+      ],
+      "final_plate_xyz": [
+        0.07589118883594105,
+        0.19466857067271212,
+        0.902506338529415
+      ]
+    },
+    {
+      "case": "joint160k_init14",
+      "steps": 300,
+      "reward": 0,
+      "observation_sha256": "84a7b38ccc03514e8b26ceb3a2964574b582bb0a686636325af01020de24bbee",
+      "first_proxy_steps": {
+        "approach": null,
+        "lift": null,
+        "transport": null,
+        "official_success": null
+      },
+      "fingerpad_contacts": {
+        "left_steps": 0,
+        "right_steps": 1,
+        "simultaneous_steps": 0,
+        "first_simultaneous": null
+      },
+      "final_bowl_xyz": [
+        -0.1076659134181223,
+        0.19457220566657263,
+        0.8982850141448405
+      ],
+      "final_plate_xyz": [
+        0.07900129814739693,
+        0.2047556957529774,
+        0.902506338529415
+      ]
+    },
+    {
+      "case": "joint160k_init3",
+      "steps": 94,
+      "reward": 1,
+      "observation_sha256": "955b3f4b8312623d9363d93d10af518d66aa530b01ac9a72133ddc46abbb63cb",
+      "first_proxy_steps": {
+        "approach": null,
+        "lift": 70,
+        "transport": 75,
+        "official_success": 94
+      },
+      "fingerpad_contacts": {
+        "left_steps": 29,
+        "right_steps": 29,
+        "simultaneous_steps": 29,
+        "first_simultaneous": 66
+      },
+      "final_bowl_xyz": [
+        0.058809216891380675,
+        0.18821441515801637,
+        0.9100715541109448
+      ],
+      "final_plate_xyz": [
+        0.06423710563559476,
+        0.19433598970946844,
+        0.902506338529415
+      ]
+    },
+    {
+      "case": "joint160k_init6",
+      "steps": 89,
+      "reward": 1,
+      "observation_sha256": "9b32952bda0425fc69103106a02f37aa7c9616e4bab877fe802592938f145c15",
+      "first_proxy_steps": {
+        "approach": null,
+        "lift": 67,
+        "transport": 72,
+        "official_success": 89
+      },
+      "fingerpad_contacts": {
+        "left_steps": 28,
+        "right_steps": 27,
+        "simultaneous_steps": 27,
+        "first_simultaneous": 62
+      },
+      "final_bowl_xyz": [
+        0.08511046127108507,
+        0.188543634781735,
+        0.9129278724812687
+      ],
+      "final_plate_xyz": [
+        0.06805886185715836,
+        0.19691638456640173,
+        0.902506338529415
+      ]
+    },
+    {
+      "case": "single40k_init0",
+      "steps": 124,
+      "reward": 1,
+      "observation_sha256": "cdcc9cc9c3c921c0ead7c8d5b28c3fd280265ad3d5e95a1e0212b161e7d4fbb5",
+      "first_proxy_steps": {
+        "approach": 81,
+        "lift": 96,
+        "transport": 101,
+        "official_success": 124
+      },
+      "fingerpad_contacts": {
+        "left_steps": 34,
+        "right_steps": 38,
+        "simultaneous_steps": 33,
+        "first_simultaneous": 92
+      },
+      "final_bowl_xyz": [
+        0.061952246611991516,
+        0.1808674916590892,
+        0.9109015229759397
+      ],
+      "final_plate_xyz": [
+        0.07149587686728456,
+        0.20454933385530072,
+        0.9059562681419879
+      ]
+    },
+    {
+      "case": "single40k_init12",
+      "steps": 118,
+      "reward": 1,
+      "observation_sha256": "239e2ea8454018b6676bab2a7ba725f51e1c4b371be579ad513211b745aa6aa9",
+      "first_proxy_steps": {
+        "approach": 79,
+        "lift": 94,
+        "transport": 99,
+        "official_success": 118
+      },
+      "fingerpad_contacts": {
+        "left_steps": 30,
+        "right_steps": 30,
+        "simultaneous_steps": 30,
+        "first_simultaneous": 89
+      },
+      "final_bowl_xyz": [
+        0.07321465753842672,
+        0.178826195062845,
+        0.9087500887892263
+      ],
+      "final_plate_xyz": [
+        0.07148831777185141,
+        0.18648622399689346,
+        0.9025470616405626
+      ]
+    },
+    {
+      "case": "single40k_init13",
+      "steps": 117,
+      "reward": 1,
+      "observation_sha256": "c221a72fd1016345e9d804866d31843f549038220539700c963626db3ce34cfe",
+      "first_proxy_steps": {
+        "approach": null,
+        "lift": 95,
+        "transport": 99,
+        "official_success": 117
+      },
+      "fingerpad_contacts": {
+        "left_steps": 27,
+        "right_steps": 34,
+        "simultaneous_steps": 27,
+        "first_simultaneous": 91
+      },
+      "final_bowl_xyz": [
+        0.07230518575895448,
+        0.19084011793550631,
+        0.9066564657176885
+      ],
+      "final_plate_xyz": [
+        0.07161466962953954,
+        0.1869347397529715,
+        0.902201845431042
+      ]
+    },
+    {
+      "case": "single40k_init14",
+      "steps": 296,
+      "reward": 1,
+      "observation_sha256": "523509faf42ed1b5120a7353c9d99529c93ae0340082b0a0ac09d53588683aa7",
+      "first_proxy_steps": {
+        "approach": null,
+        "lift": 92,
+        "transport": 99,
+        "official_success": 296
+      },
+      "fingerpad_contacts": {
+        "left_steps": 38,
+        "right_steps": 33,
+        "simultaneous_steps": 24,
+        "first_simultaneous": 90
+      },
+      "final_bowl_xyz": [
+        0.06072683371197596,
+        0.21621703206110232,
+        0.9159044377532386
+      ],
+      "final_plate_xyz": [
+        0.08298340766902178,
+        0.19630154619508008,
+        0.902507069577855
+      ]
+    },
+    {
+      "case": "single40k_init3",
+      "steps": 299,
+      "reward": 1,
+      "observation_sha256": "fa4a9f1200ea4b9e14e95199d9f5f7511a81bf6c6270a8a492873b6a01d896d1",
+      "first_proxy_steps": {
+        "approach": null,
+        "lift": 185,
+        "transport": 193,
+        "official_success": 299
+      },
+      "fingerpad_contacts": {
+        "left_steps": 0,
+        "right_steps": 62,
+        "simultaneous_steps": 0,
+        "first_simultaneous": null
+      },
+      "final_bowl_xyz": [
+        0.08260514502539816,
+        0.19304242522390727,
+        0.9109741304719622
+      ],
+      "final_plate_xyz": [
+        0.054677965994857365,
+        0.1915684887223683,
+        0.9027342621129577
+      ]
+    },
+    {
+      "case": "single40k_init6",
+      "steps": 300,
+      "reward": 0,
+      "observation_sha256": "b232dc00804fc88cc7cf72409af2bb1acab5107dcb6e80ac3efd97d8bd88d3d3",
+      "first_proxy_steps": {
+        "approach": null,
+        "lift": null,
+        "transport": null,
+        "official_success": null
+      },
+      "fingerpad_contacts": {
+        "left_steps": 1,
+        "right_steps": 9,
+        "simultaneous_steps": 1,
+        "first_simultaneous": 53
+      },
+      "final_bowl_xyz": [
+        -0.061790874847515415,
+        0.1767229583148032,
+        0.8984070750980836
+      ],
+      "final_plate_xyz": [
+        0.05696539160709186,
+        0.19622791108298365,
+        0.902506338529415
+      ]
+    }
+  ],
+  "limits": [
+    "Fingerpad contact alone does not prove grasp or its absence",
+    "Approach proxy is not a necessary condition: successful init3 never meets it",
+    "Post-step contacts may miss transient contacts; no causal claim"
+  ],
+  "new_simulations": 0,
+  "policy_calls": 0,
+  "eight_task_progression": "locked",
+  "fold02": "locked",
+  "interpretation": "Joint init12 has no recorded target-bowl fingerpad contact; init13/14 only right-pad contact and no lift proxy. Init0 has bilateral pad contacts and lift/transport proxies but no official success. These are heterogeneous observed patterns, not a proven uniform cause. Single init3 succeeds without bilateral pad contact, so contact or approach absence must not be used as a necessary-stage classifier."
+}

@@ -1704,3 +1704,15 @@ directory was absent; the other11 cases were not started. Preserve this version
 and register a bounded filesystem-only correction before another attempt.
 See the [pilot result](results/teacher_native_spatial_4task_cpu_parity_pilot_result_v1_20261009.json)
 and [observer failure](results/teacher_native_spatial_4task_cpu_observers_failure_v1_20261009.json).
+
+The filesystem-only v2 correction passed four offline tests and completed all12
+CPU replays with exact robot-state parity and matching initial model/simulator
+digests and rewards. Joint init12 had no recorded target-bowl fingerpad contacts;
+init13/14 had only right-pad contacts and no lift proxy. Joint init0 had bilateral
+pad contacts and lift/transport proxies but no official success. However, the
+successful single-init3 had no bilateral pad contact and never met the approach
+proxy: these proxies are not necessary-stage classifiers. No uniform failure
+cause or causal interference is established. All raw observations remain remote;
+no GPU policy or rendering was used. Eight-task and Fold02 remain locked.
+See the [12-case result](results/teacher_native_spatial_4task_cpu_observers_result_v2_20261009.json)
+and [contact review](results/teacher_native_spatial_4task_cpu_contact_review_v1_20261009.json).
