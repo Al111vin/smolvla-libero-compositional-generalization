@@ -1,0 +1,17 @@
+{
+  "schema_version": 1,
+  "status": "registered_not_launched",
+  "hypothesis_and_alternatives": "See render_reset_source_audit_20261009; test reset-time model variation before further policy inference/training",
+  "deployment": "/root/smolvla-eval-prep/recovery/task0_reset_render_contrast_v1_20261009",
+  "result": "/root/smolvla-eval-prep/results/task0_reset_render_contrast_v1_20261009",
+  "budget": {"frozen_order_processes": 3, "preseed_processes": 3, "timeout_each_seconds": 120, "policy_calls": 0, "predicted_actions": 0},
+  "capture_sha256": "08a28b35654c1e7af9aec78fcca84e03c0db233810fd1f2e1b74931f8bade6fc",
+  "supervisor_sha256": "dafeb932b95f31ad098e06ca1eedcf72d3eaae39b6127e1d149e0b2bd77c0a4c",
+  "guard_sha256": "44a1ecb28d4381b51fb828fe0af8ae01e4edd75b5fcb1d44a5d76eefc8b70ae0",
+  "helper_sha256": "d098b099ebad38c750abc0f0d142109695daaa3823d0901ff6b13db9106d8981",
+  "interface_preflight": "Authenticated MuJoCo3.8.1 class exposes all13 required arrays and tex_data; tex_rgb absent. Instance access still requires runtime verification.",
+  "offline_tests": "4 tests pass for capture static no-policy/zero-action constraints and conflict guard; not runtime proof",
+  "protocol": "task0 benchmark init3, wait10 zero actions; preseed fixes Python/NumPy12351 before suite/environment creation, frozen_order does not. No policy model loaded; not a full reproduction of earlier model-loading RNG consumption.",
+  "limitations": "If geometry and pixels stabilize together this supports reset-order mechanism, not unique causal attribution; other model arrays/render internals may remain unmeasured.",
+  "launch_conditions": "Fresh paths, deployed hashes/frozen evaluator, GPU/process exclusivity and retained lock; no automatic retry; preserve all old outputs"
+}

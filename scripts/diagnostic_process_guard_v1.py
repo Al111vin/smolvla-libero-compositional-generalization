@@ -5,7 +5,8 @@ import os
 TARGETS = {"diagnose_first_decision_v1.py", "eval_v3_task0_state_capture_v1.py",
            "lerobot_train", "lerobot_train.py", "lerobot_train_loco_compat.py",
            "scripts.lerobot_train_loco_compat", "task_balanced_train_wrapper_v1.py",
-           "run_first_decision_diagnostic_v1.py"}
+           "run_first_decision_diagnostic_v1.py", "run_reset_render_contrast_v1.py",
+           "capture_reset_render_provenance_v1.py"}
 
 
 def is_conflicting_argv(argv):
