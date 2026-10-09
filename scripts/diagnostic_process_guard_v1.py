@@ -1,9 +1,11 @@
 """Match actual executable/script/module arguments, never inline source text."""
 from pathlib import Path
+import os
 
 TARGETS = {"diagnose_first_decision_v1.py", "eval_v3_task0_state_capture_v1.py",
            "lerobot_train", "lerobot_train.py", "lerobot_train_loco_compat.py",
-           "scripts.lerobot_train_loco_compat", "task_balanced_train_wrapper_v1.py"}
+           "scripts.lerobot_train_loco_compat", "task_balanced_train_wrapper_v1.py",
+           "run_first_decision_diagnostic_v1.py"}
 
 
 def is_conflicting_argv(argv):
@@ -21,10 +23,13 @@ def is_conflicting_argv(argv):
     return False
 
 
-def conflicting_processes(proc_root=Path("/proc")):
+def conflicting_processes(proc_root=Path("/proc"), caller_pid=None):
+    caller_pid = os.getpid() if caller_pid is None else caller_pid
     found = []
     for path in proc_root.iterdir():
         if not path.name.isdigit():
+            continue
+        if int(path.name) == caller_pid:
             continue
         try:
             argv = path.joinpath("cmdline").read_bytes().decode().rstrip("\0").split("\0")

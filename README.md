@@ -1553,3 +1553,10 @@ two first calls each, no predicted action applied). CPU processor compatibility 
 installed environment interfaces have been verified; GPU execution is not yet
 claimed. See the [diagnostic design](results/teacher_native_spatial_task0_full_input_rng_diagnostic_design_v1_20261009.json)
 and [interface audit](results/teacher_native_spatial_task0_first_decision_interface_audit_v1_20261009.json).
+
+Two diagnostic launch attempts stopped at process protection before any policy
+call. Their independent logs and PID records remain preserved. The second guard
+matched its own supervisor's evaluator argument. A new bounded retry excludes
+only the caller PID and still detects other supervisors; all ten offline tests
+pass. No GPU inference result is claimed by these tests. See the
+[retry2 registration](results/teacher_native_spatial_task0_first_decision_retry2_design_20261009.json).

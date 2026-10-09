@@ -1,0 +1,15 @@
+{
+  "schema_version": 1,
+  "status": "registered_before_deployment",
+  "previous_failure": "retry1 supervisor PID263679 matched itself because its argv included the evaluator path; no child or policy call ran",
+  "hypothesis": "Excluding exactly the caller PID eliminates self-conflict without allowing any other supervisor or evaluator through.",
+  "alternatives": {"disable_process_guard": "rejected", "exclude_all_supervisors": "rejected", "exclude_exact_caller_and_detect_other_supervisors": "selected"},
+  "guard_sha256": "12f92d035acab905091ca7f1359a6c7d9fee51def90aa302e28ba935a28f645c",
+  "tests": "10 offline tests passed, including synthetic proc inventory proving caller101 excluded while identical supervisor102 remains a conflict",
+  "deployment": "/root/smolvla-eval-prep/recovery/teacher_native_spatial_task0_full_input_rng_diagnostic_v1_retry2_20261009",
+  "result": "/root/smolvla-eval-prep/results/teacher_native_spatial_task0_full_input_rng_diagnostic_v1_retry2_20261009",
+  "budget": {"processes": 3, "calls_per_process": 2, "timeout_seconds_per_process": 600, "closed_loop_actions": 0, "automatic_retries": 0},
+  "preconditions": "Fresh paths, all registered hashes, frozen evaluator and checkpoint, authenticated resource check, exclusive GPU lock and no other workload",
+  "evidence_protection": "v1 and retry1 directories/logs/PIDs remain untouched",
+  "scope": "First decision provenance only; not a single-task stability pass and no scaling/Fold02 unlock"
+}
