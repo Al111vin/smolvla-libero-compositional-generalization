@@ -1,0 +1,12 @@
+{
+  "schema_version": 1,
+  "status": "authenticated_readonly_preimplementation_audit",
+  "checkpoint40k": "/root/smolvla-training-prep/results/training/teacher_native_spatial_task0_single_current_recipe_40k_batch2_v1/checkpoints/040000/pretrained_model",
+  "checkpoint40k_current_model_sha256": "7c480b7d34c3bc4d494538cd26a4a82560d16b8a116424f086a7b1e956ce6ddf",
+  "checkpoint40k_model_bytes": 1197789224,
+  "selection": "Original independent40k single-task run, not balanced4task040000 or intermediate040000 of80k run",
+  "frozen_evaluator_semantics": {"applied_action": "np.clip(processed_action,-1,1)", "early_stop": "done or reward>0", "success": "info.success fallback info.is_success OR total_reward>0", "policy_seed": "CLI seed+initialization_index after reset/wait", "capture_state": "15D frame observation before action"},
+  "implementation_choice": "Import hash-pinned frozen evaluator and wrap environment factory/preprocessor to seed and capture first inputs. Keep run_episode action/termination/success implementation unchanged instead of copying and risking drift.",
+  "tests_required": "Wrapper seeds before actual environment construction; capture occurs before first select_action; no extra policy calls; restore hooks in finally; fresh output paths; budget/CLI seeds unchanged; fail closed on missing capture",
+  "limits": "Current model hash observed; full provenance chain and processor hashes still need registered-source comparison before launch. No policy loaded or rollout executed in this audit."
+}
