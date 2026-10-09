@@ -1,0 +1,21 @@
+{
+  "version": "controlled_cpu_object_contact_observers_v1",
+  "status": "registered_before_execution",
+  "hypothesis": "Matched stored-action replay can expose different approach, lifting and transport trajectories between single and joint models, without new policy inference.",
+  "script_sha256": "59994fb2f7482015937721eb7a716cc8c5b0255b076956985d07774b9f01509a",
+  "root": "/root/smolvla-eval-prep/recovery/controlled_cpu_object_contact_observers_v1_20261009",
+  "order": "single40k then joint160k for each init3,0,12,13,14,6",
+  "budget": {"max_traces": 12, "actions_per_trace": 300, "timeout_seconds_per_trace": 120, "policy_calls": 0, "gpu_rendering": false, "retries": 0},
+  "observers": {
+    "raw": "Post-action bowl/plate/EEF XYZ, every contacting geometry-name pair, official native success and reward",
+    "approach": "Pre-action EEF to bowl distance <=0.05m",
+    "lift": "Post-action bowl height >= post-wait initial bowl height +0.03m",
+    "transport": "Post-action bowl/plate XY distance <=0.08m",
+    "grasp": "No grasp classification in this version; retain raw contact pairs for separate semantic validation"
+  },
+  "interpretation_gate": "Only after full initial model/simulator digest and every robot-state/reward parity pass. Proxies are diagnostic, may be nonmonotone and do not establish causal interference or persistence.",
+  "failure": "Stop entire chain at first error or mismatch, retain independent partial results, do not retry",
+  "historical_V3": "invalidated result unchanged",
+  "eight_task_progression": "locked",
+  "fold02": "locked"
+}
