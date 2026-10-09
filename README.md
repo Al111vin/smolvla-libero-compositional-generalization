@@ -1529,3 +1529,10 @@ training and evaluation preflight. Later retries and bounded new experiments are
 also authorized, but each requires a registered hypothesis and independent
 evidence; Fold02/task-count scaling still require the scientific success gate.
 See the [launch and authorization record](results/teacher_native_spatial_task0_80k_retry1_launch_v1_20261009.json).
+
+The later registered 24-rollout evaluation is a same-initialization diagnostic,
+not the unused-initialization two-model evaluation proposed in the early design.
+Its comparison uses preserved historical 40k outcomes, not a contemporaneous
+rerun of both models. The diagnostic gate remains at least 11/20 successes and
+5/5 fixed-init3 observations; passing requires review before any task scaling.
+See the independent [evaluation scope review](results/teacher_native_spatial_task0_80k_evaluation_scope_review_v1_20261009.json).

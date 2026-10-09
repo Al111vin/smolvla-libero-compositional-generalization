@@ -1,0 +1,22 @@
+{
+  "schema_version": 1,
+  "status": "offline_protocol_review_no_policy_execution",
+  "source_design": "teacher_native_spatial_task0_post40k_single_variable_budget_extension_design_v1_20261005.json",
+  "later_registration": "teacher_native_spatial_task0_80k_retry1_launch_v1_20261009.json",
+  "discrepancy": "Early design required unused initializations and fresh evaluation of both models. Later authorized registration specifies candidate-only evaluation on the existing init0..19 set plus four additional init3 repeats.",
+  "selected_next_stage": "Execute the later registered 24-rollout candidate diagnostic after successful training and preflight. Compare with the preserved 40k results on identical initialization indices and effective seeds.",
+  "alternatives": [
+    {"option": "Registered 24-rollout same-set diagnostic", "selected": true, "reason": "Preserves the concrete authorized evaluation budget and protocol; directly measures candidate repeatability and outcome changes on the existing matched set."},
+    {"option": "Fresh initialization evaluation of both models", "selected": false, "reason": "Requires auditing unused indices and independently registering a larger two-model budget. Reserve as a separate follow-up, not silently folded into this diagnostic."}
+  ],
+  "interpretation_limits": [
+    "Not an unused-initialization generalization test.",
+    "Historical 40k versus current 80k comparison is not a contemporaneous rerun of both models.",
+    "Five fixed-init3 observations share one effective seed and are not five independent initializations.",
+    "Historical V3 parity invalidation remains unchanged.",
+    "Positive diagnostic threshold is at least 11/20 paired-set successes and 5/5 fixed-init3 successes. Passing triggers scientific review, not automatic scaling or Fold02 execution."
+  ],
+  "training_restart": false,
+  "policy_evaluation_executed_by_this_review": false,
+  "old_evidence_modified": false
+}
