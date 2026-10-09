@@ -1,0 +1,60 @@
+{
+  "status": "four_task_stage_complete_progression_gate_not_met",
+  "training_exit_code": 0,
+  "evaluation_exit_code": 0,
+  "validated_rollouts": 96,
+  "primary_gate": "task0 paired10/20 is below registered11/20; fixed-init3 all5/5; other tasks pass paired thresholds",
+  "task0_comparison": {
+    "single_paired": 13,
+    "joint_paired": 10,
+    "single_fixed": 5,
+    "joint_fixed": 5,
+    "gains": [
+      6
+    ],
+    "losses": [
+      0,
+      12,
+      13,
+      14
+    ],
+    "mcnemar_exact_two_sided_p": 0.375,
+    "baseline_init3_steps": 299,
+    "joint_init3_steps": 94
+  },
+  "interpretation": "Current pipeline learns all four tasks in this diagnostic, but the registered retention gate fails. Three fewer task0 paired successes are descriptive, not statistically established regression or isolated gradient interference. Init3 finishes earlier under joint training. All24 task0 starting inputs/environment/processor/RNG matched the single-task baseline.",
+  "limits": [
+    "One training seed per condition",
+    "Previously used initializations",
+    "Tasks1..3 have no matched single-task positive baselines",
+    "HistoricalV3 invalidation unchanged",
+    "No post-success persistence verification"
+  ],
+  "options": [
+    {
+      "id": "lower_gate_or_expand8",
+      "decision": "reject",
+      "reason": "Would weaken preregistered gate after observing outcomes"
+    },
+    {
+      "id": "blind_retrain_or_repeat96",
+      "decision": "reject",
+      "reason": "No new falsifiable hypothesis; adds compute and selection bias"
+    },
+    {
+      "id": "extend_training",
+      "decision": "defer",
+      "reason": "More training is not presently supported by evidence; same-task80k previously underperformed in controlled comparison"
+    },
+    {
+      "id": "cpu_existing_trace_comparison",
+      "decision": "selected",
+      "reason": "Compare four lost starts and one gained start plus successful-init timing, with no additional inference; then register a bounded hypothesis only if evidence supports it"
+    }
+  ],
+  "next_gpu_budget": 0,
+  "next_action": "Read-only CPU analysis of stored raw evidence; no8-task training or automatic new evaluation.",
+  "fold02": "locked",
+  "shutdown": "not authorized; do not shut down instance",
+  "evidence_policy": "Preserve all old/new remote evidence; synchronize lightweight summaries only"
+}

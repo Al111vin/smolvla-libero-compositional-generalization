@@ -1,0 +1,46 @@
+{
+  "observed_at_utc": "2026-10-09T21:03:23.321230+00:00",
+  "process": "446886 Ss",
+  "current_children": "449476",
+  "verified_count": 9,
+  "exit_code": null,
+  "task0_input_comparisons": [
+    {
+      "key": "task0_paired_0_r0_160k",
+      "fields_equal": {
+        "model_arrays": true,
+        "simulator_state": true,
+        "images": true,
+        "frame": true,
+        "input": true,
+        "processor": true,
+        "rng": true
+      }
+    },
+    {
+      "key": "task0_paired_1_r0_160k",
+      "fields_equal": {
+        "model_arrays": true,
+        "simulator_state": true,
+        "images": true,
+        "frame": true,
+        "input": true,
+        "processor": true,
+        "rng": true
+      }
+    },
+    {
+      "key": "task0_paired_2_r0_160k",
+      "fields_equal": {
+        "model_arrays": true,
+        "simulator_state": true,
+        "images": true,
+        "frame": true,
+        "input": true,
+        "processor": true,
+        "rng": true
+      }
+    }
+  ],
+  "scope": "Only three completed paired task0 starts compared; no full24 parity or outcome conclusion. All seven input/environment/processor/RNG fields match the controlled single-task40k baseline in these three starts."
+}

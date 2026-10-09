@@ -44,6 +44,14 @@ It combines closed-loop LIBERO evaluation, controlled leave-one-combination-out
 > single-current-recipe control also missed its fixed-initialization repeat
 > gate. These diagnostics do not alter the registered LIBERO-36 conclusions.
 
+**Latest controlled-input diagnostic (2026-10-09):** single-task40k passed
+13/20 paired starts and5/5 fixed-init3 repeats. The exposure-matched four-task
+160k run has now completed training and all96 final evaluations. Paired scores
+for tasks0..3 are10/20,15/20,19/20,15/20; each fixed-init3 condition is5/5.
+Task0 misses its preregistered11/20 retention threshold, so eight-task expansion
+remains on hold. Fold02 remains locked. The complete evidence review is linked
+in the dated final result below.
+
 ### Teacher-directed task-0 budget follow-up (2026-10-05)
 
 The authorized 80,000-update single-task comparison did **not start**. The
@@ -1651,3 +1659,26 @@ is ready to re-read all96 protocols, CSVs and input provenance, verify the final
 model hash, compare loaded models and repeated starts, and regenerate the gate.
 Its synthetic fixture tests reject incomplete execution and forged verified
 outcomes. This changes no running evaluation code and establishes no policy result.
+
+The96-rollout evaluation subsequently finished with exit0. CPU revalidation
+checked the complete final checkpoint, every protocol/summary/action CSV and
+first-input capture, loaded-policy consistency, repeated-start provenance and
+the regenerated gate. Tasks0..3 scored10/20,15/20,19/20,15/20 paired, with5/5
+fixed-init3 successes each. Each task's five init3 action CSVs were byte-identical.
+Task0 misses the registered11/20 paired threshold, so the progression gate fails.
+
+All24 task0 starts matched the controlled single-task40k baseline on simulator,
+images, processed input, processor and RNG evidence. The baseline scored13/20;
+joint training gained init6 but lost inits0,12,13,14 (exact paired McNemar
+two-sided p=0.375). This does not establish a reliable regression or isolated
+multitask interference. At fixed init3, both conditions succeeded5/5, with299
+actions under the single-task baseline and94 under the joint model. This is a
+used-init diagnostic, with one training seed per condition and no post-success
+persistence claim. HistoricalV3 invalidation stays unchanged.
+
+Eight-task expansion and Fold02 remain locked. The selected next step is CPU
+analysis of existing lost/gained trajectories; blind repeats, threshold changes
+and unsupported training extensions are rejected. No new GPU budget is assigned.
+See the [final result](results/teacher_native_spatial_4task_final_eval_result_v1_20261009.json),
+[matched baseline](results/teacher_native_spatial_4task_task0_baseline_comparison_v1_20261009.json)
+and [progression decision](results/teacher_native_spatial_4task_progression_decision_v1_20261009.json).

@@ -1,0 +1,171 @@
+{
+  "status": "complete96_full_evidence_revalidated",
+  "gate": {
+    "tasks": {
+      "0": {
+        "paired_successes": 10,
+        "paired_total": 20,
+        "init3_successes": 5,
+        "init3_total": 5,
+        "passed": false
+      },
+      "1": {
+        "paired_successes": 15,
+        "paired_total": 20,
+        "init3_successes": 5,
+        "init3_total": 5,
+        "passed": true
+      },
+      "2": {
+        "paired_successes": 19,
+        "paired_total": 20,
+        "init3_successes": 5,
+        "init3_total": 5,
+        "passed": true
+      },
+      "3": {
+        "paired_successes": 15,
+        "paired_total": 20,
+        "init3_successes": 5,
+        "init3_total": 5,
+        "passed": true
+      }
+    },
+    "passed": false,
+    "automatic_next_stage": false,
+    "fold02": "locked"
+  },
+  "model_sha": "475089185e820b0cd994a5b80365ebd4ea843ac355ef76d5c81d60b01b302b1e",
+  "same_loaded_model_all96": true,
+  "repeated_initialization_provenance_equal": true,
+  "init3_action_csv_hashes": {
+    "0": [
+      "6538c8e53bb4e800853da75bce8f1b237aff75d28c9f397cd2cfaa0dc655b905",
+      "6538c8e53bb4e800853da75bce8f1b237aff75d28c9f397cd2cfaa0dc655b905",
+      "6538c8e53bb4e800853da75bce8f1b237aff75d28c9f397cd2cfaa0dc655b905",
+      "6538c8e53bb4e800853da75bce8f1b237aff75d28c9f397cd2cfaa0dc655b905",
+      "6538c8e53bb4e800853da75bce8f1b237aff75d28c9f397cd2cfaa0dc655b905"
+    ],
+    "1": [
+      "d8a820ef1e422de3647103afdb9ef8edfa89f1df13c203b785520140abb68230",
+      "d8a820ef1e422de3647103afdb9ef8edfa89f1df13c203b785520140abb68230",
+      "d8a820ef1e422de3647103afdb9ef8edfa89f1df13c203b785520140abb68230",
+      "d8a820ef1e422de3647103afdb9ef8edfa89f1df13c203b785520140abb68230",
+      "d8a820ef1e422de3647103afdb9ef8edfa89f1df13c203b785520140abb68230"
+    ],
+    "2": [
+      "8cdd540906c15b9d75620bb83935842a0ec6a654a2f5792ac28dfadcc50a212b",
+      "8cdd540906c15b9d75620bb83935842a0ec6a654a2f5792ac28dfadcc50a212b",
+      "8cdd540906c15b9d75620bb83935842a0ec6a654a2f5792ac28dfadcc50a212b",
+      "8cdd540906c15b9d75620bb83935842a0ec6a654a2f5792ac28dfadcc50a212b",
+      "8cdd540906c15b9d75620bb83935842a0ec6a654a2f5792ac28dfadcc50a212b"
+    ],
+    "3": [
+      "a62365707546dc572aa0784b0ab896db37f8fd80f0587b1f2a079a3f987d31f8",
+      "a62365707546dc572aa0784b0ab896db37f8fd80f0587b1f2a079a3f987d31f8",
+      "a62365707546dc572aa0784b0ab896db37f8fd80f0587b1f2a079a3f987d31f8",
+      "a62365707546dc572aa0784b0ab896db37f8fd80f0587b1f2a079a3f987d31f8",
+      "a62365707546dc572aa0784b0ab896db37f8fd80f0587b1f2a079a3f987d31f8"
+    ]
+  },
+  "init3_action_repeat_identical": {
+    "0": true,
+    "1": true,
+    "2": true,
+    "3": true
+  },
+  "scope": "Used-init diagnostic; no historicalV3 parity, unused-init generalization, post-success persistence, or causal interference claim without matched single-task baselines",
+  "observed_at_utc": "2026-10-09T22:08:59.745440+00:00",
+  "rollouts": 96,
+  "task0_paired_outcomes": {
+    "0": false,
+    "1": true,
+    "2": false,
+    "3": true,
+    "4": true,
+    "5": false,
+    "6": true,
+    "7": true,
+    "8": false,
+    "9": true,
+    "10": false,
+    "11": true,
+    "12": false,
+    "13": false,
+    "14": false,
+    "15": true,
+    "16": true,
+    "17": true,
+    "18": false,
+    "19": false
+  },
+  "per_task_successful_paired_inits": {
+    "0": [
+      1,
+      3,
+      4,
+      6,
+      7,
+      9,
+      11,
+      15,
+      16,
+      17
+    ],
+    "1": [
+      0,
+      1,
+      2,
+      3,
+      5,
+      7,
+      8,
+      9,
+      10,
+      12,
+      14,
+      15,
+      16,
+      18,
+      19
+    ],
+    "2": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14,
+      15,
+      16,
+      17,
+      18,
+      19
+    ],
+    "3": [
+      0,
+      1,
+      2,
+      3,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      14,
+      17,
+      18,
+      19
+    ]
+  }
+}

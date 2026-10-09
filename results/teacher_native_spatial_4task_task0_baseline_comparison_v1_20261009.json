@@ -1,0 +1,48 @@
+{
+  "status": "all24_task0_baseline_inputs_and_csvs_revalidated",
+  "observed_at_utc": "2026-10-09T22:09:46.171930+00:00",
+  "comparison_fields": [
+    "model_arrays",
+    "simulator_state",
+    "images",
+    "frame",
+    "input",
+    "processor",
+    "rng"
+  ],
+  "comparisons": 24,
+  "all_input_fields_equal": true,
+  "counts": {
+    "single_paired": 13,
+    "joint_paired": 10,
+    "single_init3": 5,
+    "joint_init3": 5
+  },
+  "gains": [
+    6
+  ],
+  "losses": [
+    0,
+    12,
+    13,
+    14
+  ],
+  "mcnemar_exact_two_sided_p": 0.375,
+  "init3_steps": {
+    "single": [
+      299,
+      299,
+      299,
+      299,
+      299
+    ],
+    "joint": [
+      94,
+      94,
+      94,
+      94,
+      94
+    ]
+  },
+  "baseline_model_sha": "7c480b7d34c3bc4d494538cd26a4a82560d16b8a116424f086a7b1e956ce6ddf"
+}
