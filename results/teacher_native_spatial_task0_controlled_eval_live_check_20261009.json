@@ -1,0 +1,12 @@
+{
+  "schema_version": 1,
+  "status": "authenticated_live_wait",
+  "supervisor_pid": 264357,
+  "active_child_pid": 264361,
+  "rollout": "paired_0_r0_40k",
+  "first_input_directory_present": true,
+  "verified_rollout_records": 0,
+  "exit_marker": "absent",
+  "interpretation": "Current child still running, not a terminal failure; no success outcome accepted yet",
+  "next": "Continue polling same supervised chain, do not restart"
+}

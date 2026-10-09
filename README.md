@@ -1576,6 +1576,8 @@ yielded one of each. Dynamic-state fingerprints remained identical. This support
 reset-time model geometry as an input-variation mechanism, without proving unique
 causality or policy stability. A new contemporaneous40k/80k controlled-environment
 evaluation is preregistered for48 rollouts, with the same action/wait budgets and
-unchanged stability threshold; it has not started and does not rewrite V3 history.
+unchanged stability threshold. Its supervisor launched once (PID264357) and the
+first40k child was authenticated live; completion and outcomes are still pending.
+This new protocol does not rewrite V3 history.
 See the [environment result](results/teacher_native_spatial_task0_reset_render_contrast_completion_20261009.json)
 and [controlled evaluation design](results/teacher_native_spatial_task0_controlled_eval_design_v1_20261009.json).
