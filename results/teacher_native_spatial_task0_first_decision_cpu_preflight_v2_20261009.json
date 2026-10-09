@@ -1,0 +1,15 @@
+{
+  "schema_version": 1,
+  "status": "cpu_processor_compatibility_passed",
+  "correction": "PreTrainedConfig.from_pretrained used instead of concrete subclass loader; installed PreTrainedPolicy.from_pretrained source confirmed same base loader",
+  "resolved_config_class": "SmolVLAConfig",
+  "preprocessor_steps": 6,
+  "postprocessor_steps": 2,
+  "processor_digest_cpu_override": "ed0ea85fb4f9af4ce754402ff8fe3879e3c82b1af603c7402f019675da46436e",
+  "scope": "Constructed actual checkpoint processors with CPU device override and successfully hashed step configurations/states. This digest is CPU-preflight-specific, not the future CUDA runtime digest.",
+  "policy_calls": 0,
+  "model_loaded": false,
+  "environment_created": false,
+  "previous_error_record_preserved": true,
+  "remaining": "Finalize bounded runner, hash/lock/path/resource preflight and provenance capture coverage before six authorized first-policy calls"
+}

@@ -1,0 +1,10 @@
+{
+  "schema_version": 1,
+  "status": "diagnostic_config_decode_error_before_processor_construction",
+  "tensor_digest_tests": {"passed": true, "dtypes": ["float32", "bfloat16", "int64", "bool"], "checks": "clone identity and shape distinction"},
+  "error": "draccus DecodingError: field type is not valid for SmolVLAConfig when invoking subclass from_pretrained directly",
+  "scope": "CPU helper/processor compatibility probe only; no model loaded, no policy calls, no environment, no GPU experiment",
+  "proposed_correction": "Use registered PreTrainedConfig base-class loader, as policy from_pretrained dispatch does, rather than direct concrete subclass loader. Verify actual installed implementation before rerunning CPU probe.",
+  "old_evidence_modified": false,
+  "gpu_diagnostic_started": false
+}
