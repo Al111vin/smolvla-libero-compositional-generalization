@@ -1,0 +1,12 @@
+{
+  "schema_version": 1,
+  "status": "launched_once_pending_completion",
+  "supervisor_pid": 263986,
+  "first_authenticated_child_pid": 263990,
+  "preflight": "Authenticated deployment/result path absence and empty GPU compute list; four remote SHA256 values and frozen evaluator matched; supervisor passed lock/process/resource guard and created first child",
+  "deployment": "/root/smolvla-eval-prep/recovery/task0_reset_render_contrast_v1_20261009",
+  "result": "/root/smolvla-eval-prep/results/task0_reset_render_contrast_v1_20261009",
+  "budget": "6 environment processes, timeout120 seconds each, zero policy calls, zero predicted actions",
+  "next": "Check current PID, exit_code and six JSON records; do not relaunch existing paths",
+  "old_evidence": "All previous outputs remain untouched"
+}
