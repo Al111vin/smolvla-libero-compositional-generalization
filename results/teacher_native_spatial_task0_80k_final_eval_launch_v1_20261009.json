@@ -1,0 +1,21 @@
+{
+  "schema_version": 1,
+  "status": "evaluation_launch_dispatched",
+  "date_utc": "2026-10-09",
+  "supervisor_pid": 259581,
+  "training_exit_code": 0,
+  "checkpoint_step": 80000,
+  "checkpoint_model_sha256": "51cbcf9a467d0c2d5c504b6decc7281a1d4b68337e141a8d990820081a07e96a",
+  "evaluator_sha256": "89fd36a89dc45a56382219d4c3f6e5d12a3b1689abb3440ec29be346815af7cb",
+  "preflight": "All checkpoint files nonempty and hashed; safetensors headers/shapes readable; resolved config smolvla chunk50/action25; successful training exit/step80000; no GPU compute processes; lock held; new result/log/PID/exit/preflight paths absent; free disk greater than 2GB.",
+  "evaluation_root": "/root/smolvla-eval-prep/results/teacher_native_spatial_task0_single_current_recipe_80k_batch2_v1_retry1_20261006_final_v3_24_v1",
+  "recovery_prefix": "/root/smolvla-training-prep/recovery/task_scaling_native_spatial_20261003/task0_single_control_v1/teacher_native_spatial_task0_single_current_recipe_80k_batch2_v1_retry1_20261006_final_v3_24_v1",
+  "supervision": "SSH independent new session, inherited exclusive GPU lock, exclusive log/PID/exit files; sequential rollouts; 1800s timeout per rollout; any process/protocol error stops chain, no automatic retries",
+  "protocol": "20 paired init0..19 CLI seed12345+i; four additional init3 CLI seed12348; benchmark init, wait10, max_steps300, n_action_steps25, cuda, capture-state; only final080000 checkpoint",
+  "rollout_budget": 24,
+  "post_rollout_checks": "Exactly one summary row with matching checkpoint/task/init/seed/wait/action count and bounded steps",
+  "interpretation_limit": "Historical 40k comparison on same init set; old V3 parity invalidation unchanged; not deterministic parity or unused-init generalization proof",
+  "completed": false,
+  "old_evidence_preserved": true,
+  "fold02_and_task_scaling": "locked_pending_scientific_gate_and_review"
+}

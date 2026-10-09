@@ -1,0 +1,19 @@
+{
+  "schema_version": 1,
+  "status": "partial_preflight_no_evaluation_started",
+  "observed_at_utc": "2026-10-09T07:37:35Z",
+  "experiment_id": "teacher_native_spatial_task0_single_current_recipe_80k_batch2_v1_retry1_20261006",
+  "training_completion": {"exit_code": 0, "end_log_utc": "2026-10-09T04:44:53", "step": 80000, "scheduler_last_epoch": 80000, "scheduler_step_count": 80001},
+  "checkpoint": {"step": "080000", "all_listed_files_nonempty": true, "model_bytes": 1197789224, "optimizer_bytes": 412659164, "tensor_readability_and_hash_manifest": "pending"},
+  "evaluator_sha256": "89fd36a89dc45a56382219d4c3f6e5d12a3b1689abb3440ec29be346815af7cb",
+  "gpu_snapshot": {"no_compute_processes": true, "lock_available": true},
+  "registered_evaluation_root": "/root/smolvla-eval-prep/results/teacher_native_spatial_task0_single_current_recipe_80k_batch2_v1_retry1_20261006_final_v3_24_v1",
+  "evaluation_root_absent_at_snapshot": true,
+  "protocol": {"task_id": 0, "checkpoint_step": 80000, "init_source": "benchmark", "paired_init_indices": [0, 19], "paired_cli_seed": "12345+i", "paired_effective_seed": "12345+2*i", "extra_init3_repeats": 4, "extra_cli_seed": 12348, "extra_effective_seed": 12351, "wait_steps": 10, "max_steps": 300, "n_action_steps": 25, "capture_state": true, "device": "cuda", "total_rollouts": 24},
+  "remaining_gates": ["final checkpoint tensor readability and hash manifest", "resolved checkpoint configuration and evaluator protocol inspection", "external evaluation log, PID and exit paths absent", "resource, process and path checks repeated under held lock before exclusive launch"],
+  "interpretation": "Same-initialization diagnostic versus preserved historical 40k results, not unused-init generalization or contemporaneous two-model evaluation. Historical V3 parity invalidation remains unchanged.",
+  "diagnostic_gate": {"paired_successes_min": 11, "paired_total": 20, "fixed_init3_successes_required": 5, "fixed_init3_total": 5},
+  "evaluation_started": false,
+  "old_evidence_preserved": true,
+  "fold02_and_scaling": "locked_pending_stable_single_task_success_and_review"
+}

@@ -1,0 +1,20 @@
+{
+  "schema_version": 1,
+  "verified_at_utc": "2026-10-09T08:37:35Z",
+  "status": "completed_below_stability_gate",
+  "training_step": 80000,
+  "training_exit_code": 0,
+  "evaluation_exit_code": 0,
+  "completed_rollouts": 24,
+  "paired": {"successes": 11, "total": 20, "success_init_indices": [0,1,3,4,7,9,11,15,16,17,19], "failure_init_indices": [2,5,6,8,10,12,13,14,18]},
+  "fixed_init3": {"successes": 4, "total": 5, "paired_success": true, "extra_repeat_success": [false,true,true,true], "effective_seed": 12351},
+  "historical_40k": {"paired_successes": 11, "paired_total": 20, "fixed_init3_successes": 3, "fixed_init3_total": 5},
+  "stability_gate": {"paired_min": 11, "fixed_required": 5, "passed": false},
+  "conclusion": "Doubling total training budget did not increase aggregate paired success in this same-init diagnostic. Fixed-init3 observed success rose from 3/5 to 4/5 but remains below required 5/5. This small historical comparison does not establish a causal or statistically reliable improvement.",
+  "protocol": "unchanged registered V3, benchmark init0..19 plus four additional init3 repeats; wait10/max_steps300/action25; all 24 summary rows verified by supervisor",
+  "evaluation_root": "/root/smolvla-eval-prep/results/teacher_native_spatial_task0_single_current_recipe_80k_batch2_v1_retry1_20261006_final_v3_24_v1",
+  "evidence_protection": "Original training, invalidated replay, final checkpoint, raw evaluation actions and logs remain remote and untouched; this is lightweight derived summary only.",
+  "interpretation_limits": ["Historical baseline, not contemporaneous two-model rerun", "Same init set, not unused-init generalization", "Historical V3 parity invalidation remains unchanged", "Fixed-seed repeat variation still observed"],
+  "fold02_and_task_scaling": "locked_pending_stable_single_task_success",
+  "next_step": "Analyze paired outcome transitions and failure/repeat variation before registering any bounded new hypothesis; no blind training or evaluation repeat."
+}
