@@ -1,0 +1,13 @@
+{
+  "status": "full40_file_backed_offline_supervisor_fixture_passed",
+  "tests_passed": 5,
+  "covered": ["All40 unique scheduled outputs and completion", "First child exit7 stops without retry", "Wrong wait protocol stops", "Second paired starting simulator mismatch stops", "90-minute wall budget stops before another inference"],
+  "hardening": "Supervisor now requires all8 registered dependency names and frozen evaluator hash before execution; empty hash allowlists are rejected",
+  "supervisor_sha256": "2bb100332844e0d41636c7e84f299952b77168f95a319552bd8eb674d45c2c7f",
+  "policy_calls": 0,
+  "gpu_used": false,
+  "pending": ["Remote independent deployment and manifest", "Output/log/PID absence", "Complete checkpoint/nonempty files and hashes", "GPU/process/lock/disk current checks"],
+  "real_evaluation": "not_started",
+  "eight_task_progression": "locked",
+  "fold02": "locked"
+}

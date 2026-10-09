@@ -11,6 +11,12 @@ import sys
 import time
 from midpoint_eval_schedule_v1 import schedule, validate_protocol, environment_signature, validate_rollout
 from diagnostic_process_guard_v1 import conflicting_processes
+from capture_reset_render_provenance_v1 import EVALUATOR_SHA
+
+REQUIRED_CODE = ('run_midpoint_eval_v1.py', 'midpoint_eval_schedule_v1.py',
+    'controlled_eval_schedule_v1.py', 'eval_controlled_environment_v1.py',
+    'controlled_eval_hooks_v1.py', 'capture_reset_render_provenance_v1.py',
+    'first_decision_provenance_v1.py', 'diagnostic_process_guard_v1.py')
 
 
 def main():
@@ -21,6 +27,8 @@ def main():
     root=Path(manifest["root"])
     assert not root.exists()
     base=Path(__file__).parent
+    assert set(manifest['code_hashes']) == set(REQUIRED_CODE)
+    assert hashlib.sha256(Path(manifest['evaluator']).read_bytes()).hexdigest() == EVALUATOR_SHA
     for name,sha in manifest["code_hashes"].items():
         assert hashlib.sha256((base/name).read_bytes()).hexdigest()==sha
     assert set(manifest["models"])=={"single20k","joint80k"}
