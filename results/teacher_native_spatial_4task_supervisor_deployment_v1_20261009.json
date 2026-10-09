@@ -1,0 +1,16 @@
+{
+  "status": "authenticated_deployment_hashes_match_not_launched",
+  "deployment": "/root/smolvla-training-prep/recovery/exposure_matched_4task_v1_20261009",
+  "exclusive_new_file_creation": true,
+  "sha256": {
+    "scripts/run_exposure_matched_training_v1.py": "3b20b26a8196aaf2a6778218896ad604da7b6f80ea3de20eb1e5fbb8bfb1a103",
+    "configs/native_spatial_4task_launch_manifest_v1_20261009.json": "7c73b2ba433f3010ff0d0f88304a812830eb9b79c5ec70771372482ce8f7ba73"
+  },
+  "local_and_remote_bytes_match": true,
+  "local_tests_passed": 18,
+  "test_scope": "Includes real CPU subprocess success and launch failure lifecycle; GPU training not tested by these fixtures",
+  "transport_warnings": "GNU tar ignored macOS provenance/macl extended headers; source bytes match",
+  "remaining_before_launch": "Verify supervisor and manifest hashes immediately before detached one-shot execution; supervisor rechecks pinned provenance, lock, GPU/process conflicts, disk and absent paths while holding lock",
+  "training_started": false,
+  "fold02": "locked"
+}
