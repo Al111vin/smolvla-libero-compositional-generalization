@@ -1,0 +1,23 @@
+{
+  "status": "selected_design_requires_configuration_and_resume_preflight_not_launched",
+  "evidence": "Nominal task exposure matched midpoint joint12/20 versus single10/20; final joint10/20 versus single13/20. All20 four-condition starts match. Two joint lost successes have heterogeneous physical proxies. These observations motivate a late-optimization sensitivity test, not a proven interference mechanism.",
+  "hypothesis": "Reducing only post-midpoint learning-rate exposure may preserve joint task0 competence relative to the already observed original continuation; a matched single-task continuation distinguishes a generic LR effect from a task-count-associated response.",
+  "options": [
+    {"id": "blind_longer_training", "decision": "reject", "reason": "Nonmonotonic observed outcomes; no monotonic improvement hypothesis supported."},
+    {"id": "second_seed_full_pair", "decision": "defer", "reason": "Useful seed-variability check but requires200k new updates and does not target late-optimization sensitivity."},
+    {"id": "task0_only_joint_recovery", "decision": "defer", "reason": "Cheaper but changes task distribution and exposure, risking forgetting; cannot answer matched multi-task control."},
+    {"id": "matched_half_late_lr_continuation", "decision": "selected_for_preflight", "reason": "Reuse independently verified midpoint checkpoints;100k total new updates rather than200k full retraining, maintain matched per-task samples/LR exposure and all-task retention checks."}
+  ],
+  "conditions": {
+    "single": {"resume_checkpoint": "single020000", "additional_updates": 20000, "additional_sample_draws_task0": 40000},
+    "joint": {"resume_checkpoint": "joint080000", "additional_updates": 80000, "additional_sample_draws_each_task": 40000}
+  },
+  "intervention": "Multiply every remaining original pre-update LR by0.5; no new warmup. Preserve restored model/optimizer/RNG/sampler state. Joint LR repeats same value across four homogeneous balanced task updates. No other recipe changes.",
+  "evaluation_budget": {"single_task0_rollouts": 24, "joint_all_four_tasks_rollouts": 96, "maximum_total": 120, "protocol": "Same controlled V3 paired0..19 plus four extra init3 repetitions per task", "checkpoint_selection": "Final only; no best-checkpoint search"},
+  "preflight_requirements": ["Installed resume semantics restore optimizer, RNG, step and sampler exactly", "CPU test all remaining per-task pre-update LR and sample exposure matching", "Compare boundary LR and saved states against original schedule", "Source/checkpoint/data/runtime hashes verified", "Independent absent configuration/output/log/PID paths", "No conflicting GPU process and exclusive lock", "Register hard runtime bound before launch"],
+  "decision_rules": ["Unchanged four-task progression gate; no threshold relaxation", "Any actual source/resume/protocol mismatch stops before training", "No claim of causal gradient interference from an LR response", "Original failed final results remain authoritative and preserved", "No automatic repeated sweep or training extension"],
+  "current_new_gpu_budget": 0,
+  "planned_max_new_updates_after_preflight": 100000,
+  "eight_task_expansion_locked": true,
+  "fold02_locked": true
+}
