@@ -13,7 +13,8 @@ def summarize(records, exit_code):
     for r in records:
         assert r["key"] in expected
         assert all(r[k]==v for k,v in expected[r["key"]].items())
-        assert type(r["success"]) is bool and 1 <= r["steps"] <= 300
+        assert type(r["success"]) is bool
+        assert type(r["steps"]) is int and 1 <= r["steps"] <= 300
     by_key={r["key"]:r for r in records}
     models={}
     for model in ("40k","80k"):
