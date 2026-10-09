@@ -11,6 +11,7 @@ import unittest
 from unittest.mock import patch
 sys.path.insert(0, str(Path(__file__).resolve().parents[1]/'scripts'))
 import run_midpoint_eval_v1 as runner
+from audit_midpoint_final_evidence_v1 import audit
 from midpoint_eval_schedule_v1 import schedule
 
 
@@ -42,7 +43,9 @@ class MidpointFixture(unittest.TestCase):
                 protocol = dict(init=row['init'],cli_seed=row['cli_seed'],
                     effective_seed=12345+2*row['init'],environment_seed=12351,
                     wait=10,max_steps=300,action_steps=25,
-                    checkpoint=str(checkpoint),model_sha=sha)
+                    checkpoint=str(checkpoint),model_sha=sha,
+                    evaluator_sha='89fd36a89dc45a56382219d4c3f6e5d12a3b1689abb3440ec29be346815af7cb',
+                    wrapper_sha=manifest['code_hashes']['eval_controlled_environment_v1.py'])
                 if fault == 'protocol': protocol['wait'] = 0
                 (target/'protocol.json').write_text(json.dumps(protocol))
                 capture = {k:{'fixture':1} for k in ('model_arrays','simulator_state',
@@ -77,6 +80,13 @@ class MidpointFixture(unittest.TestCase):
             self.assertEqual((root/'completion.json').exists(),not bool(fault))
             if not fault:
                 self.assertEqual(len(json.loads((root/'completion.json').read_text())),40)
+                self.assertEqual(audit(root,manifest)['successes'],{'single20k':20,'joint80k':20})
+                verified=root/(schedule()[0]['key']+'.verified.json')
+                forged=json.loads(verified.read_text());forged['success']=False
+                verified.write_text(json.dumps(forged))
+                with self.assertRaisesRegex(ValueError,'raw CSV'): audit(root,manifest)
+            else:
+                with self.assertRaisesRegex(ValueError,'incomplete or failed'): audit(root,manifest)
 
     def test_full40(self): self.exercise()
     def test_subprocess_failure(self): self.exercise('process')
