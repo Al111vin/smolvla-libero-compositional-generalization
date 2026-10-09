@@ -33,10 +33,15 @@ def main():
     v3 = importlib.util.module_from_spec(spec)
     spec.loader.exec_module(v3)
     captured = {}
+    loaded_model = {}
+
+    def model_capture(policy):
+        loaded_model["state_dict"] = digest_tree(dict(policy.state_dict()))
 
     def capture(env, frame, batch, pre, post):
         assert not captured
         captured.update({"model_arrays": capture_model(env.sim.model._model),
+            "loaded_model": dict(loaded_model),
             "simulator_state": digest_tree(env.sim.get_state().flatten()),
             "frame": digest_tree(frame), "input": digest_tree(batch),
             "images": {k: digest_tree(v) for k,v in frame.items() if k.startswith("observation.images.")},
@@ -48,7 +53,7 @@ def main():
         with (root / "first_input.json").open("x") as f:
             json.dump(captured, f, indent=2)
 
-    restore = install_hooks(v3, capture)
+    restore = install_hooks(v3, capture, model_capture=model_capture)
     episode = SimpleNamespace(checkpoint=args.checkpoint, device="cuda", n_action_steps=25,
         task_id=0, init_source="benchmark", init_index=args.init_index, wait_steps=10,
         max_steps=300, seed=args.cli_seed, capture_state=True, results_dir=str(root))

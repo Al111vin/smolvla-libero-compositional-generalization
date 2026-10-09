@@ -4,6 +4,21 @@ from scripts.controlled_eval_hooks_v1 import install_hooks
 
 
 class HookTests(unittest.TestCase):
+    def test_model_factory_capture_and_restore(self):
+        policy=object()
+        class OriginalPolicy:
+            @staticmethod
+            def from_pretrained(path):
+                return policy
+        v3=SimpleNamespace(SmolVLAPolicy=OriginalPolicy, OffScreenRenderEnv=lambda:None,
+            make_pre_post_processors=lambda:None)
+        seen=[]
+        restore=install_hooks(v3,lambda *a:None,model_capture=seen.append)
+        self.assertIs(v3.SmolVLAPolicy.from_pretrained("checkpoint"),policy)
+        self.assertEqual(seen,[policy])
+        restore()
+        self.assertIs(v3.SmolVLAPolicy,OriginalPolicy)
+
     def test_seed_capture_order_and_restore(self):
         events=[]
         env=object()
