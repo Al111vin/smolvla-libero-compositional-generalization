@@ -54,6 +54,12 @@ class WrapperTests(unittest.TestCase):
             self.call(0)
         self.assertEqual(self.optimizer.calls, 0)
 
+    def test_full_config_guard_runs_before_factory(self):
+        with patch.object(wrapper, "validate_registered_config", side_effect=ValueError("changed")) as guard:
+            with self.assertRaises(ValueError):
+                self.trainer.make_optimizer_and_scheduler(None, None)
+            guard.assert_called_once_with(None)
+
 
 if __name__ == "__main__":
     unittest.main()

@@ -1,5 +1,7 @@
 """Independent bounded four-task launcher. Importing does not start training."""
 import inspect
+import hashlib
+import json
 import sys
 from pathlib import Path
 
@@ -12,6 +14,21 @@ from exposure_matched_blocks_v1 import (
 REPO = "local/libero_spatial_tasks0_3_native_v1"
 BLOCKS = 40000
 TASKS = 4
+CONFIG_NAME = "teacher_native_spatial_4task_homogeneous_160k_batch2_v1_20261009.json"
+CONFIG_SHA256 = "2cd9b7e1e3d075404157fdaefd0547c8eb83515728f7626173aa6fef479b3101"
+
+
+def validate_registered_config(cfg):
+    import draccus
+    from lerobot.configs.train import TrainPipelineConfig
+    path = Path(__file__).resolve().parents[1] / "configs" / CONFIG_NAME
+    raw = path.read_bytes()
+    if hashlib.sha256(raw).hexdigest() != CONFIG_SHA256:
+        raise ValueError("registered config bytes changed")
+    expected = draccus.decode(TrainPipelineConfig, json.loads(raw))
+    expected.validate()
+    if cfg.to_dict() != expected.to_dict():
+        raise ValueError("runtime config differs from complete registered recipe")
 
 
 def install(trainer):
@@ -22,6 +39,7 @@ def install(trainer):
     block_tasks = set()
 
     def factory(cfg, policy):
+        validate_registered_config(cfg)
         if (cfg.dataset.repo_id != REPO or cfg.steps != BLOCKS * TASKS
                 or cfg.batch_size != 2 or cfg.seed != 1000 or cfg.resume
                 or cfg.env is not None or cfg.use_rabc):
