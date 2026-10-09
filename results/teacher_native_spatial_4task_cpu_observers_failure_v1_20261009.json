@@ -1,0 +1,19 @@
+{
+  "version": "controlled_cpu_object_contact_observers_v1",
+  "status": "stopped_before_simulation",
+  "case": "single40k_init3",
+  "exit_code": 1,
+  "error_type": "FileNotFoundError",
+  "cause": "Case output mkdir required a parent experiment directory which had not been created. Failure occurred before native environment construction and source reading.",
+  "simulation_steps": 0,
+  "policy_calls": 0,
+  "gpu_rendering": false,
+  "completed_cases": 0,
+  "automatic_retry": false,
+  "chain": "remaining11 cases not started",
+  "next_hypothesis": "Explicit safe parent creation with existing-case refusal permits the registered CPU observer chain to reach its parity checks. No physics/config/threshold change is needed.",
+  "alternatives": ["Reject changing renderer or seeds: failure is filesystem-only", "Reject reusing old output or silently restarting", "Select bounded corrected v2 with independent experiment root after offline path tests"],
+  "old_evidence": "unchanged",
+  "eight_task_progression": "locked",
+  "fold02": "locked"
+}

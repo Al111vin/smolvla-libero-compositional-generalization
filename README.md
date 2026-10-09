@@ -1694,3 +1694,13 @@ before interpreting object/contact proxies. Feasibility and execution remain
 pending; no new GPU inference or training is budgeted. See the
 [existing-trace review](results/teacher_native_spatial_4task_task0_existing_trace_review_v1_20261009.json)
 and [CPU replay design](results/teacher_native_spatial_4task_controlled_cpu_replay_design_v1_20261009.json).
+
+The headless CPU joint-init3 feasibility pilot passed initial model/simulator
+digest parity and all94 robot-state/reward comparisons (maximum state error0,
+final reward1), with no policy inference or GPU rendering. This is one stored
+trace, not image parity or a causal claim. The subsequent registered object/contact
+chain stopped before simulation on its first case because the parent output
+directory was absent; the other11 cases were not started. Preserve this version
+and register a bounded filesystem-only correction before another attempt.
+See the [pilot result](results/teacher_native_spatial_4task_cpu_parity_pilot_result_v1_20261009.json)
+and [observer failure](results/teacher_native_spatial_4task_cpu_observers_failure_v1_20261009.json).
