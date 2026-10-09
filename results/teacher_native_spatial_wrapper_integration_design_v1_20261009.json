@@ -1,0 +1,10 @@
+{
+  "status": "independent_wrapper_implemented_not_runtime_validated",
+  "wrapper": "scripts/exposure_matched_train_wrapper_v1.py",
+  "guards": ["160000 updates batch2 seed1000 all200 episodes", "single process gradient_accumulation1", "one homogeneous batch per task per block", "stop on skipped optimizer update", "envNone no integrated evaluation no RA-BC no resume"],
+  "important_installed_trainer_finding": "Trainer constructs Accelerator(step_scheduler_with_optimizer=False). Earlier CPU skip test used defaultTrue and must not be claimed as this trainer configuration. Wrapper stops after any skipped update; affected run is invalid and preserved even if scheduler already advanced.",
+  "baseline_scheduler_build_budget": 40000,
+  "remaining_tests": ["actual trainer factory and update bindings with fake CPU policy", "task_index survives processor boundary", "delta action chunking and optimizer/scheduler serialization", "pin full config/model/code hashes and independent paths before launch"],
+  "gpu_training_started": false,
+  "fold02": "locked"
+}
