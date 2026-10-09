@@ -1,0 +1,15 @@
+{
+  "status": "one_shot_supervisor_and_trainer_spawn_authenticated",
+  "supervisor_pid": 315683,
+  "trainer_pid": 315694,
+  "supervisor_parent_pid": 1,
+  "supervisor_sha256": "3b20b26a8196aaf2a6778218896ad604da7b6f80ea3de20eb1e5fbb8bfb1a103",
+  "manifest_sha256": "7c73b2ba433f3010ff0d0f88304a812830eb9b79c5ec70771372482ce8f7ba73",
+  "launch_count": 1,
+  "preflight": "Supervisor reached trainer spawn only after pinned hash, GPU/process, disk, absent-path checks under held GPU lock",
+  "training_optimizer_progress": "not yet observed at first authenticated snapshot",
+  "completion": "not claimed",
+  "recovery_prefix": "/root/smolvla-training-prep/recovery/exposure_matched_4task_v1_20261009/teacher_native_spatial_4task_homogeneous_160k_batch2_v1_20261009",
+  "next_action": "Observe same supervisor/trainer and exit marker. Never restart based on SSH disconnection or log delay.",
+  "fold02": "locked"
+}
