@@ -1,0 +1,15 @@
+{
+  "status": "authenticated_cpu_fresh_base_processor_check_passed",
+  "config_sha256": "2cd9b7e1e3d075404157fdaefd0547c8eb83515728f7626173aa6fef479b3101",
+  "runtime_steps": 160000,
+  "runtime_batch_size": 2,
+  "runtime_env": null,
+  "pretrained_path": "/root/smolvla-training-prep/models/smolvla_base_libero",
+  "processed_action_shape": [2, 50, 7],
+  "task_index_preserved": true,
+  "finite_processed_actions": true,
+  "method": "Installed draccus TrainPipelineConfig validation and make_pre_post_processors with fresh base path, full dataset statistics, same normalizer overrides as trainer, device overriddenCPU for diagnostic.",
+  "diagnostic_error_preserved": "Initial probe passed assertions but its final json.dumps failed on PosixPath. One corrected CPU diagnostic converted path tostr and exited0; no training attempt occurred.",
+  "scope_limit": "One task0 chunked batch; no SmolVLA weights loaded or GPU forward/backward. Strict full wrapper and launch manifest validation still pending.",
+  "fold02": "locked"
+}
