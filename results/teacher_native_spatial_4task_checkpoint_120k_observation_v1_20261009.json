@@ -1,0 +1,42 @@
+{
+  "status": "authenticated_training_in_progress_with_three_complete_intermediate_checkpoints",
+  "observed_progress": 129224,
+  "registered_total_updates": 160000,
+  "supervisor_pid": 315683,
+  "trainer_pid": 315694,
+  "exit_marker_present": false,
+  "checkpoints": {
+    "040000": {
+      "required_file_count": 7,
+      "all_required_files_nonempty": true,
+      "model_safetensors_bytes": 1197789224
+    },
+    "080000": {
+      "required_file_count": 7,
+      "all_required_files_nonempty": true,
+      "model_safetensors_bytes": 1197789224
+    },
+    "120000": {
+      "required_file_count": 7,
+      "all_required_files_nonempty": true,
+      "model_safetensors_bytes": 1197789224
+    },
+    "160000": {
+      "exists": false
+    }
+  },
+  "required_files": [
+    "config.json",
+    "model.safetensors",
+    "policy_postprocessor.json",
+    "policy_postprocessor_step_0_unnormalizer_processor.safetensors",
+    "policy_preprocessor.json",
+    "policy_preprocessor_step_5_normalizer_processor.safetensors",
+    "train_config.json"
+  ],
+  "scope": "Read-only checkpoint presence and nonempty-file observation while the registered 160000-update run remained live. This is not terminal training validation, a model hash, policy evaluation, or a scaling-gate result.",
+  "raw_training_log_uploaded": false,
+  "checkpoint_uploaded": false,
+  "next_stage_started": false,
+  "fold02": "locked"
+}
