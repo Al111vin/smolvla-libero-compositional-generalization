@@ -1,0 +1,21 @@
+{
+  "status": "registered_not_executed",
+  "version": "native_spatial_4task_controlled_final_eval_v1",
+  "schedule_source": "scripts/scaling_eval_schedule_v1.py:schedule",
+  "wrapper_source": "scripts/eval_scaling_environment_v1.py",
+  "tasks": [0, 1, 2, 3],
+  "suite": "libero_spatial",
+  "checkpoint": "/root/smolvla-training-prep/results/training/teacher_native_spatial_4task_homogeneous_160k_batch2_v1_20261009/checkpoints/160000/pretrained_model",
+  "independent_results_root": "/root/smolvla-eval-prep/results/native_spatial_4task_controlled_final_eval_v1_20261009",
+  "budget": {"paired_initializations_per_task": 20, "extra_init3_per_task": 4, "total_rollouts": 96},
+  "ordering": "Interleave tasks0..3 for each paired init0..19, then interleave tasks0..3 for each extra init3 repeat1..4",
+  "protocol": {"init_source": "benchmark", "environment_seed": 12351, "cli_seed_formula": "12345 + initialization_index", "effective_seed_formula": "12345 + 2 * initialization_index", "wait_steps": 10, "max_steps": 300, "n_action_steps": 25},
+  "frozen_evaluator_sha256": "89fd36a89dc45a56382219d4c3f6e5d12a3b1689abb3440ec29be346815af7cb",
+  "gates": {"task0": {"minimum_paired_successes": 11, "required_init3_successes": 5}, "tasks1_2_3": {"minimum_paired_successes_each": 10}},
+  "pre_execution_requirements": ["training exit0", "final checkpoint complete and nonempty", "checkpoint hash registered before inference", "frozen evaluator and deployed wrapper dependency hashes match", "GPU lock held and no conflicting process", "all new evaluation output and log paths absent"],
+  "validation": "All96 registered protocols and full action CSVs must validate before gate calculation. Wrong task, nonfinite values, incorrect clipping, noncontiguous steps, inconsistent reward or success flag invalidate evidence.",
+  "limitations": ["Diagnostic used-init protocol, not held-out generalization", "Historical V3 parity invalidation remains unchanged", "Tasks1..3 lack matched single-task positive baselines; failure alone does not prove interference", "Task0 terminal success does not establish post-success persistence"],
+  "automatic_next_stage": false,
+  "fold02": "locked",
+  "old_evidence_policy": "Do not overwrite, delete or reinterpret historical records"
+}

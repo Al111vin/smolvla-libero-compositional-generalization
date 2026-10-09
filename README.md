@@ -1614,3 +1614,11 @@ sources. This supersedes the coverage limitation of the old36-frame sample witho
 altering its evidence. Four-task training has not launched; integrated-wrapper and
 final launch checks remain pending. Fold02 remains locked.
 See the [full parity result](results/teacher_native_spatial_full_parity_v1_20261009.json).
+
+Four-task final evaluation is now preregistered for96 rollouts:20 paired starts
+and4 extra init3 repeats per task, interleaved across tasks0..3. The independent
+schedule and wrapper preserve historical task0 code. Full action evidence and
+task/protocol correspondence are required before applying the registered gates;
+offline tests are interface evidence, not policy outcomes. Training and this
+evaluation have not launched. No automatic eight-task launch follows, and Fold02
+remains locked. See the [registration](results/teacher_native_spatial_4task_final_eval_registration_v1_20261009.json).
