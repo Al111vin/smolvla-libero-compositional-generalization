@@ -1581,3 +1581,11 @@ first40k child was authenticated live; completion and outcomes are still pending
 This new protocol does not rewrite V3 history.
 See the [environment result](results/teacher_native_spatial_task0_reset_render_contrast_completion_20261009.json)
 and [controlled evaluation design](results/teacher_native_spatial_task0_controlled_eval_design_v1_20261009.json).
+
+The controlled48-rollout chain subsequently exited0:40k achieved13/20 paired
+and5/5 fixed-init3 successes;80k achieved9/20 and0/5. All20 matched starts and
+each model's five init3 starts matched captured environment/input/RNG provenance.
+The40k diagnostic threshold is met, but its init3 success occurs at step299/300;
+terminal evidence and repeated traces still require review before scaling.
+This does not validate historicalV3 parity or unused-init generalization.
+See the [completion review](results/teacher_native_spatial_task0_controlled_eval_completion_review_20261009.json).

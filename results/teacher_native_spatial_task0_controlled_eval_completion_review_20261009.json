@@ -1,0 +1,26 @@
+{
+  "schema_version": 1,
+  "observed_at_utc": "2026-10-09T11:12:17Z",
+  "status": "authenticated_complete_initial_review",
+  "exit_code": 0,
+  "verified_rollouts": 48,
+  "supervisor_pid": 264357,
+  "supervisor_present_at_terminal_observation": false,
+  "models": {
+    "40k": {"paired_successes": 13, "paired_total": 20, "successful_init_indices": [0,1,3,4,7,9,11,12,13,14,15,16,17], "fixed_init3_successes": 5, "fixed_init3_total": 5, "fixed_init3_steps": [299,299,299,299,299], "registered_gate_passed": true},
+    "80k": {"paired_successes": 9, "paired_total": 20, "successful_init_indices": [4,6,7,9,11,15,16,17,19], "fixed_init3_successes": 0, "fixed_init3_total": 5, "fixed_init3_steps": [300,300,300,300,300], "registered_gate_passed": false}
+  },
+  "80k_gains_over_40k": [6,19],
+  "80k_losses_against_40k": [0,1,3,12,13,14],
+  "provenance_audit": {
+    "all20_cross_model_pairs_match": true,
+    "all5_within_model_init3_starts_match_for_each_model": true,
+    "equal_fields": ["model_arrays","simulator_state","images","frame","input","processor","rng"],
+    "within_model_repeat_loaded_model_matches": true
+  },
+  "scope": "New controlled environment seed protocol on previously used initializations; not historical V3 parity or unused-init generalization",
+  "interpretation": "40k satisfies the registered diagnostic threshold in this controlled environment. Increasing to80k did not improve this comparison. The40k init3 success occurs at step299, close to the300-step cap, and requires terminal evidence review before scaling.",
+  "next_action": "Independently revalidate full48 schedule, CSV outcomes, terminal success semantics and repeated action traces; compare and register exposure-matched scaling plans only after review",
+  "fold02_and_scaling": "not launched; remain locked pending final evidence review and a registered plan",
+  "remote_root": "/root/smolvla-eval-prep/results/task0_controlled_eval_v1_20261009"
+}
