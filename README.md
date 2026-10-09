@@ -1589,3 +1589,12 @@ The40k diagnostic threshold is met, but its init3 success occurs at step299/300;
 terminal evidence and repeated traces still require review before scaling.
 This does not validate historicalV3 parity or unused-init generalization.
 See the [completion review](results/teacher_native_spatial_task0_controlled_eval_completion_review_20261009.json).
+
+Subsequent authenticated review revalidated all48 scheduled protocols, summary
+and action CSVs, outcomes and reward sums. Every success flag matched positive
+sparse task reward. Each model's five init3 action/robot-state CSVs were byte-identical;
+40k's reward1 occurred at zero-based step298, before the300-action cap.
+The registered controlled-environment40k single-task gate is therefore satisfied.
+This permits designing exposure-matched scaling, not an automatic GPU launch;
+Fold02 remains locked and unseen-init/post-success persistence claims are not made.
+See the [full48 review](results/teacher_native_spatial_task0_controlled_eval_full48_revalidation_20261009.json).

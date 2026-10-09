@@ -1,0 +1,18 @@
+{
+  "schema_version": 1,
+  "status": "authenticated_full48_revalidation_pass",
+  "remote_exit_code": 0,
+  "schedule_records": 48,
+  "completion_equals_ordered_verified_records": true,
+  "all_schedule_fields_match": true,
+  "all_protocol_records_revalidated": true,
+  "all_summary_and_action_csvs_revalidated": true,
+  "all_outcomes_and_step_counts_match_csvs": true,
+  "all_success_flags_equal_positive_total_reward": true,
+  "validation_scope": "suite task init seeds wait10 actionsteps25 max300; action count/order; finite raw/processed/applied actions and15 robot-state fields; exact clipping; reward sums; complete ordered48-record schedule",
+  "supporting_provenance": "teacher_native_spatial_task0_controlled_eval_completion_review_20261009.json",
+  "supporting_terminal_repeat_audit": "teacher_native_spatial_task0_controlled_init3_terminal_audit_20261009.json",
+  "scientific_decision": "40k passes registered controlled-environment single-task diagnostic gate13/20 and5/5.80k fails9/20 and0/5. No inference of monotonic benefit from more training, historicalV3 parity, unseen-init generalization or post-success persistence.",
+  "next": "Compare and preregister per-task sample and learning-rate exposure matched4-task alternatives. No new GPU job until data/config/resource preflight passes.",
+  "fold02": "locked"
+}
