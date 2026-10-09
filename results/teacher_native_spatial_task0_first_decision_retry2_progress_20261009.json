@@ -1,0 +1,17 @@
+{
+  "schema_version": 1,
+  "status": "partial_1_of_3_processes_verified",
+  "supervisor_pid": 263693,
+  "authenticated_live_child_pid": 263781,
+  "exit_marker": "absent at observation",
+  "first_process_calls": 2,
+  "same_input_and_restored_rng": true,
+  "raw_and_processed_outputs_exactly_equal": true,
+  "closed_loop_action_steps": 0,
+  "model_digest": "27d5447971fd543a8d0d15e34c920f8261dd2d7083f075ff0df5e6c3de5a48c3",
+  "processor_digest": "40cc11febeae134136dfc7fe188bf133595aff58a1c9b694326ed58c05db9b9f",
+  "input_digest": "3fba1b90b039eb34fb77cbdd664b1bada687eb2df8d6af2da531267c464114e5",
+  "rng_digest": "2bc19ff94f651d5e3d7069ad22086e9dfe7229273d99af6a2a47c0f5974d14e3",
+  "interpretation": "One within-process first-decision pair reproduces exactly under restored RNG. Cross-process results pending; this does not prove closed-loop repeatability or explain historical divergence.",
+  "next": "Poll existing supervisor and remaining records; do not relaunch"
+}
