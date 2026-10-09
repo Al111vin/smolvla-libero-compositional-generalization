@@ -18,3 +18,8 @@ def validate_protocol(row, protocol):
     assert protocol["environment_seed"] == 12351
     assert protocol["wait"] == 10 and protocol["max_steps"] == 300
     assert protocol["action_steps"] == 25
+
+
+def environment_signature(capture):
+    assert capture["images"] and capture["model_arrays"]
+    return {k: capture[k] for k in ("model_arrays", "simulator_state", "images", "frame")}
