@@ -1,0 +1,9 @@
+{
+  "status": "prelaunch_budget_arithmetic_corrected",
+  "supersedes_only": "evaluation count80 in exposure_matched_scaling_options_v1_20261009; old design retained unchanged",
+  "calculation": "Four tasks times (20 paired init +4 extra init3) equals96, not80",
+  "registered_corrected_budget": {"training_updates": 160000, "tasks": 4, "evaluations_per_task": 24, "total_final_evaluations": 96},
+  "reason": "Preserve the specified per-task repeat protocol;80 evaluations would silently omit16 registered repetitions. This correction is within user-authorized bounded evaluation-budget changes.",
+  "launch_status": "not launched",
+  "fold02": "locked"
+}
