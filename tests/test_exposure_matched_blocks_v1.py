@@ -1,9 +1,45 @@
 import unittest
 from collections import Counter
-from scripts.exposure_matched_blocks_v1 import balanced_batches, baseline_lr_for_update
+from scripts.exposure_matched_blocks_v1 import balanced_batches, baseline_lr_for_update, BlockSchedulerAdapter
+
+
+class FakeScheduler:
+    def __init__(self):
+        self.optimizer = type("Optimizer", (), {"param_groups": [{"lr": 1.0}]})()
+        self.last_epoch = 0
+
+    def step(self):
+        self.last_epoch += 1
+        self.optimizer.param_groups[0]["lr"] = 1.0 / (self.last_epoch + 1)
+
+    def get_last_lr(self):
+        return [1.0 / (self.last_epoch + 1)]
+
+    def state_dict(self):
+        return {"last_epoch": self.last_epoch}
+
+    def load_state_dict(self, state):
+        self.last_epoch = state["last_epoch"]
 
 
 class ExposureTests(unittest.TestCase):
+    def test_adapter_and_resume(self):
+        adapter = BlockSchedulerAdapter(FakeScheduler(), task_count=4, blocks=3)
+        trace = []
+        for i in range(12):
+            trace.append(adapter.optimizer.param_groups[0]["lr"])
+            adapter.step()
+            if i == 5:
+                state = adapter.state_dict()
+                adapter = BlockSchedulerAdapter(FakeScheduler(), task_count=4, blocks=3)
+                adapter.load_state_dict(state)
+        self.assertEqual(trace, [1.0]*4 + [0.5]*4 + [1.0/3]*4)
+        with self.assertRaises(ValueError):
+            adapter.step()
+        state["baseline_scheduler"]["last_epoch"] = 99
+        with self.assertRaises(ValueError):
+            adapter.load_state_dict(state)
+
     def test_full_budget(self):
         pools = {t: list(range(t * 10, t * 10 + t + 3)) for t in range(4)}
         counts = Counter()
