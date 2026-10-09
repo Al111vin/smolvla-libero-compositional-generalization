@@ -1732,3 +1732,12 @@ Eight-task expansion and Fold02 remain locked. See the
 [midpoint design](results/teacher_native_spatial_4task_intermediate_control_design_v1_20261009.json),
 [exposure preflight](results/teacher_native_spatial_4task_midpoint_exposure_preflight_v1_20261009.json)
 and [launch evidence](results/teacher_native_spatial_4task_midpoint_launch_v1_20261009.json).
+
+The prespecified midpoint chain finished all40 rollouts with exit0. Read-only
+CPU raw-evidence audit passed checkpoint hashes, protocol/action validation,
+loaded-policy consistency and all20 paired initial environments. Single020000
+scored10/20 and joint080000 scored12/20. This is a diagnostic of previously used
+initializations, not a best-checkpoint selection or replacement for the failed
+final progression gate. No fixed-init repetition gate was tested at midpoint.
+Eight-task expansion and Fold02 remain locked; no additional training is started.
+See the [midpoint result](results/teacher_native_spatial_4task_midpoint_final_result_v1_20261010.json).

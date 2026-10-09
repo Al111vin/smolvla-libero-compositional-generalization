@@ -1,0 +1,419 @@
+{
+  "status": "complete40_raw_audit_passed",
+  "records": [
+    {
+      "model": "single20k",
+      "kind": "paired",
+      "init": 0,
+      "repeat": 0,
+      "cli_seed": 12345,
+      "key": "paired_0_r0_single20k",
+      "success": false,
+      "steps": 300
+    },
+    {
+      "model": "joint80k",
+      "kind": "paired",
+      "init": 0,
+      "repeat": 0,
+      "cli_seed": 12345,
+      "key": "paired_0_r0_joint80k",
+      "success": true,
+      "steps": 144
+    },
+    {
+      "model": "single20k",
+      "kind": "paired",
+      "init": 1,
+      "repeat": 0,
+      "cli_seed": 12346,
+      "key": "paired_1_r0_single20k",
+      "success": true,
+      "steps": 104
+    },
+    {
+      "model": "joint80k",
+      "kind": "paired",
+      "init": 1,
+      "repeat": 0,
+      "cli_seed": 12346,
+      "key": "paired_1_r0_joint80k",
+      "success": true,
+      "steps": 94
+    },
+    {
+      "model": "single20k",
+      "kind": "paired",
+      "init": 2,
+      "repeat": 0,
+      "cli_seed": 12347,
+      "key": "paired_2_r0_single20k",
+      "success": false,
+      "steps": 300
+    },
+    {
+      "model": "joint80k",
+      "kind": "paired",
+      "init": 2,
+      "repeat": 0,
+      "cli_seed": 12347,
+      "key": "paired_2_r0_joint80k",
+      "success": false,
+      "steps": 300
+    },
+    {
+      "model": "single20k",
+      "kind": "paired",
+      "init": 3,
+      "repeat": 0,
+      "cli_seed": 12348,
+      "key": "paired_3_r0_single20k",
+      "success": true,
+      "steps": 81
+    },
+    {
+      "model": "joint80k",
+      "kind": "paired",
+      "init": 3,
+      "repeat": 0,
+      "cli_seed": 12348,
+      "key": "paired_3_r0_joint80k",
+      "success": true,
+      "steps": 92
+    },
+    {
+      "model": "single20k",
+      "kind": "paired",
+      "init": 4,
+      "repeat": 0,
+      "cli_seed": 12349,
+      "key": "paired_4_r0_single20k",
+      "success": true,
+      "steps": 81
+    },
+    {
+      "model": "joint80k",
+      "kind": "paired",
+      "init": 4,
+      "repeat": 0,
+      "cli_seed": 12349,
+      "key": "paired_4_r0_joint80k",
+      "success": true,
+      "steps": 127
+    },
+    {
+      "model": "single20k",
+      "kind": "paired",
+      "init": 5,
+      "repeat": 0,
+      "cli_seed": 12350,
+      "key": "paired_5_r0_single20k",
+      "success": false,
+      "steps": 300
+    },
+    {
+      "model": "joint80k",
+      "kind": "paired",
+      "init": 5,
+      "repeat": 0,
+      "cli_seed": 12350,
+      "key": "paired_5_r0_joint80k",
+      "success": false,
+      "steps": 300
+    },
+    {
+      "model": "single20k",
+      "kind": "paired",
+      "init": 6,
+      "repeat": 0,
+      "cli_seed": 12351,
+      "key": "paired_6_r0_single20k",
+      "success": false,
+      "steps": 300
+    },
+    {
+      "model": "joint80k",
+      "kind": "paired",
+      "init": 6,
+      "repeat": 0,
+      "cli_seed": 12351,
+      "key": "paired_6_r0_joint80k",
+      "success": true,
+      "steps": 147
+    },
+    {
+      "model": "single20k",
+      "kind": "paired",
+      "init": 7,
+      "repeat": 0,
+      "cli_seed": 12352,
+      "key": "paired_7_r0_single20k",
+      "success": true,
+      "steps": 83
+    },
+    {
+      "model": "joint80k",
+      "kind": "paired",
+      "init": 7,
+      "repeat": 0,
+      "cli_seed": 12352,
+      "key": "paired_7_r0_joint80k",
+      "success": true,
+      "steps": 95
+    },
+    {
+      "model": "single20k",
+      "kind": "paired",
+      "init": 8,
+      "repeat": 0,
+      "cli_seed": 12353,
+      "key": "paired_8_r0_single20k",
+      "success": false,
+      "steps": 300
+    },
+    {
+      "model": "joint80k",
+      "kind": "paired",
+      "init": 8,
+      "repeat": 0,
+      "cli_seed": 12353,
+      "key": "paired_8_r0_joint80k",
+      "success": true,
+      "steps": 239
+    },
+    {
+      "model": "single20k",
+      "kind": "paired",
+      "init": 9,
+      "repeat": 0,
+      "cli_seed": 12354,
+      "key": "paired_9_r0_single20k",
+      "success": true,
+      "steps": 76
+    },
+    {
+      "model": "joint80k",
+      "kind": "paired",
+      "init": 9,
+      "repeat": 0,
+      "cli_seed": 12354,
+      "key": "paired_9_r0_joint80k",
+      "success": true,
+      "steps": 87
+    },
+    {
+      "model": "single20k",
+      "kind": "paired",
+      "init": 10,
+      "repeat": 0,
+      "cli_seed": 12355,
+      "key": "paired_10_r0_single20k",
+      "success": false,
+      "steps": 300
+    },
+    {
+      "model": "joint80k",
+      "kind": "paired",
+      "init": 10,
+      "repeat": 0,
+      "cli_seed": 12355,
+      "key": "paired_10_r0_joint80k",
+      "success": false,
+      "steps": 300
+    },
+    {
+      "model": "single20k",
+      "kind": "paired",
+      "init": 11,
+      "repeat": 0,
+      "cli_seed": 12356,
+      "key": "paired_11_r0_single20k",
+      "success": false,
+      "steps": 300
+    },
+    {
+      "model": "joint80k",
+      "kind": "paired",
+      "init": 11,
+      "repeat": 0,
+      "cli_seed": 12356,
+      "key": "paired_11_r0_joint80k",
+      "success": true,
+      "steps": 86
+    },
+    {
+      "model": "single20k",
+      "kind": "paired",
+      "init": 12,
+      "repeat": 0,
+      "cli_seed": 12357,
+      "key": "paired_12_r0_single20k",
+      "success": false,
+      "steps": 300
+    },
+    {
+      "model": "joint80k",
+      "kind": "paired",
+      "init": 12,
+      "repeat": 0,
+      "cli_seed": 12357,
+      "key": "paired_12_r0_joint80k",
+      "success": false,
+      "steps": 300
+    },
+    {
+      "model": "single20k",
+      "kind": "paired",
+      "init": 13,
+      "repeat": 0,
+      "cli_seed": 12358,
+      "key": "paired_13_r0_single20k",
+      "success": false,
+      "steps": 300
+    },
+    {
+      "model": "joint80k",
+      "kind": "paired",
+      "init": 13,
+      "repeat": 0,
+      "cli_seed": 12358,
+      "key": "paired_13_r0_joint80k",
+      "success": false,
+      "steps": 300
+    },
+    {
+      "model": "single20k",
+      "kind": "paired",
+      "init": 14,
+      "repeat": 0,
+      "cli_seed": 12359,
+      "key": "paired_14_r0_single20k",
+      "success": true,
+      "steps": 80
+    },
+    {
+      "model": "joint80k",
+      "kind": "paired",
+      "init": 14,
+      "repeat": 0,
+      "cli_seed": 12359,
+      "key": "paired_14_r0_joint80k",
+      "success": false,
+      "steps": 300
+    },
+    {
+      "model": "single20k",
+      "kind": "paired",
+      "init": 15,
+      "repeat": 0,
+      "cli_seed": 12360,
+      "key": "paired_15_r0_single20k",
+      "success": true,
+      "steps": 80
+    },
+    {
+      "model": "joint80k",
+      "kind": "paired",
+      "init": 15,
+      "repeat": 0,
+      "cli_seed": 12360,
+      "key": "paired_15_r0_joint80k",
+      "success": true,
+      "steps": 102
+    },
+    {
+      "model": "single20k",
+      "kind": "paired",
+      "init": 16,
+      "repeat": 0,
+      "cli_seed": 12361,
+      "key": "paired_16_r0_single20k",
+      "success": true,
+      "steps": 81
+    },
+    {
+      "model": "joint80k",
+      "kind": "paired",
+      "init": 16,
+      "repeat": 0,
+      "cli_seed": 12361,
+      "key": "paired_16_r0_joint80k",
+      "success": true,
+      "steps": 87
+    },
+    {
+      "model": "single20k",
+      "kind": "paired",
+      "init": 17,
+      "repeat": 0,
+      "cli_seed": 12362,
+      "key": "paired_17_r0_single20k",
+      "success": true,
+      "steps": 80
+    },
+    {
+      "model": "joint80k",
+      "kind": "paired",
+      "init": 17,
+      "repeat": 0,
+      "cli_seed": 12362,
+      "key": "paired_17_r0_joint80k",
+      "success": true,
+      "steps": 95
+    },
+    {
+      "model": "single20k",
+      "kind": "paired",
+      "init": 18,
+      "repeat": 0,
+      "cli_seed": 12363,
+      "key": "paired_18_r0_single20k",
+      "success": false,
+      "steps": 300
+    },
+    {
+      "model": "joint80k",
+      "kind": "paired",
+      "init": 18,
+      "repeat": 0,
+      "cli_seed": 12363,
+      "key": "paired_18_r0_joint80k",
+      "success": false,
+      "steps": 300
+    },
+    {
+      "model": "single20k",
+      "kind": "paired",
+      "init": 19,
+      "repeat": 0,
+      "cli_seed": 12364,
+      "key": "paired_19_r0_single20k",
+      "success": true,
+      "steps": 89
+    },
+    {
+      "model": "joint80k",
+      "kind": "paired",
+      "init": 19,
+      "repeat": 0,
+      "cli_seed": 12364,
+      "key": "paired_19_r0_joint80k",
+      "success": false,
+      "steps": 300
+    }
+  ],
+  "successes": {
+    "single20k": 10,
+    "joint80k": 12
+  },
+  "paired_initial_environments_matched": 20,
+  "limits": [
+    "Previously used initializations",
+    "No fixed-init stability gate replacement",
+    "No causal interference claim"
+  ],
+  "execution_exit_code": 0,
+  "source_root": "/root/smolvla-eval-prep/results/task0_matched_midpoint_eval_v1_20261009",
+  "eight_task_expansion_locked": true,
+  "fold02_locked": true
+}
