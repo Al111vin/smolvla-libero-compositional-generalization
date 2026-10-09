@@ -1,0 +1,23 @@
+{
+  "status": "design_selected_pending_exposure_hash_and_execution_preflight",
+  "question": "Does task0 success change nonmonotonically between20k and40k task updates, and does the single-versus-joint gap already exist at20k matched exposure?",
+  "rationale": "Completed CPU replay shows heterogeneous lost/gained behavior, not a uniform rendering or state-replay defect. Existing intermediate checkpoints permit an exposure-matched learning-stage comparison without any new training.",
+  "authoritative_inventory": {
+    "single40k_run": ["010000", "020000", "030000", "040000"],
+    "joint160k_run": ["040000", "080000", "120000", "160000"]
+  },
+  "options": [
+    {"id": "new_training_seed_or_extend", "decision": "defer", "reason": "Higher cost; resolve existing learning-stage evidence first"},
+    {"id": "all4_checkpoint_stages", "decision": "defer", "reason": "120 new rollouts versus40 for one prespecified intermediate stage"},
+    {"id": "lost_init_only_selection", "decision": "reject_as_primary", "reason": "Outcome-selected starts cannot support a full paired learning-stage comparison"},
+    {"id": "single020000_joint080000_all20", "decision": "selected_for_preflight", "reason": "One prespecified midpoint; same20 official paired inits; reuse final-stage results; no new training"}
+  ],
+  "hypothesis": "At the prespecified midpoint, either condition can outperform its final checkpoint, falsifying monotonic improvement as an explanation for simply extending training. Compare paired discordance descriptively; one training seed cannot isolate causal interference.",
+  "candidate_budget": {"new_training_updates": 0, "new_policy_rollouts": 40, "max_actions_per_rollout": 300, "automatic_retries": 0, "checkpoint_search": "none"},
+  "protocol": "Same controlled environment seed12351, benchmark init0..19, wait10, max300, n_action_steps25, CLI seed12345+i/effective12345+2i. No extra init3 repeats in this trajectory diagnostic; it cannot replace the registered stability gate.",
+  "before_execution": ["Prove20k task updates/40k sample draws per task at joint080000 from sampler schedule and checkpoint training state", "Verify LR exposure against existing single040k recipe prefix", "Pin checkpoint and evaluator/wrapper hashes and independent paths", "Register outcome interpretation and wall budget before launch", "Check GPU exclusivity, disk and locks"],
+  "limits": ["Previously used inits, not heldout validation", "No selecting best checkpoint to retroactively pass final gate", "No causal gradient-interference claim", "Current CPU/contact proxies remain diagnostic"],
+  "execution": "not_started",
+  "eight_task_progression": "locked",
+  "fold02": "locked"
+}
