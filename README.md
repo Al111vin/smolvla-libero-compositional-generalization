@@ -1505,3 +1505,27 @@ trainer was inspected and gates environment rollouts on a non-null environment;
 the resolved 80k config and scheduler values matched the registered design.
 The launch nevertheless aborted before training as documented above. This
 authorization does not permit policy inference/evaluation.
+
+The user subsequently authorized one corrected launch with a fresh output path;
+the original failed directory and logs remain protected. Direct SSH read-only
+checks on 2026-10-09 matched the registered source/model/metadata, slice-audit,
+trainer, and scheduler hashes. The installed configuration resolves `env=None`;
+`eval_steps` and `dataset.eval_split` are absent fields in this installed version,
+not explicit null values. The registered retry builder reproduces the exact retry
+config and its three offline tests pass. At that read-only snapshot,
+dataset-content/filtered-loader, constructed-scheduler, and final resource/lock/path
+gates were still pending. See the independent
+[read-only retry preflight](results/teacher_native_spatial_task0_80k_retry1_readonly_preflight_v1_20261009.json).
+
+Those remaining gates subsequently passed: all 5068 task-0 frames and 10136
+images matched, frame indices were complete and unique, the filtered loader
+returned only the 50 task-0 episodes, and the constructed scheduler resolved to
+2666 warmup / 80000 decay steps. The corrected 80k training was launched once
+on 2026-10-09 at 01:52:57 UTC with an SSH-independent supervisor and external
+logging. Optimizer progress was verified at step 100; training is not yet complete.
+The user authorized a final-checkpoint evaluation of 20 paired initializations
+plus four additional fixed-init3 repeats (24 rollouts), conditional on successful
+training and evaluation preflight. Later retries and bounded new experiments are
+also authorized, but each requires a registered hypothesis and independent
+evidence; Fold02/task-count scaling still require the scientific success gate.
+See the [launch and authorization record](results/teacher_native_spatial_task0_80k_retry1_launch_v1_20261009.json).
