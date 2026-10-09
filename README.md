@@ -1750,3 +1750,15 @@ inits0 and8 with no gains (exact paired p=0.5). This supports neither guaranteed
 monotonic improvement nor a causal interference conclusion. No new GPU work
 was started. See [contrasts](results/teacher_native_spatial_4task_midpoint_contrasts_v1_20261010.json)
 and the subsequent [cross-stage audit](results/teacher_native_spatial_4task_cross_stage_provenance_v1_20261010.json).
+
+The four selected lost-success trajectories diverge at the first action; neither
+early gripper switching nor action magnitude supplies a uniform explanation.
+The first CPU observer attempt stopped during OSMesa import before simulation;
+its failure remains preserved. A separately registered rendering-disabled v2
+completed all four stored-action replays with exact robot-state/reward parity.
+Final joint init0 reaches lift/transport proxies but no official success; init8
+reaches neither proxy, while both midpoint traces succeed. These are heterogeneous
+selected-case observations, not necessary grasp classifiers or causal training
+mechanisms. No policy inference, GPU rendering or new training was used.
+Eight-task expansion and Fold02 remain locked. See the
+[v2 CPU result](results/teacher_native_spatial_4task_midpoint_cpu_observers_result_v2_20261010.json).
