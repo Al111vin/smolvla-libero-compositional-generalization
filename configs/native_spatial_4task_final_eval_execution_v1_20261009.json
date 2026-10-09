@@ -1,0 +1,15 @@
+{
+  "root": "/root/smolvla-eval-prep/results/native_spatial_4task_controlled_final_eval_v1_20261009",
+  "checkpoint": "/root/smolvla-training-prep/results/training/teacher_native_spatial_4task_homogeneous_160k_batch2_v1_20261009/checkpoints/160000/pretrained_model",
+  "model_sha": "475089185e820b0cd994a5b80365ebd4ea843ac355ef76d5c81d60b01b302b1e",
+  "evaluator": "/root/smolvla-eval-prep/scripts/eval_v3_task0_state_capture_v1.py",
+  "code_hashes": {
+    "capture_reset_render_provenance_v1.py": "08a28b35654c1e7af9aec78fcca84e03c0db233810fd1f2e1b74931f8bade6fc",
+    "controlled_eval_hooks_v1.py": "88c519c9d3733fdb9c6b74a88e7d4ee15930fb492d360d7d4b083728bfd31ae2",
+    "diagnostic_process_guard_v1.py": "e5f24725836e4c9178b247332cb33e1eafa9224ed22e4d016fff4778787cd49f",
+    "eval_scaling_environment_v1.py": "d11d463287ad08f828748126f8a666faa5404e3a6a7f2de14d4757de2559da2f",
+    "first_decision_provenance_v1.py": "d098b099ebad38c750abc0f0d142109695daaa3823d0901ff6b13db9106d8981",
+    "run_scaling_eval_v1.py": "acb7c9349a6e8598856c3a6d9119aa905be05a5c2252d66428bce9f673ae1fea",
+    "scaling_eval_schedule_v1.py": "094aad5affd0e9c2a29b68a49aab2fd61feb6fa9e4365ec09a3d45da675e9065"
+  }
+}

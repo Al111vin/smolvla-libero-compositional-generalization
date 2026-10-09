@@ -1,0 +1,20 @@
+{
+  "status": "authenticated_first_rollout_verified_supervisor_alive",
+  "launch_time_utc": "2026-10-09T20:56:20.772282Z",
+  "observed_at_utc": "2026-10-09T20:57:30Z",
+  "supervisor_pid": 446886,
+  "observed_child_pid": 447229,
+  "launch_count": 1,
+  "manifest_sha256": "22fd50f69836e8f150af8b1a9de418ac8450a003a95fb64006756080d20c3b07",
+  "final_model_sha256": "475089185e820b0cd994a5b80365ebd4ea843ac355ef76d5c81d60b01b302b1e",
+  "training_steps": 160000,
+  "training_exit_code": 0,
+  "verified_rollouts_at_observation": 1,
+  "budget": 96,
+  "evaluation_exit_marker_absent": true,
+  "root": "/root/smolvla-eval-prep/results/native_spatial_4task_controlled_final_eval_v1_20261009",
+  "recovery": "/root/smolvla-eval-prep/recovery/native_spatial_4task_controlled_final_eval_v1_20261009",
+  "next_action": "Monitor this same supervisor and current child. Validate all96 outcomes and provenance before applying registered gates. No automatic task-count expansion.",
+  "fold02": "locked",
+  "evidence_policy": "Only lightweight config and state summaries synchronized; model, raw traces, videos, logs and credentials stay remote."
+}

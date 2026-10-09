@@ -1632,3 +1632,16 @@ supervisor is prepared but has not executed; final checkpoint verification and
 independent deployment checks are still required. No eight-task run or Fold02
 unlock is implied. See the [launch evidence](results/teacher_native_spatial_4task_launch_v1_20261009.json)
 and [optimizer observation](results/teacher_native_spatial_4task_first_optimizer_observation_v1_20261009.json).
+
+On 2026-10-09 at20:54:55UTC, authenticated checks confirmed four-task training
+finished160000 updates with exit0. All seven required final checkpoint files are
+nonempty; the model SHA-256 is
+`475089185e820b0cd994a5b80365ebd4ea843ac355ef76d5c81d60b01b302b1e`.
+Final code/checkpoint hashes, available GPU lock, no conflicting processes,
+disk space and absent evaluation paths passed the registered checks. The96-rollout
+evaluation launched once at20:56:20UTC (supervisor446886). At20:57:30UTC the
+supervisor and next child were alive and the first rollout had passed protocol
+and full-action validation. Evaluation completion and progression gates remain
+unproven. Fold02 stays locked. See the
+[final preflight](results/teacher_native_spatial_4task_final_checkpoint_preflight_v1_20261009.json)
+and [evaluation launch](results/teacher_native_spatial_4task_final_eval_launch_v1_20261009.json).
