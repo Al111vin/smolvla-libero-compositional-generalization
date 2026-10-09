@@ -1,0 +1,16 @@
+{
+  "schema_version": 1,
+  "status": "authenticated_complete_exit0",
+  "processes": 3,
+  "policy_calls": 6,
+  "within_process_exact_output_pairs": [true, true, true],
+  "unique_model_digests": 1,
+  "unique_processor_digests": 1,
+  "unique_flat_simulator_state_digests": 1,
+  "unique_pixel_digests": 3,
+  "unique_preprocessed_input_digests": 3,
+  "closed_loop_action_steps": 0,
+  "conclusion": "Each fixed-input/restored-RNG first-call pair reproduced exactly. Independent processes had different visual inputs despite identical flattened simulator state. Cross-process action differences therefore cannot be assigned to GPU nondeterminism.",
+  "limitations": "First decision only, not closed-loop stability; pixel variation cause unresolved and aggregate RNG also varies across processes. No training or task expansion follows this diagnostic alone.",
+  "next": "Read-only inspect rendering/reset provenance and RNG component capture; register a bounded causal contrast before new inference."
+}
