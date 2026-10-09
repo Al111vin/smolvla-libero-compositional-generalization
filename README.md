@@ -1598,3 +1598,11 @@ The registered controlled-environment40k single-task gate is therefore satisfied
 This permits designing exposure-matched scaling, not an automatic GPU launch;
 Fold02 remains locked and unseen-init/post-success persistence claims are not made.
 See the [full48 review](results/teacher_native_spatial_task0_controlled_eval_full48_revalidation_20261009.json).
+
+An authenticated CPU-only statistics audit found that the successful task0 40k
+checkpoint already uses full tasks0..3 action/state statistics: all20 saved-tensor
+comparisons matched exactly. The four-task design will pin these same statistics,
+avoiding a preprocessing change. Task0 training episodes are restricted, but its
+statistics provenance is not task0-only; no held-out generalization claim follows.
+Sampler/LR/data/resource preflight remains pending and no scaling run has launched.
+See the [statistics audit](results/teacher_native_spatial_baseline_statistics_audit_v1_20261009.json).

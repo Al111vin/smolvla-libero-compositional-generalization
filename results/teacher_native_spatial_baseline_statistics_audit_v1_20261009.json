@@ -1,0 +1,20 @@
+{
+  "schema_version": 1,
+  "status": "authenticated_cpu_readonly_comparison_passed",
+  "baseline": "successful controlled task0 40k checkpoint",
+  "finding": "Baseline action and observation.state processor statistics exactly match the full tasks0..3 dataset statistics at saved tensor dtype, not task0-only statistics.",
+  "compared_fields": ["min", "max", "mean", "std", "count", "q01", "q10", "q50", "q90", "q99"],
+  "all_20_comparisons_torch_equal": true,
+  "statistics_frame_count": 22709,
+  "task0_training_frame_count": 5068,
+  "sha256": {
+    "baseline_normalizer_safetensors": "c7ea1496d6aceee09f36109a07ba63e1c4c1d7c323ec3699247294ff2faa10db",
+    "full_dataset_meta_stats_json": "29aff99c2a83a5a60265e7ccef182f501e41b6e0215f8c8796ee24bf41b55227",
+    "baseline_train_config_json": "fa69b7965b3769934cb4c96824b74fccd44981477daebfcf886459c42894b67b"
+  },
+  "design_decision": "Pin and reuse baseline full-dataset statistics for the exposure-matched four-task comparison. Recomputing task0-only statistics would change the successful baseline preprocessing.",
+  "scope_limit": "Task0 training uses its episode subset, but preprocessing statistics include tasks0..3. This is not a pure task0-only preprocessing baseline. No held-out leakage or generalization claim is established by this comparison.",
+  "execution": "No training, inference, evaluation, or remote mutation performed. Authenticated resource check found GPU idle and old training/evaluation supervisor PIDs absent.",
+  "remaining_preflight": "Balanced-block sampler, actual scheduler ordering/LR trace, full four-task data parity, manifests and resource/path checks remain required before any new GPU launch.",
+  "fold02": "locked"
+}
