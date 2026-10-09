@@ -1,0 +1,10 @@
+{
+  "status": "offline_component_tests_passed_not_runtime_preflight",
+  "tests_passed": 3,
+  "full_budget_verified": {"blocks": 40000, "updates": 160000, "batch_size": 2, "tasks": 4, "draws_per_task": 80000},
+  "checks": ["Each four-update block contains every task exactly once", "Every batch is homogeneous and indices remain in its task pool", "Seeded sequence is reproducible", "Finite LR mapping bounds reject budget overflow", "All tasks have identical sample-weighted exposure to supplied synthetic LR trace"],
+  "authenticated_installed_source_observation": "lerobot_train.update_policy calls optimizer.step, then zero_grad, then lr_scheduler.step; logged train_metrics.lr is post-scheduler, not the LR used for that optimizer update.",
+  "required_next": "Capture actual baseline pre-optimizer LR trace; integrate new sampler and adapter in independent trainer wrapper; test actual Accelerate loader and optimizer ordering. Synthetic LR tests are not proof of installed runtime equivalence.",
+  "gpu_work": "none",
+  "fold02": "locked"
+}
