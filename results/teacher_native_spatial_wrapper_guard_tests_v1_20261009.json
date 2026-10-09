@@ -1,0 +1,10 @@
+{
+  "status": "offline_guard_tests_passed",
+  "test_modules": ["tests.test_exposure_matched_train_wrapper_v1", "tests.test_exposure_matched_blocks_v1"],
+  "tests_passed": 9,
+  "new_checks": ["Two consecutive balanced blocks accepted", "Duplicate task within a block rejected before optimizer call", "Skipped optimizer update raises and stops", "Distributed execution rejected before optimizer call"],
+  "scope_limit": "Fake update function and loader installation mocked; these tests verify wrapper guard bindings/state, not installed update_policy execution, CUDA training or config completeness.",
+  "remaining": "Actual installed update-policy CPU test, fresh-base processor and strict configuration/hash/path manifest checks before launch",
+  "gpu_work": "none",
+  "fold02": "locked"
+}
