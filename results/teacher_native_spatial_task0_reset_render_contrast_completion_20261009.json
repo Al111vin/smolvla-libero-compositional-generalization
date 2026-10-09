@@ -1,0 +1,12 @@
+{
+  "schema_version": 1,
+  "status": "authenticated_six_records_exit0",
+  "policy_calls": 0,
+  "predicted_actions": 0,
+  "frozen_order": {"processes": 3, "unique_dynamic_states": 1, "unique_body_pos": 3, "unique_body_quat": 3, "unique_agentview_images": 3, "unique_hand_images": 3},
+  "preseed": {"processes": 3, "unique_dynamic_states": 1, "unique_body_pos": 1, "unique_body_quat": 1, "unique_agentview_images": 1, "unique_hand_images": 1},
+  "other_model_fields": "geom_pos/quat/rgba, cam_pos/quat/fovy, light_pos/dir/diffuse, mat_rgba/texid, tex_data each identical within both groups",
+  "conclusion": "Preseeding before environment construction/reset removed observed body-pose and image variation across three processes. This supports reset-time model geometry as a mechanism for visual input variation outside flattened simulation state.",
+  "limits": "No unique mediation/fixture identity proof yet; seeds changed both Python and NumPy, model-loading RNG consumption omitted. No policy success or closed-loop stability measured; historical V3 counts remain unchanged.",
+  "next": "Register instrumented closed-loop protocol with early environment seeding and unchanged policy seed/wait/action budget; compare checkpoint outcomes under controlled full inputs before more training or scaling."
+}
