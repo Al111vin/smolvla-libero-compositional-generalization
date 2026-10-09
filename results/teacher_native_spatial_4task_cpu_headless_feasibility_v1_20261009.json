@@ -1,0 +1,23 @@
+{
+  "status": "static_constructor_feasibility_confirmed_runtime_parity_unproven",
+  "source": "/usr/local/miniconda3/envs/py312/lib/python3.12/site-packages/libero/libero/envs/env_wrapper.py",
+  "authenticated_host": "cpod-1v6wxcygzn32",
+  "gpu_compute_processes_at_inspection": [],
+  "findings": [
+    "OffScreenRenderEnv forcibly sets has_offscreen_renderer=True; passing False to that wrapper cannot disable rendering.",
+    "ControlEnv exposes use_camera_obs, has_renderer and has_offscreen_renderer and forwards them to the same native task constructor.",
+    "Candidate CPU replay must use ControlEnv with all three flags False, while retaining other physical constructor settings.",
+    "ControlEnv.reset internally retries RandomizationError without a bound; a bounded diagnostic must not silently inherit this retry loop."
+  ],
+  "next_checks": [
+    "Pin source hashes and exact controlled evaluator reset and seed sequence.",
+    "Register bounded direct reset and object/contact observers before running a pilot.",
+    "Verify compiled-model and initial simulator digests, then every recorded robot state and reward; stop at first mismatch."
+  ],
+  "simulation_executed": false,
+  "policy_inference_calls": 0,
+  "new_gpu_budget": 0,
+  "instance_shutdown": "not_authorized_not_performed",
+  "eight_task_progression": "locked",
+  "fold02": "locked"
+}
