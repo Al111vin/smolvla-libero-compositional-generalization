@@ -4,10 +4,22 @@ import tempfile
 import unittest
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[1] / 'scripts'))
-from run_scaling_eval_v1 import scaling_conflicts
+from run_scaling_eval_v1 import scaling_conflicts, unique_csv
 
 
 class GuardTests(unittest.TestCase):
+    def test_csv_requires_exactly_one_file(self):
+        with tempfile.TemporaryDirectory() as temp:
+            root = Path(temp)
+            with self.assertRaises(ValueError):
+                unique_csv(root, '*_summary.csv')
+            (root / 'one_summary.csv').write_text('success,steps\nTrue,1\n')
+            self.assertEqual(unique_csv(root, '*_summary.csv'),
+                             [{'success': 'True', 'steps': '1'}])
+            (root / 'two_summary.csv').write_text('success,steps\nFalse,1\n')
+            with self.assertRaises(ValueError):
+                unique_csv(root, '*_summary.csv')
+
     def test_new_consumers_detected_without_self_or_inline_false_positive(self):
         with tempfile.TemporaryDirectory() as temp:
             root = Path(temp)
