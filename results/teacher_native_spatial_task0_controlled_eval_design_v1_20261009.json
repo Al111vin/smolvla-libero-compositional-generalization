@@ -1,0 +1,20 @@
+{
+  "schema_version": 1,
+  "status": "registered_before_implementation_and_execution",
+  "hypothesis": "Reset-time model geometry variation confounded nominal fixed-init repeats. Early environment seeding should make initial complete visual/model inputs repeatable, enabling an interpretable contemporaneous checkpoint comparison.",
+  "evidence": "Six-process environment contrast: frozen order produced 3 body-pose/image digests; preseed produced1, while dynamic state stayed identical. No policy outcomes were measured.",
+  "alternatives": {"more_training_first": "reject unresolved evaluation input", "80k_only_retest": "reject historical comparison confound", "contemporaneous_40k_and_80k_controlled_inputs": "select", "rewrite_historical_V3_counts": "reject immutable old evidence"},
+  "models": ["registered40k task0 final040000", "registered80k task0 retry1 final080000"],
+  "protocol_version": "controlled_environment_seed_v1, new diagnostic protocol not historical V3 parity",
+  "environment_seed": "Python and NumPy12351 immediately before suite/environment construction, after policy/processor loading; same seed for both checkpoints and every init",
+  "policy_seed": "Keep frozen V3 NumPy/Torch/CUDA seeding after init restoration and wait; paired effective12345+2i, fixedinit3 effective12351. Explicit Python seed at environment construction is a documented protocol change.",
+  "unchanged": {"task": 0, "suite": "libero_spatial", "initialization": "benchmark", "wait_zero_steps": 10, "max_predicted_steps": 300, "n_action_steps": 25},
+  "budget": {"models": 2, "paired_inits_each": 20, "extra_init3_each": 4, "rollouts_total": 48, "timeout_seconds_each": 600, "training_updates": 0, "automatic_retries": 0},
+  "schedule": "Interleave40k/80k for init0..19 then four extra init3 repeats each. Include every completed rollout regardless of success; no success-conditioned stopping or expansion.",
+  "instrumentation": "Before first policy call record checkpoint/model/processor hashes, simulator and model-array digests, both image/frame/preprocessed-input digests, each RNG component digest. Retain per-step action/state locally remote; publish only lightweight summaries.",
+  "validity": "Assert identical initial environment/model/image digests across matched checkpoints and fixedinit3 repeats. Compare preprocessed inputs explicitly; differing processor/model hashes are tracked checkpoint differences, not assumed identical. Any protocol/capture/runtime error stops and preserves scene.",
+  "analysis": "Per-model20paired successes and fixedinit3 five outcomes; all paired transitions, exact McNemar and uncertainty. Stability threshold unchanged>=11/20 and5/5. A pass on previously used inits is not unused-init generalization.",
+  "scaling_gate": "No automatic Fold02/scaling launch; review complete-input validity and teacher single-task gate first, then separately preregister exposure-matched expansion.",
+  "preflight_required": "Locate and authenticate both checkpoint paths/hashes, confirm frozen evaluator semantics and implementation tests, register fresh unique config/output/log/PID paths and codeSHA before deployment; exclusive GPU lock and no conflicts.",
+  "limits": "Early seed is an evaluation-control change, not improved learning or exact historical reproduction; environmental geometry mediation is supported but not uniquely proven. All old V3 failures and counts stay unchanged."
+}

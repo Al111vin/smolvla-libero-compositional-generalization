@@ -1569,3 +1569,13 @@ or a closed-loop stability pass. Installed reset code can modify fixture model
 poses outside the flattened state, a candidate mechanism requiring direct array
 capture before causal attribution. See the [completion record](results/teacher_native_spatial_task0_first_decision_retry2_completion_20261009.json)
 and [read-only reset audit](results/teacher_native_spatial_task0_render_reset_source_audit_20261009.json).
+
+The environment-only six-process contrast completed: unseeded resets yielded
+three body-pose and camera-image fingerprints, while early Python/NumPy seeding
+yielded one of each. Dynamic-state fingerprints remained identical. This supports
+reset-time model geometry as an input-variation mechanism, without proving unique
+causality or policy stability. A new contemporaneous40k/80k controlled-environment
+evaluation is preregistered for48 rollouts, with the same action/wait budgets and
+unchanged stability threshold; it has not started and does not rewrite V3 history.
+See the [environment result](results/teacher_native_spatial_task0_reset_render_contrast_completion_20261009.json)
+and [controlled evaluation design](results/teacher_native_spatial_task0_controlled_eval_design_v1_20261009.json).
