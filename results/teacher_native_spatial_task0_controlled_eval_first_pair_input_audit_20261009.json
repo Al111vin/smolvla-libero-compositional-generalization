@@ -1,0 +1,17 @@
+{
+  "schema_version": 1,
+  "status": "partial_authenticated_input_audit_not_completed_comparison",
+  "supervisor_pid": 264357,
+  "active_child_pid": 264452,
+  "init": 0,
+  "40k_verified_outcome": {"success": true, "steps": 124},
+  "80k_outcome": "still_running_at_observation",
+  "equal_across_models": ["all14captured_model_arrays", "flattened_simulator_state", "both_camera_frame_images", "full_frame", "preprocessed_input", "processor", "each_Python_NumPy_TorchCPU_CUDA_RNG_component"],
+  "loaded_model_digests": {
+    "40k": "278ab273b57344b30afea9a75c192fd4e980515a118bfd6895941b7d9e1d1b29",
+    "80k": "27d5447971fd543a8d0d15e34c920f8261dd2d7083f075ff0df5e6c3de5a48c3"
+  },
+  "input_digest": "6a489f4b705881b60307975e1b32ae0697fb90dddca7a2f775e568d380c3e536",
+  "interpretation": "First pair has controlled matching initial visual/model environment and policy input/RNG. Weights differ as intended. This validates one matched start only, not48rollouts or stability.",
+  "next": "Continue same supervisor; no new launch"
+}
