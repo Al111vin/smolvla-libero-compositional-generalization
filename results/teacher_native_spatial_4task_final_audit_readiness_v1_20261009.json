@@ -1,0 +1,11 @@
+{
+  "status": "cpu_fixture_passed_real_completion_not_yet_audited",
+  "audit_source": "scripts/audit_scaling_final_evidence_v1.py",
+  "tests": "tests/test_scaling_supervisor_fixture_v1.py",
+  "fixture_scope": "All96 synthetic CSVs/protocols/captures re-read, repeated inputs and loaded model compared, gate regenerated, modified verified outcome rejected, failed evaluation rejected",
+  "test_count": 2,
+  "gpu_inference_calls": 0,
+  "deployment_policy": "No changes to running frozen evaluator, wrappers or supervisor",
+  "next": "After same evaluation terminates, run this read-only CPU audit against remote evidence; then verify task0 baseline inputs and compare outcomes before any next-stage decision",
+  "fold02": "locked"
+}

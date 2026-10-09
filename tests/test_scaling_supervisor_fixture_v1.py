@@ -11,6 +11,7 @@ from unittest.mock import patch
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[1] / 'scripts'))
 import run_scaling_eval_v1 as runner
+import audit_scaling_final_evidence_v1 as final_audit
 from scaling_eval_schedule_v1 import schedule
 
 
@@ -48,7 +49,8 @@ class SupervisorFixture(unittest.TestCase):
                 target.mkdir()
                 row = rows[key]
                 (target / 'protocol.json').write_text(json.dumps(dict(row,
-                    checkpoint=str(checkpoint), model_sha=sha)))
+                    checkpoint=str(checkpoint), model_sha=sha, evaluator_sha=sha,
+                    wrapper_sha=manifest['code_hashes']['eval_scaling_environment_v1.py'])))
                 (target / 'first_input.json').write_text(json.dumps({k: {'fixture': 1}
                     for k in ('model_arrays', 'simulator_state', 'images', 'frame',
                               'input', 'processor', 'loaded_model', 'rng')}))
@@ -78,12 +80,25 @@ class SupervisorFixture(unittest.TestCase):
             self.assertEqual(len(calls), 1 if fail_first else 96)
             if fail_first:
                 self.assertFalse((result_root / 'completion.json').exists())
+                with self.assertRaises(ValueError):
+                    final_audit.audit(result_root, manifest)
             else:
                 completion = json.loads((result_root / 'completion.json').read_text())
                 self.assertEqual(len(completion['records']), 96)
                 self.assertTrue(completion['gate']['passed'])
                 self.assertFalse(completion['gate']['automatic_next_stage'])
                 self.assertEqual(len(list(result_root.glob('*.verified.json'))), 96)
+                with patch.object(final_audit, 'EVALUATOR_SHA', sha):
+                    audited = final_audit.audit(result_root, manifest)
+                    self.assertEqual(audited['gate'], completion['gate'])
+                    self.assertEqual(len(audited['records']), 96)
+                    self.assertTrue(all(audited['init3_action_repeat_identical'].values()))
+                    first = result_root / (schedule()[0]['key'] + '.verified.json')
+                    forged = json.loads(first.read_text())
+                    forged['success'] = False
+                    first.write_text(json.dumps(forged))
+                    with self.assertRaisesRegex(ValueError, 'raw CSV'):
+                        final_audit.audit(result_root, manifest)
 
     def test_all96_file_backed_interface_rows(self):
         self.exercise()

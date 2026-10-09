@@ -1645,3 +1645,9 @@ and full-action validation. Evaluation completion and progression gates remain
 unproven. Fold02 stays locked. See the
 [final preflight](results/teacher_native_spatial_4task_final_checkpoint_preflight_v1_20261009.json)
 and [evaluation launch](results/teacher_native_spatial_4task_final_eval_launch_v1_20261009.json).
+
+The separate CPU-only [completion audit](scripts/audit_scaling_final_evidence_v1.py)
+is ready to re-read all96 protocols, CSVs and input provenance, verify the final
+model hash, compare loaded models and repeated starts, and regenerate the gate.
+Its synthetic fixture tests reject incomplete execution and forged verified
+outcomes. This changes no running evaluation code and establishes no policy result.
