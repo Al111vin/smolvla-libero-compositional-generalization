@@ -1,0 +1,19 @@
+{
+  "status": "readonly_runtime_preflight_found_observer_incompatibility_before_update",
+  "remote_exit_code": 0,
+  "installed_trainer_sha256": "e08ba26017674ac8453683e7b54810325fb381f20cb32a161c5d9aa690483449",
+  "v4_output_absent": true,
+  "verified_metrics": "MetricsTracker.steps initializes from restored step; step increments steps and samples; __setattr__ rejects new step attribute",
+  "v4_executed": false,
+  "diagnosis": "Direct metrics.step assignment would fail observer attachment; not evidence of a training failure",
+  "v5_fix": "Attach diagnostic instance method via __dict__, keeping original bound step and reading actual steps after calling it",
+  "builder": "scripts/build_accounting_cpu_probe_v5.py",
+  "v5_output_must_be_absent": "/tmp/smolvla_full_entry_accounting_cpu_probe_v5_20261011",
+  "max_cpu_updates": 1,
+  "walltime_seconds": 240,
+  "grace_seconds": 10,
+  "original_total_steps": 40000,
+  "new_gpu_budget": 0,
+  "old_v4_preserved": true,
+  "runtime_success_claimed": false
+}
