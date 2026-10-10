@@ -1,0 +1,20 @@
+{
+  "status": "authenticated_cpu_observer_failure_after_update",
+  "remote_exit_code": 1,
+  "observed_error": "AttributeError: 'CheckedScheduler' object has no attribute 'state_dict'",
+  "site": "one_update observer after original_update returned and finite loss/gradient check",
+  "actual_cpu_updates_completed_before_observer_error": 1,
+  "normal_loop_accounting_verified": false,
+  "end_training_verified": false,
+  "configured_steps": 40000,
+  "dataset_frames": 5068,
+  "dataset_episodes": 50,
+  "new_gpu_budget": 0,
+  "automatic_retry": false,
+  "checkpoint_save_enabled": false,
+  "policy_eval_enabled": false,
+  "postfailure_output_absence_verified": false,
+  "transport_diagnostic": {"authenticated_master_established": true, "observed_pending_sshd_startups": 9, "maxstartups": "10:30:100", "causal_claim": "Connection congestion hypothesis only; earlier closes not conclusively attributed"},
+  "next_action": "Inspect registered CheckedScheduler interface and verify failure scene before independent corrected observer; preserve v5",
+  "ready_to_launch": false
+}
