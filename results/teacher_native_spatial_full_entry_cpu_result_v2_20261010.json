@@ -1,0 +1,20 @@
+{
+  "status": "full_installed_train_entry_cpu_v2_passed",
+  "remote_exit_code": 0,
+  "actual_updates": 1,
+  "loss": 0.10557065904140472,
+  "grad_norm": 1.54043710231781,
+  "pre_update_lr": 0.000025625,
+  "scope": "Installed parser wrapper and train function with supplied real config, cfg.validate, single midpoint restore, real processor/model/optimizer/loader/Accelerator, half LR and guarded update",
+  "stop": "Controlled exception immediately after first real update before checkpoint/eval branches",
+  "gpu_used": false,
+  "checkpoint_saved": false,
+  "output_created": false,
+  "old_v1_failure_preserved": true,
+  "loss_grad_exact_match_prior_component_probe": true,
+  "limitations": ["CLI config construction from raw arguments not tested", "Single half-LR CPU only, not joint or CUDA/AMP", "Probe stops before train-loop accounting and graceful finalization", "Atomic GPU launcher and final cost/budget choice remain outstanding"],
+  "new_gpu_budget": 0,
+  "ready_to_launch": false,
+  "eight_task_expansion_locked": true,
+  "fold02_locked": true
+}

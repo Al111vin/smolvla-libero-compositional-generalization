@@ -1,0 +1,18 @@
+{
+  "status": "observer_interface_cause_verified",
+  "evidence": "Authenticated read-only installed lerobot/utils/logging_utils.py lines25..110: AverageMeter stores latest numeric value in val; full train constructs MetricsTracker with AverageMeter metrics",
+  "old_probe_output_absent": true,
+  "old_probe_exit": 1,
+  "old_failure_unchanged": true,
+  "options": [
+    {"id": "read_latest_meter_val", "decision": "selected", "reason": "Matches actual full-train metric interface without changing training or substituting synthetic metrics"},
+    {"id": "replace_tracker_with_simple_namespace", "decision": "rejected", "reason": "Would narrow verification away from the installed full train entry"}
+  ],
+  "next_version": "full_entry_cpu_v2",
+  "bounded_cpu_budget": {"updates": 1, "walltime_seconds": 240, "kill_grace_seconds": 10},
+  "next_output": "/tmp/smolvla_full_entry_cpu_probe_v2_20261010",
+  "next_output_must_be_absent": true,
+  "checkpoint_or_gpu_work": false,
+  "new_gpu_budget": 0,
+  "ready_to_launch": false
+}

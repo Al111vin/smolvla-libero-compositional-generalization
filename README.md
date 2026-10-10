@@ -1820,3 +1820,12 @@ must be explicitly rejected because exposure matching is registered for one
 process only. Atomic independent paths, GPU lock and hard walltime bounds remain
 launch requirements. The candidate200000-update LR comparison is not an active
 budget: new GPU budget remains0; eight-task expansion and Fold02 stay locked.
+
+The installed train function now passes a bounded single-task half-LR CPU
+entry probe with real configuration validation and one actual update. The v1
+observer failed after the update because full training uses AverageMeter fields;
+v1 is preserved. Independent v2 reads their numeric values and exits at the
+registered controlled stop: loss0.10557065904140472, grad norm1.54043710231781,
+boundary LR2.5625e-5; no checkpoint or output directory was created.
+This does not test raw CLI argument construction, joint/CUDA execution, loop
+finalization or authorize training. See [full-entry v2 evidence](results/teacher_native_spatial_full_entry_cpu_result_v2_20261010.json).
