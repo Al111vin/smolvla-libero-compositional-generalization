@@ -1,0 +1,22 @@
+{
+  "status": "joint_full_installed_train_entry_cpu_v3_passed",
+  "remote_exit_code": 0,
+  "actual_cpu_updates": 1,
+  "restored_checkpoint_step": 80000,
+  "configured_total_steps": 160000,
+  "dataset_frames": 22709,
+  "dataset_episodes": 200,
+  "effective_batch_size": 2,
+  "loss": 0.0615798719227314,
+  "grad_norm": 1.332931637763977,
+  "pre_update_lr": 0.000025625,
+  "scope": "Installed train function validates real joint config, restores model/processors/optimizer/block scheduler, uses registered homogeneous remaining sampler and CPU Accelerator, returns one update before controlled stop",
+  "checkpoint_saved": false,
+  "output_created": false,
+  "gpu_used": false,
+  "limitations": ["Single half-LR joint CPU update only", "Original joint LR paired update not executed", "No CUDA/AMP or raw CLI config construction", "No full train-loop accounting/finalization", "No scientific rollout, atomic launcher or final budget decision"],
+  "new_gpu_budget": 0,
+  "ready_to_launch": false,
+  "eight_task_expansion_locked": true,
+  "fold02_locked": true
+}

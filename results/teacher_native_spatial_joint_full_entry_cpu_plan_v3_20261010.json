@@ -1,0 +1,21 @@
+{
+  "hypothesis": "The full installed train entry supports registered homogeneous joint resume batches and block LR restore together, beyond separate optimizer and loader tests.",
+  "choice": "One actual CPU update through existing installed train entry; reject another synthetic-only sampler test because it does not close this integration gap",
+  "checkpoint_step": 80000,
+  "configured_total_steps": 160000,
+  "factor": 0.5,
+  "batch_size": 2,
+  "workers": 4,
+  "sampler_seed": 1000,
+  "worker_seed": 2000,
+  "max_cpu_updates": 1,
+  "walltime_seconds": 240,
+  "kill_grace_seconds": 10,
+  "independent_absent_output": "/tmp/smolvla_full_entry_joint_cpu_probe_v3_20261010",
+  "save_checkpoint": false,
+  "policy_upload": false,
+  "wandb": false,
+  "new_gpu_budget": 0,
+  "failure_policy": "Preserve evidence and diagnose; do not automatically repeat",
+  "scope": "CPU installed train entry only; not CUDA, rollout or new scientific training budget"
+}
