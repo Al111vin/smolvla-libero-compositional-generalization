@@ -1,0 +1,16 @@
+{
+  "status": "hooked_cpu_probe_failed_before_update",
+  "remote_exit_code": 1,
+  "error": "ValueError: unexpected or repeated target loader",
+  "failure_site": "resume_training_hooks_v1.loader_init during Accelerator.prepare_data_loader -> DataLoaderShard -> base DataLoader reconstruction",
+  "cause": "Process-global DataLoader constructor hook rejects the Accelerator reconstruction of the target dataset after initial registered loader construction.",
+  "actual_updates_executed": 0,
+  "gpu_used": false,
+  "checkpoint_saved": false,
+  "automatic_retries": 0,
+  "previous_single_update_success_unchanged": true,
+  "next_hypothesis": "Permit only a reconstruction carrying the exact registered batch-sampler and generator identities in the expected single-process Accelerator path, without treating it as a new sampling registration. Reject unregistered samplers or a fresh target construction.",
+  "next_requirement": "Inspect actual reconstruction arguments before independently versioning and testing the hook; do not loosen the guard generically.",
+  "new_gpu_training_budget": 0,
+  "ready_to_launch": false
+}

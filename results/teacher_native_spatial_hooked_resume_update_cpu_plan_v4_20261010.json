@@ -1,0 +1,11 @@
+{
+  "status": "bounded_actual_hooks_cpu_probe_registered",
+  "hypothesis": "Registered resume hooks can replace the installed optimizer factory, state restore, DataLoader, cycle and update scheduling in the actual single CPU one-update path without changing the previous verified loss/gradient result.",
+  "generator": "scripts/build_hooked_resume_update_probe_v4.py",
+  "source": "hash-pinned v1 transformed using verified v2 scheduler observations",
+  "bounds": {"cpu_threads": 2, "walltime_seconds": 240, "transient_updates": 1, "automatic_retries": 0, "gpu_updates": 0},
+  "pass_contract": "Actual installed update returns finite loss/gradient, trainable parameter changes, restored scheduler20000 advances20001 through hooked path.",
+  "limitations": ["Single half-LR CPU only", "Does not execute complete CLI/train function or CUDA", "No weights saved"],
+  "active_new_gpu_budget": 0,
+  "ready_to_launch": false
+}
