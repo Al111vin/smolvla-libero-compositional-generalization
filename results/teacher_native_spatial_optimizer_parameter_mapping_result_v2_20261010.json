@@ -1,0 +1,14 @@
+{
+  "status": "both_midpoint_cpu_parameter_mapping_audits_passed",
+  "script": "scripts/probe_optimizer_parameter_mapping_v2.py",
+  "config_decode": "PreTrainedConfig polymorphic base; assert smolvla; CPU device; local_files_only and strict checkpoint load",
+  "single020000": {"exit_code": 0, "parameters": 500, "active_states": 155},
+  "joint080000": {"exit_code": 0, "parameters": 500, "active_states": 155},
+  "assertions": ["get_optim_params has same parameter objects and order as policy.parameters", "Saved group IDs equal complete parameter index sequence", "Active state ID set equals current requires_grad parameter set", "All active exp_avg shapes match policy parameter shapes"],
+  "execution": "Separate authenticated CPU processes, CUDA_VISIBLE_DEVICES empty, Hub and Transformers offline,180-second bounds; no forward/backward/optimizer step",
+  "limitations": ["No saved optimizer state loaded", "Moment finiteness/values not verified", "Numeric IDs lack historical named-parameter metadata; current order/shape consistency is not independent proof of historical names", "Checkpoint/source hashes require launch preflight revalidation"],
+  "v1_failure_preserved": true,
+  "new_gpu_budget": 0,
+  "eight_task_expansion_locked": true,
+  "fold02_locked": true
+}

@@ -1,0 +1,14 @@
+{
+  "status": "cpu_audit_failed_before_policy_construction",
+  "script": "scripts/probe_optimizer_parameter_mapping_v1.py",
+  "checkpoint": "single020000",
+  "exit_code": 1,
+  "error": "draccus.utils.DecodingError: The fields `type` are not valid for SmolVLAConfig",
+  "cause": "Concrete SmolVLAConfig.from_pretrained path was used on a tagged polymorphic config. Decode via registered PreTrainedConfig base choice instead; preserve v1 and register independent v2.",
+  "policy_constructed": false,
+  "parameter_mapping_verified": false,
+  "training_started": false,
+  "new_gpu_budget": 0,
+  "eight_task_expansion_locked": true,
+  "fold02_locked": true
+}
