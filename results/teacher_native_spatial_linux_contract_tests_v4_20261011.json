@@ -1,0 +1,17 @@
+{
+  "status": "authenticated_remote_contract_and_reservation_fixtures_passed",
+  "host": "cpod-1v6wxcygzn32",
+  "python": "/usr/local/miniconda3/envs/py312/bin/python",
+  "tests": 8,
+  "exit_code": 0,
+  "duration_seconds_reported_by_unittest": 0.050,
+  "execution_bound_seconds": 60,
+  "gpu_visibility": "CUDA_VISIBLE_DEVICES empty",
+  "sources": ["scripts/resume_path_guard_v1.py", "scripts/resume_entry_contract_v1.py", "scripts/resume_reservation_v1.py", "tests/test_resume_entry_contract_v1.py", "tests/test_resume_reservation_v1.py"],
+  "method": "Streamed registered source over authenticated SSH stdin; synthetic temporary filesystem only; no persisted executable upload",
+  "verified_scope": ["Path/config aliases and process-count rejection", "Existing output preserved", "Cooperating separate child blocked by held lock", "Failure receipt retained and reuse rejected"],
+  "limits": ["Does not prove connection reliability or explain earlier preauthentication resets", "Synthetic fixtures, not production GPU lock/path verification", "No detached supervisor, signal helper, training-loop finalization or CUDA verification"],
+  "old_failure_evidence_preserved": true,
+  "new_gpu_budget": 0,
+  "ready_to_launch": false
+}

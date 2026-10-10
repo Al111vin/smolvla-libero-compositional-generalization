@@ -1871,3 +1871,10 @@ a TERM-ignoring direct child and prevention of delayed work by a same-group
 descendant after its parent exits. It is not integrated with resumed training;
 escaped groups, supervisor signals, SSH detachment and Linux remain unverified.
 The old supervisor is unchanged. See [bounded descendant evidence](results/teacher_native_spatial_bounded_child_descendant_v2_20261010.json).
+
+Authenticated Linux contract/reservation fixtures subsequently pass8 tests with
+GPU visibility disabled, including separate-child lock contention and retained
+failure receipts. Earlier failed SSH observations remain preserved and unexplained.
+This closes only the synthetic Linux contract-test gap, not production locks,
+detached supervisor lifetime, signals or full training finalization.
+See [Linux v4 evidence](results/teacher_native_spatial_linux_contract_tests_v4_20261011.json).
