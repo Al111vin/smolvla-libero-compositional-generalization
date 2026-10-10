@@ -1,0 +1,10 @@
+{
+  "status": "authenticated_readonly_saved_boundary_states_match",
+  "single": {"saved_step": 20000, "scheduler_last_epoch": 20000, "last_lr": [0.00005125], "base_lrs": [0.0001]},
+  "joint": {"saved_step": 80000, "scheduler_last_epoch": 80000, "last_lr": [0.00005125], "base_lrs": [0.0001]},
+  "interpretation": "Both saved schedules reach the same LR after 20000 nominal updates per task. Joint last_epoch counts global updates; reconstructing its LambdaLR must preserve the four-update block mapping, not treat80000 as a single-task epoch.",
+  "not_proven": ["Optimizer restored LR equals scheduler state after load", "Remaining full schedule equals historical continuation", "Applying half-LR survives scheduler.step without reverting", "Actual model/optimizer restoration", "Balanced resume loader integration"],
+  "new_gpu_budget": 0,
+  "eight_task_expansion_locked": true,
+  "fold02_locked": true
+}

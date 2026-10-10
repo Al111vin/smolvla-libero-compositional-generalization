@@ -1,0 +1,14 @@
+{
+  "status": "authenticated_full_remaining_schedule_cpu_probe_passed",
+  "method": "Decode actual midpoint train configs; construct single scheduler and registered joint block LambdaLR on a one-element CPU AdamW parameter; load saved scheduler JSON; explicitly restore boundary optimizer LR; wrap lambda factors by1 or0.5; advance all remaining optimizer/scheduler steps.",
+  "single_remaining_updates_per_arm": 20000,
+  "joint_remaining_updates_per_arm": 80000,
+  "assertions_passed": ["Every joint original-LR update equals single original-LR update at floor(relative_joint_update/4)", "Every half-LR update equals corresponding original-LR update multiplied by0.5, including after scheduler.step", "No new warmup introduced"],
+  "execution_exit_code": 0,
+  "hard_timeout_seconds": 120,
+  "limitations": ["One-element dummy AdamW, not actual saved optimizer moments or parameter groups", "Scheduler boundary LR explicitly assigned; installed trainer restoration ordering not integrated", "No Accelerator or skipped-update behavior tested", "Source hashes and actual checkpoint model integrity not rechecked in this probe", "No data sampler or policy loaded"],
+  "next": "Implement independent fail-closed paired-resume integration with optimizer restoration and exact data-stream evidence; compare200k-update candidate cost against alternatives before any launch.",
+  "new_gpu_budget": 0,
+  "eight_task_expansion_locked": true,
+  "fold02_locked": true
+}
