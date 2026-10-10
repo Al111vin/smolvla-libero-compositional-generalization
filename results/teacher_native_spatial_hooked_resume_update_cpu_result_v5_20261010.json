@@ -1,0 +1,18 @@
+{
+  "status": "hooked_actual_cpu_resume_update_v5_passed",
+  "remote_exit_code": 0,
+  "updates": 1,
+  "pre_update_lr": 0.000025625,
+  "loss": 0.10557065904140472,
+  "grad_norm": 1.54043710231781,
+  "scheduler_epoch": 20001,
+  "watched_trainable_parameter_changed": true,
+  "loss_and_grad_norm_exactly_match_prior_unhooked_v2": true,
+  "checkpoint_saved": false,
+  "gpu_used": false,
+  "old_v4_failure_preserved": true,
+  "scope": "Actual single midpoint CPU one-update path through independent v2 hooks: optimizer factory, full restore/half LR, DataLoader substitution and identity-checked Accelerator reconstruction, finite cycle replacement, update scheduler guard.",
+  "limitations": ["Full CLI/train function not executed", "Single half-LR only, no joint update or CUDA/AMP", "Negative reconstruction identity tests remain", "Atomic launch/path/GPU lock/walltime launcher and final budget decision remain"],
+  "new_gpu_training_budget": 0,
+  "ready_to_launch": false
+}

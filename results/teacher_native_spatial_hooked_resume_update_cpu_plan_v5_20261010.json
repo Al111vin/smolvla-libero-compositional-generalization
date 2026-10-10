@@ -1,0 +1,12 @@
+{
+  "status": "independent_reconstruction_fix_cpu_probe_registered",
+  "old_failure": "teacher_native_spatial_hooked_resume_update_cpu_failure_v4_20261010.json",
+  "source_evidence": "Installed accelerate/data_loader.py keeps original batch_sampler for single-process map dataset, copies generator in DataLoader kwargs, and DataLoaderShard reconstructs base DataLoader.",
+  "hypothesis": "Allowing exactly one reconstruction with identical dataset/sampler/generator objects and worker/prefetch settings permits Accelerator.prepare without a fresh sampling registration.",
+  "generator": "scripts/build_resume_training_hooks_v2.py",
+  "preserved_v1_hooks_sha256": "cc0cd545ca58c5c898d26963d9c933e69f99087d962c32b050272a665c55c9ee",
+  "probe": "v4 actual CPU update path with only independent v2 hook module selected and v5 result label",
+  "bounds": {"cpu_threads": 2, "walltime_seconds": 240, "transient_updates": 1, "automatic_retries": 0, "gpu_updates": 0},
+  "new_gpu_training_budget": 0,
+  "ready_to_launch": false
+}
