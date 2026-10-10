@@ -1,6 +1,7 @@
 import sys
 import tempfile
 import unittest
+import subprocess
 from pathlib import Path
 from types import SimpleNamespace as NS
 sys.path.insert(0, str(Path(__file__).resolve().parents[1] / 'scripts'))
@@ -31,6 +32,22 @@ class ReservationTests(unittest.TestCase):
                     self.fail('contending lease acquired')
         self.assertFalse((self.root/'second').exists())
         self.assertFalse(self.paths['output'].exists())
+
+    def test_child_process_cannot_acquire_held_lock(self):
+        code = '''import fcntl, os, sys
+fd = os.open(sys.argv[1], os.O_RDWR)
+try:
+    fcntl.flock(fd, fcntl.LOCK_EX | fcntl.LOCK_NB)
+except BlockingIOError:
+    sys.exit(0)
+else:
+    sys.exit(7)
+finally:
+    os.close(fd)
+'''
+        with reserve_resume(self.cfg, self.acc, **self.kw):
+            result = subprocess.run([sys.executable, '-c', code, str(self.kw['lock_path'])], timeout=10)
+            self.assertEqual(result.returncode, 0)
 
     def test_failure_receipt_preserved_and_reuse_rejected(self):
         with self.assertRaises(RuntimeError):

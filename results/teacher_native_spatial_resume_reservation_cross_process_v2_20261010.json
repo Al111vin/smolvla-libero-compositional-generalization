@@ -1,0 +1,10 @@
+{
+  "local_status": "four_macOS_tests_passed_including_child_process_contention",
+  "local_exit_code": 0,
+  "child_process_check": "Separate Python process rejected nonblocking acquisition while parent's registered lock held",
+  "remote_attempt": {"exit_code": 255, "error": "Connection closed by117.50.184.29 port27360", "remote_tests_executed": false, "automatic_retry": false},
+  "interpretation": "Remote observation failed before test output/authentication confirmation; not evidence of a training failure. Linux reservation behavior remains unverified.",
+  "new_gpu_budget": 0,
+  "ready_to_launch": false,
+  "remaining": ["Authenticated Linux test", "Real configured entry/lease integration", "Unrelated GPU process exclusion", "Detached supervisor and walltime budget"]
+}
