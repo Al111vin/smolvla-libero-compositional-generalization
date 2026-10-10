@@ -1,0 +1,25 @@
+{
+  "status": "integrated_cpu_probe_failed_at_scheduler_observation",
+  "script_version": "scripts/probe_actual_resume_update_v1.py at71ffd64",
+  "remote_exit_code": 1,
+  "error": "AttributeError: AcceleratedScheduler object has no attribute last_epoch",
+  "failure_line": 66,
+  "preflight_available_ram_mib": 65291,
+  "conflicting_process_matches": 0,
+  "execution_evidence": {
+    "actual_installed_update_policy_returned": true,
+    "transient_cpu_updates_executed": 1,
+    "finite_loss_and_grad_norm_assertions_passed": true,
+    "watched_trainable_parameter_changed_assertion_passed": true,
+    "pre_update_lr_assertion_passed": 0.000025625,
+    "loader_rng_preservation_assertion_passed": true,
+    "scheduler_phase_20001_not_verified": true
+  },
+  "interpretation": "The actual forward/backward/update path reached the final observation, but overall integration is not passed. Numeric loss/gradient values were not emitted and must not be invented. The temporary process exited and no model was saved.",
+  "checkpoint_saved": false,
+  "gpu_used": false,
+  "automatic_retries": 0,
+  "next": "Inspect installed AcceleratedScheduler wrapper interface; register an independent corrected observation version before any rerun. Preserve this failed result.",
+  "active_new_gpu_budget": 0,
+  "ready_to_launch": false
+}
