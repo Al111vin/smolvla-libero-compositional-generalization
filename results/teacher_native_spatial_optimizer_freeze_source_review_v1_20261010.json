@@ -1,0 +1,10 @@
+{
+  "status": "authenticated_source_explanation_not_named_parameter_mapping",
+  "installed_get_optim_params": "SmolVLAPolicy.get_optim_params returns self.parameters(), without filtering requires_grad.",
+  "freeze_source": "smolvlm_with_expert.py set_requires_grad disables gradients conditionally for vision encoder and non-expert modules; modeling_smolvla.py separately sets state projection gradients from train_state_proj.",
+  "interpretation": "Saved optimizer groups can include frozen parameters without Adam moments. Thus500 group IDs versus155 active states is not by itself corruption. Exact155-state membership still needs actual named-parameter mapping, not count-based acceptance.",
+  "next": "CPU-only policy construction with verified checkpoint/source and compare parameter order, shapes and requires_grad against saved active state IDs before real restore integration.",
+  "new_gpu_budget": 0,
+  "eight_task_expansion_locked": true,
+  "fold02_locked": true
+}

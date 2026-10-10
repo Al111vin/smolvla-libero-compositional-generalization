@@ -1,0 +1,12 @@
+{
+  "status": "authenticated_readonly_saved_optimizer_inventory",
+  "checkpoints": ["single020000", "joint080000"],
+  "both_saved_group0": {"lr": 0.00005125, "initial_lr": 0.0001, "betas": [0.9, 0.95], "eps": 1e-8, "weight_decay": 1e-10},
+  "state_tensor_entries_each": 465,
+  "state_key_examples": ["state/345/exp_avg", "state/345/exp_avg_sq", "state/345/step"],
+  "interpretation": "Saved optimizer LR agrees with saved scheduler boundary. State exists for a subset of numbered parameter entries; this alone does not establish mapping to current policy parameters or state integrity.",
+  "limits": ["Read JSON and safetensors key directory only", "No tensor moments compared or loaded into optimizer", "No policy parameter mapping validated", "No claim that465 tensor entries represent465 trainable parameters"],
+  "new_gpu_budget": 0,
+  "eight_task_expansion_locked": true,
+  "fold02_locked": true
+}

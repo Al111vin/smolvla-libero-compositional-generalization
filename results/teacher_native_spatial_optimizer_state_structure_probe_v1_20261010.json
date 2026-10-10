@@ -1,0 +1,11 @@
+{
+  "status": "authenticated_cpu_optimizer_internal_structure_passed",
+  "single_saved_step": 20000,
+  "joint_saved_step": 80000,
+  "each_checkpoint": {"registered_optimizer_parameter_ids": 500, "active_parameter_states": 155, "moment_pairs_same_shape": true, "all_scalar_steps_match_checkpoint": true, "active_ids_subset_of_saved_groups": true},
+  "method": "Read safetensors key/shape metadata and scalar step tensors; check exp_avg, exp_avg_sq and step presence for every active ID.",
+  "limits": ["155 active states among500 saved IDs is not by itself proof of the intended freeze mask", "No mapping to actual named policy parameters established", "Moment tensor numeric finiteness/values not read", "Actual optimizer load_state_dict not executed"],
+  "new_gpu_budget": 0,
+  "eight_task_expansion_locked": true,
+  "fold02_locked": true
+}
