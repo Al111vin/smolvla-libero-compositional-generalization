@@ -1,0 +1,16 @@
+{
+  "status": "bounded_integrated_cpu_probe_registered_not_executed",
+  "hypothesis": "The installed single-task policy factory, saved processors, full optimizer/RNG restore, half-LR guard, finite real-data loader and CPU Accelerator can jointly execute one finite training update at restored step20000.",
+  "choice": "Use installed trainer.update_policy and exact batch2/chunk configuration; do not substitute a toy model or shorter action chunk.",
+  "script": "scripts/probe_actual_resume_update_v1.py",
+  "bounds": {"processes": 1, "cpu_threads": 2, "walltime_seconds": 240, "transient_optimizer_updates": 1, "automatic_retries": 0, "gpu_updates": 0, "rollouts": 0},
+  "source_checkpoint": "teacher_native_spatial_task0_single_current_recipe_40k_batch2_v1/checkpoints/020000",
+  "required": ["CUDA_VISIBLE_DEVICES empty", "offline model access", "exclusive CPU probe process", "available RAM check", "no checkpoint or training output saved"],
+  "pass_contract": ["finite loss and gradient norm", "pre-update LR2.5625e-5", "scheduler phase advances20000 to20001", "a trainable parameter changes", "skipped update raises before scheduler advancement"],
+  "failure_policy": "Preserve diagnostic result, do not change dimensions/batch size/model or automatically repeat. Analyze cause before new version.",
+  "limitations": ["Single half-LR branch only", "CPU no-AMP does not validate CUDA mixed precision", "One update cannot establish learning or closed-loop success", "No launch budget activated"],
+  "syntax_check": "passed",
+  "active_new_gpu_budget": 0,
+  "eight_task_expansion_locked": true,
+  "fold02_locked": true
+}
