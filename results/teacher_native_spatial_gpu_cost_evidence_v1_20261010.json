@@ -1,0 +1,16 @@
+{
+  "status": "authenticated_historical_log_spans_verified_not_budget_activation",
+  "single40k": {"first": "2026-10-03 11:17:22", "last": "2026-10-03 12:45:26", "span_seconds": 5284, "log_sha256": "4ff5798344f452bc208e0cf435ffdb4ff42db2f161d18d60f0cb556f3af3fdb9"},
+  "joint160k": {"first": "2026-10-09 14:48:27", "last": "2026-10-09 20:30:14", "span_seconds": 20507, "log_sha256": "ab0d4b5ca7b355d6b119105b9dbf8ebaf4f3226df01f8b4bfb55878bc7b4b690"},
+  "sum_span_seconds": 25791,
+  "sum_span_hours_approx": 7.1642,
+  "comparison": {
+    "fresh_seed_pair": "200000 updates; historical full-run span reference25791 seconds plus120 evaluations",
+    "four_arm_resumed_lr": "200000 updates; proportional half-run calculation also25791 seconds plus240 evaluations, before extra restore/startup overhead",
+    "conclusion": "The fresh-seed alternative halves evaluation count, not total GPU rental cost. Training update totals are identical; resumed arms incur more startup/restoration operations. The questions remain different."
+  },
+  "limits": ["Logged spans are not exclusive GPU activity or rental bills", "Proportional duration is an assumption, not a measured resumed-run forecast", "No current platform hourly price verified", "Evaluation durations and checkpoint/save overhead not quantified", "No enforceable walltime ceiling registered"],
+  "decision": "Retain both scientific alternatives; do not activate a budget or advertise a monetary saving until walltime ceilings and actual tariff are verified",
+  "new_gpu_budget": 0,
+  "ready_to_launch": false
+}
