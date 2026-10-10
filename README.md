@@ -1829,3 +1829,25 @@ registered controlled stop: loss0.10557065904140472, grad norm1.54043710231781,
 boundary LR2.5625e-5; no checkpoint or output directory was created.
 This does not test raw CLI argument construction, joint/CUDA execution, loop
 finalization or authorize training. See [full-entry v2 evidence](results/teacher_native_spatial_full_entry_cpu_result_v2_20261010.json).
+
+The four-task counterpart also passes one actual CPU update from checkpoint80000
+through the installed train entry and homogeneous remaining sampler:22709 frames,
+200 episodes, effective batch2, half-LR2.5625e-5, finite loss/gradient, exit0.
+No output/checkpoint was created. This closes the joint CPU integration gap, not
+the original-LR paired joint update or CUDA/AMP/loop-finalization gaps.
+See [joint entry evidence](results/teacher_native_spatial_joint_full_entry_cpu_result_v3_20261010.json).
+
+Standalone entry-contract and cooperating-process lease tests reject multiple
+processes, mismatched registered paths, existing output and held locks; permanent
+exclusive receipts survive failures. Mac tests include a separate child process.
+Linux verification remains unpassed: SSH observation attempts were closed before
+authenticated test output. These helpers are not yet a detached training launcher,
+do not exclude unrelated GPU users, and do not activate a training budget.
+See [reservation evidence](results/teacher_native_spatial_resume_reservation_cross_process_v2_20261010.json).
+
+Authenticated historical training-log spans are5284 seconds(single40k) and20507
+seconds(joint160k), not exclusive GPU activity or rental invoices. Both proposed
+LR and fresh-seed designs use200000 new updates;120 versus240 evaluations does
+not imply half the total rental cost. Current tariff, evaluation duration and
+enforceable walltime ceilings remain unverified. New GPU budget is still0.
+See [cost evidence](results/teacher_native_spatial_gpu_cost_evidence_v1_20261010.json).
