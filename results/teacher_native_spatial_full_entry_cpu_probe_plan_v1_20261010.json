@@ -1,0 +1,16 @@
+{
+  "hypothesis": "The identity-checked v2 resume hooks integrate with the installed train function and its real validation, rather than only a copied one-update sequence.",
+  "condition": "single task0 midpoint20000, half LR, real batch2 and action chunk unchanged",
+  "max_cpu_updates": 1,
+  "walltime_seconds": 240,
+  "kill_grace_seconds": 10,
+  "new_gpu_budget": 0,
+  "checkpoint_save": false,
+  "hub_upload": false,
+  "wandb": false,
+  "output_path": "/tmp/smolvla_full_entry_cpu_probe_v1_20261010",
+  "paths_must_be_absent": true,
+  "stop": "controlled exception immediately after one actual update, before saving/evaluation branches",
+  "scope_limit": "Not a GPU launcher, full training run, joint update or complete CLI parser test",
+  "failure_policy": "retain evidence; no automatic repeat"
+}

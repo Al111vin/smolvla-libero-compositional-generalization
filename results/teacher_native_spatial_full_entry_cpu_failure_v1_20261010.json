@@ -1,0 +1,19 @@
+{
+  "status": "failed_after_update_metric_observation",
+  "remote_exit_code": 1,
+  "error": "TypeError: must be real number, not AverageMeter",
+  "site": "probe one_update math.isfinite(metrics.loss), after original trainer.update_policy returned",
+  "verified_before_failure": ["Installed parser wrapper accepted supplied config", "Real cfg.validate resolved correct midpoint checkpoint", "5068 frames and50 episodes", "Full model/processor/optimizer restore and Accelerator preparation", "Effective batch2 x1", "Boundary half LR0.000025625", "Installed training loop called update_policy and it returned"],
+  "update_calls_returned": 1,
+  "numeric_loss_verified": false,
+  "controlled_success_stop_reached": false,
+  "gpu_used": false,
+  "save_checkpoint_configuration": false,
+  "save_hook_forbidden": true,
+  "output_absence_after_failure_verified": false,
+  "interpretation": "Probe observer assumed scalar metrics from earlier SimpleNamespace probes; full train uses MetricsTracker AverageMeter fields. This is not evidence of training failure or readiness.",
+  "next_hypothesis": "A new independent observer using the installed AverageMeter value interface can validate the same full-entry update, after inspecting that interface and preserving v1.",
+  "automatic_retry": false,
+  "new_gpu_budget": 0,
+  "ready_to_launch": false
+}
