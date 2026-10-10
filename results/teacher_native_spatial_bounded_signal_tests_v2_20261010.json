@@ -1,0 +1,12 @@
+{
+  "status": "local_cpu_signal_fixture_passed_not_launcher_ready",
+  "command": "python3 -m unittest tests/test_bounded_child_signals_v2.py tests/test_bounded_child_v1.py",
+  "tests": 5,
+  "exit_code": 0,
+  "new_observation": "After ready acknowledgement, supervisor SIGTERM exits143 after cleanup; TERM-ignoring child does not create scheduled delayed-work marker",
+  "scope": "One macOS supervised ready-child signal case plus prior four child fixtures",
+  "limitations": ["Signal arriving during Popen/registration startup window not tested or made atomic", "SIGINT/SIGHUP paths implemented but not directly tested", "SIGKILL cannot be cleaned by Python handler", "Escaped groups not prevented", "No remote Linux, detached transport or resume-contract integration"],
+  "new_gpu_budget": 0,
+  "ready_to_launch": false,
+  "historical_driver_unchanged": true
+}
