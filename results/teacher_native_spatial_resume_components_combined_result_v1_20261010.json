@@ -1,0 +1,24 @@
+{
+  "status": "actual_restore_then_guarded_loader_cpu_passed",
+  "remote_exit_code": 0,
+  "checkpoint": "teacher_native_spatial_4task_homogeneous_160k_batch2_v1_20261009/checkpoints/080000",
+  "installed_trainer_restore_hook_used": true,
+  "restored_step": 80000,
+  "half_lr_boundary": 0.000025625,
+  "saved_optimizer_tensors_equal_after_intervention": 465,
+  "registered_finite_loader_budget": 80000,
+  "actual_decoded_batches": 2,
+  "batch_indices_match_resume_component": true,
+  "batches_homogeneous": true,
+  "torch_rng_before_loader_equals_after_two_batches": true,
+  "policy_forward_called": false,
+  "optimizer_step_called": false,
+  "new_gpu_training_budget": 0,
+  "limitations": [
+    "Restore probe returns before loader construction; this is sequential same-process composition, not simultaneous Accelerator preparation of model/optimizer/loader.",
+    "No processor, forward/backward, update, AMP or CUDA integration tested.",
+    "Only two batches decoded; full trainer function was not invoked.",
+    "RNG comparison begins after dataset construction, not immediately after checkpoint restore."
+  ],
+  "ready_to_launch": false
+}
