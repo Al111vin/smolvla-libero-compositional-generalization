@@ -1,0 +1,48 @@
+{
+  "status": "cost_comparison_and_readiness_review_not_launch_registration",
+  "scientific_question": "Does halving the remaining LR change closed-loop success within a paired resumed protocol, and is the observed single-versus-joint retention pattern robust to a new training seed? These are different questions.",
+  "evidence_limits": [
+    "Joint midpoint12/20 versus final10/20 and selected init0/8 trajectory losses do not prove late-training degradation or its mechanism.",
+    "Single13/20 versus joint10/20, exact McNemar p0.375, does not establish gradient interference.",
+    "Tasks1..3 lack matched single-task positive baselines; task0-only contrasts do not establish all-task interference."
+  ],
+  "options": [
+    {
+      "id": "paired_resumed_lr_sensitivity",
+      "new_updates": 200000,
+      "rollouts_if_existing24_per_task_protocol": 240,
+      "composition": "two single20k remaining arms plus two joint80k remaining arms",
+      "value": "Within each checkpoint/task-count condition, only nominal LR differs; directly tests LR sensitivity under registered reset sampling.",
+      "limits": "Not historical exact continuation, seed robustness, or causal gradient-interference proof.",
+      "decision": "remain selected for implementation preflight, not execution"
+    },
+    {
+      "id": "fresh_seed_exposure_matched_original_recipe_pair",
+      "new_updates": 200000,
+      "rollouts_if_existing24_per_task_protocol": 120,
+      "composition": "one fresh single40k plus one fresh joint160k with matched per-task exposure",
+      "value": "Tests whether the original task0 retention pattern replicates under another training seed, with half the rollout cost of the four-arm LR design.",
+      "limits": "Does not manipulate LR; one extra seed still provides weak population-level evidence.",
+      "decision": "explicit alternative retained for final budget decision"
+    },
+    {
+      "id": "uncontrolled_half_lr_against_historical_or_blind_extension",
+      "decision": "reject",
+      "reason": "Sampling reset confounding or no isolated falsifiable intervention."
+    }
+  ],
+  "readiness": {
+    "component_cpu_tests": "passed within documented scopes",
+    "same_process_restore_then_loader": "passed without policy updates",
+    "actual_full_parser_and_training_wrapper": "not verified",
+    "simultaneous_model_optimizer_loader_accelerator_preparation": "not verified",
+    "processor_forward_backward_update_and_skipped_update_guard": "not verified",
+    "hard_walltime_cost_bound_and_final_experiment_choice": "not registered",
+    "launch_source_hashes_locks_atomic_paths": "not verified"
+  },
+  "decision": "Do not infer launch readiness from accumulated narrow probes. Complete a single integrated bounded preflight before further component-only checks or any GPU budget activation; then choose between the two scientific questions explicitly.",
+  "active_new_gpu_budget": 0,
+  "eight_task_expansion_locked": true,
+  "fold02_locked": true,
+  "historical_evidence_unchanged": true
+}
