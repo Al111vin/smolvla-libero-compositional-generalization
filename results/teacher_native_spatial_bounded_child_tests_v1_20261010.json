@@ -1,0 +1,12 @@
+{
+  "status": "local_posix_cpu_child_bound_tests_passed",
+  "command": "python3 -m unittest tests/test_bounded_child_v1.py",
+  "tests": 3,
+  "exit_code": 0,
+  "verified": ["Normal child returns exit0", "Nonzero exit7 returned without retry", "TERM-ignoring direct child killed with exit-9 after0.3 second timeout and0.2 second grace", "Invalid/nonfinite bounds rejected before launch"],
+  "helper": "scripts/bounded_child_v1.py",
+  "limitations": ["No training launcher integration", "No remote Linux verification", "Descendant cleanup coded but not yet independently tested", "SIGKILL of supervisor cannot execute Python cleanup", "External SIGTERM handling and disconnected launcher lifetime not implemented or verified", "Process-group escapes are not prevented"],
+  "old_supervisor_unchanged": true,
+  "new_gpu_budget": 0,
+  "ready_to_launch": false
+}
