@@ -1,0 +1,10 @@
+{
+  "status": "read_only_resume_path_guard_unit_tests_passed",
+  "resume_suite_tests_passed": 21,
+  "path_guard_tests": 4,
+  "contracts": ["all registered paths absolute", "checkpoint exists", "new output/log/PID/exit paths absent including dangling links", "new paths distinct and outside checkpoint", "no symlink parent redirection", "logs and markers outside training output", "preflight creates no paths"],
+  "scope": "Local temporary-filesystem tests only, not final remote path checks.",
+  "limitations": ["Read-only checks are not atomic path reservation.", "GPU lock and exclusive file creation still required at launch.", "Component not yet wired into a complete registered training launcher."],
+  "new_gpu_training_budget": 0,
+  "ready_to_launch": false
+}
