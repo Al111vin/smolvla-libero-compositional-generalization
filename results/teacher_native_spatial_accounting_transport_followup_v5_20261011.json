@@ -1,0 +1,13 @@
+{
+  "readonly_followup_authenticated": true,
+  "output_absent": true,
+  "process_observation": "Only inspecting bash matched; no registered probe or python stdin process observed",
+  "execution_attempt_after_followup": 1,
+  "execution_ssh_exit_code": 255,
+  "execution_error": "Connection closed by117.50.184.29 port27360",
+  "runtime_success_confirmed": false,
+  "training_failure_confirmed": false,
+  "automatic_execution_retry": false,
+  "new_gpu_budget": 0,
+  "next_action": "Resolve intermittent preauthentication transport before further CPU execution; preserve v5 and earlier failure records"
+}
