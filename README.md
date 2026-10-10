@@ -1762,3 +1762,15 @@ selected-case observations, not necessary grasp classifiers or causal training
 mechanisms. No policy inference, GPU rendering or new training was used.
 Eight-task expansion and Fold02 remain locked. See the
 [v2 CPU result](results/teacher_native_spatial_4task_midpoint_cpu_observers_result_v2_20261010.json).
+
+Late-LR continuation preflight remains unpassed: saved training state does not
+establish the single-task data-loader cursor. A resumed half-LR arm cannot use
+historical uninterrupted training as its sole causal control. The revised
+candidate pairs original-LR and half-LR resumed arms within each task-count
+condition, but its doubled candidate cost is not an active GPU budget.
+Three synthetic CPU tests verify regeneration of the joint sampler's complete
+80000-batch suffix, matched per-task draws, and Python RNG isolation. They do
+not verify real dataset mapping, single-task continuation, PyTorch/worker RNG,
+optimizer restoration or scheduler integration. No new training was launched.
+See the [revised controls](results/teacher_native_spatial_late_lr_resume_control_revision_v1_20261010.json)
+and [bounded synthetic evidence](results/teacher_native_spatial_resume_sampling_synthetic_test_v1_20261010.json).

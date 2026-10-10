@@ -1,0 +1,19 @@
+{
+  "status": "design_revision_only_not_authorized_for_launch",
+  "reason": "Historical checkpoints do not persist the single-task loader permutation/cursor. Restoring optimizer and RNG then constructing a new loader is not proven identical to uninterrupted training. Comparing only a resumed half-LR arm against historical uninterrupted results would confound LR with resume sampling.",
+  "source_inspected": ["scripts/exposure_matched_blocks_v1.py", "scripts/exposure_matched_train_wrapper_v1.py", "results/teacher_native_spatial_4task_resume_semantics_review_v1_20261010.json"],
+  "joint_observation": "The joint sampler uses a dedicated random.Random(seed) and can regenerate its sequence, but its existing iterator has no offset and the immutable launcher explicitly rejects resume. A new independently versioned implementation is required; do not modify the historical launcher.",
+  "options": [
+    {"id": "reconstruct_historical_single_cursor", "decision": "defer", "reason": "Requires evidence of original permutation and full RNG consumption; saved RNG alone cannot establish this."},
+    {"id": "half_lr_resume_against_history", "decision": "reject", "reason": "Sampling reset and LR intervention are confounded."},
+    {"id": "paired_resumed_original_and_half_lr", "decision": "selected_for_cpu_design", "reason": "For each task-count condition, both new arms start from the same midpoint and use identical newly registered sampling and worker RNG streams; only LR differs. Historical uninterrupted results remain descriptive references, not causal controls."}
+  ],
+  "required_cpu_tests": ["Both arms emit identical dataset index batches across their full remaining budget", "Separate data-loader RNG from policy RNG; prove iterator creation does not change policy RNG", "Restore identical optimizer/model state and scheduler phase before applying the LR factor", "Verify original versus half-LR pre-update values at every update, with no rewarmup", "Match per-task sample count and nominal schedule between single and joint conditions", "Fail closed on skipped updates, invalid step boundaries, source mismatch or budget exhaustion"],
+  "candidate_budget_not_active": {"single_arms": 2, "additional_updates_per_single_arm": 20000, "joint_arms": 2, "additional_updates_per_joint_arm": 80000, "total_new_updates": 200000, "final_rollouts_if_same_protocol": 240},
+  "cost_decision": "This doubles the earlier 100k-update proposal. Do not launch or silently increase budget. First complete CPU feasibility and compare its value against a fresh-seed matched pair at the same update cost; register a hard runtime bound and final choice before any GPU work.",
+  "claim_limit": "A within-resume LR contrast tests LR sensitivity under the new resume protocol, not exact continuation or causal gradient interference.",
+  "active_new_gpu_budget": 0,
+  "eight_task_expansion_locked": true,
+  "fold02_locked": true,
+  "historical_evidence_unchanged": true
+}

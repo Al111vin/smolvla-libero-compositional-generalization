@@ -1,0 +1,12 @@
+{
+  "status": "three_synthetic_cpu_tests_passed_not_resume_preflight",
+  "command": "python -m unittest discover -s tests -p test_resume_sampling_feasibility_v1.py -v",
+  "test_sha256": "afbaf029005a8bcd0aa52c2a561417ac9d50125da27a8d42d77a57bf454e8dd5",
+  "sampler_sha256": "f8aa8855673c0a213b597baad9ba7810d9fcfecfa7c5f500cfa7b9a2e5c97290",
+  "passed": ["Synthetic four-task sequence regenerated and skipped 80000 updates equals all 80000 remaining uninterrupted batches; two independently generated arms match", "Remaining sequence has 20000 batches and 40000 sample draws per task, one homogeneous batch per task per block", "Dedicated sampler RNG does not mutate global Python RNG; naive restart differs from continuation"],
+  "not_tested": ["Actual dataset index mapping", "Single-task historical permutation/cursor", "PyTorch policy or worker RNG isolation", "DataLoader and Accelerator integration", "Checkpoint optimizer and scheduler restoration", "Full per-update learning-rate contrast"],
+  "active_new_gpu_budget": 0,
+  "training_launched": false,
+  "eight_task_expansion_locked": true,
+  "fold02_locked": true
+}
