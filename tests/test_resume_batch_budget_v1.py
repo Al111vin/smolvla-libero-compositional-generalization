@@ -4,7 +4,7 @@ from pathlib import Path
 from itertools import islice
 sys.path.insert(0, str(Path(__file__).resolve().parents[1] / "scripts"))
 from exposure_matched_blocks_v1 import balanced_batches
-from resume_batch_budget_v1 import JointResumeBatchSampler, SingleResumeBatchSampler
+from resume_batch_budget_v1 import JointResumeBatchSampler, SingleResumeBatchSampler, finite_training_batches
 
 
 class ResumeBudgetTests(unittest.TestCase):
@@ -37,6 +37,26 @@ class ResumeBudgetTests(unittest.TestCase):
                                  (range(5068), {"restored_step": 20000, "seed": 1000})):
             with self.assertRaises(ValueError):
                 SingleResumeBatchSampler(dataset, **options)
+
+    def test_finite_iterator_no_restart_after_budget(self):
+        iterator = finite_training_batches([1, 2], restored_step=10, total_steps=12)
+        self.assertEqual(next(iterator), 1)
+        self.assertEqual(next(iterator), 2)
+        with self.assertRaisesRegex(RuntimeError, "cycling forbidden"):
+            next(iterator)
+
+    def test_finite_iterator_rejects_mismatch_and_early_exhaustion(self):
+        with self.assertRaises(ValueError):
+            next(finite_training_batches([1], restored_step=10, total_steps=12))
+        class ShortLoader:
+            def __len__(self):
+                return 2
+            def __iter__(self):
+                return iter([1])
+        iterator = finite_training_batches(ShortLoader(), restored_step=10, total_steps=12)
+        self.assertEqual(next(iterator), 1)
+        with self.assertRaisesRegex(RuntimeError, "before budget"):
+            next(iterator)
 
 
 if __name__ == "__main__":

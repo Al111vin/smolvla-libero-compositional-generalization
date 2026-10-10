@@ -1,0 +1,17 @@
+{
+  "status": "installed_trainer_cycle_risk_identified_and_component_guard_tested",
+  "installed_source": "lerobot/scripts/lerobot_train.py",
+  "source_observations": {
+    "cycle_import_line": 33,
+    "accelerator_prepare_lines": [384, 386],
+    "cycle_construction_line": 387,
+    "bounded_training_loop_line": 423,
+    "next_batch_line": 425
+  },
+  "interpretation": "Correct restored step and cfg.steps consume exactly remaining batches; cycle is not evidence historical training exceeded its budget. A new wrapper needs an explicit no-restart boundary to fail closed on integration mismatch.",
+  "component": "scripts/resume_batch_budget_v1.py:finite_training_batches",
+  "guard_contract": ["loader length equals remaining updates", "early exhaustion raises", "request after budget raises rather than restart"],
+  "historical_trainer_modified": false,
+  "component_installed_in_training_entrypoint": false,
+  "new_gpu_training_budget": 0
+}

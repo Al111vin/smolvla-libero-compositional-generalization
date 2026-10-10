@@ -3,6 +3,23 @@ from itertools import islice
 from exposure_matched_blocks_v1 import balanced_batches
 
 
+def finite_training_batches(loader, *, restored_step, total_steps):
+    """Replace cycle only in a new registered wrapper, never historical code."""
+    if type(restored_step) is not int or type(total_steps) is not int:
+        raise ValueError("integer training boundaries required")
+    remaining = total_steps - restored_step
+    if remaining <= 0 or len(loader) != remaining:
+        raise ValueError("loader length and registered update budget disagree")
+    iterator = iter(loader)
+    for _ in range(remaining):
+        try:
+            batch = next(iterator)
+        except StopIteration as error:
+            raise RuntimeError("resume loader exhausted before budget") from error
+        yield batch
+    raise RuntimeError("resume batch budget exhausted; cycling forbidden")
+
+
 class JointResumeBatchSampler:
     batch_size = 2
     drop_last = True
