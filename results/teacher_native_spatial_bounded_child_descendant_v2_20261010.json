@@ -1,0 +1,13 @@
+{
+  "status": "local_same_group_descendant_fixture_passed",
+  "command": "python3 -m unittest tests/test_bounded_child_v1.py",
+  "tests": 4,
+  "exit_code": 0,
+  "new_fixture": "Descendant confirms TERM-ignore setup; direct parent exits0; cleanup runs; descendant does not create its scheduled0.8-second work marker during1-second observation",
+  "scope": "Observed prevention of delayed work by one same-process-group descendant on macOS, not absence of all OS process entries or zombies",
+  "production_helper_changed": false,
+  "old_v1_evidence_preserved": true,
+  "remaining": ["Escaped process groups not prevented", "Supervisor SIGKILL cleanup impossible in Python alone", "External signal handling and detached SSH lifetime not verified", "Linux and integrated resumed launcher not verified"],
+  "new_gpu_budget": 0,
+  "ready_to_launch": false
+}

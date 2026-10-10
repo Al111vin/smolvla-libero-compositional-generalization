@@ -1865,3 +1865,9 @@ its scientific choices or deleting history. Both half-LR CPU entries pass one
 update, not normal loop finalization or CUDA execution. Remaining work prioritizes
 integrated finalization and supervisor lifetime, not redundant component checks.
 Neither proposed experiment has an activated GPU budget; task8/Fold02 stay locked.
+
+An independent POSIX child-bound helper passes4 local CPU fixtures, including
+a TERM-ignoring direct child and prevention of delayed work by a same-group
+descendant after its parent exits. It is not integrated with resumed training;
+escaped groups, supervisor signals, SSH detachment and Linux remain unverified.
+The old supervisor is unchanged. See [bounded descendant evidence](results/teacher_native_spatial_bounded_child_descendant_v2_20261010.json).
