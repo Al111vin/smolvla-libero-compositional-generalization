@@ -1,0 +1,24 @@
+{
+  "status": "new_single_resume_sampling_cpu_passed",
+  "remote_exit_code": 0,
+  "dataset_frames": 5068,
+  "task_ids": [0],
+  "sampling_seed": 3000,
+  "worker_generator_seed": 2000,
+  "remaining_batches_per_arm": 20000,
+  "sample_draws_per_arm": 40000,
+  "both_full_index_sequences_equal": true,
+  "sequence_sha256": "0ef9f9a63e18b814e268f8390b0ac0c2ebfb07ff1c98ff84efe2c9dfd14f0571",
+  "cpu_accelerator_processes": 1,
+  "workers": 4,
+  "decoded_batches_per_arm": 8,
+  "all_14_fields_equal": true,
+  "main_torch_rng_preserved": true,
+  "historical_cursor_reconstructed": false,
+  "new_gpu_training_budget": 0,
+  "limitations": [
+    "New paired-resume protocol, not uninterrupted historical continuation.",
+    "Only first eight batches decoded; full-budget equality covers indices.",
+    "No policy, optimizer update or GPU integration executed."
+  ]
+}

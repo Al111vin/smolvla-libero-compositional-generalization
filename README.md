@@ -1792,3 +1792,11 @@ on all14 fields for the first8 decoded batches each, preserving main Torch RNG.
 This does not decode the entire suffix or verify combined model updates,
 single-task resume or GPU integration. See the
 [real balanced-loader check](results/teacher_native_spatial_real_balanced_resume_loader_result_v1_20261010.json).
+
+Single-task newly registered sampling also passes CPU checks: seed3000 selects
+20000 identical two-item batches (40000 draws) for both resumed arms, separately
+from worker-generator seed2000. CPU Accelerator/four workers decode the first8
+batches identically across all14 fields without changing main Torch RNG.
+This deliberately resets sampling and does not reconstruct historical cursor;
+only the two new resumed arms form the LR control. See the
+[single loader result](results/teacher_native_spatial_single_resume_loader_result_v1_20261010.json).
