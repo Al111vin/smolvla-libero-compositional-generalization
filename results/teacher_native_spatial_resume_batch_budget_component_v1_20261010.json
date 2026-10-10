@@ -1,0 +1,14 @@
+{
+  "status": "finite_sampling_component_tests_passed",
+  "local_unit_tests_passed": 3,
+  "joint_synthetic_full_suffix_batches": 80000,
+  "joint_invalid_boundaries_budgets_seeds_pools_rejected": true,
+  "single_invalid_protocols_rejected_before_torch_import": true,
+  "remote_cpu_exit_code": 0,
+  "single_component_full_sequence_matches_prior_real_probe_sha256": "0ef9f9a63e18b814e268f8390b0ac0c2ebfb07ff1c98ff84efe2c9dfd14f0571",
+  "single_component_batches": 20000,
+  "single_main_torch_rng_preserved": true,
+  "historical_launcher_modified": false,
+  "new_gpu_training_budget": 0,
+  "limitations": ["Component is not a training launcher.", "Joint real-pool component and combined training integration remain unverified.", "Repeated iteration regenerates the registered sequence; caller must not cycle after finite exhaustion."]
+}
