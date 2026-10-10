@@ -1,0 +1,15 @@
+{
+  "status": "authenticated_actual_data_eight_batches_equal_cpu_only",
+  "script": "scripts/probe_real_resume_batches_v1.py",
+  "execution": "Streamed via authenticated SSH to existing Python with CUDA_VISIBLE_DEVICES empty, HF_HUB_OFFLINE=1, timeout180; exit0. No script saved remotely.",
+  "batches_per_arm": 8,
+  "batch_size": 2,
+  "num_workers": 4,
+  "generator_seed": 2000,
+  "fields_compared_exactly": ["action", "action_is_pad", "episode_index", "frame_index", "index", "observation.images.agentview", "observation.images.agentview_is_pad", "observation.images.wrist", "observation.images.wrist_is_pad", "observation.state", "observation.state_is_pad", "task", "task_index", "timestamp"],
+  "global_torch_rng_preserved": true,
+  "scope_limits": ["Ordinary shuffle, not homogeneous balanced sampler", "No Accelerator wrapping", "No model/optimizer/scheduler restored", "Eight-batch probe is not full-budget stream proof", "Does not reconstruct historical single-task cursor"],
+  "new_gpu_budget": 0,
+  "eight_task_expansion_locked": true,
+  "fold02_locked": true
+}
