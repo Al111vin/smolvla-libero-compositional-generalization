@@ -1,0 +1,22 @@
+{
+  "status": "recommendation_only_no_gpu_activation",
+  "sources": ["teacher_native_spatial_4task_progression_decision_v1_20261009.json", "teacher_native_spatial_resume_cost_decision_review_v1_20261010.json", "teacher_native_spatial_joint_accounting_cpu_result_v7_20261011.json"],
+  "previous_turn_classification": "progress: published and byte-verified lightweight evidence",
+  "current_conclusion": "Task0 retention gate fails; matched starts exclude observed starting-input differences, but one seed and exact paired p0.375 do not identify interference or insufficient training.",
+  "recommended_next_scientific_question": "Does the task0 single-versus-joint retention pattern replicate under a fresh training seed?",
+  "preferred_option": "fresh_seed_exposure_matched_original_recipe_pair",
+  "reason": "Reproducibility is upstream of optimizing a potentially seed-specific difference. This preserves original recipes and tests the observed pattern directly; the LR intervention answers a different question.",
+  "comparison": {
+    "fresh_seed_pair": {"new_updates": 200000, "policy_rollouts": 120, "limitation": "One additional seed remains weak population evidence; not causal interference proof"},
+    "paired_resumed_lr_four_arms": {"new_updates": 200000, "policy_rollouts": 240, "limitation": "Tests LR sensitivity under reset sampling, not historical exact continuation or seed robustness"},
+    "more_component_cpu_tests": {"decision": "Not a scientific substitute; only perform targeted tests required by the chosen launcher"},
+    "expand8_or_lower_gate": {"decision": "Rejected"}
+  },
+  "execution_prerequisites": ["Explicit activation of a bounded GPU budget with enforced walltime and cost ceiling", "Fresh seed and independent paths preregistered before execution", "Matched per-task samples and LR exposure verified", "Chosen launcher integrated resource/lock/lifetime checks", "Full protocol and primary readouts preregistered without post-outcome threshold changes"],
+  "engineering_evidence_scope": "Single and joint one-update CPU accounting/epilogue pass; no full-budget persistence, CUDA or integrated detached-lifetime claim",
+  "active_new_gpu_budget": 0,
+  "ready_to_launch": false,
+  "eight_task_expansion_locked": true,
+  "fold02_locked": true,
+  "historical_evidence_unchanged": true
+}
