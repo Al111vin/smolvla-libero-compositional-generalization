@@ -1,0 +1,20 @@
+{
+  "status": "joint_counterpart_registered_not_executed",
+  "builder": "scripts/build_joint_accounting_cpu_probe_v7.py",
+  "checkpoint_step": 80000,
+  "cfg_total_steps": 160000,
+  "diagnostic_loop": "range80000..80001 instead of full remaining80000 updates",
+  "expected_actual_tracker_and_scheduler": 80001,
+  "observer_choice": "Capture real scheduler from full restore, because joint hook constructs block scheduler independently of original factory",
+  "output_must_be_absent": "/tmp/smolvla_full_entry_joint_accounting_cpu_probe_v7_20261011",
+  "max_cpu_updates": 1,
+  "walltime_seconds": 240,
+  "grace_seconds": 10,
+  "checkpoint_save_eval_hub_disabled": true,
+  "local_check": "Generated source compiles; original total remains160000; restore observer retained",
+  "scope": "Joint half-LR one-update accounting and epilogue only; no full-budget/save/CUDA/closed-loop success claim",
+  "new_gpu_budget": 0,
+  "ready_to_launch": false,
+  "eight_task_expansion_locked": true,
+  "fold02_locked": true
+}
