@@ -1,0 +1,22 @@
+{
+  "status": "joint_one_iteration_accounting_epilogue_cpu_v7_passed",
+  "plan": "teacher_native_spatial_joint_accounting_cpu_plan_v7_20261011.json",
+  "execution": "Authenticated existing SSH ControlMaster; independent streamed CPU probe",
+  "exit_code": 0,
+  "updates": [{"loss": 0.0615798719227314, "grad_norm": 1.332931637763977, "pre_update_lr": 0.000025625}],
+  "accounting": [80001],
+  "real_scheduler_epoch_verified": 80001,
+  "end_training_calls": 1,
+  "configured_total_steps": 160000,
+  "stop": "Natural return after explicitly shortened diagnostic loop",
+  "gpu_used": false,
+  "checkpoint_saved": false,
+  "output_created": false,
+  "max_cpu_updates": 1,
+  "walltime_seconds": 240,
+  "grace_seconds": 10,
+  "limitations": ["Not full-budget completion", "No checkpoint persistence verification", "No CUDA or policy evaluation", "Not integrated detached supervisor lifetime verification"],
+  "new_gpu_budget": 0,
+  "eight_task_expansion_locked": true,
+  "fold02_locked": true
+}

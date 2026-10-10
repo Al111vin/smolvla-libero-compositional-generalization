@@ -1885,3 +1885,11 @@ then returns exit0 without output or checkpoint creation. Failed v5 scheduler
 observer is preserved. The loop is explicitly shortened; this does not prove
 full40000-step completion, persistence, joint accounting or CUDA behavior.
 See [accounting v6](results/teacher_native_spatial_accounting_cpu_result_v6_20261011.json).
+
+Authenticated joint accounting probe v7 also returns exit0 after one actual
+half-LR CPU update, tracker step80001, real scheduler epoch80001 and one
+end_training call, without output or checkpoint creation. Both single and joint
+one-update accounting/epilogues are now checked; explicitly shortened loops do
+not establish full-budget completion, persistence, CUDA or detached supervisor
+lifetime. New GPU budget remains0 and task8/Fold02 remain locked.
+See [joint accounting v7](results/teacher_native_spatial_joint_accounting_cpu_result_v7_20261011.json).
