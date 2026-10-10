@@ -1,0 +1,12 @@
+{
+  "status": "bounded_corrected_observation_probe_registered",
+  "old_failure_preserved": "teacher_native_spatial_actual_resume_update_cpu_failure_v1_20261010.json",
+  "cause": "AcceleratedScheduler stores its wrapped scheduler and exposes state_dict(), not last_epoch directly. Installed scheduler.py lines88-89 forward state_dict unchanged.",
+  "hypothesis": "Using the public state_dict last_epoch observation fixes the final diagnostic without changing the actual update path.",
+  "choice": "Hash-pin failed v1 source, change only two scheduler observations and output version label; preserve batch2/model/chunk/restore/LR/actual update function.",
+  "generator": "scripts/build_actual_resume_update_probe_v2.py",
+  "bounds": {"cpu_threads": 2, "walltime_seconds": 240, "transient_updates": 1, "automatic_retries": 0, "gpu_updates": 0},
+  "new_gpu_training_budget": 0,
+  "checkpoint_saved": false,
+  "ready_to_launch": false
+}
