@@ -1,0 +1,17 @@
+{
+  "status": "authenticated_offline_cpu_actual_dataset_construction_passed",
+  "checkpoint_config": "/root/smolvla-training-prep/results/training/teacher_native_spatial_4task_homogeneous_160k_batch2_v1_20261009/checkpoints/080000/pretrained_model/train_config.json",
+  "method": "Import installed training module to register SmolVLA, decode TrainPipelineConfig with draccus, call installed make_dataset, inspect hf_dataset.data task_index column.",
+  "environment": {"CUDA_VISIBLE_DEVICES": "", "HF_HUB_OFFLINE": "1"},
+  "frames": 22709,
+  "task_frame_counts": {"0": 5068, "1": 6707, "2": 5882, "3": 5052},
+  "counts_match_direct_parquet_inventory": true,
+  "process_exit_code": 0,
+  "limitations": ["No item/image decoding exercised", "No actual DataLoader/Accelerator batch sequence tested", "No checkpoint optimizer/scheduler restore", "No historical cursor fidelity proof", "Source/checkpoint hashes must be rechecked for eventual launch"],
+  "model_loaded": false,
+  "training_started": false,
+  "new_gpu_budget": 0,
+  "raw_data_uploaded": false,
+  "eight_task_expansion_locked": true,
+  "fold02_locked": true
+}

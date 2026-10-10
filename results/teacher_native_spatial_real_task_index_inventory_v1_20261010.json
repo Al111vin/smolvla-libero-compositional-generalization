@@ -1,0 +1,13 @@
+{
+  "status": "authenticated_readonly_parquet_task_column_inventory",
+  "data_root": "/root/smolvla-training-prep/datasets/lerobot/libero_spatial_tasks0_3_native_20261003_v1",
+  "parquet_files": 9,
+  "task_frame_counts": {"0": 5068, "1": 6707, "2": 5882, "3": 5052},
+  "task_ids_exactly": [0, 1, 2, 3],
+  "scope": "Read only task_index columns from sorted data/**/*.parquet. This verifies task presence and counts, not LeRobot filtered dataset index ordering, image decoding, historical sampler cursor or resume integration.",
+  "consequence": "Actual task pools differ in frame count; balanced exposure must be enforced by the registered sampler, not assumed from a uniform shuffle over all frames.",
+  "new_gpu_budget": 0,
+  "raw_data_uploaded": false,
+  "eight_task_expansion_locked": true,
+  "fold02_locked": true
+}
