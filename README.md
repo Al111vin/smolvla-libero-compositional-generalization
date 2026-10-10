@@ -1878,3 +1878,10 @@ failure receipts. Earlier failed SSH observations remain preserved and unexplain
 This closes only the synthetic Linux contract-test gap, not production locks,
 detached supervisor lifetime, signals or full training finalization.
 See [Linux v4 evidence](results/teacher_native_spatial_linux_contract_tests_v4_20261011.json).
+
+Independent single-task accounting probe v6 now passes one actual half-LR CPU
+update, tracker step20001, real scheduler epoch20001 and one end_training call,
+then returns exit0 without output or checkpoint creation. Failed v5 scheduler
+observer is preserved. The loop is explicitly shortened; this does not prove
+full40000-step completion, persistence, joint accounting or CUDA behavior.
+See [accounting v6](results/teacher_native_spatial_accounting_cpu_result_v6_20261011.json).

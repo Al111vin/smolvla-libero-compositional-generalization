@@ -1,0 +1,23 @@
+{
+  "status": "one_iteration_accounting_epilogue_cpu_v6_passed",
+  "remote_exit_code": 0,
+  "actual_updates": 1,
+  "loss": 0.10557065904140472,
+  "grad_norm": 1.54043710231781,
+  "pre_update_lr": 0.000025625,
+  "tracker_steps": [20001],
+  "real_scheduler_last_epoch_checked": 20001,
+  "end_training_calls": 1,
+  "configured_total_steps": 40000,
+  "gpu_used": false,
+  "checkpoint_saved": false,
+  "output_created": false,
+  "stop": "Natural return after exact-boundary one-iteration diagnostic loop override",
+  "scope": "Single-task half-LR restored20000 checkpoint, real processor/model/optimizer/loader/CPU Accelerator, one update plus accounting and normal cleanup",
+  "limits": ["Explicitly shortened loop: not full40000-step completion", "No final checkpoint persistence or raw CLI construction", "No joint accounting, CUDA/AMP or detached supervisor validation", "Not a scientific closed-loop success result"],
+  "v5_failure_preserved": true,
+  "new_gpu_budget": 0,
+  "ready_to_launch": false,
+  "eight_task_expansion_locked": true,
+  "fold02_locked": true
+}
