@@ -1,0 +1,13 @@
+{
+  "status": "static_recipe_audit_no_execution",
+  "source_configs": ["configs/teacher_native_spatial_task0_single_40k_batch2_20261003.json", "configs/teacher_native_spatial_4task_homogeneous_160k_batch2_v1_20261009.json"],
+  "exposure_contract": {"single_updates": 40000, "joint_updates": 160000, "batch_size": 2, "tasks": 4, "updates_per_task": 40000, "draws_per_task": 80000, "joint_lr": "baseline factor at floor(completed_updates/4), repeated across each balanced block"},
+  "matching_scope": "Matched counts and nominal pre-update LR exposure, not identical sampled task0 frame sequence or gradient trajectory",
+  "verified_implementation_constraint": "Existing exposure_matched_train_wrapper_v1.py pins complete historical config hash/name, cfg.seed1000 and sampler seed1000. Editing only a config seed cannot produce a valid fresh-seed run.",
+  "required_new_version": "Independent hash-pinned wrapper/config pair must register model/trainer seed and homogeneous sampler seed together; preserve v1 unchanged. Single original loader and joint balanced sampler remain different algorithms and must be explicitly reported.",
+  "decision": "Do not launch historical wrapper with new config or bypass its guards. No wrapper or config modification until bounded fresh-seed execution protocol is registered.",
+  "new_gpu_budget": 0,
+  "ready_to_launch": false,
+  "eight_task_expansion_locked": true,
+  "fold02_locked": true
+}
