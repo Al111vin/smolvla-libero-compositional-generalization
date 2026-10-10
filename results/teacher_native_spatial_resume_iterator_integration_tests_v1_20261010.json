@@ -1,0 +1,11 @@
+{
+  "status": "scoped_resume_iterator_integration_unit_tests_passed",
+  "suite_command": "python3 -m unittest discover -s tests -p test_resume_*v1.py",
+  "tests_passed": 17,
+  "integration_tests": 3,
+  "contracts": ["verified restore required before iteration", "registered step and scheduler boundary required", "restore cannot repeat", "iterator cannot be recreated", "finite budget cannot silently cycle", "original trainer hooks restored on normal exit and exception"],
+  "scope": "Fake trainer integration plus existing CPU unit/synthetic tests; not installed-trainer execution or actual model updates.",
+  "historical_files_modified": false,
+  "new_gpu_training_budget": 0,
+  "ready_to_launch": false
+}
