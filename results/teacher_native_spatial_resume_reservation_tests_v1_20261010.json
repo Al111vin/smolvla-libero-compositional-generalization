@@ -1,0 +1,11 @@
+{
+  "status": "three_local_reservation_tests_passed",
+  "exit_code": 0,
+  "scope": "Real macOS temporary filesystem and POSIX flock with synthetic config/Accelerator; no train process",
+  "checks": ["Second independent file descriptor cannot acquire held lock", "No receipt created for rejected existing output", "Exception retains registration receipt and subsequent reuse cannot overwrite it", "Training output directory never precreated"],
+  "design": "Hold existing regular lock file with nonblocking flock, then entry contract and O_EXCL permanent receipt; never unlink the lock or receipt",
+  "limits": ["Cooperating processes only; does not detect unrelated GPU users", "Remote Linux implementation and detached supervisor not tested", "No atomic reservation of all output files against noncooperating writers", "No power-loss durability claim for parent directory", "Not connected to training launcher or activated budget"],
+  "new_gpu_budget": 0,
+  "ready_to_launch": false,
+  "old_evidence_preserved": true
+}
