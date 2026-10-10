@@ -1,0 +1,77 @@
+{
+  "status": "paired_single_cpu_first_update_exact_comparison_passed",
+  "arms": [
+    {
+      "status": "paired_actual_cpu_resume_update_v3_passed",
+      "factor": 1,
+      "pre_parameter_sha256": "f85636a00999c983b06059ff2066c047424344fa1bddf4273859bdb0d0d5ff07",
+      "pre_rng_sha256": "a04eb53663500655f03a26de8b539ad65aa7c8d210275f13d25eaff7c09003a3",
+      "processed_batch_tensor_shas": {
+        "action": "2bc2ffdfb8c1ad13af4b0f31b9c885eb7f86efb7690def659245b8afab793bf5",
+        "observation.images.agentview_is_pad": "96a296d224f285c67bee93c30f8a309157f0daa35dc5b87e410b78630a09cfc7",
+        "observation.images.wrist_is_pad": "96a296d224f285c67bee93c30f8a309157f0daa35dc5b87e410b78630a09cfc7",
+        "observation.state_is_pad": "96a296d224f285c67bee93c30f8a309157f0daa35dc5b87e410b78630a09cfc7",
+        "action_is_pad": "2996c03e459aea1a9e364807f27bc87847d1a2bddef355557fc1ce779161c220",
+        "index": "058a7e7681dffcde7239e1b4fe4d3eff1c9c60dd2b649154f1a745afd3097871",
+        "task_index": "374708fff7719dd5979ec875d56cd2286f6d3cf7ec317a3b25632aab28ec37bb",
+        "episode_index": "95c766d4683f847f3c6664325f963eae0d4d5533a9c8907fff4d0a254937c09e",
+        "observation.images.agentview": "f0bad04bc4ef900274419fe86fadfdae57ce774d557e82293f9c045656386cca",
+        "observation.images.wrist": "6211593620a8bc0867f099dd46b760568d48f51f31dfeede087749b7d91f2d45",
+        "observation.state": "8fe5288e8269113791e4d5e1f9037d595443fca6578bc3022840c3c2f2d59fa8",
+        "observation.language.tokens": "a2c115b48167bb0ee7259c04df036654c5048a87281e4c75d90c919371971a07",
+        "observation.language.attention_mask": "3c4e2485ff3714418108d65191df8230f7199fa2d91074d713159b7f9fd10ea6"
+      },
+      "updates": 1,
+      "pre_update_lr": 0.00005125,
+      "loss": 0.10557065904140472,
+      "grad_norm": 1.54043710231781,
+      "scheduler_epoch": 20001,
+      "watched_trainable_parameter_changed": true,
+      "checkpoint_saved": false,
+      "gpu_used": false
+    },
+    {
+      "status": "paired_actual_cpu_resume_update_v3_passed",
+      "factor": 0.5,
+      "pre_parameter_sha256": "f85636a00999c983b06059ff2066c047424344fa1bddf4273859bdb0d0d5ff07",
+      "pre_rng_sha256": "a04eb53663500655f03a26de8b539ad65aa7c8d210275f13d25eaff7c09003a3",
+      "processed_batch_tensor_shas": {
+        "action": "2bc2ffdfb8c1ad13af4b0f31b9c885eb7f86efb7690def659245b8afab793bf5",
+        "observation.images.agentview_is_pad": "96a296d224f285c67bee93c30f8a309157f0daa35dc5b87e410b78630a09cfc7",
+        "observation.images.wrist_is_pad": "96a296d224f285c67bee93c30f8a309157f0daa35dc5b87e410b78630a09cfc7",
+        "observation.state_is_pad": "96a296d224f285c67bee93c30f8a309157f0daa35dc5b87e410b78630a09cfc7",
+        "action_is_pad": "2996c03e459aea1a9e364807f27bc87847d1a2bddef355557fc1ce779161c220",
+        "index": "058a7e7681dffcde7239e1b4fe4d3eff1c9c60dd2b649154f1a745afd3097871",
+        "task_index": "374708fff7719dd5979ec875d56cd2286f6d3cf7ec317a3b25632aab28ec37bb",
+        "episode_index": "95c766d4683f847f3c6664325f963eae0d4d5533a9c8907fff4d0a254937c09e",
+        "observation.images.agentview": "f0bad04bc4ef900274419fe86fadfdae57ce774d557e82293f9c045656386cca",
+        "observation.images.wrist": "6211593620a8bc0867f099dd46b760568d48f51f31dfeede087749b7d91f2d45",
+        "observation.state": "8fe5288e8269113791e4d5e1f9037d595443fca6578bc3022840c3c2f2d59fa8",
+        "observation.language.tokens": "a2c115b48167bb0ee7259c04df036654c5048a87281e4c75d90c919371971a07",
+        "observation.language.attention_mask": "3c4e2485ff3714418108d65191df8230f7199fa2d91074d713159b7f9fd10ea6"
+      },
+      "updates": 1,
+      "pre_update_lr": 0.000025625,
+      "loss": 0.10557065904140472,
+      "grad_norm": 1.54043710231781,
+      "scheduler_epoch": 20001,
+      "watched_trainable_parameter_changed": true,
+      "checkpoint_saved": false,
+      "gpu_used": false
+    }
+  ],
+  "comparison": {
+    "watched_initial_parameter_equal": true,
+    "torch_rng_equal": true,
+    "all_13_processed_tensor_fields_equal": true,
+    "loss_and_grad_norm_exact_equal": true,
+    "pre_update_lr_ratio": 2
+  },
+  "limitations": [
+    "One watched parameter, not full model hashing",
+    "Single CPU first update only; no CUDA/AMP or full-budget effect",
+    "Non-tensor fields and full CLI launcher not audited here"
+  ],
+  "new_gpu_training_budget": 0,
+  "ready_to_launch": false
+}

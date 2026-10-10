@@ -1,0 +1,11 @@
+{
+  "status": "paired_cpu_one_update_diagnostic_registered",
+  "hypothesis": "Same single midpoint restore and registered loader produce equal pre-update parameter/RNG/processed tensor batches, loss and gradient norm in original/half LR arms; nominal pre-update LR differs exactly2x.",
+  "generator": "scripts/build_paired_resume_update_probe_v3.py",
+  "preserved_base_source_sha256": "70310dc87f176920e0a0ee0b467e4c20b58b8c1bb5328fede36f0bd72c4d9ef6",
+  "bounds": {"sequential_processes": 2, "cpu_threads_each": 2, "walltime_seconds_each": 240, "updates_each": 1, "automatic_retries": 0, "gpu_updates": 0},
+  "comparison": "Both independent process results must pass before exact initial-state and loss/gradient comparisons. No relaxed tolerances or training-success claim.",
+  "checkpoint_saved": false,
+  "active_new_gpu_budget": 0,
+  "limitations": ["Hashes cover one watched parameter and processed batch tensors, not every model tensor or non-tensor field", "One update only, single-task CPU no AMP", "Does not validate multi-step divergence or closed-loop performance"]
+}
