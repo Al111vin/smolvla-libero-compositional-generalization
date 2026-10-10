@@ -1,0 +1,14 @@
+{
+  "status": "cpu_probe_failed_before_optimizer_state_restored",
+  "script": "scripts/probe_actual_optimizer_restore_v1.py",
+  "checkpoint": "single020000",
+  "exit_code": 1,
+  "error": "Dictionary keys do not match: saved parameter groups contain initial_lr; freshly built optimizer groups do not.",
+  "diagnosis": "Probe omitted scheduler construction before optimizer restore. Actual trainer constructs optimizer AND scheduler first; scheduler initialization establishes initial_lr. This is a probe ordering mismatch, not evidence checkpoint corruption or that normal trainer resume necessarily fails.",
+  "next": "Preserve v1; register v2 constructing the actual single/joint scheduler before invoking installed optimizer loader, then compare all restored state tensors.",
+  "policy_forward_called": false,
+  "optimizer_step_called": false,
+  "new_gpu_budget": 0,
+  "eight_task_expansion_locked": true,
+  "fold02_locked": true
+}

@@ -1,0 +1,13 @@
+{
+  "status": "both_actual_midpoint_cpu_optimizer_restores_passed",
+  "script": "scripts/probe_actual_optimizer_restore_v2.py",
+  "single020000": {"exit_code": 0, "active_states": 155, "state_tensors_equal_and_finite": 465, "scheduler_last_epoch": 20000},
+  "joint080000": {"exit_code": 0, "active_states": 155, "state_tensors_equal_and_finite": 465, "scheduler_last_epoch": 80000},
+  "assertions": ["Saved group parameter IDs match restored groups", "Restored optimizer LR equals saved LR and restored scheduler LR", "All saved moment and scalar step tensors equal restored tensors exactly and are finite", "Active state ID sets match saved inventory"],
+  "method": "CPU strict local checkpoint load; registered optimizer construction; actual single or joint block scheduler constructed before installed optimizer loader; scheduler state loaded afterward. Offline and180-second bounds.",
+  "limitations": ["No policy forward/backward or optimizer step", "No combined load_training_state RNG restoration tested", "No Accelerator wrapping or actual balanced resumed loader integration", "Half-LR guard not applied to this real restored optimizer in this probe", "No launch-time source/hash/resource checks"],
+  "v1_failure_preserved": true,
+  "new_gpu_budget": 0,
+  "eight_task_expansion_locked": true,
+  "fold02_locked": true
+}
