@@ -1,0 +1,20 @@
+{
+  "status": "source_order_verified_runtime_incomplete",
+  "inspection": "Authenticated read-only inspection of installed lerobot/scripts/lerobot_train.py lines190..410",
+  "verified_call_order": ["make_dataset", "make_policy", "make_pre_post_processors with dataset-stat overrides", "make_optimizer_and_scheduler", "load_training_state", "DataLoader", "Accelerator.prepare policy optimizer loader scheduler", "cycle"],
+  "next_integrated_preflight_requirements": [
+    "Invoke installed train function and real config validation, not another manually copied update sequence",
+    "Reject accelerator.num_processes other than1 before any update; multi-process sharding changes registered exposure",
+    "Use independent absent temporary output and prevent checkpoint save and Hub/WandB upload",
+    "Bound CPU execution to one actual update then controlled stop, with unchanged real batch and action chunk",
+    "Verify exact checkpoint/config interpretation, restored step, sampler identity, processor contract, update and scheduler guard",
+    "Retain timeout/error evidence without treating observation failure as authorization to repeat"
+  ],
+  "already_verified_scope": "Single CPU one-update component integration and reconstruction identity; not full installed train entry",
+  "remaining_launch_requirements": ["Joint actual model update", "CUDA/AMP and skipped-update handling", "Atomic path reservation", "GPU lock", "Hard walltime and final scientific option/cost registration"],
+  "new_gpu_budget": 0,
+  "ready_to_launch": false,
+  "eight_task_expansion_locked": true,
+  "fold02_locked": true,
+  "old_evidence_unchanged": true
+}

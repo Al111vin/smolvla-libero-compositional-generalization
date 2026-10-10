@@ -1800,3 +1800,23 @@ batches identically across all14 fields without changing main Torch RNG.
 This deliberately resets sampling and does not reconstruct historical cursor;
 only the two new resumed arms form the LR control. See the
 [single loader result](results/teacher_native_spatial_single_resume_loader_result_v1_20261010.json).
+
+Integrated CPU update probes subsequently verified a real single-task midpoint
+restore, processor/forward/backward/optimizer step and scheduler advancement to
+20001. Original-LR and half-LR arms match on the watched initial parameter,
+Torch RNG and all13 processed tensor fields; loss and gradient norm agree.
+This is a one-update paired check, not full-model equality or a closed-loop result.
+The independent v2 hooks also pass the half-LR update after preserving the failed
+v1 reconstruction evidence. Four reconstruction tests accept the actual CPU
+Accelerator path once and reject replacement sampler/generator/dataset objects
+or a second reconstruction. See [paired update evidence](results/teacher_native_spatial_paired_resume_update_cpu_result_v3_20261010.json),
+[hooked update](results/teacher_native_spatial_hooked_resume_update_cpu_result_v5_20261010.json)
+and [reconstruction tests](results/teacher_native_spatial_resume_reconstruction_tests_v2_20261010.json).
+
+Full installed train-function/CLI execution, joint model update and CUDA/AMP
+remain unverified. Source inspection confirms restore precedes loader creation,
+then Accelerator preparation and finite iterator creation; distributed execution
+must be explicitly rejected because exposure matching is registered for one
+process only. Atomic independent paths, GPU lock and hard walltime bounds remain
+launch requirements. The candidate200000-update LR comparison is not an active
+budget: new GPU budget remains0; eight-task expansion and Fold02 stay locked.
