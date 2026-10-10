@@ -1,0 +1,13 @@
+{
+  "status": "four_local_contract_tests_passed",
+  "tests": 4,
+  "exit_code": 0,
+  "checks": ["Exactly one integer process", "Configured checkpoint/policy/output equal registered paths", "Existing output rejected and preserved", "Valid read-only preflight creates no output"],
+  "scope": "Standalone read-only entry contract with synthetic config/Accelerator fixture and real temporary filesystem",
+  "not_yet_integrated_into_launcher": true,
+  "atomic_reservation": false,
+  "gpu_lock_verified": false,
+  "new_gpu_budget": 0,
+  "ready_to_launch": false,
+  "next_required_step": "Compose contract with validated real configuration and atomic reservation before train invocation; do not treat standalone tests as launcher verification"
+}
