@@ -1,0 +1,14 @@
+{
+  "status": "private_hf_lightweight_archive_verified",
+  "github_source_commit": "5642985f1f13c557852efe4b33dd3fae90712f9b",
+  "selection": "git diff --name-only 9b48e2c..5642985; exact repeated include paths, no broad upload",
+  "hf_dataset_repo": "Alllvinnn/smolvla-libero-compositional-generalization",
+  "hf_revision": "0558fa3d07a55068c037612ec2c58b379642656c",
+  "hf_private_verified": true,
+  "files_byte_equal_to_local": 36,
+  "allowed_content": ["README", "CPU diagnostic source", "unit test", "lightweight JSON evidence including failed versions"],
+  "models_data_raw_trajectories_videos_logs_credentials_uploaded": false,
+  "new_gpu_training_budget": 0,
+  "scientific_gate_changed": false,
+  "remaining": ["Complete model/optimizer/loader integration", "Compare bounded intervention alternatives and register final cost decision", "Eight-task and Fold02 gates remain locked"]
+}
