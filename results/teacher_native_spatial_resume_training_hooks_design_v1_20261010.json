@@ -1,0 +1,13 @@
+{
+  "status": "scoped_training_hooks_implemented_not_runtime_verified",
+  "source": "scripts/resume_training_hooks_v1.py",
+  "installation_points": ["installed optimizer/scheduler factory", "installed full state restore", "target DataLoader constructor", "installed trainer cycle", "installed update_policy scheduler argument"],
+  "contracts": ["registered single/joint boundaries", "factor1 or0.5 after full restore", "joint exposure-matched block scheduler", "finite single/joint sampler and isolated worker generator", "skip detection before scheduler advancement", "restore original hooks on exit"],
+  "syntax_check": "passed",
+  "existing_component_tests_passed": 21,
+  "new_hooks_runtime_tested": false,
+  "limitations": ["Process-global DataLoader constructor patch must be used only in an exclusive process", "Does not supply complete CLI/source hashes/path reservation/GPU lock/walltime launcher", "Full actual trainer execution under these hooks remains unverified"],
+  "historical_launcher_modified": false,
+  "new_gpu_training_budget": 0,
+  "ready_to_launch": false
+}
