@@ -1774,3 +1774,13 @@ not verify real dataset mapping, single-task continuation, PyTorch/worker RNG,
 optimizer restoration or scheduler integration. No new training was launched.
 See the [revised controls](results/teacher_native_spatial_late_lr_resume_control_revision_v1_20261010.json)
 and [bounded synthetic evidence](results/teacher_native_spatial_resume_sampling_synthetic_test_v1_20261010.json).
+
+Subsequent CPU integration checks invoke the installed full training-state
+restore: single midpoint original-LR control restores step20000 and all465 saved
+optimizer tensors exactly; joint midpoint half-LR restores step80000, changes
+boundary LR to2.5625e-5, and retains all465 tensors and base learning rates.
+Neither performs inference or parameter updates. RNG restoration is invoked,
+not independently value-audited. Accelerator and resumed-loader integration
+remain outstanding; this is not authorization or readiness for a training run.
+See [single control](results/teacher_native_spatial_full_training_restore_control_result_v1_20261010.json)
+and [joint half-LR](results/teacher_native_spatial_full_training_restore_half_lr_result_v2_20261010.json).

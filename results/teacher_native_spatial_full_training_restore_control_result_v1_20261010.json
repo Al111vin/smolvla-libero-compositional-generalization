@@ -1,0 +1,20 @@
+{
+  "status": "single_midpoint_cpu_full_restore_control_passed",
+  "checkpoint": "teacher_native_spatial_task0_single_current_recipe_40k_batch2_v1/checkpoints/020000",
+  "remote_exit_code": 0,
+  "restored_step": 20000,
+  "scheduler_last_epoch": 20000,
+  "installed_load_training_state_called": true,
+  "rng_restore_called": true,
+  "post_restore_lr_factor": 1.0,
+  "optimizer_state_tensors_equal_to_saved_and_finite": 465,
+  "active_optimizer_states": 155,
+  "policy_forward_called": false,
+  "optimizer_step_called": false,
+  "new_gpu_training_budget": 0,
+  "limitations": [
+    "RNG restoration was invoked but restored RNG values were not independently compared.",
+    "Joint checkpoint and half-LR factor are not covered by this integration run.",
+    "Accelerator, balanced resumed loader and complete training integration remain unverified."
+  ]
+}

@@ -1,0 +1,21 @@
+{
+  "status": "joint_midpoint_full_restore_half_lr_cpu_passed",
+  "checkpoint": "teacher_native_spatial_4task_homogeneous_160k_batch2_v1_20261009/checkpoints/080000",
+  "remote_exit_code": 0,
+  "restored_step_and_scheduler_epoch": 80000,
+  "installed_load_training_state_called": true,
+  "rng_restore_called": true,
+  "post_restore_lr_factor": 0.5,
+  "boundary_lrs": [0.000025625],
+  "base_lrs_unchanged": true,
+  "optimizer_state_tensors_equal_to_saved_and_finite_after_intervention": 465,
+  "policy_forward_called": false,
+  "optimizer_step_called": false,
+  "new_gpu_training_budget": 0,
+  "limitations": [
+    "RNG restoration invoked; restored RNG values not independently compared.",
+    "No scheduler step or parameter update in this run.",
+    "Single half-LR and joint original-LR full restore integrations remain to test.",
+    "Accelerator and resumed balanced data loader integration remain unverified."
+  ]
+}
