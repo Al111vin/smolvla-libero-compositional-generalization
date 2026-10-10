@@ -1,0 +1,36 @@
+{
+  "status": "updated_readiness_review_not_launch_registration",
+  "supersedes_readiness_only": "teacher_native_spatial_resume_cost_decision_review_v1_20261010.json",
+  "historical_review_preserved": true,
+  "evidence": {
+    "single_integrated_cpu": "teacher_native_spatial_full_entry_cpu_result_v2_20261010.json",
+    "joint_integrated_cpu": "teacher_native_spatial_joint_full_entry_cpu_result_v3_20261010.json",
+    "proxy_limits": "teacher_native_spatial_contact_proxy_counterexample_audit_v1_20261010.json",
+    "cost": "teacher_native_spatial_gpu_cost_evidence_v1_20261010.json",
+    "remote_access_failure": "teacher_native_spatial_linux_contract_attempt_v3_20261010.json"
+  },
+  "passed_scope": [
+    "Installed train entry with supplied decoded real config validates and integrates checkpoint, model, processor, optimizer, scheduler, sampler and CPU Accelerator",
+    "One finite half-LR update in each single and joint condition, followed by controlled stop before accounting/save/eval",
+    "Synthetic macOS cooperating-process lease and evidence-preserving failure tests"
+  ],
+  "unproven_requirements": [
+    "Raw CLI argument construction and complete normal loop accounting/finalization",
+    "Joint original-LR paired integrated update",
+    "CUDA/AMP behavior and skipped-update paths under actual accelerator conditions",
+    "Remote Linux reservation tests, detached supervisor lifetime and lock ownership",
+    "Final scientific option selection and registered enforceable time/cost bounds"
+  ],
+  "scientific_choice": {
+    "lr_four_arm": "Directly tests remaining-LR sensitivity within reset-sampling paired conditions; 200000 updates and240 rollouts, not historical exact continuation or interference proof",
+    "fresh_seed_pair": "Tests replication under another training seed; 200000 updates and120 rollouts, not an LR intervention",
+    "selection": "LR design remains implementation candidate; neither option activated",
+    "primary_outcome": "Official closed-loop success, not approach/contact/lift/transport proxies",
+    "cost_claim": "Lower rollout count is not evidence of half total rental cost"
+  },
+  "next_priority": "Complete integrated finalization and launch-lifetime verification without GPU before additional redundant component-only checks; remote access recovery alone must not trigger training",
+  "new_gpu_budget": 0,
+  "ready_to_launch": false,
+  "eight_task_expansion_locked": true,
+  "fold02_locked": true
+}

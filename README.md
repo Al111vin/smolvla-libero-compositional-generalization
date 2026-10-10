@@ -1858,3 +1858,10 @@ the cooperating lock while retaining a mode0600 receipt. The runner reports12
 cases because8 imported/inherited cases repeat; this is4 new unique checks.
 Production helpers are unchanged; Linux and detached-supervisor verification
 remain open. See [edge tests](results/teacher_native_spatial_reservation_edge_tests_v2_20261010.json).
+
+The [readiness review v2](results/teacher_native_spatial_resume_readiness_review_v2_20261010.json)
+updates the older cost review's now-stale CPU integration gaps without changing
+its scientific choices or deleting history. Both half-LR CPU entries pass one
+update, not normal loop finalization or CUDA execution. Remaining work prioritizes
+integrated finalization and supervisor lifetime, not redundant component checks.
+Neither proposed experiment has an activated GPU budget; task8/Fold02 stay locked.
