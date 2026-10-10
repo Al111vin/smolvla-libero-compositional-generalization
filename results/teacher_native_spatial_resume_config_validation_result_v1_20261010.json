@@ -1,0 +1,20 @@
+{
+  "status": "installed_resume_config_validation_passed",
+  "remote_exit_code": 0,
+  "single": {"checkpoint_step": 20000, "total_steps": 40000, "saved_config_sha256": "fa69b7965b3769934cb4c96824b74fccd44981477daebfcf886459c42894b67b"},
+  "joint": {"checkpoint_step": 80000, "total_steps": 160000, "saved_config_sha256": "f01fc2b045e36dcd164a95dc1f0f29cd6dfa1962320958f3fe93fd19379d3eed"},
+  "checkpoint_paths_correct": true,
+  "saved_configs_unchanged": true,
+  "independent_probe_output_paths_not_created": true,
+  "env_none_and_push_to_hub_false_verified": true,
+  "source_constraints": [
+    "validate uses sys.argv --config_path to infer checkpoint, not only a decoded configuration field.",
+    "--policy.path takes priority over the resume branch and must not be included in the registered resume CLI.",
+    "A copied config in a new recovery directory cannot be passed as config_path without an independently tested checkpoint-path override.",
+    "resume=true skips the installed existing-output rejection; the new wrapper must independently require output path absent."
+  ],
+  "trainer_invoked": false,
+  "new_gpu_training_budget": 0,
+  "scope": "Decoded saved configs, changed resume/output in memory, called installed validate with original checkpoint config_path; not full CLI parser or trainer execution.",
+  "ready_to_launch": false
+}
