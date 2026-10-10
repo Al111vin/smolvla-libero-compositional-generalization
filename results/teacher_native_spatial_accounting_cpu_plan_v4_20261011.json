@@ -1,0 +1,21 @@
+{
+  "status": "bounded_cpu_diagnostic_registered_not_executed",
+  "builder": "scripts/build_accounting_cpu_probe_v4.py",
+  "base_probe_sha256": "61178d53edc169fc757f89f7b9aba6fbcc6c1bb6d26327a7b1c8c9347471cfd0",
+  "installed_trainer_required_sha256": "e08ba26017674ac8453683e7b54810325fb381f20cb32a161c5d9aa690483449",
+  "max_cpu_updates": 1,
+  "walltime_seconds": 240,
+  "termination_grace_seconds": 10,
+  "new_output_must_be_absent": "/tmp/smolvla_full_entry_accounting_cpu_probe_v4_20261011",
+  "expected_tracker_step": 20001,
+  "expected_scheduler_epoch": 20001,
+  "expected_end_training_calls": 1,
+  "cfg_total_steps_unchanged": 40000,
+  "loop_override": "Only registered range(20000,40000) is replaced by one iteration; any other or repeated call fails",
+  "checks_before_execution": ["Installed source hash unchanged", "Probe output absent including dangling symlink", "Required runtime metrics.steps field confirmed", "Existing helper source hashes match recorded integration evidence"],
+  "local_validation": "Generated source compiled and AST parsed; no runtime success claimed",
+  "forbidden": ["GPU use", "checkpoint saving", "policy evaluation", "Hub upload", "second update"],
+  "scope_limit": "Shortened-loop accounting/epilogue diagnostic; not full remaining-budget training, final checkpoint persistence or scientific success",
+  "new_gpu_budget": 0,
+  "ready_to_launch": false
+}
