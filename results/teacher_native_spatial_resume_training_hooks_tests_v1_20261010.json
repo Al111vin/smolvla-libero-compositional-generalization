@@ -1,0 +1,11 @@
+{
+  "status": "scoped_hooks_runtime_unit_tests_passed",
+  "remote_cpu_exit_code": 0,
+  "tests_passed": 4,
+  "tests": ["all original trainer and DataLoader hooks restored on exception", "skipped optimizer update prevents scheduler advancement", "executed update advances scheduler once", "invalid worker configuration rejected before dataset access"],
+  "additional_guards": ["no streaming", "no augmentation", "no hub model upload", "exact worker/prefetch settings", "no preexisting batch sampler or generator overrides"],
+  "scope": "Actual PyTorch CPU runtime, synthetic trainer/optimizer objects. Not full installed-trainer training under hooks.",
+  "policy_updates": 0,
+  "new_gpu_training_budget": 0,
+  "ready_to_launch": false
+}

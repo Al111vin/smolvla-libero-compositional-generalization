@@ -13,6 +13,8 @@ def registered_resume_hooks(trainer, cfg, *, factor):
         raise ValueError("unregistered resume condition")
     if cfg.batch_size != 2 or cfg.num_workers != 4 or cfg.env is not None:
         raise ValueError("registered batch/workers/no-eval condition required")
+    if cfg.dataset.streaming or cfg.dataset.image_transforms.enable or cfg.policy.push_to_hub:
+        raise ValueError("registered offline/no-augmentation/no-upload condition required")
     expected = 20000 if cfg.steps == 40000 else 80000
     original_factory = trainer.make_optimizer_and_scheduler
     original_restore = trainer.load_training_state
@@ -40,6 +42,9 @@ def registered_resume_hooks(trainer, cfg, *, factor):
             return original_loader_init(self, dataset, *args, **kwargs)
         if loader_calls or args or kwargs.get("batch_size") != 2 or kwargs.get("sampler") is not None:
             raise ValueError("unexpected or repeated target loader")
+        if (kwargs.get("num_workers") != 4 or kwargs.get("prefetch_factor") != 2
+                or kwargs.get("batch_sampler") is not None or kwargs.get("generator") is not None):
+            raise ValueError("unexpected target worker or sampler configuration")
         values = dataset.hf_dataset.data.column("task_index").to_pylist()
         if cfg.steps == 40000:
             if set(values) != {0}:
