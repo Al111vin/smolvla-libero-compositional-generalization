@@ -1,0 +1,13 @@
+{
+  "status": "authenticated_actual_checkpoint_config_decoded_cpu_only",
+  "checkpoint_config": "/root/smolvla-training-prep/results/training/teacher_native_spatial_task0_single_current_recipe_40k_batch2_v1/checkpoints/020000/pretrained_model/train_config.json",
+  "policy_class": "SmolVLAConfig",
+  "has_drop_n_last_frames": false,
+  "num_workers": 4,
+  "actual_single_branch": "Installed trainer uses shuffle=True, sampler=None; DataLoader constructs RandomSampler, not EpisodeAwareSampler.",
+  "correction": "EpisodeAwareSampler global-randperm risk was conditional, not the actual branch of this checkpoint. A dedicated loader generator can seed RandomSampler and worker base seeds in the new protocol, subject to actual dataset and Accelerator verification.",
+  "historical_fidelity_limit": "The historical current-epoch permutation/cursor is still absent. This branch identification does not prove uninterrupted historical continuation; paired new resumed controls remain required.",
+  "new_gpu_budget": 0,
+  "eight_task_expansion_locked": true,
+  "fold02_locked": true
+}

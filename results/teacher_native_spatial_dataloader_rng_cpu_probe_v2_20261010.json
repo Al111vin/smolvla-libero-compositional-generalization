@@ -1,0 +1,13 @@
+{
+  "status": "authenticated_four_worker_synthetic_cpu_probe_passed",
+  "runtime": "/usr/local/miniconda3/envs/py312/bin/python",
+  "dataset": "TensorDataset(torch.arange(200))",
+  "loader": {"batch_size": 2, "shuffle": true, "num_workers": 4, "dedicated_generator_seed": 2000},
+  "observations": {"two_independent_arms_all_100_batches_identical": true, "main_process_global_torch_rng_unchanged_after_each_complete_iteration": true},
+  "limitations": ["TensorDataset has no stochastic transforms; worker Python/NumPy transform streams not tested", "Actual LeRobot dataset and Accelerator integration not tested", "Only one synthetic epoch, not full training budget", "Not historical cursor reconstruction or CUDA RNG verification"],
+  "next": "Inspect actual dataset transforms and worker seeding, then test the registered real-data index stream and scheduler/optimizer restore independently before launch.",
+  "remote_files_written": false,
+  "new_gpu_budget": 0,
+  "eight_task_expansion_locked": true,
+  "fold02_locked": true
+}

@@ -1,0 +1,13 @@
+{
+  "status": "actual_configuration_and_installed_source_readonly_review",
+  "registered_config": "configs/teacher_native_spatial_4task_homogeneous_160k_batch2_v1_20261009.json",
+  "image_transforms_enabled": false,
+  "installed_factory_evidence": "datasets/factory.py81-82 constructs ImageTransforms only when enable is true; otherwise passes None",
+  "installed_trainer_loader": {"num_workers": "cfg.num_workers=4", "prefetch_factor": 2, "drop_last": false, "generator_argument": "absent", "worker_init_fn_argument": "absent", "pin_memory": "device.type == cuda"},
+  "consequence": "Stochastic image augmentation is disabled in this registered recipe. However dedicated DataLoader generator isolation is absent in the installed trainer and must be introduced only in a new versioned paired-resume protocol. Custom EpisodeAwareSampler RNG remains a separate concern: supplying a loader generator does not automatically isolate a sampler that calls global torch.randperm.",
+  "remaining_preflight": ["Inspect actual policy sampler branch and isolate sampler RNG", "Test actual dataset batches and Accelerator wrapping", "Verify checkpoint optimizer/scheduler restoration and every remaining LR", "Compare revised experiment cost before activating a bounded GPU budget"],
+  "new_gpu_budget": 0,
+  "historical_code_modified": false,
+  "eight_task_expansion_locked": true,
+  "fold02_locked": true
+}

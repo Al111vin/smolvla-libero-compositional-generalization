@@ -1,0 +1,13 @@
+{
+  "status": "authenticated_remote_cpu_probe_passed_limited_scope",
+  "runtime": "/usr/local/miniconda3/envs/py312/bin/python",
+  "dataset": "synthetic TensorDataset(torch.arange(20))",
+  "num_workers_tested": 0,
+  "observations": {"default_iterator_preserves_global_torch_rng": false, "explicit_dedicated_generator_preserves_global_torch_rng_during_iteration": true},
+  "consequence": "DataLoader iterator creation is an additional RNG consumer even without shuffle. Any paired resumed-arm design must provide an explicit data generator and verify worker behavior, rather than assume restoring policy RNG before creating the loader preserves it.",
+  "limitations": ["Historical registered training uses four workers; not tested here", "Actual LeRobot dataset and Accelerator wrapper not tested", "No CUDA state or policy inference exercised", "No proof of historical uninterrupted continuation"],
+  "remote_files_written": false,
+  "new_gpu_budget": 0,
+  "eight_task_expansion_locked": true,
+  "fold02_locked": true
+}
