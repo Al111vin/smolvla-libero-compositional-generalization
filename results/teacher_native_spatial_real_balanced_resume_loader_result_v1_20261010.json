@@ -1,0 +1,26 @@
+{
+  "status": "real_balanced_suffix_accelerator_cpu_passed",
+  "remote_exit_code": 0,
+  "task_frame_counts": [5068, 6707, 5882, 5052],
+  "remaining_batches": 80000,
+  "updates_per_task": 20000,
+  "sample_draws_per_task": 40000,
+  "full_suffix_equal_to_regenerated_uninterrupted_suffix": true,
+  "both_arm_index_sequences_equal": true,
+  "each_four_batch_block_contains_each_task_once": true,
+  "all_batch_indices_match_real_task_column": true,
+  "suffix_sha256": "3b7a0ace4db8c51ad2f69dee53bc2e1b244a41f9842207efdb1278ea0d385119",
+  "accelerator_cpu_processes": 1,
+  "workers": 4,
+  "decoded_batches_per_arm": 8,
+  "all_14_batch_fields_equal_between_arms": true,
+  "main_torch_rng_preserved": true,
+  "gpu_or_policy_used": false,
+  "new_gpu_training_budget": 0,
+  "limitations": [
+    "Full suffix checks cover indices and task exposure, not decoding all 80000 batches.",
+    "Single-task resumed loader is not covered.",
+    "No joint model/optimizer/loader combined training update or GPU Accelerator test.",
+    "Regenerated suffix is not an independently saved historical loader cursor."
+  ]
+}

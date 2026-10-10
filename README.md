@@ -1784,3 +1784,11 @@ not independently value-audited. Accelerator and resumed-loader integration
 remain outstanding; this is not authorization or readiness for a training run.
 See [single control](results/teacher_native_spatial_full_training_restore_control_result_v1_20261010.json)
 and [joint half-LR](results/teacher_native_spatial_full_training_restore_half_lr_result_v2_20261010.json).
+
+The real four-task dataset's regenerated remaining80000 batch indices match
+the full sampler suffix, with20000 batches/40000 draws per task and one task
+per homogeneous batch. Two CPU Accelerator-prepared four-worker loaders agree
+on all14 fields for the first8 decoded batches each, preserving main Torch RNG.
+This does not decode the entire suffix or verify combined model updates,
+single-task resume or GPU integration. See the
+[real balanced-loader check](results/teacher_native_spatial_real_balanced_resume_loader_result_v1_20261010.json).
