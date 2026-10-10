@@ -1,0 +1,14 @@
+{
+  "status": "transport_closed_before_authenticated_execution_evidence",
+  "plan": "teacher_native_spatial_accounting_preflight_v5_20261011.json",
+  "attempts_this_turn": 1,
+  "ssh_exit_code": 255,
+  "error": "Connection closed by 117.50.184.29 port27360",
+  "remote_execution_confirmed": false,
+  "cpu_update_confirmed": false,
+  "automatic_retry": false,
+  "interpretation": "Transport failure does not establish a training error or model/data failure; runtime probe remains unverified",
+  "next_observation": "Recheck registered output and active CPU diagnostic processes before another execution; never infer terminal state from SSH close alone",
+  "new_gpu_budget": 0,
+  "ready_to_launch": false
+}
