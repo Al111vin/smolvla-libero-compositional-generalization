@@ -1,0 +1,18 @@
+{
+  "status": "private_hf_exact_file_sync_verified",
+  "repo": "Alllvinnn/smolvla-libero-compositional-generalization",
+  "repo_type": "dataset",
+  "private": true,
+  "previous_revision": "0558fa3d07a55068c037612ec2c58b379642656c",
+  "revision": "ef723b0d1701929637b5fa88faf20097a061039c",
+  "source_git_sha": "c4795f925e38a6aff5e7227fae6024750efc823d",
+  "exact_include_list": "git diff --name-only 5642985..c4795f925e38a6aff5e7227fae6024750efc823d",
+  "files_byte_verified": 45,
+  "allowed_types": ["README.md", "scripts/*.py", "tests/*.py", "results/teacher_native_spatial_*.json"],
+  "per_file_limit_bytes": 200000,
+  "verification": "Downloaded each exact included file at recorded HF revision and compared bytes with clean tracked source worktree",
+  "prohibited_artifacts_uploaded": false,
+  "new_gpu_budget": 0,
+  "ready_to_launch": false,
+  "note": "This sync receipt is saved afterward on GitHub; it is not part of the verified45-file HF revision."
+}
