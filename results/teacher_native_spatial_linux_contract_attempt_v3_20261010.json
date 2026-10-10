@@ -1,0 +1,16 @@
+{
+  "version": "linux_contract_attempt_v3_20261010",
+  "purpose": "Verify entry-contract and cooperating-process reservation tests on remote Linux without GPU use",
+  "control_master_check": "socket missing, exit255",
+  "authenticated_test_attempts_this_turn": 1,
+  "ssh_exit_code": 255,
+  "observed_error": "kex_exchange_identification: read: Connection reset by peer; Connection reset by 117.50.184.29 port 27360",
+  "authentication_confirmed": false,
+  "remote_test_execution_confirmed": false,
+  "linux_tests_passed": false,
+  "cause": "unresolved; this output does not establish a user-key or host-key failure",
+  "automatic_retry": false,
+  "new_gpu_budget": 0,
+  "old_evidence_modified": false,
+  "next_action": "Continue local CPU engineering checks; defer another remote observation to a later access check"
+}

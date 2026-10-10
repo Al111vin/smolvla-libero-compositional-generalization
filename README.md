@@ -1851,3 +1851,10 @@ LR and fresh-seed designs use200000 new updates;120 versus240 evaluations does
 not imply half the total rental cost. Current tariff, evaluation duration and
 enforceable walltime ceilings remain unverified. New GPU budget is still0.
 See [cost evidence](results/teacher_native_spatial_gpu_cost_evidence_v1_20261010.json).
+
+Four additional local lease failure cases pass: missing locks are not created,
+symlink lock/receipt targets remain untouched, and controlled failure releases
+the cooperating lock while retaining a mode0600 receipt. The runner reports12
+cases because8 imported/inherited cases repeat; this is4 new unique checks.
+Production helpers are unchanged; Linux and detached-supervisor verification
+remain open. See [edge tests](results/teacher_native_spatial_reservation_edge_tests_v2_20261010.json).

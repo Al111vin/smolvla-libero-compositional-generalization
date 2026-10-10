@@ -1,0 +1,15 @@
+{
+  "scope": "local macOS CPU synthetic temporary-file lease failure tests",
+  "test_file": "tests/test_resume_reservation_edges_v2.py",
+  "command": "python3 -m unittest discover -s tests -p 'test_resume_reservation_edges_v2.py'",
+  "exit_code": 0,
+  "runner_test_count": 12,
+  "new_unique_cases": 4,
+  "repeated_inherited_or_imported_cases": 8,
+  "new_cases": ["missing lock is not created", "symlink lock rejected without changing target", "symlink receipt rejected without changing old evidence", "controlled exception releases lock while retaining mode0600 receipt"],
+  "production_code_changed": false,
+  "remote_linux_verified": false,
+  "detached_supervisor_verified": false,
+  "unrelated_gpu_users_excluded": false,
+  "new_gpu_budget": 0
+}
