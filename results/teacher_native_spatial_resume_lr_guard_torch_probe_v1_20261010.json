@@ -1,0 +1,15 @@
+{
+  "status": "authenticated_torch_cpu_guard_probe_passed",
+  "guard": "scripts/resume_lr_guard_v1.py",
+  "probe": "scripts/probe_resume_lr_guard_torch_v1.py",
+  "unit_tests_passed": 6,
+  "integration_scope": "Two-element CPU AdamW with ten populated-state updates and LambdaLR; intervene after boundary validation, then check every remaining39990 pre-update LR through final zero LR.",
+  "moments_unchanged_by_intervention": true,
+  "half_lr_persisted_all_remaining_steps": true,
+  "process_exit_code": 0,
+  "hard_timeout_seconds": 60,
+  "limitations": ["Actual checkpoint not restored", "Toy linear scheduler, not actual saved cosine schedule", "No Accelerator or skipped-update integration", "No policy or dataset loaded"],
+  "new_gpu_budget": 0,
+  "eight_task_expansion_locked": true,
+  "fold02_locked": true
+}

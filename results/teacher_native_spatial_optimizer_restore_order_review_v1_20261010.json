@@ -1,0 +1,11 @@
+{
+  "status": "authenticated_installed_source_review_not_integration_test",
+  "restore_order": ["load_rng_state", "load_training_step", "load_optimizer_state", "load_scheduler_state"],
+  "optimizer_evidence": "optimizers.py340-358 reads saved optimizer tensors and deserializes saved param_groups, then calls optimizer.load_state_dict.",
+  "implication": "An intervention assigned to optimizer LR before load_training_state can be overwritten by saved parameter groups. Apply the registered factor only after complete state restoration; preserve optimizer moments and base schedule, scale both current optimizer LR and future scheduler lambda values. Assert boundary LR agrees with saved scheduler state before scaling.",
+  "additional_invariants": ["Assert restored step exactly matches registered midpoint", "Assert parameter group count and LR values match saved schedule", "Do not merely change cfg.optimizer.lr before restore", "Capture post-restore pre-first-update LR and verify all subsequent pre-update LRs", "Verify skipped optimizer updates do not advance effective schedule"],
+  "limitations": "Actual model parameter mapping, optimizer tensor integrity and execution ordering with Accelerator remain untested.",
+  "new_gpu_budget": 0,
+  "eight_task_expansion_locked": true,
+  "fold02_locked": true
+}
