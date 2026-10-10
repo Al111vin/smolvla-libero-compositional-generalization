@@ -1,0 +1,10 @@
+{
+  "status": "preflight_not_passed_no_training",
+  "installed_trainer_evidence": "lerobot_train.py334-335 restores training step/optimizer/scheduler through load_training_state; train_utils restores RNG. Trainer357-387 constructs a fresh sampler/DataLoader and cycle afterward; no persisted sampler/DataLoader cursor restore observed in this path.",
+  "consequence": "Restored RNG alone does not prove the next batch equals uninterrupted continuation. The selected late-LR-only design requires exact sampling-position restoration and cannot launch under this unverified assumption.",
+  "scope": "Installed generic single-task trainer path; actual homogeneous joint wrapper and checkpoint state still require explicit audit. No claim that every external sampler lacks resume support.",
+  "next": "Audit actual joint wrapper and saved checkpoint inventory; establish deterministic batch-position reconstruction or revise the experiment with paired original-LR resumed controls. Do not silently redefine resume fidelity.",
+  "new_gpu_budget": 0,
+  "eight_task_expansion_locked": true,
+  "fold02_locked": true
+}
