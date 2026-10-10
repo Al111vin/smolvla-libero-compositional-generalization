@@ -1,0 +1,26 @@
+{
+  "status": "passed",
+  "remote_exit_code": 0,
+  "tests_run": 4,
+  "runtime": "Installed remote PyTorch and Accelerate, CUDA_VISIBLE_DEVICES empty; generated independent resume_training_hooks_v2 loaded in memory",
+  "test_file": "tests/test_resume_reconstruction_v2.py",
+  "checks": [
+    "Actual CPU Accelerator preparation permits one reconstruction and preserves registered batch sampler and generator object identities",
+    "Replacement generator or batch sampler rejected",
+    "Second reconstruction rejected",
+    "Different dataset object with the same repo_id rejected"
+  ],
+  "dataset": "Synthetic 5068-item identity fixture; no iteration or worker launch",
+  "policy_loaded": false,
+  "parameter_updates": 0,
+  "gpu_used": false,
+  "new_gpu_training_budget": 0,
+  "ready_to_launch": false,
+  "limitations": [
+    "Does not establish full CLI train integration, joint model update, CUDA or AMP correctness",
+    "Atomic independent path reservation, GPU lock and bounded walltime launcher remain unverified",
+    "Final experimental cost and budget decision remains outstanding"
+  ],
+  "prior_evidence": "teacher_native_spatial_hooked_resume_update_cpu_result_v5_20261010.json",
+  "old_failure_evidence_preserved": true
+}
