@@ -1,0 +1,18 @@
+{
+  "status": "independent_observer_correction_registered_not_executed",
+  "failure_source": "teacher_native_spatial_accounting_cpu_failure_v5_20261011.json",
+  "diagnosis": "CheckedScheduler forwards only step; state_dict inspection targets the wrong wrapper",
+  "options": {"change_production_guard": "Rejected: unnecessary changes to executed-update protection", "observe_real_scheduler_at_factory": "Selected: records original single-task scheduler before restore and Accelerator wrapping; checks its last_epoch after update"},
+  "builder": "scripts/build_accounting_cpu_probe_v6.py",
+  "scope": "Single-task only: joint factory has separate construction and is not covered by this observer",
+  "local_validation": "Generated source compiles; cfg total unchanged; no CheckedScheduler state_dict access",
+  "authenticated_scene": {"v5_output_absent": true, "v6_output_absent": true, "matching_python_stdin_or_timeout_processes": 0, "shell_exit_code": 1, "exit_interpretation": "grep found no matching process after successful path observations"},
+  "max_cpu_updates": 1,
+  "walltime_seconds": 240,
+  "grace_seconds": 10,
+  "output": "/tmp/smolvla_full_entry_accounting_cpu_probe_v6_20261011",
+  "save_eval_hub_disabled": true,
+  "v5_and_old_guard_preserved": true,
+  "new_gpu_budget": 0,
+  "ready_to_launch": false
+}
