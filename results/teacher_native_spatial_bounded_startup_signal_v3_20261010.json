@@ -1,0 +1,12 @@
+{
+  "status": "local_cpu_startup_signal_fixture_passed",
+  "command": "python3 -m unittest tests/test_bounded_child_signals_v3.py",
+  "tests": 2,
+  "exit_code": 0,
+  "new_evidence": "Injected real SIGTERM after actual Popen spawn but before handle return; v3 records signal, obtains handle, reaps child and restores prior handler",
+  "also_verified": "Nonzero normal exit7 and bounded timeout",
+  "old_v2_unchanged": true,
+  "limits": ["One injected spawn window on macOS, not exhaustive race proof", "Popen itself can block before timeout loop begins", "SIGKILL and escaped groups remain outside cleanup guarantee", "Signal arriving during final cleanup may be recorded without propagated signal status", "No Linux, SSH disconnect, permanent receipt or training integration"],
+  "new_gpu_budget": 0,
+  "ready_to_launch": false
+}
