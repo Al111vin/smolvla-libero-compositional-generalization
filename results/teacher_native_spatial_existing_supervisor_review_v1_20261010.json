@@ -1,0 +1,19 @@
+{
+  "status": "existing_supervisor_review_not_resume_launch_approval",
+  "source": "scripts/run_exposure_matched_training_v1.py",
+  "local_fixture_command": "python3 -m unittest tests/test_exposure_matched_supervisor_v1.py",
+  "local_tests_passed": 4,
+  "fixture_scope": "Real CPU child lifecycle, nonretry and preserved launch-failure files; GPU occupancy and process inventory mocked",
+  "confirmed_by_source": ["Caller must detach supervisor", "Existing cooperating lock held around child.wait", "Exclusive log/PID/exit writes", "No automatic retry", "Checkpoint output not precreated"],
+  "resume_reuse_rejected_until_verified": [
+    "child.wait has no timeout: does not enforce a registered walltime or cost ceiling",
+    "No demonstrated disconnect, supervisor signal, orphan-child or process-group termination behavior",
+    "Existing supervisor does not integrate the new resume entry contract or permanent reservation receipt",
+    "Existing lock open lacks the new O_NOFOLLOW regular-file checks"
+  ],
+  "training_loop_finalization": "Still unverified: prior update probes deliberately throw before accounting; installed remote loop read failed before authentication this turn",
+  "remote_attempt": {"count": 1, "exit_code": 255, "error": "Connection closed by 117.50.184.29 port 27360", "authenticated": false},
+  "decision": "Preserve historical supervisor unchanged. New resumed execution needs independent bounded supervisor integration plus signal/disconnect tests; do not reuse historical driver merely because fixtures pass.",
+  "new_gpu_budget": 0,
+  "ready_to_launch": false
+}
