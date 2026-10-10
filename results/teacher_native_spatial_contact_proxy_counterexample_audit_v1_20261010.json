@@ -1,0 +1,18 @@
+{
+  "status": "stored_summary_counterexamples_verified",
+  "source": "teacher_native_spatial_4task_cpu_contact_review_v1_20261009.json",
+  "success_without_approach": ["joint160k_init3", "joint160k_init6", "single40k_init13", "single40k_init14", "single40k_init3"],
+  "success_without_bilateral_contact": ["single40k_init3"],
+  "failure_with_lift_and_transport": ["joint160k_init0"],
+  "failure_with_bilateral_contact": ["joint160k_init0", "single40k_init6"],
+  "interpretation": "Stored observations falsify approach and recorded simultaneous pad contact as necessary success classifiers, and lift/transport proxies or bilateral contact as sufficient success classifiers. Do not turn missing proxies into a unique failure-stage label.",
+  "scope": "Logical counterexamples within selected stored summaries; no raw trajectory revalidation, persistence claim, prevalence estimate or training mechanism inference",
+  "next_experiment_constraint": "LR or seed experiments must use official closed-loop success as primary outcome; these proxies remain descriptive secondary readouts only",
+  "new_simulations": 0,
+  "policy_calls": 0,
+  "parameter_updates": 0,
+  "new_gpu_budget": 0,
+  "eight_task_expansion_locked": true,
+  "fold02_locked": true,
+  "old_evidence_unchanged": true
+}
