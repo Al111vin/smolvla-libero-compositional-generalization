@@ -1,0 +1,13 @@
+{
+  "status": "authenticated_deployed_hash_and_cpu_config_validation_passed",
+  "deployment": "/root/smolvla-training-prep/recovery/fresh_seed_pair_v1_20261011",
+  "seven_files_sha256_match_local": true,
+  "single": {"steps": 40000, "seed": 2001, "complete_registered_config_validation": true},
+  "joint": {"steps": 160000, "seed": 2001, "complete_registered_config_validation": true},
+  "gpu_visibility_disabled": true,
+  "runtime_device_note": "Installed decoder falls back from cuda to cpu when GPU visibility disabled; both actual and expected decoded configs agree. This does not validate production CUDA device selection.",
+  "policy_model_loaded": false,
+  "training_started": false,
+  "limitations": ["Dataset integrity and actual filtered loader pending", "Production lock/process/path/disk checks pending", "GPU runtime and checkpoint persistence not verified"],
+  "ready_to_launch": false
+}
