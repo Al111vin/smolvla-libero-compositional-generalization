@@ -1893,3 +1893,11 @@ one-update accounting/epilogues are now checked; explicitly shortened loops do
 not establish full-budget completion, persistence, CUDA or detached supervisor
 lifetime. New GPU budget remains0 and task8/Fold02 remain locked.
 See [joint accounting v7](results/teacher_native_spatial_joint_accounting_cpu_result_v7_20261011.json).
+
+The user subsequently removed user-specified cost/time ceilings for the proposed
+fresh-seed single40k plus joint160k replication pair. Seed2001 and independent
+run identifiers are registered before new outcomes. This supersedes budget0
+only for that finite pair, not unlimited retries or expansion. Preparation is
+authorized; execution remains unlaunched pending integrated safety and complete
+protocol preflight. Operational runaway bounds are not rental-price guarantees.
+See [fresh-seed authorization](results/teacher_native_spatial_fresh_seed_authorization_v1_20261011.json).
