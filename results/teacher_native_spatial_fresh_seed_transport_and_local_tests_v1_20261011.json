@@ -1,0 +1,32 @@
+{
+  "status": "local_safety_tests_passed_remote_ssh_transport_blocked_before_authentication",
+  "timestamp_utc": "2026-10-11T02:24:20Z",
+  "local_tests": {
+    "command": "python3 -m unittest -v tests.test_bounded_child_signals_v4 tests.test_fresh_seed_supervisor_v1 tests.test_fresh_seed_single_train_wrapper_v1 tests.test_fresh_seed_joint_train_wrapper_v1",
+    "passed": 14,
+    "failed": 0,
+    "gpu_used": false
+  },
+  "ssh_observations": [
+    {
+      "check": "ControlMaster socket check",
+      "result": "Operation not permitted",
+      "interpretation": "Local sandbox could not access the socket; remote state is unknown."
+    },
+    {
+      "check": "One batch-mode authenticated read-only connection",
+      "result": "Connection closed by UNKNOWN port 65535",
+      "interpretation": "No remote command output; no inference about training or credentials."
+    },
+    {
+      "check": "One verbose strict-host-key read-only connection",
+      "result": "TCP connected to 117.50.184.29:27360, then peer reset during kex_exchange_identification before server SSH banner/key exchange and before user authentication",
+      "interpretation": "Cannot determine whether the platform rotated host/user keys; this attempt did not reach public-key authentication."
+    }
+  ],
+  "remote_preflight": "not_run",
+  "new_training_started": false,
+  "new_evaluation_started": false,
+  "checkpoint_or_data_modified": false,
+  "next_safe_action": "Refresh the provider's current SSH endpoint/port and confirm its SSH service after the reported key upgrade; then perform one strict-host, agent-backed read-only login check before launch gates."
+}

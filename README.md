@@ -1901,3 +1901,10 @@ only for that finite pair, not unlimited retries or expansion. Preparation is
 authorized; execution remains unlaunched pending integrated safety and complete
 protocol preflight. Operational runaway bounds are not rental-price guarantees.
 See [fresh-seed authorization](results/teacher_native_spatial_fresh_seed_authorization_v1_20261011.json).
+
+On 2026-10-11, 14 local CPU-only lifecycle/wrapper tests passed. A fresh
+strict-host SSH probe reached the provider TCP endpoint but was reset during
+SSH key exchange, before public-key authentication; the authenticated remote
+preflight therefore remains pending. This does not establish a bad user key,
+host-key rotation, or remote training failure. No new training or evaluation
+was started. See [transport and local-test evidence](results/teacher_native_spatial_fresh_seed_transport_and_local_tests_v1_20261011.json).
