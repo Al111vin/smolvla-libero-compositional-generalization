@@ -17,9 +17,21 @@
     "four_task_rollout_wrapper": "d11d463287ad08f828748126f8a666faa5404e3a6a7f2de14d4757de2559da2f",
     "four_task_schedule_and_validator": "094aad5affd0e9c2a29b68a49aab2fd61feb6fa9e4365ec09a3d45da675e9065"
   },
+  "fresh_runner_hashes": {
+    "runner": "22c7b4301e05d95885314f3ad24b40155365362681fa7c2c76f382ff4905d771",
+    "schedule": "d12fe3b7980d9f676d3af8fb643479a6bfe730982820ebf64a14dba080f050c4",
+    "bounded_child_helper": "581640309a116c7a247acb0395151c6cf3f18194991cb2f6805a1e93ab4ae7db",
+    "four_task_rollout_wrapper": "d11d463287ad08f828748126f8a666faa5404e3a6a7f2de14d4757de2559da2f",
+    "four_task_schedule": "094aad5affd0e9c2a29b68a49aab2fd61feb6fa9e4365ec09a3d45da675e9065",
+    "hooks": "88c519c9d3733fdb9c6b74a88e7d4ee15930fb492d360d7d4b083728bfd31ae2",
+    "first_decision_provenance": "d098b099ebad38c750abc0f0d142109695daaa3823d0901ff6b13db9106d8981",
+    "capture_provenance": "08a28b35654c1e7af9aec78fcca84e03c0db233810fd1f2e1b74931f8bade6fc",
+    "frozen_environment_evaluator_path": "/root/smolvla-eval-prep/scripts/eval_v3_task0_state_capture_v1.py",
+    "frozen_environment_evaluator": "89fd36a89dc45a56382219d4c3f6e5d12a3b1689abb3440ec29be346815af7cb"
+  },
   "validation": "Validate every outcome and complete action evidence against the frozen task-specific protocol before computing any gate; task0 paired success threshold remains 11/20 and all five init3 attempts must succeed. No automatic progression.",
   "limitations": ["Used initializations, not held-out generalization", "Single versus joint is one new training-seed pair, not a population-level interference proof", "Historical V3 parity invalidation remains unchanged"],
-  "prelaunch_requirements": ["Both model checkpoint hashes registered after successful independent training", "Construct a single immutable 120-row schedule and fail-closed runner; the frozen v1 supervisors have incompatible model/schedule assumptions and cannot be called directly for the combined design", "Run only after complete GPU/process/disk/path checks under one held cooperating lock", "Verify detached supervisor persistence and terminal checkpoint artifacts"],
+  "prelaunch_requirements": ["Both model checkpoint hashes registered after successful independent training", "Immutable 120-row schedule and fail-closed runner committed; remote deployment hash verification pending", "Run only after complete GPU/process/disk/path checks under one held cooperating lock", "Verify detached supervisor persistence and terminal checkpoint artifacts"],
   "training_started": false,
   "evaluation_started": false,
   "automatic_retry": false,
