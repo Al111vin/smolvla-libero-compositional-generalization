@@ -8,6 +8,16 @@ from unittest.mock import patch
 from scripts import run_fresh_seed_training_v1 as runner
 
 class SupervisorTests(unittest.TestCase):
+    def test_invalid_bound_and_lock_overlap_before_records(self):
+        with tempfile.TemporaryDirectory() as temp:
+            root=Path(temp).resolve()
+            m=self.fixture(root,'raise SystemExit(0)')
+            for bad in (dict(m,walltime_seconds=float('nan')),dict(m,output=m['gpu_lock'])):
+                with self.assertRaises(ValueError):
+                    runner.run(bad)
+            self.assertFalse((root/'run.launcher.pid').exists())
+            self.assertEqual((root/'lock').read_bytes(),b'')
+
     def fixture(self, root, code):
         (root/'lock').touch()
         return dict(gpu_lock=str(root/'lock'),output=str(root/'output'),

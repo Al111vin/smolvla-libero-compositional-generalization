@@ -2,6 +2,7 @@
 import fcntl
 import hashlib
 import json
+import math
 import os
 from pathlib import Path
 import shutil
@@ -18,12 +19,22 @@ def safe_path(path):
     return p
 
 def run(manifest):
+    for key in ('walltime_seconds','grace_seconds'):
+        value=manifest[key]
+        if isinstance(value,bool) or not isinstance(value,(int,float)) or not math.isfinite(value) or value<=0:
+            raise ValueError('finite positive bounds required before reservation')
+    command=manifest['command']
+    if not isinstance(command,list) or not command or any(not isinstance(x,str) or not x for x in command):
+        raise ValueError('nonempty explicit command arguments required')
     lock = safe_path(manifest['gpu_lock'])
     output = safe_path(manifest['output'])
     prefix = safe_path(manifest['external_prefix'])
     paths = [safe_path(str(prefix)+s) for s in ('.training.log','.launcher.pid','.exit_code')]
     if output == prefix or output in prefix.parents or prefix in output.parents:
         raise ValueError('logs must be independent of output')
+    protected=[output,prefix,*paths]
+    if any(lock==p or lock in p.parents or p in lock.parents for p in protected):
+        raise ValueError('lock overlaps experiment paths')
     fd = os.open(lock, os.O_RDWR | os.O_NOFOLLOW)
     try:
         if not stat.S_ISREG(os.fstat(fd).st_mode):
