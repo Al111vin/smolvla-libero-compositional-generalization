@@ -1,0 +1,28 @@
+{
+  "status": "registered_not_executed",
+  "version": "fresh_seed2001_single40k_joint160k_controlled_eval_v1",
+  "scientific_question": "Does task0 retention differ between the fresh-seed single-task and exposure-matched four-task runs, and how do the other joint tasks perform?",
+  "models": {
+    "single": {"run_id": "teacher_native_spatial_task0_freshseed2001_40k_batch2_v1_20261011", "task_ids": [0], "rollouts": 24},
+    "joint": {"run_id": "teacher_native_spatial_4task_freshseed2001_160k_batch2_v1_20261011", "task_ids": [0,1,2,3], "rollouts_per_task": 24, "rollouts": 96}
+  },
+  "total_rollouts": 120,
+  "schedule": {"paired_init_indices": [0,19], "paired_count": 20, "extra_init3_repeats": 4, "extra_init3_cli_seed": 12348, "extra_init3_effective_seed": 12351, "cli_seed_formula": "12345 + initialization_index", "effective_seed_formula": "12345 + 2 * initialization_index", "environment_seed": 12351},
+  "protocol": {"suite": "libero_spatial", "init_source": "benchmark", "wait_steps": 10, "max_steps": 300, "n_action_steps": 25, "capture_state": true, "device": "cuda"},
+  "frozen_hashes": {
+    "task0_environment_evaluator": "89fd36a89dc45a56382219d4c3f6e5d12a3b1689abb3440ec29be346815af7cb",
+    "task0_rollout_wrapper": "a9dbc00d5f52e84b4b5bcb04b21b4adef575f02acc245aee05fabbb716ca57",
+    "task0_schedule": "c32b3125a17f024e3df93cbdcb8db93b3f9c1bea260eedc6b8004d6d75cf720b",
+    "task0_supervisor": "17cd7b5fe3da681a2b46f011176bc55c99ca8ad59cfbab6c69d2bd350ed9d4bd",
+    "four_task_rollout_wrapper": "d11d463287ad08f828748126f8a666faa5404e3a6a7f2de14d4757de2559da2f",
+    "four_task_schedule_and_validator": "094aad5affd0e9c2a29b68a49aab2fd61feb6fa9e4365ec09a3d45da675e9065"
+  },
+  "validation": "Validate every outcome and complete action evidence against the frozen task-specific protocol before computing any gate; task0 paired success threshold remains 11/20 and all five init3 attempts must succeed. No automatic progression.",
+  "limitations": ["Used initializations, not held-out generalization", "Single versus joint is one new training-seed pair, not a population-level interference proof", "Historical V3 parity invalidation remains unchanged"],
+  "prelaunch_requirements": ["Both model checkpoint hashes registered after successful independent training", "Construct a single immutable 120-row schedule and fail-closed runner; the frozen v1 supervisors have incompatible model/schedule assumptions and cannot be called directly for the combined design", "Run only after complete GPU/process/disk/path checks under one held cooperating lock", "Verify detached supervisor persistence and terminal checkpoint artifacts"],
+  "training_started": false,
+  "evaluation_started": false,
+  "automatic_retry": false,
+  "fold02": "locked",
+  "preserve_old_evidence": true
+}
