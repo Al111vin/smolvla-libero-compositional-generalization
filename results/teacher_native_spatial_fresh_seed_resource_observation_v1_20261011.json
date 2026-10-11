@@ -1,0 +1,13 @@
+{
+  "status": "authenticated_readonly_observation_not_full_preflight",
+  "hostname": "cpod-1v6wxcygzn32",
+  "authentication": "Existing loaded agent, public-key path, strict host verification; subsequent ControlMaster reuse succeeded",
+  "gpu": {"name": "NVIDIA GeForce RTX 5090", "utilization_percent": 0, "memory_used_mib": 2, "compute_pid_query_empty": true},
+  "disk_available_bytes": 56192638976,
+  "historical_checkpoint_directory_bytes": {"single40k": 6442022892, "joint160k": 6442032902},
+  "interpretation": "Authenticated access restored. Historical checkpoint footprints are capacity references, not forecasts of peak new-run disk usage. No process exclusivity/lock acquisition or new path/source/data/runtime checks yet.",
+  "previous_transport_failure": "Master-only attempt exited255 with UNKNOWN port65535; does not establish remote job failure",
+  "new_training_started": false,
+  "old_evidence_deleted": false,
+  "ready_to_launch": false
+}
