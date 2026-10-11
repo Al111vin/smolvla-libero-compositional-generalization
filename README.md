@@ -1908,3 +1908,9 @@ SSH key exchange, before public-key authentication; the authenticated remote
 preflight therefore remains pending. This does not establish a bad user key,
 host-key rotation, or remote training failure. No new training or evaluation
 was started. See [transport and local-test evidence](results/teacher_native_spatial_fresh_seed_transport_and_local_tests_v1_20261011.json).
+
+The one-shot training guards, signal cleanup and unchanged task-specific
+evaluation validator also pass 18 local CPU tests in total. The registered
+evaluation schedule expands to 120 unique rows (24 single-task and 96 joint)
+with no duplicate keys. This remains local-only validation; no GPU or remote
+training was used. See [local protocol audit](results/teacher_native_spatial_fresh_seed_local_protocol_audit_v1_20261011.json).

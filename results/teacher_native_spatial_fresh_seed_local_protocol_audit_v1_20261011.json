@@ -1,0 +1,33 @@
+{
+  "status": "local_training_guards_and_evaluation_schedule_passed_remote_preflight_pending",
+  "timestamp_utc": "2026-10-11T02:26:01Z",
+  "previous_local_safety_record": "teacher_native_spatial_fresh_seed_transport_and_local_tests_v1_20261011.json",
+  "additional_tests": {
+    "command": "python3 -m unittest -v tests.test_scaling_eval_schedule_v1",
+    "passed": 4,
+    "failed": 0,
+    "gpu_used": false
+  },
+  "combined_local_test_count": 18,
+  "schedule_audit": {
+    "rows": 120,
+    "unique_keys": 120,
+    "single_task0_rollouts": 24,
+    "joint_four_task_rollouts": 96,
+    "extra_init3_rows": 20,
+    "schedule_assertions_passed": true
+  },
+  "in_memory_syntax_checks": {
+    "files": [
+      "scripts/run_fresh_seed_eval_v1.py",
+      "scripts/fresh_seed_eval_schedule_v1.py",
+      "scripts/run_fresh_seed_training_v1.py"
+    ],
+    "passed": true,
+    "bytecode_cache_write_attempted": false
+  },
+  "remote_ssh": "still blocked before SSH key exchange; no remote preflight",
+  "training_or_evaluation_started": false,
+  "fold02": "locked",
+  "preserve_old_evidence": true
+}
