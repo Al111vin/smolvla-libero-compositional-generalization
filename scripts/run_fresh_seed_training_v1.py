@@ -9,7 +9,7 @@ import stat
 import subprocess
 import sys
 sys.path.insert(0, str(Path(__file__).resolve().parent))
-from bounded_child_signals_v3 import run_with_signal_cleanup, SupervisorSignal
+from bounded_child_signals_v4 import run_with_signal_cleanup, SupervisorSignal
 
 def safe_path(path):
     p = Path(path)
@@ -43,16 +43,22 @@ def run(manifest):
                 raise RuntimeError('process conflict')
         if shutil.disk_usage(output.parent).free < manifest['minimum_free_bytes']:
             raise RuntimeError('insufficient disk')
-        # Reserve metadata before spawning. Live child identity stays owned by
-        # bounded helper; final PID is written after its group has been cleaned.
+        # Reserve metadata before spawning; append live child identity while
+        # the helper owns its handle and can clean up callback failures.
         with paths[1].open('x') as record:
             json.dump({'supervisor':os.getpid(),'status':'reserved_not_launched'},record)
             record.flush()
             os.fsync(record.fileno())
+        def spawned(pid):
+            with paths[1].open('a') as record:
+                record.write('\n')
+                json.dump({'supervisor':os.getpid(),'trainer':pid,'status':'spawned'},record)
+                record.flush()
+                os.fsync(record.fileno())
         with paths[0].open('x') as log:
             try:
                 result = run_with_signal_cleanup(manifest['command'], seconds=manifest['walltime_seconds'],
-                    grace_seconds=manifest['grace_seconds'],cwd=manifest['cwd'],stdout=log)
+                    grace_seconds=manifest['grace_seconds'],cwd=manifest['cwd'],stdout=log,on_spawn=spawned)
             except BaseException as error:
                 with paths[2].open('x') as terminal:
                     json.dump({'status':'signal' if isinstance(error,SupervisorSignal) else 'error',
