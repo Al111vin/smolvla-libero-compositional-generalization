@@ -1,0 +1,18 @@
+{
+  "status": "authenticated_cpu_processor_contract_passed",
+  "authenticated_remote_exit_code": 0,
+  "configs": [
+    {"run": "teacher_native_spatial_task0_freshseed2001_40k_batch2_v1_20261011", "episodes": 50, "frames": 5068},
+    {"run": "teacher_native_spatial_4task_freshseed2001_160k_batch2_v1_20261011", "episodes": 200, "frames": 22709}
+  ],
+  "processor": "installed training-entry make_pre_post_processors for SmolVLA, dataset stats supplied, no checkpoint weights loaded",
+  "input_batch_shapes": {"observation.state": [2,1,15], "observation.images.agentview": [2,1,3,128,128], "observation.images.wrist": [2,1,3,128,128], "action": [2,50,7]},
+  "processed_shapes": {"observation.state": [2,1,15], "observation.images.agentview": [2,1,3,128,128], "observation.images.wrist": [2,1,3,128,128], "observation.language.tokens": [2,20], "observation.language.attention_mask": [2,20], "action": [2,50,7]},
+  "processor_output_finite": true,
+  "same_contract_single_and_joint": true,
+  "cpu_only": true,
+  "training_started": false,
+  "limitations": ["No policy forward/backward pass", "No CUDA execution", "Only first real batch from each configured dataset"],
+  "remaining_preflight": ["Register and validate exact evaluation script hash and CLI/effective seed protocol", "Final resource/process/disk/path/lock checks", "Validate integrated detached supervisor and checkpoint persistence"],
+  "ready_to_launch": false
+}
