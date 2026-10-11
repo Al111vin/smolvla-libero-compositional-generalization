@@ -1914,3 +1914,11 @@ evaluation validator also pass 18 local CPU tests in total. The registered
 evaluation schedule expands to 120 unique rows (24 single-task and 96 joint)
 with no duplicate keys. This remains local-only validation; no GPU or remote
 training was used. See [local protocol audit](results/teacher_native_spatial_fresh_seed_local_protocol_audit_v1_20261011.json).
+
+A focused fixture then exposed and fixed a v1 evaluation-runner import error
+before deployment. The repaired runner imports the environment-signature
+validator from its defining module, and all 19 local CPU tests plus the 120-row
+schedule checks pass. The bounded scientific budget and frozen rollout
+protocol are unchanged; the v1 record remains intact and the revision is
+registered separately. Remote hash verification and production preflight
+remain pending SSH recovery. See [evaluation registration v2](results/teacher_native_spatial_fresh_seed_eval_registration_v2_20261011.json).

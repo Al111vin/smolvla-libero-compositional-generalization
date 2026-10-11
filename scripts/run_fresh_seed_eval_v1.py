@@ -13,7 +13,8 @@ import sys
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 from bounded_child_signals_v4 import run_with_signal_cleanup, SupervisorSignal
 from fresh_seed_eval_schedule_v1 import schedule
-from scaling_eval_schedule_v1 import environment_signature, validate_protocol, validate_rollout
+from controlled_eval_schedule_v1 import environment_signature
+from scaling_eval_schedule_v1 import validate_protocol, validate_rollout
 
 
 def safe_path(path):
@@ -52,10 +53,17 @@ def main(manifest):
                 raise ValueError(f"Pinned file hash mismatch: {name}")
         for model in manifest["models"].values():
             checkpoint = safe_path(model["checkpoint"])
-            if digest(checkpoint / "model.safetensors") != model["sha256"]:
+            model_file = safe_path(checkpoint / "model.safetensors")
+            if digest(model_file) != model["sha256"]:
                 raise ValueError("Checkpoint hash mismatch")
         if subprocess.check_output(["nvidia-smi", "--query-compute-apps=pid", "--format=csv,noheader"], text=True).strip():
             raise RuntimeError("GPU compute process conflict")
+        process_rows = subprocess.check_output(["ps", "-eo", "pid,args"], text=True).splitlines()[1:]
+        for process_row in process_rows:
+            fields = process_row.strip().split(None, 1)
+            if len(fields) == 2 and int(fields[0]) != os.getpid() and any(
+                    token in fields[1] for token in manifest["conflict_tokens"]):
+                raise RuntimeError(f"conflicting process: {fields[0]}")
         if shutil.disk_usage(root.parent).free < manifest["minimum_free_bytes"]:
             raise RuntimeError("insufficient disk")
         root.mkdir()

@@ -1,0 +1,46 @@
+{
+  "status": "prelaunch_registration_revision_after_local_import_defect",
+  "supersedes": "teacher_native_spatial_fresh_seed_eval_registration_v1_20261011.json",
+  "reason": "The v1 runner imported environment_signature from scaling_eval_schedule_v1, where it is not defined. Before any deployment or rollout, the import was corrected to controlled_eval_schedule_v1; validate_protocol and validate_rollout remain from scaling_eval_schedule_v1.",
+  "scientific_budget_unchanged": {
+    "training_seed": 2001,
+    "single_task0_updates": 40000,
+    "joint_tasks": [0, 1, 2, 3],
+    "joint_updates": 160000,
+    "single_rollouts": 24,
+    "joint_rollouts": 96,
+    "total_rollouts": 120,
+    "automatic_retries": 0
+  },
+  "protocol_unchanged": {
+    "suite": "libero_spatial",
+    "init_source": "benchmark",
+    "paired_init_indices": [0, 19],
+    "paired_count": 20,
+    "extra_init3_repeats": 4,
+    "task0_success_threshold": "11/20 plus 5/5 init3",
+    "wait_steps": 10,
+    "max_steps": 300,
+    "n_action_steps": 25,
+    "evaluator_sha256": "89fd36a89dc45a56382219d4c3f6e5d12a3b1689abb3440ec29be346815af7cb"
+  },
+  "revised_local_hashes": {
+    "runner": "0e684f6ccac56dac061f0d0a69782e1ea8264d2d5f60f420754ed091bbc82f83",
+    "schedule": "d12fe3b7980d9f676d3af8fb643479a6bfe730982820ebf64a14dba080f050c4",
+    "controlled_validator": "c32b3125a17f024e3df93cbdcb8db93b3f9c1bea260eedc6b8004d6d75cf720b",
+    "scaling_validator": "094aad5affd0e9c2a29b68a49aab2fd61feb6fa9e4365ec09a3d45da675e9065"
+  },
+  "verification": {
+    "tests": "19 local CPU-only unit tests passed, including a fail-closed existing-process fixture and the complete 120-row schedule checks",
+    "runner_import": "passed",
+    "remote_deployment_hash_check": "pending SSH transport recovery",
+    "remote_GPU_preflight": "pending",
+    "training_or_evaluation_started": false
+  },
+  "limitations": [
+    "Local tests do not prove SSH transport, production lock acquisition, detached supervisor persistence, CUDA execution, checkpoint completion or policy rollout behavior.",
+    "One seed pair is a bounded replication, not a population-level interference proof."
+  ],
+  "fold02": "locked",
+  "preserve_old_evidence": true
+}
