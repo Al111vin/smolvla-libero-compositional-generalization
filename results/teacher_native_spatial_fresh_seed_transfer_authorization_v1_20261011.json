@@ -1,0 +1,12 @@
+{
+  "status": "transfer_authorized_transport_unavailable",
+  "user_authorization": "授权, in direct response to request to send new code/configs to existing GPU server for preflight and authorized experiment",
+  "scope": "Fresh-seed training entries, configs, supervisor and relevant CPU tests; no model/data/credentials",
+  "prior_safety_rejection": "Preserved; same operation accepted by review after explicit user authorization, but SSH failed before remote execution",
+  "transport_observations": ["Master-only attempt exit255 UNKNOWN port65535", "One agent-only strict-host readonly connection exit255 closed by117.50.184.29 port27360"],
+  "remote_tests_executed": false,
+  "new_training_started": false,
+  "conclusion": "Authorization gap resolved; authenticated access currently unverified. No dense retry, no failure inference about remote jobs.",
+  "ready_to_launch": false,
+  "old_evidence_preserved": true
+}
