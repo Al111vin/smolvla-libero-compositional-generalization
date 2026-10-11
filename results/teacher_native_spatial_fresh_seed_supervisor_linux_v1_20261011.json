@@ -1,0 +1,15 @@
+{
+  "status": "authenticated_linux_cpu_lifecycle_fixtures_passed",
+  "source_commit": "aa08c624a1b636aa3fe04456840e54152a0785c9",
+  "tests": "tests/test_fresh_seed_supervisor_v1.py",
+  "tests_passed": 4,
+  "elapsed_seconds": 0.350,
+  "exit_code": 0,
+  "gpu_visibility_disabled": true,
+  "outer_timeout_seconds": 30,
+  "temporary_directories_only": true,
+  "verified": ["Nonzero child exit and PID/terminal records", "Existing paths reject reuse", "Timeout kills/reaps TERM-ignoring child", "GPU-conflict guard prevents launch", "Invalid bounds and overlapping lock paths reject before records"],
+  "limitations": ["GPU/process queries mocked in fixtures", "No production lock/path verification", "No SSH-detached production supervisor validation", "No model update, checkpoint persistence or policy evaluation"],
+  "new_training_started": false,
+  "ready_to_launch": false
+}
