@@ -1,0 +1,15 @@
+{
+  "status": "preflight_assertion_failure_explained_not_passed",
+  "initial_probe_exit_code": 1,
+  "failed_assumption": "Expected observation.state shape [15] from installed training factory",
+  "authenticated_followup_exit_code": 0,
+  "actual_single_dataset": {"frames": 5068, "episodes": 50, "state_shape": [1, 15], "action_shape": [50, 7], "image_shape": [1, 3, 128, 128]},
+  "explanation": "Installed make_dataset resolves observation delta timestamps [0.0], retaining a leading observation time dimension. The full-frame parity audit used an unchunked dataset, so its [15] shape cannot be reused for this training-factory check.",
+  "diagnostic_only": true,
+  "data_changed": false,
+  "config_changed": false,
+  "training_started": false,
+  "scheduler_comparison_completed": false,
+  "joint_loader_check_completed": false,
+  "next_action": "Correct the diagnostic expectation to registered single-observation temporal shapes, verify processor handling and complete joint-loader and scheduler checks. Do not change the experiment recipe to satisfy the probe."
+}

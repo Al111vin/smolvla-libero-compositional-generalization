@@ -1,0 +1,13 @@
+{
+  "status": "authenticated_readonly_location_check_complete",
+  "ssh_existing_master_alive": true,
+  "conversion_manifest_sha256": "8bb81e1d1828d2a4be3dd8469e1f2812c35bc4f9a48aea0f7a8da8deb2d11ba1",
+  "conversion_manifest_matches_registered": true,
+  "audit_script_found_under_training_or_eval_prep": false,
+  "local_audit_script_sha256": "e1a79bd46e6f37da1468fd116c356b5554d4c1dce9c9010c5c9cc36b397d1b7d",
+  "historical_pids_102077_102078_present": false,
+  "process_scope_note": "Only these historical PIDs were inspected; this is not a complete resource or GPU exclusivity check.",
+  "full_dataset_reaudit_executed": false,
+  "new_training_started": false,
+  "next_action": "Use the authorized independent code-transfer workflow to provide the hash-pinned read-only audit, then complete data and loader preflight. Do not repeat the seven-file deployment or launch training before all remaining checks pass."
+}

@@ -1,0 +1,19 @@
+{
+  "status": "authenticated_cpu_loader_scheduler_preflight_passed",
+  "authenticated_remote_exit_code": 0,
+  "registered_config_hashes_verified": true,
+  "complete_runtime_config_guards_passed": true,
+  "installed_trainer_make_dataset_used": true,
+  "single": {"episodes": 50, "frames": 5068, "sample_state_shape": [1,15], "sample_action_shape": [50,7], "first_four_batch_tasks": [0,0,0,0]},
+  "joint": {"episodes": 200, "frames": 22709, "sample_state_shape": [1,15], "sample_action_shape": [50,7], "first_four_batch_tasks": [2,3,1,0], "registered_batch_sampler_length": 160000, "actual_deployed_loader_patch_used": true},
+  "batch_state_shape": [2,1,15],
+  "batch_action_shape": [2,50,7],
+  "scheduler_comparison": {"positions": 160001, "all_parameter_group_lambda_factors_exact": true, "relation": "joint(k) == single(floor(k/4))"},
+  "cpu_only": true,
+  "policy_loaded": false,
+  "training_started": false,
+  "preserved_failed_diagnostic": "teacher_native_spatial_fresh_seed_loader_diagnostic_v1_20261011.json",
+  "limitations": ["Only three item indices and four actual batches per dataset were checked here; separate full-frame audit covers raw parity", "No real policy processor/forward pass was exercised", "Scheduler factors compared without optimizer updates; no production CUDA or checkpoint persistence proof"],
+  "remaining_preflight": ["Processor temporal-shape contract", "Exact controlled evaluation registration", "Detached supervisor lifetime and persistence", "Final production resource, lock, path and hash checks"],
+  "ready_to_launch": false
+}
