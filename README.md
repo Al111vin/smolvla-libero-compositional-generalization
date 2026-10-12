@@ -1971,3 +1971,11 @@ weights are included in the lightweight summaries.
 
 See the [registered evaluation result](results/teacher_native_spatial_fresh_seed_pair_eval_result_v1_20261012.json)
 and [CPU-only terminal-outcome audit](results/teacher_native_spatial_fresh_seed_pair_cpu_diagnostic_v1_20261012.json).
+
+The existing joint midpoint/final comparison is also non-monotonic on task0:
+12/20 at 80k versus 10/20 at 160k (zero gains, two losses; exact paired
+p=0.5). Only selected init0/init8 starts received later exact state-replay
+checks, so this does not show that more training caused regressions. The next
+selected step is a CPU-only stage audit of already-saved fresh-seed traces,
+with positive-control validation; no additional training, policy rollouts,
+or GPU budget is currently assigned. See the [follow-up decision](results/teacher_native_spatial_fresh_seed_followup_decision_v1_20261012.json).

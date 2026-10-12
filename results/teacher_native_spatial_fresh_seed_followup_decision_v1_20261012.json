@@ -1,0 +1,65 @@
+{
+  "schema_version": 1,
+  "status": "cpu_only_followup_selected_no_new_gpu_budget",
+  "observed_at_utc": "2026-10-12",
+  "current_gate_state": {
+    "fresh_seed_single_task0": "passed_14_of_20_plus_init3_5_of_5",
+    "fresh_seed_joint_task0": "failed_10_of_20_plus_init3_5_of_5",
+    "joint_tasks1_3": "passed_registered_paired_thresholds",
+    "fold02": "locked",
+    "eight_task_expansion": "locked"
+  },
+  "cross_stage_existing_evidence": {
+    "prior_joint_midpoint_task0": "12/20 at global 80000 updates",
+    "prior_joint_final_task0": "10/20 at global 160000 updates",
+    "discordant_inits": {"gains": [], "losses": [0, 8], "exact_two_sided_mcnemar_p": 0.5},
+    "cross_stage_state_replay": "exact start-state parity was verified only for selected init0 and init8 traces; not all 20",
+    "interpretation": "limited evidence against assuming monotonic task0 improvement from additional joint updates; not evidence of a causal mechanism and not generalizable training-seed inference"
+  },
+  "hypothesis_for_next_cpu_diagnostic": {
+    "statement": "The four fresh-seed joint task0 discordant timeouts may share an observable manipulation stage signature absent from their paired single-task successes.",
+    "falsifier": "The hypothesis is falsified if the joint timeout traces reach the same predeclared stable object-acquisition/placement predicates as the paired successes, or if validated positive controls fail those predicates.",
+    "interpretation_limit": "A stage pattern remains descriptive; it cannot establish multi-task interference or separate policy effects from simulator variation without valid matched-state parity and more independent training seeds."
+  },
+  "options_compared": [
+    {
+      "option": "Start eight-task or Fold02 work now",
+      "decision": "reject_defer",
+      "reason": "Joint task0 missed its unchanged 11/20 plus 5/5 init3 gate."
+    },
+    {
+      "option": "Blindly extend or repeat the 160k joint training/evaluation",
+      "decision": "defer",
+      "reason": "The old midpoint-to-final contrast is non-monotonic and weak; the four new timeouts have no verified behavioral-stage cause yet."
+    },
+    {
+      "option": "Repeat the same 120-rollout schedule",
+      "decision": "reject",
+      "reason": "The authorized schedule is complete; an identical rerun without a new hypothesis would add cost and selection opportunities."
+    },
+    {
+      "option": "CPU-only stage audit of existing saved task0 traces, with validated positive controls",
+      "decision": "selected_next",
+      "reason": "It is the only current path that can discriminate the four timeouts without training or policy inference on GPU. Keep raw traces remote and preserve historical V3 invalidation."
+    }
+  ],
+  "execution_bounds": {
+    "new_training_or_policy_rollouts": 0,
+    "gpu_budget": 0,
+    "automatic_retries": 0,
+    "start_only_after": "a single authenticated read-only connection is available and a new CPU-diagnostic manifest pins source hashes, stage predicates, positive-control requirements, and a unique output path",
+    "stop_if": [
+      "SSH/source verification fails",
+      "start-state parity fails",
+      "stage predicates are not validated on successful controls",
+      "the diagnostic requires policy inference, a new rollout, or GPU execution"
+    ]
+  },
+  "source_records": [
+    "results/teacher_native_spatial_fresh_seed_pair_eval_result_v1_20261012.json",
+    "results/teacher_native_spatial_fresh_seed_pair_cpu_diagnostic_v1_20261012.json",
+    "results/teacher_native_spatial_4task_midpoint_contrasts_v1_20261010.json",
+    "results/teacher_native_spatial_4task_midpoint_cpu_observers_result_v2_20261010.json"
+  ],
+  "evidence_policy": "Do not alter historical results, do not upload raw trajectory/action CSV/video/log/checkpoint/data, and do not treat diagnostic pass as a progression gate."
+}
