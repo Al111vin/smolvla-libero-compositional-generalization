@@ -1,0 +1,56 @@
+{
+  "schema_version": 1,
+  "status": "read_only_paired_start_input_parity_confirmed_action_replay_pending",
+  "observed_at_utc": "2026-10-12T18:01:17.772400+00:00",
+  "scope": {
+    "mode": "authenticated_read_only_remote_json_csv_metadata_audit",
+    "remote_result_root": "/root/smolvla-eval-prep/results/fresh_seed_pair_eval_v1_20261011",
+    "task_id": 0,
+    "paired_init_indices": "0..19",
+    "trace_count": 40,
+    "raw_action_csvs_or_trajectories_downloaded": false,
+    "remote_files_modified": false,
+    "training_or_policy_inference_started": false
+  },
+  "paired_start_input_comparison": {
+    "method": "Recursive exact JSON comparison of each single/joint first_input.json pair, after excluding only loaded_model.state_dict; no tolerance or value normalization was applied to other fields.",
+    "pairs_exact_on_all_non_model_fields": 20,
+    "pairs_checked": 20,
+    "only_observed_difference_path_in_each_full_pair": "loaded_model.state_dict",
+    "matched_fields_include": [
+      "frame",
+      "images",
+      "input",
+      "model_arrays",
+      "processor",
+      "rng",
+      "simulator_state"
+    ],
+    "interpretation": "For these saved paired evaluations, the serialized pre-action input and simulator/RNG/processor state match exactly; model weights differ as expected. This establishes matched saved starts, not action-by-action replay parity or deterministic simulator replay."
+  },
+  "protocol_and_summary_comparison": {
+    "protocol_records_match_after_excluding": ["checkpoint", "model_sha"],
+    "summary_fields_that_differ": ["checkpoint", "steps", "success", "total_reward"],
+    "interpretation": "The paired records carry the same evaluation protocol and seed metadata; outcome fields differ as expected between the two policies."
+  },
+  "paired_outcomes_reconfirmed": {
+    "single_task0_successes": "14/20",
+    "joint_task0_successes": "10/20",
+    "discordant_joint_losses": [8, 11, 12, 13],
+    "discordant_joint_gains": []
+  },
+  "ordered_source_digest": {
+    "algorithm": "SHA-256 over newline-joined init-ordered rows: init|single_summary_sha256|single_actions_sha256|joint_summary_sha256|joint_actions_sha256|single first_input canonical JSON SHA-256 after excluding loaded_model.",
+    "sha256": "d369a6212d91503b0bfa11abc1033314c55874ace048d728b2acf06226d42d13"
+  },
+  "next_step_and_limits": {
+    "selected_next": "Prepare a new versioned, hash-pinned CPU-only recorded-action replay manifest and fail-closed stage audit; verify fresh positive controls before interpreting the four joint timeouts.",
+    "action_level_replay_parity": "not yet tested",
+    "gpu_budget": 0,
+    "automatic_retries": 0,
+    "fold02": "locked",
+    "eight_task_expansion": "locked",
+    "historical_v3_parity_invalidation": "unchanged; this audit does not validate or rerun the historical V3 replay",
+    "evidence_policy": "Keep all raw action CSVs, trajectories, videos, logs, checkpoints, and data on the private server; do not alter prior records or treat this start-input audit as a progression gate."
+  }
+}

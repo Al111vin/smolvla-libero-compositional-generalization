@@ -1979,3 +1979,12 @@ checks, so this does not show that more training caused regressions. The next
 selected step is a CPU-only stage audit of already-saved fresh-seed traces,
 with positive-control validation; no additional training, policy rollouts,
 or GPU budget is currently assigned. See the [follow-up decision](results/teacher_native_spatial_fresh_seed_followup_decision_v1_20261012.json).
+
+A read-only audit of all 20 paired task-0 `first_input.json` records found that
+single/joint inputs match exactly outside the expected model-weight state-dict
+field; protocol metadata also matches outside checkpoint identity. This confirms
+matched saved start inputs, simulator state, processor, and RNG for these pairs,
+but does not establish action-by-action replay parity. The next step remains a
+hash-pinned, CPU-only recorded-action stage audit with positive controls; the
+raw traces remain private and no new rollout or GPU work was started. See the
+[paired start-input audit](results/teacher_native_spatial_fresh_seed_pair_start_input_audit_v1_20261012.json).
