@@ -1,0 +1,26 @@
+{
+  "schema_version": 1,
+  "status": "read_only_outcome_audit_complete",
+  "observed_at_utc": "2026-10-12T17:44:42Z",
+  "scope": "CPU-only review of saved task0 paired outcome summaries for discordant seeds; no new rollout, GPU work, or raw action/trajectory export",
+  "task0_discordant_pairs": [
+    {"init": 8, "single": {"success": true, "total_reward": 1.0, "terminal_steps": 82}, "joint": {"success": false, "total_reward": 0.0, "terminal_steps": 300, "termination": "max-step timeout"}},
+    {"init": 11, "single": {"success": true, "total_reward": 1.0, "terminal_steps": 78}, "joint": {"success": false, "total_reward": 0.0, "terminal_steps": 300, "termination": "max-step timeout"}},
+    {"init": 12, "single": {"success": true, "total_reward": 1.0, "terminal_steps": 134}, "joint": {"success": false, "total_reward": 0.0, "terminal_steps": 300, "termination": "max-step timeout"}},
+    {"init": 13, "single": {"success": true, "total_reward": 1.0, "terminal_steps": 109}, "joint": {"success": false, "total_reward": 0.0, "terminal_steps": 300, "termination": "max-step timeout"}}
+  ],
+  "summary": {
+    "single_successes_on_discordant_pairs": 4,
+    "joint_successes_on_discordant_pairs": 0,
+    "joint_gains": 0,
+    "joint_losses": 4,
+    "exact_two_sided_mcnemar_p": 0.125,
+    "interpretation": "all four observed losses ended at the 300-step cap without terminal reward; this identifies the outcome/termination stage, not the behavioral or causal failure mechanism"
+  },
+  "limitations": [
+    "Outcome summaries alone do not identify whether a timeout reflects grasp, placement, control, or another behavioral failure.",
+    "Historical V3 parity invalidation remains; do not claim deterministic equivalence.",
+    "Raw action CSVs and trajectories remain only in their protected remote evidence location and are not copied or uploaded."
+  ],
+  "source": "/root/smolvla-eval-prep/results/fresh_seed_pair_eval_v1_20261011/completion.json"
+}

@@ -1922,3 +1922,52 @@ schedule checks pass. The bounded scientific budget and frozen rollout
 protocol are unchanged; the v1 record remains intact and the revision is
 registered separately. Remote hash verification and production preflight
 remain pending SSH recovery. See [evaluation registration v2](results/teacher_native_spatial_fresh_seed_eval_registration_v2_20261011.json).
+
+On 2026-10-11, authenticated production preflight passed for the finite
+seed-2001 pair: the seven training files, both CUDA configs, model/data/code
+hashes, visible RTX 5090, free production lock, disk floor and independent run
+paths were checked; the repaired evaluation v2 deployment also passed all
+120-row schedule checks. A detached two-second CPU-only supervisor probe exited
+cleanly across SSH sessions. The first production launcher-preparation attempt
+raised a local `NameError` before spawning any process; that manifest and event
+were preserved. A separately named attempt-2 manifest then spawned supervisor
+PID 686929 for the authorized single-task 40k run. The immediate follow-up SSH
+status query was reset during key exchange, so trainer PID, actual progress and
+checkpoint state are unverified. No relaunch is permitted on disconnect; the
+next action is read-only status verification. See
+[production preflight and preserved recovery plan](results/teacher_native_spatial_fresh_seed_production_preflight_v1_20261011.json)
+and [attempt-2 launch observation](results/teacher_native_spatial_fresh_seed_launch_attempt2_v1_20261011.json).
+
+A later authenticated read-only check at 2026-10-11 14:01:31 UTC found the
+reported supervisor PID absent, the registered output directory absent, and no
+external launcher-PID, training-log, or exit-code receipt. The RTX 5090 was
+idle at 0% with 2 MiB allocated. This does not prove either successful or
+failed training; it is consistent with the detached supervisor exiting before
+reservation, and the reason remains unknown. No new job was started. See the
+[post-launch read-only check](results/teacher_native_spatial_fresh_seed_postlaunch_readonly_check_v1_20261011.json).
+
+## 2026-10-12 — Seed-2001 replication pair and registered evaluation
+
+The separately authorized seed-2001 replication completed: task0 single-task
+training for 40k updates and joint tasks 0–3 training for 160k updates. The
+frozen evaluator then completed all 120 pre-registered rollouts with exit code
+0, 120 unique verified records, and no automatic retries. The single-task
+task0 checkpoint reached 14/20 paired successes and 5/5 init3 successes,
+passing its registered gate. The joint checkpoint reached 10/20 on task0 and
+5/5 on init3, so it **failed** the unchanged 11/20 task0 gate. Joint task1–3
+paired results were 11/20, 18/20, and 17/20, each with 5/5 init3 successes.
+
+Among task0 paired inits, joint had zero gains and four losses (inits 8, 11,
+12, 13); exact two-sided McNemar p=0.125. This is a descriptive one-seed
+pattern, not statistically significant evidence and not proof of multi-task
+interference. The four joint losses ended at the 300-step cap with zero total
+reward, while their paired single-task episodes succeeded in 78–134 steps;
+the outcome summaries do not identify the behavioral cause of those timeouts.
+Because joint task0 missed its pre-registered threshold, do not proceed to
+eight-task expansion or unlock Fold02. Preserve all earlier evidence and keep
+the historical V3 parity invalidation explicit; this run does not establish
+deterministic replay. No raw trajectories, action CSVs, videos, logs, data, or
+weights are included in the lightweight summaries.
+
+See the [registered evaluation result](results/teacher_native_spatial_fresh_seed_pair_eval_result_v1_20261012.json)
+and [CPU-only terminal-outcome audit](results/teacher_native_spatial_fresh_seed_pair_cpu_diagnostic_v1_20261012.json).

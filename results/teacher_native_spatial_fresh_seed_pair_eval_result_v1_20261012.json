@@ -1,0 +1,66 @@
+{
+  "schema_version": 1,
+  "status": "completed_exit0",
+  "completed_at_utc_observed": "2026-10-12T17:44:42Z",
+  "authorization": "seed2001 finite single40k plus joint160k replication and the pre-registered 120-rollout evaluation; no retry",
+  "training": {
+    "single_task0_updates": 40000,
+    "single_checkpoint_sha256": "06e778a6a21510d7fccf11924a09c2b23485bf25883ffd566a0fb44e27137e03",
+    "joint_tasks": [0, 1, 2, 3],
+    "joint_updates": 160000,
+    "joint_checkpoint_sha256": "4b4127e49c6a3a467ea8c29055fce762effbe04fc466bdd6fadc51ef717ca628"
+  },
+  "evaluation": {
+    "planned_rollouts": 120,
+    "verified_rollouts": 120,
+    "unique_keys": 120,
+    "runner_exit_code": 0,
+    "supervisor_timed_out": false,
+    "automatic_retries": 0,
+    "evaluator_sha256": "89fd36a89dc45a56382219d4c3f6e5d12a3b1689abb3440ec29be346815af7cb",
+    "protocol": {
+      "init_source": "benchmark",
+      "wait_steps": 10,
+      "max_steps": 300,
+      "n_action_steps": 25,
+      "paired_inits": "0..19",
+      "fixed_init3": "paired init3 plus 4 extra repeats per model-task setting",
+      "total_settings": 5
+    },
+    "remote_result_root": "/root/smolvla-eval-prep/results/fresh_seed_pair_eval_v1_20261011",
+    "remote_receipt": "completion.json and exit_code.json reported complete with 120 verified rollouts",
+    "gpu_after_completion": "RTX 5090 idle, 0% utilization, 2 MiB reported memory used",
+    "disk_after_completion": "41 GB free of 300 GB on root filesystem"
+  },
+  "gates": {
+    "registered_task0_gate": "at least 11/20 paired successes and 5/5 init3 success",
+    "single_task0": {"paired_successes": 14, "paired_total": 20, "init3_successes": 5, "init3_total": 5, "passed": true},
+    "joint_task0": {"paired_successes": 10, "paired_total": 20, "init3_successes": 5, "init3_total": 5, "passed": false},
+    "joint_task1": {"paired_successes": 11, "paired_total": 20, "init3_successes": 5, "init3_total": 5, "passed": true},
+    "joint_task2": {"paired_successes": 18, "paired_total": 20, "init3_successes": 5, "init3_total": 5, "passed": true},
+    "joint_task3": {"paired_successes": 17, "paired_total": 20, "init3_successes": 5, "init3_total": 5, "passed": true}
+  },
+  "paired_task0_comparison": {
+    "joint_gains": [],
+    "joint_losses": [8, 11, 12, 13],
+    "exact_two_sided_mcnemar_p": 0.125,
+    "interpretation": "descriptive direction favors the single-task model on these discordant pairs, but this one-seed comparison is not statistically significant and does not prove multi-task interference"
+  },
+  "progression": {
+    "fold02": "locked",
+    "eight_task_expansion": "not authorized by gates; do not start",
+    "reason": "joint task0 missed its registered 11/20 paired-success threshold",
+    "next_step": "preserve results; decide a bounded, falsifiable follow-up before any new GPU budget"
+  },
+  "limitations": [
+    "The historical V3 parity invalidation remains unchanged; this result does not establish deterministic replay.",
+    "No raw trajectories, action CSVs, videos, training logs, model weights or dataset files are included in this summary."
+  ],
+  "source_records": [
+    "results/teacher_native_spatial_fresh_seed_eval_registration_v2_20261011.json",
+    "results/teacher_native_spatial_fresh_seed_eval_attempt1_preflight_v1_20261012.json",
+    "results/teacher_native_spatial_fresh_seed_eval_attempt1_launch_v1_20261012.json",
+    "remote completion.json",
+    "remote exit_code.json"
+  ]
+}
