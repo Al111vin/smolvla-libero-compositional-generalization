@@ -1,0 +1,106 @@
+{
+  "schema_version": 1,
+  "status": "registered_not_executed_remote_manifest_pending",
+  "registered_at_utc": "2026-10-12",
+  "hypothesis": {
+    "statement": "The four fresh-seed joint task0 discordant timeouts (paired inits 8, 11, 12, 13) may share a preterminal manipulation-stage signature absent from their matched single-task successes.",
+    "falsifier": "The hypothesis is falsified if all four joint timeout replays reach both frozen lift and transport predicates seen in validated positive controls; interpretation is invalid if any positive control fails a frozen predicate or replay-parity check.",
+    "interpretation_limit": "Descriptive trace association only; no causal claim about interference, training, or simulator effects. This is not a progression gate."
+  },
+  "source_scope": {
+    "remote_result_root": "/root/smolvla-eval-prep/results/fresh_seed_pair_eval_v1_20261011",
+    "task_suite": "libero_spatial",
+    "task_id": 0,
+    "paired_inits": "0..19",
+    "trace_count": 40,
+    "trace_key_pattern": [
+      "single_task0_paired_{i}_r0_160k",
+      "joint_task0_paired_{i}_r0_160k"
+    ],
+    "required_remote_files_per_trace": [
+      "summary.csv",
+      "actions.csv",
+      "protocol.json",
+      "first_input.json"
+    ],
+    "source_hash_manifest": {
+      "status": "pending_authenticated_read_only_remote_access",
+      "required_hash": "SHA-256 for every required file, recorded before replay; hash mismatch or missing file is a hard stop",
+      "existing_ordered_start_input_digest": "d369a6212d91503b0bfa11abc1033314c55874ace048d728b2acf06226d42d13"
+    },
+    "source_pair_audit": "results/teacher_native_spatial_fresh_seed_pair_start_input_audit_v1_20261012.json",
+    "source_evaluation_result": "results/teacher_native_spatial_fresh_seed_pair_eval_result_v1_20261012.json"
+  },
+  "frozen_protocol": {
+    "replay_kind": "saved_applied_action_replay_only",
+    "policy_or_model_inference": false,
+    "new_rollouts": false,
+    "training": false,
+    "gpu_budget": 0,
+    "environment": "CPU ControlEnv; use_camera_obs=false; has_renderer=false; has_offscreen_renderer=false",
+    "initialization_order": [
+      "reset",
+      "apply recorded benchmark initialization",
+      "execute exactly 10 zero-action wait steps",
+      "replay stored applied actions in source order"
+    ],
+    "trace_checks": {
+      "step_count": "exact match to source summary",
+      "success": "exact match to source summary and official env.check_success()",
+      "total_reward_abs_tolerance": 1e-7,
+      "pre_action_robot_state_dimension": 15,
+      "pre_action_robot_state_max_abs_tolerance": 1e-6,
+      "actions": "finite, seven-dimensional, each component in [-1, 1]"
+    },
+    "positive_controls": {
+      "source_success_count": 24,
+      "required": "Every source-success trace must pass all replay checks; every positive must exhibit lift, transport, and terminal native placement; native placement must agree with official success on every replay step.",
+      "frozen_stage_predicates": {
+        "lift": "post-action bowl height >= post-wait initial bowl height + 0.03 m",
+        "transport": "post-action bowl-to-plate XY distance <= 0.08 m",
+        "terminal_placement": "native plate ontop predicate agrees with official env.check_success() at every step and is true terminally for each source-success trace"
+      },
+      "failure_rule": "Any positive-control predicate or replay parity failure invalidates stage interpretation; stop without threshold changes."
+    },
+    "selected_timeout_traces": {
+      "joint_inits": [8, 11, 12, 13],
+      "matched_positive_controls": "single task0 traces at the same four inits",
+      "frozen_interpretation": "Compare event presence/order descriptively only after all positive controls validate; a timeout reaching both lift and transport falsifies the shared-omission hypothesis."
+    },
+    "smoke_order": [
+      "single_task0_paired_8_r0_160k positive control",
+      "joint_task0_paired_8_r0_160k timeout trace"
+    ],
+    "stop_conditions": [
+      "SSH/source verification, source hashes, or runtime compatibility cannot be established",
+      "recorded start state or simulator/model arrays do not match the saved first_input evidence before action replay",
+      "any replay parity check fails",
+      "positive controls fail any frozen stage predicate",
+      "GPU compute becomes active or GPU use is required",
+      "missing/duplicate/malformed trace or any non-finite/out-of-range action",
+      "first execution error"
+    ],
+    "automatic_retries": 0,
+    "preserve_partial_output_on_stop": true
+  },
+  "execution_paths": {
+    "proposed_remote_output_root": "/root/smolvla-eval-prep/results/teacher_native_spatial_fresh_seed_stage_cpu_v1_20261012",
+    "proposed_remote_manifest": "/root/smolvla-eval-prep/recovery/teacher_native_spatial_fresh_seed_stage_cpu_manifest_v1_20261012.json",
+    "absence_verified": false,
+    "creation_rule": "Before any write, verify both paths are absent by authenticated read-only check, then create exclusively; never overwrite or reuse. Keep raw actions, traces, logs, videos, checkpoints, and data on the private host."
+  },
+  "authorization_and_gates": {
+    "selected_followup_authority": "results/teacher_native_spatial_fresh_seed_followup_decision_v1_20261012.json",
+    "gpu_budget": 0,
+    "new_training_or_policy_rollouts": 0,
+    "fold02": "locked",
+    "eight_task_expansion": "locked",
+    "historical_v3_parity_invalidation": "unchanged; this is a new diagnostic version and does not repair or rewrite the historical result",
+    "progression_gate": "unchanged; this diagnostic cannot unlock Fold02 or eight-task work"
+  },
+  "transport_status": {
+    "last_authenticated_status": "not refreshed in this registration turn; prior connection attempt was refused before authentication",
+    "remote_process_state": "unknown; no inference from transport failure",
+    "next_remote_action": "At most one authenticated read-only status/source-manifest attempt after checking the existing ControlMaster; do not restart or launch any workload."
+  }
+}

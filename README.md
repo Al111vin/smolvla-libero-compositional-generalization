@@ -1988,3 +1988,11 @@ but does not establish action-by-action replay parity. The next step remains a
 hash-pinned, CPU-only recorded-action stage audit with positive controls; the
 raw traces remain private and no new rollout or GPU work was started. See the
 [paired start-input audit](results/teacher_native_spatial_fresh_seed_pair_start_input_audit_v1_20261012.json).
+
+The next diagnostic is now registered, but has not been executed. It freezes
+the 40 saved task-0 action traces, source-hash requirements, positive-control
+predicates, replay parity tolerances, stop conditions, and a new exclusive
+output path. Individual remote file hashes and path absence still require an
+authenticated read-only SSH check; current remote process state is unknown.
+No policy inference, new rollout, training, or GPU work is authorized by this
+diagnostic. See the [stage-audit registration](results/teacher_native_spatial_fresh_seed_stage_cpu_registration_v1_20261012.json).
