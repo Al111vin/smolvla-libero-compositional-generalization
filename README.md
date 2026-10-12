@@ -1995,4 +1995,10 @@ predicates, replay parity tolerances, stop conditions, and a new exclusive
 output path. Individual remote file hashes and path absence still require an
 authenticated read-only SSH check; current remote process state is unknown.
 No policy inference, new rollout, training, or GPU work is authorized by this
-diagnostic. See the [stage-audit registration](results/teacher_native_spatial_fresh_seed_stage_cpu_registration_v1_20261012.json).
+diagnostic. A local hash-manifest builder and CPU replay runner now pass five
+synthetic fail-closed tests; no remote files or simulator were touched. The
+corrected registration records the actual action/summary file patterns and a
+one-hour bound, while remote deployment and source hashing remain pending.
+See the [current stage-audit registration](results/teacher_native_spatial_fresh_seed_stage_cpu_registration_v2_20261012.json),
+[preserved first registration](results/teacher_native_spatial_fresh_seed_stage_cpu_registration_v1_20261012.json),
+and [local tooling validation](results/teacher_native_spatial_fresh_seed_stage_cpu_tooling_validation_v1_20261012.json).

@@ -1,0 +1,148 @@
+{
+  "schema_version": 2,
+  "status": "registered_not_executed_remote_manifest_pending",
+  "supersedes": "results/teacher_native_spatial_fresh_seed_stage_cpu_registration_v1_20261012.json",
+  "registered_at_utc": "2026-10-12",
+  "reason_for_revision": "Correctly records the evaluator's actual *_summary.csv and *_actions.csv filenames and adds hash-pinned local tooling, a 3600-second runtime bound, and fail-closed execution details. Version 1 is preserved unchanged.",
+  "hypothesis": {
+    "statement": "The four fresh-seed joint task0 discordant timeouts (paired inits 8, 11, 12, 13) may share a preterminal manipulation-stage signature absent from their matched single-task successes.",
+    "falsifier": "The hypothesis is falsified if all four joint timeout replays reach both frozen lift and transport predicates on valid replay while all positive controls pass. If any positive control fails validation, the hypothesis is untestable/inconclusive rather than falsified.",
+    "interpretation_limit": "Descriptive trace association only; no causal claim about interference, training, or simulator effects. This is not a progression gate."
+  },
+  "source_scope": {
+    "remote_result_root": "/root/smolvla-eval-prep/results/fresh_seed_pair_eval_v1_20261011",
+    "task_suite": "libero_spatial",
+    "task_id": 0,
+    "paired_inits": "0..19",
+    "trace_count": 40,
+    "trace_directory_pattern": [
+      "single/single_task0_paired_{i}_r0_160k",
+      "joint/joint_task0_paired_{i}_r0_160k"
+    ],
+    "required_files_per_trace": [
+      "exactly one *_summary.csv",
+      "exactly one *_actions.csv",
+      "protocol.json",
+      "first_input.json"
+    ],
+    "source_hash_manifest": {
+      "status": "pending_authenticated_read_only_remote_access",
+      "hashes": "SHA-256 of each trace's summary CSV, action CSV, protocol JSON, and first_input JSON; source hashes are rechecked immediately before each trace replay",
+      "expected_checkpoint_sha256": {
+        "single_040000": "06e778a6a21510d7fccf11924a09c2b23485bf25883ffd566a0fb44e27137e03",
+        "joint_160000": "4b4127e49c6a3a467ea8c29055fce762effbe04fc466bdd6fadc51ef717ca628"
+      },
+      "evaluator_sha256": "89fd36a89dc45a56382219d4c3f6e5d12a3b1689abb3440ec29be346815af7cb",
+      "paired_start_input_audit_digest": "d369a6212d91503b0bfa11abc1033314c55874ace048d728b2acf06226d42d13"
+    },
+    "source_records": [
+      "results/teacher_native_spatial_fresh_seed_pair_start_input_audit_v1_20261012.json",
+      "results/teacher_native_spatial_fresh_seed_pair_eval_result_v1_20261012.json"
+    ]
+  },
+  "frozen_protocol": {
+    "replay_kind": "saved_applied_action_replay_only",
+    "policy_or_model_inference": false,
+    "new_rollouts": false,
+    "training": false,
+    "gpu_budget": 0,
+    "environment": "CPU ControlEnv; use_camera_obs=false; has_renderer=false; has_offscreen_renderer=false",
+    "initialization_order": [
+      "seed benchmark environment with registered environment seed 12351",
+      "reset once",
+      "apply recorded benchmark initialization",
+      "execute exactly 10 zero-action wait steps",
+      "seed NumPy with the recorded effective seed",
+      "replay saved applied actions in source order"
+    ],
+    "protocol_fields": {
+      "init_source": "benchmark",
+      "wait_steps": 10,
+      "max_steps": 300,
+      "n_action_steps": 25,
+      "cli_seed": "12345 + init",
+      "effective_seed": "12345 + 2*init",
+      "environment_seed": 12351
+    },
+    "trace_checks": {
+      "step_count": "exact match to source summary",
+      "success": "exact match to source summary and official env.check_success()",
+      "total_reward_abs_tolerance": 1e-7,
+      "pre_action_robot_state_dimension": 15,
+      "pre_action_robot_state_max_abs_tolerance": 1e-6,
+      "actions": "finite, seven-dimensional, each component in [-1, 1]",
+      "source_integrity": "recheck all four pinned file hashes immediately before reading each trace"
+    },
+    "positive_controls": {
+      "source_success_count": 24,
+      "required": "Every source-success trace must pass all replay checks; each positive must exhibit lift, transport, and terminal native placement; native placement must agree with official success on every replay step.",
+      "frozen_stage_predicates": {
+        "lift": "post-action bowl height >= post-wait initial bowl height + 0.03 m",
+        "transport": "post-action bowl-to-plate XY distance <= 0.08 m",
+        "terminal_placement": "native plate ontop predicate agrees with official env.check_success() at every step and is true terminally for each source-success trace"
+      },
+      "failure_rule": "Any positive-control predicate or replay parity failure invalidates stage interpretation; stop without threshold changes."
+    },
+    "selected_timeout_traces": {
+      "joint_inits": [8, 11, 12, 13],
+      "matched_positive_controls": "single-task0 traces at the same four inits",
+      "interpretation": "Compare event presence and first-event steps descriptively only after all positive controls validate; a timeout reaching both frozen lift and transport falsifies the shared-omission hypothesis."
+    },
+    "execution_order": {
+      "smoke": [
+        "single_task0_paired_8_r0_160k positive control",
+        "joint_task0_paired_8_r0_160k timeout trace"
+      ],
+      "then": "remaining source-success traces first; remaining source-timeout traces only after all positive controls pass"
+    },
+    "stop_conditions": [
+      "SSH/source verification, source hashes, or runtime compatibility cannot be established",
+      "start model arrays or simulator state differ from saved first_input evidence before action replay",
+      "any action replay parity check fails",
+      "any positive control fails a frozen stage predicate",
+      "GPU compute is active, utilization is nonzero, or GPU use is required",
+      "missing, duplicate, malformed trace or non-finite/out-of-range action",
+      "existing lock conflict, output path collision, or first execution error"
+    ],
+    "runtime_bounds": {
+      "maximum_walltime_seconds": 3600,
+      "automatic_retries": 0,
+      "preserve_partial_outputs_on_stop": true
+    }
+  },
+  "execution_paths": {
+    "remote_manifest": "/root/smolvla-eval-prep/recovery/teacher_native_spatial_fresh_seed_stage_cpu_manifest_v1_20261012.json",
+    "remote_output_root": "/root/smolvla-eval-prep/results/teacher_native_spatial_fresh_seed_stage_cpu_v1_20261012",
+    "absence_verified": false,
+    "creation_rule": "Authenticated preflight must verify both paths absent immediately before exclusive creation; never overwrite/reuse. Preserve raw traces, actions, logs, videos, checkpoints and data on the private host."
+  },
+  "local_tooling": {
+    "manifest_builder": "scripts/build_fresh_seed_stage_manifest_v1.py",
+    "replay_runner": "scripts/replay_fresh_seed_cpu_stage_v1.py",
+    "test_file": "tests/test_build_fresh_seed_stage_manifest_v1.py",
+    "validation_record": "results/teacher_native_spatial_fresh_seed_stage_cpu_tooling_validation_v1_20261012.json",
+    "sha256": {
+      "manifest_builder": "4ed4891e024b85c2bab202aaaae160948d902c844bf2f26d5cd056e8fa2db902",
+      "replay_runner": "fb292b2ffedff6a37ad0f74d15038c8afbcb141e4dd78c5fcbab59c646da063d",
+      "test_file": "49c80e923c0013365e12dc7a326cb3eecae25e6de004bc11b3a3ebcf089ec93d"
+    },
+    "remote_deployment": "not performed",
+    "remote_data_manifest": "not built",
+    "simulator_replay": "not started"
+  },
+  "authorization_and_gates": {
+    "selected_followup_authority": "results/teacher_native_spatial_fresh_seed_followup_decision_v1_20261012.json",
+    "gpu_budget": 0,
+    "new_training_or_policy_rollouts": 0,
+    "fold02": "locked",
+    "eight_task_expansion": "locked",
+    "historical_v3_parity_invalidation": "unchanged; new diagnostic version does not repair or rewrite historical evidence",
+    "progression_gate": "unchanged; this diagnostic cannot unlock Fold02 or eight-task work"
+  },
+  "transport_status": {
+    "last_attempt": "Authenticated read-only SSH probe refused TCP connection on port 27360 before SSH authentication; existing ControlMaster was absent.",
+    "remote_process_state": "unknown; no inference from transport failure",
+    "next_remote_action": "At most one authenticated read-only attempt in a later status cycle after checking the existing ControlMaster. Do not launch or restart any workload."
+  },
+  "evidence_policy": "Preserve all prior records. Upload only source code, README, configs, and lightweight summaries; no raw trace, action CSV, video, log, dataset, or model weights."
+}

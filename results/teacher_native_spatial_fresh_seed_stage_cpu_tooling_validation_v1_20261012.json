@@ -1,0 +1,52 @@
+{
+  "schema_version": 1,
+  "status": "local_synthetic_validation_passed_remote_execution_pending",
+  "observed_at_utc": "2026-10-12",
+  "scope": "Local compile/help checks and synthetic temporary-file tests only; no private remote trace was read or copied, no LIBERO simulator was created, no policy was loaded or called, no GPU was used, and no remote workload was launched.",
+  "artifacts": {
+    "manifest_builder": {
+      "path": "scripts/build_fresh_seed_stage_manifest_v1.py",
+      "sha256": "4ed4891e024b85c2bab202aaaae160948d902c844bf2f26d5cd056e8fa2db902"
+    },
+    "replay_runner": {
+      "path": "scripts/replay_fresh_seed_cpu_stage_v1.py",
+      "sha256": "fb292b2ffedff6a37ad0f74d15038c8afbcb141e4dd78c5fcbab59c646da063d"
+    },
+    "tests": {
+      "path": "tests/test_build_fresh_seed_stage_manifest_v1.py",
+      "sha256": "49c80e923c0013365e12dc7a326cb3eecae25e6de004bc11b3a3ebcf089ec93d",
+      "passed": 5,
+      "cases": [
+        "complete 40-trace synthetic inventory is hash-pinned with matched paired starts",
+        "paired first-input mismatch fails closed",
+        "registered protocol mismatch fails closed",
+        "source hashes are checked immediately before source reads",
+        "execution requires an explicit fail-closed authorization flag"
+      ]
+    },
+    "checks": [
+      "python3 -m py_compile for builder, replay runner, and tests",
+      "builder and runner --help checks",
+      "python3 -m unittest tests/test_build_fresh_seed_stage_manifest_v1.py -v",
+      "git diff --check"
+    ]
+  },
+  "transport": {
+    "controlmaster": "absent",
+    "last_authenticated_probe": "TCP connection refused at cpod-1v6wxcygzn32-s1.podtcp.compshare.cn:27360 before SSH authentication",
+    "remote_process_state": "unknown"
+  },
+  "execution_state": {
+    "remote_source_hashes": "not checked",
+    "remote_manifest": "not built",
+    "remote_output_path_absence": "not checked",
+    "simulator_replay": "not started",
+    "gpu_budget": 0,
+    "automatic_retries": 0
+  },
+  "limits": [
+    "Synthetic tests do not verify installed remote LIBERO/MuJoCo/ControlEnv compatibility.",
+    "Synthetic tests do not establish real-source action-replay parity or stage predicates.",
+    "The diagnostic cannot change the task0 gate, unlock Fold02, or authorize eight-task expansion."
+  ]
+}
