@@ -1,0 +1,60 @@
+{
+  "schema_version": 1,
+  "status": "v1_stopped_partial_preserved_no_retry",
+  "observed_at_utc": "2026-10-13T16:50:14Z",
+  "remote_evidence": {
+    "output_root": "/root/smolvla-eval-prep/results/teacher_native_spatial_fresh_seed_stage_cpu_v1_20261012",
+    "exit_code": 1,
+    "failed_key": "joint_task0_paired_8_r0_160k",
+    "error": "Compiled model-array mismatch before replay",
+    "completed_keys": ["single_task0_paired_8_r0_160k"],
+    "automatic_retry": false,
+    "gpu": "RTX 5090, 0 percent utilization, 2 MiB used",
+    "live_replay_process": false,
+    "lock_available_after_exit": true
+  },
+  "static_protocol_differences": [
+    {
+      "frozen_evaluator": "Constructs OffScreenRenderEnv with its defaults: has_offscreen_renderer=true and use_camera_obs=true.",
+      "stage_v1": "Constructs ControlEnv with use_camera_obs=false and has_offscreen_renderer=false.",
+      "status": "confirmed_code_difference; not proven to cause the observed mismatch"
+    },
+    {
+      "frozen_evaluator": "The registered evaluation launcher starts a separate evaluator subprocess per rollout.",
+      "stage_v1": "Constructs one ControlEnv and reuses it across the 40 traces by calling reset repeatedly.",
+      "status": "confirmed_code_difference; not proven to cause the observed mismatch"
+    }
+  ],
+  "source_integrity_observation": "The audited source first_input model arrays were identical across all 40 traces, including the paired init-8 traces. Thus the source pair itself is not implicated by current evidence.",
+  "interpretation": "The v1 stage audit is incomplete and invalid for stage interpretation. The first positive trace matched and reproduced exactly; the next trace failed before any action was replayed. Do not use its partial result as a stage finding or progression evidence. Root cause remains unproven.",
+  "options_compared": [
+    {
+      "option": "Accept the one positive replay and infer timeout stages",
+      "decision": "reject",
+      "reason": "Only one trace ran and the next trace failed start-state validation."
+    },
+    {
+      "option": "Repeat the same v1 command",
+      "decision": "reject",
+      "reason": "It would repeat a terminal first-execution error without changing the hypothesis or protocol."
+    },
+    {
+      "option": "Perform a new, bounded CPU-only diagnostic with one fresh environment instance per trace and a unique versioned output path",
+      "decision": "candidate_next",
+      "reason": "It directly addresses the confirmed environment-lifecycle deviation; it must preserve the GPU-idle gate and stop on any parity error."
+    },
+    {
+      "option": "Switch to exact OffScreenRenderEnv rendering immediately",
+      "decision": "defer",
+      "reason": "Installed robosuite initializes an offscreen render context when has_offscreen_renderer=true; whether that uses GPU must be resolved without running it because this audit has a zero-GPU budget."
+    }
+  ],
+  "next_step": "Before any new execution, register a falsifiable versioned hypothesis, compare fresh-per-trace CPU ControlEnv versus evaluator-matched OffScreenRenderEnv/renderer options, establish a zero-GPU path or stop, pin all source/code hashes, and choose independent manifest/output paths. Preserve v1 outputs unchanged.",
+  "authorization": {
+    "stage_v1_gpu_budget": 0,
+    "stage_v1_automatic_retries": 0,
+    "no_training_or_policy_calls": true,
+    "fold02": "LOCKED",
+    "eight_task_expansion": "LOCKED"
+  }
+}

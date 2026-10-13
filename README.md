@@ -2002,3 +2002,18 @@ one-hour bound, while remote deployment and source hashing remain pending.
 See the [current stage-audit registration](results/teacher_native_spatial_fresh_seed_stage_cpu_registration_v2_20261012.json),
 [preserved first registration](results/teacher_native_spatial_fresh_seed_stage_cpu_registration_v1_20261012.json),
 and [local tooling validation](results/teacher_native_spatial_fresh_seed_stage_cpu_tooling_validation_v1_20261012.json).
+
+The v1 CPU stage audit was subsequently started and stopped fail-closed. Its
+first positive control (`single_task0_paired_8_r0_160k`) replayed exactly; the
+paired joint trace then failed the pre-action compiled-model-array check, before
+any action was replayed. The run preserved its partial output, exited 1, and
+did not retry. The live host check found the RTX 5090 idle (0% utilization,
+2 MiB memory) and no replay process. Static inspection found two protocol
+differences: stage v1 uses a headless `ControlEnv` and reuses one environment
+across traces, whereas the frozen evaluator uses `OffScreenRenderEnv` and runs
+each rollout in a separate subprocess. These are candidate explanations, not
+a proven root cause; the source pair's saved model arrays match. No stage
+interpretation or progression conclusion can be drawn from the partial run.
+Before any new diagnostic, compare options and register a new bounded version,
+unique output path, and a zero-GPU-safe compatibility plan. See the
+[v1 failure analysis](results/teacher_native_spatial_fresh_seed_stage_cpu_failure_analysis_v1_20261013.json).
