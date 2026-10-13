@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Two-trace, policy-free init-8 replay smoke with one clean worker per trace."""
+"""V3: two-trace policy-free init-8 replay smoke, one clean worker per trace."""
 from __future__ import annotations
 
 import argparse
@@ -31,12 +31,12 @@ from replay_fresh_seed_cpu_stage_v1 import (
 from controlled_cpu_replay_support_v1 import ENVIRONMENT_SEED, headless_kwargs
 
 
-EXPERIMENT_ID = "teacher_native_spatial_fresh_seed_init8_cpu_reset_v2_20261013"
+EXPERIMENT_ID = "teacher_native_spatial_fresh_seed_init8_cpu_reset_v3_20261013"
 MANIFEST_PATH = Path(
-    "/root/smolvla-eval-prep/recovery/teacher_native_spatial_fresh_seed_init8_cpu_reset_manifest_v2_20261013.json"
+    "/root/smolvla-eval-prep/recovery/teacher_native_spatial_fresh_seed_init8_cpu_reset_manifest_v3_20261013.json"
 )
 OUTPUT_ROOT = Path(
-    "/root/smolvla-eval-prep/results/teacher_native_spatial_fresh_seed_init8_cpu_reset_v2_20261013"
+    "/root/smolvla-eval-prep/results/teacher_native_spatial_fresh_seed_init8_cpu_reset_v3_20261013"
 )
 TRACE_KEYS = (
     "single_task0_paired_8_r0_160k",
@@ -60,7 +60,7 @@ def _code_paths() -> dict[str, Path]:
         "child_supervisor": scripts / "bounded_child_signals_v4.py",
         "eval_schedule": scripts / "fresh_seed_eval_schedule_v1.py",
         "protocol_schedule": scripts / "scaling_eval_schedule_v1.py",
-        "unit_tests": scripts.parent / "tests" / "test_fresh_seed_init8_cpu_reset_v1.py",
+        "unit_tests": scripts.parent / "tests" / "test_fresh_seed_init8_cpu_reset_v3.py",
     }
 
 

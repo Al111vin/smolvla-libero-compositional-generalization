@@ -13,10 +13,10 @@ from unittest import mock
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT / "scripts"))
 
-import replay_fresh_seed_init8_cpu_reset_v1 as runner  # noqa: E402
+import replay_fresh_seed_init8_cpu_reset_v3 as runner  # noqa: E402
 
 
-class FreshSeedInit8ResetSmokeTests(unittest.TestCase):
+class FreshSeedInit8ResetV3SmokeTests(unittest.TestCase):
     def test_scope_is_exactly_the_registered_init8_pair(self) -> None:
         self.assertEqual(runner.selected_trace_keys(), (
             "single_task0_paired_8_r0_160k",

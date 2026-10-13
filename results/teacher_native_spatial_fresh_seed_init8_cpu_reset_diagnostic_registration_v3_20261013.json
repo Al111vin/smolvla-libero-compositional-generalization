@@ -1,0 +1,113 @@
+{
+  "schema_version": 1,
+  "status": "remote_v3_path_preflight_passed_pending_one_scp_transfer",
+  "created_at_utc": "2026-10-13T17:20:15Z",
+  "supersedes_for_execution": "results/teacher_native_spatial_fresh_seed_init8_cpu_reset_diagnostic_registration_v2_20261013.json",
+  "preserves": [
+    "results/teacher_native_spatial_fresh_seed_init8_cpu_reset_diagnostic_registration_v1_20261013.json",
+    "results/teacher_native_spatial_fresh_seed_init8_cpu_reset_diagnostic_registration_v2_20261013.json",
+    "results/teacher_native_spatial_fresh_seed_init8_cpu_reset_transfer_failure_v1_20261013.json",
+    "/root/smolvla-eval-prep/results/teacher_native_spatial_fresh_seed_stage_cpu_v1_20261012"
+  ],
+  "failure_analysis": {
+    "prior_failure": "The v2 tar-stream upload was closed by the SSH proxy before remote directory creation; authenticated follow-up found every v2 path absent and no job running.",
+    "hypothesis": "The proxy rejected or interrupted the stdin tar stream rather than the host or SSH-agent authentication; one SFTP-backed scp transfer of the same fixed small bundle to a new path may avoid that transport mode.",
+    "falsifier": "The single v3 scp attempt fails or leaves a partial remote directory. Stop and ask for platform/user intervention; do not make a third transfer attempt.",
+    "options_compared": [
+      {"option": "Repeat tar stream at the v2 path", "decision": "reject", "reason": "Would reuse a failed version/path and repeat the same transfer mode."},
+      {"option": "One scp transfer into a new v3 directory", "decision": "selected", "reason": "Changes only transport and unique path; file content, diagnostic scope, and resource budget stay pinned."},
+      {"option": "Ask user to manually upload now", "decision": "defer", "reason": "A single already-authorized transfer alternative can be attempted safely; platform help is needed if it fails."}
+    ]
+  },
+  "scope": {
+    "source_manifest_path": "/root/smolvla-eval-prep/recovery/teacher_native_spatial_fresh_seed_stage_cpu_manifest_v1_20261012.json",
+    "source_manifest_sha256": "d65063fe57c1554f25b8760437100f98c6c935f9775e0e9ecd55e33a0d928b88",
+    "source_root": "/root/smolvla-eval-prep/results/fresh_seed_pair_eval_v1_20261011",
+    "trace_keys": ["single_task0_paired_8_r0_160k", "joint_task0_paired_8_r0_160k"],
+    "fresh_worker_per_trace": true,
+    "preconstruction_python_seed": 12351,
+    "preconstruction_numpy_seed": 12351,
+    "protocol": "Official task-0 init8; one native reset; restore pinned initial state; exactly 10 zero-action wait steps; reseed NumPy to recorded effective seed; replay only saved actions with pre-action state, reward, termination, and success parity checks.",
+    "evaluator_sha256": "89fd36a89dc45a56382219d4c3f6e5d12a3b1689abb3440ec29be346815af7cb",
+    "checkpoint_identity_source": "Pinned per-trace protocol records validated by the immutable 40-row source-manifest builder."
+  },
+  "code_sha256": {
+    "runner": "c624d133a39d4885ff9dceda10849d1353443cd47f1f04bbcfe26434518a8349",
+    "unit_tests": "1a19e97663ed75d3983cb0dff0042e69b0decb0496de5cafdcf8ef1dffe71e93",
+    "stage_replay": "fb292b2ffedff6a37ad0f74d15038c8afbcb141e4dd78c5fcbab59c646da063d",
+    "manifest_builder": "4ed4891e024b85c2bab202aaaae160948d902c844bf2f26d5cd056e8fa2db902",
+    "reset_helpers": "6ed483d3029b1e0cd7fd810e947e38f79dd5b7b58bb07cec33fa2f0a2cfdd1ea",
+    "render_provenance": "08a28b35654c1e7af9aec78fcca84e03c0db233810fd1f2e1b74931f8bade6fc",
+    "decision_provenance": "d098b099ebad38c750abc0f0d142109695daaa3823d0901ff6b13db9106d8981",
+    "child_supervisor": "581640309a116c7a247acb0395151c6cf3f18194991cb2f6805a1e93ab4ae7db",
+    "eval_schedule": "d12fe3b7980d9f676d3af8fb643479a6bfe730982820ebf64a14dba080f050c4",
+    "protocol_schedule": "094aad5affd0e9c2a29b68a49aab2fd61feb6fa9e4365ec09a3d45da675e9065"
+  },
+  "local_validation": {
+    "python": "3.9.6",
+    "unit_tests": "6 passed",
+    "syntax_compilation": "passed",
+    "gpu_used": false,
+    "simulator_started": false,
+    "evaluation_or_training_started": false,
+    "runtime_guards": "CUDA_VISIBLE_DEVICES is set empty before execution; ControlEnv is headless with both renderer flags false; stdout/stderr are discarded; only bounded JSON errors/results are kept."
+  },
+  "transfer_budget": {
+    "method": "One scp/SFTP transfer to the unique v3 directory, preceded by an exclusive remote mkdir; no overwrite.",
+    "attempts": 1,
+    "maximum_bundle_files": 11,
+    "maximum_bundle_bytes": 250000,
+    "gpu_budget": 0,
+    "training_updates": 0,
+    "policy_calls": 0,
+    "new_rollouts": 0,
+    "automatic_retries": 0,
+    "failure_action": "Preserve any partial v3 directory and stop; no third upload attempt."
+  },
+  "execution_bounds": {
+    "workers": 2,
+    "maximum_walltime_seconds": 300,
+    "per_worker_timeout_seconds": 120,
+    "policy_calls": 0,
+    "new_rollouts": 0,
+    "training_updates": 0,
+    "gpu_budget": 0,
+    "automatic_retries": 0,
+    "artifacts": "Only lightweight JSON result/progress/failure markers on the private GPU host. No raw actions, trajectories, videos, logs, datasets, weights, or credentials are copied."
+  },
+  "paths": {
+    "remote_code_bundle": "/root/smolvla-eval-prep/recovery/teacher_native_spatial_fresh_seed_init8_cpu_reset_code_v3_20261013",
+    "remote_manifest": "/root/smolvla-eval-prep/recovery/teacher_native_spatial_fresh_seed_init8_cpu_reset_manifest_v3_20261013.json",
+    "remote_output_root": "/root/smolvla-eval-prep/results/teacher_native_spatial_fresh_seed_init8_cpu_reset_v3_20261013",
+    "all_three_paths_must_be_absent_before_transfer": true,
+    "v1_and_v2_paths_are_never_reused": true
+  },
+  "remote_readonly_preflight": {
+    "timestamp_utc": "2026-10-13T17:21:33Z",
+    "ssh_authenticated": true,
+    "gpu": "RTX 5090, 0 percent utilization, 2 MiB; no compute process",
+    "matching_train_or_replay_process": false,
+    "shared_gpu_lock_available": true,
+    "free_root_bytes": 42999844864,
+    "all_v3_paths_absent": true,
+    "python_and_liberocontrolenv_imports_verified": true,
+    "source_manifest_internal_sha256": "d65063fe57c1554f25b8760437100f98c6c935f9775e0e9ecd55e33a0d928b88",
+    "source_manifest_raw_file_sha256": "230f68cc17251572a103ee4275533b3cab81812fb15defd310eaad650c52426e",
+    "source_manifest_full_row_validation": "passed at 2026-10-13T17:13:43Z; will be repeated by the hash-pinned builder immediately before manifest creation",
+    "workload_started": false
+  },
+  "stop_conditions": [
+    "Any remote code/test/source/evaluator/checkpoint/runtime/path mismatch",
+    "GPU utilization, compute process, conflicting experiment process, or held shared GPU lock",
+    "Either trace fails pre-action model-array/state parity or any recorded action/reward/termination/success parity",
+    "Any timeout, partial transfer, malformed input, output collision, or first runtime error"
+  ],
+  "progression": {
+    "single_task_gate": "unchanged",
+    "fold02": "LOCKED",
+    "eight_task_expansion": "LOCKED",
+    "historical_v3_invalidation": "unchanged"
+  },
+  "authorization_note": "The user authorized bounded diagnostics and code transfer. This v3 is a single alternate transfer plan on new independent paths; it does not launch a workload. If the bundle hash check, CPU manifest build, or final resource/path preflight fails, preserve evidence and stop. A successful two-trace method smoke still does not authorize broader replay or scaling.",
+  "manifest_sha256": "87a88bd9757d906971f62dcb0f8904a35e6e95071ec683e024691fd2adbc5d6f"
+}

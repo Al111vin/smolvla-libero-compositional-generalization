@@ -2031,7 +2031,14 @@ bundle, manifest, and output paths are all still absent; the GPU remained idle
 and no fresh-seed process was running. No smoke worker or simulator has run.
 The failed upload is preserved in the
 [transfer-failure record](results/teacher_native_spatial_fresh_seed_init8_cpu_reset_transfer_failure_v1_20261013.json);
-no retry will reuse its paths. Its falsifiable hypothesis
+no retry will reuse its paths. After comparing transfer options, one SFTP-backed
+`scp` attempt is registered with a new v3 bundle/manifest/output path. The
+2026-10-13 17:21 UTC read-only preflight found all v3 paths absent, the GPU
+idle, the shared lock available, and 43.0 GB free. If that single transfer
+fails or leaves a partial directory, preserve it and stop; no further upload
+attempt is planned. This path change does not alter the two-trace CPU-only
+experiment. See the [v3 registration and pinned hashes](results/teacher_native_spatial_fresh_seed_init8_cpu_reset_diagnostic_registration_v3_20261013.json).
+Its falsifiable hypothesis
 is that the stage-v1 shared environment carried reset-time RNG state into the
 paired joint trace; the selected test uses one fresh CPU headless worker per
 init-8 trace, restores the registered pre-reset seed order, and stops on any
