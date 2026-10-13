@@ -1,0 +1,37 @@
+{
+  "schema_version": 1,
+  "status": "v6_remote_directory_setup_failed_before_transfer",
+  "recorded_at_utc": "2026-10-13T17:56:25Z",
+  "registration": "results/teacher_native_spatial_fresh_seed_init8_cpu_reset_diagnostic_registration_v6_20261013.json",
+  "registration_manifest_sha256": "f32e63df63f8fb4ebe93d6af6e237b26496c3405d8ea021c6563a3af20a7f4bc",
+  "failed_operation": "Create the unique empty v6 transfer directory after successful point-in-time preflight.",
+  "failure_analysis": {
+    "observation": "The authenticated SSH mkdir command returned `Connection closed by 117.50.184.29 port 27360` with exit code 255. No SCP transfer was invoked.",
+    "cause_status": "Transport/reset cause is unknown; the successful read-only preflight shortly before it rules out a persistent authentication/path/hash mismatch at that snapshot, but does not identify why the provider closed the session.",
+    "transfer_attempts": 0,
+    "manifest_build_started": false,
+    "simulator_started": false,
+    "policy_calls": 0,
+    "new_rollouts": 0,
+    "training_updates": 0,
+    "gpu_work_started": false
+  },
+  "postfailure_readonly_check": {
+    "timestamp_utc": "2026-10-13T17:56:25Z",
+    "ssh_authenticated": true,
+    "v6_code_directory": "absent",
+    "v6_manifest": "absent",
+    "v6_output": "absent",
+    "v5_bundle": "preserved",
+    "gpu": "NVIDIA GeForce RTX 5090; 0 percent; 2 MiB / 32607 MiB",
+    "shared_lock_path": "/tmp/smolvla_gpu_eval.lock",
+    "shared_lock_nonblocking_probe": "free"
+  },
+  "stop_decision": {
+    "automatic_retry": false,
+    "scp_transfer": "not attempted",
+    "v6_paths_reused_or_repaired": false,
+    "next_step": "Stop v6. Any further diagnostic requires a separately bounded plan/new independent path; no v7 or alternate transport is authorized by this registration."
+  },
+  "evidence_preservation": "Keep v1-v5 records and remote trees unchanged, retain the v6 registration/preflight/failure reports, and do not infer a training/evaluation failure from this transport event."
+}

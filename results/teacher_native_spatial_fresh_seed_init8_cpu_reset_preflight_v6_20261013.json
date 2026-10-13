@@ -1,0 +1,55 @@
+{
+  "schema_version": 1,
+  "status": "passed_fresh_readonly_preflight_before_v6_transfer",
+  "timestamp_utc": "2026-10-13T17:54:22Z",
+  "registration": "results/teacher_native_spatial_fresh_seed_init8_cpu_reset_diagnostic_registration_v6_20261013.json",
+  "registration_manifest_sha256": "f32e63df63f8fb4ebe93d6af6e237b26496c3405d8ea021c6563a3af20a7f4bc",
+  "corrected_first_probe": {
+    "issue": "The first read-only shell command asserted a nonexistent source-manifest rows key; the frozen manifest stores its 40 entries under traces.",
+    "evidence": "That command had already verified idle GPU, empty compute-app list, no matching processes, free lock, absent v6 paths, preserved v5 bundle, 42,999,615,488 free bytes, and matching raw/internal source-manifest hashes before its incorrect count assertion.",
+    "impact": "No remote state was changed and no workload started. The corrected probe validated source_manifest.traces == 40 and repeated all checks."
+  },
+  "remote": {
+    "ssh_authenticated": true,
+    "gpu": "NVIDIA GeForce RTX 5090; 0 percent utilization; 2 MiB / 32607 MiB",
+    "compute_processes": [],
+    "matching_experiment_processes": [],
+    "shared_lock_path": "/tmp/smolvla_gpu_eval.lock",
+    "shared_lock_nonblocking_probe": "free",
+    "v6_bundle_manifest_output_paths_absent": true,
+    "v5_bundle_preserved": true,
+    "free_root_bytes": 42999615488,
+    "source_manifest_raw_sha256": "230f68cc17251572a103ee4275533b3cab81812fb15defd310eaad650c52426e",
+    "source_manifest_internal_sha256": "d65063fe57c1554f25b8760437100f98c6c935f9775e0e9ecd55e33a0d928b88",
+    "source_manifest_traces": 40,
+    "source_manifest_self_hash": "passed",
+    "python_runtime_and_headless_import": "Python 3.12.11; ControlEnv imported without simulator construction; passed",
+    "simulator_started": false,
+    "workload_started": false
+  },
+  "local": {
+    "unit_tests": "3 passed",
+    "syntax_compilation": "passed",
+    "registration_self_hash": "passed",
+    "registered_code_hashes": "13/13 matched",
+    "code_and_test_bytes": 84997,
+    "gpu_used": false
+  },
+  "limits": {
+    "next_operation": "One recursive SFTP-backed SCP transfer with explicitly named scripts/ and tests/ directories and the registration JSON; only if remote state is rechecked immediately before transfer.",
+    "transfer_attempts": 1,
+    "manifest_builds": 1,
+    "cpu_workers": 2,
+    "maximum_walltime_seconds": 300,
+    "per_worker_timeout_seconds": 120,
+    "gpu_budget": 0,
+    "policy_calls": 0,
+    "new_rollouts": 0,
+    "training_updates": 0,
+    "automatic_retries": 0
+  },
+  "limitations": [
+    "This is a point-in-time pre-transfer observation; repeat critical GPU/process/lock/path checks immediately before the one transfer and before any CPU replay.",
+    "A passed transfer or method smoke will not establish action parity for unsampled traces, causal interference, stage cause, or progression gate passage."
+  ]
+}

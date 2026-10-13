@@ -1,0 +1,138 @@
+{
+  "schema_version": 1,
+  "status": "v6_single_directory_transfer_plan_registered_pending_live_preflight",
+  "created_at_utc": "2026-10-13T17:50:59Z",
+  "supersedes_for_execution": "results/teacher_native_spatial_fresh_seed_init8_cpu_reset_diagnostic_registration_v5_20261013.json",
+  "preserves": [
+    "results/teacher_native_spatial_fresh_seed_init8_cpu_reset_diagnostic_registration_v1_20261013.json",
+    "results/teacher_native_spatial_fresh_seed_init8_cpu_reset_diagnostic_registration_v2_20261013.json",
+    "results/teacher_native_spatial_fresh_seed_init8_cpu_reset_diagnostic_registration_v3_20261013.json",
+    "results/teacher_native_spatial_fresh_seed_init8_cpu_reset_diagnostic_registration_v4_20261013.json",
+    "results/teacher_native_spatial_fresh_seed_init8_cpu_reset_diagnostic_registration_v5_20261013.json",
+    "results/teacher_native_spatial_fresh_seed_init8_cpu_reset_bundle_layout_failure_v1_20261013.json",
+    "/root/smolvla-eval-prep/recovery/teacher_native_spatial_fresh_seed_init8_cpu_reset_code_v3_20261013",
+    "/root/smolvla-eval-prep/recovery/teacher_native_spatial_fresh_seed_init8_cpu_reset_code_v4_20261013",
+    "/root/smolvla-eval-prep/recovery/teacher_native_spatial_fresh_seed_init8_cpu_reset_code_v5_20261013",
+    "/root/smolvla-eval-prep/results/teacher_native_spatial_fresh_seed_stage_cpu_v1_20261012"
+  ],
+  "failure_analysis": {
+    "v5_failure": "SCP copied the allowlisted individual files into the v5 bundle root, flattening the expected scripts/ and tests/ layout. The read-only path/hash check failed before manifest construction or simulator startup. The v5 bundle is preserved unchanged; no relayout or execution was attempted.",
+    "falsifiable_hypothesis": "A single recursive SCP invocation with the two staged directories named scripts/ and tests/ as directory sources, plus the root registration JSON, will preserve the expected relative hierarchy in a fresh v6 bundle.",
+    "falsifier": "Any SSH/SCP failure, partial or flattened directory tree, unexpected file/symlink, hash mismatch, source/evaluator/checkpoint/runtime mismatch, path collision, held lock, active compute job, manifest-build failure, timeout, or either trace failing registered pre-action/state/action/reward/termination/success parity. A falsifier ends v6; no retry or v7.",
+    "options_compared": [
+      {
+        "option": "Relayout the existing flattened v5 bundle in place",
+        "decision": "reject",
+        "reason": "Would mutate evidence from a failed version and reuse its assigned path."
+      },
+      {
+        "option": "One recursive SCP transfer of explicitly named scripts/ and tests/ directories to a new v6 path",
+        "decision": "selected",
+        "reason": "Directly tests whether recursive directory sources preserve the package layout while isolating all new files and outputs."
+      },
+      {
+        "option": "Stop without another diagnostic transfer",
+        "decision": "defer",
+        "reason": "Leaves the recorded stage-cause question unresolved despite a finite, zero-GPU corrective test being available under the existing bounded-continuation authorization."
+      }
+    ]
+  },
+  "scope": {
+    "source_manifest_path": "/root/smolvla-eval-prep/recovery/teacher_native_spatial_fresh_seed_stage_cpu_manifest_v1_20261012.json",
+    "source_manifest_raw_sha256": "230f68cc17251572a103ee4275533b3cab81812fb15defd310eaad650c52426e",
+    "source_manifest_sha256": "d65063fe57c1554f25b8760437100f98c6c935f9775e0e9ecd55e33a0d928b88",
+    "source_root": "/root/smolvla-eval-prep/results/fresh_seed_pair_eval_v1_20261011",
+    "trace_keys": [
+      "single_task0_paired_8_r0_160k",
+      "joint_task0_paired_8_r0_160k"
+    ],
+    "fresh_worker_per_trace": true,
+    "preconstruction_python_seed": 12351,
+    "preconstruction_numpy_seed": 12351,
+    "evaluator_sha256": "89fd36a89dc45a56382219d4c3f6e5d12a3b1689abb3440ec29be346815af7cb",
+    "protocol": "Official task-0 init-8; one native reset; restore pinned initial state; exactly 10 zero-action wait steps; reseed NumPy to recorded effective seed; replay only saved actions with pre-action state, reward, termination, and success parity checks."
+  },
+  "code_sha256": {
+    "runner": "f864e072c1fbf06287fd9bee400377f5d0ef489220499a0fadae3fbf96cc51e3",
+    "base_runner_v5": "fc062193eae93ef7348b96aad73de6467d34f65ffd5cbe73ed1dbf636671d954",
+    "base_runner": "a14c1979cd18f8422167404f90415a0b1b964d90c03a128dd762355bf07e5b0f",
+    "stage_replay": "fb292b2ffedff6a37ad0f74d15038c8afbcb141e4dd78c5fcbab59c646da063d",
+    "manifest_builder": "4ed4891e024b85c2bab202aaaae160948d902c844bf2f26d5cd056e8fa2db902",
+    "reset_helpers": "6ed483d3029b1e0cd7fd810e947e38f79dd5b7b58bb07cec33fa2f0a2cfdd1ea",
+    "render_provenance": "08a28b35654c1e7af9aec78fcca84e03c0db233810fd1f2e1b74931f8bade6fc",
+    "decision_provenance": "d098b099ebad38c750abc0f0d142109695daaa3823d0901ff6b13db9106d8981",
+    "child_supervisor": "581640309a116c7a247acb0395151c6cf3f18194991cb2f6805a1e93ab4ae7db",
+    "eval_schedule": "d12fe3b7980d9f676d3af8fb643479a6bfe730982820ebf64a14dba080f050c4",
+    "protocol_schedule": "094aad5affd0e9c2a29b68a49aab2fd61feb6fa9e4365ec09a3d45da675e9065",
+    "frozen_evaluator": "89fd36a89dc45a56382219d4c3f6e5d12a3b1689abb3440ec29be346815af7cb",
+    "unit_tests": "fbccaff11e7a86f8c5506b2e55e7a3008f67a6fe08ebb124ea903259a340e34b"
+  },
+  "local_validation": {
+    "unit_tests": "3 passed",
+    "syntax_compilation": "passed",
+    "gpu_used": false,
+    "simulator_started": false,
+    "policy_calls": 0,
+    "new_rollouts": 0,
+    "training_updates": 0,
+    "inventory_files": 13,
+    "inventory_bytes": 84997
+  },
+  "transfer_budget": {
+    "attempts": 1,
+    "method": "One SFTP-backed scp invocation using uppercase -P 27360 and -r over exactly the staged scripts/ and tests/ directories plus the root registration JSON into a fresh exclusive v6 destination. Maximum 14 files and 150000 bytes.",
+    "gpu_budget": 0,
+    "training_updates": 0,
+    "policy_calls": 0,
+    "new_rollouts": 0,
+    "automatic_retries": 0,
+    "failure_action": "Preserve any partial v6 tree unchanged and stop; no relayout, alternate transport, retry, or v7."
+  },
+  "execution_bounds": {
+    "manifest_builds": 1,
+    "workers": 2,
+    "maximum_walltime_seconds": 300,
+    "per_worker_timeout_seconds": 120,
+    "gpu_budget": 0,
+    "policy_calls": 0,
+    "new_rollouts": 0,
+    "training_updates": 0,
+    "automatic_retries": 0,
+    "artifacts": "Only compact JSON manifest/result/failure records; no raw traces, action CSVs, videos, subprocess logs, datasets, weights, or credentials are copied."
+  },
+  "paths": {
+    "remote_code_bundle": "/root/smolvla-eval-prep/recovery/teacher_native_spatial_fresh_seed_init8_cpu_reset_code_v6_20261013",
+    "remote_manifest": "/root/smolvla-eval-prep/recovery/teacher_native_spatial_fresh_seed_init8_cpu_reset_manifest_v6_20261013.json",
+    "remote_output_root": "/root/smolvla-eval-prep/results/teacher_native_spatial_fresh_seed_init8_cpu_reset_v6_20261013",
+    "all_paths_must_be_absent_before_transfer": true,
+    "previous_version_paths_are_never_reused": true
+  },
+  "remote_readonly_preflight": {
+    "status": "pending_fresh_authenticated_check",
+    "first_probe_note": "The first read-only shell probe stopped after all GPU/process/lock/path/disk checks because its own assertion queried a nonexistent rows field instead of the manifest's traces list. It printed matching raw and internal source-manifest hashes and did not modify remote state or start work. The corrected probe will assert exactly 40 entries in source_manifest.traces, matching the frozen builder schema.",
+    "required": [
+      "all v6 paths absent",
+      "v5 bundle unchanged and preserved",
+      "RTX 5090 utilization and compute-app table idle",
+      "no matching stage-replay process",
+      "shared /tmp/smolvla_gpu_eval.lock passes nonblocking probe",
+      "source manifest raw/internal hashes and source_manifest.traces count of 40 match registration",
+      "installed Python/runtime and headless ControlEnv imports match prior preflight",
+      "minimum free disk >= 20 GiB"
+    ]
+  },
+  "stop_conditions": [
+    "Any source, evaluator, selected checkpoint, code, unit-test, runtime, path, or protocol mismatch",
+    "GPU utilization/compute process, matching replay/training process, or held shared lock",
+    "Any partial, flattened, symlinked, unexpected, or hash-mismatched transfer item",
+    "Manifest error, source validation error, timeout, output collision, or either trace parity failure"
+  ],
+  "progression": {
+    "single_task_gate": "unchanged",
+    "fold02": "LOCKED",
+    "eight_task_expansion": "LOCKED",
+    "historical_v3_invalidation": "unchanged"
+  },
+  "authorization_note": "A separately registered one-shot zero-GPU continuation addressing the v5 observed layout failure only. It uses an independent v6 path and no prior outputs. The broader goal authorization covers bounded continuation and code transfer, but not unlimited retries; v6 failure ends this diagnostic with no v7. This method smoke cannot establish deterministic replay, assign the training-stage cause, prove causal interference, or satisfy progression gates.",
+  "manifest_sha256": "f32e63df63f8fb4ebe93d6af6e237b26496c3405d8ea021c6563a3af20a7f4bc"
+}

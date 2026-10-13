@@ -2112,3 +2112,29 @@ there were no matching processes, and both v5 manifest/output paths remained
 absent. No simulator, policy, replay, training, or GPU work started. Per the
 v5 fail-closed rule, this bundle is preserved unchanged and there will be no
 automatic relayout, upload, or v6 attempt. See the [v5 layout failure record](results/teacher_native_spatial_fresh_seed_init8_cpu_reset_bundle_layout_failure_v1_20261013.json).
+
+After the v5 layout failure, the continuing bounded diagnostic was separately
+registered as v6 on new paths. Its only transfer is one recursive SCP call
+whose sources are the staged `scripts/` and `tests/` directories (plus the
+registration JSON), directly testing whether preserving directory sources
+prevents the prior flattening. The cap remains one transfer, one manifest
+build, and at most two CPU workers for two saved traces; GPU, policy, rollout,
+and training budgets are all zero. No v5 file or path is repaired or reused.
+The first v6 read-only probe itself used the wrong manifest key (`rows` rather
+than the frozen builder's `traces`) and stopped before any mutation. A corrected
+probe then passed: all 40 source-manifest traces and raw/internal hashes matched;
+the RTX 5090 was idle, no compute or matching processes were present, the shared
+lock was free, v6 paths were absent, and Python 3.12.11 imported `ControlEnv`
+without constructing a simulator. The single directory-preserving transfer is
+pending; it will be rechecked immediately before execution. See the
+[v6 registration](results/teacher_native_spatial_fresh_seed_init8_cpu_reset_diagnostic_registration_v6_20261013.json)
+and [v6 preflight](results/teacher_native_spatial_fresh_seed_init8_cpu_reset_preflight_v6_20261013.json).
+
+The single v6 remote-directory setup then failed with a provider connection
+reset before `scp` was invoked. One authenticated read-only follow-up confirmed
+the v6 directory, manifest, and output are all absent; v5 is preserved, the
+RTX 5090 remains idle, and the shared lock is free. No file transfer, manifest
+build, simulator, replay, policy call, rollout, training update, or GPU work
+started. Per the registered stop rule, v6 is closed with no retry or v7.
+The 120-rollout evaluation result above remains complete; this transport event
+does not reverse it. See the [v6 transfer failure record](results/teacher_native_spatial_fresh_seed_init8_cpu_reset_transfer_failure_v3_20261013.json).
