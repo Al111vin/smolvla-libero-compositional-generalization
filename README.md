@@ -2018,13 +2018,39 @@ Before any new diagnostic, compare options and register a new bounded version,
 unique output path, and a zero-GPU-safe compatibility plan. See the
 [v1 failure analysis](results/teacher_native_spatial_fresh_seed_stage_cpu_failure_analysis_v1_20261013.json).
 
-A follow-up init-8 reset-lifecycle smoke is now specified but not executable
-yet. Its falsifiable hypothesis is that the stage-v1 shared environment carried
-reset-time RNG state into the paired joint trace; the selected test uses one
-fresh CPU headless worker per init-8 trace, restores the registered pre-reset
-seed order, and stops on any saved model-array/state mismatch. The exact
-OffScreenRenderEnv path remains deferred because its zero-GPU behavior is not
-established. The smoke is capped at two workers, 300 seconds total, with no
-policy calls, new rollouts, training, or GPU budget. Both workers must pass
-before separately considering broader stage analysis; this smoke cannot unlock
-Fold02 or task expansion. See the [init-8 diagnostic registration](results/teacher_native_spatial_fresh_seed_init8_cpu_reset_diagnostic_registration_v1_20261013.json).
+A follow-up init-8 reset-lifecycle smoke has now been implemented and locally
+validated: six CPU-only unit tests pass, syntax compilation passes, and the
+runner, test, and helper/schedule hashes are pinned. The read-only remote
+preflight also passed: the 40-row source manifest and selected trace identities
+validated, the Python 3.12.11 LIBERO/ControlEnv imports resolved, all three new
+v2 paths were absent, the shared lock was available, the RTX 5090 was idle,
+and 43.1 GB was free on the root filesystem. The single code-bundle transfer
+to its unique v2 path was closed by the SSH proxy before the directory was
+created. A subsequent authenticated read-only check confirmed that the v2
+bundle, manifest, and output paths are all still absent; the GPU remained idle
+and no fresh-seed process was running. No smoke worker or simulator has run.
+The failed upload is preserved in the
+[transfer-failure record](results/teacher_native_spatial_fresh_seed_init8_cpu_reset_transfer_failure_v1_20261013.json);
+no retry will reuse its paths. Its falsifiable hypothesis
+is that the stage-v1 shared environment carried reset-time RNG state into the
+paired joint trace; the selected test uses one fresh CPU headless worker per
+init-8 trace, restores the registered pre-reset seed order, and stops on any
+saved model-array/state mismatch. Worker output is limited to lightweight JSON
+markers; subprocess logs are discarded and CUDA device discovery is masked.
+The exact OffScreenRenderEnv path remains deferred because its zero-GPU
+behavior is not established. The smoke
+is capped at two workers, 300 seconds total, with no policy calls, new
+rollouts, training, or GPU budget. Both workers must pass before separately
+considering broader stage analysis; this smoke cannot unlock Fold02 or task
+expansion. See the [hash-pinned init-8 diagnostic registration
+v2](results/teacher_native_spatial_fresh_seed_init8_cpu_reset_diagnostic_registration_v2_20261013.json)
+and preserved [initial design v1](results/teacher_native_spatial_fresh_seed_init8_cpu_reset_diagnostic_registration_v1_20261013.json).
+
+A fresh authenticated read-only host check at 2026-10-13 17:06 UTC confirmed
+the already-registered 120-rollout fresh-seed evaluation exited 0 with all
+120 records; its gate result remains unchanged (single task-0 14/20, joint
+task-0 10/20, joint tasks 1–3 11/20, 18/20, 17/20; each fixed-init condition
+5/5). At that snapshot the RTX 5090 was idle at 0% with no compute process,
+and no fresh-seed train/evaluation process remained. This is a point-in-time
+resource check, not evidence that a new GPU run has started. The init-8 CPU
+smoke remains pending its separate source/runtime/path preflight.

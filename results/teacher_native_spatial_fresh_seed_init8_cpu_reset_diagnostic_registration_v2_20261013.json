@@ -1,0 +1,118 @@
+{
+  "schema_version": 1,
+  "status": "transfer_failed_remote_bundle_absent_preserved",
+  "created_at_utc": "2026-10-13T17:14:36Z",
+  "supersedes_for_execution": "results/teacher_native_spatial_fresh_seed_init8_cpu_reset_diagnostic_registration_v1_20261013.json",
+  "preserves": [
+    "results/teacher_native_spatial_fresh_seed_init8_cpu_reset_diagnostic_registration_v1_20261013.json",
+    "results/teacher_native_spatial_fresh_seed_stage_cpu_failure_analysis_v1_20261013.json",
+    "/root/smolvla-eval-prep/results/teacher_native_spatial_fresh_seed_stage_cpu_v1_20261012"
+  ],
+  "hypothesis": "The init-8 pre-action model-array mismatch in stage CPU v1 arose from shared-environment lifecycle or reset-time RNG carryover; one fresh worker per trace, with Python and NumPy seeded to 12351 before environment construction, should reproduce the stored model arrays and simulator state for the matched single/joint init-8 pair.",
+  "falsifier": "Either fresh worker fails stored pre-action model-array or simulator-state parity before applying recorded actions; stop without retry or stage inference.",
+  "interpretation_limit": "Method-validation smoke only. Passing does not validate other starts, establish the four-timeout stage hypothesis, establish causal interference, or unlock task expansion/Fold02. The frozen EGL renderer is not used; headless mode remains an explicit limitation.",
+  "scope": {
+    "source_manifest_path": "/root/smolvla-eval-prep/recovery/teacher_native_spatial_fresh_seed_stage_cpu_manifest_v1_20261012.json",
+    "source_manifest_sha256": "d65063fe57c1554f25b8760437100f98c6c935f9775e0e9ecd55e33a0d928b88",
+    "source_root": "/root/smolvla-eval-prep/results/fresh_seed_pair_eval_v1_20261011",
+    "trace_keys": [
+      "single_task0_paired_8_r0_160k",
+      "joint_task0_paired_8_r0_160k"
+    ],
+    "fresh_worker_per_trace": true,
+    "preconstruction_python_seed": 12351,
+    "preconstruction_numpy_seed": 12351,
+    "protocol": "Official task-0 init8; one native reset; restore pinned initial state; exactly 10 zero-action wait steps; reseed NumPy to recorded effective seed; replay only saved actions with pre-action state, reward, termination, and success parity checks.",
+    "evaluator_sha256": "89fd36a89dc45a56382219d4c3f6e5d12a3b1689abb3440ec29be346815af7cb",
+    "checkpoint_identity_source": "Pinned per-trace protocol records validated by the immutable source-manifest builder."
+  },
+  "code_sha256": {
+    "runner": "098031768cf741b25193edc60abd120a1dcd49bcdbfbfb648b2b4fb0f29585bb",
+    "unit_tests": "7559f54fa90a42094bf0d3360951bd1a7e48582a9925858f173d4e0a14e2de84",
+    "stage_replay": "fb292b2ffedff6a37ad0f74d15038c8afbcb141e4dd78c5fcbab59c646da063d",
+    "manifest_builder": "4ed4891e024b85c2bab202aaaae160948d902c844bf2f26d5cd056e8fa2db902",
+    "reset_helpers": "6ed483d3029b1e0cd7fd810e947e38f79dd5b7b58bb07cec33fa2f0a2cfdd1ea",
+    "render_provenance": "08a28b35654c1e7af9aec78fcca84e03c0db233810fd1f2e1b74931f8bade6fc",
+    "decision_provenance": "d098b099ebad38c750abc0f0d142109695daaa3823d0901ff6b13db9106d8981",
+    "child_supervisor": "581640309a116c7a247acb0395151c6cf3f18194991cb2f6805a1e93ab4ae7db",
+    "eval_schedule": "d12fe3b7980d9f676d3af8fb643479a6bfe730982820ebf64a14dba080f050c4",
+    "protocol_schedule": "094aad5affd0e9c2a29b68a49aab2fd61feb6fa9e4365ec09a3d45da675e9065"
+  },
+  "local_validation": {
+    "python": "3.9.6",
+    "unit_tests": "6 passed",
+    "syntax_compilation": "passed",
+    "gpu_used": false,
+    "simulator_started": false,
+    "evaluation_or_training_started": false,
+    "test_output_policy": "Test stubs only; subprocess listing is mocked; worker stdout/stderr is discarded at runtime; errors are saved as bounded JSON markers."
+  },
+  "execution_bounds": {
+    "workers": 2,
+    "maximum_walltime_seconds": 300,
+    "per_worker_timeout_seconds": 120,
+    "policy_calls": 0,
+    "new_rollouts": 0,
+    "training_updates": 0,
+    "gpu_budget": 0,
+    "automatic_retries": 0,
+    "artifacts": "Only lightweight JSON result/progress/failure markers on the private GPU host. No raw actions, trajectories, videos, logs, datasets, weights, or credentials are copied."
+  },
+  "paths": {
+    "remote_code_bundle": "/root/smolvla-eval-prep/recovery/teacher_native_spatial_fresh_seed_init8_cpu_reset_code_v2_20261013",
+    "remote_manifest": "/root/smolvla-eval-prep/recovery/teacher_native_spatial_fresh_seed_init8_cpu_reset_manifest_v2_20261013.json",
+    "remote_output_root": "/root/smolvla-eval-prep/results/teacher_native_spatial_fresh_seed_init8_cpu_reset_v2_20261013",
+    "all_three_paths_must_be_absent": true,
+    "v1_paths_are_never_reused": true
+  },
+  "remote_preflight_requirements": [
+    "Authenticated read-only SSH and fresh host timestamp",
+    "RTX 5090 utilization 0 percent, no compute PID, no experiment process, shared GPU lock available",
+    "Exact required private source trace hashes, evaluator/checkpoint identities, installed runtime and 40-row source manifest verified",
+    "Bundle, manifest, and output paths absent",
+    "All staged code/test hashes match this registration",
+    "Output filesystem has at least 1 GB free"
+  ],
+  "remote_readonly_preflight": {
+    "timestamp_utc": "2026-10-13T17:13:43Z",
+    "ssh_authenticated": true,
+    "gpu": "RTX 5090, 0 percent utilization, 2 MiB; no compute process",
+    "matching_train_or_replay_process": false,
+    "shared_gpu_lock_available": true,
+    "free_root_bytes": 43082785664,
+    "new_code_manifest_and_output_paths_absent": true,
+    "python": "3.12.11 at /usr/local/miniconda3/envs/py312/bin/python",
+    "libero_controlenv_imports": "passed without constructing an environment; Python module paths resolved in the selected environment",
+    "libero_distribution_metadata": "not present under distribution name libero; module import succeeds from the installed source path",
+    "source_manifest_sha256": "d65063fe57c1554f25b8760437100f98c6c935f9775e0e9ecd55e33a0d928b88",
+    "source_manifest_self_hash": "passed",
+    "fully_validated_source_rows": 40,
+    "selected_trace_keys_present": true,
+    "evaluator_sha256": "89fd36a89dc45a56382219d4c3f6e5d12a3b1689abb3440ec29be346815af7cb",
+    "checkpoint_sha256": {
+      "single_040000": "06e778a6a21510d7fccf11924a09c2b23485bf25883ffd566a0fb44e27137e03",
+      "joint_160000": "4b4127e49c6a3a467ea8c29055fce762effbe04fc466bdd6fadc51ef717ca628"
+    },
+    "simulator_started": false,
+    "policy_calls": 0,
+    "training_updates": 0,
+    "new_rollouts": 0,
+    "gpu_work_started": false
+  },
+  "transfer_attempt_failure_record": "results/teacher_native_spatial_fresh_seed_init8_cpu_reset_transfer_failure_v1_20261013.json",
+  "stop_conditions": [
+    "Any code, test, source, evaluator, checkpoint, runtime, or protocol identity mismatch",
+    "GPU utilization, compute process, experiment process, or held GPU lock",
+    "Any designated remote path already exists",
+    "Either trace fails pre-action model-array/state parity or any recorded action/reward/termination/success parity",
+    "Timeout, malformed input, worker failure, output collision, or first execution error"
+  ],
+  "progression": {
+    "single_task_gate": "unchanged",
+    "fold02": "LOCKED",
+    "eight_task_expansion": "LOCKED",
+    "historical_v3_invalidation": "unchanged"
+  },
+  "authorization_note": "The user previously authorized bounded diagnostics and code transfer. This version pins implementation/test/dependency hashes but does not claim remote preflight passed or authorize a GPU job. Any later run is limited to the exact two saved CPU traces, 300 seconds total, zero policy calls, zero new rollouts, zero training updates, zero GPU budget, and no retries.",
+  "manifest_sha256": "8ecf4d9c87c318e094f0d91d2a0157cce2fd714aa7703285f5737f20a9689835"
+}

@@ -1,0 +1,26 @@
+{
+  "schema_version": 1,
+  "status": "transfer_interrupted_before_remote_creation",
+  "recorded_at_utc": "2026-10-13T17:16:36Z",
+  "attempted_operation": "One authorized SSH tar-stream upload of the hash-pinned CPU diagnostic bundle to its unique v2 staging path.",
+  "client_error": "Connection closed by 117.50.184.29 port 27360; tar reported write error.",
+  "followup_readonly_check": {
+    "timestamp_utc": "2026-10-13T17:16:14Z",
+    "ssh_recovered": true,
+    "remote_code_bundle_v2": "absent",
+    "remote_manifest_v2": "absent",
+    "remote_output_v2": "absent",
+    "gpu": "RTX 5090, 0 percent utilization, 2 MiB; no compute process",
+    "fresh_seed_process": false,
+    "free_root_bytes": 42999865344
+  },
+  "interpretation": "Transfer failed before any remote bundle path was created; this is not a diagnostic-run failure and no simulator, policy, rollout, training, or GPU work occurred.",
+  "preservation": "The v2 registration and source artifacts remain unchanged. No remote path was removed, overwritten, or retried.",
+  "bounded_next_option": {
+    "hypothesis": "The SSH proxy closed the tar stdin stream transiently; an SFTP-backed scp of the same small fixed bundle to a new versioned directory may avoid this stream path.",
+    "falsifier": "The single scp transfer fails or leaves a partial destination; stop and request human/platform intervention, with no third upload attempt.",
+    "budget": "One transfer attempt, no GPU, no simulator, no policy call, no rollout, no training, no automatic retry.",
+    "new_path_required": true
+  },
+  "manifest_sha256": "788af8abb7ff545c1ec3781b36e6a8695d74ccf339a416617d2b42751cb562e5"
+}
