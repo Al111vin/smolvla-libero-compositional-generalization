@@ -1,0 +1,122 @@
+{
+  "schema_version": 1,
+  "status": "v5_corrected_single_transfer_plan_registered_pending_fresh_preflight",
+  "created_at_utc": "2026-10-13T17:37:30Z",
+  "supersedes_for_execution": "results/teacher_native_spatial_fresh_seed_init8_cpu_reset_diagnostic_registration_v4_20261013.json",
+  "preserves": [
+    "results/teacher_native_spatial_fresh_seed_init8_cpu_reset_diagnostic_registration_v1_20261013.json",
+    "results/teacher_native_spatial_fresh_seed_init8_cpu_reset_diagnostic_registration_v2_20261013.json",
+    "results/teacher_native_spatial_fresh_seed_init8_cpu_reset_diagnostic_registration_v3_20261013.json",
+    "results/teacher_native_spatial_fresh_seed_init8_cpu_reset_diagnostic_registration_v4_20261013.json",
+    "results/teacher_native_spatial_fresh_seed_init8_cpu_reset_transfer_failure_v1_20261013.json",
+    "results/teacher_native_spatial_fresh_seed_init8_cpu_reset_manifest_failure_v1_20261013.json",
+    "results/teacher_native_spatial_fresh_seed_init8_cpu_reset_transfer_failure_v2_20261013.json",
+    "/root/smolvla-eval-prep/recovery/teacher_native_spatial_fresh_seed_init8_cpu_reset_code_v3_20261013",
+    "/root/smolvla-eval-prep/recovery/teacher_native_spatial_fresh_seed_init8_cpu_reset_code_v4_20261013",
+    "/root/smolvla-eval-prep/results/teacher_native_spatial_fresh_seed_stage_cpu_v1_20261012"
+  ],
+  "failure_analysis": {
+    "v4_transfer_failure": "SCP rejected the local source argument 27360 because the shared options used lowercase -p; the port was parsed as a filename. The exclusive remote v4 directory remains empty; manifest and output were never created. A read-only post-failure check found no copied files or workload.",
+    "falsifiable_hypothesis": "Using SCP's uppercase -P for the port will transfer the exact registered allowlist by SFTP into a fresh, exclusive v5 path.",
+    "falsifier": "Any local argument error, authentication/transport error, partial bundle, remote hash mismatch, unexpected process/GPU/lock state, existing path, source identity mismatch, manifest-build error, timeout, or trace parity failure. Any falsifier ends this diagnostic; no v6 transfer or rerun is covered.",
+    "options_compared": [
+      {"option": "Retry into the empty v4 directory", "decision": "reject", "reason": "Would reuse a path assigned to a failed version and violate evidence isolation."},
+      {"option": "One SFTP-backed SCP transfer using uppercase -P to a new v5 path", "decision": "selected", "reason": "Directly corrects the locally identified option-parsing cause while keeping contents and experiment scope pinned."},
+      {"option": "Abandon before testing the corrected syntax", "decision": "defer", "reason": "One previously authorized bounded code-transfer allowance remains; this record uses that allowance once and stops on any failure."}
+    ]
+  },
+  "scope": {
+    "source_manifest_path": "/root/smolvla-eval-prep/recovery/teacher_native_spatial_fresh_seed_stage_cpu_manifest_v1_20261012.json",
+    "source_manifest_sha256": "d65063fe57c1554f25b8760437100f98c6c935f9775e0e9ecd55e33a0d928b88",
+    "source_root": "/root/smolvla-eval-prep/results/fresh_seed_pair_eval_v1_20261011",
+    "trace_keys": ["single_task0_paired_8_r0_160k", "joint_task0_paired_8_r0_160k"],
+    "fresh_worker_per_trace": true,
+    "preconstruction_python_seed": 12351,
+    "preconstruction_numpy_seed": 12351,
+    "evaluator_sha256": "89fd36a89dc45a56382219d4c3f6e5d12a3b1689abb3440ec29be346815af7cb",
+    "protocol": "Official task-0 init-8; one native reset; restore pinned initial state; exactly 10 zero-action wait steps; reseed NumPy to recorded effective seed; replay only saved actions with pre-action state, reward, termination, and success parity checks."
+  },
+  "code_sha256": {
+    "runner": "fc062193eae93ef7348b96aad73de6467d34f65ffd5cbe73ed1dbf636671d954",
+    "base_runner": "a14c1979cd18f8422167404f90415a0b1b964d90c03a128dd762355bf07e5b0f",
+    "stage_replay": "fb292b2ffedff6a37ad0f74d15038c8afbcb141e4dd78c5fcbab59c646da063d",
+    "manifest_builder": "4ed4891e024b85c2bab202aaaae160948d902c844bf2f26d5cd056e8fa2db902",
+    "reset_helpers": "6ed483d3029b1e0cd7fd810e947e38f79dd5b7b58bb07cec33fa2f0a2cfdd1ea",
+    "render_provenance": "08a28b35654c1e7af9aec78fcca84e03c0db233810fd1f2e1b74931f8bade6fc",
+    "decision_provenance": "d098b099ebad38c750abc0f0d142109695daaa3823d0901ff6b13db9106d8981",
+    "child_supervisor": "581640309a116c7a247acb0395151c6cf3f18194991cb2f6805a1e93ab4ae7db",
+    "eval_schedule": "d12fe3b7980d9f676d3af8fb643479a6bfe730982820ebf64a14dba080f050c4",
+    "protocol_schedule": "094aad5affd0e9c2a29b68a49aab2fd61feb6fa9e4365ec09a3d45da675e9065",
+    "frozen_evaluator": "89fd36a89dc45a56382219d4c3f6e5d12a3b1689abb3440ec29be346815af7cb",
+    "unit_tests": "79479f9396f56bd3964a9da2a68cfb975e0157d5836183d884f6397ba882193d"
+  },
+  "local_validation": {
+    "unit_tests": "4 passed",
+    "syntax_compilation": "passed",
+    "gpu_used": false,
+    "simulator_started": false,
+    "policy_calls": 0,
+    "new_rollouts": 0,
+    "training_updates": 0
+  },
+  "transfer_budget": {
+    "attempts": 1,
+    "method": "One SFTP-backed scp invocation using uppercase -P 27360 after exclusive remote mkdir; stage the exact 12-file hash-pinned code/test inventory plus this registration, maximum 13 files and 250000 bytes.",
+    "gpu_budget": 0,
+    "training_updates": 0,
+    "policy_calls": 0,
+    "new_rollouts": 0,
+    "automatic_retries": 0,
+    "failure_action": "Preserve any partial v5 directory and stop; no alternate transport, retry, or new version."
+  },
+  "execution_bounds": {
+    "manifest_builds": 1,
+    "workers": 2,
+    "maximum_walltime_seconds": 300,
+    "per_worker_timeout_seconds": 120,
+    "gpu_budget": 0,
+    "policy_calls": 0,
+    "new_rollouts": 0,
+    "training_updates": 0,
+    "automatic_retries": 0,
+    "artifacts": "Only small JSON manifest/result/failure markers on the private host; no raw action traces, videos, logs, datasets, model weights, or credentials are copied."
+  },
+  "paths": {
+    "remote_code_bundle": "/root/smolvla-eval-prep/recovery/teacher_native_spatial_fresh_seed_init8_cpu_reset_code_v5_20261013",
+    "remote_manifest": "/root/smolvla-eval-prep/recovery/teacher_native_spatial_fresh_seed_init8_cpu_reset_manifest_v5_20261013.json",
+    "remote_output_root": "/root/smolvla-eval-prep/results/teacher_native_spatial_fresh_seed_init8_cpu_reset_v5_20261013",
+    "all_paths_must_be_absent_before_transfer": true,
+    "previous_version_paths_are_never_reused": true
+  },
+  "remote_readonly_preflight": {
+    "status": "passed_before_registration_and_requires_refresh_before_transfer",
+    "timestamp_utc": "2026-10-13T17:37:22Z",
+    "gpu": "RTX 5090, 0 percent utilization, 2 MiB; no compute application",
+    "matching_process_pids": [],
+    "shared_gpu_lock_path": "/tmp/smolvla_gpu_eval.lock",
+    "shared_gpu_lock_nonblocking_probe": "free",
+    "v5_paths_absent": true,
+    "v4_directory": "preserved empty",
+    "v3_bundle": "preserved",
+    "free_root_bytes": 42999758848,
+    "source_manifest_raw_sha256": "230f68cc17251572a103ee4275533b3cab81812fb15defd310eaad650c52426e",
+    "source_manifest_internal_sha256": "d65063fe57c1554f25b8760437100f98c6c935f9775e0e9ecd55e33a0d928b88",
+    "source_manifest_self_hash_and_40_row_count": "passed",
+    "python_and_headless_controlenv_import": "Python 3.12.11; passed without simulator construction",
+    "workload_started": false
+  },
+  "stop_conditions": [
+    "Any code/test/source/evaluator/checkpoint/runtime/path mismatch or ambiguous preflight item",
+    "GPU utilization, compute process, matching experiment process, or held shared GPU lock",
+    "Either selected trace fails saved model-array/state/action/reward/termination/success parity",
+    "Transfer error, partial bundle, manifest-build error, timeout, malformed input, or output collision"
+  ],
+  "progression": {
+    "single_task_gate": "unchanged",
+    "fold02": "LOCKED",
+    "eight_task_expansion": "LOCKED",
+    "historical_v3_invalidation": "unchanged"
+  },
+  "authorization_note": "One final bounded retry of code transfer and the already-authorized zero-GPU two-trace CPU method smoke. It fixes only SCP port-option parsing, keeps v1-v4 evidence, and uses independent v5 paths. No additional transfer or version is authorized if this attempt fails. Passing does not establish stage cause, causal interference, or progression gates.",
+  "manifest_sha256": "9ba804b134b00cefb3a8602fadd057c1b7b65e7d91d5565261b18c6a83c92bc0"
+}

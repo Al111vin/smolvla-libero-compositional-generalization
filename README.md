@@ -2090,3 +2090,25 @@ one-transfer cap, no retry or new version will be attempted automatically.
 Further work requires the user to authorize a separately bounded transfer
 plan. See the [v4 transfer failure record](results/teacher_native_spatial_fresh_seed_init8_cpu_reset_transfer_failure_v2_20261013.json)
 and the [pre-transfer checks](results/teacher_native_spatial_fresh_seed_init8_cpu_reset_preflight_v4_20261013.json).
+
+The v4 transfer failure was traced to local SCP option parsing, not SSH or the
+GPU host. Under the existing bounded-diagnostic authorization, one corrected
+final v5 attempt is now registered on independent paths: SCP will use uppercase
+`-P 27360`, and the one-code-transfer cap applies. The new local wrapper pins
+the unchanged v4 implementation while changing only version identity and paths;
+its four CPU unit tests and syntax check pass. At 17:37 UTC, a fresh read-only
+preflight found the RTX 5090 idle, no matching experiment process, the shared
+lock free, and all v5 paths absent; source-manifest identity, installed runtime,
+and free disk were also verified. Any v5 transfer/hash/build/replay error ends
+this diagnostic with no further version or retry. No simulator, policy, rollout,
+training, or GPU work has started. See the [v5 registration](results/teacher_native_spatial_fresh_seed_init8_cpu_reset_diagnostic_registration_v5_20261013.json)
+and [v5 preflight](results/teacher_native_spatial_fresh_seed_init8_cpu_reset_preflight_v5_20261013.json).
+
+The v5 SFTP-backed SCP call completed, but the files landed flattened at the
+bundle root rather than in the registered `scripts/` and `tests/` layout. The
+read-only layout/hash preflight failed before source-manifest building; it did
+not attempt to move files or repair the bundle. At 17:42 UTC the GPU was idle,
+there were no matching processes, and both v5 manifest/output paths remained
+absent. No simulator, policy, replay, training, or GPU work started. Per the
+v5 fail-closed rule, this bundle is preserved unchanged and there will be no
+automatic relayout, upload, or v6 attempt. See the [v5 layout failure record](results/teacher_native_spatial_fresh_seed_init8_cpu_reset_bundle_layout_failure_v1_20261013.json).

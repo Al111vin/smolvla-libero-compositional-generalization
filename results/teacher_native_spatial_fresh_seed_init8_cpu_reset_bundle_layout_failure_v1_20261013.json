@@ -1,0 +1,34 @@
+{
+  "schema_version": 1,
+  "status": "v5_transfer_completed_but_layout_preflight_failed_before_manifest",
+  "recorded_at_utc": "2026-10-13T17:42:37Z",
+  "registration": "results/teacher_native_spatial_fresh_seed_init8_cpu_reset_diagnostic_registration_v5_20261013.json",
+  "registration_manifest_sha256": "9ba804b134b00cefb3a8602fadd057c1b7b65e7d91d5565261b18c6a83c92bc0",
+  "failed_operation": "Read-only v5 bundle layout/hash verification before the registered manifest build.",
+  "failure_analysis": {
+    "observed_remote_layout": "All 13 transferred files are present directly at the v5 bundle root. The v5 runner and its frozen base runner expect the recorded relative package layout, including the unit test at ../tests/test_fresh_seed_init8_cpu_reset_v5.py.",
+    "preflight_error": "The read-only import check looked for scripts/replay_fresh_seed_init8_cpu_reset_v5.py and raised ModuleNotFoundError because SCP had flattened the files into the bundle root. The root inventory confirms the test is also not at its registered ../tests path, so registered _code_paths would fail closed.",
+    "manifest_build_started": false,
+    "source_trace_manifest_read_by_builder": false,
+    "simulator_started": false,
+    "policy_calls": 0,
+    "new_rollouts": 0,
+    "training_updates": 0
+  },
+  "postfailure_readonly_check": {
+    "timestamp_utc": "2026-10-13T17:42:37Z",
+    "gpu": "RTX 5090, 0 percent utilization, 2 MiB; no compute process listed",
+    "matching_train_or_replay_processes": [],
+    "v5_bundle_preserved_without_mutation": true,
+    "v5_manifest_absent": true,
+    "v5_output_absent": true,
+    "v4_empty_directory_preserved": true,
+    "older_v3_bundle_preserved": true
+  },
+  "stop_decision": {
+    "automatic_retry": false,
+    "remote_relayout_or_reupload": "not performed; the registered v5 transfer/hash preflight falsifier was reached",
+    "next_step": "Stop. Any further diagnostic needs a separately compared and registered plan with a new independent path and an explicit bounded transfer layout. Do not create a v6 automatically."
+  },
+  "evidence_preservation": "Keep v1-v5 code, records, the empty v4 directory, and the flattened v5 bundle unchanged. No remote files were deleted or overwritten."
+}
