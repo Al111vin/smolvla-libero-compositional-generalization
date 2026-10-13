@@ -1,0 +1,49 @@
+{
+  "schema_version": 1,
+  "status": "passed_readonly_before_single_registered_transfer",
+  "timestamp_utc": "2026-10-13T17:31:20Z",
+  "registration": "results/teacher_native_spatial_fresh_seed_init8_cpu_reset_diagnostic_registration_v4_20261013.json",
+  "registration_manifest_sha256": "3069a9742a2df13f1b4246a253d206b1230cced9baeb86d1e20aee51328a0df4",
+  "remote": {
+    "ssh_authenticated": true,
+    "gpu": "NVIDIA GeForce RTX 5090; 0 percent utilization; 2 MiB used of 32607 MiB",
+    "nvidia_smi_compute_processes": [],
+    "shared_gpu_lock": {
+      "path": "/tmp/smolvla_gpu_eval.lock",
+      "regular_non_symlink": true,
+      "read_only_nonblocking_exclusive_probe": "free"
+    },
+    "v4_code_manifest_output_paths_absent": true,
+    "v3_bundle_preserved": true,
+    "free_root_bytes": 42999758848,
+    "source_manifest_path": "/root/smolvla-eval-prep/recovery/teacher_native_spatial_fresh_seed_stage_cpu_manifest_v1_20261012.json",
+    "source_manifest_raw_file_sha256": "230f68cc17251572a103ee4275533b3cab81812fb15defd310eaad650c52426e",
+    "source_manifest_internal_sha256": "d65063fe57c1554f25b8760437100f98c6c935f9775e0e9ecd55e33a0d928b88",
+    "source_manifest_self_hash_and_40_row_count": "passed",
+    "python": "3.12.11 at /usr/local/miniconda3/envs/py312/bin/python",
+    "libero_module_and_headless_controlenv_imports": "passed without simulator construction",
+    "workload_started": false
+  },
+  "local": {
+    "unit_tests": "6 passed",
+    "syntax_compilation": "passed with cache redirected outside the repository",
+    "all_11_registered_code_sha256_values_match": true,
+    "registration_canonical_self_hash_valid": true,
+    "gpu_used": false,
+    "simulator_started": false
+  },
+  "scope": {
+    "next_action": "At most one SFTP-backed transfer into the unique v4 directory, followed by fresh remote hash/resource/path validation.",
+    "gpu_budget": 0,
+    "policy_calls": 0,
+    "new_rollouts": 0,
+    "training_updates": 0,
+    "automatic_retries": 0,
+    "stop_on_any_mismatch_or_transfer_error": true
+  },
+  "limitations": [
+    "This is a point-in-time pre-transfer observation only.",
+    "The previously attempted guessed lock path was wrong; it was not created or modified. The correct existing lock path above was then verified read-only.",
+    "No claim is made about action-by-action parity until the registered two-trace CPU smoke finishes."
+  ]
+}

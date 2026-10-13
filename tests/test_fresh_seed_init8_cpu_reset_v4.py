@@ -13,10 +13,10 @@ from unittest import mock
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT / "scripts"))
 
-import replay_fresh_seed_init8_cpu_reset_v3 as runner  # noqa: E402
+import replay_fresh_seed_init8_cpu_reset_v4 as runner  # noqa: E402
 
 
-class FreshSeedInit8ResetV3SmokeTests(unittest.TestCase):
+class FreshSeedInit8ResetV4SmokeTests(unittest.TestCase):
     def test_scope_is_exactly_the_registered_init8_pair(self) -> None:
         self.assertEqual(runner.selected_trace_keys(), (
             "single_task0_paired_8_r0_160k",
@@ -43,6 +43,8 @@ class FreshSeedInit8ResetV3SmokeTests(unittest.TestCase):
                              runner.canonical_sha(manifest, "manifest_sha256"))
             self.assertEqual(manifest["runner_sha256"], manifest["code_sha256"]["runner"])
             self.assertIn("unit_tests", manifest["code_sha256"])
+            self.assertEqual(manifest["code_sha256"]["frozen_evaluator"],
+                             "89fd36a89dc45a56382219d4c3f6e5d12a3b1689abb3440ec29be346815af7cb")
             self.assertEqual(set(manifest["code_sha256"]), set(runner._code_paths()))
 
     def test_run_requires_explicit_execution_before_any_remote_path_access(self) -> None:

@@ -1,0 +1,39 @@
+{
+  "schema_version": 1,
+  "status": "v3_manifest_build_failed_before_simulator",
+  "recorded_at_utc": "2026-10-13T17:27:11Z",
+  "failed_operation": "Build the unique v3 source/run manifest using the transferred hash-pinned code bundle.",
+  "error": {
+    "type": "FileNotFoundError",
+    "path": "/root/smolvla-eval-prep/recovery/teacher_native_spatial_fresh_seed_init8_cpu_reset_code_v3_20261013/scripts/eval_v3_task0.py",
+    "reason": "The frozen source-manifest builder includes eval_v3_task0.py in its CODE_FILES hash inventory; the v3 bundle omitted that read-only hash dependency."
+  },
+  "post_failure_readonly_check": {
+    "timestamp_utc": "2026-10-13T17:27:11Z",
+    "v3_bundle_preserved": true,
+    "v3_run_manifest_absent": true,
+    "v3_output_path_absent": true,
+    "simulator_started": false,
+    "policy_calls": 0,
+    "new_rollouts": 0,
+    "training_updates": 0,
+    "gpu": "RTX 5090, 0 percent utilization, 2 MiB; no compute process",
+    "v3_worker_process": false
+  },
+  "analysis": {
+    "cause": "The pre-transfer dependency inventory covered runner imports but not the frozen manifest builder's complete CODE_FILES list.",
+    "source_trace_integrity": "The 40-trace manifest validation had previously passed; the failure occurred when it attempted to recompute the evaluator/source-code inventory, before creating a manifest or environment.",
+    "preservation": "The remote v3 code directory is retained unchanged. No manifest or output was written, and no v3 path will be reused."
+  },
+  "bounded_followup": {
+    "hypothesis": "Explicitly pinning and including every source named in CODE_FILES, including eval_v3_task0.py, will allow the same validator to recompute the frozen manifest without relaxing any check.",
+    "falsifier": "Any dependency hash mismatch or another missing source in the manifest build; stop without a third transfer attempt.",
+    "options_compared": [
+      {"option": "Copy eval_v3_task0.py into the failed v3 directory and rerun", "decision": "reject", "reason": "Would mutate/reuse the preserved failed bundle and violate versioned-path isolation."},
+      {"option": "Create a v4 bundle with the complete builder inventory and independent paths", "decision": "selected", "reason": "Preserves the strict validator while isolating the final bounded attempt."},
+      {"option": "Remove or bypass CODE_FILES validation", "decision": "reject", "reason": "Would weaken source provenance and invalidate the existing evidence contract."}
+    ],
+    "budget": "One final SFTP-backed SCP bundle transfer to v4, one unique manifest build, then at most one two-trace CPU smoke; no retries, GPU, training, policy calls, or new rollouts. If any step fails, stop and request user/platform help."
+  },
+  "manifest_sha256": "628de660cb0f37d34225fba1fa1e43b13f6530aa79dfa02f3b2f0a8728d050cb"
+}

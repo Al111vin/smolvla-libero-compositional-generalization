@@ -1,0 +1,116 @@
+{
+  "schema_version": 1,
+  "status": "v4_final_bounded_attempt_registered_pending_readonly_preflight",
+  "created_at_utc": "2026-10-13T17:30:00Z",
+  "supersedes_for_execution": "results/teacher_native_spatial_fresh_seed_init8_cpu_reset_diagnostic_registration_v3_20261013.json",
+  "preserves": [
+    "results/teacher_native_spatial_fresh_seed_init8_cpu_reset_diagnostic_registration_v1_20261013.json",
+    "results/teacher_native_spatial_fresh_seed_init8_cpu_reset_diagnostic_registration_v2_20261013.json",
+    "results/teacher_native_spatial_fresh_seed_init8_cpu_reset_diagnostic_registration_v3_20261013.json",
+    "results/teacher_native_spatial_fresh_seed_init8_cpu_reset_transfer_failure_v1_20261013.json",
+    "results/teacher_native_spatial_fresh_seed_init8_cpu_reset_manifest_failure_v1_20261013.json",
+    "/root/smolvla-eval-prep/recovery/teacher_native_spatial_fresh_seed_init8_cpu_reset_code_v3_20261013",
+    "/root/smolvla-eval-prep/results/teacher_native_spatial_fresh_seed_stage_cpu_v1_20261012"
+  ],
+  "failure_analysis": {
+    "v3_failure": "The frozen source-manifest builder failed before simulator construction because its immutable CODE_FILES inventory includes eval_v3_task0.py, which the v3 bundle did not stage. The source manifest and trace validation had passed previously; v3 created no run manifest or output and ran no simulator, policy, rollout, training, or GPU work.",
+    "falsifiable_hypothesis": "Including and hash-pinning every source listed by the frozen builder, including the evaluator, will permit exactly the same source-manifest validator to recompute the existing frozen manifest without weakening checks.",
+    "falsifier": "Any missing or mismatched staged file, source/evaluator/checkpoint/runtime mismatch, preflight uncertainty, manifest build error, or either trace replay/parity failure. Any falsifier ends this diagnostic; no v5 transfer or rerun is authorized by this record.",
+    "options_compared": [
+      {"option": "Patch the preserved v3 directory and retry its manifest build", "decision": "reject", "reason": "Would mutate failed evidence and reuse a version-specific path."},
+      {"option": "Bypass the frozen builder code inventory", "decision": "reject", "reason": "Would weaken the source-provenance contract."},
+      {"option": "One complete v4 bundle and independent paths", "decision": "selected", "reason": "Fixes only the omitted read-only dependency while retaining all source hashes, scope, and fail-closed checks."}
+    ]
+  },
+  "scope": {
+    "source_manifest_path": "/root/smolvla-eval-prep/recovery/teacher_native_spatial_fresh_seed_stage_cpu_manifest_v1_20261012.json",
+    "source_manifest_sha256": "d65063fe57c1554f25b8760437100f98c6c935f9775e0e9ecd55e33a0d928b88",
+    "source_root": "/root/smolvla-eval-prep/results/fresh_seed_pair_eval_v1_20261011",
+    "trace_keys": ["single_task0_paired_8_r0_160k", "joint_task0_paired_8_r0_160k"],
+    "fresh_worker_per_trace": true,
+    "preconstruction_python_seed": 12351,
+    "preconstruction_numpy_seed": 12351,
+    "evaluator_sha256": "89fd36a89dc45a56382219d4c3f6e5d12a3b1689abb3440ec29be346815af7cb",
+    "protocol": "Official task-0 init-8; one native reset; restore pinned initial state; exactly 10 zero-action wait steps; reseed NumPy to recorded effective seed; replay only saved actions with pre-action state, reward, termination, and success parity checks."
+  },
+  "code_sha256": {
+    "runner": "a14c1979cd18f8422167404f90415a0b1b964d90c03a128dd762355bf07e5b0f",
+    "stage_replay": "fb292b2ffedff6a37ad0f74d15038c8afbcb141e4dd78c5fcbab59c646da063d",
+    "manifest_builder": "4ed4891e024b85c2bab202aaaae160948d902c844bf2f26d5cd056e8fa2db902",
+    "reset_helpers": "6ed483d3029b1e0cd7fd810e947e38f79dd5b7b58bb07cec33fa2f0a2cfdd1ea",
+    "render_provenance": "08a28b35654c1e7af9aec78fcca84e03c0db233810fd1f2e1b74931f8bade6fc",
+    "decision_provenance": "d098b099ebad38c750abc0f0d142109695daaa3823d0901ff6b13db9106d8981",
+    "child_supervisor": "581640309a116c7a247acb0395151c6cf3f18194991cb2f6805a1e93ab4ae7db",
+    "eval_schedule": "d12fe3b7980d9f676d3af8fb643479a6bfe730982820ebf64a14dba080f050c4",
+    "protocol_schedule": "094aad5affd0e9c2a29b68a49aab2fd61feb6fa9e4365ec09a3d45da675e9065",
+    "frozen_evaluator": "89fd36a89dc45a56382219d4c3f6e5d12a3b1689abb3440ec29be346815af7cb",
+    "unit_tests": "16d760561f8ddfe24020d9fc35f72253967b6a38299c3ecc0e173a015aebe3b4"
+  },
+  "local_validation": {
+    "unit_tests": "6 passed",
+    "syntax_compilation": "passed when bytecode cache is directed outside the protected repository",
+    "gpu_used": false,
+    "simulator_started": false,
+    "policy_calls": 0,
+    "new_rollouts": 0,
+    "training_updates": 0
+  },
+  "transfer_budget": {
+    "attempts": 1,
+    "method": "One SFTP-backed scp transfer to a newly created, exclusive v4 bundle directory; do not overwrite or reuse any previous path.",
+    "maximum_files_in_bundle": 12,
+    "maximum_bundle_bytes": 250000,
+    "gpu_budget": 0,
+    "training_updates": 0,
+    "policy_calls": 0,
+    "new_rollouts": 0,
+    "automatic_retries": 0,
+    "failure_action": "Preserve partial remote state and stop; no fifth-version bundle, fallback transfer, or retry."
+  },
+  "execution_bounds": {
+    "manifest_builds": 1,
+    "workers": 2,
+    "maximum_walltime_seconds": 300,
+    "per_worker_timeout_seconds": 120,
+    "gpu_budget": 0,
+    "policy_calls": 0,
+    "new_rollouts": 0,
+    "training_updates": 0,
+    "automatic_retries": 0,
+    "artifacts": "Only small JSON manifest/result/failure markers on the private host; no raw actions, traces, videos, logs, datasets, model weights, or credentials are copied."
+  },
+  "paths": {
+    "remote_code_bundle": "/root/smolvla-eval-prep/recovery/teacher_native_spatial_fresh_seed_init8_cpu_reset_code_v4_20261013",
+    "remote_manifest": "/root/smolvla-eval-prep/recovery/teacher_native_spatial_fresh_seed_init8_cpu_reset_manifest_v4_20261013.json",
+    "remote_output_root": "/root/smolvla-eval-prep/results/teacher_native_spatial_fresh_seed_init8_cpu_reset_v4_20261013",
+    "all_paths_must_be_absent_before_transfer": true,
+    "previous_version_paths_are_never_reused": true
+  },
+  "remote_readonly_preflight": {
+    "status": "pending_fresh_authenticated_readonly_check",
+    "required": [
+      "Fresh timestamp and authenticated SSH",
+      "RTX 5090 at 0 percent with no compute process and no matching trainer/replay process",
+      "Existing shared lock /tmp/smolvla_gpu_eval.lock is a regular non-symlink file and can be acquired nonblocking",
+      "All v4 paths absent; v3 paths preserved",
+      "At least 1 GB free disk",
+      "Exact source manifest internal hash, all 40 trace row checks, and selected init-8 identities revalidate",
+      "Python runtime and headless ControlEnv imports remain valid without simulator construction"
+    ],
+    "workload_started": false
+  },
+  "stop_conditions": [
+    "Any code/test/source/evaluator/checkpoint/runtime/path mismatch or any ambiguous preflight item",
+    "GPU utilization, compute process, matching experiment process, or held shared GPU lock",
+    "Either selected trace fails model-array/state/reward/action/termination/success parity",
+    "Any transfer error, partial bundle, manifest build error, timeout, malformed input, or output collision"
+  ],
+  "progression": {
+    "single_task_gate": "unchanged",
+    "fold02": "LOCKED",
+    "eight_task_expansion": "LOCKED",
+    "historical_v3_invalidation": "unchanged"
+  },
+  "authorization_note": "Final bounded zero-GPU CPU method smoke only. The user authorized bounded diagnostics and code transfer. This record permits only one complete v4 transfer, one manifest build, and—after fresh clean preflight and exact hash validation—one two-trace CPU replay. Any failure is terminal for this diagnostic; no further version is covered. Passing cannot unlock Fold02, eight-task expansion, or causal claims.",
+  "manifest_sha256": "3069a9742a2df13f1b4246a253d206b1230cced9baeb86d1e20aee51328a0df4"
+}

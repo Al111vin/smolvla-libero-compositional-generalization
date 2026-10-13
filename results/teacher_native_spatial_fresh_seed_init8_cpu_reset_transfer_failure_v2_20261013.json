@@ -1,0 +1,35 @@
+{
+  "schema_version": 1,
+  "status": "v4_registered_transfer_failed_cli_argument_before_file_copy",
+  "recorded_at_utc": "2026-10-13T17:33:59Z",
+  "registration": "results/teacher_native_spatial_fresh_seed_init8_cpu_reset_diagnostic_registration_v4_20261013.json",
+  "registration_manifest_sha256": "3069a9742a2df13f1b4246a253d206b1230cced9baeb86d1e20aee51328a0df4",
+  "failed_operation": "The single registered SFTP-backed SCP transfer of the hash-pinned v4 bundle.",
+  "error": {
+    "message": "scp: stat local \"27360\": No such file or directory",
+    "cause": "The shared SSH option list used lowercase -p for the SCP port, where SCP requires uppercase -P. The SCP client parsed the port value as a local source path and stopped before copying bundle files.",
+    "files_copied": 0
+  },
+  "preserved_remote_state": {
+    "v4_code_directory": "/root/smolvla-eval-prep/recovery/teacher_native_spatial_fresh_seed_init8_cpu_reset_code_v4_20261013",
+    "v4_code_directory_created_by_exclusive_mkdir": true,
+    "v4_code_directory_empty_at_postfailure_check": true,
+    "v4_manifest_absent": true,
+    "v4_output_path_absent": true,
+    "v3_bundle_preserved": true,
+    "postfailure_check_utc": "2026-10-13T17:33:59Z",
+    "gpu": "RTX 5090, 0 percent utilization, 2 MiB used; no compute process listed",
+    "manifest_build_started": false,
+    "simulator_started": false,
+    "policy_calls": 0,
+    "new_rollouts": 0,
+    "training_updates": 0,
+    "gpu_work_started": false
+  },
+  "stop_decision": {
+    "automatic_retry": false,
+    "further_transfer_or_new_version": "not authorized by the v4 registration",
+    "next_step": "Stop and ask the user whether to authorize a new, separately bounded transfer plan. Do not reuse or mutate the empty v4 directory without explicit new direction."
+  },
+  "evidence_preservation": "No remote files were overwritten or deleted. Keep the empty v4 directory, all v1-v3 bundles, failure records, registrations, and local sources unchanged."
+}

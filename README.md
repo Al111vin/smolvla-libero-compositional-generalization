@@ -2061,3 +2061,32 @@ task-0 10/20, joint tasks 1–3 11/20, 18/20, 17/20; each fixed-init condition
 and no fresh-seed train/evaluation process remained. This is a point-in-time
 resource check, not evidence that a new GPU run has started. The init-8 CPU
 smoke remains pending its separate source/runtime/path preflight.
+
+The v3 init-8 CPU diagnostic then failed during its source-manifest build,
+before simulator construction: the transferred bundle omitted the frozen
+builder's hash-inventory dependency `eval_v3_task0.py`. The v3 bundle remains
+unchanged; no manifest/output, simulator, policy call, rollout, training update,
+or GPU work was created. At 17:29 UTC, a read-only check found the RTX 5090
+idle and all v4 paths absent. The final v4 attempt now includes and pins that
+evaluator dependency plus the complete builder inventory. Its fresh 17:31 UTC
+preflight verified the existing shared lock was free, source-manifest
+self-hash/40-row count, Python 3.12.11 and headless `ControlEnv` imports, at
+least 39 GiB free, and all v4 paths absent. Only one small SFTP-backed bundle
+transfer, one frozen-manifest build, and—if every hash and resource check still
+passes—one two-trace CPU-only replay are registered. The budget remains zero
+GPU, zero policy calls, zero new rollouts, zero training updates, and zero
+automatic retries; any error ends this diagnostic. See the preserved
+[v3 manifest-build failure](results/teacher_native_spatial_fresh_seed_init8_cpu_reset_manifest_failure_v1_20261013.json)
+and [final v4 registration](results/teacher_native_spatial_fresh_seed_init8_cpu_reset_diagnostic_registration_v4_20261013.json).
+
+The registered v4 transfer did not copy any files: the SCP option list used
+lowercase `-p` for the port, so the client treated `27360` as a local filename
+and stopped. The exclusive v4 code directory had already been created and is
+preserved empty; its manifest and output paths remain absent. A 17:33 UTC
+read-only post-failure check again found the RTX 5090 idle (0%, 2 MiB), with no
+compute process, and the v3 bundle intact. No simulator, manifest build, policy
+call, rollout, training update, or GPU work started. Per the registered
+one-transfer cap, no retry or new version will be attempted automatically.
+Further work requires the user to authorize a separately bounded transfer
+plan. See the [v4 transfer failure record](results/teacher_native_spatial_fresh_seed_init8_cpu_reset_transfer_failure_v2_20261013.json)
+and the [pre-transfer checks](results/teacher_native_spatial_fresh_seed_init8_cpu_reset_preflight_v4_20261013.json).
