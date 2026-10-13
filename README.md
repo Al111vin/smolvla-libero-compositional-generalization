@@ -2017,3 +2017,14 @@ interpretation or progression conclusion can be drawn from the partial run.
 Before any new diagnostic, compare options and register a new bounded version,
 unique output path, and a zero-GPU-safe compatibility plan. See the
 [v1 failure analysis](results/teacher_native_spatial_fresh_seed_stage_cpu_failure_analysis_v1_20261013.json).
+
+A follow-up init-8 reset-lifecycle smoke is now specified but not executable
+yet. Its falsifiable hypothesis is that the stage-v1 shared environment carried
+reset-time RNG state into the paired joint trace; the selected test uses one
+fresh CPU headless worker per init-8 trace, restores the registered pre-reset
+seed order, and stops on any saved model-array/state mismatch. The exact
+OffScreenRenderEnv path remains deferred because its zero-GPU behavior is not
+established. The smoke is capped at two workers, 300 seconds total, with no
+policy calls, new rollouts, training, or GPU budget. Both workers must pass
+before separately considering broader stage analysis; this smoke cannot unlock
+Fold02 or task expansion. See the [init-8 diagnostic registration](results/teacher_native_spatial_fresh_seed_init8_cpu_reset_diagnostic_registration_v1_20261013.json).

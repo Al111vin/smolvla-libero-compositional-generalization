@@ -1,0 +1,93 @@
+{
+  "schema_version": 1,
+  "status": "registered_pending_implementation_and_hash_pin",
+  "created_at_utc": "2026-10-13",
+  "supersedes_for_execution": "results/teacher_native_spatial_fresh_seed_stage_cpu_registration_v2_20261012.json",
+  "preserves": [
+    "results/teacher_native_spatial_fresh_seed_stage_cpu_registration_v1_20261012.json",
+    "results/teacher_native_spatial_fresh_seed_stage_cpu_registration_v2_20261012.json",
+    "results/teacher_native_spatial_fresh_seed_stage_cpu_failure_analysis_v1_20261013.json",
+    "/root/smolvla-eval-prep/results/teacher_native_spatial_fresh_seed_stage_cpu_v1_20261012"
+  ],
+  "hypothesis": {
+    "statement": "The init-8 model-array mismatch in stage CPU v1 arose because one ControlEnv and its Python/NumPy reset-time RNG state were reused across traces; a fresh per-trace worker with the registered pre-construction environment seed 12351 should recreate the saved init-8 arrays and simulator state for both matched traces.",
+    "evidence": [
+      "The first positive trace (single init8) matched model arrays, simulator state, every recorded action/reward, and the terminal outcome exactly.",
+      "The immediately following joint init8 trace failed model-array validation before any applied action; stage v1 had reused the same environment object.",
+      "The frozen launcher starts a separate evaluator subprocess for every rollout, unlike stage v1's 40-trace shared environment.",
+      "The existing environment-only reset contrast found pre-construction seeding changes reset-time body geometry; it did not uniquely identify the stage-v1 failure mechanism."
+    ],
+    "falsifier": "In a fresh worker for each trace, with Python and NumPy seeded to 12351 before environment construction and the same init8, reset, state-restore, and wait10 protocol, either trace still fails its saved pre-action model-array or simulator-state check. Such a result falsifies this lifecycle hypothesis or leaves an unmodeled protocol difference; stop without stage interpretation.",
+    "interpretation_limit": "This is a method-validation smoke only. Even if both init8 traces pass, it does not establish the four-timeout stage hypothesis, causal multi-task interference, deterministic replay for other inits, or a progression gate."
+  },
+  "options_compared": [
+    {
+      "option": "Treat the one successful v1 trace as enough and infer timeout stages",
+      "decision": "reject",
+      "reason": "The paired joint trace failed before action replay; there is no validated comparison."
+    },
+    {
+      "option": "Repeat stage CPU v1 unchanged",
+      "decision": "reject",
+      "reason": "It would repeat a known first-execution error without isolating the confirmed shared-environment lifecycle deviation."
+    },
+    {
+      "option": "Use OffScreenRenderEnv with EGL now",
+      "decision": "defer",
+      "reason": "The frozen evaluator creates an offscreen renderer, which initializes a render context; exact zero-GPU use has not been established and the selected budget is zero."
+    },
+    {
+      "option": "Run only the paired init8 positive/timeout traces, each in a fresh CPU headless worker with RNG reset before construction and strict model/state/action parity checks",
+      "decision": "selected",
+      "reason": "This is the smallest falsifiable test of the lifecycle/RNG hypothesis and preserves the zero-GPU, no-policy, no-new-rollout budget. Model arrays and simulator state must match before any recorded action is applied; the headless renderer difference remains an explicit limitation, not assumed harmless."
+    }
+  ],
+  "scope": {
+    "source_root": "/root/smolvla-eval-prep/results/fresh_seed_pair_eval_v1_20261011",
+    "trace_keys": [
+      "single_task0_paired_8_r0_160k",
+      "joint_task0_paired_8_r0_160k"
+    ],
+    "workers": 2,
+    "fresh_environment_per_trace": true,
+    "python_random_seed_before_construction": 12351,
+    "numpy_seed_before_construction": 12351,
+    "protocol": "benchmark init8; reset; restore saved init state; exactly 10 zero-action wait steps; seed NumPy to recorded effective seed after wait; replay saved applied actions only",
+    "source_integrity": "Pin and recheck summary/actions/protocol/first_input SHA-256 immediately before each worker reads a trace; require evaluator/checkpoint/source manifest identities from the existing v2 registration."
+  },
+  "execution_bounds": {
+    "maximum_workers": 2,
+    "maximum_walltime_seconds": 300,
+    "per_worker_timeout_seconds": 120,
+    "policy_calls": 0,
+    "new_rollouts": 0,
+    "training_updates": 0,
+    "gpu_budget": 0,
+    "automatic_retries": 0,
+    "outputs": "Only lightweight per-trace JSON and terminal manifest/failure markers on the private GPU host; no raw actions, traces, videos, logs, data, or weights copied."
+  },
+  "paths": {
+    "remote_manifest": "/root/smolvla-eval-prep/recovery/teacher_native_spatial_fresh_seed_init8_cpu_reset_manifest_v1_20261013.json",
+    "remote_output_root": "/root/smolvla-eval-prep/results/teacher_native_spatial_fresh_seed_init8_cpu_reset_v1_20261013",
+    "local_runner": "scripts/replay_fresh_seed_init8_cpu_reset_v1.py",
+    "local_tests": "tests/test_fresh_seed_init8_cpu_reset_v1.py",
+    "all_remote_paths_must_be_absent": true,
+    "never_reuse_or_overwrite_v1_paths": true
+  },
+  "stop_conditions": [
+    "runner or test hashes are not pinned, or tests do not validate the fresh-worker/no-policy/zero-action-physics contract",
+    "SSH source hashes or evaluator/checkpoint identity differ",
+    "GPU utilization is nonzero, a GPU compute process exists, an existing lock is unavailable, or any GPU use is required",
+    "either trace fails pre-action model-array or simulator-state parity",
+    "any action, reward, step-count, success, or native-stage parity check fails",
+    "timeout, output collision, malformed source record, or first execution error"
+  ],
+  "conditional_followup": "If both init8 traces pass in the isolated workers, do not automatically expand to the other 38 traces. First audit the result, then create a separate bounded registration for any broader stage analysis. If either fails, preserve output and stop without retry.",
+  "progression": {
+    "single_task_gate": "unchanged",
+    "fold02": "LOCKED",
+    "eight_task_expansion": "LOCKED",
+    "historical_v3_invalidation": "unchanged"
+  },
+  "authorization_note": "No execution is authorized by this draft until implementation, unit tests, source/code hash pins, and remote path-absence preflight are recorded. GPU budget remains zero."
+}
