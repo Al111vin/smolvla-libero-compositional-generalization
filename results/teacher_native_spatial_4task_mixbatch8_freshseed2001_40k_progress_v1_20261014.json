@@ -27,18 +27,18 @@
     "gpu_preflight": "passed; RTX 5090 idle before launch, exclusive lock and new paths verified"
   },
   "latest_observation": {
-    "observed_at_utc": "2026-10-14T01:52:51Z",
-    "optimizer_step": 500,
+    "observed_at_utc": "2026-10-14T01:54:52Z",
+    "optimizer_step": 1000,
     "target_steps": 40000,
-    "loss": 0.748,
+    "loss": 0.576,
     "trainer_process_alive": true,
     "supervisor_process_alive": true,
-    "gpu": "RTX 5090; 75% utilization, 3946 MiB used at 01:52:43 UTC snapshot",
+    "gpu": "RTX 5090; 77% utilization, 3946 MiB used at 01:54:52 UTC snapshot",
     "gpu_lock_present": true,
     "exit_receipt": "pending",
     "checkpoint_output": "not yet observed",
     "root_disk_free_gib": 41,
-    "training_log_bytes": 45102,
+    "training_log_bytes": 99010,
     "retries": 0
   },
   "interpretation_limits": [
