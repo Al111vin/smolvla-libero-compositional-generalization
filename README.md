@@ -2393,3 +2393,10 @@ out of the registered 96. The supervisor and runner remained alive, and the
 next scheduled rollout (task0 paired init5) was active. Exit receipts were
 still pending; this balanced interim count is not a final score or gate. See
 the [04:06 UTC progress snapshot](results/teacher_native_spatial_4task_mixbatch8_freshseed2001_eval_attempt2_progress_v4_20261014.json).
+
+At 2026-10-14 04:09:35 UTC, attempt 2 had 24 of 96 verified rollout records,
+balanced at six per task. The supervisor/runner remained alive, with the next
+task0 paired init6 rollout active and both exit receipts pending. This is an
+interim quarter-budget checkpoint only; it does not establish a final success
+rate or unlock progression. See the
+[04:09 UTC progress snapshot](results/teacher_native_spatial_4task_mixbatch8_freshseed2001_eval_attempt2_progress_v5_20261014.json).
