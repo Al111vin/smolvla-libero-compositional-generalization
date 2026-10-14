@@ -2534,19 +2534,33 @@ counts and per-rollout lightweight outcomes are in the
 Raw trajectories, action CSVs, videos, logs, data, and checkpoints were not
 published. The historical V3 parity invalidation is unchanged.
 
-A preregistered CPU-only post-hoc comparison then read the saved first-input
-provenance and per-episode success summaries for these three task1 runs. The
-20/20 paired starts matched between task1-only 40k and each comparator on
-model-array inputs, simulator state, frames, images, processor state, and RNG
-(trained weights were excluded). Outcomes were joint4 11/20, mixed-batch8
-8/20, and task1-only 40k 6/20; exact two-sided paired McNemar p-values for
-joint4 vs single40k and mixed-batch8 vs single40k were 0.180 and 0.727. On
-fixed init3, the five outcomes were 5/5, 0/5, and 0/5 respectively; all five
-starts matched across each comparison. This points to a task1 training
-horizon/schedule or treatment difference as a live explanation, but does not
-identify cause: the single-task 40k schedule was matched to task0, not the
-joint4 160k optimizer schedule, and these are one-seed descriptive contrasts.
-The original four-task gate remains failed; no GPU or rollout budget was used
-for this analysis. See the
-[CPU-only paired comparison](results/teacher_native_spatial_task1_freshseed2001_posthoc_cpu_comparison_v1_20261014.json)
+An append-only CPU clarification corrected two interpretation details without
+rewriting the earlier analysis. First, the horizon-diagnostic registration
+mistakenly labels the mixed-batch8 condition as 160k; its pinned config and
+completed training receipt show **40k global updates**, batch size 8, with two
+task1 examples per batch (80k task1 sample slots). The registered max-step
+phenotype remains observed, but the actual contrast was joint4 160k versus
+mixed-batch8 40k. Second, “not the joint4 160k optimizer schedule” conflated
+global updates with per-task exposure. In the registered homogeneous joint4
+block design, task1 receives 40k updates and 80k sample slots; its LR-factor
+sequence maps exactly to the single-task 40k scheduler (joint global update
+position `k` maps to single position `floor(k/4)`). Joint4 nevertheless has
+160k global updates and a different shared parameter/Adam-state path because
+other-task updates are interleaved. Mixed-batch8 instead makes 40k global
+co-averaged updates. Thus these conditions match nominal task1 sample slots,
+and single-vs-joint also matches per-task update/LR-factor exposure, but they
+do not share an optimization trajectory or isolate a cause.
+
+The post-hoc audit still found 20/20 paired starts matched on the recorded
+first-input model arrays, simulator state, frames/images, processor state, and
+RNG (trained weights were excluded). Outcomes remain joint4 11/20,
+mixed-batch8 8/20, and task1-only 40k 6/20, with descriptive exact two-sided
+McNemar p-values 0.180 and 0.727 for joint4-vs-single and mixed-batch8-vs-single.
+Fixed init3 remains 5/5, 0/5, and 0/5 respectively. This one-seed evidence
+does not establish a causal effect or support attributing the mixed-batch8
+deficit solely to cross-task mixing. The original four-task gate remains failed; Fold 02 and
+eight-task expansion remain locked. No GPU or rollout budget was used for this
+clarification. The old registration/result JSON files remain unchanged; see
+the [CPU clarification record](results/teacher_native_spatial_task1_update_composition_cpu_clarification_v1_20261014.json),
+the [CPU-only paired comparison](results/teacher_native_spatial_task1_freshseed2001_posthoc_cpu_comparison_v1_20261014.json),
 and its [analysis registration](results/teacher_native_spatial_task1_freshseed2001_posthoc_cpu_comparison_registration_v1_20261014.json).

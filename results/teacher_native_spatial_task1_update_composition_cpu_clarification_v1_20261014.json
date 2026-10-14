@@ -1,0 +1,118 @@
+{
+  "schema_version": 1,
+  "experiment_id": "teacher_native_spatial_task1_update_composition_cpu_clarification_v1_20261014",
+  "status": "completed_cpu_only_record_correction_and_exposure_clarification",
+  "observed_at_utc": "2026-10-14T09:23:02Z",
+  "resource_budget": {
+    "gpu_training_updates": 0,
+    "new_rollouts": 0,
+    "raw_artifacts_read_or_transferred": false
+  },
+  "verified_config_exposure": {
+    "task1_single_40k": {
+      "config": "configs/teacher_native_spatial_task1_freshseed2001_40k_batch2_v1_20261014.json",
+      "config_sha256": "150269259fbc2711a6aacb3beb8f5a20abc24f744ffac08dc988bf16d62446de",
+      "global_optimizer_updates": 40000,
+      "batch_size": 2,
+      "task1_sample_slots": 80000,
+      "seed": 2001,
+      "scheduler": "cosine_decay_with_warmup",
+      "warmup_steps": 3000,
+      "decay_steps": 90000,
+      "peak_lr": 0.0001,
+      "floor_lr": 0.0000025,
+      "training_result": "results/teacher_native_spatial_task1_freshseed2001_40k_eval_result_v1_20261014.json",
+      "training_returncode": 0,
+      "terminal_step": 40000,
+      "checkpoint_sha256": "47f0df580b039dcbb4754fc952e9b720c67853f54edc55f2abea2ae2cc99e972"
+    },
+    "homogeneous_joint4_160k": {
+      "config": "configs/teacher_native_spatial_4task_freshseed2001_160k_batch2_v1_20261011.json",
+      "config_sha256": "2ced9539c1ec358b47ce6ae20a2db979088f3e5bfc3e8399405bc2a5d2546ac3",
+      "global_optimizer_updates": 160000,
+      "task1_updates": 40000,
+      "task1_sample_slots": 80000,
+      "per_task_lr_schedule_relation": "For the registered four-update homogeneous block schedule, task1's LR at its update position is the 40k single-task scheduler factor at floor(global_update/4). The CPU scheduler audit compared all 160001 positions and found exact parameter-group factor equality.",
+      "shared_optimizer_state_and_parameter_path_match_single_task": false,
+      "checkpoint_provenance": "results/teacher_native_spatial_fresh_seed_checkpoint_provenance_resolution_v1_20261014.json"
+    },
+    "mixed_batch8_40k": {
+      "config": "configs/teacher_native_spatial_4task_mixbatch8_freshseed2001_40k_v1_20261014.json",
+      "config_sha256": "7d19527dc45b63c4325da9500bd2eb9964ec4d3cd136d2547bba2864ce1e6e91",
+      "global_optimizer_updates": 40000,
+      "batch_size": 8,
+      "task1_quota_per_batch": 2,
+      "task1_sample_slots": 80000,
+      "seed": 2001,
+      "scheduler": "cosine_decay_with_warmup",
+      "warmup_steps": 3000,
+      "decay_steps": 90000,
+      "peak_lr": 0.0001,
+      "floor_lr": 0.0000025,
+      "training_result": "results/teacher_native_spatial_4task_mixbatch8_freshseed2001_40k_training_result_v1_20261014.json",
+      "training_returncode": 0,
+      "terminal_step": 40000,
+      "checkpoint_sha256": "40f5e173933730e2bb695a8f2c2f5402f8dd2b39d44b17ec0e090f79eff3c223"
+    }
+  },
+  "record_corrections": [
+    {
+      "old_record": "results/teacher_native_spatial_task1_horizon_diagnostic_registration_v1_20261014.json",
+      "old_wording": "The registered comparison labels the mixed-batch8 run as 160k.",
+      "corrected_fact": "The evaluated mixed-batch8 checkpoint came from a 40,000-global-update run, batch size 8, with two task1 examples per batch; the exact training result and config identify 40k.",
+      "evidence": [
+        "configs/teacher_native_spatial_4task_mixbatch8_freshseed2001_40k_v1_20261014.json",
+        "results/teacher_native_spatial_4task_mixbatch8_freshseed2001_40k_training_result_v1_20261014.json",
+        "results/teacher_native_spatial_4task_mixbatch8_freshseed2001_eval_attempt2_cpu_audit_v1_20261014.json"
+      ],
+      "handling": "The historical registration and diagnostic files remain unchanged; this addendum supersedes only the mistaken horizon label. The observed 5/5 max-step phenotype remains descriptive, but its comparison was joint4 160k versus mixed-batch8 40k, not two 160k runs."
+    },
+    {
+      "old_record": "results/teacher_native_spatial_task1_freshseed2001_posthoc_cpu_comparison_v1_20261014.json",
+      "old_wording": "The single-task 40k schedule was matched to task0, not the joint4 160k optimizer schedule.",
+      "corrected_fact": "This wording conflates global optimizer-update count with per-task exposure. The verified design matches task1's 40,000 task-specific update positions, 80,000 sample slots, and nominal per-task LR-factor sequence between the single40k and homogeneous joint4_160k conditions. Joint4 still has 160,000 global updates and a different shared parameter/Adam-state path because other-task updates are interleaved. Mixed-batch8 has 40,000 global mixed-gradient updates, with 80,000 task1 sample slots, so it is not update-composition-equivalent to either condition.",
+      "evidence": [
+        "results/teacher_native_spatial_fresh_seed_lr_exposure_match_audit_v1_20261014.json",
+        "results/teacher_native_spatial_4task_mixbatch8_cpu_preflight_v1_20261014.json",
+        "results/teacher_native_spatial_fresh_seed_checkpoint_provenance_resolution_v1_20261014.json",
+        "configs/teacher_native_spatial_task1_freshseed2001_40k_batch2_v1_20261014.json",
+        "configs/teacher_native_spatial_4task_mixbatch8_freshseed2001_40k_v1_20261014.json",
+        "configs/teacher_native_spatial_4task_freshseed2001_160k_batch2_v1_20261011.json"
+      ],
+      "handling": "The prior JSON remains unchanged. This clarification narrows the interpretation to registered per-task counts and scheduler mapping; it does not claim identical optimization trajectories or establish a causal mechanism."
+    }
+  ],
+  "outcome_context": {
+    "task1_successes": {
+      "homogeneous_joint4_160k": "11/20 paired; 5/5 fixed-init3",
+      "mixed_batch8_40k": "8/20 paired; 0/5 fixed-init3",
+      "single_task1_40k": "6/20 paired; 0/5 fixed-init3"
+    },
+    "paired_mcnemar_two_sided_descriptive": {
+      "joint4_vs_single40k": 0.1796875,
+      "mixed_batch8_vs_single40k": 0.7265625
+    },
+    "interpretation": "Across these one-seed conditions, the single and homogeneous-joint runs have matched registered per-task sample/update/LR-factor exposure but differ in whether other-task updates alter shared weights and optimizer state between task1 updates. The mixed-batch8 condition co-averages task gradients on every global update. The outcomes are descriptive, do not isolate an effect, and do not support attributing the mixed-batch8 deficit solely to cross-task mixing."
+  },
+  "limits_and_progression": {
+    "one_seed_only": true,
+    "causal_or_population_claim": false,
+    "four_task_gate": "FAILED",
+    "fold02": "LOCKED",
+    "eight_task_expansion": "LOCKED",
+    "historical_v3_parity_invalidation": "UNCHANGED",
+    "new_gpu_budget": 0,
+    "additional_gpu_work_authorized_by_this_record": false
+  },
+  "source_sha256": {
+    "results/teacher_native_spatial_task1_freshseed2001_posthoc_cpu_comparison_v1_20261014.json": "33f1758a2ce4d09ad1d3355165f2963529e71b0e8ae0073a08cdc765bfe3fc44",
+    "results/teacher_native_spatial_task1_horizon_diagnostic_registration_v1_20261014.json": "a36ef474b73d5f747dc5aaa5fd5fd6d47f2f663903664bbc30f4ae54df9a8cf9",
+    "results/teacher_native_spatial_task1_horizon_diagnostic_v1_20261014.json": "feb5d10f6af5f879c689aeb5de7e064e8e21201a9bd74f972540ec98bc5d677f",
+    "results/teacher_native_spatial_fresh_seed_lr_exposure_match_audit_v1_20261014.json": "ee20220e62006eb70cc1273ee684cad0328d049f92e407052261aad25756c953",
+    "results/teacher_native_spatial_4task_mixbatch8_cpu_preflight_v1_20261014.json": "8add96f361f7e090430a61b1cf63cc063850f59f1f7ef7d20999653f8c89e0c3",
+    "results/teacher_native_spatial_4task_mixbatch8_freshseed2001_eval_attempt2_cpu_audit_v1_20261014.json": "3128f1dc0ce787a39545ac3b1a7008349814de3497a273f04dd03d2cbc5c81f9",
+    "results/teacher_native_spatial_fresh_seed_checkpoint_provenance_resolution_v1_20261014.json": "6461c508260aae6ff178668e5da7115d6a5ab4faf314df8172966eceb6e299ef"
+  },
+  "old_evidence_overwritten": false,
+  "raw_data_or_checkpoint_published": false
+}
