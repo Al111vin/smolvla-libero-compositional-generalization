@@ -1,0 +1,33 @@
+{
+  "schema_version": 1,
+  "status": "authenticated_read_only_idle_host_snapshot",
+  "recorded_at_utc": "2026-10-14T01:28:01Z",
+  "connection": {
+    "method": "single_batch_authenticated_read_only_ssh_command",
+    "host": "cpod-1v6wxcygzn32-s1.podtcp.compshare.cn",
+    "port": 27360,
+    "private_key_read": false
+  },
+  "remote_snapshot": {
+    "gpu": "NVIDIA GeForce RTX 5090, 0 percent utilization, 2 MiB of 32607 MiB used",
+    "memory": "64 GiB total, 222 MiB used, 63 GiB available, no swap",
+    "root_disk": "41 GiB free of 300 GiB, 87 percent used",
+    "process_scan": "Only the status-probe shell matched the selected trainer/evaluation name patterns; no separate experiment process was observed.",
+    "registered_run_prefix_scan": "The queried recovery and training-results locations returned the registered config and two launch manifests; no matching training-output artifact was printed."
+  },
+  "interpretation": {
+    "active_training_or_evaluation_observed": false,
+    "inference": "This point-in-time snapshot does not establish a new failed run and is not grounds to restart training/evaluation. The previously verified seed-2001 single and joint runs remain completed evidence.",
+    "scan_limitations": "The bounded find queried the registered run prefix under the named recovery and training-results roots to depth 5; differently named attempt output paths are outside this match result.",
+    "fold02": "LOCKED",
+    "eight_task_expansion": "LOCKED"
+  },
+  "compute_and_data_policy": {
+    "training_started": false,
+    "evaluation_started": false,
+    "gpu_work_performed": false,
+    "remote_files_modified": false,
+    "raw_logs_traces_videos_checkpoints_or_datasets_transferred": false,
+    "old_evidence_preserved": true
+  }
+}

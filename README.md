@@ -2301,3 +2301,14 @@ historical-only (exact McNemar p=1.0), supporting close replication on this
 used init set without claiming held-out generalization or deterministic replay.
 Because the exposure-matched 4-task run still scores 10/20 on task0, expansion
 remains gated. See the [cross-training-seed repeatability audit](results/teacher_native_spatial_task0_cross_training_seed_repeatability_v1_20261014.json).
+
+A fresh authenticated read-only host snapshot at 2026-10-14 01:28 UTC again
+found no separate trainer/evaluation process: the sole process-name match was
+the status-probe shell. The RTX 5090 was idle (0%, 2 MiB allocated), host RAM
+was 64 GiB with 63 GiB available, and the 300 GiB root filesystem had 41 GiB
+free (87% used). The registered freshseed2001 task0 run prefix resolved only
+to its preserved config and two launch manifests, with no matching output
+artifact under the queried training-results path. This is a point-in-time
+resource/path check, not evidence to restart or infer a new failure; no remote
+files, training, or evaluation were changed. Fold02 and eight-task expansion
+remain locked. See the [latest read-only remote status](results/teacher_native_spatial_fresh_seed_remote_readonly_status_v2_20261014.json).
