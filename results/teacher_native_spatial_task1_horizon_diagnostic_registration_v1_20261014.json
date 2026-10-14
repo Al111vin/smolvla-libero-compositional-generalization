@@ -1,0 +1,33 @@
+{
+  "schema_version": "1.0",
+  "experiment_id": "teacher_native_spatial_task1_horizon_diagnostic_v1_20261014",
+  "status": "registered_before_aggregate_step_count_read",
+  "question": "Is the task1 deficit in the mixed-batch8 run characterized by max-horizon truncation in the five paired initializations that succeeded under the same-seed homogeneous joint4 reference?",
+  "falsifiable_hypothesis": "At least 4 of the 5 old-only task1 paired successes (old homogeneous joint4 succeeds, new mixed-batch8 fails) terminate the new run at max_steps=300, while their old successful counterparts finish before step 260. Fewer than four such pairs, or old successful counterparts at/after 260, falsifies this registered horizon-phenotype hypothesis.",
+  "comparison": {
+    "old": "seed2001 homogeneous joint4 batch2, 160k, registered paired task1 init0..19",
+    "new": "seed2001 mixed-batch8, 160k, paired task1 init0..19",
+    "matched_initialization_provenance": "Previously verified exact match for 20/20 task1 paired starts across model-array inputs, simulator state, frame/input/images, processor, and RNG; model weights intentionally differ.",
+    "outcomes_known_before_registration": {
+      "old_successes": 11,
+      "new_successes": 8,
+      "old_only_successes": 5,
+      "new_only_successes": 2,
+      "ties": 13
+    }
+  },
+  "method": "Read only per-episode success, steps, max_steps from the two existing completion.json summaries for task1 paired init0..19. Report the registered horizon phenotype counts and complete per-pair step pairs; do not inspect or alter raw trajectories, videos, action arrays, checkpoints, or training logs.",
+  "budget": {
+    "gpu": 0,
+    "cpu": "one bounded read-only summary comparison",
+    "remote_writes": 0,
+    "new_training_or_evaluation": 0
+  },
+  "independent_result_path": "results/teacher_native_spatial_task1_horizon_diagnostic_v1_20261014.json",
+  "interpretation_limits": [
+    "Post-hoc diagnostic on one seed; not a causal estimate.",
+    "The contrast changes batch size and gradient co-averaging together.",
+    "Horizon truncation phenotype does not prove undertraining or multi-task interference.",
+    "A negative result does not pass or change any registered gate."
+  ]
+}

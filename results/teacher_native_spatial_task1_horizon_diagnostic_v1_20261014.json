@@ -1,0 +1,45 @@
+{
+  "schema_version": "1.0",
+  "experiment_id": "teacher_native_spatial_task1_horizon_diagnostic_v1_20261014",
+  "status": "complete_cpu_readonly",
+  "registration": "results/teacher_native_spatial_task1_horizon_diagnostic_registration_v1_20261014.json",
+  "sources": {
+    "old": "/root/smolvla-eval-prep/results/fresh_seed_pair_eval_v1_20261011/completion.json",
+    "new": "/root/smolvla-eval-prep/results/teacher_native_spatial_4task_mixbatch8_freshseed2001_40k_eval_attempt2_v1_20261014/completion.json"
+  },
+  "method": "Read task1 paired per-episode success, steps, and max_steps from existing completion summaries only; no raw trajectories, videos, action arrays, checkpoints, or training logs were read or changed.",
+  "registered_hypothesis": {
+    "threshold": "At least 4 of 5 old-only successful paired initializations have a new-run failure at max_steps=300 and an old-run success before step 260.",
+    "qualifying_count": 5,
+    "old_only_count": 5,
+    "status": "supported_by_registered_descriptive_rule"
+  },
+  "task1_paired_steps_by_init": [
+    {"init": 0, "old_success": true, "old_steps": 214, "new_success": false, "new_steps": 300},
+    {"init": 1, "old_success": true, "old_steps": 109, "new_success": true, "new_steps": 123},
+    {"init": 2, "old_success": false, "old_steps": 300, "new_success": false, "new_steps": 300},
+    {"init": 3, "old_success": true, "old_steps": 119, "new_success": false, "new_steps": 300},
+    {"init": 4, "old_success": true, "old_steps": 127, "new_success": true, "new_steps": 125},
+    {"init": 5, "old_success": true, "old_steps": 243, "new_success": false, "new_steps": 300},
+    {"init": 6, "old_success": true, "old_steps": 110, "new_success": false, "new_steps": 300},
+    {"init": 7, "old_success": false, "old_steps": 300, "new_success": true, "new_steps": 122},
+    {"init": 8, "old_success": false, "old_steps": 300, "new_success": true, "new_steps": 125},
+    {"init": 9, "old_success": false, "old_steps": 300, "new_success": false, "new_steps": 300},
+    {"init": 10, "old_success": true, "old_steps": 130, "new_success": false, "new_steps": 300},
+    {"init": 11, "old_success": false, "old_steps": 300, "new_success": false, "new_steps": 300},
+    {"init": 12, "old_success": false, "old_steps": 300, "new_success": false, "new_steps": 300},
+    {"init": 13, "old_success": false, "old_steps": 300, "new_success": false, "new_steps": 300},
+    {"init": 14, "old_success": true, "old_steps": 117, "new_success": true, "new_steps": 122},
+    {"init": 15, "old_success": true, "old_steps": 117, "new_success": true, "new_steps": 125},
+    {"init": 16, "old_success": false, "old_steps": 300, "new_success": false, "new_steps": 300},
+    {"init": 17, "old_success": true, "old_steps": 113, "new_success": true, "new_steps": 129},
+    {"init": 18, "old_success": true, "old_steps": 122, "new_success": true, "new_steps": 139},
+    {"init": 19, "old_success": false, "old_steps": 300, "new_success": false, "new_steps": 300}
+  ],
+  "limits": [
+    "This is a post-hoc phenotype comparison on one seed, despite the threshold being registered before reading the aggregate step counts.",
+    "The runs differ in both batch size and gradient co-averaging; the comparison does not identify which, if either, caused the failures.",
+    "Horizon-limited failures are consistent with late/incomplete execution but do not distinguish undertraining, task difficulty, or multi-task interference.",
+    "No registered gate or progression decision is changed; no GPU work was performed."
+  ]
+}

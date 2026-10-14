@@ -2482,3 +2482,13 @@ simulator state, frame/input/image records, processor state, and RNG provenance
 changes both batch size and gradient co-averaging, so it remains descriptive and
 does not identify a cause or establish a significant difference. No new GPU work
 was used. See the `posthoc_task1_paired_start_match` field in the audit summary.
+
+A bounded CPU-only follow-up registered a horizon-phenotype check before reading
+the per-episode step counts. All five task1 pairs where the old model succeeded
+and the new model failed ended at the new run's 300-step cap, while the old
+successes took 110–243 steps; the registered descriptive rule (at least 4/5)
+was met. This shows a late/horizon-limited failure phenotype in those discordant
+episodes, not its cause: undertraining, task difficulty, and multi-task effects
+remain unresolved. No gate changed and no GPU work was performed. See the
+[task1 horizon diagnostic](results/teacher_native_spatial_task1_horizon_diagnostic_v1_20261014.json)
+and its [registration](results/teacher_native_spatial_task1_horizon_diagnostic_registration_v1_20261014.json).
