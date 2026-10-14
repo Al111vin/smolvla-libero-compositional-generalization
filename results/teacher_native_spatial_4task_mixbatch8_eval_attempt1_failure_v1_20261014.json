@@ -1,0 +1,35 @@
+{
+  "schema_version": 1,
+  "experiment_id": "teacher_native_spatial_4task_mixbatch8_freshseed2001_40k_v1_20261014",
+  "attempt": 1,
+  "status": "failed_before_first_rollout",
+  "observed_at_utc": "2026-10-14T03:45:47Z",
+  "supervisor_pid": 201327,
+  "supervisor_returncode": 1,
+  "supervisor_receipt": "/root/smolvla-eval-prep/recovery/teacher_native_spatial_4task_mixbatch8_freshseed2001_eval_v1_20261014/evaluation_supervisor.exit_code.json",
+  "supervisor_log": "/root/smolvla-eval-prep/recovery/teacher_native_spatial_4task_mixbatch8_freshseed2001_eval_v1_20261014/evaluation_supervisor.log",
+  "manifest": "results/teacher_native_spatial_4task_mixbatch8_freshseed2001_96_eval_manifest_v1_20261014.json",
+  "manifest_sha256": "d54b6f5cba76abb6df56ed454b0a7aaccd8df099b465b0d55c07b70f439230cb",
+  "failure": {
+    "exception": "RuntimeError: Process conflict",
+    "site": "run_scaling_eval_v1.py:83, before root.mkdir() and rollout loop",
+    "rollouts_started": 0,
+    "evaluation_output_root_created": false,
+    "gpu_compute_used": false,
+    "lock_released_after_exit": true
+  },
+  "root_cause": {
+    "claim": "The external /usr/bin/timeout parent had run_scaling_eval_v1.py in argv; scaling_conflicts classified that supervisor as a competing evaluator.",
+    "evidence": "The runner's exact process scanner exempts only -c launchers in its first three argv elements; timeout argv had no -c. The same checker run before launch returned no conflict, and failure occurred immediately after starting under timeout.",
+    "classification": "orchestration false-positive, not checkpoint, evaluator, protocol, GPU, or data failure"
+  },
+  "preserved_state": {
+    "output_root": "/root/smolvla-eval-prep/results/teacher_native_spatial_4task_mixbatch8_freshseed2001_40k_eval_v1_20261014",
+    "output_root_absent_after_failure": true,
+    "attempt1_recovery_files_preserved": true,
+    "checkpoint_or_training_artifacts_modified": false
+  },
+  "automatic_retry": false,
+  "fold02": "locked",
+  "eight_task_expansion": "locked"
+}

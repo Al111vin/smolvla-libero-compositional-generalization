@@ -1,0 +1,37 @@
+{
+  "schema_version": 1,
+  "experiment_id": "teacher_native_spatial_4task_mixbatch8_freshseed2001_40k_v1_20261014",
+  "attempt_registration": "results/teacher_native_spatial_4task_mixbatch8_eval_attempt2_registration_v1_20261014.json",
+  "attempt_registration_sha256": "e49b1d3f082bcfc037e8db7749c6e14e413d825bff5a6f63eb632e3e903d2864",
+  "status": "running_first_rollout_process_observed",
+  "launched_at_utc": "2026-10-14T03:50:51Z",
+  "observed_at_utc": "2026-10-14T03:51:00Z",
+  "manifest": "results/teacher_native_spatial_4task_mixbatch8_freshseed2001_96_eval_attempt2_manifest_v1_20261014.json",
+  "manifest_sha256": "6bf36d32a87a3993c0cf2f1fdc980743240754a24999cb7d63141c80c7833cd8",
+  "remote": {
+    "recovery_root": "/root/smolvla-eval-prep/recovery/teacher_native_spatial_4task_mixbatch8_freshseed2001_eval_attempt2_v1_20261014",
+    "evaluation_root": "/root/smolvla-eval-prep/results/teacher_native_spatial_4task_mixbatch8_freshseed2001_40k_eval_attempt2_v1_20261014",
+    "supervisor_pid": 202609,
+    "runner_pid": 202616,
+    "first_rollout_process_pid": 202632,
+    "first_rollout_key": "task0_paired_0_r0_160k",
+    "supervisor_receipt": "pending",
+    "runner_exit_receipt": "pending"
+  },
+  "snapshot": {
+    "exclusive_gpu_lock_held": true,
+    "gpu": "RTX 5090; 0% utilization and 2 MiB reported during model/environment initialization",
+    "disk_free_gib": 39,
+    "completed_verified_rollouts": 0,
+    "active_first_rollout_process": true,
+    "automatic_retries": 0
+  },
+  "attempt1": "failed before first rollout; preserved in results/teacher_native_spatial_4task_mixbatch8_eval_attempt1_failure_v1_20261014.json",
+  "interpretation_limits": [
+    "A spawned environment process is not a completed rollout or policy outcome.",
+    "The registered gates remain pending all 96 protocol and action-record validations."
+  ],
+  "fold02": "locked",
+  "eight_task_expansion": "locked",
+  "raw_artifacts_published": false
+}

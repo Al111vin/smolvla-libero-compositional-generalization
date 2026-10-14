@@ -2352,3 +2352,22 @@ processes alive with the log at about 19,906/40,000 steps (50%). The RTX 5090
 was at 35% utilization, the exclusive GPU lock remained present, and the
 supervisor had not written an exit receipt. Final-checkpoint validation and
 evaluation remain pending successful training exit.
+
+The registered seed-2001 mixed-batch-8 training subsequently completed at
+40,000/40,000 updates with supervisor exit code 0. The final checkpoint has a
+verified nonempty 040000 state and model SHA-256
+`40f5e173933730e2bb695a8f2c2f5402f8dd2b39d44b17ec0e090f79eff3c223`; this is
+training completion, not policy success. The first evaluation supervisor
+attempt exited before creating its output root or starting a rollout: the
+frozen runner's process-conflict scan mistook the outer `timeout` wrapper for a
+peer evaluator. That failure and its evidence are preserved. CPU regression
+fixtures reproduced the false positive and passed the argv-clean supervisor
+topology and timeout tests. A single bounded second evaluation attempt was
+launched at 2026-10-14 03:50:51 UTC using the unchanged frozen 96-rollout
+schedule, evaluator, checkpoint, and independent result paths. At the first
+authenticated snapshot, the supervisor, runner, and first environment process
+were alive and the GPU lock was held; no rollout had yet been verified. The
+6-hour supervisor has no automatic retry. See the [training result](results/teacher_native_spatial_4task_mixbatch8_freshseed2001_40k_training_result_v1_20261014.json),
+[attempt-1 failure](results/teacher_native_spatial_4task_mixbatch8_eval_attempt1_failure_v1_20261014.json),
+[attempt-2 registration](results/teacher_native_spatial_4task_mixbatch8_eval_attempt2_registration_v1_20261014.json),
+and [attempt-2 progress](results/teacher_native_spatial_4task_mixbatch8_freshseed2001_eval_attempt2_progress_v1_20261014.json).

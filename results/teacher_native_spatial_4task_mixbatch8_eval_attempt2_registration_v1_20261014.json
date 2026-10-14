@@ -1,0 +1,77 @@
+{
+  "schema_version": 1,
+  "experiment_id": "teacher_native_spatial_4task_mixbatch8_freshseed2001_40k_v1_20261014",
+  "status": "registered_bounded_evaluation_attempt2",
+  "registered_at_utc": "2026-10-14T03:47:58Z",
+  "failure_analysis": "Attempt 1 exited with process-conflict before root creation and before any rollout. The outer timeout executable carried the runner path in argv and was mistaken for a competing evaluator.",
+  "hypothesis": {
+    "claim_to_test": "Keeping the unchanged frozen runner and 96-row schedule as a direct Python child of a small bash supervisor (runner path passed only through the environment) will avoid the scanner's timeout-parent false positive while retaining a 6-hour wall bound.",
+    "falsifier": "The synthetic argv regression fixture flags the new supervisor as a conflict, or the real prelaunch runner check still exits before the first rollout, or any registered protocol/hash check differs.",
+    "scientific_scope": "No checkpoint, evaluator, rollout protocol, schedule, gate, or total 96-rollout budget changes. This tests execution topology only."
+  },
+  "options_compared": [
+    {
+      "option": "Patch the frozen evaluator's process-conflict scanner to special-case timeout ancestors",
+      "decision": "rejected",
+      "reason": "Would modify the frozen evaluation code and its hashes after checkpoint completion, increasing protocol drift and retest scope."
+    },
+    {
+      "option": "Remove the outer wall-time bound and invoke the runner directly",
+      "decision": "rejected",
+      "reason": "The runner only has per-rollout timeouts; a direct launch would leave the full evaluation chain without a finite supervisor wall bound."
+    },
+    {
+      "option": "Use an argv-clean bash supervisor and keep the frozen runner, environment, and schedule byte-identical",
+      "decision": "selected",
+      "reason": "The process guard explicitly skips bash -c source and otherwise sees no runner basename in the supervisor argv; the existing runner retains the exclusive GPU lock and 600-second per-rollout bounds."
+    }
+  ],
+  "unchanged_evaluation": {
+    "checkpoint": "/root/smolvla-training-prep/results/training/teacher_native_spatial_4task_mixbatch8_freshseed2001_40k_v1_20261014/checkpoints/040000/pretrained_model",
+    "model_sha256": "40f5e173933730e2bb695a8f2c2f5402f8dd2b39d44b17ec0e090f79eff3c223",
+    "evaluator_sha256": "89fd36a89dc45a56382219d4c3f6e5d12a3b1689abb3440ec29be346815af7cb",
+    "total_rollouts": 96,
+    "per_task_rollouts": 24,
+    "wait_steps": 10,
+    "n_action_steps": 25,
+    "max_steps": 300,
+    "automatic_retries": 0
+  },
+  "execution_bounds": {
+    "max_attempts_in_this_registration": 1,
+    "max_policy_rollouts": 96,
+    "supervisor_walltime_seconds": 21600,
+    "per_rollout_walltime_seconds": 600,
+    "termination_grace_seconds": 10,
+    "automatic_retries": 0
+  },
+  "new_independent_paths": {
+    "evaluation_root": "/root/smolvla-eval-prep/results/teacher_native_spatial_4task_mixbatch8_freshseed2001_40k_eval_attempt2_v1_20261014",
+    "recovery_root": "/root/smolvla-eval-prep/recovery/teacher_native_spatial_4task_mixbatch8_freshseed2001_eval_attempt2_v1_20261014",
+    "supervisor_script": "scripts/supervise_scaling_eval_attempt2_v1_20261014.sh",
+    "supervisor_log": "/root/smolvla-eval-prep/recovery/teacher_native_spatial_4task_mixbatch8_freshseed2001_eval_attempt2_v1_20261014/supervisor.log",
+    "supervisor_pid": "/root/smolvla-eval-prep/recovery/teacher_native_spatial_4task_mixbatch8_freshseed2001_eval_attempt2_v1_20261014/supervisor.pid",
+    "supervisor_exit_receipt": "/root/smolvla-eval-prep/recovery/teacher_native_spatial_4task_mixbatch8_freshseed2001_eval_attempt2_v1_20261014/supervisor_exit.json",
+    "timeout_marker": "/root/smolvla-eval-prep/recovery/teacher_native_spatial_4task_mixbatch8_freshseed2001_eval_attempt2_v1_20261014/timed_out"
+  },
+  "prelaunch_requirements": [
+    "CPU argv fixture proves timeout wrapper is flagged and argv-clean bash supervisor is not.",
+    "Reverify attempt-1 receipts and zero-rollout failure; preserve attempt-1 recovery root.",
+    "Reverify exact checkpoint step/files/model hash, evaluator SHA, all seven deployed runner-code hashes, schedule length/unique keys, lock/GPU/process exclusivity, disk, and all attempt-2 paths absent.",
+    "Run the unchanged frozen runner exactly once under the new 6-hour supervisor; any error preserves the attempt and triggers no retry."
+  ],
+  "local_validation": {
+    "supervisor_bash_syntax": "passed",
+    "actual_runner_conflict_scan_argv_fixtures": "passed: timeout-parent false positive reproduced; deployed-supervisor argv does not flag; bash -c exemption confirmed",
+    "supervisor_cpu_fixtures": "passed: exit-0 receipt and bounded timeout/TERM receipt",
+    "supervisor_sha256": "f35ba444045cf5c67fc5c0b19cc73dbd492037f3c78ba42b49e62775a7c33875",
+    "test_sha256": "94749e7155aa50126c4be87f07282771d596da07e546a92882eeb5e653cd8d4b"
+  },
+  "evidence_policy": {
+    "attempt1_preserved": true,
+    "raw_trajectory_video_action_csv_training_log_checkpoint_published": false,
+    "historical_v3_parity_invalidation": "unchanged",
+    "fold02": "locked",
+    "eight_task_expansion": "locked"
+  }
+}

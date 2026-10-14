@@ -1,0 +1,34 @@
+{
+  "schema_version": 1,
+  "experiment_id": "teacher_native_spatial_4task_mixbatch8_freshseed2001_40k_v1_20261014",
+  "status": "training_completed_exit0_checkpoint_verified",
+  "training_started_at_utc": "2026-10-14T01:51:15Z",
+  "training_finished_at_utc": "2026-10-14T03:41:29Z",
+  "supervisor_pid": 163580,
+  "trainer_pid": 163598,
+  "supervisor_exit_receipt": {
+    "path": "/root/smolvla-training-prep/recovery/teacher_native_spatial_4task_mixbatch8_freshseed2001_v1_20261014/teacher_native_spatial_4task_mixbatch8_freshseed2001_40k_v1_20261014.exit_code",
+    "returncode": 0,
+    "timed_out": false
+  },
+  "terminal_step": 40000,
+  "checkpoint": "/root/smolvla-training-prep/results/training/teacher_native_spatial_4task_mixbatch8_freshseed2001_40k_v1_20261014/checkpoints/040000/pretrained_model",
+  "model_sha256": "40f5e173933730e2bb695a8f2c2f5402f8dd2b39d44b17ec0e090f79eff3c223",
+  "model_bytes": 1197789224,
+  "checkpoint_files_required_by_evaluator": "all present and nonempty",
+  "training_state_step": 40000,
+  "run_config_identity": {
+    "steps": 40000,
+    "seed": 2001,
+    "batch_size": 8,
+    "dataset_repo_id": "local/libero_spatial_tasks0_3_native_v1"
+  },
+  "training_gpu_lock_released": true,
+  "policy_evaluation_started_by_training_job": false,
+  "interpretation_limits": [
+    "Exit 0 and checkpoint integrity establish training completion, not policy success.",
+    "No task success rates are available until the registered 96-rollout evaluation is fully verified."
+  ],
+  "fold02": "locked",
+  "eight_task_expansion": "locked"
+}
