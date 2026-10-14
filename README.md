@@ -2593,4 +2593,7 @@ Existing CPU diagnostics narrow the phenotype but not the cause: all four
 profiled joint task0 losses reached the 300-step cap while paired single-task
 traces succeeded, yet joint actions were sustained rather than near-zero and
 reconstructed training loss was similar. They do not distinguish insufficient
-optimization from a multi-task-associated effect.
+optimization from a multi-task-associated effect. The proposal now records a
+fixed outcome-interpretation matrix for positive-control failure, replicated
+task0 retention failure, any other task-gate failure, or all four gates passing;
+none of those outcomes automatically unlocks the next task-count stage.

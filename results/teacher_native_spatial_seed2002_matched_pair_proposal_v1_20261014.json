@@ -90,6 +90,12 @@
     "automatic_retries": 0,
     "automatic_followup_stages": 0
   },
+  "pre_registered_outcome_interpretation": {
+    "single_task0_positive_control_fails": "If either task0-only threshold is missed, the matched joint comparison cannot establish retention loss against a passing single-task control; keep expansion locked and investigate single-task seed/recipe stability.",
+    "single_task0_passes_joint4_task0_fails": "A new-seed replication of the task0 retention miss supports a multi-task-associated difference under this recipe, but remains a two-seed descriptive result and is not causal proof; keep expansion locked.",
+    "task0_passes_but_any_joint_task1_to_3_fails": "The four-task gate fails unchanged; report the exact failing task and do not expand.",
+    "single_task0_and_all_joint4_task_gates_pass": "The registered four-task gate passes for this pair, but this proposal does not authorize Fold02 or eight-task training; require a separate gate review and explicit authorization."
+  },
   "authorization_and_progression": {
     "gpu_budget_active": 0,
     "candidate_budget_is_authorized": false,
