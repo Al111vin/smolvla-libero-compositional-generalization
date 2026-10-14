@@ -2471,3 +2471,14 @@ fixed-init3 threshold only for task0; the fresh-seed registration requires it
 for all four tasks. The registered thresholds were therefore independently
 recomputed from the 96 verified records. This implementation gap does not
 change the failed decision because task1 is already below its paired minimum.
+
+A subsequent CPU-only, read-only task1 comparison found that all 20 paired
+initial observations match exactly between the registered seed2001 homogeneous
+joint-4 run (batch 2) and this mixed-batch-8 run across model-array inputs,
+simulator state, frame/input/image records, processor state, and RNG provenance
+(excluding model weights, which differ by design). Successes were 11/20 versus
+8/20; the paired table had five old-only successes, two new-only successes,
+13 ties (exact two-sided McNemar p=0.453125). This post-hoc one-seed contrast
+changes both batch size and gradient co-averaging, so it remains descriptive and
+does not identify a cause or establish a significant difference. No new GPU work
+was used. See the `posthoc_task1_paired_start_match` field in the audit summary.

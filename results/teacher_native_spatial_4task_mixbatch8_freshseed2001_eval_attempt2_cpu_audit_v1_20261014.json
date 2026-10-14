@@ -70,7 +70,22 @@
     "source": "results/teacher_native_spatial_fresh_seed_pair_eval_result_v1_20261012.json",
     "paired_successes_old_then_this_run": {"task0": [10, 16], "task1": [11, 8], "task2": [18, 17], "task3": [17, 19]},
     "init3_successes_old_then_this_run": {"task0": [5, 5], "task1": [5, 0], "task2": [5, 5], "task3": [5, 5]},
-    "interpretation": "This is the registered same-seed diagnostic comparison; it is descriptive and changes batch size and gradient co-averaging together, so it does not isolate causality."
+    "interpretation": "This is the registered same-seed diagnostic comparison; it is descriptive and changes batch size and gradient co-averaging together, so it does not isolate causality.",
+    "posthoc_task1_paired_start_match": {
+      "status": "cpu_readonly_descriptive_check",
+      "old_model": "seed2001 homogeneous joint4, batch2, 160k",
+      "new_model": "seed2001 mixed-batch8, 160k",
+      "matched_init_count": 20,
+      "matched_init_ids": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19],
+      "identical_first_input_fields": ["model_arrays", "simulator_state", "frame", "input", "images", "processor", "rng"],
+      "excluded_field": "loaded_model (weights differ by treatment)",
+      "paired_successes_old_then_new": [11, 8],
+      "old_only_successes": 5,
+      "new_only_successes": 2,
+      "ties": 13,
+      "mcnemar_exact_two_sided_p": 0.453125,
+      "interpretation": "All 20 task1 paired initial observations match exactly across the listed start-state, image, processor, and RNG provenance fields. The outcome contrast remains post hoc and descriptive: it changes both batch size and gradient co-averaging, has one seed, and does not isolate a cause or establish a statistically significant difference."
+    }
   },
   "additional_earlier_joint4_snapshot": {
     "source": "results/teacher_native_spatial_4task_final_eval_result_v1_20261009.json",
