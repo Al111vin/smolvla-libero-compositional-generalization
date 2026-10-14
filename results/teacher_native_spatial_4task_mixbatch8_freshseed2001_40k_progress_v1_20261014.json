@@ -1,8 +1,8 @@
 {
   "schema_version": 1,
-  "recorded_at_utc": "2026-10-14T02:04:53Z",
+  "recorded_at_utc": "2026-10-14T02:19:17Z",
   "experiment": "teacher_native_spatial_4task_mixbatch8_freshseed2001_40k_v1_20261014",
-  "status": "running_observed_step_5000",
+  "status": "running_observed_step_10000",
   "scope": "One registered 40,000-update mixed-batch training run; no retry. The registered 96-rollout evaluation is conditional on successful exit and checkpoint/preflight validation.",
   "launch": {
     "started_at_utc": "2026-10-14T01:51:15Z",
@@ -28,17 +28,18 @@
   },
   "latest_observation": {
     "observed_at_utc": "2026-10-14T02:04:40Z",
-    "optimizer_step": 5000,
+    "optimizer_step": 10120,
     "target_steps": 40000,
-    "loss": 0.425,
+    "loss": null,
+    "loss_note": "The sampled tqdm progress output did not expose a current loss value; the prior 0.425 value is historical at step 5000.",
     "trainer_process_alive": true,
     "supervisor_process_alive": true,
-    "gpu": "RTX 5090; 73% utilization, 3946 MiB used at 02:04:53 UTC snapshot",
+    "gpu": "RTX 5090; 47% utilization, 3946 MiB used at 02:19:17 UTC snapshot",
     "gpu_lock_present": true,
     "exit_receipt": "pending",
     "checkpoint_output": "not yet observed",
     "root_disk_free_gib": 41,
-    "training_log_bytes": 356233,
+    "training_log_bytes": 738887,
     "retries": 0
   },
   "interpretation_limits": [

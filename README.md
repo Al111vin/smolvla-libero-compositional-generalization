@@ -2339,3 +2339,10 @@ inspect the supervisor, exit receipt, and checkpoint first. See the
 [registration](results/teacher_native_spatial_4task_mixbatch8_freshseed2001_diagnostic_registration_v1_20261014.json),
 [preflight attempt](results/teacher_native_spatial_4task_mixbatch8_preflight_attempt1_v1_20261014.json),
 and [latest run snapshot](results/teacher_native_spatial_4task_mixbatch8_freshseed2001_40k_progress_v1_20261014.json).
+
+A fresh authenticated read-only snapshot at 2026-10-14 02:19:17 UTC found the
+same supervisor/trainer processes alive and the log advancing at about
+10,120/40,000 updates (25%); the RTX 5090 was at 47% utilization, the
+exclusive GPU lock remained present, and there was no exit receipt or
+checkpoint. Root storage remained at 41 GiB free (87% used). This is an
+in-progress observation only; no evaluation or retry has started.
