@@ -2436,3 +2436,10 @@ task0 paired init16 was active, and no exit receipts or automatic retries
 were observed. This two-thirds interim checkpoint is not a final score or gate
 decision; the remaining schedule and CPU evidence audit are pending. See the
 [04:39 UTC progress snapshot](results/teacher_native_spatial_4task_mixbatch8_freshseed2001_eval_attempt2_progress_v11_20261014.json).
+
+At 2026-10-14 04:46:21 UTC, attempt 2 reached 72 of 96 verified rollout
+records, balanced at 18 per task. The supervisor and runner remained alive,
+task0 paired init18 was active, and no exit receipts or automatic retries
+were observed. This two-thirds checkpoint is not a final score or gate
+decision; the remaining schedule and CPU evidence audit are pending. See the
+[04:46 UTC progress snapshot](results/teacher_native_spatial_4task_mixbatch8_freshseed2001_eval_attempt2_progress_v12_20261014.json).
