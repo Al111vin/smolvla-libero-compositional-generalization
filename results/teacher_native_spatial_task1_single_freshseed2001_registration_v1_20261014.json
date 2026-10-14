@@ -58,7 +58,7 @@
       "Verify exact base-model, trainer, scheduler, config-byte, and effective LR-vector hashes against the seed2001 task0 40k run.",
       "Verify requested output/log/PID/exit paths are absent and distinct; preserve all old task1 failed-run paths.",
       "Verify GPU lock/process exclusivity, free GPU memory, and at least 20 GiB free disk before launch.",
-      "If every check passes, require a separate explicit go-ahead before launch; this record alone is not launch authority."
+      "This registration is not launch authority. If the user explicitly authorizes this exact bounded run, that authorization covers one read-only preflight and, only if every check passes, one launch and the registered 24-rollout evaluation; otherwise stop. Do not infer authorization from this file or from approval of the plan alone."
     ]
   },
   "evaluation": {
