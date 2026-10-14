@@ -1,0 +1,101 @@
+{
+  "schema_version": 1,
+  "status": "retrospective_exposure_design_audit_passed_checkpoint_path_link_pending",
+  "observed_at_utc": "2026-10-14T01:12:36Z",
+  "scope": "Read-only comparison of the registered seed-2001 single40k and joint4x40k configs, task-block sampler, LR scheduler mapping, CPU preflight record, production preflight, and completed evaluation result. No training, policy inference, rollout, GPU use, raw data access, or file changes on the server.",
+  "question": "Could the task0 single-versus-joint outcome difference be explained by fewer task0 sample draws or a different nominal per-task learning-rate schedule in the registered joint design?",
+  "comparison": {
+    "single_config_sha256": "fabb744b04083ee643e3f7db34798e465f069379fcc1d57146d5dc70aaa43f0b",
+    "joint_config_sha256": "2ced9539c1ec358b47ce6ae20a2db979088f3e5bfc3e8399405bc2a5d2546ac3",
+    "both_configs": {
+      "scheduler_type": "cosine_decay_with_warmup",
+      "configured_warmup_steps": 3000,
+      "configured_decay_steps": 90000,
+      "peak_lr": 0.0001,
+      "decay_lr": 0.0000025,
+      "batch_size": 2,
+      "seed": 2001
+    },
+    "single": {
+      "global_updates": 40000,
+      "task0_updates": 40000,
+      "task0_sample_slots": 80000
+    },
+    "joint": {
+      "global_updates": 160000,
+      "tasks": 4,
+      "block_size_updates": 4,
+      "updates_per_task": 40000,
+      "sample_slots_per_task": 80000
+    },
+    "lr_relation": "For the registered block scheduler, the LR lambda factor at joint global update k is the single-task baseline factor at floor(k/4); all four tasks receive one homogeneous batch per four-update block.",
+    "cpu_preflight": {
+      "record": "results/teacher_native_spatial_fresh_seed_loader_scheduler_v2_20261011.json",
+      "scheduler_positions_compared": 160001,
+      "all_parameter_group_lambda_factors_exact": true,
+      "reported_relation": "joint(k) == single(floor(k/4))",
+      "registered_configs_and_runtime_guards": "passed",
+      "actual_deployed_loader_patch_used": true,
+      "policy_or_simulator_run": false
+    },
+    "fail_closed_guards": {
+      "joint_wrapper": "Rejects task-mixed batches, duplicate task within a four-update block, skipped optimizer updates, unexpected update budget, and any full-config hash/runtime mismatch.",
+      "code_sha256": {
+        "fresh_seed_joint_train_wrapper_v1.py": "28e2558ea75110ff72a33f5787d5a6d77e15bf0fd506e5c51cf57722b2834296",
+        "exposure_matched_blocks_v1.py": "f8aa8855673c0a213b597baad9ba7810d9fcfecfa7c5f500cfa7b9a2e5c97290",
+        "test_exposure_matched_blocks_v1.py": "7bf3d508ef175c593a34b7ffb5891641c312cc17af7b7a69ce604f99cf81fb26",
+        "test_fresh_seed_joint_train_wrapper_v1.py": "dff3ee227fe3a08b0fb1dd45c91636c7b4aeb62a55d7b1295f918514aba5c5e7"
+      }
+    }
+  },
+  "outcome_context": {
+    "fresh_seed_pair_result": "results/teacher_native_spatial_fresh_seed_pair_eval_result_v1_20261012.json",
+    "single_task0": "14/20 paired plus 5/5 fixed-init3; gate passed",
+    "joint_task0": "10/20 paired plus 5/5 fixed-init3; registered 11/20 gate failed",
+    "discordance": "zero joint gains, four losses (inits 8, 11, 12, 13); exact two-sided McNemar p=0.125",
+    "interpretation": "The registered design and CPU preflight do not support an explanation based on fewer nominal task0 draws or a shorter task0 LR schedule. This does not prove the deployed production run followed those hooks end-to-end, and does not distinguish gradient composition, optimization/data-order effects, or seed variability. One training-seed pair is not a causal interference estimate."
+  },
+  "provenance_gap": {
+    "observation_utc": "2026-10-14T01:06:08Z",
+    "remote_readonly_find": "A shallow listing found the joint training output directory at its registered name and a task0 directory named teacher_native_spatial_task0_freshseed2001_40k_batch2_attempt4_v1_20261012; it did not list the task0 config's registered output_dir.",
+    "transport_followup": "The next non-multiplexed SSH read-only provenance query was closed by the endpoint before returning data.",
+    "what_remains_unverified": "Which immutable task0 launch manifest/config produced the 06e778... checkpoint hash used by the completed 14/20 evaluation, and whether that path's full config/wrapper hashes match the registered V1 pair.",
+    "impact": "The per-task exposure match is verified at config/implementation/preflight level, but the provenance chain from registered task0 config to evaluated checkpoint is not closed. Do not use this audit to claim production-run LR exposure was conclusively matched until the mapping is revalidated."
+  },
+  "options_compared": [
+    {
+      "option": "Treat task0's four joint losses as proof of multi-task interference",
+      "decision": "rejected",
+      "reason": "One seed pair, p=0.125, and unresolved production checkpoint path provenance do not identify a causal mechanism."
+    },
+    {
+      "option": "Change the LR schedule or increase training budget now",
+      "decision": "deferred",
+      "reason": "The registered design already matches nominal per-task LR and sample-slot exposure; a change would need a new, explicit falsifiable hypothesis and separate budget."
+    },
+    {
+      "option": "Use the current evidence and next close the checkpoint-to-launch-manifest provenance gap with a read-only audit",
+      "decision": "selected",
+      "reason": "It resolves whether the completed score comparison actually used the registered model artifacts without GPU cost or changing prior evidence."
+    }
+  ],
+  "next_step": {
+    "type": "read_only_remote_checkpoint_provenance_audit",
+    "new_gpu_budget": 0,
+    "training_or_evaluation": "none",
+    "must_verify": [
+      "Find the immutable single-task attempt manifest/receipt and its full config and wrapper hashes.",
+      "Map the evaluated single checkpoint SHA 06e778a6a21510d7fccf11924a09c2b23485bf25883ffd566a0fb44e27137e03 to its exact remote path and launch manifest.",
+      "Confirm the registered joint checkpoint path and corresponding 4-task launch/config provenance.",
+      "Read only small structured receipts/metadata; do not export training logs, raw traces, model weights, or dataset files."
+    ],
+    "stop_if": "If one authenticated read-only SSH connection cannot complete, preserve current records and report provenance as unresolved; do not restart training or replay."
+  },
+  "progression": {
+    "joint_task0_gate": "failed_10_of_20",
+    "fold02": "LOCKED",
+    "eight_task_expansion": "LOCKED",
+    "diagnostic_is_progression_gate": false
+  },
+  "preserve_old_evidence": true
+}

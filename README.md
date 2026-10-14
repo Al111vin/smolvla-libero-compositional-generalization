@@ -2255,3 +2255,18 @@ or output, and an idle RTX 5090. The bundle is preserved; there is no retry or
 V12. This transfer failure is not a replay result and changes no scientific
 gate. See the [V11 registration](results/teacher_native_spatial_fresh_seed_init8_cpu_reset_diagnostic_registration_v11_20261014.json)
 and [V11 transfer failure](results/teacher_native_spatial_fresh_seed_init8_cpu_reset_transfer_failure_v11_20261014.json).
+
+A retrospective CPU-only audit compared the fresh-seed single40k and joint4×40k
+configs and their scheduler/sampler design. The joint loader issues one
+homogeneous batch per task in every four-update block, and each task's LR factor
+is `single(floor(joint_update/4))`; the registered preflight compared all
+160,001 scheduler positions exactly and reported the deployed loader patch
+used. Thus the registered design matches nominal per-task update count, batch
+draws, and LR schedule; an LR-exposure shortage is not supported as the reason
+for the joint task0 score. This is one seed pair and does not prove interference
+or actual end-to-end production-hook use. A read-only host listing also found a
+task0 `attempt4` output directory instead of the config's registered output
+directory name, and SSH closed during the follow-up provenance check; the
+evaluated checkpoint-to-launch-manifest mapping remains unresolved. No training
+or replay was started. Fold02 and eight-task expansion remain locked. See the
+[LR/exposure audit](results/teacher_native_spatial_fresh_seed_lr_exposure_match_audit_v1_20261014.json).
