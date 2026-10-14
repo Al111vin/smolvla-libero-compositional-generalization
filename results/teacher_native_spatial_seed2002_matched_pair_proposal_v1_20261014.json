@@ -21,6 +21,8 @@
     "seed2001_single_vs_joint4_task0": "14/20 versus 10/20 paired; both 5/5 fixed-init3; 3 gains, 7 losses, 10 ties; exact paired McNemar p=0.34375.",
     "registered_four_task_gate": "Joint4 task0 missed its 11/20 threshold; Fold02 and eight-task scaling remain locked.",
     "exposure_design": "Registered task0-only 40k and joint4 160k give task0 40k optimizer updates and 80k sample slots; joint task0 LR-factor positions map to the 40k single-task schedule at floor(global_update/4). Shared optimizer state and parameter trajectories differ by design.",
+    "existing_cpu_training_loss_audit": "Logged loss falls substantially in both conditions; reconstructed final-100 task0 loss medians are 0.104 single versus 0.099 joint, with last logged values 0.097 versus 0.088. Joint task alignment is reconstructed from the pinned sampler because the log has no task-id field; similar loss is not an environment-success measure.",
+    "existing_cpu_failure_phenotypes": "All four profiled task0 single-success/joint-failure pairs end at the 300-step cap with terminal reward 0; paired single successes take 78-134 steps. In a separately registered trace summary, near-zero action collapse was falsified: joint final-window action medians were 0.55-0.77 of paired single controls, with sustained nonzero motion. These n=4 summaries do not distinguish optimization insufficiency from multi-task effects.",
     "interpretation_limit": "One additional matched training seed improves replication evidence but does not establish a population-level or causal multi-task interference effect."
   },
   "options_compared": [
@@ -111,6 +113,9 @@
     "results/teacher_native_spatial_4task_progression_decision_v1_20261009.json": "2b5ce07372624585069218886768fed071c0dfef9ed27214835a0dd0288c1f51",
     "results/teacher_native_spatial_task0_cross_training_seed_repeatability_v1_20261014.json": "390c2a08ecb2938003925894dd004d148c7e1ac937ded5d1105867487b08d10e",
     "results/teacher_native_spatial_fresh_seed_followup_decision_v1_20261012.json": "b59b182c7c732e4e45d3cdbce144d0c6f6feafbf7bdad7e8444314a69e0695fe",
-    "results/teacher_native_spatial_fresh_seed_lr_exposure_match_audit_v1_20261014.json": "ee20220e62006eb70cc1273ee684cad0328d049f92e407052261aad25756c953"
+    "results/teacher_native_spatial_fresh_seed_lr_exposure_match_audit_v1_20261014.json": "ee20220e62006eb70cc1273ee684cad0328d049f92e407052261aad25756c953",
+    "results/teacher_native_spatial_fresh_seed_training_loss_cpu_audit_v1_20261014.json": "c4a3d7b8dac4414a7cd2b6293ae252145ea50c532ef5528ad09eab959f0c5616",
+    "results/teacher_native_spatial_fresh_seed_task0_loss_terminal_profile_v1_20261014.json": "f71145cfe0800636c29f3dec4436c398b32d077b5a425e905dff656fbb6770f4",
+    "results/teacher_native_spatial_fresh_seed_task0_action_dynamics_profile_v1_20261014.json": "df76d30f834fd4277c353edb750afa30b1ea505c6a03408903ac66a1287acd6d"
   }
 }

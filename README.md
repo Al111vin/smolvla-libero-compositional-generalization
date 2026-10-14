@@ -2589,3 +2589,8 @@ budget remains zero. Any future run still requires fresh explicit authorization,
 full remote preflight, and one-shot execution; even a passing pair would not
 automatically unlock Fold02 or eight-task scaling. See the
 [seed-2002 matched-pair proposal](results/teacher_native_spatial_seed2002_matched_pair_proposal_v1_20261014.json).
+Existing CPU diagnostics narrow the phenotype but not the cause: all four
+profiled joint task0 losses reached the 300-step cap while paired single-task
+traces succeeded, yet joint actions were sustained rather than near-zero and
+reconstructed training loss was similar. They do not distinguish insufficient
+optimization from a multi-task-associated effect.
