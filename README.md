@@ -2460,9 +2460,12 @@ four-task progression gate did not pass: task1 scored 8/20 paired and 0/5
 fixed-init3 against unchanged minima of 10/20 and 5/5. Tasks0, 2, and 3 passed
 their per-task gates. This one-seed contrast is diagnostic only; task1 has no
 matched single-task positive control here, so its result does not distinguish
-undertraining, task difficulty, or multi-task interference. Fold02 and the
-8-task expansion remain locked; no additional GPU work is authorized by this
-result. See the [attempt-2 CPU audit summary](results/teacher_native_spatial_4task_mixbatch8_freshseed2001_eval_attempt2_cpu_audit_v1_20261014.json).
+undertraining, task difficulty, or multi-task interference. Against the
+registered same-seed homogeneous joint-4 reference, task1 changed descriptively
+from 11/20 and 5/5 fixed-init3 to 8/20 and 0/5; this single-run contrast changes
+batch size and gradient co-averaging together and does not isolate cause.
+Fold02 and the 8-task expansion remain locked; no additional GPU work is
+authorized by this result. See the [attempt-2 CPU audit summary](results/teacher_native_spatial_4task_mixbatch8_freshseed2001_eval_attempt2_cpu_audit_v1_20261014.json).
 The audit summary also records that the reused schedule helper enforces the
 fixed-init3 threshold only for task0; the fresh-seed registration requires it
 for all four tasks. The registered thresholds were therefore independently

@@ -66,10 +66,16 @@
     "decision_effect": "No change: task1 also misses its 10/20 paired minimum at 8/20, so the registered four-task gate fails regardless of the helper omission.",
     "frozen_code_modified_after_evaluation": false
   },
-  "descriptive_comparison_to_prior_seed2001_homogeneous_joint4": {
+  "registered_comparison_to_seed2001_homogeneous_joint4": {
+    "source": "results/teacher_native_spatial_fresh_seed_pair_eval_result_v1_20261012.json",
+    "paired_successes_old_then_this_run": {"task0": [10, 16], "task1": [11, 8], "task2": [18, 17], "task3": [17, 19]},
+    "init3_successes_old_then_this_run": {"task0": [5, 5], "task1": [5, 0], "task2": [5, 5], "task3": [5, 5]},
+    "interpretation": "This is the registered same-seed diagnostic comparison; it is descriptive and changes batch size and gradient co-averaging together, so it does not isolate causality."
+  },
+  "additional_earlier_joint4_snapshot": {
     "source": "results/teacher_native_spatial_4task_final_eval_result_v1_20261009.json",
-    "paired_successes_by_task_old_then_this_run": {"task0": [10, 16], "task1": [15, 8], "task2": [19, 17], "task3": [15, 19]},
-    "interpretation": "Descriptive single-seed contrast only; do not infer isolated batch-size or gradient-interference causality."
+    "paired_successes_old_then_this_run": {"task0": [10, 16], "task1": [15, 8], "task2": [19, 17], "task3": [15, 19]},
+    "interpretation": "Earlier joint-4 snapshot retained for historical context; not the specific comparator named in the 2026-10-14 registration."
   },
   "limits": [
     "Tasks1..3 lack matched single-task positive baselines in this registered comparison.",
