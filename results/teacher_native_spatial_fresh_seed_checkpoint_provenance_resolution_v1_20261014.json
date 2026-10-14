@@ -1,0 +1,59 @@
+{
+  "schema_version": 1,
+  "status": "single_and_joint_checkpoint_provenance_resolved_read_only",
+  "recorded_at_utc": "2026-10-14T01:18:22Z",
+  "method": "Read-only SSH metadata inspection and SHA-256 of the two final model.safetensors files. No training, evaluation, rollout, remote mutation, or artifact transfer was performed.",
+  "single_task0": {
+    "launch_manifest": "/root/smolvla-training-prep/recovery/fresh_seed_attempt4_v1_20261012/teacher_native_spatial_task0_freshseed2001_40k_batch2_attempt4_v1_20261012.launch_manifest.json",
+    "launch_manifest_sha256": "af3594c1df9d9369b61f9ce451cc4618e4acd56d6072181443db88f0f6f80504",
+    "spawn_receipt_manifest_sha256_match": true,
+    "spawn_receipt": {"supervisor_pid": 1052312, "trainer_pid": 1052333},
+    "terminal_receipt": {"pid": 1052333, "returncode": 0, "timed_out": false},
+    "registered_recipe_config_sha256": "fabb744b04083ee643e3f7db34798e465f069379fcc1d57146d5dc70aaa43f0b",
+    "attempt4_config_sha256": "06ac4a7b3b228851401b7c38e73a824266ae23bc00d66b46f1eaccbe7627b28f",
+    "config_semantic_diff": ["job_name", "output_dir"],
+    "base_wrapper_sha256": "d60b77e4d34c4657d90906cb0b2629b59e241c7223c3974656df7809ccf94332",
+    "attempt4_wrapper_sha256": "3167ceeeb299e1af58d18c8cc6e383495adb1b8abce1bd38a9243c2c2bc9504b",
+    "wrapper_diff": ["registered config name and SHA-256 pins only"],
+    "config": {"steps": 40000, "seed": 2001},
+    "output_dir": "/root/smolvla-training-prep/results/training/teacher_native_spatial_task0_freshseed2001_40k_batch2_attempt4_v1_20261012",
+    "final_checkpoint": "/root/smolvla-training-prep/results/training/teacher_native_spatial_task0_freshseed2001_40k_batch2_attempt4_v1_20261012/checkpoints/040000/pretrained_model/model.safetensors",
+    "final_training_step": 40000,
+    "model_safetensors_sha256": "06e778a6a21510d7fccf11924a09c2b23485bf25883ffd566a0fb44e27137e03",
+    "matches_evaluation_registered_single_checkpoint_sha256": true,
+    "matches_evaluation_supervisor_manifest_source_directory_metadata": true
+  },
+  "joint_4task": {
+    "launch_manifest": "/root/smolvla-training-prep/recovery/fresh_seed_joint_attempt1_v1_20261012/teacher_native_spatial_4task_freshseed2001_160k_batch2_attempt1_v1_20261012.launch_manifest.json",
+    "launch_manifest_sha256": "0e16ce2f310dff8450d006d9349343fd8c5bfd360fdd5d9880e17f16f95a63f2",
+    "pinned_config_sha256": "2ced9539c1ec358b47ce6ae20a2db979088f3e5bfc3e8399405bc2a5d2546ac3",
+    "pinned_training_wrapper_sha256": "28e2558ea75110ff72a33f5787d5a6d77e15bf0fd506e5c51cf57722b2834296",
+    "output_dir": "/root/smolvla-training-prep/results/training/teacher_native_spatial_4task_freshseed2001_160k_batch2_v1_20261011",
+    "terminal_receipt": {"pid": 1154462, "returncode": 0, "timed_out": false},
+    "final_checkpoint": "/root/smolvla-training-prep/results/training/teacher_native_spatial_4task_freshseed2001_160k_batch2_v1_20261011/checkpoints/160000/pretrained_model/model.safetensors",
+    "final_training_step": 160000,
+    "model_safetensors_sha256": "4b4127e49c6a3a467ea8c29055fce762effbe04fc466bdd6fadc51ef717ca628",
+    "matches_evaluation_registered_joint_checkpoint_sha256": true
+  },
+  "evaluation_link": {
+    "supervisor_manifest": "/root/smolvla-eval-prep/recovery/fresh_seed_pair_eval_v2_20261011/teacher_native_spatial_fresh_seed_eval_supervisor_attempt1_manifest_v1_20261012.json",
+    "supervisor_manifest_sha256": "0ddc9b600c8625219031d4e066c697baba29766c95e0ccf4fea98e1c843426fc",
+    "single_checkpoint_source_path_in_manifest": "/root/smolvla-training-prep/results/training/teacher_native_spatial_task0_freshseed2001_40k_batch2_attempt4_v1_20261012/checkpoints/040000/pretrained_model/",
+    "joint_checkpoint_source_path_in_manifest": "/root/smolvla-training-prep/results/training/teacher_native_spatial_4task_freshseed2001_160k_batch2_v1_20261011/checkpoints/160000/pretrained_model/",
+    "evaluation_result_record": "results/teacher_native_spatial_fresh_seed_pair_eval_result_v1_20261012.json"
+  },
+  "scientific_status": {
+    "single_task0_gate": "14/20 paired plus 5/5 fixed init3; passed",
+    "joint_task0_gate": "10/20 paired plus 5/5 fixed init3; failed the unchanged 11/20 paired threshold",
+    "interpretation": "The checkpoint provenance gap is resolved. The four paired task0 losses remain a one-seed descriptive result (exact McNemar p=0.125), not causal proof of multi-task interference.",
+    "fold02": "LOCKED",
+    "eight_task_expansion": "LOCKED",
+    "preserve_old_evidence": true
+  },
+  "compute_and_data_policy": {
+    "new_gpu_work": false,
+    "training_or_evaluation_relaunched": false,
+    "raw_logs_traces_videos_checkpoints_or_dataset_transferred": false,
+    "only_hashes_paths_and_small_structured_metadata_recorded": true
+  }
+}

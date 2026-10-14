@@ -1,0 +1,57 @@
+{
+  "schema_version": 1,
+  "status": "completed_cpu_only_training_loss_summary",
+  "recorded_at_utc": "2026-10-14T01:22:01Z",
+  "method": {
+    "compute": "CPU-only parsing on the existing training host",
+    "logs_read_remotely": [
+      "/root/smolvla-training-prep/recovery/fresh_seed_attempt4_v1_20261012/teacher_native_spatial_task0_freshseed2001_40k_batch2_attempt4_v1_20261012.training.log",
+      "/root/smolvla-training-prep/recovery/fresh_seed_joint_attempt1_v1_20261012/teacher_native_spatial_4task_freshseed2001_160k_batch2_attempt1_v1_20261012.training.log"
+    ],
+    "log_transfer": "None; only aggregate numeric summaries were returned.",
+    "per_task_alignment": "The logs contain scalar loss rows but no task-id field. Joint row task IDs were reconstructed from ordered log cadence (log_freq=100), the pinned exposure-matched sampler algorithm, Python 3.12 random.Random(seed=2001), and task_index row counts read from the registered Parquet dataset. This is code-derived alignment, not direct task-id telemetry.",
+    "dataset_task_index_rows": {"0": 5068, "1": 6707, "2": 5882, "3": 5052},
+    "loss_row_counts": {"single": 400, "joint": 1600},
+    "expected_rows_from_budget_and_log_freq": {"single": 400, "joint": 1600},
+    "reconstructed_joint_logged_batch_counts": {"0": 415, "1": 381, "2": 398, "3": 406}
+  },
+  "loss_summary": {
+    "single_task0": {
+      "first_20_logged_losses_median": 0.824,
+      "last_20_logged_losses_median": 0.1005,
+      "last_100_logged_losses_median": 0.104,
+      "last_logged_loss": 0.097
+    },
+    "joint_task0": {
+      "first_20_task_aligned_logged_losses_median": 0.612,
+      "last_20_task_aligned_logged_losses_median": 0.0955,
+      "last_100_task_aligned_logged_losses_median": 0.099,
+      "last_task_aligned_logged_loss": 0.088
+    },
+    "joint_task1": {
+      "last_100_task_aligned_logged_losses_median": 0.1,
+      "last_task_aligned_logged_loss": 0.098
+    },
+    "joint_task2": {
+      "last_100_task_aligned_logged_losses_median": 0.099,
+      "last_task_aligned_logged_loss": 0.092
+    },
+    "joint_task3": {
+      "last_100_task_aligned_logged_losses_median": 0.098,
+      "last_task_aligned_logged_loss": 0.095
+    }
+  },
+  "interpretation": {
+    "supported": "Both registered runs show large decreases in logged training loss. Reconstructed late joint per-task loss summaries are similar across the four tasks, and task0 is not conspicuously higher than single task0 on this training metric.",
+    "not_established": "Training loss is not an environment-success metric. The joint log does not emit task IDs, so task alignment is reconstructed from the pinned sampler and data counts; no independent runtime batch trace was added. One seed pair cannot prove or exclude multi-task interference, and similar loss cannot rule out representation, state-distribution, or policy-generalization effects.",
+    "gate": "Evaluation remains single task0 14/20 paired plus 5/5 fixed init3 (pass), joint task0 10/20 plus 5/5 fixed init3 (fail unchanged 11/20 paired threshold).",
+    "progression": "Do not lower the threshold or start another task-count expansion. Fold02 and 8-task expansion remain locked."
+  },
+  "compute_and_data_policy": {
+    "new_training_or_evaluation": false,
+    "gpu_compute": false,
+    "raw_training_logs_transferred": false,
+    "raw_traces_videos_checkpoints_or_dataset_transferred": false,
+    "old_evidence_preserved": true
+  }
+}

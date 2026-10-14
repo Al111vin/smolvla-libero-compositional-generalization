@@ -2278,3 +2278,16 @@ The targeted scan printed no matching launch-manifest paths, but its stderr was
 suppressed, so that empty search is not treated as proof that the provenance
 record is absent. The task0 checkpoint-to-manifest mapping remains unresolved;
 no training or evaluation was started. See the [read-only remote status](results/teacher_native_spatial_fresh_seed_remote_readonly_status_v1_20261014.json).
+
+The subsequent read-only provenance audit resolved both final checkpoint paths
+and verified their model-file SHA-256 values against the registered/evaluated
+single40k and joint160k checkpoints, with terminal step and exit-0 receipts.
+The single attempt4 config differs from the registered task0 recipe only in
+`job_name` and `output_dir`; its wrapper differs only in the corresponding
+config-name/hash pins. A CPU-only summary of the existing training logs found
+both runs' losses falling substantially; reconstructed late per-task joint
+losses are similar. This is not an environment-success proxy, and joint task
+alignment is reconstructed from the pinned sampler and dataset counts because
+the logger did not emit task IDs. It does not establish or rule out interference.
+See the [checkpoint provenance resolution](results/teacher_native_spatial_fresh_seed_checkpoint_provenance_resolution_v1_20261014.json)
+and [training-loss audit](results/teacher_native_spatial_fresh_seed_training_loss_cpu_audit_v1_20261014.json).
