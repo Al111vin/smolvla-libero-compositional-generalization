@@ -59,6 +59,13 @@
     "eight_task_expansion": "LOCKED",
     "automatic_next_stage": false
   },
+  "gate_implementation_audit": {
+    "registered_thresholds_independently_recomputed_from_96_records": true,
+    "schedule_helper_gap": "The frozen scaling_eval_schedule_v1.gate helper enforces the 5/5 init3 condition only for task0, whereas the fresh-seed registration requires 5/5 init3 for tasks1..3 as well.",
+    "observed_init3_counts_checked_against_registration": {"task0": "5/5", "task1": "0/5", "task2": "5/5", "task3": "5/5"},
+    "decision_effect": "No change: task1 also misses its 10/20 paired minimum at 8/20, so the registered four-task gate fails regardless of the helper omission.",
+    "frozen_code_modified_after_evaluation": false
+  },
   "descriptive_comparison_to_prior_seed2001_homogeneous_joint4": {
     "source": "results/teacher_native_spatial_4task_final_eval_result_v1_20261009.json",
     "paired_successes_by_task_old_then_this_run": {"task0": [10, 16], "task1": [15, 8], "task2": [19, 17], "task3": [15, 19]},

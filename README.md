@@ -2463,3 +2463,8 @@ matched single-task positive control here, so its result does not distinguish
 undertraining, task difficulty, or multi-task interference. Fold02 and the
 8-task expansion remain locked; no additional GPU work is authorized by this
 result. See the [attempt-2 CPU audit summary](results/teacher_native_spatial_4task_mixbatch8_freshseed2001_eval_attempt2_cpu_audit_v1_20261014.json).
+The audit summary also records that the reused schedule helper enforces the
+fixed-init3 threshold only for task0; the fresh-seed registration requires it
+for all four tasks. The registered thresholds were therefore independently
+recomputed from the 96 verified records. This implementation gap does not
+change the failed decision because task1 is already below its paired minimum.
