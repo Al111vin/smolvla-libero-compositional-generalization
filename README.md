@@ -2492,3 +2492,14 @@ episodes, not its cause: undertraining, task difficulty, and multi-task effects
 remain unresolved. No gate changed and no GPU work was performed. See the
 [task1 horizon diagnostic](results/teacher_native_spatial_task1_horizon_diagnostic_v1_20261014.json)
 and its [registration](results/teacher_native_spatial_task1_horizon_diagnostic_registration_v1_20261014.json).
+
+For the next discriminating control, a seed2001 task1-only 40k/batch-2 run is
+proposed using episodes 50–99, the current task0 single-task config and frozen
+evaluator, followed by the bounded 24-rollout task1 protocol. This matches the
+80,000 task1 sample draws and 40k LR/update schedule while removing other-task
+examples from optimizer updates. The registered diagnostic signal is at least
+10/20 paired plus 5/5 fixed-init3; it would not by itself pass the four-task
+gate or prove general multi-task interference. The proposal is explicitly
+awaiting user authorization: no config was deployed, no GPU work was launched,
+and its current GPU budget is zero. See the
+[task1 single-task registration](results/teacher_native_spatial_task1_single_freshseed2001_registration_v1_20261014.json).

@@ -1,0 +1,89 @@
+{
+  "schema_version": "1.0",
+  "experiment_id": "teacher_native_spatial_task1_single_freshseed2001_40k_batch2_v1_20261014",
+  "status": "proposed_waiting_for_explicit_gpu_authorization",
+  "purpose": "Test whether official Spatial task1 is learnable alone under the current verified pipeline before attributing the mixed-batch8 task1 deficit to task interactions or considering any task-count expansion.",
+  "evidence_basis": {
+    "task0_current_single_control": "results/teacher_native_spatial_4task_mixbatch8_freshseed2001_40k_training_result_v1_20261014.json and the registered attempt-2 CPU audit: seed2001 task0 single 40k baseline met 16/20 paired and 5/5 fixed init3.",
+    "task1_homogeneous_joint4_reference": "results/teacher_native_spatial_fresh_seed_pair_eval_result_v1_20261012.json: task1 11/20 paired and 5/5 fixed init3.",
+    "task1_mixed_batch8": "results/teacher_native_spatial_4task_mixbatch8_freshseed2001_eval_attempt2_cpu_audit_v1_20261014.json: task1 8/20 paired and 0/5 fixed init3; four-task progression gate failed.",
+    "matched_starts": "results/teacher_native_spatial_4task_mixbatch8_freshseed2001_eval_attempt2_cpu_audit_v1_20261014.json: 20/20 paired task1 starts match across recorded simulator, image, processor, and RNG inputs between the homogeneous joint4 and mixed-batch8 evaluations.",
+    "failure_phenotype": "results/teacher_native_spatial_task1_horizon_diagnostic_v1_20261014.json: the five old-success/new-failure pairs in the mixed-batch8 contrast all reached the 300-step cap. This is descriptive and does not identify cause."
+  },
+  "options_compared": [
+    {
+      "option": "Advance to 8 tasks or unlock Fold02",
+      "decision": "reject",
+      "reason": "The unchanged four-task gate failed at task1; the stage gate forbids progression."
+    },
+    {
+      "option": "Repeat or extend mixed-batch8 training immediately",
+      "decision": "reject",
+      "reason": "The cap phenotype does not distinguish task difficulty from training-treatment effects; extending the same condition would not establish task1 single-task learnability."
+    },
+    {
+      "option": "One seed2001 task1-only run matched to 40k task0 recipe and task1 per-task exposure, then 24 evaluations",
+      "decision": "recommended_pending_authorization",
+      "reason": "It directly tests task1 single-task learnability while holding initialization, pretrained base, optimizer recipe, update count, task1 samples per update, and LR schedule exposure to the available matched comparisons; one bounded run is more discriminating than another mixed-task run."
+    },
+    {
+      "option": "Stop additional GPU work and retain the current diagnostic conclusion",
+      "decision": "valid_if_not_authorized",
+      "reason": "No new GPU budget is assumed by this registration."
+    }
+  ],
+  "falsifiable_hypothesis": {
+    "claim": "The task1 data and current single-task training pipeline can achieve the already registered per-task learnable-signal threshold when trained alone at matched task1 sample and LR exposure.",
+    "positive_signal": "At least 10/20 paired task1 successes and 5/5 fixed-init3 successes under the frozen evaluator.",
+    "falsifier": "Either threshold is missed.",
+    "interpretation": "Passing would establish a task1 single-task positive-control signal and make a task-mixture effect plausible for seed2001; it would not prove causality or pass the four-task gate. Failing would point toward task1 difficulty, data/recipe, or single-task optimization issues and would not justify task-count expansion."
+  },
+  "proposed_training": {
+    "config_template": "configs/teacher_native_spatial_task0_freshseed2001_40k_batch2_v1_20261011.json",
+    "dataset_repo_id": "local/libero_spatial_tasks0_3_native_v1",
+    "dataset_root": "/root/smolvla-training-prep/datasets/lerobot/libero_spatial_tasks0_3_native_20261003_v1",
+    "task_id": 1,
+    "episodes": "50..99 inclusive (50 verified native task1 episodes)",
+    "pretrained_base": "/root/smolvla-training-prep/models/smolvla_base_libero; no warm-start from a trained checkpoint",
+    "training_seed": 2001,
+    "optimizer_updates": 40000,
+    "batch_size": 2,
+    "task1_sample_draws": 80000,
+    "lr_schedule": "Copy the exact task0 seed2001 40k config and verify the effective 40k LR vector and trainer scaling in read-only preflight.",
+    "only_intended_config_differences": ["task1 episodes/text", "job_name", "output_dir"],
+    "output_path_proposal": "/root/smolvla-training-prep/results/training/teacher_native_spatial_task1_freshseed2001_40k_batch2_v1_20261014",
+    "independent_recovery_path_proposal": "/root/smolvla-training-prep/recovery/teacher_native_spatial_task1_freshseed2001_40k_batch2_v1_20261014",
+    "preflight_required_before_any_launch": [
+      "Revalidate source HDF5-to-LeRobot conversion manifest, task1 episode slice 50..99, metadata/statistics, frame/image parity, and filtered loader.",
+      "Verify exact base-model, trainer, scheduler, config-byte, and effective LR-vector hashes against the seed2001 task0 40k run.",
+      "Verify requested output/log/PID/exit paths are absent and distinct; preserve all old task1 failed-run paths.",
+      "Verify GPU lock/process exclusivity, free GPU memory, and at least 20 GiB free disk before launch.",
+      "If every check passes, require a separate explicit go-ahead before launch; this record alone is not launch authority."
+    ]
+  },
+  "evaluation": {
+    "checkpoint": "final step 40000 only",
+    "evaluator_sha256": "89fd36a89dc45a56382219d4c3f6e5d12a3b1689abb3440ec29be346815af7cb",
+    "task_id": 1,
+    "protocol": "benchmark initialization source, wait 10, max_steps 300, n_action_steps 25",
+    "paired_initializations": "0..19; CLI seed 12345 + init index (effective seed 12345 + 2*init)",
+    "fixed_init3": "5 total observations including paired init3 plus four additional repeats; CLI seed 12348 for each additional repeat (effective seed 12351)",
+    "rollouts": 24,
+    "output_path_proposal": "/root/smolvla-eval-prep/results/teacher_native_spatial_task1_freshseed2001_40k_eval_v1_20261014"
+  },
+  "hard_bounds": {
+    "new_training_runs": 1,
+    "optimizer_updates": 40000,
+    "evaluation_rollouts": 24,
+    "automatic_retry": false,
+    "budget": "This registration proposes one bounded run plus its 24-rollout evaluation; no additional run or spend is authorized by this file.",
+    "current_state": "Not launched; GPU budget for this proposal remains zero until the user explicitly authorizes it."
+  },
+  "stop_conditions": [
+    "Any preflight mismatch, existing target path, data/config/model hash mismatch, active conflicting process, failed lock acquisition, insufficient disk, or launch error: preserve evidence and stop without retry or path substitution.",
+    "Training error or missing/incomplete final checkpoint: preserve the failed run and stop; do not evaluate or restart.",
+    "Any evaluator/protocol/data-parity mismatch or evaluation error: preserve partial output and stop without retry.",
+    "Do not unlock Fold02 or advance task count based on this diagnostic alone."
+  ],
+  "publication_policy": "Only this lightweight registration/README may be synced. Never upload checkpoints, raw HDF5/Parquet, action arrays, trajectories, videos, training logs, secrets, or credentials."
+}
