@@ -1,0 +1,46 @@
+{
+  "schema_version": 1,
+  "status": "blocked_before_full_preflight_insufficient_system_disk",
+  "observed_at_utc": "2026-10-14T10:51:49Z",
+  "authorization_record": "results/teacher_native_spatial_seed2002_authorization_v1_20261014.json",
+  "connection": {
+    "authenticated_publickey_via_loaded_ssh_agent": true,
+    "password_or_private_key_read": false,
+    "remote_host": "cpod-1v6wxcygzn32-s1.podtcp.compshare.cn:27360"
+  },
+  "resource_snapshot": {
+    "gpu": "NVIDIA GeForce RTX 5090",
+    "gpu_utilization_percent": 0,
+    "gpu_memory_used_mib": 2,
+    "gpu_memory_total_mib": 32607,
+    "compute_processes": [],
+    "matching_training_processes": [],
+    "memory_total_gib": 64,
+    "memory_available_gib": 63,
+    "system_disk_total_gib": 300,
+    "system_disk_used_gib": 268,
+    "system_disk_free_gib": 33,
+    "prior_registered_minimum_free_bytes": 56144482304,
+    "disk_requirement_met": false
+  },
+  "unique_seed2002_paths": {
+    "training_outputs_listed_absent": [
+      "/root/smolvla-training-prep/results/training/teacher_native_spatial_task0_freshseed2002_40k_batch2_v1_20261014",
+      "/root/smolvla-training-prep/results/training/teacher_native_spatial_4task_freshseed2002_160k_batch2_v1_20261014"
+    ],
+    "seed2002_recovery_directory_listed_absent": "/root/smolvla-training-prep/recovery/seed2002_matched_pair_v1_20261014"
+  },
+  "stop_policy": {
+    "full_hash_data_loader_runtime_lock_path_preflight_completed": false,
+    "configs_or_new_code_deployed": false,
+    "training_started": false,
+    "evaluation_started": false,
+    "next_action": "Do not deploy or launch until system disk free space meets the registered minimum; user/platform must expand disk or safely free space without deleting protected evidence."
+  },
+  "evidence_policy": {
+    "preserve_all_old_artifacts": true,
+    "no_automatic_retry": true,
+    "fold02": "LOCKED",
+    "eight_task_expansion": "LOCKED"
+  }
+}

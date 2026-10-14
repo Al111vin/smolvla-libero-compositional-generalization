@@ -1,0 +1,81 @@
+{
+  "schema_version": 1,
+  "authorization_id": "teacher_native_spatial_seed2002_authorization_v1_20261014",
+  "authorized_at_utc": "2026-10-14T10:52:09Z",
+  "user_authorization_text": "授权 seed2002：task0 单任务 40k + joint4 160k + 120 次评估",
+  "proposal_path": "results/teacher_native_spatial_seed2002_matched_pair_proposal_v1_20261014.json",
+  "proposal_sha256": "862ae085a6e7b6884e182eb4e11a63c751aa485b81b5df5fb9d4cfd44eb5ca78",
+  "authorized_budget": {
+    "training_seed": 2002,
+    "single_task0_updates": 40000,
+    "homogeneous_joint4_updates": 160000,
+    "total_global_optimizer_updates": 200000,
+    "single_task0_evaluation_rollouts": 24,
+    "joint4_evaluation_rollouts": 96,
+    "total_evaluation_rollouts": 120,
+    "automatic_retries": 0,
+    "automatic_followup_stages": 0
+  },
+  "execution_order": [
+    "Complete full remote preflight and launch the single-task0 40k run once.",
+    "Only after verified exit 0 and complete checkpoint, preflight and launch homogeneous joint4 160k once.",
+    "Only after both verified exit 0 and complete checkpoints, run the registered 120-rollout evaluation once."
+  ],
+  "failure_policy": "Preserve all evidence, stop on any mismatch or failure, and do not retry automatically.",
+  "evaluation_protocol": {
+    "evaluator_sha256": "89fd36a89dc45a56382219d4c3f6e5d12a3b1689abb3440ec29be346815af7cb",
+    "paired_init_indices": "0..19",
+    "paired_cli_seed": "12345 + init_index",
+    "paired_effective_seed": "12345 + 2*init_index",
+    "fixed_init3_extra_cli_seed": 12348,
+    "fixed_init3_extra_effective_seed": 12351,
+    "wait_steps": 10,
+    "max_steps": 300,
+    "n_action_steps": 25,
+    "rollouts": {"single_task0": 24, "joint4_all_tasks": 96, "total": 120}
+  },
+  "progression_gate": {
+    "task0": "at least 11/20 paired and 5/5 fixed-init3",
+    "tasks1_to_3": "at least 10/20 paired and 5/5 fixed-init3 each",
+    "fold02": "LOCKED",
+    "eight_task_expansion": "LOCKED",
+    "passing_pair_does_not_authorize_expansion": true
+  },
+  "candidate_configs": {
+    "single_task0": {
+      "path": "configs/teacher_native_spatial_task0_freshseed2002_40k_batch2_v1_20261014.json",
+      "sha256": "ae600eb68936841ffeb8fa24defe0fcbcd217dc7d8c6a6a508ece31f8d46133d"
+    },
+    "homogeneous_joint4": {
+      "path": "configs/teacher_native_spatial_4task_freshseed2002_160k_batch2_v1_20261014.json",
+      "sha256": "3c0295b09055878045cd2c17a24dee41b6a397979e6523206f35d7f696da04c4"
+    }
+  },
+  "candidate_training_wrappers": {
+    "single_task0": {
+      "path": "scripts/fresh_seed2002_task0_train_wrapper_v1.py",
+      "sha256": "f7226702939343f2f620804e0e87c8a67a3b591b92a4c00b6e14347d7cbc8870"
+    },
+    "homogeneous_joint4": {
+      "path": "scripts/fresh_seed2002_joint4_train_wrapper_v1.py",
+      "sha256": "40ea204560ff907bf7ef641900dc88984adcb16a1a623061b82457f499c345fe"
+    }
+  },
+  "config_builder": {
+    "path": "scripts/build_fresh_seed2002_matched_pair_configs_v1.py",
+    "sha256": "e4c7591af9d14a87bba5257ee0b5626f10e154ae0153adbea7b78d279d6fef24"
+  },
+  "local_cpu_tests": {
+    "passed": 5,
+    "failed": 0,
+    "scope": "Config field-difference, pinned-source fail-closed, wrapper seed/hash checks, and existing runner process-conflict check; no GPU or rollout work."
+  },
+  "remote_preflight_record": "results/teacher_native_spatial_seed2002_remote_preflight_v1_20261014.json",
+  "status": "authorized_configs_built_and_cpu_tests_passed; remote_preflight_blocked_by_insufficient_system_disk; no_remote_deployment_or_launch",
+  "evidence_policy": {
+    "preserve_prior_records": true,
+    "historical_v3_parity_invalidation": "UNCHANGED",
+    "publish_only_code_readme_configs_and_lightweight_summaries": true,
+    "never_publish_weights_data_raw_trajectories_action_csv_videos_logs_checkpoints_or_credentials": true
+  }
+}

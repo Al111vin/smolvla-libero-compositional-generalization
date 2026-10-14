@@ -2583,17 +2583,39 @@ A bounded CPU-only proposal now compares candidate next steps after the failed
 four-task gate. It selects a new seed-2002 matched pair—task0-only 40k followed
 by homogeneous joint4 160k, with 24 and 96 registered rollouts respectively
 (120 total)—as the most direct replication of the task0 retention failure and
-single-task positive control. The proposal is **not GPU-authorized or deployed**:
-no candidate configs were created, no run was launched, and the active GPU
-budget remains zero. Any future run still requires fresh explicit authorization,
-full remote preflight, and one-shot execution; even a passing pair would not
-automatically unlock Fold02 or eight-task scaling. See the
+single-task positive control. At proposal registration time, the pair was not
+GPU-authorized, no candidate configs existed, and the active GPU budget was
+zero. Later authorization and config build are recorded separately below; no
+run has launched. Even a passing pair would not automatically unlock Fold02
+or eight-task scaling. See the
 [seed-2002 matched-pair proposal](results/teacher_native_spatial_seed2002_matched_pair_proposal_v1_20261014.json).
 Existing CPU diagnostics narrow the phenotype but not the cause: all four
 profiled joint task0 losses reached the 300-step cap while paired single-task
 traces succeeded, yet joint actions were sustained rather than near-zero and
 reconstructed training loss was similar. They do not distinguish insufficient
-optimization from a multi-task-associated effect. The proposal now records a
-fixed outcome-interpretation matrix for positive-control failure, replicated
-task0 retention failure, any other task-gate failure, or all four gates passing;
-none of those outcomes automatically unlocks the next task-count stage.
+optimization from a multi-task-associated effect. The proposal records a fixed
+outcome-interpretation matrix for positive-control failure, replicated task0
+retention failure, any other task-gate failure, or all four gates passing; none
+of those outcomes automatically unlocks the next task-count stage.
+
+The user explicitly authorized the bounded seed-2002 pair on 2026-10-14:
+task0-only 40k, then homogeneous joint4 160k, followed by the registered 120
+rollouts (24 single-task task0 and 96 joint4 across tasks0–3). Authorization
+and protocol are recorded separately in
+`results/teacher_native_spatial_seed2002_authorization_v1_20261014.json`; the
+original CPU-only proposal and prior evidence remain unchanged. Candidate
+configs are rebuilt from the pinned seed-2001 recipes changing only seed, job
+name, and output path. This does not imply deployment or launch: each stage
+still requires its own full remote preflight and successful predecessor.
+Retries and automatic follow-up stages are zero. The existing per-task gate
+and Fold02/eight-task locks remain unchanged.
+
+The first authenticated seed-2002 remote read-only snapshot found the RTX 5090
+idle and no matching training process, but only 33 GiB free on the 300 GiB
+system disk. The prior registered launch preflight requires at least
+56,144,482,304 free bytes. The full hash/data/loader/runtime/lock/path preflight
+was therefore stopped early; no seed-2002 files were deployed and no GPU work
+started. See
+`results/teacher_native_spatial_seed2002_remote_preflight_v1_20261014.json`.
+Resume only after the platform disk is expanded or space is safely freed while
+preserving all registered evidence and experiment outputs.
