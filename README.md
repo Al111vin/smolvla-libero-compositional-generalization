@@ -2346,3 +2346,9 @@ same supervisor/trainer processes alive and the log advancing at about
 exclusive GPU lock remained present, and there was no exit receipt or
 checkpoint. Root storage remained at 41 GiB free (87% used). This is an
 in-progress observation only; no evaluation or retry has started.
+
+At 2026-10-14 02:46:14 UTC, a fresh read-only check found both registered
+processes alive with the log at about 19,906/40,000 steps (50%). The RTX 5090
+was at 35% utilization, the exclusive GPU lock remained present, and the
+supervisor had not written an exit receipt. Final-checkpoint validation and
+evaluation remain pending successful training exit.
