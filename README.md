@@ -2451,3 +2451,15 @@ remained alive with task2 repeat 3 active; no exit receipts or automatic
 retries were observed. This is not a final metric or gate decision; remaining
 fixed-init repeats and CPU evidence audit are pending. See the
 [04:54 UTC progress snapshot](results/teacher_native_spatial_4task_mixbatch8_freshseed2001_eval_attempt2_progress_v13_20261014.json).
+
+The registered attempt-2 evaluation later completed with supervisor and runner
+exit code 0 and no timeout. A read-only CPU audit revalidated all 96 protocol,
+summary, action, checkpoint, and initialization-provenance records. The
+registered task-0 target was met once (16/20 paired, 5/5 fixed init3), but the
+four-task progression gate did not pass: task1 scored 8/20 paired and 0/5
+fixed-init3 against unchanged minima of 10/20 and 5/5. Tasks0, 2, and 3 passed
+their per-task gates. This one-seed contrast is diagnostic only; task1 has no
+matched single-task positive control here, so its result does not distinguish
+undertraining, task difficulty, or multi-task interference. Fold02 and the
+8-task expansion remain locked; no additional GPU work is authorized by this
+result. See the [attempt-2 CPU audit summary](results/teacher_native_spatial_4task_mixbatch8_freshseed2001_eval_attempt2_cpu_audit_v1_20261014.json).

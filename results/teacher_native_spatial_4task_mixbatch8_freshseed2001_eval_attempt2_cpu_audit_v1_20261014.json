@@ -1,0 +1,79 @@
+{
+  "schema_version": 1,
+  "experiment_id": "teacher_native_spatial_4task_mixbatch8_freshseed2001_40k_v1_20261014",
+  "status": "complete96_full_evidence_revalidated",
+  "registration": "results/teacher_native_spatial_4task_mixbatch8_eval_attempt2_registration_v1_20261014.json",
+  "manifest": "results/teacher_native_spatial_4task_mixbatch8_freshseed2001_96_eval_attempt2_manifest_v1_20261014.json",
+  "audit": {
+    "script": "scripts/audit_scaling_final_evidence_v1.py",
+    "script_sha256": "1181678e416617e145e8a8f8ef0ab616f51c8baa45758cc180d8748882cc0408",
+    "executed_on_remote_cpu": true,
+    "supervisor_returncode": 0,
+    "supervisor_timed_out": false,
+    "runner_returncode": 0,
+    "verified_records": 96,
+    "expected_records": 96,
+    "all_protocol_and_action_csv_validations_passed": true,
+    "same_loaded_model_all96": true,
+    "repeated_initialization_provenance_equal": true,
+    "init3_action_csv_identical_within_each_task": {"task0": true, "task1": true, "task2": true, "task3": true},
+    "automatic_retries": 0
+  },
+  "provenance": {
+    "checkpoint_sha256": "40f5e173933730e2bb695a8f2c2f5402f8dd2b39d44b17ec0e090f79eff3c223",
+    "evaluator_sha256": "89fd36a89dc45a56382219d4c3f6e5d12a3b1689abb3440ec29be346815af7cb",
+    "schedule_sha256": "094aad5affd0e9c2a29b68a49aab2fd61feb6fa9e4365ec09a3d45da675e9065",
+    "remote_evaluation_root": "/root/smolvla-eval-prep/results/teacher_native_spatial_4task_mixbatch8_freshseed2001_40k_eval_attempt2_v1_20261014"
+  },
+  "protocol": {
+    "suite": "libero_spatial",
+    "tasks": [0, 1, 2, 3],
+    "rollouts_per_task": 24,
+    "paired_initializations": "0..19",
+    "cli_seed_rule": "12345 + init_index",
+    "effective_seed_rule": "12345 + 2 * init_index",
+    "environment_seed": 12351,
+    "additional_init3_repeats_per_task": 4,
+    "wait_steps": 10,
+    "n_action_steps": 25,
+    "max_steps": 300,
+    "total_rollouts": 96
+  },
+  "results": {
+    "task0": {"paired_successes": 16, "paired_total": 20, "wilson_95_ci": [0.584, 0.9193], "init3_successes": 5, "init3_total": 5},
+    "task1": {"paired_successes": 8, "paired_total": 20, "wilson_95_ci": [0.2188, 0.6134], "init3_successes": 0, "init3_total": 5},
+    "task2": {"paired_successes": 17, "paired_total": 20, "wilson_95_ci": [0.6396, 0.9476], "init3_successes": 5, "init3_total": 5},
+    "task3": {"paired_successes": 19, "paired_total": 20, "wilson_95_ci": [0.7639, 0.9911], "init3_successes": 5, "init3_total": 5}
+  },
+  "registered_hypothesis_outcome": {
+    "claim": "The seed-2001 mixed-batch-8 condition restores the task0 paired/fixed-init3 target relative to the prior homogeneous-batch-2 joint-4 result.",
+    "result": "target_met_once: task0 16/20 paired and 5/5 init3",
+    "interpretation_limit": "One seed and a treatment that changes batch size and gradient co-averaging together do not establish population-level or isolated causal multi-task interference."
+  },
+  "unchanged_four_task_progression_gate": {
+    "thresholds": {"task0": "at least 11/20 paired and 5/5 init3", "tasks1_to_3": "at least 10/20 paired and 5/5 init3 each"},
+    "passed": false,
+    "failed_task": "task1",
+    "failure_reason": "task1 scored 8/20 paired and 0/5 init3; its registered minimums were 10/20 and 5/5.",
+    "fold02": "LOCKED",
+    "eight_task_expansion": "LOCKED",
+    "automatic_next_stage": false
+  },
+  "descriptive_comparison_to_prior_seed2001_homogeneous_joint4": {
+    "source": "results/teacher_native_spatial_4task_final_eval_result_v1_20261009.json",
+    "paired_successes_by_task_old_then_this_run": {"task0": [10, 16], "task1": [15, 8], "task2": [19, 17], "task3": [15, 19]},
+    "interpretation": "Descriptive single-seed contrast only; do not infer isolated batch-size or gradient-interference causality."
+  },
+  "limits": [
+    "Tasks1..3 lack matched single-task positive baselines in this registered comparison.",
+    "Identical actions on repeated init3 do not establish historical V3 parity or determinism across different initializations.",
+    "No unused-initialization generalization or post-success persistence was evaluated.",
+    "The task1 gate failure does not distinguish training insufficiency, task-specific difficulty, or multi-task interference."
+  ],
+  "evidence_policy": {
+    "old_evidence_overwritten": false,
+    "raw_trajectories_videos_action_csvs_logs_checkpoints_published": false,
+    "historical_v3_parity_invalidation": "unchanged",
+    "next_gpu_budget": 0
+  }
+}
