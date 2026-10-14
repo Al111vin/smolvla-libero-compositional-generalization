@@ -1,0 +1,49 @@
+{
+  "schema_version": 1,
+  "experiment_id": "teacher_native_spatial_4task_mixbatch8_freshseed2001_40k_v1_20261014",
+  "registration": "results/teacher_native_spatial_4task_mixbatch8_freshseed2001_diagnostic_registration_v1_20261014.json",
+  "created_at_utc": "2026-10-14T01:49:04Z",
+  "authorization": "One bounded mixed-batch8 4-task seed-2001 training run, max 40000 optimizer updates; then the registered single 96-rollout evaluation only after successful checkpoint/protocol preflight; no retries.",
+  "command": [
+    "/usr/bin/env",
+    "CUDA_VISIBLE_DEVICES=0",
+    "/usr/local/miniconda3/envs/py312/bin/python",
+    "/root/smolvla-training-prep/recovery/teacher_native_spatial_4task_mixbatch8_freshseed2001_v1_20261014/scripts/teacher_native_spatial_4task_mixbatch8_train_wrapper_v1_20261014.py",
+    "--config_path",
+    "/root/smolvla-training-prep/recovery/teacher_native_spatial_4task_mixbatch8_freshseed2001_v1_20261014/configs/teacher_native_spatial_4task_mixbatch8_freshseed2001_40k_v1_20261014.json"
+  ],
+  "cwd": "/root/smolvla-training-prep",
+  "output": "/root/smolvla-training-prep/results/training/teacher_native_spatial_4task_mixbatch8_freshseed2001_40k_v1_20261014",
+  "external_prefix": "/root/smolvla-training-prep/recovery/teacher_native_spatial_4task_mixbatch8_freshseed2001_v1_20261014/teacher_native_spatial_4task_mixbatch8_freshseed2001_40k_v1_20261014",
+  "gpu_lock": "/root/smolvla-training-prep/teacher_control_gpu.lock",
+  "walltime_seconds": 129600,
+  "grace_seconds": 60,
+  "minimum_free_bytes": 21474836480,
+  "conflict_tokens": [
+    "lerobot_train",
+    "task_balanced",
+    "teacher_native_spatial",
+    "eval_v3_task0_state_capture"
+  ],
+  "pinned_files": {
+    "/root/smolvla-training-prep/recovery/teacher_native_spatial_4task_mixbatch8_freshseed2001_v1_20261014/configs/teacher_native_spatial_task0_freshseed2001_40k_batch2_v1_20261011.json": "fabb744b04083ee643e3f7db34798e465f069379fcc1d57146d5dc70aaa43f0b",
+    "/root/smolvla-training-prep/recovery/teacher_native_spatial_4task_mixbatch8_freshseed2001_v1_20261014/configs/teacher_native_spatial_4task_freshseed2001_160k_batch2_v1_20261011.json": "2ced9539c1ec358b47ce6ae20a2db979088f3e5bfc3e8399405bc2a5d2546ac3",
+    "/root/smolvla-training-prep/recovery/teacher_native_spatial_4task_mixbatch8_freshseed2001_v1_20261014/configs/teacher_native_spatial_4task_mixbatch8_freshseed2001_40k_v1_20261014.json": "7d19527dc45b63c4325da9500bd2eb9964ec4d3cd136d2547bba2864ce1e6e91",
+    "/root/smolvla-training-prep/recovery/teacher_native_spatial_4task_mixbatch8_freshseed2001_v1_20261014/scripts/build_teacher_native_spatial_4task_mixbatch8_freshseed2001_config_v1.py": "ba63cb1bc99b99f8f31dd3ff2dcd794c28f62faaf026ce5e97d40cdce287fc45",
+    "/root/smolvla-training-prep/recovery/teacher_native_spatial_4task_mixbatch8_freshseed2001_v1_20261014/scripts/task_balanced_batch_sampler_v2.py": "22aeca407667bdf009021a4856ad8262de2365a13e8c970f720c890b3ccdfd29",
+    "/root/smolvla-training-prep/recovery/teacher_native_spatial_4task_mixbatch8_freshseed2001_v1_20261014/scripts/teacher_native_spatial_4task_mixbatch8_train_wrapper_v1_20261014.py": "a20e97e105807b0ada5c9c8035ae4e1dbc7e7c7c110d8c8d6667d8231d2d2800",
+    "/root/smolvla-training-prep/recovery/teacher_native_spatial_4task_mixbatch8_freshseed2001_v1_20261014/scripts/preflight_teacher_native_spatial_4task_mixbatch8_freshseed2001_v1_20261014.py": "ea475070cec5e259f9c4324b847847496d8e967d9a29ddb833911186ef985463",
+    "/root/smolvla-training-prep/recovery/teacher_native_spatial_4task_mixbatch8_freshseed2001_v1_20261014/tests/test_teacher_native_spatial_4task_mixbatch8_v1_20261014.py": "3d3eeabf551fec57e0d33d703af96ce35ef8412476082c6a11f2677d5705379b",
+    "/root/smolvla-training-prep/recovery/teacher_native_spatial_4task_mixbatch8_freshseed2001_v1_20261014/results/teacher_native_spatial_4task_mixbatch8_freshseed2001_diagnostic_registration_v1_20261014.json": "a03b4a0de93fd61bcdd421b379d92874a4c1c9d09b4b77261b09ca1c991eb46f",
+    "/root/smolvla-training-prep/recovery/teacher_native_spatial_4task_mixbatch8_freshseed2001_v1_20261014/results/teacher_native_spatial_4task_mixbatch8_preflight_attempt1_v1_20261014.json": "1ec69bd7df64bea21d6f6c255e2d58b7d4591417486b63e9d1db2772dee2a35d",
+    "/root/smolvla-training-prep/recovery/teacher_native_spatial_4task_mixbatch8_freshseed2001_v1_20261014/results/teacher_native_spatial_0_3_conversion_manifest_20261003.json": "8bb81e1d1828d2a4be3dd8469e1f2812c35bc4f9a48aea0f7a8da8deb2d11ba1",
+    "/root/smolvla-training-prep/recovery/teacher_native_spatial_4task_mixbatch8_freshseed2001_v1_20261014/results/teacher_native_spatial_full_parity_v1_20261009.json": "857486b457461eb7cd7b1182e5214c293577f5d81fe39fdafa0f196068da2e20",
+    "/root/smolvla-training-prep/recovery/teacher_native_spatial_4task_mixbatch8_freshseed2001_v1_20261014/results/teacher_native_spatial_4task_mixbatch8_cpu_preflight_v1_20261014.json": "8add96f361f7e090430a61b1cf63cc063850f59f1f7ef7d20999653f8c89e0c3",
+    "/root/smolvla-training-prep/recovery/teacher_native_spatial_4task_mixbatch8_freshseed2001_v1_20261014/results/teacher_native_spatial_4task_mixbatch8_full_frame_reaudit_v1_20261014.json": "21faf7429d0c9f960bd07ecfde2a543b19973ff65289798cd73eeba17b474c39",
+    "/root/smolvla-training-prep/recovery/fresh_seed_pair_v1_20261011/scripts/run_fresh_seed_training_v1.py": "0c465eb605bf9fb7ab1a86ed1b4e14431b7e51c620f0722e79d0a9250b14506c",
+    "/root/smolvla-training-prep/recovery/fresh_seed_pair_v1_20261011/scripts/bounded_child_signals_v4.py": "581640309a116c7a247acb0395151c6cf3f18194991cb2f6805a1e93ab4ae7db",
+    "/usr/local/miniconda3/envs/py312/lib/python3.12/site-packages/lerobot/scripts/lerobot_train.py": "e08ba26017674ac8453683e7b54810325fb381f20cb32a161c5d9aa690483449",
+    "/root/smolvla-training-prep/models/smolvla_base_libero/model.safetensors": "7cd549ac2351fb069c0ddb3c34ad2d09cfc92b56a15dccdfc2e41467aaca01eb",
+    "/root/smolvla-eval-prep/scripts/eval_v3_task0_state_capture_v1.py": "89fd36a89dc45a56382219d4c3f6e5d12a3b1689abb3440ec29be346815af7cb"
+  }
+}

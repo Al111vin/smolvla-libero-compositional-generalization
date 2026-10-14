@@ -1,0 +1,57 @@
+{
+  "schema_version": 1,
+  "status": "cpu_only_preflight_passed_not_launched",
+  "recorded_at_utc": "2026-10-14T01:45:19.368009+00:00",
+  "experiment_id": "teacher_native_spatial_4task_mixbatch8_freshseed2001_40k_v1_20261014",
+  "gpu_visibility_disabled": true,
+  "model_loaded": false,
+  "policy_forward_called": false,
+  "optimizer_updates": 0,
+  "training_started": false,
+  "evaluation_started": false,
+  "pinned_hashes_match": true,
+  "conversion_manifest_sha256": "8bb81e1d1828d2a4be3dd8469e1f2812c35bc4f9a48aea0f7a8da8deb2d11ba1",
+  "full_frame_audit": {
+    "frames": 22709,
+    "images": 45418,
+    "episodes": 200,
+    "passed": true
+  },
+  "base_model_sha256": "7cd549ac2351fb069c0ddb3c34ad2d09cfc92b56a15dccdfc2e41467aaca01eb",
+  "installed_trainer_sha256": "e08ba26017674ac8453683e7b54810325fb381f20cb32a161c5d9aa690483449",
+  "actual_scheduler": {
+    "positions": 40000,
+    "single_candidate_exact_match": true
+  },
+  "loader": {
+    "episodes": 200,
+    "frames": 22709,
+    "tasks": 4,
+    "accelerate_cpu_batches_checked": 32,
+    "quota_each_batch": [
+      2,
+      2,
+      2,
+      2
+    ],
+    "sampler_indices": 320000,
+    "sampler_batches": 40000
+  },
+  "resources": {
+    "gpu": "NVIDIA GeForce RTX 5090, 0 %, 2 MiB, 32607 MiB",
+    "gpu_processes": [],
+    "disk_free_gib": 40.0,
+    "shared_lock_probe": "acquired_nonblocking"
+  },
+  "registered_paths_absent": true,
+  "changed_config_keys_from_joint": [
+    "batch_size",
+    "job_name",
+    "output_dir",
+    "steps"
+  ],
+  "ready_for_immediate_final_guard": true,
+  "limitations": [
+    "CPU sampler/data-loader checks do not prove CUDA training, checkpoint persistence, or evaluation outcome."
+  ]
+}

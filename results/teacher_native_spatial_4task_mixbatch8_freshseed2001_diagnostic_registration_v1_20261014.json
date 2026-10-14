@@ -1,0 +1,130 @@
+{
+  "schema_version": 1,
+  "experiment_id": "teacher_native_spatial_4task_mixbatch8_freshseed2001_40k_v1_20261014",
+  "status": "registered_design_preflight_pending",
+  "registered_at_utc": "2026-10-14T01:34:27Z",
+  "question": "At matched per-task sample draws and task-specific LR sequence, does simultaneous balanced-batch optimization recover the task0 gate missed by sequential homogeneous task batches?",
+  "evidence_basis": {
+    "current_seed2001_single_task0": "14/20 paired, 5/5 fixed init3",
+    "current_seed2001_joint4_homogeneous_batch2": "10/20 paired, 5/5 fixed init3; the 11/20 paired gate is missed",
+    "historical_joint4_mixed_batch8_seed1000": "14/20 task0 paired, 4/5 fixed init3; not a matched-seed comparison",
+    "retrospective_schedule_audit": "The seed2001 homogeneous joint implementation matches nominal per-task sample slots and LR vectors to the 40k single-task reference; no underexposure is supported by that audit.",
+    "existing_action_profile": "Gross near-zero-action collapse was falsified; saved joint loss traces show longer, less-direct end-effector paths, but no object/goal-relative mechanism was established."
+  },
+  "hypothesis": {
+    "claim_to_test": "With training seed 2001, combining task gradients in each optimizer update may restore task0 paired success at matched per-task sample and LR exposure, relative to the completed homogeneous-batch2 4-task checkpoint.",
+    "falsifier": "The new mixed-batch8 checkpoint scores below 11/20 paired task0 successes or below 5/5 fixed-init3 successes under the frozen evaluation protocol.",
+    "interpretation_limit": "One matched training-seed contrast changes batch size and gradient co-averaging together. A pass/fail is diagnostic evidence about this training treatment, not a population-level estimate or isolated proof of multi-task interference. Existing failed outcomes remain unchanged."
+  },
+  "options_compared": [
+    {
+      "option": "Advance directly to 8 tasks or unlock Fold02",
+      "decision": "rejected",
+      "reason": "The completed 4-task seed2001 model missed the unchanged task0 11/20 gate; adding tasks would compound an unresolved 4-task retention issue."
+    },
+    {
+      "option": "Extend the same homogeneous-batch2 checkpoint or blindly repeat it",
+      "decision": "rejected",
+      "reason": "Per-task exposure and LR sequence were already matched, and the 80k-to-160k task0 comparison was non-monotonic; no new falsifiable contrast supports more of the same."
+    },
+    {
+      "option": "Train a new homogeneous-batch2 seed",
+      "decision": "deferred",
+      "reason": "It tests training-seed variation but not the concrete update-composition hypothesis and costs four times as many optimizer updates as the selected contrast."
+    },
+    {
+      "option": "One seed2001 mixed-batch8 4-task condition, exactly two examples/task/update",
+      "decision": "selected_for_bounded_preflight",
+      "reason": "It uses the already-tested task-quota sampler, preserves the same dataset/base/seed and per-task 80,000 draws plus the 40k single-task LR vector, while changing the optimizer update composition as the explicit treatment."
+    }
+  ],
+  "proposed_training": {
+    "suite": "official native LIBERO Spatial",
+    "task_ids": [0, 1, 2, 3],
+    "dataset_repo_id": "local/libero_spatial_tasks0_3_native_v1",
+    "dataset_root": "/root/smolvla-training-prep/datasets/lerobot/libero_spatial_tasks0_3_native_20261003_v1",
+    "episodes_per_task": 50,
+    "initialization": "same pretrained base as the completed seed2001 single and joint runs; no warm start from either trained checkpoint",
+    "training_seed": 2001,
+    "global_optimizer_updates": 40000,
+    "batch_size": 8,
+    "batch_quota": "exactly 2 samples from each of task ids 0,1,2,3 in every optimizer batch",
+    "per_task_sample_draws": 80000,
+    "lr_schedule": "the exact frozen task0 40k scheduler/config vector: cosine_decay_with_warmup, 3000 warmup steps, 90000 decay steps, peak 1e-4, decay 2.5e-6; verify all 40,000 values and step ordering in preflight",
+    "only_intended_config_changes_from_seed2001_joint4": ["steps", "batch_size", "job_name", "output_dir", "balanced-batch wrapper path/hash"],
+    "training_output": "/root/smolvla-training-prep/results/training/teacher_native_spatial_4task_mixbatch8_freshseed2001_40k_v1_20261014",
+    "recovery_root": "/root/smolvla-training-prep/recovery/teacher_native_spatial_4task_mixbatch8_freshseed2001_v1_20261014",
+    "config": "/root/smolvla-training-prep/recovery/teacher_native_spatial_4task_mixbatch8_freshseed2001_v1_20261014/configs/teacher_native_spatial_4task_mixbatch8_freshseed2001_40k_v1_20261014.json",
+    "train_wrapper": "/root/smolvla-training-prep/recovery/teacher_native_spatial_4task_mixbatch8_freshseed2001_v1_20261014/scripts/teacher_native_spatial_4task_mixbatch8_train_wrapper_v1_20261014.py",
+    "launch_manifest": "/root/smolvla-training-prep/recovery/teacher_native_spatial_4task_mixbatch8_freshseed2001_v1_20261014/teacher_native_spatial_4task_mixbatch8_freshseed2001_40k_v1_20261014.launch_manifest.json",
+    "training_log": "/root/smolvla-training-prep/recovery/teacher_native_spatial_4task_mixbatch8_freshseed2001_v1_20261014/teacher_native_spatial_4task_mixbatch8_freshseed2001_40k_v1_20261014.training.log",
+    "launcher_pid": "/root/smolvla-training-prep/recovery/teacher_native_spatial_4task_mixbatch8_freshseed2001_v1_20261014/teacher_native_spatial_4task_mixbatch8_freshseed2001_40k_v1_20261014.launcher.pid",
+    "exit_code": "/root/smolvla-training-prep/recovery/teacher_native_spatial_4task_mixbatch8_freshseed2001_v1_20261014/teacher_native_spatial_4task_mixbatch8_freshseed2001_40k_v1_20261014.exit_code"
+  },
+  "evaluation": {
+    "checkpoint": "final 040000 only",
+    "evaluator_sha256": "89fd36a89dc45a56382219d4c3f6e5d12a3b1689abb3440ec29be346815af7cb",
+    "init_source": "benchmark",
+    "paired_init_indices": "0..19",
+    "paired_cli_seed": "12345 + init_index; effective seed 12345 + 2 * init_index",
+    "fixed_init3": "one paired init3 plus four additional repeats, for 5 total",
+    "extra_init3_cli_seed": 12348,
+    "extra_init3_effective_seed": 12351,
+    "wait_steps": 10,
+    "n_action_steps": 25,
+    "max_steps": 300,
+    "total_rollouts": 96,
+    "evaluation_output": "/root/smolvla-eval-prep/results/teacher_native_spatial_4task_mixbatch8_freshseed2001_40k_eval_v1_20261014",
+    "evaluation_recovery_root": "/root/smolvla-eval-prep/recovery/teacher_native_spatial_4task_mixbatch8_freshseed2001_eval_v1_20261014"
+  },
+  "unchanged_gates": {
+    "task0": "at least 11/20 paired and 5/5 fixed-init3 successes",
+    "tasks1_to_3": "at least 10/20 paired and 5/5 fixed-init3 successes each",
+    "8_task_expansion": "LOCKED until a reviewed 4-task condition meets the existing gates",
+    "fold02": "LOCKED"
+  },
+  "execution_bounds": {
+    "max_training_runs": 1,
+    "max_optimizer_updates": 40000,
+    "max_evaluation_runs": 1,
+    "max_total_policy_rollouts": 96,
+    "automatic_retries": 0,
+    "requires_complete_preflight_before_gpu_start": true,
+    "gpu_work_if_preflight_fails": 0,
+    "no_shutdown": true,
+    "raw_artifacts_transferred_or_published": false
+  },
+  "local_source_hashes": {
+    "base_single_config_sha256": "fabb744b04083ee643e3f7db34798e465f069379fcc1d57146d5dc70aaa43f0b",
+    "base_joint_config_sha256": "2ced9539c1ec358b47ce6ae20a2db979088f3e5bfc3e8399405bc2a5d2546ac3",
+    "candidate_config_sha256": "7d19527dc45b63c4325da9500bd2eb9964ec4d3cd136d2547bba2864ce1e6e91",
+    "config_builder_sha256": "ba63cb1bc99b99f8f31dd3ff2dcd794c28f62faaf026ce5e97d40cdce287fc45",
+    "train_wrapper_sha256": "a20e97e105807b0ada5c9c8035ae4e1dbc7e7c7c110d8c8d6667d8231d2d2800",
+    "balanced_sampler_sha256": "22aeca407667bdf009021a4856ad8262de2365a13e8c970f720c890b3ccdfd29",
+    "cpu_test_sha256": "3d3eeabf551fec57e0d33d703af96ce35ef8412476082c6a11f2677d5705379b"
+  },
+  "local_validation": {
+    "config_derivation_assertions": "passed: only steps, batch_size, job_name and output_dir differ from the seed2001 joint4 config; scheduler/optimizer match the single-task baseline",
+    "syntax_checks": "passed for builder, train wrapper, and test source",
+    "pytest": "not run locally because the default Mac Python lacks pytest and torch; the frozen sampler already has a prior successful real Accelerate loader smoke, but this seed-specific wrapper still requires remote CPU validation",
+    "remote_validation": "pending: no files transferred and no new output paths created"
+  },
+  "required_preflight": [
+    "Verify local/remote source config and sampler/wrapper hashes, official HDF5/conversion/data manifests, model/statistics/preprocessing and exact task mapping against the completed seed2001 records.",
+    "Test exact 2-per-task batch quotas, 40,000 batches, 80,000 examples/task and exact equality of the 40,000-point LR sequence with the frozen task0 40k scheduler; verify installed trainer and Accelerate loader integration.",
+    "Pin config, wrapper, test, and launch hashes; verify one-attempt supervisor/lock behavior and detached-process cleanup.",
+    "Immediately before launch, confirm no competing process, GPU idle, existing lock free, at least 20 GiB disk free, and all new config/log/PID/exit/output/evaluation paths absent.",
+    "After training exits 0, require complete nonempty 040000 checkpoint and verify its hash/provenance, free GPU, evaluator hash, protocol, disk, lock, and clean evaluation paths before the one 96-rollout evaluation."
+  ],
+  "stop_conditions": [
+    "Any source/config/scheduler/hash/schema mismatch, insufficient resources, path collision, occupied lock or process/GPU conflict stops before the next mutating stage.",
+    "Training failure or supervisor timeout preserves all artifacts; no automatic relaunch or evaluation.",
+    "Evaluation protocol mismatch or any runtime error preserves the failed run; no retry or result substitution."
+  ],
+  "provenance_policy": {
+    "old_evidence_overwritten": false,
+    "historical_v3_parity_invalidation": "unchanged",
+    "model_weights_data_raw_trajectories_actions_videos_logs_credentials_published": false,
+    "publish_only": ["authorized code", "README", "lightweight JSON summary"]
+  }
+}

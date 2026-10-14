@@ -1,0 +1,35 @@
+{
+  "schema_version": 1,
+  "status": "remote_read_only_preflight_not_observed_connection_closed",
+  "recorded_at_utc": "2026-10-14T01:36:32Z",
+  "experiment_id": "teacher_native_spatial_4task_mixbatch8_freshseed2001_40k_v1_20261014",
+  "connection_attempt": {
+    "count": 1,
+    "target": "cpod-1v6wxcygzn32-s1.podtcp.compshare.cn:27360",
+    "mode": "batch_authenticated_read_only_probe",
+    "result": "Connection closed by 117.50.184.29 port 27360 before any command output was returned",
+    "remote_preflight_commands_observed": false
+  },
+  "local_preflight": {
+    "candidate_config_sha256": "7d19527dc45b63c4325da9500bd2eb9964ec4d3cd136d2547bba2864ce1e6e91",
+    "candidate_config": "40,000 updates, batch 8, seed 2001, two examples/task per batch, 80,000 sample draws/task",
+    "config_derivation_assertions": "passed",
+    "source_syntax_checks": "passed",
+    "pytest_or_torch_available_in_default_mac_python": false
+  },
+  "compute_and_transfer": {
+    "code_or_config_transfer_attempted": false,
+    "remote_files_modified": false,
+    "training_started": false,
+    "evaluation_started": false,
+    "gpu_budget_used": 0,
+    "raw_data_or_model_transferred": false
+  },
+  "status_interpretation": {
+    "remote_job_state": "not inferred from this failed observation",
+    "launch_authorized_by_registration": "only after a complete passing remote preflight and path/lock/resource checks",
+    "next_action": "Keep all new run paths unused; on a later unattended poll, first retry only the read-only preflight once after revalidating the exact registration hashes. Do not transfer/start if connection, hashes, resources or paths cannot be verified.",
+    "fold02": "LOCKED",
+    "eight_task_expansion": "LOCKED"
+  }
+}

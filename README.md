@@ -2312,3 +2312,30 @@ artifact under the queried training-results path. This is a point-in-time
 resource/path check, not evidence to restart or infer a new failure; no remote
 files, training, or evaluation were changed. Fold02 and eight-task expansion
 remain locked. See the [latest read-only remote status](results/teacher_native_spatial_fresh_seed_remote_readonly_status_v2_20261014.json).
+
+The next bounded 4-task diagnostic compares the completed seed-2001 homogeneous
+batch-2 treatment against mixed batch-8 training at the same seed, same
+four-task dataset, 80,000 sample draws/task and task0's 40k LR vector; the
+intended treatment is per-update task-gradient co-averaging. Its finite budget
+is one 40k-update training run and 96 frozen-protocol rollouts, with no
+automatic retries. The existing task0 11/20 plus 5/5 init3 gate and tasks1–3
+10/20 plus 5/5 fixed-init3 gates are unchanged; Fold02 and eight-task expansion
+remain locked. The first read-only SSH preflight closed before returning
+output; that failed attempt is preserved. A later complete CPU-only preflight
+passed: it verified 32 real Accelerate batches with 2 samples/task, all
+320,000 sampler indices across 40,000 updates, and the exact 40k task0
+scheduler sequence. A full source-frame re-audit also passed for 22,709 frames,
+45,418 images, and 200 episodes. No model/data payloads were transferred.
+
+The single registered run was subsequently launched once under the bounded
+supervisor (supervisor PID 163580, trainer PID 163598; zero retries). At the
+2026-10-14 01:52:51 UTC snapshot, it had reached optimizer step 500/40,000
+(loss 0.748); both processes were alive, the RTX 5090 was in use, the exclusive
+GPU lock was present, and no exit receipt or checkpoint had yet appeared.
+This confirms training has begun, not that it has completed or succeeded.
+Evaluation remains conditional on exit 0, a complete final checkpoint, and
+fresh evaluator/resource/path checks. Do not relaunch after an SSH disconnect;
+inspect the supervisor, exit receipt, and checkpoint first. See the
+[registration](results/teacher_native_spatial_4task_mixbatch8_freshseed2001_diagnostic_registration_v1_20261014.json),
+[preflight attempt](results/teacher_native_spatial_4task_mixbatch8_preflight_attempt1_v1_20261014.json),
+and [latest run snapshot](results/teacher_native_spatial_4task_mixbatch8_freshseed2001_40k_progress_v1_20261014.json).

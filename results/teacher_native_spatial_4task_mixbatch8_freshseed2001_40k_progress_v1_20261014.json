@@ -1,0 +1,50 @@
+{
+  "schema_version": 1,
+  "recorded_at_utc": "2026-10-14T01:52:51Z",
+  "experiment": "teacher_native_spatial_4task_mixbatch8_freshseed2001_40k_v1_20261014",
+  "status": "running_observed_step_500",
+  "scope": "One registered 40,000-update mixed-batch training run; no retry. The registered 96-rollout evaluation is conditional on successful exit and checkpoint/preflight validation.",
+  "launch": {
+    "started_at_utc": "2026-10-14T01:51:15Z",
+    "supervisor_pid": 163580,
+    "trainer_pid": 163598,
+    "launch_manifest": "results/teacher_native_spatial_4task_mixbatch8_freshseed2001_40k_v1_20261014.launch_manifest.json",
+    "launch_manifest_sha256": "bda710aa1c3145e747a7211904352bd5c2c4291d2d9a24dc810d6b959fec4f93",
+    "remote_recovery_dir": "/root/smolvla-training-prep/recovery/teacher_native_spatial_4task_mixbatch8_freshseed2001_v1_20261014",
+    "remote_log": "/root/smolvla-training-prep/recovery/teacher_native_spatial_4task_mixbatch8_freshseed2001_v1_20261014/teacher_native_spatial_4task_mixbatch8_freshseed2001_40k_v1_20261014.training.log"
+  },
+  "preflight": {
+    "cpu_preflight": "passed",
+    "cpu_preflight_result_sha256": "8add96f361f7e090430a61b1cf63cc063850f59f1f7ef7d20999653f8c89e0c3",
+    "full_source_frame_reaudit": "passed",
+    "source_frames": 22709,
+    "source_images": 45418,
+    "source_episodes": 200,
+    "source_frame_reaudit_result_sha256": "21faf7429d0c9f960bd07ecfde2a543b19973ff65289798cd73eeba17b474c39",
+    "accelerate_cpu_batches": 32,
+    "samples_per_task": 80000,
+    "scheduler_exact_match_to_task0_40k": true,
+    "gpu_preflight": "passed; RTX 5090 idle before launch, exclusive lock and new paths verified"
+  },
+  "latest_observation": {
+    "observed_at_utc": "2026-10-14T01:52:51Z",
+    "optimizer_step": 500,
+    "target_steps": 40000,
+    "loss": 0.748,
+    "trainer_process_alive": true,
+    "supervisor_process_alive": true,
+    "gpu": "RTX 5090; 75% utilization, 3946 MiB used at 01:52:43 UTC snapshot",
+    "gpu_lock_present": true,
+    "exit_receipt": "pending",
+    "checkpoint_output": "not yet observed",
+    "root_disk_free_gib": 41,
+    "training_log_bytes": 45102,
+    "retries": 0
+  },
+  "interpretation_limits": [
+    "The run is active and has begun optimizer updates; this is not a completion or policy-success claim.",
+    "No evaluation has started.",
+    "Do not relaunch after an SSH disconnect; inspect remote supervisor, exit receipt, and checkpoint first.",
+    "Fold02 and 8-task expansion remain locked pending the unchanged scientific gates."
+  ]
+}
