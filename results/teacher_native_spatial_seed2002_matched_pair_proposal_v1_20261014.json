@@ -1,0 +1,116 @@
+{
+  "schema_version": 1,
+  "experiment_id": "teacher_native_spatial_seed2002_matched_pair_proposal_v1_20261014",
+  "status": "cpu_only_proposal_pending_explicit_gpu_authorization",
+  "created_at_utc": "2026-10-14T10:36:37Z",
+  "question": "Does the seed2001 task0 drop in homogeneous joint4 relative to the current-code single-task baseline reproduce on an independent training seed when per-task updates, sample slots, and LR exposure are matched?",
+  "falsifiable_hypotheses": [
+    {
+      "name": "single_task0_pipeline_replication",
+      "claim": "The task0-only 40k recipe reaches at least 11/20 paired successes and 5/5 fixed-init3 on a new training seed.",
+      "falsifier": "Either registered task0 threshold is missed."
+    },
+    {
+      "name": "joint4_task0_retention_replication",
+      "claim": "At matched per-task task0 update/sample/LR-factor exposure, homogeneous joint4 remains below the task0 11/20 paired threshold while the task0-only control passes.",
+      "falsifier": "Joint4 passes the unchanged task0 gate, or the single-task control fails so the comparison cannot isolate a multi-task-associated change."
+    }
+  ],
+  "current_evidence_basis": {
+    "historical_vs_fresh_single_task0": "13/20 versus 14/20 paired; both 5/5 fixed-init3; exact paired McNemar p=1.0; same previously used 20 initializations.",
+    "seed2001_single_vs_joint4_task0": "14/20 versus 10/20 paired; both 5/5 fixed-init3; 3 gains, 7 losses, 10 ties; exact paired McNemar p=0.34375.",
+    "registered_four_task_gate": "Joint4 task0 missed its 11/20 threshold; Fold02 and eight-task scaling remain locked.",
+    "exposure_design": "Registered task0-only 40k and joint4 160k give task0 40k optimizer updates and 80k sample slots; joint task0 LR-factor positions map to the 40k single-task schedule at floor(global_update/4). Shared optimizer state and parameter trajectories differ by design.",
+    "interpretation_limit": "One additional matched training seed improves replication evidence but does not establish a population-level or causal multi-task interference effect."
+  },
+  "options_compared": [
+    {
+      "option": "Launch eight-task training or unlock Fold02 now",
+      "decision": "reject",
+      "reason": "The existing four-task progression gate failed on task0; the objective requires the gate before expansion."
+    },
+    {
+      "option": "Repeat the exact seed2001 pair or its evaluation",
+      "decision": "reject",
+      "reason": "That finite chain is complete; an identical replay adds cost without a new falsifiable contrast."
+    },
+    {
+      "option": "Run only another task1 single-task model",
+      "decision": "defer",
+      "reason": "It would address the task1 diagnostic but not the current four-task gate's primary task0 failure."
+    },
+    {
+      "option": "Run a new seed2002 task0-only 40k plus homogeneous joint4 160k pair, then evaluate task0 on the single model and all four tasks on joint4",
+      "decision": "selected_candidate_pending_authorization",
+      "reason": "This is the most direct bounded replication of the failed four-task retention gate and the single-task positive control while preserving matched per-task exposure."
+    }
+  ],
+  "proposed_bounded_budget": {
+    "training_seed": 2002,
+    "training_runs": [
+      {
+        "condition": "single_task0",
+        "updates": 40000,
+        "batch_size": 2,
+        "source_config": "configs/teacher_native_spatial_task0_freshseed2001_40k_batch2_v1_20261011.json",
+        "candidate_config_path_after_authorization": "configs/teacher_native_spatial_task0_freshseed2002_40k_batch2_v1_20261014.json",
+        "candidate_output_path_after_authorization": "/root/smolvla-training-prep/results/training/teacher_native_spatial_task0_freshseed2002_40k_batch2_v1_20261014"
+      },
+      {
+        "condition": "homogeneous_joint4",
+        "updates": 160000,
+        "batch_size": 2,
+        "source_config": "configs/teacher_native_spatial_4task_freshseed2001_160k_batch2_v1_20261011.json",
+        "candidate_config_path_after_authorization": "configs/teacher_native_spatial_4task_freshseed2002_160k_batch2_v1_20261014.json",
+        "candidate_output_path_after_authorization": "/root/smolvla-training-prep/results/training/teacher_native_spatial_4task_freshseed2002_160k_batch2_v1_20261014"
+      }
+    ],
+    "total_global_optimizer_updates": 200000,
+    "evaluation_protocol": {
+      "evaluator_sha256": "89fd36a89dc45a56382219d4c3f6e5d12a3b1689abb3440ec29be346815af7cb",
+      "suite": "libero_spatial",
+      "init_source": "benchmark",
+      "paired_init_indices": "0..19",
+      "paired_cli_seed": "12345 + init_index",
+      "paired_effective_seed": "12345 + 2*init_index",
+      "fixed_init3_total_per_evaluated_task": 5,
+      "fixed_init3_extra_cli_seed": 12348,
+      "fixed_init3_extra_effective_seed": 12351,
+      "wait_steps": 10,
+      "max_steps": 300,
+      "n_action_steps": 25,
+      "single_task0_rollouts": 24,
+      "joint4_all_task_rollouts": 96,
+      "total_rollouts": 120
+    },
+    "evaluation_result_path_after_authorization": "results/teacher_native_spatial_seed2002_matched_pair_eval_result_v1_20261014.json",
+    "training_log_root_after_authorization": "/root/smolvla-training-prep/recovery/seed2002_matched_pair_v1_20261014",
+    "automatic_retries": 0,
+    "automatic_followup_stages": 0
+  },
+  "authorization_and_progression": {
+    "gpu_budget_active": 0,
+    "candidate_budget_is_authorized": false,
+    "fresh_explicit_user_authorization_required_before_config_deployment_or_launch": true,
+    "preflight_required": "Rebuild candidate configs only after authorization; then verify source/config/code/data/model/runtime hashes, dataset parity, exclusive GPU lock, disk, and every unique path before any one-shot launch.",
+    "gate_required_to_progress": {
+      "task0": "at least 11/20 paired and 5/5 fixed-init3",
+      "tasks1_to_3": "at least 10/20 paired and 5/5 fixed-init3 each"
+    },
+    "fold02": "LOCKED",
+    "eight_task_expansion": "LOCKED",
+    "passing_this_pair_does_not_automatically_authorize_expansion": true
+  },
+  "preserve_old_evidence": true,
+  "historical_v3_parity_invalidation": "UNCHANGED",
+  "raw_data_logs_trajectories_actions_videos_or_checkpoints_to_publish": false,
+  "source_sha256": {
+    "configs/teacher_native_spatial_task0_freshseed2001_40k_batch2_v1_20261011.json": "fabb744b04083ee643e3f7db34798e465f069379fcc1d57146d5dc70aaa43f0b",
+    "configs/teacher_native_spatial_4task_freshseed2001_160k_batch2_v1_20261011.json": "2ced9539c1ec358b47ce6ae20a2db979088f3e5bfc3e8399405bc2a5d2546ac3",
+    "results/teacher_native_spatial_fresh_seed_pair_eval_result_v1_20261012.json": "8ab53af93fa4e36f7a6407dcdcc0d59896ff1eb4985bef995199400241aaf255",
+    "results/teacher_native_spatial_4task_progression_decision_v1_20261009.json": "2b5ce07372624585069218886768fed071c0dfef9ed27214835a0dd0288c1f51",
+    "results/teacher_native_spatial_task0_cross_training_seed_repeatability_v1_20261014.json": "390c2a08ecb2938003925894dd004d148c7e1ac937ded5d1105867487b08d10e",
+    "results/teacher_native_spatial_fresh_seed_followup_decision_v1_20261012.json": "b59b182c7c732e4e45d3cdbce144d0c6f6feafbf7bdad7e8444314a69e0695fe",
+    "results/teacher_native_spatial_fresh_seed_lr_exposure_match_audit_v1_20261014.json": "ee20220e62006eb70cc1273ee684cad0328d049f92e407052261aad25756c953"
+  }
+}

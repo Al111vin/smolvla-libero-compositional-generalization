@@ -2578,3 +2578,14 @@ clarification. The old registration/result JSON files remain unchanged; see
 the [CPU clarification record](results/teacher_native_spatial_task1_update_composition_cpu_clarification_v1_20261014.json),
 the [CPU-only paired comparison](results/teacher_native_spatial_task1_freshseed2001_posthoc_cpu_comparison_v1_20261014.json),
 and its [analysis registration](results/teacher_native_spatial_task1_freshseed2001_posthoc_cpu_comparison_registration_v1_20261014.json).
+
+A bounded CPU-only proposal now compares candidate next steps after the failed
+four-task gate. It selects a new seed-2002 matched pair—task0-only 40k followed
+by homogeneous joint4 160k, with 24 and 96 registered rollouts respectively
+(120 total)—as the most direct replication of the task0 retention failure and
+single-task positive control. The proposal is **not GPU-authorized or deployed**:
+no candidate configs were created, no run was launched, and the active GPU
+budget remains zero. Any future run still requires fresh explicit authorization,
+full remote preflight, and one-shot execution; even a passing pair would not
+automatically unlock Fold02 or eight-task scaling. See the
+[seed-2002 matched-pair proposal](results/teacher_native_spatial_seed2002_matched_pair_proposal_v1_20261014.json).
