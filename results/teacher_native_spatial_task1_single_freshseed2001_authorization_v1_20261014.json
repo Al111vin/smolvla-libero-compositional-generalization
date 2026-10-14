@@ -1,0 +1,25 @@
+{
+  "schema_version": 1,
+  "experiment_id": "teacher_native_spatial_task1_freshseed2001_40k_batch2_v1_20261014",
+  "status": "authorized_preflight_pending",
+  "authorized_at_utc": "2026-10-14T07:31:40Z",
+  "authorization_source": "Direct user message: \"ask1 单任务对照需要新增一次 40k 训练和 24 次评估，授权这项 GPU 预算授权\"",
+  "authorization_scope": {
+    "training_runs": 1,
+    "training_updates": 40000,
+    "task_id": 1,
+    "seed": 2001,
+    "batch_size": 2,
+    "evaluation_rollouts": 24,
+    "automatic_retries": 0,
+    "evaluation_protocol": "Frozen task1 registration: benchmark initialization source, wait 10, max_steps 300, n_action_steps 25, paired inits 0..19 plus four extra fixed-init3 repeats.",
+    "registration": "results/teacher_native_spatial_task1_single_freshseed2001_registration_v1_20261014.json"
+  },
+  "preflight_and_stop_policy": [
+    "Run the registered read-only preflight before any GPU launch; require dataset/model/runtime/config hashes, task1 slice and filtered loader, actual 40000-step CPU LR vector, exclusive GPU lock, idle GPU, at least 20 GiB free disk, and all independent output/evidence paths absent.",
+    "If any check mismatches, any output path already exists, or connection/resource state is ambiguous, preserve all evidence and stop without launch, retry, or path substitution.",
+    "After one launch, never relaunch on disconnect. On nonzero exit, timeout, incomplete checkpoint, or evaluation error, preserve evidence and stop without automatic retry.",
+    "This diagnostic alone cannot unlock Fold02 or eight-task expansion; all unchanged scientific progression gates remain in force."
+  ],
+  "old_evidence_overwritten": false
+}

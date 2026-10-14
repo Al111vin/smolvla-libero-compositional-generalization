@@ -2507,3 +2507,46 @@ The local config builder is pinned to the seed2001 task0 source-config hash and
 its three CPU-only unit tests pass; it changes only the task1 episode slice and
 the new run/output identifiers. This does not replace the required remote
 dataset, model, runtime, lock, disk, and output-path preflight.
+
+After the user's bounded authorization, the task1-only seed-2001 run launched
+once and completed 40,000 updates with exit 0; the final checkpoint was
+complete. Its registered 24-rollout task1 evaluation then completed with
+runner/supervisor exit 0, no timeout, and all 24 records passing protocol and
+action-evidence validation. Task1 scored **6/20 paired starts and 0/5 fixed
+init3**, below the registered single-task diagnostic signal of 10/20 plus
+5/5. Thus this 40k task1-only condition did not establish task1 learnability
+at the matched task0 schedule. In context, task1 scored 11/20 and 5/5 in the
+seed-2001 homogeneous joint-4 evaluation, and 8/20 and 0/5 in mixed-batch8.
+These one-seed observations do not isolate the cause; they do not support
+attributing the mixed-batch8 deficit solely to cross-task mixing. The original
+four-task gate remains failed, Fold 02 and eight-task expansion remain locked,
+and this finite authorization is exhausted; there was no automatic retry.
+
+The evaluation used the pinned state-capture evaluator
+`eval_v3_task0_state_capture_v1.py` (SHA-256
+`89fd36a89dc45a56382219d4c3f6e5d12a3b1689abb3440ec29be346815af7cb`). The
+separate non-state-capture `eval_v3_task0.py` has SHA-256
+`5fb67f7a535e842214c351d09d368b3d2884deb267023fb51e54d3f5d494a2b3`; a
+preliminary check compared that different file by mistake, but no rollout had
+started then and the exact registered evaluator subsequently passed. Full
+counts and per-rollout lightweight outcomes are in the
+[task1 fresh-seed result](results/teacher_native_spatial_task1_freshseed2001_40k_eval_result_v1_20261014.json).
+Raw trajectories, action CSVs, videos, logs, data, and checkpoints were not
+published. The historical V3 parity invalidation is unchanged.
+
+A preregistered CPU-only post-hoc comparison then read the saved first-input
+provenance and per-episode success summaries for these three task1 runs. The
+20/20 paired starts matched between task1-only 40k and each comparator on
+model-array inputs, simulator state, frames, images, processor state, and RNG
+(trained weights were excluded). Outcomes were joint4 11/20, mixed-batch8
+8/20, and task1-only 40k 6/20; exact two-sided paired McNemar p-values for
+joint4 vs single40k and mixed-batch8 vs single40k were 0.180 and 0.727. On
+fixed init3, the five outcomes were 5/5, 0/5, and 0/5 respectively; all five
+starts matched across each comparison. This points to a task1 training
+horizon/schedule or treatment difference as a live explanation, but does not
+identify cause: the single-task 40k schedule was matched to task0, not the
+joint4 160k optimizer schedule, and these are one-seed descriptive contrasts.
+The original four-task gate remains failed; no GPU or rollout budget was used
+for this analysis. See the
+[CPU-only paired comparison](results/teacher_native_spatial_task1_freshseed2001_posthoc_cpu_comparison_v1_20261014.json)
+and its [analysis registration](results/teacher_native_spatial_task1_freshseed2001_posthoc_cpu_comparison_registration_v1_20261014.json).

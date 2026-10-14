@@ -1,0 +1,35 @@
+{
+  "schema_version": 1,
+  "experiment_id": "teacher_native_spatial_task1_freshseed2001_40k_batch2_v1_20261014",
+  "status": "evaluation_running",
+  "authorized_budget": {
+    "training_runs": 1,
+    "training_updates": 40000,
+    "evaluation_rollouts": 24,
+    "automatic_retries": 0
+  },
+  "training": {
+    "returncode": 0,
+    "timed_out": false,
+    "terminal_step": 40000,
+    "model_sha256": "47f0df580b039dcbb4754fc952e9b720c67853f54edc55f2abea2ae2cc99e972"
+  },
+  "evaluation_preflight": "results/teacher_native_spatial_task1_freshseed2001_eval_preflight_v1_20261014.json",
+  "manifest": "results/teacher_native_spatial_task1_freshseed2001_eval_manifest_v1_20261014.json",
+  "evaluator_path": "/root/smolvla-eval-prep/scripts/eval_v3_task0_state_capture_v1.py",
+  "evaluator_sha256": "89fd36a89dc45a56382219d4c3f6e5d12a3b1689abb3440ec29be346815af7cb",
+  "evaluation_output": "/root/smolvla-eval-prep/results/teacher_native_spatial_task1_freshseed2001_40k_eval_v1_20261014",
+  "evaluation_recovery": "/root/smolvla-eval-prep/recovery/teacher_native_spatial_task1_freshseed2001_40k_batch2_v1_20261014_eval_v1_20261014",
+  "started_at_utc": "2026-10-14T09:48:26Z",
+  "supervisor_pid": 325460,
+  "runner_pid": 325463,
+  "first_rollout_pid": 325472,
+  "first_rollout_key": "task1_paired_0_r0_160k",
+  "launch_observation_utc": "2026-10-14T09:48:34Z",
+  "receipt": "not_yet_present",
+  "timed_out": false,
+  "automatic_retries": false,
+  "fold02": "LOCKED",
+  "eight_task_expansion": "LOCKED",
+  "old_evidence_overwritten": false
+}

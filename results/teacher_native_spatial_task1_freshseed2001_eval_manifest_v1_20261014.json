@@ -1,0 +1,42 @@
+{
+  "schema_version": 1,
+  "experiment_id": "teacher_native_spatial_task1_freshseed2001_40k_batch2_v1_20261014",
+  "status": "prepared_after_completed_training_pending_readonly_eval_preflight",
+  "root": "/root/smolvla-eval-prep/results/teacher_native_spatial_task1_freshseed2001_40k_eval_v1_20261014",
+  "recovery_root": "/root/smolvla-eval-prep/recovery/teacher_native_spatial_task1_freshseed2001_40k_batch2_v1_20261014_eval_v1_20261014",
+  "checkpoint": "/root/smolvla-training-prep/results/training/teacher_native_spatial_task1_freshseed2001_40k_batch2_v1_20261014/checkpoints/040000/pretrained_model",
+  "model_sha256": "47f0df580b039dcbb4754fc952e9b720c67853f54edc55f2abea2ae2cc99e972",
+  "evaluator": "/root/smolvla-eval-prep/scripts/eval_v3_task0_state_capture_v1.py",
+  "evaluator_sha256": "89fd36a89dc45a56382219d4c3f6e5d12a3b1689abb3440ec29be346815af7cb",
+  "runner": "/root/smolvla-eval-prep/recovery/teacher_native_spatial_task1_freshseed2001_40k_batch2_v1_20261014_eval_v1_20261014/scripts/run_task1_freshseed2001_eval_v1.py",
+  "runner_sha256": "9a202c00811541030517bf069decefb043f2743d6ced5e84590e7564244f9610",
+  "schedule_sha256": "1f666016800c646e459eed439b6e1e6eeef332fccd593c8608c38e20266d3a96",
+  "code_hashes": {
+    "run_scaling_eval_v1.py": "acb7c9349a6e8598856c3a6d9119aa905be05a5c2252d66428bce9f673ae1fea",
+    "eval_scaling_environment_v1.py": "d11d463287ad08f828748126f8a666faa5404e3a6a7f2de14d4757de2559da2f",
+    "scaling_eval_schedule_v1.py": "094aad5affd0e9c2a29b68a49aab2fd61feb6fa9e4365ec09a3d45da675e9065",
+    "diagnostic_process_guard_v1.py": "e5f24725836e4c9178b247332cb33e1eafa9224ed22e4d016fff4778787cd49f",
+    "controlled_eval_hooks_v1.py": "88c519c9d3733fdb9c6b74a88e7d4ee15930fb492d360d7d4b083728bfd31ae2",
+    "first_decision_provenance_v1.py": "d098b099ebad38c750abc0f0d142109695daaa3823d0901ff6b13db9106d8981",
+    "capture_reset_render_provenance_v1.py": "08a28b35654c1e7af9aec78fcca84e03c0db233810fd1f2e1b74931f8bade6fc"
+  },
+  "rollout_budget": 24,
+  "automatic_retries": false,
+  "schedule": {
+    "task_id": 1,
+    "paired_initializations": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19],
+    "extra_fixed_init3_repeats": 4,
+    "wait_steps": 10,
+    "max_steps": 300,
+    "n_action_steps": 25
+  },
+  "training": {
+    "returncode": 0,
+    "timed_out": false,
+    "terminal_step": 40000,
+    "checkpoint_required_files_nonempty": true
+  },
+  "sha256_interpretation": "The registered 89fd hash is eval_v3_task0_state_capture_v1.py, as pinned by the 20261014 run manifest and used by the rollout wrapper. The separate non-state-capture eval_v3_task0.py has SHA 5fb67f...a2b3; an earlier manual check compared that different file and was not an evaluator mismatch. No rollout had started during that check.",
+  "fold02": "LOCKED",
+  "eight_task_expansion": "LOCKED"
+}

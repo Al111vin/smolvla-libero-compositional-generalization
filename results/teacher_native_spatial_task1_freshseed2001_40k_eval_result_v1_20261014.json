@@ -1,0 +1,84 @@
+{
+  "schema_version": 1,
+  "experiment_id": "teacher_native_spatial_task1_freshseed2001_40k_batch2_v1_20261014",
+  "status": "completed_exit0_cpu_audit_passed_task1_diagnostic_gate_failed",
+  "training": {
+    "started_at_utc": "2026-10-14T08:20:32Z",
+    "completed_at_utc_observed": "2026-10-14T09:43:07Z",
+    "returncode": 0,
+    "timed_out": false,
+    "terminal_step": 40000,
+    "training_config_sha256": "150269259fbc2711a6aacb3beb8f5a20abc24f744ffac08dc988bf16d62446de",
+    "model_sha256": "47f0df580b039dcbb4754fc952e9b720c67853f54edc55f2abea2ae2cc99e972",
+    "checkpoint_required_files_nonempty": true
+  },
+  "evaluation": {
+    "started_at_utc": "2026-10-14T09:48:26Z",
+    "completed_at_utc_observed": "2026-10-14T10:08:28Z",
+    "verified_at_utc": "2026-10-14T10:09:04Z",
+    "rollouts_planned": 24,
+    "rollouts_verified": 24,
+    "unique_keys": 24,
+    "runner_returncode": 0,
+    "supervisor_returncode": 0,
+    "supervisor_timed_out": false,
+    "automatic_retries": 0,
+    "evaluator_path": "/root/smolvla-eval-prep/scripts/eval_v3_task0_state_capture_v1.py",
+    "evaluator_sha256": "89fd36a89dc45a56382219d4c3f6e5d12a3b1689abb3440ec29be346815af7cb",
+    "protocol": {
+      "suite": "libero_spatial",
+      "task_id": 1,
+      "init_source": "benchmark",
+      "paired_init_indices": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19],
+      "paired_cli_seed": "12345 + init_index",
+      "paired_effective_seed": "12345 + 2*init_index",
+      "fixed_init3_total": 5,
+      "fixed_init3_extra_cli_seed": 12348,
+      "fixed_init3_extra_effective_seed": 12351,
+      "wait_steps": 10,
+      "max_steps": 300,
+      "n_action_steps": 25
+    },
+    "result_root": "/root/smolvla-eval-prep/results/teacher_native_spatial_task1_freshseed2001_40k_eval_v1_20261014"
+  },
+  "task1_result": {
+    "paired_successes": 6,
+    "paired_total": 20,
+    "paired_success_init_indices": [0, 1, 12, 13, 15, 17],
+    "fixed_init3_successes": 0,
+    "fixed_init3_total": 5,
+    "registered_task1_diagnostic_threshold": "at least 10/20 paired and 5/5 fixed init3",
+    "diagnostic_threshold_passed": false,
+    "steps_by_paired_init": [106, 115, 300, 300, 300, 300, 300, 300, 300, 300, 300, 300, 99, 106, 300, 104, 300, 121, 300, 300],
+    "steps_by_fixed_init3_extra_repeat": [300, 300, 300, 300]
+  },
+  "interpretation": {
+    "falsifiable_hypothesis_outcome": "The registered task1-only 40k condition did not meet its learnability signal threshold.",
+    "comparison": "Prior seed2001 homogeneous joint4 task1 result was 11/20 paired and 5/5 fixed init3; mixed-batch8 task1 was 8/20 and 0/5; this task1-only 40k control is 6/20 and 0/5.",
+    "limit": "This single seed does not identify why task1-only 40k underperformed and does not establish or exclude multi-task interference. It shows the mixed-batch8 deficit cannot be attributed solely to cross-task mixing from the current evidence; task1 also misses the registered signal when trained alone under the 40k task0-matched schedule.",
+    "four_task_progression_gate": "unchanged_failed",
+    "fold02": "LOCKED",
+    "eight_task_expansion": "LOCKED",
+    "automatic_next_stage": false
+  },
+  "audit": {
+    "24_expected_keys_match_schedule": true,
+    "task_id_and_protocol_validated_for_all_rollouts": true,
+    "one_summary_and_actions_csv_per_rollout": true,
+    "full_action_csv_validation_by_runner": true,
+    "repeated_init3_first_input_provenance_equal": true,
+    "completion_record_matches_independent_gate_recalculation": true,
+    "historical_v3_parity_invalidation_unchanged": true
+  },
+  "hash_check_correction": "The 89fd hash is the registered state-capture evaluator eval_v3_task0_state_capture_v1.py. A preliminary manual query compared the separate non-state-capture eval_v3_task0.py (SHA 5fb67f7a535e842214c351d09d368b3d2884deb267023fb51e54d3f5d494a2b3); that comparison was inapplicable, no rollout started at that point, and the frozen evaluator subsequently passed its exact hash check.",
+  "evidence": {
+    "registration": "results/teacher_native_spatial_task1_single_freshseed2001_registration_v1_20261014.json",
+    "authorization": "results/teacher_native_spatial_task1_single_freshseed2001_authorization_v1_20261014.json",
+    "training_launch": "results/teacher_native_spatial_task1_freshseed2001_launch_v1_20261014.json",
+    "evaluation_preflight": "results/teacher_native_spatial_task1_freshseed2001_eval_preflight_v1_20261014.json",
+    "evaluation_manifest": "results/teacher_native_spatial_task1_freshseed2001_eval_manifest_v1_20261014.json",
+    "evaluation_launch": "results/teacher_native_spatial_task1_freshseed2001_eval_launch_v1_20261014.json",
+    "remote_raw_logs_trajectories_actions_and_checkpoints_published": false,
+    "old_evidence_overwritten": false
+  }
+}

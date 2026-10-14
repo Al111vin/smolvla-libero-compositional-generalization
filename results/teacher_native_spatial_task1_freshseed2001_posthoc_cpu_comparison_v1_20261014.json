@@ -1,0 +1,55 @@
+{
+  "schema_version": 1,
+  "status": "completed_cpu_only_posthoc_comparison",
+  "experiment_id": "teacher_native_spatial_task1_freshseed2001_40k_batch2_v1_20261014",
+  "checked_at_utc": "2026-10-14T10:12:00Z",
+  "gpu_budget_consumed": 0,
+  "new_rollouts": 0,
+  "starts_compared": 20,
+  "matched_first_input_provenance": {
+    "task1_single40k_vs_seed2001_joint4": {
+      "count": 20,
+      "fields": ["model_arrays", "simulator_state", "frame", "input", "images", "processor", "rng"],
+      "excluded": "loaded_model.state_dict"
+    },
+    "task1_single40k_vs_seed2001_mixed_batch8": {
+      "count": 20,
+      "fields": ["model_arrays", "simulator_state", "frame", "input", "images", "processor", "rng"],
+      "excluded": "loaded_model.state_dict"
+    },
+    "init3_repeated_input_signatures_equal_within_each_run": true
+  },
+  "paired_outcomes": {
+    "joint4_vs_single40k": {
+      "joint4_successes": 11,
+      "single40k_successes": 6,
+      "joint4_only": 7,
+      "single40k_only": 2,
+      "ties": 11,
+      "exact_two_sided_mcnemar_p_descriptive": 0.1796875
+    },
+    "mixed_batch8_vs_single40k": {
+      "mixed_batch8_successes": 8,
+      "single40k_successes": 6,
+      "mixed_batch8_only": 5,
+      "single40k_only": 3,
+      "ties": 12,
+      "exact_two_sided_mcnemar_p_descriptive": 0.7265625
+    }
+  },
+  "fixed_init3": {
+    "joint4": {"paired_plus_four_extras_successes": 5, "total": 5, "steps": [119, 119, 119, 119, 119]},
+    "mixed_batch8": {"paired_plus_four_extras_successes": 0, "total": 5, "steps": [300, 300, 300, 300, 300]},
+    "single_task_40k": {"paired_plus_four_extras_successes": 0, "total": 5, "steps": [300, 300, 300, 300, 300]}
+  },
+  "interpretation": "The task1-only 40k run reproduces the fixed-init3 failure phenotype of mixed-batch8 despite identical recorded starts, while the 160k homogeneous joint4 condition succeeds on those starts. This is consistent with a training-horizon/schedule or treatment difference but does not identify cause. The paired comparisons are one-seed descriptive contrasts, neither McNemar comparison is significant at 0.05, and matching the listed first-input fields does not validate the separately invalidated historical V3 parity claim.",
+  "limits": [
+    "The task1-only condition matches the task0 single-task 40k schedule/sample budget, not the homogeneous joint4 160k optimizer schedule.",
+    "One training seed and one fixed initialization; no population-level or causal inference.",
+    "This comparison does not pass the original four-task gate and cannot unlock Fold02 or task-count expansion.",
+    "Only saved first-input provenance and lightweight per-episode outcomes were read; no raw trajectory/action/video/log/checkpoint was transferred or published."
+  ],
+  "fold02": "LOCKED",
+  "eight_task_expansion": "LOCKED",
+  "automatic_next_stage": false
+}

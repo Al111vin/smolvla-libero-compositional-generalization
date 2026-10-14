@@ -1,0 +1,46 @@
+{
+  "schema_version": 1,
+  "experiment_id": "teacher_native_spatial_task1_freshseed2001_40k_batch2_v1_20261014",
+  "status": "launched_training_in_progress",
+  "authorized_budget": {
+    "training_runs": 1,
+    "updates": 40000,
+    "evaluation_rollouts": 24,
+    "automatic_retries": 0
+  },
+  "preflight": {
+    "status": "passed_readonly_cpu_preflight_not_launched",
+    "checked_at_utc": "2026-10-14T08:18:29Z",
+    "source_config_sha256": "fabb744b04083ee643e3f7db34798e465f069379fcc1d57146d5dc70aaa43f0b",
+    "candidate_config_sha256": "150269259fbc2711a6aacb3beb8f5a20abc24f744ffac08dc988bf16d62446de",
+    "dataset_frames": 6707,
+    "episodes": 50,
+    "task_id": 1,
+    "lr_vector_positions": 40000,
+    "lr_vector_matches_task0_seed2001": true,
+    "evaluator_sha256": "89fd36a89dc45a56382219d4c3f6e5d12a3b1689abb3440ec29be346815af7cb",
+    "evaluation_rollouts": 24,
+    "free_disk_bytes": 41290072064,
+    "gpu_idle_and_lock_available": true,
+    "all_independent_paths_absent": true
+  },
+  "launch": {
+    "started_at_utc": "2026-10-14T08:20:32Z",
+    "supervisor_pid": 320631,
+    "trainer_pid": 320638,
+    "exit_receipt": "not_yet_present",
+    "initial_log_state": "dataset creation and policy creation started; no training step observed yet",
+    "gpu_snapshot_at_2026-10-14T08:20:49Z": "RTX 5090, 0 percent utilization, 4 MiB used; trainer and supervisor processes alive"
+  },
+  "paths": {
+    "recovery": "/root/smolvla-training-prep/recovery/teacher_native_spatial_task1_freshseed2001_40k_batch2_v1_20261014",
+    "training_output": "/root/smolvla-training-prep/results/training/teacher_native_spatial_task1_freshseed2001_40k_batch2_v1_20261014",
+    "evaluation_output": "/root/smolvla-eval-prep/results/teacher_native_spatial_task1_freshseed2001_40k_batch2_v1_20261014_eval_v1_20261014"
+  },
+  "preservation": {
+    "preflight_attempt1_and_attempt2_failures_preserved": true,
+    "old_evidence_overwritten": false,
+    "fold02": "LOCKED",
+    "eight_task_expansion": "LOCKED"
+  }
+}
