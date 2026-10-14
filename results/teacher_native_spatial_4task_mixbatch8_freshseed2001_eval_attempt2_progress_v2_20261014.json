@@ -1,0 +1,36 @@
+{
+  "schema_version": 1,
+  "experiment_id": "teacher_native_spatial_4task_mixbatch8_freshseed2001_40k_v1_20261014",
+  "attempt_registration": "results/teacher_native_spatial_4task_mixbatch8_eval_attempt2_registration_v1_20261014.json",
+  "status": "running_task3_after_three_verified_rollouts",
+  "observed_at_utc": "2026-10-14T03:53:27Z",
+  "evaluation_root_remote": "/root/smolvla-eval-prep/results/teacher_native_spatial_4task_mixbatch8_freshseed2001_40k_eval_attempt2_v1_20261014",
+  "recovery_root_remote": "/root/smolvla-eval-prep/recovery/teacher_native_spatial_4task_mixbatch8_freshseed2001_eval_attempt2_v1_20261014",
+  "supervisor_pid": 202609,
+  "runner_pid": 202616,
+  "active_rollout_pid": 203560,
+  "completed_verified_rollouts": 3,
+  "total_rollouts": 96,
+  "verified_rollout_outcomes_so_far": {
+    "task0": {"count": 1, "successes": 1, "failures": 0},
+    "task1": {"count": 1, "successes": 0, "failures": 1},
+    "task2": {"count": 1, "successes": 1, "failures": 0},
+    "task3": {"count": 0, "successes": 0, "failures": 0}
+  },
+  "active_rollout_key": "task3_paired_0_r0_160k",
+  "active_rollout_process_observed": true,
+  "supervisor_receipt": "pending",
+  "runner_exit_receipt": "pending",
+  "exclusive_gpu_lock": "evaluation process tree active; launch-time lock validation passed",
+  "gpu_snapshot": "RTX 5090 at 0% utilization, 4 MiB reported during rollout initialization",
+  "root_disk_snapshot": "39 GiB free of 300 GiB (88% used)",
+  "interpretation_limits": [
+    "Only three of 96 rollouts have verified records; the observed 2/3 successes are an interim process snapshot, not a final metric.",
+    "Task1 init0 failed at the 300-step limit; task0 init0 and task2 init0 succeeded under the registered protocol.",
+    "All registered per-task, paired, and stability gates remain pending the complete evaluation and CPU review."
+  ],
+  "automatic_retries": 0,
+  "fold02": "locked",
+  "eight_task_expansion": "locked",
+  "raw_artifacts_published": false
+}

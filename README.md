@@ -2371,3 +2371,12 @@ were alive and the GPU lock was held; no rollout had yet been verified. The
 [attempt-1 failure](results/teacher_native_spatial_4task_mixbatch8_eval_attempt1_failure_v1_20261014.json),
 [attempt-2 registration](results/teacher_native_spatial_4task_mixbatch8_eval_attempt2_registration_v1_20261014.json),
 and [attempt-2 progress](results/teacher_native_spatial_4task_mixbatch8_freshseed2001_eval_attempt2_progress_v1_20261014.json).
+
+At 2026-10-14 03:53:27 UTC, the bounded attempt-2 supervisor and runner were
+still alive. Three of 96 rollouts had verified records: task0 init0 succeeded
+in 102 steps, task1 init0 failed at the 300-step limit, and task2 init0
+succeeded in 137 steps; task3 init0 was active. This is only an interim
+snapshot, not a final score or gate decision. The GPU reported 0% utilization
+and 4 MiB during that rollout's initialization; root storage had 39 GiB free.
+No retries have occurred. See the
+[03:53 UTC progress snapshot](results/teacher_native_spatial_4task_mixbatch8_freshseed2001_eval_attempt2_progress_v2_20261014.json).
