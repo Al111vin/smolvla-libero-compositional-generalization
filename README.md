@@ -2270,3 +2270,11 @@ directory name, and SSH closed during the follow-up provenance check; the
 evaluated checkpoint-to-launch-manifest mapping remains unresolved. No training
 or replay was started. Fold02 and eight-task expansion remain locked. See the
 [LR/exposure audit](results/teacher_native_spatial_fresh_seed_lr_exposure_match_audit_v1_20261014.json).
+
+A later authenticated read-only SSH snapshot at 2026-10-14 01:15 UTC again found
+the RTX 5090 idle (0%, 2 MiB allocated) and 41 GiB free on the 300 GiB root
+filesystem (87% used); the only process-name match was the status-probe shell.
+The targeted scan printed no matching launch-manifest paths, but its stderr was
+suppressed, so that empty search is not treated as proof that the provenance
+record is absent. The task0 checkpoint-to-manifest mapping remains unresolved;
+no training or evaluation was started. See the [read-only remote status](results/teacher_native_spatial_fresh_seed_remote_readonly_status_v1_20261014.json).

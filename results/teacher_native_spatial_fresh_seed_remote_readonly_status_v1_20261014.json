@@ -1,0 +1,33 @@
+{
+  "schema_version": 1,
+  "status": "read_only_remote_snapshot_connected_provenance_unresolved",
+  "recorded_at_utc": "2026-10-14T01:15:02Z",
+  "connection": {
+    "method": "single_authenticated_read_only_ssh_command",
+    "host": "cpod-1v6wxcygzn32-s1.podtcp.compshare.cn",
+    "port": 27360,
+    "private_key_read": false
+  },
+  "remote_snapshot": {
+    "gpu": "NVIDIA GeForce RTX 5090, 0 percent utilization, 2 MiB of 32607 MiB used",
+    "root_disk": "41 GiB free of 300 GiB, 87 percent used",
+    "process_scan": "pgrep output contained only its own status-probe shell; no separate trainer/experiment process was observed",
+    "targeted_manifest_scan": "no matching JSON paths were printed for the known task0 checkpoint SHA or registered run prefix in the queried recovery/results locations"
+  },
+  "interpretation": {
+    "training_running": false,
+    "checkpoint_to_manifest_mapping": "unresolved",
+    "scan_limitation": "The targeted ripgrep command suppressed stderr; an empty result is not sufficient to prove the remote search utility was available or that no mapping exists elsewhere.",
+    "next_action": "When a stable authenticated session is available, perform one read-only lookup of the immutable task0 checkpoint SHA in launch receipts/manifests and verify the joint checkpoint path. Do not rerun training or evaluation based on SSH interruptions.",
+    "fold02": "LOCKED",
+    "eight_task_expansion": "LOCKED"
+  },
+  "compute_and_data_policy": {
+    "training_started": false,
+    "evaluation_started": false,
+    "gpu_work_performed": false,
+    "remote_files_modified": false,
+    "raw_logs_traces_videos_checkpoints_or_datasets_transferred": false,
+    "old_evidence_preserved": true
+  }
+}
