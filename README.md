@@ -2429,3 +2429,10 @@ were observed. This is the midpoint of the registered schedule, not a final
 score or gate decision; the remaining paired schedule, fixed-init repeats, and
 CPU evidence audit are pending. See the
 [04:36 UTC progress snapshot](results/teacher_native_spatial_4task_mixbatch8_freshseed2001_eval_attempt2_progress_v10_20261014.json).
+
+At 2026-10-14 04:39:54 UTC, attempt 2 reached 64 of 96 verified rollout
+records, balanced at 16 per task. The supervisor and runner remained alive,
+task0 paired init16 was active, and no exit receipts or automatic retries
+were observed. This two-thirds interim checkpoint is not a final score or gate
+decision; the remaining schedule and CPU evidence audit are pending. See the
+[04:39 UTC progress snapshot](results/teacher_native_spatial_4task_mixbatch8_freshseed2001_eval_attempt2_progress_v11_20261014.json).
