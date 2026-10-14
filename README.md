@@ -2210,8 +2210,13 @@ hashes passed. The post-transfer verifier then stopped before manifest build
 because its own registration-digest constant was wrong and its cross-version
 path check mixed module roots. No v10 manifest, output directory, CPU worker,
 simulator, policy call, rollout, training update, or GPU work was started. The
-v10 partial bundle and registration are preserved; no automatic v11 is
-registered. See the [v9 failure](results/teacher_native_spatial_fresh_seed_init8_cpu_reset_manifest_failure_v9_20261014.json),
+v10 partial bundle and registration are preserved. The original v10 stop did
+not automatically trigger a successor. After a separate bounded V11 was
+registered, its one SFTP transfer delivered 13 code/test files but failed on
+the registration file because the remote bundle lacked a `results/` directory;
+all 13 transferred hashes matched, and a read-only check confirmed that no
+V11 manifest/output or GPU work existed. V11 stopped with no retry or V12.
+See the [v9 failure](results/teacher_native_spatial_fresh_seed_init8_cpu_reset_manifest_failure_v9_20261014.json),
 the [v10 registration](results/teacher_native_spatial_fresh_seed_init8_cpu_reset_diagnostic_registration_v10_20261014.json),
 and the [v10 preflight stop](results/teacher_native_spatial_fresh_seed_init8_cpu_reset_preflight_failure_v10_20261014.json).
 
@@ -2240,3 +2245,13 @@ finding. No raw vectors were exported, and GPU/replay/training budgets remained
 zero. The task-0 joint gate is still failed; Fold02 and eight-task expansion
 remain locked. See the [registration](results/teacher_native_spatial_fresh_seed_task0_action_dynamics_profile_registration_v1_20261014.json)
 and [CPU profile](results/teacher_native_spatial_fresh_seed_task0_action_dynamics_profile_v1_20261014.json).
+
+The separately registered V11 transfer follow-up also stopped before manifest
+construction: its new, isolated frozen-V4 wrapper passed three local CPU tests
+and all 13 code hashes matched locally and remotely, but the one SFTP batch
+could not place the registration JSON because the target `results/` subfolder
+was absent. A read-only check found the 13-file partial bundle, no V11 manifest
+or output, and an idle RTX 5090. The bundle is preserved; there is no retry or
+V12. This transfer failure is not a replay result and changes no scientific
+gate. See the [V11 registration](results/teacher_native_spatial_fresh_seed_init8_cpu_reset_diagnostic_registration_v11_20261014.json)
+and [V11 transfer failure](results/teacher_native_spatial_fresh_seed_init8_cpu_reset_transfer_failure_v11_20261014.json).

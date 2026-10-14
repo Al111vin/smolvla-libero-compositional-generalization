@@ -1,0 +1,107 @@
+{
+  "schema_version": 1,
+  "status": "v11_registered_pending_fresh_readonly_preflight",
+  "registered_at_utc": "2026-10-14T01:05:12Z",
+  "supersedes_for_execution": "results/teacher_native_spatial_fresh_seed_init8_cpu_reset_diagnostic_registration_v10_20261014.json",
+  "failure_analysis": {
+    "v10_terminal_event": "Transfer and code inventory passed; a post-transfer verifier stopped before manifest build because it used a manually hard-coded but incorrect V10 registration digest and imported V9 and V10 modules into one interpreter, mixing bundle roots. No V10 manifest, output directory, worker, simulator, policy call, rollout, training update, or GPU activity occurred.",
+    "falsifiable_hypothesis": "A fresh V11 bundle that imports only the frozen V4 engine, generates its code inventory from V11-local files, and verifies its registration digest directly from the transferred registration bytes in a single-version process will pass remote manifest construction and the two registered saved-trace CPU reset/replay checks.",
+    "falsifier": "Any local test/hash failure, path collision, SSH/transfer failure, inventory or registration digest mismatch, source/checkpoint/evaluator/runtime mismatch, active GPU process or busy lock, less than 20 GiB free, manifest error, worker timeout, or replay state/reward/termination/success mismatch. Any falsifier stops V11 with no successor or retry."
+  },
+  "options_compared": [
+    {
+      "option": "Stop the historical saved-trace lifecycle diagnostic as incomplete",
+      "decision": "not_selected",
+      "reason": "This is the lowest-risk endpoint but leaves the registered CPU-only replay check unresolved even though V10 did not execute any scientific workload."
+    },
+    {
+      "option": "Repair or reuse V10 paths and rerun its verifier",
+      "decision": "rejected",
+      "reason": "V10 is terminal; its registration, bundle, and failure evidence remain immutable."
+    },
+    {
+      "option": "One separately registered V11 using an isolated frozen V4 wrapper and no cross-version verifier imports",
+      "decision": "selected",
+      "reason": "It directly tests the diagnosed verifier failure mode, computes checks from transferred bytes instead of a handwritten digest, retains the exact two-trace CPU-only scientific scope, and has no automatic retry."
+    }
+  ],
+  "scope": {
+    "source_manifest_path": "/root/smolvla-eval-prep/recovery/teacher_native_spatial_fresh_seed_stage_cpu_manifest_v1_20261012.json",
+    "source_manifest_raw_sha256": "230f68cc17251572a103ee4275533b3cab81812fb15defd310eaad650c52426e",
+    "source_manifest_sha256": "d65063fe57c1554f25b8760437100f98c6c935f9775e0e9ecd55e33a0d928b88",
+    "source_root": "/root/smolvla-eval-prep/results/fresh_seed_pair_eval_v1_20261011",
+    "trace_keys": ["single_task0_paired_8_r0_160k", "joint_task0_paired_8_r0_160k"],
+    "frozen_protocol": "One fresh headless CPU ControlEnv worker per saved init-8 trace, restore pinned initial simulator state, 10 zero-action wait steps, reseed and replay the original applied actions with state/reward/termination/success checks. This is a two-trace diagnostic only; no policy inference, new rollout, training update, render environment, GPU device discovery, or causal claim.",
+    "evaluator_sha256": "89fd36a89dc45a56382219d4c3f6e5d12a3b1689abb3440ec29be346815af7cb",
+    "historical_v3_parity_invalidation": "unchanged"
+  },
+  "code_sha256": {
+    "base_runner_v4": "a14c1979cd18f8422167404f90415a0b1b964d90c03a128dd762355bf07e5b0f",
+    "base_test_v4": "16d760561f8ddfe24020d9fc35f72253967b6a38299c3ecc0e173a015aebe3b4",
+    "child_supervisor": "581640309a116c7a247acb0395151c6cf3f18194991cb2f6805a1e93ab4ae7db",
+    "decision_provenance": "d098b099ebad38c750abc0f0d142109695daaa3823d0901ff6b13db9106d8981",
+    "eval_schedule": "d12fe3b7980d9f676d3af8fb643479a6bfe730982820ebf64a14dba080f050c4",
+    "frozen_evaluator": "89fd36a89dc45a56382219d4c3f6e5d12a3b1689abb3440ec29be346815af7cb",
+    "manifest_builder": "4ed4891e024b85c2bab202aaaae160948d902c844bf2f26d5cd056e8fa2db902",
+    "protocol_schedule": "094aad5affd0e9c2a29b68a49aab2fd61feb6fa9e4365ec09a3d45da675e9065",
+    "render_provenance": "08a28b35654c1e7af9aec78fcca84e03c0db233810fd1f2e1b74931f8bade6fc",
+    "reset_helpers": "6ed483d3029b1e0cd7fd810e947e38f79dd5b7b58bb07cec33fa2f0a2cfdd1ea",
+    "runner": "d12276fa28f411b27eced6f9b9c9312665b2f38f2e9eeb12c5f31607ca324aea",
+    "stage_replay": "fb292b2ffedff6a37ad0f74d15038c8afbcb141e4dd78c5fcbab59c646da063d",
+    "unit_tests": "fc10fd2529d59a6cedef1423cc5959a7b8a396837a6228ba150524d8c92b4354"
+  },
+  "local_validation": {
+    "unit_tests": "3 passed",
+    "code_hashes": "13/13 match this registration",
+    "code_inventory_bytes": 90280,
+    "simulator_started": false,
+    "gpu_used": false,
+    "policy_calls": 0,
+    "new_rollouts": 0,
+    "training_updates": 0
+  },
+  "paths": {
+    "remote_code_bundle": "/root/smolvla-eval-prep/recovery/teacher_native_spatial_fresh_seed_init8_cpu_reset_code_v11_20261014",
+    "remote_registration": "/root/smolvla-eval-prep/recovery/teacher_native_spatial_fresh_seed_init8_cpu_reset_diagnostic_registration_v11_20261014.json",
+    "remote_manifest": "/root/smolvla-eval-prep/recovery/teacher_native_spatial_fresh_seed_init8_cpu_reset_manifest_v11_20261014.json",
+    "remote_output_root": "/root/smolvla-eval-prep/results/teacher_native_spatial_fresh_seed_init8_cpu_reset_v11_20261014",
+    "all_v11_paths_must_be_absent_immediately_before_transfer": true,
+    "v1_v10_evidence_is_immutable": true
+  },
+  "execution_bounds": {
+    "read_only_preflight_connections": 1,
+    "directory_setup_operations": 1,
+    "code_transfers": 1,
+    "maximum_transfer_files_including_registration": 14,
+    "maximum_transfer_bytes": 120000,
+    "manifest_builds": 1,
+    "workers": 2,
+    "maximum_walltime_seconds": 300,
+    "per_worker_timeout_seconds": 120,
+    "automatic_retries": 0,
+    "gpu_budget": 0,
+    "policy_calls": 0,
+    "new_rollouts": 0,
+    "training_updates": 0,
+    "remote_python": "PYTHONDONTWRITEBYTECODE=1 /usr/local/miniconda3/envs/py312/bin/python -B",
+    "artifacts": "Only compact JSON registration/manifest/result/failure records are transferred or published; original action CSVs, videos, logs, datasets, weights, and credentials remain private and are never uploaded."
+  },
+  "preflight_requirements": [
+    "One fresh non-multiplexed SSH check: V11 destinations absent; V10/V9 registrations and partial bundles remain present and unchanged; V10/V9 manifest/output paths absent.",
+    "RTX 5090 idle, no training/replay processes, and shared lock is a regular non-symlink file and free.",
+    "Frozen source manifest raw/internal hashes and 40 rows match; selected saved trace and both checkpoint/evaluator identities match.",
+    "Python 3.12.11 imports headless ControlEnv without constructing a simulator, with no bytecode writes; root free space at least 20 GiB.",
+    "Local V11 test and all 13 code hashes pass; no symlink/cache/extra files; registration digest computed from transferred bytes, with no V9/V10 imports in the verifier."
+  ],
+  "stop_conditions": [
+    "Any path collision, prior-version mutation, SSH/transfer error, inventory/hash/source/runtime/provenance mismatch, GPU/process/lock conflict, low disk, manifest/build error, timeout, or replay parity failure.",
+    "On any stop, preserve V11 partial evidence; no retry, no path reuse, and no V12."
+  ],
+  "progression": {
+    "joint_task0_gate": "failed_10_of_20; unchanged",
+    "fold02": "LOCKED",
+    "eight_task_expansion": "LOCKED",
+    "diagnostic_is_progression_gate": false
+  },
+  "authorization_note": "A single finite V11 continuation is within the user's unattended finite-work authorization. It addresses two verified V10 verifier implementation defects with a different isolated test path and costs zero GPU/policy/rollout/training resources. This does not authorize any further retry."
+}

@@ -1,0 +1,28 @@
+{
+  "schema_version": 1,
+  "status": "v11_partial_transfer_stopped_no_retry",
+  "recorded_at_utc": "2026-10-14T01:06:30Z",
+  "registration": "results/teacher_native_spatial_fresh_seed_init8_cpu_reset_diagnostic_registration_v11_20261014.json",
+  "registration_sha256": "953508c193d6ae07a494f6efa8c93a7d03c8bfc281462768ecff58835aaf5c2a",
+  "failure_analysis": {
+    "event": "The one registered SFTP transfer delivered all 13 code/test files into the new V11 scripts/tests bundle paths, then failed to upload the registration JSON because the bundle's results/ subdirectory had not been created. SFTP displayed a per-file remote open error; its process exit status was 0, so the per-file result, not the process status, is authoritative.",
+    "post_failure_readonly_verification": "A fresh read-only SSH check found exactly 13 expected code/test files, no symlinks reported, the V11 manifest and output paths absent, and RTX 5090 idle at 0 percent / 2 MiB.",
+    "transferred_code_hashes": "13/13 matched the local V11 registration on a separate read-only remote checksum check.",
+    "manifest_build_started": false,
+    "manifest_written": false,
+    "output_created": false,
+    "workers_started": 0,
+    "simulator_started": false,
+    "policy_calls": 0,
+    "new_rollouts": 0,
+    "training_updates": 0,
+    "gpu_work_started": false
+  },
+  "stop_decision": {
+    "automatic_retry": false,
+    "registration_transfer": "failed; preserve local registration and remote partial bundle unchanged",
+    "manifest_or_replay": "not started",
+    "next_step": "Stop V11. No retry, path repair, V12, or use of the partial bundle; any later work needs new user direction and a separately registered bounded plan."
+  },
+  "evidence_policy": "V1-V11 registrations, prior failure records, remote partial code bundle, and this transfer failure are preserved. This is an operations/transfer failure, not a replay result; it changes no model scores, scientific gate, historical V3 invalidation, or Fold02 lock."
+}
