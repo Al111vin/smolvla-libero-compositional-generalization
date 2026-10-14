@@ -38,19 +38,33 @@ It combines closed-loop LIBERO evaluation, controlled leave-one-combination-out
 > follow-up are also complete, but remain unsuccessful under the strict
 > protocol. **Fold 02 remains locked.** Raw HDF5 and LeRobot data remain in
 > the private Hugging Face dataset; GitHub stores only lightweight evidence and
-> reproducibility metadata. Separately, the teacher-directed native Spatial
-> matched four-task (0–3) 40,000-update diagnostic is complete and did not pass
-> its progression gate, so scaling to 8 tasks remains on hold. The later task-0
-> single-current-recipe control also missed its fixed-initialization repeat
-> gate. These diagnostics do not alter the registered LIBERO-36 conclusions.
+> reproducibility metadata. In the separate teacher-directed native Spatial
+> chain, official task0 source-HDF5 verification and an independent
+> 50-episode/5,068-frame LeRobot conversion passed with exact action/state
+> parity. The historical task0 checkpoint scored 13/20 and the fresh
+> current-code checkpoint 14/20 on the same paired starts; both scored 5/5 on
+> fixed init3. This supports repeatability on this registered set, not
+> held-out generalization or deterministic replay. The registered multi-task
+> progression gate remains failed. These diagnostics do not alter the
+> registered LIBERO-36 conclusions.
 
-**Latest controlled-input diagnostic (2026-10-09):** single-task40k passed
-13/20 paired starts and5/5 fixed-init3 repeats. The exposure-matched four-task
-160k run has now completed training and all96 final evaluations. Paired scores
-for tasks0..3 are10/20,15/20,19/20,15/20; each fixed-init3 condition is5/5.
-Task0 misses its preregistered11/20 retention threshold, so eight-task expansion
-remains on hold. Fold02 remains locked. The complete evidence review is linked
-in the dated final result below.
+**Latest native Spatial control status (2026-10-14):** the authorized seed2001
+task0 40k plus homogeneous joint4 160k chain and its 120-rollout evaluation
+completed with exit 0. Joint4 scored task0 10/20 (below its 11/20 gate), task1
+15/20, task2 19/20, and task3 15/20; all four fixed-init3 checks were 5/5. A
+separate mixed-batch8 40k run and 96-rollout evaluation scored 16/20, 8/20,
+17/20, and 19/20 on tasks0–3, with fixed-init3 scores 5/5, 0/5, 5/5, and 5/5.
+It therefore fails the unchanged four-task gate on task1. The authorized
+task1-only 40k follow-up scored 6/20 and 0/5 on its 24-rollout diagnostic,
+also below its registered signal. CPU-only paired analysis found matched
+recorded starting inputs, but these one-seed outcomes do not identify a cause.
+The old horizon-registration label calling mixed-batch8 “160k” is corrected by
+the linked addendum: its actual global-update budget was 40k. No further GPU
+budget is active; eight-task scaling and Fold 02 remain locked. See the dated
+final [four-task result](results/teacher_native_spatial_4task_final_eval_result_v1_20261009.json),
+[mixed-batch8 audit](results/teacher_native_spatial_4task_mixbatch8_freshseed2001_eval_attempt2_cpu_audit_v1_20261014.json),
+[task1 single-task result](results/teacher_native_spatial_task1_freshseed2001_40k_eval_result_v1_20261014.json),
+and [exposure clarification](results/teacher_native_spatial_task1_update_composition_cpu_clarification_v1_20261014.json).
 
 ### Teacher-directed task-0 budget follow-up (2026-10-05)
 
