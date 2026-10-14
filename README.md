@@ -2400,3 +2400,10 @@ task0 paired init6 rollout active and both exit receipts pending. This is an
 interim quarter-budget checkpoint only; it does not establish a final success
 rate or unlock progression. See the
 [04:09 UTC progress snapshot](results/teacher_native_spatial_4task_mixbatch8_freshseed2001_eval_attempt2_progress_v5_20261014.json).
+
+At 2026-10-14 04:23:48 UTC, attempt 2 had 43 of 96 verified rollout records:
+11 each for tasks 0–2 and 10 for task 3. The supervisor and runner remained
+alive, and task3 paired init10 was active. No exit receipts or automatic retries
+were observed. This interim count is not a final score or gate decision; the
+remaining schedule and CPU evidence audit are pending. See the
+[04:23 UTC progress snapshot](results/teacher_native_spatial_4task_mixbatch8_freshseed2001_eval_attempt2_progress_v7_20261014.json).
