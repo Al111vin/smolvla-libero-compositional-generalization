@@ -2387,3 +2387,9 @@ The next scheduled rollout (task0 paired init4) was active and both exit
 receipts remained pending. This is still an interim process snapshot; all
 success-rate and progression gates await completion and CPU audit. See the
 [04:03 UTC progress snapshot](results/teacher_native_spatial_4task_mixbatch8_freshseed2001_eval_attempt2_progress_v3_20261014.json).
+
+At 2026-10-14 04:06:39 UTC, attempt 2 had 20 verified records (five per task)
+out of the registered 96. The supervisor and runner remained alive, and the
+next scheduled rollout (task0 paired init5) was active. Exit receipts were
+still pending; this balanced interim count is not a final score or gate. See
+the [04:06 UTC progress snapshot](results/teacher_native_spatial_4task_mixbatch8_freshseed2001_eval_attempt2_progress_v4_20261014.json).
