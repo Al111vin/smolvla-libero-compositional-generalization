@@ -2291,3 +2291,13 @@ alignment is reconstructed from the pinned sampler and dataset counts because
 the logger did not emit task IDs. It does not establish or rule out interference.
 See the [checkpoint provenance resolution](results/teacher_native_spatial_fresh_seed_checkpoint_provenance_resolution_v1_20261014.json)
 and [training-loss audit](results/teacher_native_spatial_fresh_seed_training_loss_cpu_audit_v1_20261014.json).
+
+A read-only row-level comparison now directly checks the recovered historical
+native task0 40k checkpoint against the fresh-seed current-code single40k model.
+On the same 20 benchmark initializations and identical evaluator/seeds, the
+historical model succeeded on 13/20 and the fresh-seed model on 14/20; both
+also passed 5/5 fixed-init3. The paired transitions were 3 fresh-only versus 2
+historical-only (exact McNemar p=1.0), supporting close replication on this
+used init set without claiming held-out generalization or deterministic replay.
+Because the exposure-matched 4-task run still scores 10/20 on task0, expansion
+remains gated. See the [cross-training-seed repeatability audit](results/teacher_native_spatial_task0_cross_training_seed_repeatability_v1_20261014.json).
