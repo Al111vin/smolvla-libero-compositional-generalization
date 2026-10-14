@@ -2503,3 +2503,7 @@ gate or prove general multi-task interference. The proposal is explicitly
 awaiting user authorization: no config was deployed, no GPU work was launched,
 and its current GPU budget is zero. See the
 [task1 single-task registration](results/teacher_native_spatial_task1_single_freshseed2001_registration_v1_20261014.json).
+The local config builder is pinned to the seed2001 task0 source-config hash and
+its three CPU-only unit tests pass; it changes only the task1 episode slice and
+the new run/output identifiers. This does not replace the required remote
+dataset, model, runtime, lock, disk, and output-path preflight.

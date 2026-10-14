@@ -40,6 +40,16 @@
   },
   "proposed_training": {
     "config_template": "configs/teacher_native_spatial_task0_freshseed2001_40k_batch2_v1_20261011.json",
+    "local_config_builder": {
+      "path": "scripts/build_teacher_native_spatial_task1_freshseed2001_40k_v1.py",
+      "sha256": "95d0fec316a57865ff51a6df83831df5834e1ca73a086e76d3544ffe8e52f705",
+      "pinned_source_config_sha256": "fabb744b04083ee643e3f7db34798e465f069379fcc1d57146d5dc70aaa43f0b",
+      "unit_test": "tests/test_teacher_native_spatial_task1_freshseed2001_builder_v1.py",
+      "unit_test_sha256": "6364f0400850e61b7e2f740e89511f53e961bdc4b6a3f695e5d88e81c9566169",
+      "offline_tests_passed": 3,
+      "only_config_differences": ["dataset.episodes", "job_name", "output_dir"],
+      "scope_limit": "Local config generation/static checks only; no config deployed, no remote data audit, no GPU preflight, and no training launch."
+    },
     "dataset_repo_id": "local/libero_spatial_tasks0_3_native_v1",
     "dataset_root": "/root/smolvla-training-prep/datasets/lerobot/libero_spatial_tasks0_3_native_20261003_v1",
     "task_id": 1,
