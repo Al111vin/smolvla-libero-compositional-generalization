@@ -1,0 +1,30 @@
+{
+  "schema_version": 1,
+  "experiment_id": "teacher_native_spatial_4task_mixbatch8_freshseed2001_40k_v1_20261014",
+  "attempt_registration": "results/teacher_native_spatial_4task_mixbatch8_eval_attempt2_registration_v1_20261014.json",
+  "status": "running_task0_paired_init4",
+  "observed_at_utc": "2026-10-14T04:03:20Z",
+  "evaluation_root_remote": "/root/smolvla-eval-prep/results/teacher_native_spatial_4task_mixbatch8_freshseed2001_40k_eval_attempt2_v1_20261014",
+  "recovery_root_remote": "/root/smolvla-eval-prep/recovery/teacher_native_spatial_4task_mixbatch8_freshseed2001_eval_attempt2_v1_20261014",
+  "supervisor_pid": 202609,
+  "runner_pid": 202616,
+  "active_rollout_pid": 208602,
+  "completed_verified_rollouts": 16,
+  "total_rollouts": 96,
+  "verified_rollouts_by_task": {"task0": 4, "task1": 4, "task2": 4, "task3": 4},
+  "active_rollout_key": "task0_paired_4_r0_160k",
+  "active_rollout_process_observed": true,
+  "supervisor_receipt": "pending",
+  "runner_exit_receipt": "pending",
+  "gpu_snapshot": "RTX 5090 at 0% utilization and 4 MiB reported during rollout initialization",
+  "root_disk_snapshot": "39 GiB free of 300 GiB (88% used)",
+  "interpretation_limits": [
+    "Sixteen of 96 rollouts have verified records; interim counts do not establish the final success rates or any gate.",
+    "The next rollout process was observed alive, with no supervisor or runner exit receipt.",
+    "The schedule continues to use the registered evaluator, checkpoint, and per-task balanced order; no automatic retry has occurred."
+  ],
+  "automatic_retries": 0,
+  "fold02": "locked",
+  "eight_task_expansion": "locked",
+  "raw_artifacts_published": false
+}
