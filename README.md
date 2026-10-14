@@ -2138,3 +2138,105 @@ build, simulator, replay, policy call, rollout, training update, or GPU work
 started. Per the registered stop rule, v6 is closed with no retry or v7.
 The 120-rollout evaluation result above remains complete; this transport event
 does not reverse it. See the [v6 transfer failure record](results/teacher_native_spatial_fresh_seed_init8_cpu_reset_transfer_failure_v3_20261013.json).
+
+The v6 setup request used the shared SSH ControlMaster and was reset; its
+read-only follow-up used `ControlMaster=no` and succeeded. This makes stale
+connection reuse a candidate cause, not a confirmed one. Under the continuing
+finite-work authorization, one separately registered v7 plan now tests only
+that transport difference: a new path, explicit `ControlMaster=no` and
+`ControlPath=none` for the one directory setup and one recursive SCP transfer,
+then at most one manifest build and two CPU workers for the saved pair. GPU,
+policy, rollout, and training budgets remain zero; no v6 path is reused, and
+any v7 error ends remote diagnostics without v8. Its four local tests and
+syntax compilation pass. A fresh non-multiplexed remote preflight at 18:03 UTC
+found the RTX 5090 idle, no compute/matching processes, the shared lock free,
+all v6/v7 paths absent, source-manifest identity and 40 traces matching,
+Python 3.12.11 able to import `ControlEnv`, and 43.0 GB free. The unique v7
+directory setup and recursive transfer are the next one-shot operations; see
+the [v7 registration](results/teacher_native_spatial_fresh_seed_init8_cpu_reset_diagnostic_registration_v7_20261013.json)
+and [v7 preflight](results/teacher_native_spatial_fresh_seed_init8_cpu_reset_preflight_v7_20261013.json).
+
+The separately bounded v8 proposal addresses the v7 Python bytecode-cache
+side effect by running remote Python with bytecode writing disabled; its local
+self-hash, code hashes, and two CPU-only unit tests passed. The one registered
+standalone SSH read-only preflight then stopped before authentication because
+the Mac could not resolve the GPU host DNS name (`ssh` exit 255). No remote
+state was reached or inspected, and no v8 files were staged or transferred;
+GPU/replay state was therefore unknown at that point, not assumed idle. Under
+the v8 stop rule no retry or alternate transport was attempted for v8; later,
+after the user's expanded finite-work authorization, a separately registered
+v9 was attempted and stopped before replay. See the [v8 registration](results/teacher_native_spatial_fresh_seed_init8_cpu_reset_diagnostic_registration_v8_20261013.json)
+and [preflight failure record](results/teacher_native_spatial_fresh_seed_init8_cpu_reset_preflight_failure_v1_20261013.json).
+
+Publication of the permitted lightweight v7/v8 records is also pending: a
+read-only GitHub ref check failed on local DNS resolution, and the repository
+index is not writable in this environment, so no commit or push was made. No
+Hugging Face upload was attempted because its current private-repository
+revision could not be verified. The working tree and all unrelated changes
+remain preserved; see the [publication sync status](results/teacher_native_spatial_fresh_seed_init8_cpu_reset_publication_sync_block_v1_20261013.json).
+
+A GitHub read-only connector subsequently confirmed the target branch still
+equals `bdbbab0`, but its create-blob write returned HTTP 403
+(`Resource not accessible by integration`) for every allowlisted file. The
+GitHub branch was not changed. The Hugging Face connector independently
+confirmed the Dataset remains private and was updated on 13 Oct, but it exposes
+no upload operation or exact revision/hash; no upload was made. Live GPU-host
+state remains unknown because SSH stopped at local DNS resolution. See the
+[follow-up publication blocker](results/teacher_native_spatial_fresh_seed_init8_cpu_reset_publication_sync_block_v2_20261013.json).
+
+### 2026-10-14 unattended continuation update
+
+The authorized fresh-seed-2001 experiment was already complete before this
+CPU-only diagnostic continuation: the single-task task-0 40k checkpoint passed
+14/20 paired starts plus 5/5 fixed-init3 repeats; the exposure-matched joint
+four-task 160k run completed its registered 120/120 evaluations with exit 0.
+Joint task 0 scored 10/20 (below the unchanged 11/20 gate), while tasks 1–3
+scored 11/20, 18/20, and 17/20; each fixed-init3 condition was 5/5. Fold 02
+and eight-task expansion remain locked. The four joint task-0 losses were
+inits 8, 11, 12, and 13; exact McNemar p=0.125 is descriptive and does not
+establish causal multi-task interference. This corrects any status statement
+that treated the separate old launch-path inspection as evidence the
+fresh-seed experiment had not run. See
+[`fresh-seed pair result`](results/teacher_native_spatial_fresh_seed_pair_eval_result_v1_20261012.json).
+
+The saved-action init-8 CPU reset diagnostic remains incomplete and uses zero
+GPU, policy, rollout, or training budget. V9 reached its one manifest-build
+operation after successful transfer and exact source checks, but failed before
+writing a manifest because nested wrappers rebound `_code_hashes` and required
+an untransferred V6 test file. V9 bundle and registration are preserved. A
+separately registered V10 direct-V4 wrapper passed two local tests and was
+transferred once to a unique path; its 15-file/94,704-byte code inventory and
+hashes passed. The post-transfer verifier then stopped before manifest build
+because its own registration-digest constant was wrong and its cross-version
+path check mixed module roots. No v10 manifest, output directory, CPU worker,
+simulator, policy call, rollout, training update, or GPU work was started. The
+v10 partial bundle and registration are preserved; no automatic v11 is
+registered. See the [v9 failure](results/teacher_native_spatial_fresh_seed_init8_cpu_reset_manifest_failure_v9_20261014.json),
+the [v10 registration](results/teacher_native_spatial_fresh_seed_init8_cpu_reset_diagnostic_registration_v10_20261014.json),
+and the [v10 preflight stop](results/teacher_native_spatial_fresh_seed_init8_cpu_reset_preflight_failure_v10_20261014.json).
+
+A separate read-only CPU terminal-profile pass checked the four saved loss
+pairs against the source manifest without replaying or exporting raw action
+vectors. Inits 8/11/12/13 each show the single-task trace succeeding in 78–134
+actions (reward 1), while the joint trace consumes all 300 permitted actions
+and ends at reward 0. The RTX 5090 was idle, the shared lock was free, and the
+v10 manifest/output paths remained absent at 00:53 UTC. This identifies the
+observed symptom as a joint-policy timeout rather than a failed training
+launch, but does not distinguish insufficient optimization from multi-task
+interference or establish causality (paired exact McNemar p=0.125). The
+profile command's optional process/lock-report tail had a local missing-import
+error; a separate read-only check verified the lock and paths. See the
+[`loss terminal profile`](results/teacher_native_spatial_fresh_seed_task0_loss_terminal_profile_v1_20261014.json).
+
+A separately registered, read-only CPU profile then checked the eight saved
+action CSVs for the four task-0 loss pairs against the frozen source manifest.
+The predeclared gross-action-collapse pattern was falsified: each joint final-40
+window retained non-negligible applied actions, with median 6-D action norms
+0.55–0.77× its matched successful single control and no rows below 0.01. The
+joint traces had longer end-effector paths (1.98–2.08) but only 0.45–0.47 net
+displacement, consistent with less direct motion; without object/goal-relative
+state this is descriptive, not a mechanism or causal multi-task-interference
+finding. No raw vectors were exported, and GPU/replay/training budgets remained
+zero. The task-0 joint gate is still failed; Fold02 and eight-task expansion
+remain locked. See the [registration](results/teacher_native_spatial_fresh_seed_task0_action_dynamics_profile_registration_v1_20261014.json)
+and [CPU profile](results/teacher_native_spatial_fresh_seed_task0_action_dynamics_profile_v1_20261014.json).

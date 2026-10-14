@@ -1,0 +1,72 @@
+{
+  "schema_version": 1,
+  "status": "completed_read_only_cpu_action_dynamics_profile",
+  "observed_at_utc": "2026-10-14T01:00:30Z",
+  "registration": "results/teacher_native_spatial_fresh_seed_task0_action_dynamics_profile_registration_v1_20261014.json",
+  "scope": {
+    "task_id": 0,
+    "paired_inits": [8, 11, 12, 13],
+    "source_trace_count": 8,
+    "source_manifest_path": "/root/smolvla-eval-prep/recovery/teacher_native_spatial_fresh_seed_stage_cpu_manifest_v1_20261012.json",
+    "source_manifest_raw_sha256": "230f68cc17251572a103ee4275533b3cab81812fb15defd310eaad650c52426e",
+    "source_manifest_internal_sha256": "d65063fe57c1554f25b8760437100f98c6c935f9775e0e9ecd55e33a0d928b88",
+    "all_eight_action_csv_hashes_verified": true,
+    "raw_vectors_states_or_csvs_exported": false,
+    "simulator_replay_or_policy_inference": false,
+    "gpu_budget": 0,
+    "training_updates": 0,
+    "new_rollouts": 0
+  },
+  "protocol": {
+    "action_metric": "median and p90 L2 norm of applied_action_0..5; final window is the last 40 rows",
+    "state_metric": "end-effector position state_7..9 path length and endpoint displacement; robot-state mapping follows the registered evaluator helper",
+    "gripper_metric": "range of state_13 and state_14 separately",
+    "low_action_cutoff": 0.01,
+    "wall_seconds": 0.038
+  },
+  "pairs": [
+    {
+      "init": 8,
+      "single": {"rows": 82, "reward_sum": 1.0, "action6d_l2_median_final40": 0.791045, "action6d_l2_p90_final40": 1.061842, "fraction_action6d_l2_below_0_01_final40": 0.0, "eef_path_length": 0.784795, "eef_net_displacement": 0.403221, "gripper_state_range_2d": [0.032674, 0.033292]},
+      "joint": {"rows": 300, "reward_sum": 0.0, "action6d_l2_median_final40": 0.611575, "action6d_l2_p90_final40": 0.857524, "fraction_action6d_l2_below_0_01_final40": 0.0, "eef_path_length": 1.976870, "eef_net_displacement": 0.453827, "gripper_state_range_2d": [0.040331, 0.039419]},
+      "joint_to_single_final40_action_median_ratio": 0.773123,
+      "eef_path_to_net_ratio": {"single": 1.9463, "joint": 4.3554}
+    },
+    {
+      "init": 11,
+      "single": {"rows": 78, "reward_sum": 1.0, "action6d_l2_median_final40": 0.830170, "action6d_l2_p90_final40": 1.035935, "fraction_action6d_l2_below_0_01_final40": 0.0, "eef_path_length": 0.754675, "eef_net_displacement": 0.372642, "gripper_state_range_2d": [0.036559, 0.036475]},
+      "joint": {"rows": 300, "reward_sum": 0.0, "action6d_l2_median_final40": 0.566013, "action6d_l2_p90_final40": 0.843491, "fraction_action6d_l2_below_0_01_final40": 0.0, "eef_path_length": 2.084260, "eef_net_displacement": 0.458244, "gripper_state_range_2d": [0.039704, 0.040148]},
+      "joint_to_single_final40_action_median_ratio": 0.681804,
+      "eef_path_to_net_ratio": {"single": 2.0252, "joint": 4.5487}
+    },
+    {
+      "init": 12,
+      "single": {"rows": 134, "reward_sum": 1.0, "action6d_l2_median_final40": 0.886043, "action6d_l2_p90_final40": 1.020172, "fraction_action6d_l2_below_0_01_final40": 0.0, "eef_path_length": 1.105986, "eef_net_displacement": 0.370179, "gripper_state_range_2d": [0.039609, 0.038705]},
+      "joint": {"rows": 300, "reward_sum": 0.0, "action6d_l2_median_final40": 0.592071, "action6d_l2_p90_final40": 0.856332, "fraction_action6d_l2_below_0_01_final40": 0.0, "eef_path_length": 2.043159, "eef_net_displacement": 0.474669, "gripper_state_range_2d": [0.039187, 0.040070]},
+      "joint_to_single_final40_action_median_ratio": 0.668219,
+      "eef_path_to_net_ratio": {"single": 2.9871, "joint": 4.3037}
+    },
+    {
+      "init": 13,
+      "single": {"rows": 109, "reward_sum": 1.0, "action6d_l2_median_final40": 0.931434, "action6d_l2_p90_final40": 1.126254, "fraction_action6d_l2_below_0_01_final40": 0.0, "eef_path_length": 0.995504, "eef_net_displacement": 0.384204, "gripper_state_range_2d": [0.038960, 0.038851]},
+      "joint": {"rows": 300, "reward_sum": 0.0, "action6d_l2_median_final40": 0.516795, "action6d_l2_p90_final40": 0.869152, "fraction_action6d_l2_below_0_01_final40": 0.0, "eef_path_length": 1.982273, "eef_net_displacement": 0.470464, "gripper_state_range_2d": [0.039205, 0.040527]},
+      "joint_to_single_final40_action_median_ratio": 0.554838,
+      "eef_path_to_net_ratio": {"single": 2.5911, "joint": 4.2131}
+    }
+  ],
+  "hypothesis_result": {
+    "registered_gross_action_collapse_pattern": "falsified",
+    "criterion": "All four joint final-40 median action norms below half their matched single controls",
+    "observed_ratios_by_init": {"8": 0.773123, "11": 0.681804, "12": 0.668219, "13": 0.554838},
+    "observed_low_action_fraction": "0/40 rows below 0.01 in each trace's final-40 window",
+    "descriptive_pattern": "Joint traces show sustained non-negligible actions and about 1.98-2.08 end-effector path units with 0.45-0.47 net displacement, versus 0.75-1.11 path and 0.37-0.40 displacement in the matched successful single controls.",
+    "interpretation": "This argues against a trivial near-zero-action collapse. The larger path-to-net ratio is consistent with less direct or more corrective motion, but without object/goal-relative state it does not identify the failure mechanism or prove multitask interference."
+  },
+  "limitations": [
+    "Only four discordant task-0 pairs; descriptive summaries, no inferential claim.",
+    "State/action traces are from the saved evaluation, not a new rollout; historical V3 parity invalidation remains unchanged.",
+    "The CSV state fields contain robot state but not a verified object/goal-relative progress measure in this audit.",
+    "No causal distinction between insufficient optimization and multi-task interference; the joint task-0 gate remains failed at 10/20."
+  ],
+  "next_step": "Keep GPU budget at zero. Do not start 8-task/Fold02 work. Any later replay follow-up must be separately registered and must first address the v10 verifier failure without reusing v9/v10 paths."
+}

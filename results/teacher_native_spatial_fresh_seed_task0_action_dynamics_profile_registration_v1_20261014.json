@@ -1,0 +1,69 @@
+{
+  "schema_version": 1,
+  "status": "registered_pending_single_read_only_cpu_analysis",
+  "registered_at_utc": "2026-10-14T00:59:04Z",
+  "objective": "Characterize the saved task-0 joint timeouts using only compact action/state dynamics summaries, without replay or exporting raw trajectory data.",
+  "hypothesis": {
+    "claim_to_test": "The four joint task-0 losses reflect grossly collapsed/low-motion control outputs rather than merely taking longer to reach success.",
+    "falsifier": "For any of the four paired losses, the joint final-40-row median applied-action L2 norm over dimensions 0..5 is at least half its matched single-task control value; this falsifies the predeclared all-four gross-collapse pattern.",
+    "interpretation_limit": "Descriptive n=4 saved-trace comparison only; cannot identify a causal multi-task mechanism, establish action-to-state replay parity, or change a progression gate."
+  },
+  "options_compared": [
+    {
+      "option": "Stop after the existing terminal-timeout profile.",
+      "decision": "not_selected",
+      "reason": "It locates the outcome at max-step timeout but cannot distinguish low-motion control from sustained unsuccessful motion."
+    },
+    {
+      "option": "One bounded read-only CPU summary of pinned saved actions and robot-state path metrics.",
+      "decision": "selected",
+      "reason": "Can test a narrow, falsifiable gross-action-collapse hypothesis at zero GPU cost while keeping raw traces on the private server."
+    },
+    {
+      "option": "Start another training, policy evaluation, or simulator replay.",
+      "decision": "rejected",
+      "reason": "Would consume compute and confound the immediate saved-trace diagnosis; no new training/evaluation budget is registered here."
+    }
+  ],
+  "scope": {
+    "source_manifest": "/root/smolvla-eval-prep/recovery/teacher_native_spatial_fresh_seed_stage_cpu_manifest_v1_20261012.json",
+    "source_manifest_raw_sha256": "230f68cc17251572a103ee4275533b3cab81812fb15defd310eaad650c52426e",
+    "source_manifest_internal_sha256": "d65063fe57c1554f25b8760437100f98c6c935f9775e0e9ecd55e33a0d928b88",
+    "selected_pairs": [8, 11, 12, 13],
+    "tasks": [0],
+    "source_artifacts": "Eight already-saved action CSVs (single/joint per paired loss), each SHA-256 checked against the frozen 40-trace manifest before reading.",
+    "metrics": [
+      "row count and reward sum",
+      "applied_action_0..5 L2 norm median/p90 over all rows and the predeclared final 40 rows",
+      "fraction of applied_action_0..5 rows with L2 norm below 0.01 in the final 40 rows",
+      "robot end-effector state path length and start-to-end displacement from state_7..9",
+      "gripper-state range from state_13..14"
+    ],
+    "raw_action_or_state_values_returned": false,
+    "raw_artifacts_downloaded_or_uploaded": false,
+    "historical_v3_parity_status": "unchanged_invalidated"
+  },
+  "execution_bounds": {
+    "ssh_connections": 1,
+    "remote_commands": 1,
+    "maximum_walltime_seconds": 60,
+    "cpu_only_read_only": true,
+    "gpu_budget": 0,
+    "policy_calls": 0,
+    "new_rollouts": 0,
+    "simulator_replays": 0,
+    "training_updates": 0,
+    "automatic_retries": 0,
+    "output": "Compact aggregate JSON only; no raw action vectors, states, videos, trajectories, logs, model, or dataset leave the private host."
+  },
+  "stop_conditions": [
+    "SSH/authentication failure, source-manifest identity mismatch, any selected CSV hash mismatch, unexpected schema/non-finite values, or time budget exceeded.",
+    "On any failure, preserve source files, record the failure locally, and do not automatically retry or create a successor version."
+  ],
+  "progression_gates": {
+    "joint_task0_gate": "failed_10_of_20; unchanged",
+    "fold02": "LOCKED",
+    "eight_task_expansion": "LOCKED",
+    "diagnostic_is_a_progression_gate": false
+  }
+}
