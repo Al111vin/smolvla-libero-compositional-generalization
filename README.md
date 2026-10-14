@@ -2329,10 +2329,10 @@ scheduler sequence. A full source-frame re-audit also passed for 22,709 frames,
 
 The single registered run was subsequently launched once under the bounded
 supervisor (supervisor PID 163580, trainer PID 163598; zero retries). At the
-2026-10-14 01:56:02 UTC snapshot, it had reached about optimizer step
-2,000/40,000 (loss 0.548); both processes were alive, the RTX 5090 was at 50%
+2026-10-14 02:04:53 UTC snapshot, it had reached about optimizer step
+5,000/40,000 (loss 0.425); both processes were alive, the RTX 5090 was at 73%
 utilization, the exclusive GPU lock was present, and no exit receipt or checkpoint had yet appeared.
-This confirms training has begun, not that it has completed or succeeded.
+This confirms ongoing training progress, not that it has completed or succeeded.
 Evaluation remains conditional on exit 0, a complete final checkpoint, and
 fresh evaluator/resource/path checks. Do not relaunch after an SSH disconnect;
 inspect the supervisor, exit receipt, and checkpoint first. See the
