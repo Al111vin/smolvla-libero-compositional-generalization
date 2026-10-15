@@ -1,0 +1,75 @@
+{
+  "schema_version": 1,
+  "record_id": "teacher_native_spatial_seed2002_eval_cpu_audit_v1_20261015",
+  "audited_at_utc": "2026-10-15T23:19:46Z",
+  "status": "120_rollout_evaluation_exit0_and_record_audit_passed; matched_positive_control_failed; no_progression",
+  "scope": "Read-only CPU audit of the registered seed2002 matched-pair evaluation; no GPU workload launched.",
+  "sources": {
+    "authorization": "results/teacher_native_spatial_seed2002_authorization_v1_20261014.json",
+    "proposal": "results/teacher_native_spatial_seed2002_matched_pair_proposal_v1_20261014.json",
+    "evaluation_manifest": "results/teacher_native_spatial_seed2002_eval_manifest_v1_20261015.json",
+    "launch_record": "results/teacher_native_spatial_seed2002_eval_launch_v1_20261015.json",
+    "task0_checkpoint_audit": "results/teacher_native_spatial_seed2002_task0_postexit_checkpoint_audit_v2_20261015.json",
+    "joint4_checkpoint_audit": "results/teacher_native_spatial_seed2002_joint4_postexit_checkpoint_audit_v1_20261015.json",
+    "remote_completion": "/root/smolvla-eval-prep/results/seed2002_matched_pair_eval_v1_20261014/completion.json",
+    "remote_exit_receipt": "/root/smolvla-eval-prep/results/seed2002_matched_pair_eval_v1_20261014/exit_code"
+  },
+  "execution": {
+    "single_task0_training": {"updates": 40000, "exit_code": 0, "checkpoint_step": 40000, "checkpoint_file_count": 12, "sha256_inventory_verified": true},
+    "homogeneous_joint4_training": {"updates": 160000, "exit_code": 0, "checkpoint_step": 160000, "checkpoint_file_count": 12, "sha256_inventory_verified": true},
+    "evaluation": {
+      "registered_rollouts": 120,
+      "completion_records": 120,
+      "verified_record_files": 120,
+      "unique_keys": 120,
+      "malformed_verified_records": 0,
+      "completion_vs_verified_metadata_mismatches": 0,
+      "schedule_or_protocol_violations": 0,
+      "exit_receipt": {"status": "complete", "verified_rollouts": 120},
+      "timeout": false,
+      "evaluator_sha256": "89fd36a89dc45a56382219d4c3f6e5d12a3b1689abb3440ec29be346815af7cb",
+      "protocol": {"wait_steps": 10, "max_steps": 300, "n_action_steps": 25, "environment_seed": 12351},
+      "paired_seed_rule": {"cli_seed": "12345 + init_index", "effective_seed": "12345 + 2*init_index", "init_indices": "0..19"},
+      "fixed_init3_extra_seed": {"cli_seed": 12348, "effective_seed": 12351, "four_extra_repeats_per_evaluated_model_task": 4},
+      "rollout_steps_range": [77, 300]
+    },
+    "post_evaluation_snapshot": {
+      "evaluation_processes_present": false,
+      "gpu_utilization_percent": 0,
+      "gpu_memory_used_mib": 2,
+      "root_free_bytes": 127084646400
+    }
+  },
+  "results": {
+    "joint4": {
+      "task0": {"paired_successes": 12, "paired_total": 20, "fixed_init3_successes": 5, "fixed_init3_total": 5, "registered_task_gate_passed": true},
+      "task1": {"paired_successes": 13, "paired_total": 20, "fixed_init3_successes": 5, "fixed_init3_total": 5, "registered_task_gate_passed": true},
+      "task2": {"paired_successes": 20, "paired_total": 20, "fixed_init3_successes": 5, "fixed_init3_total": 5, "registered_task_gate_passed": true},
+      "task3": {"paired_successes": 15, "paired_total": 20, "fixed_init3_successes": 5, "fixed_init3_total": 5, "registered_task_gate_passed": true}
+    },
+    "single_task0_positive_control": {"paired_successes": 13, "paired_total": 20, "fixed_init3_successes": 0, "fixed_init3_total": 5, "registered_task_gate_passed": false},
+    "paired_task0_comparison": {
+      "paired_initializations": 20,
+      "joint_gains_at_inits": [1, 3, 19],
+      "joint_losses_at_inits": [10, 13, 14, 17],
+      "ties": 13,
+      "exact_two_sided_mcnemar_p": 1.0,
+      "interpretation": "No evidence of superiority or harm in this paired comparison; not a causal estimate."
+    }
+  },
+  "progression_decision": {
+    "joint4_task_gates": "All four joint4 task-level thresholds passed.",
+    "matched_pair_positive_control": "Failed: single-task0 fixed-init3 was 0/5 despite 13/20 paired successes.",
+    "registered_interpretation": "The matched comparison is inconclusive because its single-task positive control did not pass both thresholds.",
+    "fold02": "LOCKED",
+    "eight_task_expansion": "LOCKED",
+    "automatic_followup_or_retry": false,
+    "additional_gpu_budget_consumed": 0
+  },
+  "limitations_and_data_policy": {
+    "historical_v3_parity_invalidation": "UNCHANGED; this evaluation does not establish deterministic replay.",
+    "raw_action_csv_contents_read": false,
+    "raw_trajectories_videos_logs_checkpoints_or_credentials_transferred": false,
+    "prior_evidence_modified_or_deleted": false
+  }
+}

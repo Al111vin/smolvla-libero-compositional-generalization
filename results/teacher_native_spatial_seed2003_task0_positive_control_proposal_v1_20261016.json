@@ -1,0 +1,79 @@
+{
+  "schema_version": 1,
+  "proposal_id": "teacher_native_spatial_seed2003_task0_positive_control_proposal_v1_20261016",
+  "created_at_utc": "2026-10-15T23:21:08Z",
+  "status": "cpu_only_proposal_pending_explicit_gpu_authorization",
+  "evidence_basis": {
+    "seed2002_eval_audit": "results/teacher_native_spatial_seed2002_eval_cpu_audit_v1_20261015.json",
+    "seed2002_matched_pair_proposal": "results/teacher_native_spatial_seed2002_matched_pair_proposal_v1_20261014.json",
+    "observation": "Seed2002 joint4 passed all four task-level gates, but its single-task0 positive control scored 13/20 paired and 0/5 fixed-init3; under the preregistered interpretation, the matched comparison is inconclusive."
+  },
+  "question": "Does the current task0-only 40k recipe reproducibly meet its positive-control gate on one further independent training seed after the seed2002 control failed the fixed-init3 criterion?",
+  "falsifiable_hypothesis": {
+    "claim": "A fresh task0-only model trained for 40,000 updates on training seed 2003 will achieve at least 11/20 paired successes and 5/5 aggregate fixed-init3 successes under the unchanged evaluation protocol.",
+    "falsifier": "Paired successes below 11/20 or aggregate fixed-init3 successes below 5/5.",
+    "interpretation_if_passed": "One additional passing seed would show the control can pass again, but seed2002's 0/5 fixed-init3 still demonstrates seed-to-seed variation; this does not prove a joint-training effect or unlock expansion.",
+    "interpretation_if_failed": "The positive-control recipe remains unstable across the tested seeds; stop this diagnostic line and do not use the seed2002 comparison to claim joint retention loss."
+  },
+  "options_compared": [
+    {
+      "option": "Repeat the full task0 40k plus joint4 160k matched pair and 120 evaluations on seed2003",
+      "decision": "defer",
+      "reason": "More direct same-training-seed replication, but spends five times as many optimizer updates and five times as many rollouts before resolving the observed single-task positive-control failure."
+    },
+    {
+      "option": "Run only a fresh task0 40k positive control and its registered 24 evaluations, then descriptively compare against the existing seed2002 task0 outcomes on the same evaluation inits",
+      "decision": "selected_candidate_pending_authorization",
+      "reason": "Directly tests the failed prerequisite at 20,000% fewer optimizer updates than a full pair; reuses existing joint4 records without claiming a same-training-seed causal contrast."
+    },
+    {
+      "option": "Unlock Fold02 or train eight tasks now",
+      "decision": "reject",
+      "reason": "The seed2002 matched-pair positive control failed its preregistered criterion; the objective keeps both expansions locked pending separate review and authorization."
+    }
+  ],
+  "bounded_candidate_budget": {
+    "training_seed": 2003,
+    "training_runs": 1,
+    "condition": "single_task0",
+    "optimizer_updates": 40000,
+    "batch_size": 2,
+    "evaluation_rollouts": 24,
+    "automatic_retries": 0,
+    "automatic_followup_stages": 0,
+    "candidate_config_path_after_authorization": "configs/teacher_native_spatial_task0_freshseed2003_40k_batch2_v1_20261016.json",
+    "candidate_training_output_after_authorization": "/root/smolvla-training-prep/results/training/teacher_native_spatial_task0_freshseed2003_40k_batch2_v1_20261016",
+    "candidate_evaluation_output_after_authorization": "/root/smolvla-eval-prep/results/seed2003_task0_positive_control_v1_20261016",
+    "evaluation_protocol": {
+      "evaluator_sha256": "89fd36a89dc45a56382219d4c3f6e5d12a3b1689abb3440ec29be346815af7cb",
+      "suite": "libero_spatial",
+      "init_source": "benchmark",
+      "paired_init_indices": "0..19",
+      "paired_cli_seed": "12345 + init_index",
+      "paired_effective_seed": "12345 + 2*init_index",
+      "fixed_init3_extra_repeats": 4,
+      "fixed_init3_extra_cli_seed": 12348,
+      "fixed_init3_extra_effective_seed": 12351,
+      "wait_steps": 10,
+      "max_steps": 300,
+      "n_action_steps": 25,
+      "aggregate_fixed_init3_total": 5
+    },
+    "comparison_policy": "Compare task0 outcomes with existing seed2002 single-task0 and joint4 records only at matching benchmark init and environment seed. Label as cross-training-seed descriptive diagnostics, not a causal paired training-seed experiment.",
+    "phase_gates": [
+      "Require explicit user authorization before building/deploying this new-seed config or spending GPU budget.",
+      "Perform a new read-only preflight and verify source/data/model/runtime/config/code hashes, exclusive GPU lock, disk floor, and every independent output path before launch.",
+      "Launch the one training run once; only after exit 0 and full checkpoint integrity verification, run the one 24-rollout evaluation.",
+      "Preserve all failures and stop; no automatic retry or follow-up."
+    ]
+  },
+  "progression_and_evidence_policy": {
+    "fold02": "LOCKED",
+    "eight_task_expansion": "LOCKED",
+    "passing_this_diagnostic_does_not_authorize_expansion": true,
+    "preserve_all_prior_records": true,
+    "historical_v3_parity_invalidation": "UNCHANGED",
+    "publish_only_code_readme_configs_and_lightweight_summaries": true,
+    "never_publish_weights_data_raw_trajectories_action_csv_videos_logs_checkpoints_or_credentials": true
+  }
+}
