@@ -1,0 +1,41 @@
+{
+  "schema_version": 1,
+  "record_id": "teacher_native_spatial_seed2003_task0_eval_result_v1_20261016",
+  "status": "complete_cpu_audit_pass",
+  "evaluation_version": "v6",
+  "remote_results_path": "/root/smolvla-eval-prep/results/seed2003_task0_positive_control_v6_20261016",
+  "remote_recovery_path": "/root/smolvla-eval-prep/recovery/seed2003_task0_positive_control_v6_20261016",
+  "evaluator_sha256": "89fd36a89dc45a56382219d4c3f6e5d12a3b1689abb3440ec29be346815af7cb",
+  "exit_receipt": {
+    "returncode": 0,
+    "timed_out": false,
+    "walltime_limit_s": 21600,
+    "termination_grace_s": 10
+  },
+  "result_records_audited": 24,
+  "protocol_audit": {
+    "paired_count": 20,
+    "paired_init_indices": "0..19",
+    "paired_cli_seed": "12345 + init_index",
+    "paired_effective_seed": "12345 + 2*init_index",
+    "fixed_init3_extra_repeats": 4,
+    "fixed_init3_extra_cli_seed": 12348,
+    "fixed_init3_extra_effective_seed": 12351,
+    "init_source": "benchmark",
+    "wait_steps": 10,
+    "max_steps": 300,
+    "n_action_steps": 25,
+    "task_id": 0,
+    "model": "single"
+  },
+  "paired_successes": 14,
+  "paired_total": 20,
+  "paired_gate_minimum": 11,
+  "paired_gate_pass": true,
+  "fixed_init3_successes_including_paired_init3": 5,
+  "fixed_init3_total": 5,
+  "fixed_init3_gate_pass": true,
+  "overall_preregistered_gate_pass": true,
+  "audit_method": "CPU-only strict audit of every remote .verified.json summary plus the supervisor exit receipt; no raw trajectories or logs copied.",
+  "followup_scope": "No automatic continuation to Fold02, eight tasks, or further training."
+}

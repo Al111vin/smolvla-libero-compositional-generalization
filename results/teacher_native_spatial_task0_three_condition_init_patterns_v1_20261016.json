@@ -1,0 +1,43 @@
+{
+  "schema_version": 1,
+  "record_id": "teacher_native_spatial_task0_three_condition_init_patterns_v1_20261016",
+  "status": "complete_exploratory_schedule_matched_summary",
+  "recorded_at_utc": "2026-10-16T15:14:50Z",
+  "sources": {
+    "single_vs_joint4_revalidated_comparison": "results/teacher_native_spatial_4task_task0_baseline_comparison_v1_20261009.json",
+    "joint4_task0_outcomes": "results/teacher_native_spatial_4task_final_eval_result_v1_20261009.json",
+    "joint4_registration": "results/teacher_native_spatial_4task_final_eval_registration_v1_20261009.json",
+    "seed2003_task0_result": "results/teacher_native_spatial_seed2003_task0_eval_result_v1_20261016.json",
+    "seed2003_manifest": "results/teacher_native_spatial_seed2003_task0_eval_manifest_v6_20261016.json",
+    "seed2003_verified_summary_count": 24,
+    "seed2003_verified_summary_set_sha256_manifest": "c57476f2c2a2a16675bc526d69aa9f94efac1cfa5a315e2a930b877ad77c7de8"
+  },
+  "condition_order": ["earlier_single_task_baseline", "earlier_joint4_task0", "seed2003_single_task"],
+  "shared_registered_protocol": {
+    "evaluator_sha256": "89fd36a89dc45a56382219d4c3f6e5d12a3b1689abb3440ec29be346815af7cb",
+    "suite": "libero_spatial",
+    "task_id": 0,
+    "init_source": "benchmark",
+    "paired_init_indices": "0..19",
+    "cli_seed_formula": "12345 + initialization_index",
+    "effective_seed_formula": "12345 + 2 * initialization_index",
+    "wait_steps": 10,
+    "max_steps": 300,
+    "n_action_steps": 25
+  },
+  "pairing_basis": "Same registered task0 benchmark init-index and seed schedule across reports; cross-run simulator/image/processor/RNG state equality was not established.",
+  "outcome_patterns_by_init": {
+    "000": [2, 10, 18],
+    "001": [5, 8, 19],
+    "011": [6],
+    "100": [0, 13, 14],
+    "101": [12],
+    "111": [1, 3, 4, 7, 9, 11, 15, 16, 17]
+  },
+  "success_totals": {
+    "earlier_single_task_baseline": 13,
+    "earlier_joint4_task0": 10,
+    "seed2003_single_task": 14
+  },
+  "interpretation": "Nine init indices succeeded under all three conditions and three failed under all three. Seed2003 succeeded on four indices where at least one earlier condition failed: 5, 8, and 19 failed under both earlier conditions, while init 6 succeeded under joint4 but failed under the earlier single baseline. Seed2003 failed on three indices where the earlier single baseline succeeded (0, 13, 14); init12 succeeded under both single-task conditions but not joint4. This is a descriptive schedule-matched pattern only, not a causal or inferential result, and it changes no registered gate or follow-up authorization."
+}

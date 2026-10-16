@@ -1,0 +1,56 @@
+{
+  "schema_version": 1,
+  "record_id": "teacher_native_spatial_seed2003_task0_eval_terminal_profile_v1_20261016",
+  "status": "complete_read_only_posthoc_profile",
+  "recorded_at_utc": "2026-10-16T15:10:00Z",
+  "source": {
+    "evaluation_result": "results/teacher_native_spatial_seed2003_task0_eval_result_v1_20261016.json",
+    "remote_results_root": "/root/smolvla-eval-prep/results/seed2003_task0_positive_control_v6_20261016",
+    "verified_summary_count": 24,
+    "sorted_relative_path_sha256_manifest": "c57476f2c2a2a16675bc526d69aa9f94efac1cfa5a315e2a930b877ad77c7de8"
+  },
+  "method": "Read only the 24 per-rollout .verified.json summaries, grouped by kind; no raw trajectories, action CSVs, videos, or training logs were read or copied. No rollout was replayed.",
+  "step_field_validation": {
+    "source": "scripts/scaling_eval_schedule_v1.py",
+    "sha256": "094aad5affd0e9c2a29b68a49aab2fd61feb6fa9e4365ec09a3d45da675e9065",
+    "manifest_pinned": true,
+    "validated_rules": [
+      "1 <= summary steps <= max_steps",
+      "action CSV row count equals summary steps",
+      "success flag agrees with whether any recorded reward is positive"
+    ]
+  },
+  "protocol": {
+    "task_id": 0,
+    "model": "single",
+    "max_steps": 300,
+    "n_action_steps": 25,
+    "wait_steps": 10
+  },
+  "paired": {
+    "rollouts": 20,
+    "successes": 14,
+    "failures": 6,
+    "success_rate": 0.7,
+    "wilson_95_percent_interval_descriptive": [0.4810, 0.8545],
+    "success_steps_min_median_max": [80, 86, 147],
+    "failure_steps_min_median_max": [300, 300, 300],
+    "success_step_counts": {
+      "80": 1,
+      "82": 4,
+      "86": 3,
+      "87": 2,
+      "93": 1,
+      "110": 1,
+      "117": 1,
+      "147": 1
+    }
+  },
+  "fixed_init3_extra_repeats": {
+    "rollouts": 4,
+    "successes": 4,
+    "failures": 0,
+    "all_success_steps": 93
+  },
+  "interpretation": "In this task0 positive-control evaluation, all six paired failures reached the 300-step cap; all 14 paired successes ended earlier. The four repeated fixed-init-3 runs all succeeded at 93 steps. The Wilson interval is a descriptive small-sample uncertainty interval, not a preregistered decision rule. Repeated init-3 runs are not independent evidence; this profile does not change the preregistered gate or imply generalization, causality, or authorization for further training."
+}
